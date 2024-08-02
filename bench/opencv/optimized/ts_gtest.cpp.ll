@@ -41337,7 +41337,7 @@ define linkonce_odr hidden void @_ZN7testing8internal12ShuffleRangeIiEEvPNS0_6Ra
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %59, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %61 = trunc nsw i64 %indvars.iv to i32
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = call noundef i32 @_ZN7testing8internal6Random8GenerateEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %61)
   %63 = add i32 %62, %1
   %64 = sext i32 %63 to i64

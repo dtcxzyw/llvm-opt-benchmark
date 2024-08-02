@@ -1973,46 +1973,43 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing4GTIN17IsCheckDigitValidIcEEbRK
   %11 = add i32 %.01617.i, -48
   %12 = add i32 %11, %10
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -2
-  %13 = trunc nuw i64 %indvars.iv.i to i32
-  %14 = icmp sgt i32 %13, 1
-  br i1 %14, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
+  %13 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %15 = mul i32 %12, 3
+  %14 = mul i32 %12, 3
   %.not.i = icmp eq i32 %4, 1
   br i1 %.not.i, label %_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, label %.lr.ph23.preheader.i
 
 .lr.ph23.preheader.i:                             ; preds = %._crit_edge.i
-  %16 = zext nneg i32 %4 to i64
+  %15 = zext nneg i32 %4 to i64
   br label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %.lr.ph23.i, %.lr.ph23.preheader.i
-  %indvars.iv29.i = phi i64 [ %16, %.lr.ph23.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph23.i ]
-  %.1.fr21.i = phi i32 [ %15, %.lr.ph23.preheader.i ], [ %22, %.lr.ph23.i ]
+  %indvars.iv29.i = phi i64 [ %15, %.lr.ph23.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph23.i ]
+  %.1.fr21.i = phi i32 [ %14, %.lr.ph23.preheader.i ], [ %20, %.lr.ph23.i ]
   %indvars.iv.next30.i = add nsw i64 %indvars.iv29.i, -2
-  %17 = and i64 %indvars.iv.next30.i, 4294967295
-  %18 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %17) #15
-  %19 = load i8, ptr %18, align 1
-  %.fr26.i = freeze i8 %19
-  %20 = sext i8 %.fr26.i to i32
-  %21 = add i32 %.1.fr21.i, -48
-  %22 = add i32 %21, %20
-  %23 = trunc nuw i64 %indvars.iv29.i to i32
-  %24 = icmp sgt i32 %23, 3
-  br i1 %24, label %.lr.ph23.i, label %_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, !llvm.loop !19
+  %16 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %indvars.iv.next30.i) #15
+  %17 = load i8, ptr %16, align 1
+  %.fr26.i = freeze i8 %17
+  %18 = sext i8 %.fr26.i to i32
+  %19 = add i32 %.1.fr21.i, -48
+  %20 = add i32 %19, %18
+  %21 = icmp ugt i64 %indvars.iv29.i, 3
+  br i1 %21, label %.lr.ph23.i, label %_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, !llvm.loop !19
 
 _ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit: ; preds = %.lr.ph23.i, %1, %._crit_edge.i
-  %.1.fr.lcssa.i = phi i32 [ %15, %._crit_edge.i ], [ 0, %1 ], [ %22, %.lr.ph23.i ]
-  %25 = srem i32 %.1.fr.lcssa.i, 10
-  %26 = sub nsw i32 10, %25
-  %.urem.i = sub nsw i32 0, %25
-  %.cmp.i = icmp ult i32 %26, 10
-  %27 = select i1 %.cmp.i, i32 %26, i32 %.urem.i
-  %28 = tail call noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %27)
-  %29 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %28, %30
-  ret i1 %31
+  %.1.fr.lcssa.i = phi i32 [ %14, %._crit_edge.i ], [ 0, %1 ], [ %20, %.lr.ph23.i ]
+  %22 = srem i32 %.1.fr.lcssa.i, 10
+  %23 = sub nsw i32 10, %22
+  %.urem.i = sub nsw i32 0, %22
+  %.cmp.i = icmp ult i32 %23, 10
+  %24 = select i1 %.cmp.i, i32 %23, i32 %.urem.i
+  %25 = tail call noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %24)
+  %26 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %25, %27
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress uwtable

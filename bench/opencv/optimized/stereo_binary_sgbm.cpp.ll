@@ -2266,7 +2266,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %240, %230
   br i1 %282, label %.thread.i, label %.lr.ph343.i
 
 .thread.i:                                        ; preds = %.preheader214.i
-  %589 = trunc nsw i64 %indvars.iv507.i to i32
+  %589 = trunc nuw nsw i64 %indvars.iv507.i to i32
   %.reass544.i = add i32 %invariant.op.i, %589
   br label %728
 
@@ -2385,7 +2385,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %240, %230
   br i1 %exitcond506.not.i, label %.critedge.i, label %638, !llvm.loop !37
 
 .critedge.i:                                      ; preds = %649, %.loopexit215.i
-  %650 = trunc nsw i64 %indvars.iv507.i to i32
+  %650 = trunc nuw nsw i64 %indvars.iv507.i to i32
   %.reass.i = add i32 %invariant.op.i, %650
   %651 = add i32 %.2599.i, %145
   %652 = sub i32 %.reass.i, %651

@@ -376,8 +376,8 @@ if.end21:                                         ; preds = %if.end
   %arrayidx25 = getelementptr inbounds i8, ptr %9, i64 13
   %11 = load i8, ptr %arrayidx25, align 1
   %cmp27 = icmp eq i8 %11, 109
-  %or.cond221 = select i1 %cmp23, i1 %cmp27, i1 false
-  br i1 %or.cond221, label %land.lhs.true28, label %if.then42
+  %or.cond223 = select i1 %cmp23, i1 %cmp27, i1 false
+  br i1 %or.cond223, label %land.lhs.true28, label %if.then42
 
 land.lhs.true28:                                  ; preds = %if.end21
   %arrayidx30 = getelementptr inbounds i8, ptr %9, i64 14
@@ -550,24 +550,27 @@ land.rhs.preheader:                               ; preds = %if.end105
   %invariant.gep = getelementptr i8, ptr %add.ptr64, i64 -1
   %40 = zext nneg i32 %sub113 to i64
   %41 = zext nneg i32 %add108 to i64
-  %invariant.gep219 = getelementptr i8, ptr %invariant.gep, i64 %41
+  %invariant.gep221 = getelementptr i8, ptr %invariant.gep, i64 %41
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
   %indvars.iv = phi i64 [ %40, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
-  %gep220 = getelementptr i8, ptr %invariant.gep219, i64 %indvars.iv
-  %42 = load i8, ptr %gep220, align 1
+  %gep222 = getelementptr i8, ptr %invariant.gep221, i64 %indvars.iv
+  %42 = load i8, ptr %gep222, align 1
   %cmp120.not = icmp eq i8 %42, 0
-  %43 = trunc nuw i64 %indvars.iv to i32
-  br i1 %cmp120.not, label %while.end, label %while.body
+  br i1 %cmp120.not, label %while.end.loopexit.split.loop.exit219, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp114 = icmp sgt i32 %43, 1
+  %cmp114 = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp114, label %land.rhs, label %while.end, !llvm.loop !6
 
-while.end:                                        ; preds = %land.rhs, %while.body, %if.end105
-  %itemLength.0.lcssa = phi i32 [ %sub113, %if.end105 ], [ 0, %while.body ], [ %43, %land.rhs ]
+while.end.loopexit.split.loop.exit219:            ; preds = %land.rhs
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %while.end
+
+while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit219, %if.end105
+  %itemLength.0.lcssa = phi i32 [ %sub113, %if.end105 ], [ %43, %while.end.loopexit.split.loop.exit219 ], [ 0, %while.body ]
   %inStringTop = getelementptr inbounds i8, ptr %this, i64 1192
   %44 = load i32, ptr %inStringTop, align 8
   %add121 = add nsw i32 %44, %itemLength.0.lcssa

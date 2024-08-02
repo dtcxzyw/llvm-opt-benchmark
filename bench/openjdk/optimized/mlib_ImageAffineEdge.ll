@@ -983,8 +983,8 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %42 = icmp slt i32 %.val805, 1
   %43 = sext i32 %.val805 to i64
   %44 = sext i32 %20 to i64
-  %wide.trip.count1210 = sext i32 %16 to i64
-  %wide.trip.count1203 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1204 = sext i32 %16 to i64
+  %wide.trip.count1198 = zext nneg i32 %.val805 to i64
   br label %50
 
 .preheader815:                                    ; preds = %._crit_edge996, %.preheader816
@@ -999,16 +999,16 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %47 = sext i32 %.val805 to i64
   %48 = sext i32 %.0758.lcssa to i64
   %49 = add i32 %18, 1
+  %wide.trip.count1209 = zext nneg i32 %.val805 to i64
   %wide.trip.count1215 = zext nneg i32 %.val805 to i64
-  %wide.trip.count1221 = zext nneg i32 %.val805 to i64
   br label %85
 
 50:                                               ; preds = %.lr.ph1000, %._crit_edge996
-  %indvars.iv1207 = phi i64 [ %44, %.lr.ph1000 ], [ %indvars.iv.next1208, %._crit_edge996 ]
+  %indvars.iv1201 = phi i64 [ %44, %.lr.ph1000 ], [ %indvars.iv.next1202, %._crit_edge996 ]
   %.0742999 = phi ptr [ %24, %.lr.ph1000 ], [ %55, %._crit_edge996 ]
-  %51 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1207
+  %51 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1201
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1207
+  %53 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1201
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds i8, ptr %.0742999, i64 %41
   %reass.sub1047 = sub i32 %54, %52
@@ -1017,9 +1017,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br i1 %brmerge, label %._crit_edge996, label %.lr.ph989.us.preheader
 
 .lr.ph989.us.preheader:                           ; preds = %50
-  %57 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1207
+  %57 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1201
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1207
+  %59 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1201
   %60 = load i32, ptr %59, align 4
   %61 = mul nsw i32 %52, %.val805
   %62 = sext i32 %61 to i64
@@ -1042,27 +1042,27 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %72
 
 72:                                               ; preds = %.lr.ph989.us, %72
-  %indvars.iv1200 = phi i64 [ 0, %.lr.ph989.us ], [ %indvars.iv.next1201, %72 ]
-  %73 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv1200
+  %indvars.iv1195 = phi i64 [ 0, %.lr.ph989.us ], [ %indvars.iv.next1196, %72 ]
+  %73 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv1195
   %74 = load i8, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %.0702993.us, i64 %indvars.iv1200
+  %75 = getelementptr inbounds i8, ptr %.0702993.us, i64 %indvars.iv1195
   store i8 %74, ptr %75, align 1
-  %indvars.iv.next1201 = add nuw nsw i64 %indvars.iv1200, 1
-  %exitcond1204.not = icmp eq i64 %indvars.iv.next1201, %wide.trip.count1203
-  br i1 %exitcond1204.not, label %._crit_edge.us997, label %72, !llvm.loop !19
+  %indvars.iv.next1196 = add nuw nsw i64 %indvars.iv1195, 1
+  %exitcond1199.not = icmp eq i64 %indvars.iv.next1196, %wide.trip.count1198
+  br i1 %exitcond1199.not, label %._crit_edge.us997, label %72, !llvm.loop !19
 
 ._crit_edge.us997:                                ; preds = %72
   %76 = add nsw i32 %.0710991.us, %34
   %77 = add nsw i32 %.0726990.us, %32
   %78 = getelementptr inbounds i8, ptr %.0702993.us, i64 %43
   %79 = add nuw nsw i32 %.0706992.us, 1
-  %exitcond1206.not = icmp eq i32 %.0706992.us, %reass.sub1047
-  br i1 %exitcond1206.not, label %._crit_edge996, label %.lr.ph989.us, !llvm.loop !20
+  %exitcond1200.not = icmp eq i32 %.0706992.us, %reass.sub1047
+  br i1 %exitcond1200.not, label %._crit_edge996, label %.lr.ph989.us, !llvm.loop !20
 
 ._crit_edge996:                                   ; preds = %._crit_edge.us997, %50
-  %indvars.iv.next1208 = add nsw i64 %indvars.iv1207, 1
-  %exitcond1211.not = icmp eq i64 %indvars.iv.next1208, %wide.trip.count1210
-  br i1 %exitcond1211.not, label %.preheader815, label %50, !llvm.loop !21
+  %indvars.iv.next1202 = add nsw i64 %indvars.iv1201, 1
+  %exitcond1205.not = icmp eq i64 %indvars.iv.next1202, %wide.trip.count1204
+  br i1 %exitcond1205.not, label %.preheader815, label %50, !llvm.loop !21
 
 .preheader:                                       ; preds = %._crit_edge1020, %.preheader815
   %.1759.lcssa = phi i32 [ %.0758.lcssa, %.preheader815 ], [ %49, %._crit_edge1020 ]
@@ -1076,24 +1076,24 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %82 = sext i32 %.val805 to i64
   %83 = sext i32 %.1759.lcssa to i64
   %84 = add i32 %22, 1
-  %wide.trip.count1232 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1226 = zext nneg i32 %.val805 to i64
   br label %151
 
 85:                                               ; preds = %.lr.ph1025, %._crit_edge1020
-  %indvars.iv1224 = phi i64 [ %48, %.lr.ph1025 ], [ %indvars.iv.next1225, %._crit_edge1020 ]
+  %indvars.iv1218 = phi i64 [ %48, %.lr.ph1025 ], [ %indvars.iv.next1219, %._crit_edge1020 ]
   %.17431024 = phi ptr [ %.0742.lcssa, %.lr.ph1025 ], [ %98, %._crit_edge1020 ]
-  %86 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1224
+  %86 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1218
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1224
+  %88 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1218
   %89 = load i32, ptr %88, align 4
   %90 = add nsw i32 %89, 1
-  %91 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv1224
+  %91 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv1218
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv1224
+  %93 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv1218
   %94 = load i32, ptr %93, align 4
   %95 = add nsw i32 %94, 1
-  %96 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1224
-  %97 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1224
+  %96 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1218
+  %97 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1218
   %98 = getelementptr inbounds i8, ptr %.17431024, i64 %45
   %.not804 = icmp sgt i32 %92, %94
   br i1 %.not804, label %.loopexit814, label %99
@@ -1130,29 +1130,29 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %115
 
 115:                                              ; preds = %.lr.ph1004.us, %115
-  %indvars.iv1212 = phi i64 [ 0, %.lr.ph1004.us ], [ %indvars.iv.next1213, %115 ]
-  %116 = getelementptr inbounds i8, ptr %114, i64 %indvars.iv1212
+  %indvars.iv1206 = phi i64 [ 0, %.lr.ph1004.us ], [ %indvars.iv.next1207, %115 ]
+  %116 = getelementptr inbounds i8, ptr %114, i64 %indvars.iv1206
   %117 = load i8, ptr %116, align 1
-  %118 = getelementptr inbounds i8, ptr %.17031008.us, i64 %indvars.iv1212
+  %118 = getelementptr inbounds i8, ptr %.17031008.us, i64 %indvars.iv1206
   store i8 %117, ptr %118, align 1
-  %indvars.iv.next1213 = add nuw nsw i64 %indvars.iv1212, 1
-  %exitcond1216.not = icmp eq i64 %indvars.iv.next1213, %wide.trip.count1215
-  br i1 %exitcond1216.not, label %._crit_edge.us1011, label %115, !llvm.loop !22
+  %indvars.iv.next1207 = add nuw nsw i64 %indvars.iv1206, 1
+  %exitcond1210.not = icmp eq i64 %indvars.iv.next1207, %wide.trip.count1209
+  br i1 %exitcond1210.not, label %._crit_edge.us1011, label %115, !llvm.loop !22
 
 ._crit_edge.us1011:                               ; preds = %115
   %119 = add nsw i32 %.17111006.us, %34
   %120 = add nsw i32 %.17271005.us, %32
   %121 = getelementptr inbounds i8, ptr %.17031008.us, i64 %47
   %122 = add nuw nsw i32 %.17071007.us, 1
-  %exitcond1217.not = icmp eq i32 %122, %100
-  br i1 %exitcond1217.not, label %.loopexit814, label %.lr.ph1004.us, !llvm.loop !23
+  %exitcond1211.not = icmp eq i32 %122, %100
+  br i1 %exitcond1211.not, label %.loopexit814, label %.lr.ph1004.us, !llvm.loop !23
 
 .loopexit814:                                     ; preds = %._crit_edge.us1011, %99, %85
   %.0754 = phi i32 [ %87, %85 ], [ %95, %99 ], [ %95, %._crit_edge.us1011 ]
   %123 = sub i32 %90, %.0754
   %124 = icmp slt i32 %123, 1
-  %brmerge1266 = select i1 %124, i1 true, i1 %46
-  br i1 %brmerge1266, label %._crit_edge1020, label %.lr.ph1013.us.preheader
+  %brmerge1259 = select i1 %124, i1 true, i1 %46
+  br i1 %brmerge1259, label %._crit_edge1020, label %.lr.ph1013.us.preheader
 
 .lr.ph1013.us.preheader:                          ; preds = %.loopexit814
   %125 = sub nsw i32 %.0754, %87
@@ -1183,46 +1183,46 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %143
 
 143:                                              ; preds = %.lr.ph1013.us, %143
-  %indvars.iv1218 = phi i64 [ 0, %.lr.ph1013.us ], [ %indvars.iv.next1219, %143 ]
-  %144 = getelementptr inbounds i8, ptr %142, i64 %indvars.iv1218
+  %indvars.iv1212 = phi i64 [ 0, %.lr.ph1013.us ], [ %indvars.iv.next1213, %143 ]
+  %144 = getelementptr inbounds i8, ptr %142, i64 %indvars.iv1212
   %145 = load i8, ptr %144, align 1
-  %146 = getelementptr inbounds i8, ptr %.27041017.us, i64 %indvars.iv1218
+  %146 = getelementptr inbounds i8, ptr %.27041017.us, i64 %indvars.iv1212
   store i8 %145, ptr %146, align 1
-  %indvars.iv.next1219 = add nuw nsw i64 %indvars.iv1218, 1
-  %exitcond1222.not = icmp eq i64 %indvars.iv.next1219, %wide.trip.count1221
-  br i1 %exitcond1222.not, label %._crit_edge.us1021, label %143, !llvm.loop !24
+  %indvars.iv.next1213 = add nuw nsw i64 %indvars.iv1212, 1
+  %exitcond1216.not = icmp eq i64 %indvars.iv.next1213, %wide.trip.count1215
+  br i1 %exitcond1216.not, label %._crit_edge.us1021, label %143, !llvm.loop !24
 
 ._crit_edge.us1021:                               ; preds = %143
   %147 = add nsw i32 %.27121015.us, %34
   %148 = add nsw i32 %.27281014.us, %32
   %149 = getelementptr inbounds i8, ptr %.27041017.us, i64 %47
   %150 = add nuw nsw i32 %.27081016.us, 1
-  %exitcond1223.not = icmp eq i32 %150, %123
-  br i1 %exitcond1223.not, label %._crit_edge1020, label %.lr.ph1013.us, !llvm.loop !25
+  %exitcond1217.not = icmp eq i32 %150, %123
+  br i1 %exitcond1217.not, label %._crit_edge1020, label %.lr.ph1013.us, !llvm.loop !25
 
 ._crit_edge1020:                                  ; preds = %._crit_edge.us1021, %.loopexit814, %.lr.ph1010
-  %indvars.iv.next1225 = add nsw i64 %indvars.iv1224, 1
-  %lftr.wideiv1227 = trunc i64 %indvars.iv.next1225 to i32
-  %exitcond1228.not = icmp eq i32 %49, %lftr.wideiv1227
-  br i1 %exitcond1228.not, label %.preheader, label %85, !llvm.loop !26
+  %indvars.iv.next1219 = add nsw i64 %indvars.iv1218, 1
+  %lftr.wideiv1221 = trunc i64 %indvars.iv.next1219 to i32
+  %exitcond1222.not = icmp eq i32 %49, %lftr.wideiv1221
+  br i1 %exitcond1222.not, label %.preheader, label %85, !llvm.loop !26
 
 151:                                              ; preds = %.lr.ph1041, %._crit_edge1036
-  %indvars.iv1236 = phi i64 [ %83, %.lr.ph1041 ], [ %indvars.iv.next1237, %._crit_edge1036 ]
+  %indvars.iv1229 = phi i64 [ %83, %.lr.ph1041 ], [ %indvars.iv.next1230, %._crit_edge1036 ]
   %.27441040 = phi ptr [ %.1743.lcssa, %.lr.ph1041 ], [ %156, %._crit_edge1036 ]
-  %152 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1236
+  %152 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1229
   %153 = load i32, ptr %152, align 4
-  %154 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1236
+  %154 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1229
   %155 = load i32, ptr %154, align 4
   %156 = getelementptr inbounds i8, ptr %.27441040, i64 %80
   %reass.sub1048 = sub i32 %155, %153
   %157 = icmp ugt i32 %reass.sub1048, 2147483646
-  %brmerge1269 = select i1 %157, i1 true, i1 %81
-  br i1 %brmerge1269, label %._crit_edge1036, label %.lr.ph1029.us.preheader
+  %brmerge1262 = select i1 %157, i1 true, i1 %81
+  br i1 %brmerge1262, label %._crit_edge1036, label %.lr.ph1029.us.preheader
 
 .lr.ph1029.us.preheader:                          ; preds = %151
-  %158 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1236
+  %158 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1229
   %159 = load i32, ptr %158, align 4
-  %160 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1236
+  %160 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1229
   %161 = load i32, ptr %160, align 4
   %162 = mul nsw i32 %153, %.val805
   %163 = sext i32 %162 to i64
@@ -1245,28 +1245,28 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %173
 
 173:                                              ; preds = %.lr.ph1029.us, %173
-  %indvars.iv1229 = phi i64 [ 0, %.lr.ph1029.us ], [ %indvars.iv.next1230, %173 ]
-  %174 = getelementptr inbounds i8, ptr %172, i64 %indvars.iv1229
+  %indvars.iv1223 = phi i64 [ 0, %.lr.ph1029.us ], [ %indvars.iv.next1224, %173 ]
+  %174 = getelementptr inbounds i8, ptr %172, i64 %indvars.iv1223
   %175 = load i8, ptr %174, align 1
-  %176 = getelementptr inbounds i8, ptr %.37051033.us, i64 %indvars.iv1229
+  %176 = getelementptr inbounds i8, ptr %.37051033.us, i64 %indvars.iv1223
   store i8 %175, ptr %176, align 1
-  %indvars.iv.next1230 = add nuw nsw i64 %indvars.iv1229, 1
-  %exitcond1233.not = icmp eq i64 %indvars.iv.next1230, %wide.trip.count1232
-  br i1 %exitcond1233.not, label %._crit_edge.us1037, label %173, !llvm.loop !27
+  %indvars.iv.next1224 = add nuw nsw i64 %indvars.iv1223, 1
+  %exitcond1227.not = icmp eq i64 %indvars.iv.next1224, %wide.trip.count1226
+  br i1 %exitcond1227.not, label %._crit_edge.us1037, label %173, !llvm.loop !27
 
 ._crit_edge.us1037:                               ; preds = %173
   %177 = add nsw i32 %.37131031.us, %34
   %178 = add nsw i32 %.37291030.us, %32
   %179 = getelementptr inbounds i8, ptr %.37051033.us, i64 %82
   %180 = add nuw nsw i32 %.37091032.us, 1
-  %exitcond1235.not = icmp eq i32 %.37091032.us, %reass.sub1048
-  br i1 %exitcond1235.not, label %._crit_edge1036, label %.lr.ph1029.us, !llvm.loop !28
+  %exitcond1228.not = icmp eq i32 %.37091032.us, %reass.sub1048
+  br i1 %exitcond1228.not, label %._crit_edge1036, label %.lr.ph1029.us, !llvm.loop !28
 
 ._crit_edge1036:                                  ; preds = %._crit_edge.us1037, %151
-  %indvars.iv.next1237 = add nsw i64 %indvars.iv1236, 1
-  %lftr.wideiv1239 = trunc i64 %indvars.iv.next1237 to i32
-  %exitcond1240.not = icmp eq i32 %84, %lftr.wideiv1239
-  br i1 %exitcond1240.not, label %.loopexit, label %151, !llvm.loop !29
+  %indvars.iv.next1230 = add nsw i64 %indvars.iv1229, 1
+  %lftr.wideiv1232 = trunc i64 %indvars.iv.next1230 to i32
+  %exitcond1233.not = icmp eq i32 %84, %lftr.wideiv1232
+  br i1 %exitcond1233.not, label %.loopexit, label %151, !llvm.loop !29
 
 181:                                              ; preds = %2, %2
   %182 = icmp slt i32 %20, %16
@@ -1277,8 +1277,8 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %184 = icmp slt i32 %.val805, 1
   %185 = sext i32 %.val805 to i64
   %186 = sext i32 %20 to i64
-  %wide.trip.count1169 = sext i32 %16 to i64
-  %wide.trip.count1162 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1165 = sext i32 %16 to i64
+  %wide.trip.count1159 = zext nneg i32 %.val805 to i64
   br label %192
 
 .preheader820:                                    ; preds = %._crit_edge942, %181
@@ -1293,27 +1293,27 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %189 = sext i32 %.val805 to i64
   %190 = sext i32 %.3761.lcssa to i64
   %191 = add i32 %18, 1
-  %wide.trip.count1174 = zext nneg i32 %.val805 to i64
-  %wide.trip.count1180 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1170 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1176 = zext nneg i32 %.val805 to i64
   br label %227
 
 192:                                              ; preds = %.lr.ph946, %._crit_edge942
-  %indvars.iv1166 = phi i64 [ %186, %.lr.ph946 ], [ %indvars.iv.next1167, %._crit_edge942 ]
+  %indvars.iv1162 = phi i64 [ %186, %.lr.ph946 ], [ %indvars.iv.next1163, %._crit_edge942 ]
   %.3745945 = phi ptr [ %24, %.lr.ph946 ], [ %197, %._crit_edge942 ]
-  %193 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1166
+  %193 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1162
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1166
+  %195 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1162
   %196 = load i32, ptr %195, align 4
   %197 = getelementptr inbounds i8, ptr %.3745945, i64 %183
   %reass.sub1045 = sub i32 %196, %194
   %198 = icmp ugt i32 %reass.sub1045, 2147483646
-  %brmerge1272 = select i1 %198, i1 true, i1 %184
-  br i1 %brmerge1272, label %._crit_edge942, label %.lr.ph935.us.preheader
+  %brmerge1265 = select i1 %198, i1 true, i1 %184
+  br i1 %brmerge1265, label %._crit_edge942, label %.lr.ph935.us.preheader
 
 .lr.ph935.us.preheader:                           ; preds = %192
-  %199 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1166
+  %199 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1162
   %200 = load i32, ptr %199, align 4
-  %201 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1166
+  %201 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1162
   %202 = load i32, ptr %201, align 4
   %203 = mul nsw i32 %194, %.val805
   %204 = sext i32 %203 to i64
@@ -1336,27 +1336,27 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %214
 
 214:                                              ; preds = %.lr.ph935.us, %214
-  %indvars.iv1159 = phi i64 [ 0, %.lr.ph935.us ], [ %indvars.iv.next1160, %214 ]
-  %215 = getelementptr inbounds i16, ptr %213, i64 %indvars.iv1159
+  %indvars.iv1156 = phi i64 [ 0, %.lr.ph935.us ], [ %indvars.iv.next1157, %214 ]
+  %215 = getelementptr inbounds i16, ptr %213, i64 %indvars.iv1156
   %216 = load i16, ptr %215, align 2
-  %217 = getelementptr inbounds i16, ptr %.0694939.us, i64 %indvars.iv1159
+  %217 = getelementptr inbounds i16, ptr %.0694939.us, i64 %indvars.iv1156
   store i16 %216, ptr %217, align 2
-  %indvars.iv.next1160 = add nuw nsw i64 %indvars.iv1159, 1
-  %exitcond1163.not = icmp eq i64 %indvars.iv.next1160, %wide.trip.count1162
-  br i1 %exitcond1163.not, label %._crit_edge.us943, label %214, !llvm.loop !30
+  %indvars.iv.next1157 = add nuw nsw i64 %indvars.iv1156, 1
+  %exitcond1160.not = icmp eq i64 %indvars.iv.next1157, %wide.trip.count1159
+  br i1 %exitcond1160.not, label %._crit_edge.us943, label %214, !llvm.loop !30
 
 ._crit_edge.us943:                                ; preds = %214
   %218 = add nsw i32 %.4714937.us, %34
   %219 = add nsw i32 %.4730936.us, %32
   %220 = getelementptr inbounds i16, ptr %.0694939.us, i64 %185
   %221 = add nuw nsw i32 %.4938.us, 1
-  %exitcond1165.not = icmp eq i32 %.4938.us, %reass.sub1045
-  br i1 %exitcond1165.not, label %._crit_edge942, label %.lr.ph935.us, !llvm.loop !31
+  %exitcond1161.not = icmp eq i32 %.4938.us, %reass.sub1045
+  br i1 %exitcond1161.not, label %._crit_edge942, label %.lr.ph935.us, !llvm.loop !31
 
 ._crit_edge942:                                   ; preds = %._crit_edge.us943, %192
-  %indvars.iv.next1167 = add nsw i64 %indvars.iv1166, 1
-  %exitcond1170.not = icmp eq i64 %indvars.iv.next1167, %wide.trip.count1169
-  br i1 %exitcond1170.not, label %.preheader820, label %192, !llvm.loop !32
+  %indvars.iv.next1163 = add nsw i64 %indvars.iv1162, 1
+  %exitcond1166.not = icmp eq i64 %indvars.iv.next1163, %wide.trip.count1165
+  br i1 %exitcond1166.not, label %.preheader820, label %192, !llvm.loop !32
 
 .preheader817:                                    ; preds = %._crit_edge966, %.preheader820
   %.4762.lcssa = phi i32 [ %.3761.lcssa, %.preheader820 ], [ %191, %._crit_edge966 ]
@@ -1370,24 +1370,24 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %224 = sext i32 %.val805 to i64
   %225 = sext i32 %.4762.lcssa to i64
   %226 = add i32 %22, 1
-  %wide.trip.count1191 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1187 = zext nneg i32 %.val805 to i64
   br label %293
 
 227:                                              ; preds = %.lr.ph971, %._crit_edge966
-  %indvars.iv1183 = phi i64 [ %190, %.lr.ph971 ], [ %indvars.iv.next1184, %._crit_edge966 ]
+  %indvars.iv1179 = phi i64 [ %190, %.lr.ph971 ], [ %indvars.iv.next1180, %._crit_edge966 ]
   %.4746970 = phi ptr [ %.3745.lcssa, %.lr.ph971 ], [ %240, %._crit_edge966 ]
-  %228 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1183
+  %228 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1179
   %229 = load i32, ptr %228, align 4
-  %230 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1183
+  %230 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1179
   %231 = load i32, ptr %230, align 4
   %232 = add nsw i32 %231, 1
-  %233 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv1183
+  %233 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv1179
   %234 = load i32, ptr %233, align 4
-  %235 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv1183
+  %235 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv1179
   %236 = load i32, ptr %235, align 4
   %237 = add nsw i32 %236, 1
-  %238 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1183
-  %239 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1183
+  %238 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1179
+  %239 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1179
   %240 = getelementptr inbounds i8, ptr %.4746970, i64 %187
   %.not801 = icmp sgt i32 %234, %236
   br i1 %.not801, label %.loopexit819, label %241
@@ -1424,29 +1424,29 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %257
 
 257:                                              ; preds = %.lr.ph950.us, %257
-  %indvars.iv1171 = phi i64 [ 0, %.lr.ph950.us ], [ %indvars.iv.next1172, %257 ]
-  %258 = getelementptr inbounds i16, ptr %256, i64 %indvars.iv1171
+  %indvars.iv1167 = phi i64 [ 0, %.lr.ph950.us ], [ %indvars.iv.next1168, %257 ]
+  %258 = getelementptr inbounds i16, ptr %256, i64 %indvars.iv1167
   %259 = load i16, ptr %258, align 2
-  %260 = getelementptr inbounds i16, ptr %.1695954.us, i64 %indvars.iv1171
+  %260 = getelementptr inbounds i16, ptr %.1695954.us, i64 %indvars.iv1167
   store i16 %259, ptr %260, align 2
-  %indvars.iv.next1172 = add nuw nsw i64 %indvars.iv1171, 1
-  %exitcond1175.not = icmp eq i64 %indvars.iv.next1172, %wide.trip.count1174
-  br i1 %exitcond1175.not, label %._crit_edge.us957, label %257, !llvm.loop !33
+  %indvars.iv.next1168 = add nuw nsw i64 %indvars.iv1167, 1
+  %exitcond1171.not = icmp eq i64 %indvars.iv.next1168, %wide.trip.count1170
+  br i1 %exitcond1171.not, label %._crit_edge.us957, label %257, !llvm.loop !33
 
 ._crit_edge.us957:                                ; preds = %257
   %261 = add nsw i32 %.5715952.us, %34
   %262 = add nsw i32 %.5731951.us, %32
   %263 = getelementptr inbounds i16, ptr %.1695954.us, i64 %189
   %264 = add nuw nsw i32 %.5953.us, 1
-  %exitcond1176.not = icmp eq i32 %264, %242
-  br i1 %exitcond1176.not, label %.loopexit819, label %.lr.ph950.us, !llvm.loop !34
+  %exitcond1172.not = icmp eq i32 %264, %242
+  br i1 %exitcond1172.not, label %.loopexit819, label %.lr.ph950.us, !llvm.loop !34
 
 .loopexit819:                                     ; preds = %._crit_edge.us957, %241, %227
   %.1755 = phi i32 [ %229, %227 ], [ %237, %241 ], [ %237, %._crit_edge.us957 ]
   %265 = sub i32 %232, %.1755
   %266 = icmp slt i32 %265, 1
-  %brmerge1275 = select i1 %266, i1 true, i1 %188
-  br i1 %brmerge1275, label %._crit_edge966, label %.lr.ph959.us.preheader
+  %brmerge1268 = select i1 %266, i1 true, i1 %188
+  br i1 %brmerge1268, label %._crit_edge966, label %.lr.ph959.us.preheader
 
 .lr.ph959.us.preheader:                           ; preds = %.loopexit819
   %267 = sub nsw i32 %.1755, %229
@@ -1477,46 +1477,46 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %285
 
 285:                                              ; preds = %.lr.ph959.us, %285
-  %indvars.iv1177 = phi i64 [ 0, %.lr.ph959.us ], [ %indvars.iv.next1178, %285 ]
-  %286 = getelementptr inbounds i16, ptr %284, i64 %indvars.iv1177
+  %indvars.iv1173 = phi i64 [ 0, %.lr.ph959.us ], [ %indvars.iv.next1174, %285 ]
+  %286 = getelementptr inbounds i16, ptr %284, i64 %indvars.iv1173
   %287 = load i16, ptr %286, align 2
-  %288 = getelementptr inbounds i16, ptr %.2696963.us, i64 %indvars.iv1177
+  %288 = getelementptr inbounds i16, ptr %.2696963.us, i64 %indvars.iv1173
   store i16 %287, ptr %288, align 2
-  %indvars.iv.next1178 = add nuw nsw i64 %indvars.iv1177, 1
-  %exitcond1181.not = icmp eq i64 %indvars.iv.next1178, %wide.trip.count1180
-  br i1 %exitcond1181.not, label %._crit_edge.us967, label %285, !llvm.loop !35
+  %indvars.iv.next1174 = add nuw nsw i64 %indvars.iv1173, 1
+  %exitcond1177.not = icmp eq i64 %indvars.iv.next1174, %wide.trip.count1176
+  br i1 %exitcond1177.not, label %._crit_edge.us967, label %285, !llvm.loop !35
 
 ._crit_edge.us967:                                ; preds = %285
   %289 = add nsw i32 %.6716961.us, %34
   %290 = add nsw i32 %.6732960.us, %32
   %291 = getelementptr inbounds i16, ptr %.2696963.us, i64 %189
   %292 = add nuw nsw i32 %.6962.us, 1
-  %exitcond1182.not = icmp eq i32 %292, %265
-  br i1 %exitcond1182.not, label %._crit_edge966, label %.lr.ph959.us, !llvm.loop !36
+  %exitcond1178.not = icmp eq i32 %292, %265
+  br i1 %exitcond1178.not, label %._crit_edge966, label %.lr.ph959.us, !llvm.loop !36
 
 ._crit_edge966:                                   ; preds = %._crit_edge.us967, %.loopexit819, %.lr.ph956
-  %indvars.iv.next1184 = add nsw i64 %indvars.iv1183, 1
-  %lftr.wideiv1186 = trunc i64 %indvars.iv.next1184 to i32
-  %exitcond1187.not = icmp eq i32 %191, %lftr.wideiv1186
-  br i1 %exitcond1187.not, label %.preheader817, label %227, !llvm.loop !37
+  %indvars.iv.next1180 = add nsw i64 %indvars.iv1179, 1
+  %lftr.wideiv1182 = trunc i64 %indvars.iv.next1180 to i32
+  %exitcond1183.not = icmp eq i32 %191, %lftr.wideiv1182
+  br i1 %exitcond1183.not, label %.preheader817, label %227, !llvm.loop !37
 
 293:                                              ; preds = %.lr.ph987, %._crit_edge982
-  %indvars.iv1195 = phi i64 [ %225, %.lr.ph987 ], [ %indvars.iv.next1196, %._crit_edge982 ]
+  %indvars.iv1190 = phi i64 [ %225, %.lr.ph987 ], [ %indvars.iv.next1191, %._crit_edge982 ]
   %.5747986 = phi ptr [ %.4746.lcssa, %.lr.ph987 ], [ %298, %._crit_edge982 ]
-  %294 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1195
+  %294 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1190
   %295 = load i32, ptr %294, align 4
-  %296 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1195
+  %296 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1190
   %297 = load i32, ptr %296, align 4
   %298 = getelementptr inbounds i8, ptr %.5747986, i64 %222
   %reass.sub1046 = sub i32 %297, %295
   %299 = icmp ugt i32 %reass.sub1046, 2147483646
-  %brmerge1278 = select i1 %299, i1 true, i1 %223
-  br i1 %brmerge1278, label %._crit_edge982, label %.lr.ph975.us.preheader
+  %brmerge1271 = select i1 %299, i1 true, i1 %223
+  br i1 %brmerge1271, label %._crit_edge982, label %.lr.ph975.us.preheader
 
 .lr.ph975.us.preheader:                           ; preds = %293
-  %300 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1195
+  %300 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1190
   %301 = load i32, ptr %300, align 4
-  %302 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1195
+  %302 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1190
   %303 = load i32, ptr %302, align 4
   %304 = mul nsw i32 %295, %.val805
   %305 = sext i32 %304 to i64
@@ -1539,28 +1539,28 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %315
 
 315:                                              ; preds = %.lr.ph975.us, %315
-  %indvars.iv1188 = phi i64 [ 0, %.lr.ph975.us ], [ %indvars.iv.next1189, %315 ]
-  %316 = getelementptr inbounds i16, ptr %314, i64 %indvars.iv1188
+  %indvars.iv1184 = phi i64 [ 0, %.lr.ph975.us ], [ %indvars.iv.next1185, %315 ]
+  %316 = getelementptr inbounds i16, ptr %314, i64 %indvars.iv1184
   %317 = load i16, ptr %316, align 2
-  %318 = getelementptr inbounds i16, ptr %.3697979.us, i64 %indvars.iv1188
+  %318 = getelementptr inbounds i16, ptr %.3697979.us, i64 %indvars.iv1184
   store i16 %317, ptr %318, align 2
-  %indvars.iv.next1189 = add nuw nsw i64 %indvars.iv1188, 1
-  %exitcond1192.not = icmp eq i64 %indvars.iv.next1189, %wide.trip.count1191
-  br i1 %exitcond1192.not, label %._crit_edge.us983, label %315, !llvm.loop !38
+  %indvars.iv.next1185 = add nuw nsw i64 %indvars.iv1184, 1
+  %exitcond1188.not = icmp eq i64 %indvars.iv.next1185, %wide.trip.count1187
+  br i1 %exitcond1188.not, label %._crit_edge.us983, label %315, !llvm.loop !38
 
 ._crit_edge.us983:                                ; preds = %315
   %319 = add nsw i32 %.7717977.us, %34
   %320 = add nsw i32 %.7733976.us, %32
   %321 = getelementptr inbounds i16, ptr %.3697979.us, i64 %224
   %322 = add nuw nsw i32 %.7978.us, 1
-  %exitcond1194.not = icmp eq i32 %.7978.us, %reass.sub1046
-  br i1 %exitcond1194.not, label %._crit_edge982, label %.lr.ph975.us, !llvm.loop !39
+  %exitcond1189.not = icmp eq i32 %.7978.us, %reass.sub1046
+  br i1 %exitcond1189.not, label %._crit_edge982, label %.lr.ph975.us, !llvm.loop !39
 
 ._crit_edge982:                                   ; preds = %._crit_edge.us983, %293
-  %indvars.iv.next1196 = add nsw i64 %indvars.iv1195, 1
-  %lftr.wideiv1198 = trunc i64 %indvars.iv.next1196 to i32
-  %exitcond1199.not = icmp eq i32 %226, %lftr.wideiv1198
-  br i1 %exitcond1199.not, label %.loopexit, label %293, !llvm.loop !40
+  %indvars.iv.next1191 = add nsw i64 %indvars.iv1190, 1
+  %lftr.wideiv1193 = trunc i64 %indvars.iv.next1191 to i32
+  %exitcond1194.not = icmp eq i32 %226, %lftr.wideiv1193
+  br i1 %exitcond1194.not, label %.loopexit, label %293, !llvm.loop !40
 
 323:                                              ; preds = %2, %2
   %324 = icmp slt i32 %20, %16
@@ -1571,8 +1571,8 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %326 = icmp slt i32 %.val805, 1
   %327 = sext i32 %.val805 to i64
   %328 = sext i32 %20 to i64
-  %wide.trip.count1128 = sext i32 %16 to i64
-  %wide.trip.count1121 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1126 = sext i32 %16 to i64
+  %wide.trip.count1120 = zext nneg i32 %.val805 to i64
   br label %334
 
 .preheader824:                                    ; preds = %._crit_edge888, %323
@@ -1587,27 +1587,27 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %331 = sext i32 %.val805 to i64
   %332 = sext i32 %.6764.lcssa to i64
   %333 = add i32 %18, 1
-  %wide.trip.count1133 = zext nneg i32 %.val805 to i64
-  %wide.trip.count1139 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1131 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1137 = zext nneg i32 %.val805 to i64
   br label %369
 
 334:                                              ; preds = %.lr.ph892, %._crit_edge888
-  %indvars.iv1125 = phi i64 [ %328, %.lr.ph892 ], [ %indvars.iv.next1126, %._crit_edge888 ]
+  %indvars.iv1123 = phi i64 [ %328, %.lr.ph892 ], [ %indvars.iv.next1124, %._crit_edge888 ]
   %.6748891 = phi ptr [ %24, %.lr.ph892 ], [ %339, %._crit_edge888 ]
-  %335 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1125
+  %335 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1123
   %336 = load i32, ptr %335, align 4
-  %337 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1125
+  %337 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1123
   %338 = load i32, ptr %337, align 4
   %339 = getelementptr inbounds i8, ptr %.6748891, i64 %325
   %reass.sub1043 = sub i32 %338, %336
   %340 = icmp ugt i32 %reass.sub1043, 2147483646
-  %brmerge1281 = select i1 %340, i1 true, i1 %326
-  br i1 %brmerge1281, label %._crit_edge888, label %.lr.ph881.us.preheader
+  %brmerge1274 = select i1 %340, i1 true, i1 %326
+  br i1 %brmerge1274, label %._crit_edge888, label %.lr.ph881.us.preheader
 
 .lr.ph881.us.preheader:                           ; preds = %334
-  %341 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1125
+  %341 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1123
   %342 = load i32, ptr %341, align 4
-  %343 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1125
+  %343 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1123
   %344 = load i32, ptr %343, align 4
   %345 = mul nsw i32 %336, %.val805
   %346 = sext i32 %345 to i64
@@ -1630,27 +1630,27 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %356
 
 356:                                              ; preds = %.lr.ph881.us, %356
-  %indvars.iv1118 = phi i64 [ 0, %.lr.ph881.us ], [ %indvars.iv.next1119, %356 ]
-  %357 = getelementptr inbounds i32, ptr %355, i64 %indvars.iv1118
+  %indvars.iv1117 = phi i64 [ 0, %.lr.ph881.us ], [ %indvars.iv.next1118, %356 ]
+  %357 = getelementptr inbounds i32, ptr %355, i64 %indvars.iv1117
   %358 = load i32, ptr %357, align 4
-  %359 = getelementptr inbounds i32, ptr %.0686885.us, i64 %indvars.iv1118
+  %359 = getelementptr inbounds i32, ptr %.0686885.us, i64 %indvars.iv1117
   store i32 %358, ptr %359, align 4
-  %indvars.iv.next1119 = add nuw nsw i64 %indvars.iv1118, 1
-  %exitcond1122.not = icmp eq i64 %indvars.iv.next1119, %wide.trip.count1121
-  br i1 %exitcond1122.not, label %._crit_edge.us889, label %356, !llvm.loop !41
+  %indvars.iv.next1118 = add nuw nsw i64 %indvars.iv1117, 1
+  %exitcond1121.not = icmp eq i64 %indvars.iv.next1118, %wide.trip.count1120
+  br i1 %exitcond1121.not, label %._crit_edge.us889, label %356, !llvm.loop !41
 
 ._crit_edge.us889:                                ; preds = %356
   %360 = add nsw i32 %.8718883.us, %34
   %361 = add nsw i32 %.8734882.us, %32
   %362 = getelementptr inbounds i32, ptr %.0686885.us, i64 %327
   %363 = add nuw nsw i32 %.8884.us, 1
-  %exitcond1124.not = icmp eq i32 %.8884.us, %reass.sub1043
-  br i1 %exitcond1124.not, label %._crit_edge888, label %.lr.ph881.us, !llvm.loop !42
+  %exitcond1122.not = icmp eq i32 %.8884.us, %reass.sub1043
+  br i1 %exitcond1122.not, label %._crit_edge888, label %.lr.ph881.us, !llvm.loop !42
 
 ._crit_edge888:                                   ; preds = %._crit_edge.us889, %334
-  %indvars.iv.next1126 = add nsw i64 %indvars.iv1125, 1
-  %exitcond1129.not = icmp eq i64 %indvars.iv.next1126, %wide.trip.count1128
-  br i1 %exitcond1129.not, label %.preheader824, label %334, !llvm.loop !43
+  %indvars.iv.next1124 = add nsw i64 %indvars.iv1123, 1
+  %exitcond1127.not = icmp eq i64 %indvars.iv.next1124, %wide.trip.count1126
+  br i1 %exitcond1127.not, label %.preheader824, label %334, !llvm.loop !43
 
 .preheader821:                                    ; preds = %._crit_edge912, %.preheader824
   %.7765.lcssa = phi i32 [ %.6764.lcssa, %.preheader824 ], [ %333, %._crit_edge912 ]
@@ -1664,24 +1664,24 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %366 = sext i32 %.val805 to i64
   %367 = sext i32 %.7765.lcssa to i64
   %368 = add i32 %22, 1
-  %wide.trip.count1150 = zext nneg i32 %.val805 to i64
+  %wide.trip.count1148 = zext nneg i32 %.val805 to i64
   br label %435
 
 369:                                              ; preds = %.lr.ph917, %._crit_edge912
-  %indvars.iv1142 = phi i64 [ %332, %.lr.ph917 ], [ %indvars.iv.next1143, %._crit_edge912 ]
+  %indvars.iv1140 = phi i64 [ %332, %.lr.ph917 ], [ %indvars.iv.next1141, %._crit_edge912 ]
   %.7749916 = phi ptr [ %.6748.lcssa, %.lr.ph917 ], [ %382, %._crit_edge912 ]
-  %370 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1142
+  %370 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1140
   %371 = load i32, ptr %370, align 4
-  %372 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1142
+  %372 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1140
   %373 = load i32, ptr %372, align 4
   %374 = add nsw i32 %373, 1
-  %375 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv1142
+  %375 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv1140
   %376 = load i32, ptr %375, align 4
-  %377 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv1142
+  %377 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv1140
   %378 = load i32, ptr %377, align 4
   %379 = add nsw i32 %378, 1
-  %380 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1142
-  %381 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1142
+  %380 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1140
+  %381 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1140
   %382 = getelementptr inbounds i8, ptr %.7749916, i64 %329
   %.not798 = icmp sgt i32 %376, %378
   br i1 %.not798, label %.loopexit823, label %383
@@ -1718,29 +1718,29 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %399
 
 399:                                              ; preds = %.lr.ph896.us, %399
-  %indvars.iv1130 = phi i64 [ 0, %.lr.ph896.us ], [ %indvars.iv.next1131, %399 ]
-  %400 = getelementptr inbounds i32, ptr %398, i64 %indvars.iv1130
+  %indvars.iv1128 = phi i64 [ 0, %.lr.ph896.us ], [ %indvars.iv.next1129, %399 ]
+  %400 = getelementptr inbounds i32, ptr %398, i64 %indvars.iv1128
   %401 = load i32, ptr %400, align 4
-  %402 = getelementptr inbounds i32, ptr %.1687900.us, i64 %indvars.iv1130
+  %402 = getelementptr inbounds i32, ptr %.1687900.us, i64 %indvars.iv1128
   store i32 %401, ptr %402, align 4
-  %indvars.iv.next1131 = add nuw nsw i64 %indvars.iv1130, 1
-  %exitcond1134.not = icmp eq i64 %indvars.iv.next1131, %wide.trip.count1133
-  br i1 %exitcond1134.not, label %._crit_edge.us903, label %399, !llvm.loop !44
+  %indvars.iv.next1129 = add nuw nsw i64 %indvars.iv1128, 1
+  %exitcond1132.not = icmp eq i64 %indvars.iv.next1129, %wide.trip.count1131
+  br i1 %exitcond1132.not, label %._crit_edge.us903, label %399, !llvm.loop !44
 
 ._crit_edge.us903:                                ; preds = %399
   %403 = add nsw i32 %.9719898.us, %34
   %404 = add nsw i32 %.9735897.us, %32
   %405 = getelementptr inbounds i32, ptr %.1687900.us, i64 %331
   %406 = add nuw nsw i32 %.9899.us, 1
-  %exitcond1135.not = icmp eq i32 %406, %384
-  br i1 %exitcond1135.not, label %.loopexit823, label %.lr.ph896.us, !llvm.loop !45
+  %exitcond1133.not = icmp eq i32 %406, %384
+  br i1 %exitcond1133.not, label %.loopexit823, label %.lr.ph896.us, !llvm.loop !45
 
 .loopexit823:                                     ; preds = %._crit_edge.us903, %383, %369
   %.2756 = phi i32 [ %371, %369 ], [ %379, %383 ], [ %379, %._crit_edge.us903 ]
   %407 = sub i32 %374, %.2756
   %408 = icmp slt i32 %407, 1
-  %brmerge1284 = select i1 %408, i1 true, i1 %330
-  br i1 %brmerge1284, label %._crit_edge912, label %.lr.ph905.us.preheader
+  %brmerge1277 = select i1 %408, i1 true, i1 %330
+  br i1 %brmerge1277, label %._crit_edge912, label %.lr.ph905.us.preheader
 
 .lr.ph905.us.preheader:                           ; preds = %.loopexit823
   %409 = sub nsw i32 %.2756, %371
@@ -1771,46 +1771,46 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %427
 
 427:                                              ; preds = %.lr.ph905.us, %427
-  %indvars.iv1136 = phi i64 [ 0, %.lr.ph905.us ], [ %indvars.iv.next1137, %427 ]
-  %428 = getelementptr inbounds i32, ptr %426, i64 %indvars.iv1136
+  %indvars.iv1134 = phi i64 [ 0, %.lr.ph905.us ], [ %indvars.iv.next1135, %427 ]
+  %428 = getelementptr inbounds i32, ptr %426, i64 %indvars.iv1134
   %429 = load i32, ptr %428, align 4
-  %430 = getelementptr inbounds i32, ptr %.2688909.us, i64 %indvars.iv1136
+  %430 = getelementptr inbounds i32, ptr %.2688909.us, i64 %indvars.iv1134
   store i32 %429, ptr %430, align 4
-  %indvars.iv.next1137 = add nuw nsw i64 %indvars.iv1136, 1
-  %exitcond1140.not = icmp eq i64 %indvars.iv.next1137, %wide.trip.count1139
-  br i1 %exitcond1140.not, label %._crit_edge.us913, label %427, !llvm.loop !46
+  %indvars.iv.next1135 = add nuw nsw i64 %indvars.iv1134, 1
+  %exitcond1138.not = icmp eq i64 %indvars.iv.next1135, %wide.trip.count1137
+  br i1 %exitcond1138.not, label %._crit_edge.us913, label %427, !llvm.loop !46
 
 ._crit_edge.us913:                                ; preds = %427
   %431 = add nsw i32 %.10720907.us, %34
   %432 = add nsw i32 %.10736906.us, %32
   %433 = getelementptr inbounds i32, ptr %.2688909.us, i64 %331
   %434 = add nuw nsw i32 %.10908.us, 1
-  %exitcond1141.not = icmp eq i32 %434, %407
-  br i1 %exitcond1141.not, label %._crit_edge912, label %.lr.ph905.us, !llvm.loop !47
+  %exitcond1139.not = icmp eq i32 %434, %407
+  br i1 %exitcond1139.not, label %._crit_edge912, label %.lr.ph905.us, !llvm.loop !47
 
 ._crit_edge912:                                   ; preds = %._crit_edge.us913, %.loopexit823, %.lr.ph902
-  %indvars.iv.next1143 = add nsw i64 %indvars.iv1142, 1
-  %lftr.wideiv1145 = trunc i64 %indvars.iv.next1143 to i32
-  %exitcond1146.not = icmp eq i32 %333, %lftr.wideiv1145
-  br i1 %exitcond1146.not, label %.preheader821, label %369, !llvm.loop !48
+  %indvars.iv.next1141 = add nsw i64 %indvars.iv1140, 1
+  %lftr.wideiv1143 = trunc i64 %indvars.iv.next1141 to i32
+  %exitcond1144.not = icmp eq i32 %333, %lftr.wideiv1143
+  br i1 %exitcond1144.not, label %.preheader821, label %369, !llvm.loop !48
 
 435:                                              ; preds = %.lr.ph933, %._crit_edge928
-  %indvars.iv1154 = phi i64 [ %367, %.lr.ph933 ], [ %indvars.iv.next1155, %._crit_edge928 ]
+  %indvars.iv1151 = phi i64 [ %367, %.lr.ph933 ], [ %indvars.iv.next1152, %._crit_edge928 ]
   %.8750932 = phi ptr [ %.7749.lcssa, %.lr.ph933 ], [ %440, %._crit_edge928 ]
-  %436 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1154
+  %436 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1151
   %437 = load i32, ptr %436, align 4
-  %438 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1154
+  %438 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1151
   %439 = load i32, ptr %438, align 4
   %440 = getelementptr inbounds i8, ptr %.8750932, i64 %364
   %reass.sub1044 = sub i32 %439, %437
   %441 = icmp ugt i32 %reass.sub1044, 2147483646
-  %brmerge1287 = select i1 %441, i1 true, i1 %365
-  br i1 %brmerge1287, label %._crit_edge928, label %.lr.ph921.us.preheader
+  %brmerge1280 = select i1 %441, i1 true, i1 %365
+  br i1 %brmerge1280, label %._crit_edge928, label %.lr.ph921.us.preheader
 
 .lr.ph921.us.preheader:                           ; preds = %435
-  %442 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1154
+  %442 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1151
   %443 = load i32, ptr %442, align 4
-  %444 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1154
+  %444 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1151
   %445 = load i32, ptr %444, align 4
   %446 = mul nsw i32 %437, %.val805
   %447 = sext i32 %446 to i64
@@ -1833,28 +1833,28 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br label %457
 
 457:                                              ; preds = %.lr.ph921.us, %457
-  %indvars.iv1147 = phi i64 [ 0, %.lr.ph921.us ], [ %indvars.iv.next1148, %457 ]
-  %458 = getelementptr inbounds i32, ptr %456, i64 %indvars.iv1147
+  %indvars.iv1145 = phi i64 [ 0, %.lr.ph921.us ], [ %indvars.iv.next1146, %457 ]
+  %458 = getelementptr inbounds i32, ptr %456, i64 %indvars.iv1145
   %459 = load i32, ptr %458, align 4
-  %460 = getelementptr inbounds i32, ptr %.3689925.us, i64 %indvars.iv1147
+  %460 = getelementptr inbounds i32, ptr %.3689925.us, i64 %indvars.iv1145
   store i32 %459, ptr %460, align 4
-  %indvars.iv.next1148 = add nuw nsw i64 %indvars.iv1147, 1
-  %exitcond1151.not = icmp eq i64 %indvars.iv.next1148, %wide.trip.count1150
-  br i1 %exitcond1151.not, label %._crit_edge.us929, label %457, !llvm.loop !49
+  %indvars.iv.next1146 = add nuw nsw i64 %indvars.iv1145, 1
+  %exitcond1149.not = icmp eq i64 %indvars.iv.next1146, %wide.trip.count1148
+  br i1 %exitcond1149.not, label %._crit_edge.us929, label %457, !llvm.loop !49
 
 ._crit_edge.us929:                                ; preds = %457
   %461 = add nsw i32 %.11721923.us, %34
   %462 = add nsw i32 %.11737922.us, %32
   %463 = getelementptr inbounds i32, ptr %.3689925.us, i64 %366
   %464 = add nuw nsw i32 %.11924.us, 1
-  %exitcond1153.not = icmp eq i32 %.11924.us, %reass.sub1044
-  br i1 %exitcond1153.not, label %._crit_edge928, label %.lr.ph921.us, !llvm.loop !50
+  %exitcond1150.not = icmp eq i32 %.11924.us, %reass.sub1044
+  br i1 %exitcond1150.not, label %._crit_edge928, label %.lr.ph921.us, !llvm.loop !50
 
 ._crit_edge928:                                   ; preds = %._crit_edge.us929, %435
-  %indvars.iv.next1155 = add nsw i64 %indvars.iv1154, 1
-  %lftr.wideiv1157 = trunc i64 %indvars.iv.next1155 to i32
-  %exitcond1158.not = icmp eq i32 %368, %lftr.wideiv1157
-  br i1 %exitcond1158.not, label %.loopexit, label %435, !llvm.loop !51
+  %indvars.iv.next1152 = add nsw i64 %indvars.iv1151, 1
+  %lftr.wideiv1154 = trunc i64 %indvars.iv.next1152 to i32
+  %exitcond1155.not = icmp eq i32 %368, %lftr.wideiv1154
+  br i1 %exitcond1155.not, label %.loopexit, label %435, !llvm.loop !51
 
 .preheader828:                                    ; preds = %._crit_edge837, %.preheader829
   %.9767.lcssa = phi i32 [ %20, %.preheader829 ], [ %16, %._crit_edge837 ]
@@ -1882,8 +1882,8 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %475 = getelementptr inbounds i8, ptr %.9751839, i64 %36
   %reass.sub = sub i32 %474, %472
   %476 = icmp ugt i32 %reass.sub, 2147483646
-  %brmerge1290 = select i1 %476, i1 true, i1 %37
-  br i1 %brmerge1290, label %._crit_edge837, label %.lr.ph.us.preheader
+  %brmerge1283 = select i1 %476, i1 true, i1 %37
+  br i1 %brmerge1283, label %._crit_edge837, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %470
   %477 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1085
@@ -2020,8 +2020,8 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %.3757 = phi i32 [ %507, %505 ], [ %515, %519 ], [ %515, %._crit_edge.us849 ]
   %543 = sub i32 %510, %.3757
   %544 = icmp slt i32 %543, 1
-  %brmerge1293 = select i1 %544, i1 true, i1 %466
-  br i1 %brmerge1293, label %._crit_edge858, label %.lr.ph851.us.preheader
+  %brmerge1286 = select i1 %544, i1 true, i1 %466
+  br i1 %brmerge1286, label %._crit_edge858, label %.lr.ph851.us.preheader
 
 .lr.ph851.us.preheader:                           ; preds = %.loopexit827
   %545 = sub nsw i32 %.3757, %507
@@ -2076,22 +2076,22 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   br i1 %exitcond1105.not, label %.preheader825, label %505, !llvm.loop !59
 
 571:                                              ; preds = %.lr.ph879, %._crit_edge874
-  %indvars.iv1113 = phi i64 [ %503, %.lr.ph879 ], [ %indvars.iv.next1114, %._crit_edge874 ]
+  %indvars.iv1112 = phi i64 [ %503, %.lr.ph879 ], [ %indvars.iv.next1113, %._crit_edge874 ]
   %.11753878 = phi ptr [ %.10752.lcssa, %.lr.ph879 ], [ %576, %._crit_edge874 ]
-  %572 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1113
+  %572 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv1112
   %573 = load i32, ptr %572, align 4
-  %574 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1113
+  %574 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv1112
   %575 = load i32, ptr %574, align 4
   %576 = getelementptr inbounds i8, ptr %.11753878, i64 %500
   %reass.sub1042 = sub i32 %575, %573
   %577 = icmp ugt i32 %reass.sub1042, 2147483646
-  %brmerge1296 = select i1 %577, i1 true, i1 %501
-  br i1 %brmerge1296, label %._crit_edge874, label %.lr.ph867.us.preheader
+  %brmerge1289 = select i1 %577, i1 true, i1 %501
+  br i1 %brmerge1289, label %._crit_edge874, label %.lr.ph867.us.preheader
 
 .lr.ph867.us.preheader:                           ; preds = %571
-  %578 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1113
+  %578 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv1112
   %579 = load i32, ptr %578, align 4
-  %580 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1113
+  %580 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv1112
   %581 = load i32, ptr %580, align 4
   %582 = mul nsw i32 %573, %.val805
   %583 = sext i32 %582 to i64
@@ -2128,14 +2128,14 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
   %598 = add nsw i32 %.15741868.us, %32
   %599 = getelementptr inbounds double, ptr %.3681871.us, i64 %502
   %600 = add nuw nsw i32 %.15870.us, 1
-  %exitcond1112.not = icmp eq i32 %.15870.us, %reass.sub1042
-  br i1 %exitcond1112.not, label %._crit_edge874, label %.lr.ph867.us, !llvm.loop !61
+  %exitcond1111.not = icmp eq i32 %.15870.us, %reass.sub1042
+  br i1 %exitcond1111.not, label %._crit_edge874, label %.lr.ph867.us, !llvm.loop !61
 
 ._crit_edge874:                                   ; preds = %._crit_edge.us875, %571
-  %indvars.iv.next1114 = add nsw i64 %indvars.iv1113, 1
-  %lftr.wideiv1116 = trunc i64 %indvars.iv.next1114 to i32
-  %exitcond1117.not = icmp eq i32 %504, %lftr.wideiv1116
-  br i1 %exitcond1117.not, label %.loopexit, label %571, !llvm.loop !62
+  %indvars.iv.next1113 = add nsw i64 %indvars.iv1112, 1
+  %lftr.wideiv1115 = trunc i64 %indvars.iv.next1113 to i32
+  %exitcond1116.not = icmp eq i32 %504, %lftr.wideiv1115
+  br i1 %exitcond1116.not, label %.loopexit, label %571, !llvm.loop !62
 
 .loopexit:                                        ; preds = %._crit_edge874, %._crit_edge928, %._crit_edge982, %._crit_edge1036, %.preheader825, %.preheader821, %.preheader817, %.preheader, %2
   ret void
@@ -2203,8 +2203,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %41 = icmp slt i32 %.val2191, 1
   %42 = sext i32 %.val2191 to i64
   %43 = sext i32 %20 to i64
-  %wide.trip.count2859 = sext i32 %16 to i64
-  %wide.trip.count2852 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2849 = sext i32 %16 to i64
+  %wide.trip.count2843 = zext nneg i32 %.val2191 to i64
   br label %49
 
 .preheader2208:                                   ; preds = %._crit_edge2548, %.preheader2209
@@ -2219,16 +2219,16 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %46 = sext i32 %.val2191 to i64
   %47 = sext i32 %.02073.lcssa to i64
   %48 = add i32 %18, 1
-  %wide.trip.count2864 = zext nneg i32 %.val2191 to i64
-  %wide.trip.count2870 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2854 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2860 = zext nneg i32 %.val2191 to i64
   br label %135
 
 49:                                               ; preds = %.lr.ph2551, %._crit_edge2548
-  %indvars.iv2856 = phi i64 [ %43, %.lr.ph2551 ], [ %indvars.iv.next2857, %._crit_edge2548 ]
+  %indvars.iv2846 = phi i64 [ %43, %.lr.ph2551 ], [ %indvars.iv.next2847, %._crit_edge2548 ]
   %.019972550 = phi ptr [ %24, %.lr.ph2551 ], [ %54, %._crit_edge2548 ]
-  %50 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2856
+  %50 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2846
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2856
+  %52 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2846
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds i8, ptr %.019972550, i64 %40
   %reass.sub2608 = sub i32 %53, %51
@@ -2237,9 +2237,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br i1 %brmerge, label %._crit_edge2548, label %.lr.ph2540.us.preheader
 
 .lr.ph2540.us.preheader:                          ; preds = %49
-  %56 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2856
+  %56 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2846
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2856
+  %58 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2846
   %59 = load i32, ptr %58, align 4
   %60 = mul nsw i32 %51, %.val2191
   %61 = sext i32 %60 to i64
@@ -2290,7 +2290,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %97
 
 97:                                               ; preds = %.lr.ph2540.us, %97
-  %indvars.iv2849 = phi i64 [ 0, %.lr.ph2540.us ], [ %indvars.iv.next2850, %97 ]
+  %indvars.iv2840 = phi i64 [ 0, %.lr.ph2540.us ], [ %indvars.iv.next2841, %97 ]
   %.019932537.us = phi ptr [ %90, %.lr.ph2540.us ], [ %125, %97 ]
   %98 = load i8, ptr %.019932537.us, align 1
   %99 = zext i8 %98 to i64
@@ -2318,25 +2318,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %121 = fmul double %72, %120
   %122 = tail call double @llvm.fmuladd.f64(double %118, double %96, double %121)
   %123 = fptoui double %122 to i8
-  %124 = getelementptr inbounds i8, ptr %.019892545.us, i64 %indvars.iv2849
+  %124 = getelementptr inbounds i8, ptr %.019892545.us, i64 %indvars.iv2840
   store i8 %123, ptr %124, align 1
   %125 = getelementptr inbounds i8, ptr %.019932537.us, i64 1
-  %indvars.iv.next2850 = add nuw nsw i64 %indvars.iv2849, 1
-  %exitcond2853.not = icmp eq i64 %indvars.iv.next2850, %wide.trip.count2852
-  br i1 %exitcond2853.not, label %._crit_edge2541.us, label %97, !llvm.loop !63
+  %indvars.iv.next2841 = add nuw nsw i64 %indvars.iv2840, 1
+  %exitcond2844.not = icmp eq i64 %indvars.iv.next2841, %wide.trip.count2843
+  br i1 %exitcond2844.not, label %._crit_edge2541.us, label %97, !llvm.loop !63
 
 ._crit_edge2541.us:                               ; preds = %97
   %126 = add nsw i32 %.020492542.us, %32
   %127 = add nsw i32 %.020252543.us, %34
   %128 = getelementptr inbounds i8, ptr %.019892545.us, i64 %42
   %129 = add nuw nsw i32 %.020072544.us, 1
-  %exitcond2855.not = icmp eq i32 %.020072544.us, %reass.sub2608
-  br i1 %exitcond2855.not, label %._crit_edge2548, label %.lr.ph2540.us, !llvm.loop !64
+  %exitcond2845.not = icmp eq i32 %.020072544.us, %reass.sub2608
+  br i1 %exitcond2845.not, label %._crit_edge2548, label %.lr.ph2540.us, !llvm.loop !64
 
 ._crit_edge2548:                                  ; preds = %._crit_edge2541.us, %49
-  %indvars.iv.next2857 = add nsw i64 %indvars.iv2856, 1
-  %exitcond2860.not = icmp eq i64 %indvars.iv.next2857, %wide.trip.count2859
-  br i1 %exitcond2860.not, label %.preheader2208, label %49, !llvm.loop !65
+  %indvars.iv.next2847 = add nsw i64 %indvars.iv2846, 1
+  %exitcond2850.not = icmp eq i64 %indvars.iv.next2847, %wide.trip.count2849
+  br i1 %exitcond2850.not, label %.preheader2208, label %49, !llvm.loop !65
 
 .preheader:                                       ; preds = %._crit_edge2576, %.preheader2208
   %.12074.lcssa = phi i32 [ %.02073.lcssa, %.preheader2208 ], [ %48, %._crit_edge2576 ]
@@ -2350,28 +2350,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %132 = sext i32 %.val2191 to i64
   %133 = sext i32 %.12074.lcssa to i64
   %134 = add i32 %22, 1
-  %wide.trip.count2881 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2871 = zext nneg i32 %.val2191 to i64
   br label %301
 
 135:                                              ; preds = %.lr.ph2580, %._crit_edge2576
-  %indvars.iv2873 = phi i64 [ %47, %.lr.ph2580 ], [ %indvars.iv.next2874, %._crit_edge2576 ]
+  %indvars.iv2863 = phi i64 [ %47, %.lr.ph2580 ], [ %indvars.iv.next2864, %._crit_edge2576 ]
   %.119982579 = phi ptr [ %.01997.lcssa, %.lr.ph2580 ], [ %148, %._crit_edge2576 ]
-  %136 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2873
+  %136 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2863
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2873
+  %138 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2863
   %139 = load i32, ptr %138, align 4
   %140 = add nsw i32 %139, 1
-  %141 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2873
+  %141 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2863
   %142 = load i32, ptr %141, align 4
-  %143 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2873
+  %143 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2863
   %144 = load i32, ptr %143, align 4
   %145 = add nsw i32 %144, 1
-  %146 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2873
-  %147 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2873
+  %146 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2863
+  %147 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2863
   %148 = getelementptr inbounds i8, ptr %.119982579, i64 %44
   %.not2184 = icmp sgt i32 %142, %144
-  %.pre2910 = load i32, ptr %146, align 4
-  %.pre2912 = load i32, ptr %147, align 4
+  %.pre2899 = load i32, ptr %146, align 4
+  %.pre2901 = load i32, ptr %147, align 4
   br i1 %.not2184, label %.loopexit2207, label %149
 
 149:                                              ; preds = %135
@@ -2388,8 +2388,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 .lr.ph2564:                                       ; preds = %.lr.ph2564.preheader, %._crit_edge2558
   %.119902562 = phi ptr [ %220, %._crit_edge2558 ], [ %154, %.lr.ph2564.preheader ]
   %.120082561 = phi i32 [ %221, %._crit_edge2558 ], [ 0, %.lr.ph2564.preheader ]
-  %.120262560 = phi i32 [ %219, %._crit_edge2558 ], [ %.pre2912, %.lr.ph2564.preheader ]
-  %.120502559 = phi i32 [ %218, %._crit_edge2558 ], [ %.pre2910, %.lr.ph2564.preheader ]
+  %.120262560 = phi i32 [ %219, %._crit_edge2558 ], [ %.pre2901, %.lr.ph2564.preheader ]
+  %.120502559 = phi i32 [ %218, %._crit_edge2558 ], [ %.pre2899, %.lr.ph2564.preheader ]
   %155 = add nsw i32 %.120262560, -32768
   %156 = add nsw i32 %.120502559, -32768
   %157 = and i32 %156, 65535
@@ -2432,7 +2432,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %189
 
 189:                                              ; preds = %.lr.ph2557, %189
-  %indvars.iv2861 = phi i64 [ 0, %.lr.ph2557 ], [ %indvars.iv.next2862, %189 ]
+  %indvars.iv2851 = phi i64 [ 0, %.lr.ph2557 ], [ %indvars.iv.next2852, %189 ]
   %.119942554 = phi ptr [ %174, %.lr.ph2557 ], [ %217, %189 ]
   %190 = load i8, ptr %.119942554, align 1
   %191 = zext i8 %190 to i64
@@ -2460,29 +2460,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %213 = fmul double %162, %212
   %214 = tail call double @llvm.fmuladd.f64(double %210, double %188, double %213)
   %215 = fptoui double %214 to i8
-  %216 = getelementptr inbounds i8, ptr %.119902562, i64 %indvars.iv2861
+  %216 = getelementptr inbounds i8, ptr %.119902562, i64 %indvars.iv2851
   store i8 %215, ptr %216, align 1
   %217 = getelementptr inbounds i8, ptr %.119942554, i64 1
-  %indvars.iv.next2862 = add nuw nsw i64 %indvars.iv2861, 1
-  %exitcond2865.not = icmp eq i64 %indvars.iv.next2862, %wide.trip.count2864
-  br i1 %exitcond2865.not, label %._crit_edge2558, label %189, !llvm.loop !66
+  %indvars.iv.next2852 = add nuw nsw i64 %indvars.iv2851, 1
+  %exitcond2855.not = icmp eq i64 %indvars.iv.next2852, %wide.trip.count2854
+  br i1 %exitcond2855.not, label %._crit_edge2558, label %189, !llvm.loop !66
 
 ._crit_edge2558:                                  ; preds = %189, %.lr.ph2564
   %218 = add nsw i32 %.120502559, %32
   %219 = add nsw i32 %.120262560, %34
   %220 = getelementptr inbounds i8, ptr %.119902562, i64 %46
   %221 = add nuw nsw i32 %.120082561, 1
-  %exitcond2866.not = icmp eq i32 %221, %150
-  br i1 %exitcond2866.not, label %.loopexit2207.loopexit, label %.lr.ph2564, !llvm.loop !67
+  %exitcond2856.not = icmp eq i32 %221, %150
+  br i1 %exitcond2856.not, label %.loopexit2207.loopexit, label %.lr.ph2564, !llvm.loop !67
 
 .loopexit2207.loopexit:                           ; preds = %._crit_edge2558
-  %.pre2909 = load i32, ptr %146, align 4
-  %.pre2911 = load i32, ptr %147, align 4
+  %.pre2898 = load i32, ptr %146, align 4
+  %.pre2900 = load i32, ptr %147, align 4
   br label %.loopexit2207
 
 .loopexit2207:                                    ; preds = %.loopexit2207.loopexit, %149, %135
-  %222 = phi i32 [ %.pre2912, %135 ], [ %.pre2912, %149 ], [ %.pre2911, %.loopexit2207.loopexit ]
-  %223 = phi i32 [ %.pre2910, %135 ], [ %.pre2910, %149 ], [ %.pre2909, %.loopexit2207.loopexit ]
+  %222 = phi i32 [ %.pre2901, %135 ], [ %.pre2901, %149 ], [ %.pre2900, %.loopexit2207.loopexit ]
+  %223 = phi i32 [ %.pre2899, %135 ], [ %.pre2899, %149 ], [ %.pre2898, %.loopexit2207.loopexit ]
   %.02001 = phi i32 [ %137, %135 ], [ %145, %149 ], [ %145, %.loopexit2207.loopexit ]
   %224 = sub i32 %140, %.02001
   %225 = icmp sgt i32 %224, 0
@@ -2546,7 +2546,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %268
 
 268:                                              ; preds = %.lr.ph2568, %268
-  %indvars.iv2867 = phi i64 [ 0, %.lr.ph2568 ], [ %indvars.iv.next2868, %268 ]
+  %indvars.iv2857 = phi i64 [ 0, %.lr.ph2568 ], [ %indvars.iv.next2858, %268 ]
   %.219952565 = phi ptr [ %253, %.lr.ph2568 ], [ %296, %268 ]
   %269 = load i8, ptr %.219952565, align 1
   %270 = zext i8 %269 to i64
@@ -2574,44 +2574,44 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %292 = fmul double %241, %291
   %293 = tail call double @llvm.fmuladd.f64(double %289, double %267, double %292)
   %294 = fptoui double %293 to i8
-  %295 = getelementptr inbounds i8, ptr %.219912573, i64 %indvars.iv2867
+  %295 = getelementptr inbounds i8, ptr %.219912573, i64 %indvars.iv2857
   store i8 %294, ptr %295, align 1
   %296 = getelementptr inbounds i8, ptr %.219952565, i64 1
-  %indvars.iv.next2868 = add nuw nsw i64 %indvars.iv2867, 1
-  %exitcond2871.not = icmp eq i64 %indvars.iv.next2868, %wide.trip.count2870
-  br i1 %exitcond2871.not, label %._crit_edge2569, label %268, !llvm.loop !68
+  %indvars.iv.next2858 = add nuw nsw i64 %indvars.iv2857, 1
+  %exitcond2861.not = icmp eq i64 %indvars.iv.next2858, %wide.trip.count2860
+  br i1 %exitcond2861.not, label %._crit_edge2569, label %268, !llvm.loop !68
 
 ._crit_edge2569:                                  ; preds = %268, %.lr.ph2575
   %297 = add nsw i32 %.220512570, %32
   %298 = add nsw i32 %.220272571, %34
   %299 = getelementptr inbounds i8, ptr %.219912573, i64 %46
   %300 = add nuw nsw i32 %.220092572, 1
-  %exitcond2872.not = icmp eq i32 %300, %224
-  br i1 %exitcond2872.not, label %._crit_edge2576, label %.lr.ph2575, !llvm.loop !69
+  %exitcond2862.not = icmp eq i32 %300, %224
+  br i1 %exitcond2862.not, label %._crit_edge2576, label %.lr.ph2575, !llvm.loop !69
 
 ._crit_edge2576:                                  ; preds = %._crit_edge2569, %.loopexit2207
-  %indvars.iv.next2874 = add nsw i64 %indvars.iv2873, 1
-  %lftr.wideiv2876 = trunc i64 %indvars.iv.next2874 to i32
-  %exitcond2877.not = icmp eq i32 %48, %lftr.wideiv2876
-  br i1 %exitcond2877.not, label %.preheader, label %135, !llvm.loop !70
+  %indvars.iv.next2864 = add nsw i64 %indvars.iv2863, 1
+  %lftr.wideiv2866 = trunc i64 %indvars.iv.next2864 to i32
+  %exitcond2867.not = icmp eq i32 %48, %lftr.wideiv2866
+  br i1 %exitcond2867.not, label %.preheader, label %135, !llvm.loop !70
 
 301:                                              ; preds = %.lr.ph2598, %._crit_edge2594
-  %indvars.iv2885 = phi i64 [ %133, %.lr.ph2598 ], [ %indvars.iv.next2886, %._crit_edge2594 ]
+  %indvars.iv2874 = phi i64 [ %133, %.lr.ph2598 ], [ %indvars.iv.next2875, %._crit_edge2594 ]
   %.219992597 = phi ptr [ %.11998.lcssa, %.lr.ph2598 ], [ %306, %._crit_edge2594 ]
-  %302 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2885
+  %302 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2874
   %303 = load i32, ptr %302, align 4
-  %304 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2885
+  %304 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2874
   %305 = load i32, ptr %304, align 4
   %306 = getelementptr inbounds i8, ptr %.219992597, i64 %130
   %reass.sub2609 = sub i32 %305, %303
   %307 = icmp ugt i32 %reass.sub2609, 2147483646
-  %brmerge2932 = select i1 %307, i1 true, i1 %131
-  br i1 %brmerge2932, label %._crit_edge2594, label %.lr.ph2586.us.preheader
+  %brmerge2921 = select i1 %307, i1 true, i1 %131
+  br i1 %brmerge2921, label %._crit_edge2594, label %.lr.ph2586.us.preheader
 
 .lr.ph2586.us.preheader:                          ; preds = %301
-  %308 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2885
+  %308 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2874
   %309 = load i32, ptr %308, align 4
-  %310 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2885
+  %310 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2874
   %311 = load i32, ptr %310, align 4
   %312 = mul nsw i32 %303, %.val2191
   %313 = sext i32 %312 to i64
@@ -2662,7 +2662,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %349
 
 349:                                              ; preds = %.lr.ph2586.us, %349
-  %indvars.iv2878 = phi i64 [ 0, %.lr.ph2586.us ], [ %indvars.iv.next2879, %349 ]
+  %indvars.iv2868 = phi i64 [ 0, %.lr.ph2586.us ], [ %indvars.iv.next2869, %349 ]
   %.319962583.us = phi ptr [ %342, %.lr.ph2586.us ], [ %377, %349 ]
   %350 = load i8, ptr %.319962583.us, align 1
   %351 = zext i8 %350 to i64
@@ -2690,26 +2690,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %373 = fmul double %324, %372
   %374 = tail call double @llvm.fmuladd.f64(double %370, double %348, double %373)
   %375 = fptoui double %374 to i8
-  %376 = getelementptr inbounds i8, ptr %.319922591.us, i64 %indvars.iv2878
+  %376 = getelementptr inbounds i8, ptr %.319922591.us, i64 %indvars.iv2868
   store i8 %375, ptr %376, align 1
   %377 = getelementptr inbounds i8, ptr %.319962583.us, i64 1
-  %indvars.iv.next2879 = add nuw nsw i64 %indvars.iv2878, 1
-  %exitcond2882.not = icmp eq i64 %indvars.iv.next2879, %wide.trip.count2881
-  br i1 %exitcond2882.not, label %._crit_edge2587.us, label %349, !llvm.loop !71
+  %indvars.iv.next2869 = add nuw nsw i64 %indvars.iv2868, 1
+  %exitcond2872.not = icmp eq i64 %indvars.iv.next2869, %wide.trip.count2871
+  br i1 %exitcond2872.not, label %._crit_edge2587.us, label %349, !llvm.loop !71
 
 ._crit_edge2587.us:                               ; preds = %349
   %378 = add nsw i32 %.320522588.us, %32
   %379 = add nsw i32 %.320282589.us, %34
   %380 = getelementptr inbounds i8, ptr %.319922591.us, i64 %132
   %381 = add nuw nsw i32 %.320102590.us, 1
-  %exitcond2884.not = icmp eq i32 %.320102590.us, %reass.sub2609
-  br i1 %exitcond2884.not, label %._crit_edge2594, label %.lr.ph2586.us, !llvm.loop !72
+  %exitcond2873.not = icmp eq i32 %.320102590.us, %reass.sub2609
+  br i1 %exitcond2873.not, label %._crit_edge2594, label %.lr.ph2586.us, !llvm.loop !72
 
 ._crit_edge2594:                                  ; preds = %._crit_edge2587.us, %301
-  %indvars.iv.next2886 = add nsw i64 %indvars.iv2885, 1
-  %lftr.wideiv2888 = trunc i64 %indvars.iv.next2886 to i32
-  %exitcond2889.not = icmp eq i32 %134, %lftr.wideiv2888
-  br i1 %exitcond2889.not, label %.loopexit, label %301, !llvm.loop !73
+  %indvars.iv.next2875 = add nsw i64 %indvars.iv2874, 1
+  %lftr.wideiv2877 = trunc i64 %indvars.iv.next2875 to i32
+  %exitcond2878.not = icmp eq i32 %134, %lftr.wideiv2877
+  br i1 %exitcond2878.not, label %.loopexit, label %301, !llvm.loop !73
 
 382:                                              ; preds = %2
   %383 = ashr i32 %.val2192, 1
@@ -2721,8 +2721,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %386 = icmp slt i32 %.val2191, 1
   %387 = sext i32 %.val2191 to i64
   %388 = sext i32 %20 to i64
-  %wide.trip.count2818 = sext i32 %16 to i64
-  %wide.trip.count2811 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2810 = sext i32 %16 to i64
+  %wide.trip.count2804 = zext nneg i32 %.val2191 to i64
   br label %394
 
 .preheader2213:                                   ; preds = %._crit_edge2485, %382
@@ -2737,27 +2737,27 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %391 = sext i32 %.val2191 to i64
   %392 = sext i32 %.32076.lcssa to i64
   %393 = add i32 %18, 1
-  %wide.trip.count2823 = zext nneg i32 %.val2191 to i64
-  %wide.trip.count2829 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2815 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2821 = zext nneg i32 %.val2191 to i64
   br label %472
 
 394:                                              ; preds = %.lr.ph2489, %._crit_edge2485
-  %indvars.iv2815 = phi i64 [ %388, %.lr.ph2489 ], [ %indvars.iv.next2816, %._crit_edge2485 ]
+  %indvars.iv2807 = phi i64 [ %388, %.lr.ph2489 ], [ %indvars.iv.next2808, %._crit_edge2485 ]
   %.320002487 = phi ptr [ %24, %.lr.ph2489 ], [ %399, %._crit_edge2485 ]
-  %395 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2815
+  %395 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2807
   %396 = load i32, ptr %395, align 4
-  %397 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2815
+  %397 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2807
   %398 = load i32, ptr %397, align 4
   %399 = getelementptr inbounds i8, ptr %.320002487, i64 %385
   %reass.sub2606 = sub i32 %398, %396
   %400 = icmp ugt i32 %reass.sub2606, 2147483646
-  %brmerge2935 = select i1 %400, i1 true, i1 %386
-  br i1 %brmerge2935, label %._crit_edge2485, label %.lr.ph2477.us.preheader
+  %brmerge2924 = select i1 %400, i1 true, i1 %386
+  br i1 %brmerge2924, label %._crit_edge2485, label %.lr.ph2477.us.preheader
 
 .lr.ph2477.us.preheader:                          ; preds = %394
-  %401 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2815
+  %401 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2807
   %402 = load i32, ptr %401, align 4
-  %403 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2815
+  %403 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2807
   %404 = load i32, ptr %403, align 4
   %405 = mul nsw i32 %396, %.val2191
   %406 = sext i32 %405 to i64
@@ -2808,7 +2808,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %442
 
 442:                                              ; preds = %.lr.ph2477.us, %442
-  %indvars.iv2808 = phi i64 [ 0, %.lr.ph2477.us ], [ %indvars.iv.next2809, %442 ]
+  %indvars.iv2801 = phi i64 [ 0, %.lr.ph2477.us ], [ %indvars.iv.next2802, %442 ]
   %.019812474.us = phi ptr [ %435, %.lr.ph2477.us ], [ %462, %442 ]
   %443 = load i16, ptr %.019812474.us, align 2
   %444 = sitofp i16 %443 to double
@@ -2828,25 +2828,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %458 = fmul double %417, %457
   %459 = tail call double @llvm.fmuladd.f64(double %455, double %441, double %458)
   %460 = fptosi double %459 to i16
-  %461 = getelementptr inbounds i16, ptr %.019772482.us, i64 %indvars.iv2808
+  %461 = getelementptr inbounds i16, ptr %.019772482.us, i64 %indvars.iv2801
   store i16 %460, ptr %461, align 2
   %462 = getelementptr inbounds i8, ptr %.019812474.us, i64 2
-  %indvars.iv.next2809 = add nuw nsw i64 %indvars.iv2808, 1
-  %exitcond2812.not = icmp eq i64 %indvars.iv.next2809, %wide.trip.count2811
-  br i1 %exitcond2812.not, label %._crit_edge2478.us, label %442, !llvm.loop !74
+  %indvars.iv.next2802 = add nuw nsw i64 %indvars.iv2801, 1
+  %exitcond2805.not = icmp eq i64 %indvars.iv.next2802, %wide.trip.count2804
+  br i1 %exitcond2805.not, label %._crit_edge2478.us, label %442, !llvm.loop !74
 
 ._crit_edge2478.us:                               ; preds = %442
   %463 = add nsw i32 %.420532479.us, %32
   %464 = add nsw i32 %.420292480.us, %34
   %465 = getelementptr inbounds i16, ptr %.019772482.us, i64 %387
   %466 = add nuw nsw i32 %.420112481.us, 1
-  %exitcond2814.not = icmp eq i32 %.420112481.us, %reass.sub2606
-  br i1 %exitcond2814.not, label %._crit_edge2485, label %.lr.ph2477.us, !llvm.loop !75
+  %exitcond2806.not = icmp eq i32 %.420112481.us, %reass.sub2606
+  br i1 %exitcond2806.not, label %._crit_edge2485, label %.lr.ph2477.us, !llvm.loop !75
 
 ._crit_edge2485:                                  ; preds = %._crit_edge2478.us, %394
-  %indvars.iv.next2816 = add nsw i64 %indvars.iv2815, 1
-  %exitcond2819.not = icmp eq i64 %indvars.iv.next2816, %wide.trip.count2818
-  br i1 %exitcond2819.not, label %.preheader2213, label %394, !llvm.loop !76
+  %indvars.iv.next2808 = add nsw i64 %indvars.iv2807, 1
+  %exitcond2811.not = icmp eq i64 %indvars.iv.next2808, %wide.trip.count2810
+  br i1 %exitcond2811.not, label %.preheader2213, label %394, !llvm.loop !76
 
 .preheader2210:                                   ; preds = %._crit_edge2514, %.preheader2213
   %.42077.lcssa = phi i32 [ %.32076.lcssa, %.preheader2213 ], [ %393, %._crit_edge2514 ]
@@ -2860,28 +2860,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %469 = sext i32 %.val2191 to i64
   %470 = sext i32 %.42077.lcssa to i64
   %471 = add i32 %22, 1
-  %wide.trip.count2840 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2832 = zext nneg i32 %.val2191 to i64
   br label %622
 
 472:                                              ; preds = %.lr.ph2518, %._crit_edge2514
-  %indvars.iv2832 = phi i64 [ %392, %.lr.ph2518 ], [ %indvars.iv.next2833, %._crit_edge2514 ]
+  %indvars.iv2824 = phi i64 [ %392, %.lr.ph2518 ], [ %indvars.iv.next2825, %._crit_edge2514 ]
   %.42517 = phi ptr [ %.32000.lcssa, %.lr.ph2518 ], [ %485, %._crit_edge2514 ]
-  %473 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2832
+  %473 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2824
   %474 = load i32, ptr %473, align 4
-  %475 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2832
+  %475 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2824
   %476 = load i32, ptr %475, align 4
   %477 = add nsw i32 %476, 1
-  %478 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2832
+  %478 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2824
   %479 = load i32, ptr %478, align 4
-  %480 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2832
+  %480 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2824
   %481 = load i32, ptr %480, align 4
   %482 = add nsw i32 %481, 1
-  %483 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2832
-  %484 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2832
+  %483 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2824
+  %484 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2824
   %485 = getelementptr inbounds i8, ptr %.42517, i64 %389
   %.not2173 = icmp sgt i32 %479, %481
-  %.pre2906 = load i32, ptr %483, align 4
-  %.pre2908 = load i32, ptr %484, align 4
+  %.pre2895 = load i32, ptr %483, align 4
+  %.pre2897 = load i32, ptr %484, align 4
   br i1 %.not2173, label %.loopexit2212, label %486
 
 486:                                              ; preds = %472
@@ -2898,8 +2898,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 .lr.ph2502:                                       ; preds = %.lr.ph2502.preheader, %._crit_edge2496
   %.119782500 = phi ptr [ %549, %._crit_edge2496 ], [ %491, %.lr.ph2502.preheader ]
   %.520122499 = phi i32 [ %550, %._crit_edge2496 ], [ 0, %.lr.ph2502.preheader ]
-  %.520302498 = phi i32 [ %548, %._crit_edge2496 ], [ %.pre2908, %.lr.ph2502.preheader ]
-  %.520542497 = phi i32 [ %547, %._crit_edge2496 ], [ %.pre2906, %.lr.ph2502.preheader ]
+  %.520302498 = phi i32 [ %548, %._crit_edge2496 ], [ %.pre2897, %.lr.ph2502.preheader ]
+  %.520542497 = phi i32 [ %547, %._crit_edge2496 ], [ %.pre2895, %.lr.ph2502.preheader ]
   %492 = add nsw i32 %.520302498, -32768
   %493 = add nsw i32 %.520542497, -32768
   %494 = and i32 %493, 65535
@@ -2942,7 +2942,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %526
 
 526:                                              ; preds = %.lr.ph2495, %526
-  %indvars.iv2820 = phi i64 [ 0, %.lr.ph2495 ], [ %indvars.iv.next2821, %526 ]
+  %indvars.iv2812 = phi i64 [ 0, %.lr.ph2495 ], [ %indvars.iv.next2813, %526 ]
   %.119822492 = phi ptr [ %511, %.lr.ph2495 ], [ %546, %526 ]
   %527 = load i16, ptr %.119822492, align 2
   %528 = sitofp i16 %527 to double
@@ -2962,29 +2962,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %542 = fmul double %499, %541
   %543 = tail call double @llvm.fmuladd.f64(double %539, double %525, double %542)
   %544 = fptosi double %543 to i16
-  %545 = getelementptr inbounds i16, ptr %.119782500, i64 %indvars.iv2820
+  %545 = getelementptr inbounds i16, ptr %.119782500, i64 %indvars.iv2812
   store i16 %544, ptr %545, align 2
   %546 = getelementptr inbounds i8, ptr %.119822492, i64 2
-  %indvars.iv.next2821 = add nuw nsw i64 %indvars.iv2820, 1
-  %exitcond2824.not = icmp eq i64 %indvars.iv.next2821, %wide.trip.count2823
-  br i1 %exitcond2824.not, label %._crit_edge2496, label %526, !llvm.loop !77
+  %indvars.iv.next2813 = add nuw nsw i64 %indvars.iv2812, 1
+  %exitcond2816.not = icmp eq i64 %indvars.iv.next2813, %wide.trip.count2815
+  br i1 %exitcond2816.not, label %._crit_edge2496, label %526, !llvm.loop !77
 
 ._crit_edge2496:                                  ; preds = %526, %.lr.ph2502
   %547 = add nsw i32 %.520542497, %32
   %548 = add nsw i32 %.520302498, %34
   %549 = getelementptr inbounds i16, ptr %.119782500, i64 %391
   %550 = add nuw nsw i32 %.520122499, 1
-  %exitcond2825.not = icmp eq i32 %550, %487
-  br i1 %exitcond2825.not, label %.loopexit2212.loopexit, label %.lr.ph2502, !llvm.loop !78
+  %exitcond2817.not = icmp eq i32 %550, %487
+  br i1 %exitcond2817.not, label %.loopexit2212.loopexit, label %.lr.ph2502, !llvm.loop !78
 
 .loopexit2212.loopexit:                           ; preds = %._crit_edge2496
-  %.pre2905 = load i32, ptr %483, align 4
-  %.pre2907 = load i32, ptr %484, align 4
+  %.pre2894 = load i32, ptr %483, align 4
+  %.pre2896 = load i32, ptr %484, align 4
   br label %.loopexit2212
 
 .loopexit2212:                                    ; preds = %.loopexit2212.loopexit, %486, %472
-  %551 = phi i32 [ %.pre2908, %472 ], [ %.pre2908, %486 ], [ %.pre2907, %.loopexit2212.loopexit ]
-  %552 = phi i32 [ %.pre2906, %472 ], [ %.pre2906, %486 ], [ %.pre2905, %.loopexit2212.loopexit ]
+  %551 = phi i32 [ %.pre2897, %472 ], [ %.pre2897, %486 ], [ %.pre2896, %.loopexit2212.loopexit ]
+  %552 = phi i32 [ %.pre2895, %472 ], [ %.pre2895, %486 ], [ %.pre2894, %.loopexit2212.loopexit ]
   %.12002 = phi i32 [ %474, %472 ], [ %482, %486 ], [ %482, %.loopexit2212.loopexit ]
   %553 = sub i32 %477, %.12002
   %554 = icmp sgt i32 %553, 0
@@ -3048,7 +3048,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %597
 
 597:                                              ; preds = %.lr.ph2506, %597
-  %indvars.iv2826 = phi i64 [ 0, %.lr.ph2506 ], [ %indvars.iv.next2827, %597 ]
+  %indvars.iv2818 = phi i64 [ 0, %.lr.ph2506 ], [ %indvars.iv.next2819, %597 ]
   %.219832503 = phi ptr [ %582, %.lr.ph2506 ], [ %617, %597 ]
   %598 = load i16, ptr %.219832503, align 2
   %599 = sitofp i16 %598 to double
@@ -3068,44 +3068,44 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %613 = fmul double %570, %612
   %614 = tail call double @llvm.fmuladd.f64(double %610, double %596, double %613)
   %615 = fptosi double %614 to i16
-  %616 = getelementptr inbounds i16, ptr %.219792511, i64 %indvars.iv2826
+  %616 = getelementptr inbounds i16, ptr %.219792511, i64 %indvars.iv2818
   store i16 %615, ptr %616, align 2
   %617 = getelementptr inbounds i8, ptr %.219832503, i64 2
-  %indvars.iv.next2827 = add nuw nsw i64 %indvars.iv2826, 1
-  %exitcond2830.not = icmp eq i64 %indvars.iv.next2827, %wide.trip.count2829
-  br i1 %exitcond2830.not, label %._crit_edge2507, label %597, !llvm.loop !79
+  %indvars.iv.next2819 = add nuw nsw i64 %indvars.iv2818, 1
+  %exitcond2822.not = icmp eq i64 %indvars.iv.next2819, %wide.trip.count2821
+  br i1 %exitcond2822.not, label %._crit_edge2507, label %597, !llvm.loop !79
 
 ._crit_edge2507:                                  ; preds = %597, %.lr.ph2513
   %618 = add nsw i32 %.620552508, %32
   %619 = add nsw i32 %.620312509, %34
   %620 = getelementptr inbounds i16, ptr %.219792511, i64 %391
   %621 = add nuw nsw i32 %.620132510, 1
-  %exitcond2831.not = icmp eq i32 %621, %553
-  br i1 %exitcond2831.not, label %._crit_edge2514, label %.lr.ph2513, !llvm.loop !80
+  %exitcond2823.not = icmp eq i32 %621, %553
+  br i1 %exitcond2823.not, label %._crit_edge2514, label %.lr.ph2513, !llvm.loop !80
 
 ._crit_edge2514:                                  ; preds = %._crit_edge2507, %.loopexit2212
-  %indvars.iv.next2833 = add nsw i64 %indvars.iv2832, 1
-  %lftr.wideiv2835 = trunc i64 %indvars.iv.next2833 to i32
-  %exitcond2836.not = icmp eq i32 %393, %lftr.wideiv2835
-  br i1 %exitcond2836.not, label %.preheader2210, label %472, !llvm.loop !81
+  %indvars.iv.next2825 = add nsw i64 %indvars.iv2824, 1
+  %lftr.wideiv2827 = trunc i64 %indvars.iv.next2825 to i32
+  %exitcond2828.not = icmp eq i32 %393, %lftr.wideiv2827
+  br i1 %exitcond2828.not, label %.preheader2210, label %472, !llvm.loop !81
 
 622:                                              ; preds = %.lr.ph2536, %._crit_edge2532
-  %indvars.iv2844 = phi i64 [ %470, %.lr.ph2536 ], [ %indvars.iv.next2845, %._crit_edge2532 ]
+  %indvars.iv2835 = phi i64 [ %470, %.lr.ph2536 ], [ %indvars.iv.next2836, %._crit_edge2532 ]
   %.52535 = phi ptr [ %.4.lcssa, %.lr.ph2536 ], [ %627, %._crit_edge2532 ]
-  %623 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2844
+  %623 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2835
   %624 = load i32, ptr %623, align 4
-  %625 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2844
+  %625 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2835
   %626 = load i32, ptr %625, align 4
   %627 = getelementptr inbounds i8, ptr %.52535, i64 %467
   %reass.sub2607 = sub i32 %626, %624
   %628 = icmp ugt i32 %reass.sub2607, 2147483646
-  %brmerge2938 = select i1 %628, i1 true, i1 %468
-  br i1 %brmerge2938, label %._crit_edge2532, label %.lr.ph2524.us.preheader
+  %brmerge2927 = select i1 %628, i1 true, i1 %468
+  br i1 %brmerge2927, label %._crit_edge2532, label %.lr.ph2524.us.preheader
 
 .lr.ph2524.us.preheader:                          ; preds = %622
-  %629 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2844
+  %629 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2835
   %630 = load i32, ptr %629, align 4
-  %631 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2844
+  %631 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2835
   %632 = load i32, ptr %631, align 4
   %633 = mul nsw i32 %624, %.val2191
   %634 = sext i32 %633 to i64
@@ -3156,7 +3156,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %670
 
 670:                                              ; preds = %.lr.ph2524.us, %670
-  %indvars.iv2837 = phi i64 [ 0, %.lr.ph2524.us ], [ %indvars.iv.next2838, %670 ]
+  %indvars.iv2829 = phi i64 [ 0, %.lr.ph2524.us ], [ %indvars.iv.next2830, %670 ]
   %.319842521.us = phi ptr [ %663, %.lr.ph2524.us ], [ %690, %670 ]
   %671 = load i16, ptr %.319842521.us, align 2
   %672 = sitofp i16 %671 to double
@@ -3176,26 +3176,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %686 = fmul double %645, %685
   %687 = tail call double @llvm.fmuladd.f64(double %683, double %669, double %686)
   %688 = fptosi double %687 to i16
-  %689 = getelementptr inbounds i16, ptr %.319802529.us, i64 %indvars.iv2837
+  %689 = getelementptr inbounds i16, ptr %.319802529.us, i64 %indvars.iv2829
   store i16 %688, ptr %689, align 2
   %690 = getelementptr inbounds i8, ptr %.319842521.us, i64 2
-  %indvars.iv.next2838 = add nuw nsw i64 %indvars.iv2837, 1
-  %exitcond2841.not = icmp eq i64 %indvars.iv.next2838, %wide.trip.count2840
-  br i1 %exitcond2841.not, label %._crit_edge2525.us, label %670, !llvm.loop !82
+  %indvars.iv.next2830 = add nuw nsw i64 %indvars.iv2829, 1
+  %exitcond2833.not = icmp eq i64 %indvars.iv.next2830, %wide.trip.count2832
+  br i1 %exitcond2833.not, label %._crit_edge2525.us, label %670, !llvm.loop !82
 
 ._crit_edge2525.us:                               ; preds = %670
   %691 = add nsw i32 %.720562526.us, %32
   %692 = add nsw i32 %.720322527.us, %34
   %693 = getelementptr inbounds i16, ptr %.319802529.us, i64 %469
   %694 = add nuw nsw i32 %.720142528.us, 1
-  %exitcond2843.not = icmp eq i32 %.720142528.us, %reass.sub2607
-  br i1 %exitcond2843.not, label %._crit_edge2532, label %.lr.ph2524.us, !llvm.loop !83
+  %exitcond2834.not = icmp eq i32 %.720142528.us, %reass.sub2607
+  br i1 %exitcond2834.not, label %._crit_edge2532, label %.lr.ph2524.us, !llvm.loop !83
 
 ._crit_edge2532:                                  ; preds = %._crit_edge2525.us, %622
-  %indvars.iv.next2845 = add nsw i64 %indvars.iv2844, 1
-  %lftr.wideiv2847 = trunc i64 %indvars.iv.next2845 to i32
-  %exitcond2848.not = icmp eq i32 %471, %lftr.wideiv2847
-  br i1 %exitcond2848.not, label %.loopexit, label %622, !llvm.loop !84
+  %indvars.iv.next2836 = add nsw i64 %indvars.iv2835, 1
+  %lftr.wideiv2838 = trunc i64 %indvars.iv.next2836 to i32
+  %exitcond2839.not = icmp eq i32 %471, %lftr.wideiv2838
+  br i1 %exitcond2839.not, label %.loopexit, label %622, !llvm.loop !84
 
 695:                                              ; preds = %2
   %696 = ashr i32 %.val2192, 1
@@ -3207,8 +3207,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %699 = icmp slt i32 %.val2191, 1
   %700 = sext i32 %.val2191 to i64
   %701 = sext i32 %20 to i64
-  %wide.trip.count2777 = sext i32 %16 to i64
-  %wide.trip.count2770 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2771 = sext i32 %16 to i64
+  %wide.trip.count2765 = zext nneg i32 %.val2191 to i64
   br label %707
 
 .preheader2217:                                   ; preds = %._crit_edge2422, %695
@@ -3223,27 +3223,27 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %704 = sext i32 %.val2191 to i64
   %705 = sext i32 %.62079.lcssa to i64
   %706 = add i32 %18, 1
+  %wide.trip.count2776 = zext nneg i32 %.val2191 to i64
   %wide.trip.count2782 = zext nneg i32 %.val2191 to i64
-  %wide.trip.count2788 = zext nneg i32 %.val2191 to i64
   br label %785
 
 707:                                              ; preds = %.lr.ph2426, %._crit_edge2422
-  %indvars.iv2774 = phi i64 [ %701, %.lr.ph2426 ], [ %indvars.iv.next2775, %._crit_edge2422 ]
+  %indvars.iv2768 = phi i64 [ %701, %.lr.ph2426 ], [ %indvars.iv.next2769, %._crit_edge2422 ]
   %.62424 = phi ptr [ %24, %.lr.ph2426 ], [ %712, %._crit_edge2422 ]
-  %708 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2774
+  %708 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2768
   %709 = load i32, ptr %708, align 4
-  %710 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2774
+  %710 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2768
   %711 = load i32, ptr %710, align 4
   %712 = getelementptr inbounds i8, ptr %.62424, i64 %698
   %reass.sub2604 = sub i32 %711, %709
   %713 = icmp ugt i32 %reass.sub2604, 2147483646
-  %brmerge2941 = select i1 %713, i1 true, i1 %699
-  br i1 %brmerge2941, label %._crit_edge2422, label %.lr.ph2414.us.preheader
+  %brmerge2930 = select i1 %713, i1 true, i1 %699
+  br i1 %brmerge2930, label %._crit_edge2422, label %.lr.ph2414.us.preheader
 
 .lr.ph2414.us.preheader:                          ; preds = %707
-  %714 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2774
+  %714 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2768
   %715 = load i32, ptr %714, align 4
-  %716 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2774
+  %716 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2768
   %717 = load i32, ptr %716, align 4
   %718 = mul nsw i32 %709, %.val2191
   %719 = sext i32 %718 to i64
@@ -3294,7 +3294,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %755
 
 755:                                              ; preds = %.lr.ph2414.us, %755
-  %indvars.iv2767 = phi i64 [ 0, %.lr.ph2414.us ], [ %indvars.iv.next2768, %755 ]
+  %indvars.iv2762 = phi i64 [ 0, %.lr.ph2414.us ], [ %indvars.iv.next2763, %755 ]
   %.019692411.us = phi ptr [ %748, %.lr.ph2414.us ], [ %775, %755 ]
   %756 = load i16, ptr %.019692411.us, align 2
   %757 = uitofp i16 %756 to double
@@ -3314,25 +3314,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %771 = fmul double %730, %770
   %772 = tail call double @llvm.fmuladd.f64(double %768, double %754, double %771)
   %773 = fptoui double %772 to i16
-  %774 = getelementptr inbounds i16, ptr %.019652419.us, i64 %indvars.iv2767
+  %774 = getelementptr inbounds i16, ptr %.019652419.us, i64 %indvars.iv2762
   store i16 %773, ptr %774, align 2
   %775 = getelementptr inbounds i8, ptr %.019692411.us, i64 2
-  %indvars.iv.next2768 = add nuw nsw i64 %indvars.iv2767, 1
-  %exitcond2771.not = icmp eq i64 %indvars.iv.next2768, %wide.trip.count2770
-  br i1 %exitcond2771.not, label %._crit_edge2415.us, label %755, !llvm.loop !85
+  %indvars.iv.next2763 = add nuw nsw i64 %indvars.iv2762, 1
+  %exitcond2766.not = icmp eq i64 %indvars.iv.next2763, %wide.trip.count2765
+  br i1 %exitcond2766.not, label %._crit_edge2415.us, label %755, !llvm.loop !85
 
 ._crit_edge2415.us:                               ; preds = %755
   %776 = add nsw i32 %.820572416.us, %32
   %777 = add nsw i32 %.820332417.us, %34
   %778 = getelementptr inbounds i16, ptr %.019652419.us, i64 %700
   %779 = add nuw nsw i32 %.820152418.us, 1
-  %exitcond2773.not = icmp eq i32 %.820152418.us, %reass.sub2604
-  br i1 %exitcond2773.not, label %._crit_edge2422, label %.lr.ph2414.us, !llvm.loop !86
+  %exitcond2767.not = icmp eq i32 %.820152418.us, %reass.sub2604
+  br i1 %exitcond2767.not, label %._crit_edge2422, label %.lr.ph2414.us, !llvm.loop !86
 
 ._crit_edge2422:                                  ; preds = %._crit_edge2415.us, %707
-  %indvars.iv.next2775 = add nsw i64 %indvars.iv2774, 1
-  %exitcond2778.not = icmp eq i64 %indvars.iv.next2775, %wide.trip.count2777
-  br i1 %exitcond2778.not, label %.preheader2217, label %707, !llvm.loop !87
+  %indvars.iv.next2769 = add nsw i64 %indvars.iv2768, 1
+  %exitcond2772.not = icmp eq i64 %indvars.iv.next2769, %wide.trip.count2771
+  br i1 %exitcond2772.not, label %.preheader2217, label %707, !llvm.loop !87
 
 .preheader2214:                                   ; preds = %._crit_edge2451, %.preheader2217
   %.72080.lcssa = phi i32 [ %.62079.lcssa, %.preheader2217 ], [ %706, %._crit_edge2451 ]
@@ -3346,28 +3346,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %782 = sext i32 %.val2191 to i64
   %783 = sext i32 %.72080.lcssa to i64
   %784 = add i32 %22, 1
-  %wide.trip.count2799 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2793 = zext nneg i32 %.val2191 to i64
   br label %935
 
 785:                                              ; preds = %.lr.ph2455, %._crit_edge2451
-  %indvars.iv2791 = phi i64 [ %705, %.lr.ph2455 ], [ %indvars.iv.next2792, %._crit_edge2451 ]
+  %indvars.iv2785 = phi i64 [ %705, %.lr.ph2455 ], [ %indvars.iv.next2786, %._crit_edge2451 ]
   %.72454 = phi ptr [ %.6.lcssa, %.lr.ph2455 ], [ %798, %._crit_edge2451 ]
-  %786 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2791
+  %786 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2785
   %787 = load i32, ptr %786, align 4
-  %788 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2791
+  %788 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2785
   %789 = load i32, ptr %788, align 4
   %790 = add nsw i32 %789, 1
-  %791 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2791
+  %791 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2785
   %792 = load i32, ptr %791, align 4
-  %793 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2791
+  %793 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2785
   %794 = load i32, ptr %793, align 4
   %795 = add nsw i32 %794, 1
-  %796 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2791
-  %797 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2791
+  %796 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2785
+  %797 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2785
   %798 = getelementptr inbounds i8, ptr %.72454, i64 %702
   %.not2162 = icmp sgt i32 %792, %794
-  %.pre2902 = load i32, ptr %796, align 4
-  %.pre2904 = load i32, ptr %797, align 4
+  %.pre2891 = load i32, ptr %796, align 4
+  %.pre2893 = load i32, ptr %797, align 4
   br i1 %.not2162, label %.loopexit2216, label %799
 
 799:                                              ; preds = %785
@@ -3384,8 +3384,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 .lr.ph2439:                                       ; preds = %.lr.ph2439.preheader, %._crit_edge2433
   %.119662437 = phi ptr [ %862, %._crit_edge2433 ], [ %804, %.lr.ph2439.preheader ]
   %.920162436 = phi i32 [ %863, %._crit_edge2433 ], [ 0, %.lr.ph2439.preheader ]
-  %.920342435 = phi i32 [ %861, %._crit_edge2433 ], [ %.pre2904, %.lr.ph2439.preheader ]
-  %.920582434 = phi i32 [ %860, %._crit_edge2433 ], [ %.pre2902, %.lr.ph2439.preheader ]
+  %.920342435 = phi i32 [ %861, %._crit_edge2433 ], [ %.pre2893, %.lr.ph2439.preheader ]
+  %.920582434 = phi i32 [ %860, %._crit_edge2433 ], [ %.pre2891, %.lr.ph2439.preheader ]
   %805 = add nsw i32 %.920342435, -32768
   %806 = add nsw i32 %.920582434, -32768
   %807 = and i32 %806, 65535
@@ -3428,7 +3428,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %839
 
 839:                                              ; preds = %.lr.ph2432, %839
-  %indvars.iv2779 = phi i64 [ 0, %.lr.ph2432 ], [ %indvars.iv.next2780, %839 ]
+  %indvars.iv2773 = phi i64 [ 0, %.lr.ph2432 ], [ %indvars.iv.next2774, %839 ]
   %.119702429 = phi ptr [ %824, %.lr.ph2432 ], [ %859, %839 ]
   %840 = load i16, ptr %.119702429, align 2
   %841 = uitofp i16 %840 to double
@@ -3448,29 +3448,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %855 = fmul double %812, %854
   %856 = tail call double @llvm.fmuladd.f64(double %852, double %838, double %855)
   %857 = fptoui double %856 to i16
-  %858 = getelementptr inbounds i16, ptr %.119662437, i64 %indvars.iv2779
+  %858 = getelementptr inbounds i16, ptr %.119662437, i64 %indvars.iv2773
   store i16 %857, ptr %858, align 2
   %859 = getelementptr inbounds i8, ptr %.119702429, i64 2
-  %indvars.iv.next2780 = add nuw nsw i64 %indvars.iv2779, 1
-  %exitcond2783.not = icmp eq i64 %indvars.iv.next2780, %wide.trip.count2782
-  br i1 %exitcond2783.not, label %._crit_edge2433, label %839, !llvm.loop !88
+  %indvars.iv.next2774 = add nuw nsw i64 %indvars.iv2773, 1
+  %exitcond2777.not = icmp eq i64 %indvars.iv.next2774, %wide.trip.count2776
+  br i1 %exitcond2777.not, label %._crit_edge2433, label %839, !llvm.loop !88
 
 ._crit_edge2433:                                  ; preds = %839, %.lr.ph2439
   %860 = add nsw i32 %.920582434, %32
   %861 = add nsw i32 %.920342435, %34
   %862 = getelementptr inbounds i16, ptr %.119662437, i64 %704
   %863 = add nuw nsw i32 %.920162436, 1
-  %exitcond2784.not = icmp eq i32 %863, %800
-  br i1 %exitcond2784.not, label %.loopexit2216.loopexit, label %.lr.ph2439, !llvm.loop !89
+  %exitcond2778.not = icmp eq i32 %863, %800
+  br i1 %exitcond2778.not, label %.loopexit2216.loopexit, label %.lr.ph2439, !llvm.loop !89
 
 .loopexit2216.loopexit:                           ; preds = %._crit_edge2433
-  %.pre2901 = load i32, ptr %796, align 4
-  %.pre2903 = load i32, ptr %797, align 4
+  %.pre2890 = load i32, ptr %796, align 4
+  %.pre2892 = load i32, ptr %797, align 4
   br label %.loopexit2216
 
 .loopexit2216:                                    ; preds = %.loopexit2216.loopexit, %799, %785
-  %864 = phi i32 [ %.pre2904, %785 ], [ %.pre2904, %799 ], [ %.pre2903, %.loopexit2216.loopexit ]
-  %865 = phi i32 [ %.pre2902, %785 ], [ %.pre2902, %799 ], [ %.pre2901, %.loopexit2216.loopexit ]
+  %864 = phi i32 [ %.pre2893, %785 ], [ %.pre2893, %799 ], [ %.pre2892, %.loopexit2216.loopexit ]
+  %865 = phi i32 [ %.pre2891, %785 ], [ %.pre2891, %799 ], [ %.pre2890, %.loopexit2216.loopexit ]
   %.22003 = phi i32 [ %787, %785 ], [ %795, %799 ], [ %795, %.loopexit2216.loopexit ]
   %866 = sub i32 %790, %.22003
   %867 = icmp sgt i32 %866, 0
@@ -3534,7 +3534,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %910
 
 910:                                              ; preds = %.lr.ph2443, %910
-  %indvars.iv2785 = phi i64 [ 0, %.lr.ph2443 ], [ %indvars.iv.next2786, %910 ]
+  %indvars.iv2779 = phi i64 [ 0, %.lr.ph2443 ], [ %indvars.iv.next2780, %910 ]
   %.219712440 = phi ptr [ %895, %.lr.ph2443 ], [ %930, %910 ]
   %911 = load i16, ptr %.219712440, align 2
   %912 = uitofp i16 %911 to double
@@ -3554,44 +3554,44 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %926 = fmul double %883, %925
   %927 = tail call double @llvm.fmuladd.f64(double %923, double %909, double %926)
   %928 = fptoui double %927 to i16
-  %929 = getelementptr inbounds i16, ptr %.219672448, i64 %indvars.iv2785
+  %929 = getelementptr inbounds i16, ptr %.219672448, i64 %indvars.iv2779
   store i16 %928, ptr %929, align 2
   %930 = getelementptr inbounds i8, ptr %.219712440, i64 2
-  %indvars.iv.next2786 = add nuw nsw i64 %indvars.iv2785, 1
-  %exitcond2789.not = icmp eq i64 %indvars.iv.next2786, %wide.trip.count2788
-  br i1 %exitcond2789.not, label %._crit_edge2444, label %910, !llvm.loop !90
+  %indvars.iv.next2780 = add nuw nsw i64 %indvars.iv2779, 1
+  %exitcond2783.not = icmp eq i64 %indvars.iv.next2780, %wide.trip.count2782
+  br i1 %exitcond2783.not, label %._crit_edge2444, label %910, !llvm.loop !90
 
 ._crit_edge2444:                                  ; preds = %910, %.lr.ph2450
   %931 = add nsw i32 %.1020592445, %32
   %932 = add nsw i32 %.1020352446, %34
   %933 = getelementptr inbounds i16, ptr %.219672448, i64 %704
   %934 = add nuw nsw i32 %.1020172447, 1
-  %exitcond2790.not = icmp eq i32 %934, %866
-  br i1 %exitcond2790.not, label %._crit_edge2451, label %.lr.ph2450, !llvm.loop !91
+  %exitcond2784.not = icmp eq i32 %934, %866
+  br i1 %exitcond2784.not, label %._crit_edge2451, label %.lr.ph2450, !llvm.loop !91
 
 ._crit_edge2451:                                  ; preds = %._crit_edge2444, %.loopexit2216
-  %indvars.iv.next2792 = add nsw i64 %indvars.iv2791, 1
-  %lftr.wideiv2794 = trunc i64 %indvars.iv.next2792 to i32
-  %exitcond2795.not = icmp eq i32 %706, %lftr.wideiv2794
-  br i1 %exitcond2795.not, label %.preheader2214, label %785, !llvm.loop !92
+  %indvars.iv.next2786 = add nsw i64 %indvars.iv2785, 1
+  %lftr.wideiv2788 = trunc i64 %indvars.iv.next2786 to i32
+  %exitcond2789.not = icmp eq i32 %706, %lftr.wideiv2788
+  br i1 %exitcond2789.not, label %.preheader2214, label %785, !llvm.loop !92
 
 935:                                              ; preds = %.lr.ph2473, %._crit_edge2469
-  %indvars.iv2803 = phi i64 [ %783, %.lr.ph2473 ], [ %indvars.iv.next2804, %._crit_edge2469 ]
+  %indvars.iv2796 = phi i64 [ %783, %.lr.ph2473 ], [ %indvars.iv.next2797, %._crit_edge2469 ]
   %.82472 = phi ptr [ %.7.lcssa, %.lr.ph2473 ], [ %940, %._crit_edge2469 ]
-  %936 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2803
+  %936 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2796
   %937 = load i32, ptr %936, align 4
-  %938 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2803
+  %938 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2796
   %939 = load i32, ptr %938, align 4
   %940 = getelementptr inbounds i8, ptr %.82472, i64 %780
   %reass.sub2605 = sub i32 %939, %937
   %941 = icmp ugt i32 %reass.sub2605, 2147483646
-  %brmerge2944 = select i1 %941, i1 true, i1 %781
-  br i1 %brmerge2944, label %._crit_edge2469, label %.lr.ph2461.us.preheader
+  %brmerge2933 = select i1 %941, i1 true, i1 %781
+  br i1 %brmerge2933, label %._crit_edge2469, label %.lr.ph2461.us.preheader
 
 .lr.ph2461.us.preheader:                          ; preds = %935
-  %942 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2803
+  %942 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2796
   %943 = load i32, ptr %942, align 4
-  %944 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2803
+  %944 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2796
   %945 = load i32, ptr %944, align 4
   %946 = mul nsw i32 %937, %.val2191
   %947 = sext i32 %946 to i64
@@ -3642,7 +3642,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %983
 
 983:                                              ; preds = %.lr.ph2461.us, %983
-  %indvars.iv2796 = phi i64 [ 0, %.lr.ph2461.us ], [ %indvars.iv.next2797, %983 ]
+  %indvars.iv2790 = phi i64 [ 0, %.lr.ph2461.us ], [ %indvars.iv.next2791, %983 ]
   %.319722458.us = phi ptr [ %976, %.lr.ph2461.us ], [ %1003, %983 ]
   %984 = load i16, ptr %.319722458.us, align 2
   %985 = uitofp i16 %984 to double
@@ -3662,26 +3662,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %999 = fmul double %958, %998
   %1000 = tail call double @llvm.fmuladd.f64(double %996, double %982, double %999)
   %1001 = fptoui double %1000 to i16
-  %1002 = getelementptr inbounds i16, ptr %.319682466.us, i64 %indvars.iv2796
+  %1002 = getelementptr inbounds i16, ptr %.319682466.us, i64 %indvars.iv2790
   store i16 %1001, ptr %1002, align 2
   %1003 = getelementptr inbounds i8, ptr %.319722458.us, i64 2
-  %indvars.iv.next2797 = add nuw nsw i64 %indvars.iv2796, 1
-  %exitcond2800.not = icmp eq i64 %indvars.iv.next2797, %wide.trip.count2799
-  br i1 %exitcond2800.not, label %._crit_edge2462.us, label %983, !llvm.loop !93
+  %indvars.iv.next2791 = add nuw nsw i64 %indvars.iv2790, 1
+  %exitcond2794.not = icmp eq i64 %indvars.iv.next2791, %wide.trip.count2793
+  br i1 %exitcond2794.not, label %._crit_edge2462.us, label %983, !llvm.loop !93
 
 ._crit_edge2462.us:                               ; preds = %983
   %1004 = add nsw i32 %.1120602463.us, %32
   %1005 = add nsw i32 %.1120362464.us, %34
   %1006 = getelementptr inbounds i16, ptr %.319682466.us, i64 %782
   %1007 = add nuw nsw i32 %.1120182465.us, 1
-  %exitcond2802.not = icmp eq i32 %.1120182465.us, %reass.sub2605
-  br i1 %exitcond2802.not, label %._crit_edge2469, label %.lr.ph2461.us, !llvm.loop !94
+  %exitcond2795.not = icmp eq i32 %.1120182465.us, %reass.sub2605
+  br i1 %exitcond2795.not, label %._crit_edge2469, label %.lr.ph2461.us, !llvm.loop !94
 
 ._crit_edge2469:                                  ; preds = %._crit_edge2462.us, %935
-  %indvars.iv.next2804 = add nsw i64 %indvars.iv2803, 1
-  %lftr.wideiv2806 = trunc i64 %indvars.iv.next2804 to i32
-  %exitcond2807.not = icmp eq i32 %784, %lftr.wideiv2806
-  br i1 %exitcond2807.not, label %.loopexit, label %935, !llvm.loop !95
+  %indvars.iv.next2797 = add nsw i64 %indvars.iv2796, 1
+  %lftr.wideiv2799 = trunc i64 %indvars.iv.next2797 to i32
+  %exitcond2800.not = icmp eq i32 %784, %lftr.wideiv2799
+  br i1 %exitcond2800.not, label %.loopexit, label %935, !llvm.loop !95
 
 1008:                                             ; preds = %2
   %1009 = ashr i32 %.val2192, 2
@@ -3693,8 +3693,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1012 = icmp slt i32 %.val2191, 1
   %1013 = sext i32 %.val2191 to i64
   %1014 = sext i32 %20 to i64
-  %wide.trip.count2736 = sext i32 %16 to i64
-  %wide.trip.count2729 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2732 = sext i32 %16 to i64
+  %wide.trip.count2726 = zext nneg i32 %.val2191 to i64
   br label %1020
 
 .preheader2221:                                   ; preds = %._crit_edge2359, %1008
@@ -3709,27 +3709,27 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1017 = sext i32 %.val2191 to i64
   %1018 = sext i32 %.92082.lcssa to i64
   %1019 = add i32 %18, 1
-  %wide.trip.count2741 = zext nneg i32 %.val2191 to i64
-  %wide.trip.count2747 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2737 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2743 = zext nneg i32 %.val2191 to i64
   br label %1098
 
 1020:                                             ; preds = %.lr.ph2363, %._crit_edge2359
-  %indvars.iv2733 = phi i64 [ %1014, %.lr.ph2363 ], [ %indvars.iv.next2734, %._crit_edge2359 ]
+  %indvars.iv2729 = phi i64 [ %1014, %.lr.ph2363 ], [ %indvars.iv.next2730, %._crit_edge2359 ]
   %.92361 = phi ptr [ %24, %.lr.ph2363 ], [ %1025, %._crit_edge2359 ]
-  %1021 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2733
+  %1021 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2729
   %1022 = load i32, ptr %1021, align 4
-  %1023 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2733
+  %1023 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2729
   %1024 = load i32, ptr %1023, align 4
   %1025 = getelementptr inbounds i8, ptr %.92361, i64 %1011
   %reass.sub2602 = sub i32 %1024, %1022
   %1026 = icmp ugt i32 %reass.sub2602, 2147483646
-  %brmerge2947 = select i1 %1026, i1 true, i1 %1012
-  br i1 %brmerge2947, label %._crit_edge2359, label %.lr.ph2351.us.preheader
+  %brmerge2936 = select i1 %1026, i1 true, i1 %1012
+  br i1 %brmerge2936, label %._crit_edge2359, label %.lr.ph2351.us.preheader
 
 .lr.ph2351.us.preheader:                          ; preds = %1020
-  %1027 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2733
+  %1027 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2729
   %1028 = load i32, ptr %1027, align 4
-  %1029 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2733
+  %1029 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2729
   %1030 = load i32, ptr %1029, align 4
   %1031 = mul nsw i32 %1022, %.val2191
   %1032 = sext i32 %1031 to i64
@@ -3780,7 +3780,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %1068
 
 1068:                                             ; preds = %.lr.ph2351.us, %1068
-  %indvars.iv2726 = phi i64 [ 0, %.lr.ph2351.us ], [ %indvars.iv.next2727, %1068 ]
+  %indvars.iv2723 = phi i64 [ 0, %.lr.ph2351.us ], [ %indvars.iv.next2724, %1068 ]
   %.019572348.us = phi ptr [ %1061, %.lr.ph2351.us ], [ %1088, %1068 ]
   %1069 = load i32, ptr %.019572348.us, align 4
   %1070 = sitofp i32 %1069 to double
@@ -3800,25 +3800,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1084 = fmul double %1043, %1083
   %1085 = tail call double @llvm.fmuladd.f64(double %1081, double %1067, double %1084)
   %1086 = fptosi double %1085 to i32
-  %1087 = getelementptr inbounds i32, ptr %.019532356.us, i64 %indvars.iv2726
+  %1087 = getelementptr inbounds i32, ptr %.019532356.us, i64 %indvars.iv2723
   store i32 %1086, ptr %1087, align 4
   %1088 = getelementptr inbounds i8, ptr %.019572348.us, i64 4
-  %indvars.iv.next2727 = add nuw nsw i64 %indvars.iv2726, 1
-  %exitcond2730.not = icmp eq i64 %indvars.iv.next2727, %wide.trip.count2729
-  br i1 %exitcond2730.not, label %._crit_edge2352.us, label %1068, !llvm.loop !96
+  %indvars.iv.next2724 = add nuw nsw i64 %indvars.iv2723, 1
+  %exitcond2727.not = icmp eq i64 %indvars.iv.next2724, %wide.trip.count2726
+  br i1 %exitcond2727.not, label %._crit_edge2352.us, label %1068, !llvm.loop !96
 
 ._crit_edge2352.us:                               ; preds = %1068
   %1089 = add nsw i32 %.1220612353.us, %32
   %1090 = add nsw i32 %.1220372354.us, %34
   %1091 = getelementptr inbounds i32, ptr %.019532356.us, i64 %1013
   %1092 = add nuw nsw i32 %.1220192355.us, 1
-  %exitcond2732.not = icmp eq i32 %.1220192355.us, %reass.sub2602
-  br i1 %exitcond2732.not, label %._crit_edge2359, label %.lr.ph2351.us, !llvm.loop !97
+  %exitcond2728.not = icmp eq i32 %.1220192355.us, %reass.sub2602
+  br i1 %exitcond2728.not, label %._crit_edge2359, label %.lr.ph2351.us, !llvm.loop !97
 
 ._crit_edge2359:                                  ; preds = %._crit_edge2352.us, %1020
-  %indvars.iv.next2734 = add nsw i64 %indvars.iv2733, 1
-  %exitcond2737.not = icmp eq i64 %indvars.iv.next2734, %wide.trip.count2736
-  br i1 %exitcond2737.not, label %.preheader2221, label %1020, !llvm.loop !98
+  %indvars.iv.next2730 = add nsw i64 %indvars.iv2729, 1
+  %exitcond2733.not = icmp eq i64 %indvars.iv.next2730, %wide.trip.count2732
+  br i1 %exitcond2733.not, label %.preheader2221, label %1020, !llvm.loop !98
 
 .preheader2218:                                   ; preds = %._crit_edge2388, %.preheader2221
   %.102083.lcssa = phi i32 [ %.92082.lcssa, %.preheader2221 ], [ %1019, %._crit_edge2388 ]
@@ -3832,28 +3832,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1095 = sext i32 %.val2191 to i64
   %1096 = sext i32 %.102083.lcssa to i64
   %1097 = add i32 %22, 1
-  %wide.trip.count2758 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2754 = zext nneg i32 %.val2191 to i64
   br label %1248
 
 1098:                                             ; preds = %.lr.ph2392, %._crit_edge2388
-  %indvars.iv2750 = phi i64 [ %1018, %.lr.ph2392 ], [ %indvars.iv.next2751, %._crit_edge2388 ]
+  %indvars.iv2746 = phi i64 [ %1018, %.lr.ph2392 ], [ %indvars.iv.next2747, %._crit_edge2388 ]
   %.102391 = phi ptr [ %.9.lcssa, %.lr.ph2392 ], [ %1111, %._crit_edge2388 ]
-  %1099 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2750
+  %1099 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2746
   %1100 = load i32, ptr %1099, align 4
-  %1101 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2750
+  %1101 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2746
   %1102 = load i32, ptr %1101, align 4
   %1103 = add nsw i32 %1102, 1
-  %1104 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2750
+  %1104 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2746
   %1105 = load i32, ptr %1104, align 4
-  %1106 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2750
+  %1106 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2746
   %1107 = load i32, ptr %1106, align 4
   %1108 = add nsw i32 %1107, 1
-  %1109 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2750
-  %1110 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2750
+  %1109 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2746
+  %1110 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2746
   %1111 = getelementptr inbounds i8, ptr %.102391, i64 %1015
   %.not2151 = icmp sgt i32 %1105, %1107
-  %.pre2898 = load i32, ptr %1109, align 4
-  %.pre2900 = load i32, ptr %1110, align 4
+  %.pre2887 = load i32, ptr %1109, align 4
+  %.pre2889 = load i32, ptr %1110, align 4
   br i1 %.not2151, label %.loopexit2220, label %1112
 
 1112:                                             ; preds = %1098
@@ -3870,8 +3870,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 .lr.ph2376:                                       ; preds = %.lr.ph2376.preheader, %._crit_edge2370
   %.119542374 = phi ptr [ %1175, %._crit_edge2370 ], [ %1117, %.lr.ph2376.preheader ]
   %.1320202373 = phi i32 [ %1176, %._crit_edge2370 ], [ 0, %.lr.ph2376.preheader ]
-  %.1320382372 = phi i32 [ %1174, %._crit_edge2370 ], [ %.pre2900, %.lr.ph2376.preheader ]
-  %.1320622371 = phi i32 [ %1173, %._crit_edge2370 ], [ %.pre2898, %.lr.ph2376.preheader ]
+  %.1320382372 = phi i32 [ %1174, %._crit_edge2370 ], [ %.pre2889, %.lr.ph2376.preheader ]
+  %.1320622371 = phi i32 [ %1173, %._crit_edge2370 ], [ %.pre2887, %.lr.ph2376.preheader ]
   %1118 = add nsw i32 %.1320382372, -32768
   %1119 = add nsw i32 %.1320622371, -32768
   %1120 = and i32 %1119, 65535
@@ -3914,7 +3914,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %1152
 
 1152:                                             ; preds = %.lr.ph2369, %1152
-  %indvars.iv2738 = phi i64 [ 0, %.lr.ph2369 ], [ %indvars.iv.next2739, %1152 ]
+  %indvars.iv2734 = phi i64 [ 0, %.lr.ph2369 ], [ %indvars.iv.next2735, %1152 ]
   %.119582366 = phi ptr [ %1137, %.lr.ph2369 ], [ %1172, %1152 ]
   %1153 = load i32, ptr %.119582366, align 4
   %1154 = sitofp i32 %1153 to double
@@ -3934,29 +3934,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1168 = fmul double %1125, %1167
   %1169 = tail call double @llvm.fmuladd.f64(double %1165, double %1151, double %1168)
   %1170 = fptosi double %1169 to i32
-  %1171 = getelementptr inbounds i32, ptr %.119542374, i64 %indvars.iv2738
+  %1171 = getelementptr inbounds i32, ptr %.119542374, i64 %indvars.iv2734
   store i32 %1170, ptr %1171, align 4
   %1172 = getelementptr inbounds i8, ptr %.119582366, i64 4
-  %indvars.iv.next2739 = add nuw nsw i64 %indvars.iv2738, 1
-  %exitcond2742.not = icmp eq i64 %indvars.iv.next2739, %wide.trip.count2741
-  br i1 %exitcond2742.not, label %._crit_edge2370, label %1152, !llvm.loop !99
+  %indvars.iv.next2735 = add nuw nsw i64 %indvars.iv2734, 1
+  %exitcond2738.not = icmp eq i64 %indvars.iv.next2735, %wide.trip.count2737
+  br i1 %exitcond2738.not, label %._crit_edge2370, label %1152, !llvm.loop !99
 
 ._crit_edge2370:                                  ; preds = %1152, %.lr.ph2376
   %1173 = add nsw i32 %.1320622371, %32
   %1174 = add nsw i32 %.1320382372, %34
   %1175 = getelementptr inbounds i32, ptr %.119542374, i64 %1017
   %1176 = add nuw nsw i32 %.1320202373, 1
-  %exitcond2743.not = icmp eq i32 %1176, %1113
-  br i1 %exitcond2743.not, label %.loopexit2220.loopexit, label %.lr.ph2376, !llvm.loop !100
+  %exitcond2739.not = icmp eq i32 %1176, %1113
+  br i1 %exitcond2739.not, label %.loopexit2220.loopexit, label %.lr.ph2376, !llvm.loop !100
 
 .loopexit2220.loopexit:                           ; preds = %._crit_edge2370
-  %.pre2897 = load i32, ptr %1109, align 4
-  %.pre2899 = load i32, ptr %1110, align 4
+  %.pre2886 = load i32, ptr %1109, align 4
+  %.pre2888 = load i32, ptr %1110, align 4
   br label %.loopexit2220
 
 .loopexit2220:                                    ; preds = %.loopexit2220.loopexit, %1112, %1098
-  %1177 = phi i32 [ %.pre2900, %1098 ], [ %.pre2900, %1112 ], [ %.pre2899, %.loopexit2220.loopexit ]
-  %1178 = phi i32 [ %.pre2898, %1098 ], [ %.pre2898, %1112 ], [ %.pre2897, %.loopexit2220.loopexit ]
+  %1177 = phi i32 [ %.pre2889, %1098 ], [ %.pre2889, %1112 ], [ %.pre2888, %.loopexit2220.loopexit ]
+  %1178 = phi i32 [ %.pre2887, %1098 ], [ %.pre2887, %1112 ], [ %.pre2886, %.loopexit2220.loopexit ]
   %.32004 = phi i32 [ %1100, %1098 ], [ %1108, %1112 ], [ %1108, %.loopexit2220.loopexit ]
   %1179 = sub i32 %1103, %.32004
   %1180 = icmp sgt i32 %1179, 0
@@ -4020,7 +4020,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %1223
 
 1223:                                             ; preds = %.lr.ph2380, %1223
-  %indvars.iv2744 = phi i64 [ 0, %.lr.ph2380 ], [ %indvars.iv.next2745, %1223 ]
+  %indvars.iv2740 = phi i64 [ 0, %.lr.ph2380 ], [ %indvars.iv.next2741, %1223 ]
   %.219592377 = phi ptr [ %1208, %.lr.ph2380 ], [ %1243, %1223 ]
   %1224 = load i32, ptr %.219592377, align 4
   %1225 = sitofp i32 %1224 to double
@@ -4040,44 +4040,44 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1239 = fmul double %1196, %1238
   %1240 = tail call double @llvm.fmuladd.f64(double %1236, double %1222, double %1239)
   %1241 = fptosi double %1240 to i32
-  %1242 = getelementptr inbounds i32, ptr %.219552385, i64 %indvars.iv2744
+  %1242 = getelementptr inbounds i32, ptr %.219552385, i64 %indvars.iv2740
   store i32 %1241, ptr %1242, align 4
   %1243 = getelementptr inbounds i8, ptr %.219592377, i64 4
-  %indvars.iv.next2745 = add nuw nsw i64 %indvars.iv2744, 1
-  %exitcond2748.not = icmp eq i64 %indvars.iv.next2745, %wide.trip.count2747
-  br i1 %exitcond2748.not, label %._crit_edge2381, label %1223, !llvm.loop !101
+  %indvars.iv.next2741 = add nuw nsw i64 %indvars.iv2740, 1
+  %exitcond2744.not = icmp eq i64 %indvars.iv.next2741, %wide.trip.count2743
+  br i1 %exitcond2744.not, label %._crit_edge2381, label %1223, !llvm.loop !101
 
 ._crit_edge2381:                                  ; preds = %1223, %.lr.ph2387
   %1244 = add nsw i32 %.1420632382, %32
   %1245 = add nsw i32 %.1420392383, %34
   %1246 = getelementptr inbounds i32, ptr %.219552385, i64 %1017
   %1247 = add nuw nsw i32 %.1420212384, 1
-  %exitcond2749.not = icmp eq i32 %1247, %1179
-  br i1 %exitcond2749.not, label %._crit_edge2388, label %.lr.ph2387, !llvm.loop !102
+  %exitcond2745.not = icmp eq i32 %1247, %1179
+  br i1 %exitcond2745.not, label %._crit_edge2388, label %.lr.ph2387, !llvm.loop !102
 
 ._crit_edge2388:                                  ; preds = %._crit_edge2381, %.loopexit2220
-  %indvars.iv.next2751 = add nsw i64 %indvars.iv2750, 1
-  %lftr.wideiv2753 = trunc i64 %indvars.iv.next2751 to i32
-  %exitcond2754.not = icmp eq i32 %1019, %lftr.wideiv2753
-  br i1 %exitcond2754.not, label %.preheader2218, label %1098, !llvm.loop !103
+  %indvars.iv.next2747 = add nsw i64 %indvars.iv2746, 1
+  %lftr.wideiv2749 = trunc i64 %indvars.iv.next2747 to i32
+  %exitcond2750.not = icmp eq i32 %1019, %lftr.wideiv2749
+  br i1 %exitcond2750.not, label %.preheader2218, label %1098, !llvm.loop !103
 
 1248:                                             ; preds = %.lr.ph2410, %._crit_edge2406
-  %indvars.iv2762 = phi i64 [ %1096, %.lr.ph2410 ], [ %indvars.iv.next2763, %._crit_edge2406 ]
+  %indvars.iv2757 = phi i64 [ %1096, %.lr.ph2410 ], [ %indvars.iv.next2758, %._crit_edge2406 ]
   %.112409 = phi ptr [ %.10.lcssa, %.lr.ph2410 ], [ %1253, %._crit_edge2406 ]
-  %1249 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2762
+  %1249 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2757
   %1250 = load i32, ptr %1249, align 4
-  %1251 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2762
+  %1251 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2757
   %1252 = load i32, ptr %1251, align 4
   %1253 = getelementptr inbounds i8, ptr %.112409, i64 %1093
   %reass.sub2603 = sub i32 %1252, %1250
   %1254 = icmp ugt i32 %reass.sub2603, 2147483646
-  %brmerge2950 = select i1 %1254, i1 true, i1 %1094
-  br i1 %brmerge2950, label %._crit_edge2406, label %.lr.ph2398.us.preheader
+  %brmerge2939 = select i1 %1254, i1 true, i1 %1094
+  br i1 %brmerge2939, label %._crit_edge2406, label %.lr.ph2398.us.preheader
 
 .lr.ph2398.us.preheader:                          ; preds = %1248
-  %1255 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2762
+  %1255 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2757
   %1256 = load i32, ptr %1255, align 4
-  %1257 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2762
+  %1257 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2757
   %1258 = load i32, ptr %1257, align 4
   %1259 = mul nsw i32 %1250, %.val2191
   %1260 = sext i32 %1259 to i64
@@ -4128,7 +4128,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %1296
 
 1296:                                             ; preds = %.lr.ph2398.us, %1296
-  %indvars.iv2755 = phi i64 [ 0, %.lr.ph2398.us ], [ %indvars.iv.next2756, %1296 ]
+  %indvars.iv2751 = phi i64 [ 0, %.lr.ph2398.us ], [ %indvars.iv.next2752, %1296 ]
   %.319602395.us = phi ptr [ %1289, %.lr.ph2398.us ], [ %1316, %1296 ]
   %1297 = load i32, ptr %.319602395.us, align 4
   %1298 = sitofp i32 %1297 to double
@@ -4148,26 +4148,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1312 = fmul double %1271, %1311
   %1313 = tail call double @llvm.fmuladd.f64(double %1309, double %1295, double %1312)
   %1314 = fptosi double %1313 to i32
-  %1315 = getelementptr inbounds i32, ptr %.319562403.us, i64 %indvars.iv2755
+  %1315 = getelementptr inbounds i32, ptr %.319562403.us, i64 %indvars.iv2751
   store i32 %1314, ptr %1315, align 4
   %1316 = getelementptr inbounds i8, ptr %.319602395.us, i64 4
-  %indvars.iv.next2756 = add nuw nsw i64 %indvars.iv2755, 1
-  %exitcond2759.not = icmp eq i64 %indvars.iv.next2756, %wide.trip.count2758
-  br i1 %exitcond2759.not, label %._crit_edge2399.us, label %1296, !llvm.loop !104
+  %indvars.iv.next2752 = add nuw nsw i64 %indvars.iv2751, 1
+  %exitcond2755.not = icmp eq i64 %indvars.iv.next2752, %wide.trip.count2754
+  br i1 %exitcond2755.not, label %._crit_edge2399.us, label %1296, !llvm.loop !104
 
 ._crit_edge2399.us:                               ; preds = %1296
   %1317 = add nsw i32 %.1520642400.us, %32
   %1318 = add nsw i32 %.1520402401.us, %34
   %1319 = getelementptr inbounds i32, ptr %.319562403.us, i64 %1095
   %1320 = add nuw nsw i32 %.1520222402.us, 1
-  %exitcond2761.not = icmp eq i32 %.1520222402.us, %reass.sub2603
-  br i1 %exitcond2761.not, label %._crit_edge2406, label %.lr.ph2398.us, !llvm.loop !105
+  %exitcond2756.not = icmp eq i32 %.1520222402.us, %reass.sub2603
+  br i1 %exitcond2756.not, label %._crit_edge2406, label %.lr.ph2398.us, !llvm.loop !105
 
 ._crit_edge2406:                                  ; preds = %._crit_edge2399.us, %1248
-  %indvars.iv.next2763 = add nsw i64 %indvars.iv2762, 1
-  %lftr.wideiv2765 = trunc i64 %indvars.iv.next2763 to i32
-  %exitcond2766.not = icmp eq i32 %1097, %lftr.wideiv2765
-  br i1 %exitcond2766.not, label %.loopexit, label %1248, !llvm.loop !106
+  %indvars.iv.next2758 = add nsw i64 %indvars.iv2757, 1
+  %lftr.wideiv2760 = trunc i64 %indvars.iv.next2758 to i32
+  %exitcond2761.not = icmp eq i32 %1097, %lftr.wideiv2760
+  br i1 %exitcond2761.not, label %.loopexit, label %1248, !llvm.loop !106
 
 1321:                                             ; preds = %2
   %1322 = ashr i32 %.val2192, 2
@@ -4179,8 +4179,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1325 = icmp slt i32 %.val2191, 1
   %1326 = sext i32 %.val2191 to i64
   %1327 = sext i32 %20 to i64
-  %wide.trip.count2695 = sext i32 %16 to i64
-  %wide.trip.count2688 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2693 = sext i32 %16 to i64
+  %wide.trip.count2687 = zext nneg i32 %.val2191 to i64
   br label %1333
 
 .preheader2225:                                   ; preds = %._crit_edge2296, %1321
@@ -4195,27 +4195,27 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1330 = sext i32 %.val2191 to i64
   %1331 = sext i32 %.122085.lcssa to i64
   %1332 = add i32 %18, 1
-  %wide.trip.count2700 = zext nneg i32 %.val2191 to i64
-  %wide.trip.count2706 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2698 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2704 = zext nneg i32 %.val2191 to i64
   br label %1411
 
 1333:                                             ; preds = %.lr.ph2300, %._crit_edge2296
-  %indvars.iv2692 = phi i64 [ %1327, %.lr.ph2300 ], [ %indvars.iv.next2693, %._crit_edge2296 ]
+  %indvars.iv2690 = phi i64 [ %1327, %.lr.ph2300 ], [ %indvars.iv.next2691, %._crit_edge2296 ]
   %.122298 = phi ptr [ %24, %.lr.ph2300 ], [ %1338, %._crit_edge2296 ]
-  %1334 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2692
+  %1334 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2690
   %1335 = load i32, ptr %1334, align 4
-  %1336 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2692
+  %1336 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2690
   %1337 = load i32, ptr %1336, align 4
   %1338 = getelementptr inbounds i8, ptr %.122298, i64 %1324
   %reass.sub2600 = sub i32 %1337, %1335
   %1339 = icmp ugt i32 %reass.sub2600, 2147483646
-  %brmerge2953 = select i1 %1339, i1 true, i1 %1325
-  br i1 %brmerge2953, label %._crit_edge2296, label %.lr.ph2288.us.preheader
+  %brmerge2942 = select i1 %1339, i1 true, i1 %1325
+  br i1 %brmerge2942, label %._crit_edge2296, label %.lr.ph2288.us.preheader
 
 .lr.ph2288.us.preheader:                          ; preds = %1333
-  %1340 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2692
+  %1340 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2690
   %1341 = load i32, ptr %1340, align 4
-  %1342 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2692
+  %1342 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2690
   %1343 = load i32, ptr %1342, align 4
   %1344 = mul nsw i32 %1335, %.val2191
   %1345 = sext i32 %1344 to i64
@@ -4266,7 +4266,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %1381
 
 1381:                                             ; preds = %.lr.ph2288.us, %1381
-  %indvars.iv2685 = phi i64 [ 0, %.lr.ph2288.us ], [ %indvars.iv.next2686, %1381 ]
+  %indvars.iv2684 = phi i64 [ 0, %.lr.ph2288.us ], [ %indvars.iv.next2685, %1381 ]
   %.019452285.us = phi ptr [ %1374, %.lr.ph2288.us ], [ %1401, %1381 ]
   %1382 = load float, ptr %.019452285.us, align 4
   %1383 = fpext float %1382 to double
@@ -4286,25 +4286,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1397 = fmul double %1356, %1396
   %1398 = tail call double @llvm.fmuladd.f64(double %1394, double %1380, double %1397)
   %1399 = fptrunc double %1398 to float
-  %1400 = getelementptr inbounds float, ptr %.019412293.us, i64 %indvars.iv2685
+  %1400 = getelementptr inbounds float, ptr %.019412293.us, i64 %indvars.iv2684
   store float %1399, ptr %1400, align 4
   %1401 = getelementptr inbounds i8, ptr %.019452285.us, i64 4
-  %indvars.iv.next2686 = add nuw nsw i64 %indvars.iv2685, 1
-  %exitcond2689.not = icmp eq i64 %indvars.iv.next2686, %wide.trip.count2688
-  br i1 %exitcond2689.not, label %._crit_edge2289.us, label %1381, !llvm.loop !107
+  %indvars.iv.next2685 = add nuw nsw i64 %indvars.iv2684, 1
+  %exitcond2688.not = icmp eq i64 %indvars.iv.next2685, %wide.trip.count2687
+  br i1 %exitcond2688.not, label %._crit_edge2289.us, label %1381, !llvm.loop !107
 
 ._crit_edge2289.us:                               ; preds = %1381
   %1402 = add nsw i32 %.1620652290.us, %32
   %1403 = add nsw i32 %.1620412291.us, %34
   %1404 = getelementptr inbounds float, ptr %.019412293.us, i64 %1326
   %1405 = add nuw nsw i32 %.1620232292.us, 1
-  %exitcond2691.not = icmp eq i32 %.1620232292.us, %reass.sub2600
-  br i1 %exitcond2691.not, label %._crit_edge2296, label %.lr.ph2288.us, !llvm.loop !108
+  %exitcond2689.not = icmp eq i32 %.1620232292.us, %reass.sub2600
+  br i1 %exitcond2689.not, label %._crit_edge2296, label %.lr.ph2288.us, !llvm.loop !108
 
 ._crit_edge2296:                                  ; preds = %._crit_edge2289.us, %1333
-  %indvars.iv.next2693 = add nsw i64 %indvars.iv2692, 1
-  %exitcond2696.not = icmp eq i64 %indvars.iv.next2693, %wide.trip.count2695
-  br i1 %exitcond2696.not, label %.preheader2225, label %1333, !llvm.loop !109
+  %indvars.iv.next2691 = add nsw i64 %indvars.iv2690, 1
+  %exitcond2694.not = icmp eq i64 %indvars.iv.next2691, %wide.trip.count2693
+  br i1 %exitcond2694.not, label %.preheader2225, label %1333, !llvm.loop !109
 
 .preheader2222:                                   ; preds = %._crit_edge2325, %.preheader2225
   %.132086.lcssa = phi i32 [ %.122085.lcssa, %.preheader2225 ], [ %1332, %._crit_edge2325 ]
@@ -4318,28 +4318,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1408 = sext i32 %.val2191 to i64
   %1409 = sext i32 %.132086.lcssa to i64
   %1410 = add i32 %22, 1
-  %wide.trip.count2717 = zext nneg i32 %.val2191 to i64
+  %wide.trip.count2715 = zext nneg i32 %.val2191 to i64
   br label %1561
 
 1411:                                             ; preds = %.lr.ph2329, %._crit_edge2325
-  %indvars.iv2709 = phi i64 [ %1331, %.lr.ph2329 ], [ %indvars.iv.next2710, %._crit_edge2325 ]
+  %indvars.iv2707 = phi i64 [ %1331, %.lr.ph2329 ], [ %indvars.iv.next2708, %._crit_edge2325 ]
   %.132328 = phi ptr [ %.12.lcssa, %.lr.ph2329 ], [ %1424, %._crit_edge2325 ]
-  %1412 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2709
+  %1412 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2707
   %1413 = load i32, ptr %1412, align 4
-  %1414 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2709
+  %1414 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2707
   %1415 = load i32, ptr %1414, align 4
   %1416 = add nsw i32 %1415, 1
-  %1417 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2709
+  %1417 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv2707
   %1418 = load i32, ptr %1417, align 4
-  %1419 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2709
+  %1419 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv2707
   %1420 = load i32, ptr %1419, align 4
   %1421 = add nsw i32 %1420, 1
-  %1422 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2709
-  %1423 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2709
+  %1422 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2707
+  %1423 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2707
   %1424 = getelementptr inbounds i8, ptr %.132328, i64 %1328
   %.not2140 = icmp sgt i32 %1418, %1420
-  %.pre2894 = load i32, ptr %1422, align 4
-  %.pre2896 = load i32, ptr %1423, align 4
+  %.pre2883 = load i32, ptr %1422, align 4
+  %.pre2885 = load i32, ptr %1423, align 4
   br i1 %.not2140, label %.loopexit2224, label %1425
 
 1425:                                             ; preds = %1411
@@ -4356,8 +4356,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 .lr.ph2313:                                       ; preds = %.lr.ph2313.preheader, %._crit_edge2307
   %.119422311 = phi ptr [ %1488, %._crit_edge2307 ], [ %1430, %.lr.ph2313.preheader ]
   %.1720242310 = phi i32 [ %1489, %._crit_edge2307 ], [ 0, %.lr.ph2313.preheader ]
-  %.1720422309 = phi i32 [ %1487, %._crit_edge2307 ], [ %.pre2896, %.lr.ph2313.preheader ]
-  %.1720662308 = phi i32 [ %1486, %._crit_edge2307 ], [ %.pre2894, %.lr.ph2313.preheader ]
+  %.1720422309 = phi i32 [ %1487, %._crit_edge2307 ], [ %.pre2885, %.lr.ph2313.preheader ]
+  %.1720662308 = phi i32 [ %1486, %._crit_edge2307 ], [ %.pre2883, %.lr.ph2313.preheader ]
   %1431 = add nsw i32 %.1720422309, -32768
   %1432 = add nsw i32 %.1720662308, -32768
   %1433 = and i32 %1432, 65535
@@ -4400,7 +4400,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %1465
 
 1465:                                             ; preds = %.lr.ph2306, %1465
-  %indvars.iv2697 = phi i64 [ 0, %.lr.ph2306 ], [ %indvars.iv.next2698, %1465 ]
+  %indvars.iv2695 = phi i64 [ 0, %.lr.ph2306 ], [ %indvars.iv.next2696, %1465 ]
   %.119462303 = phi ptr [ %1450, %.lr.ph2306 ], [ %1485, %1465 ]
   %1466 = load float, ptr %.119462303, align 4
   %1467 = fpext float %1466 to double
@@ -4420,29 +4420,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1481 = fmul double %1438, %1480
   %1482 = tail call double @llvm.fmuladd.f64(double %1478, double %1464, double %1481)
   %1483 = fptrunc double %1482 to float
-  %1484 = getelementptr inbounds float, ptr %.119422311, i64 %indvars.iv2697
+  %1484 = getelementptr inbounds float, ptr %.119422311, i64 %indvars.iv2695
   store float %1483, ptr %1484, align 4
   %1485 = getelementptr inbounds i8, ptr %.119462303, i64 4
-  %indvars.iv.next2698 = add nuw nsw i64 %indvars.iv2697, 1
-  %exitcond2701.not = icmp eq i64 %indvars.iv.next2698, %wide.trip.count2700
-  br i1 %exitcond2701.not, label %._crit_edge2307, label %1465, !llvm.loop !110
+  %indvars.iv.next2696 = add nuw nsw i64 %indvars.iv2695, 1
+  %exitcond2699.not = icmp eq i64 %indvars.iv.next2696, %wide.trip.count2698
+  br i1 %exitcond2699.not, label %._crit_edge2307, label %1465, !llvm.loop !110
 
 ._crit_edge2307:                                  ; preds = %1465, %.lr.ph2313
   %1486 = add nsw i32 %.1720662308, %32
   %1487 = add nsw i32 %.1720422309, %34
   %1488 = getelementptr inbounds float, ptr %.119422311, i64 %1330
   %1489 = add nuw nsw i32 %.1720242310, 1
-  %exitcond2702.not = icmp eq i32 %1489, %1426
-  br i1 %exitcond2702.not, label %.loopexit2224.loopexit, label %.lr.ph2313, !llvm.loop !111
+  %exitcond2700.not = icmp eq i32 %1489, %1426
+  br i1 %exitcond2700.not, label %.loopexit2224.loopexit, label %.lr.ph2313, !llvm.loop !111
 
 .loopexit2224.loopexit:                           ; preds = %._crit_edge2307
-  %.pre2893 = load i32, ptr %1422, align 4
-  %.pre2895 = load i32, ptr %1423, align 4
+  %.pre2882 = load i32, ptr %1422, align 4
+  %.pre2884 = load i32, ptr %1423, align 4
   br label %.loopexit2224
 
 .loopexit2224:                                    ; preds = %.loopexit2224.loopexit, %1425, %1411
-  %1490 = phi i32 [ %.pre2896, %1411 ], [ %.pre2896, %1425 ], [ %.pre2895, %.loopexit2224.loopexit ]
-  %1491 = phi i32 [ %.pre2894, %1411 ], [ %.pre2894, %1425 ], [ %.pre2893, %.loopexit2224.loopexit ]
+  %1490 = phi i32 [ %.pre2885, %1411 ], [ %.pre2885, %1425 ], [ %.pre2884, %.loopexit2224.loopexit ]
+  %1491 = phi i32 [ %.pre2883, %1411 ], [ %.pre2883, %1425 ], [ %.pre2882, %.loopexit2224.loopexit ]
   %.42005 = phi i32 [ %1413, %1411 ], [ %1421, %1425 ], [ %1421, %.loopexit2224.loopexit ]
   %1492 = sub i32 %1416, %.42005
   %1493 = icmp sgt i32 %1492, 0
@@ -4506,7 +4506,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %1536
 
 1536:                                             ; preds = %.lr.ph2317, %1536
-  %indvars.iv2703 = phi i64 [ 0, %.lr.ph2317 ], [ %indvars.iv.next2704, %1536 ]
+  %indvars.iv2701 = phi i64 [ 0, %.lr.ph2317 ], [ %indvars.iv.next2702, %1536 ]
   %.219472314 = phi ptr [ %1521, %.lr.ph2317 ], [ %1556, %1536 ]
   %1537 = load float, ptr %.219472314, align 4
   %1538 = fpext float %1537 to double
@@ -4526,44 +4526,44 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1552 = fmul double %1509, %1551
   %1553 = tail call double @llvm.fmuladd.f64(double %1549, double %1535, double %1552)
   %1554 = fptrunc double %1553 to float
-  %1555 = getelementptr inbounds float, ptr %.219432322, i64 %indvars.iv2703
+  %1555 = getelementptr inbounds float, ptr %.219432322, i64 %indvars.iv2701
   store float %1554, ptr %1555, align 4
   %1556 = getelementptr inbounds i8, ptr %.219472314, i64 4
-  %indvars.iv.next2704 = add nuw nsw i64 %indvars.iv2703, 1
-  %exitcond2707.not = icmp eq i64 %indvars.iv.next2704, %wide.trip.count2706
-  br i1 %exitcond2707.not, label %._crit_edge2318, label %1536, !llvm.loop !112
+  %indvars.iv.next2702 = add nuw nsw i64 %indvars.iv2701, 1
+  %exitcond2705.not = icmp eq i64 %indvars.iv.next2702, %wide.trip.count2704
+  br i1 %exitcond2705.not, label %._crit_edge2318, label %1536, !llvm.loop !112
 
 ._crit_edge2318:                                  ; preds = %1536, %.lr.ph2324
   %1557 = add nsw i32 %.1820672319, %32
   %1558 = add nsw i32 %.1820432320, %34
   %1559 = getelementptr inbounds float, ptr %.219432322, i64 %1330
   %1560 = add nuw nsw i32 %.182321, 1
-  %exitcond2708.not = icmp eq i32 %1560, %1492
-  br i1 %exitcond2708.not, label %._crit_edge2325, label %.lr.ph2324, !llvm.loop !113
+  %exitcond2706.not = icmp eq i32 %1560, %1492
+  br i1 %exitcond2706.not, label %._crit_edge2325, label %.lr.ph2324, !llvm.loop !113
 
 ._crit_edge2325:                                  ; preds = %._crit_edge2318, %.loopexit2224
-  %indvars.iv.next2710 = add nsw i64 %indvars.iv2709, 1
-  %lftr.wideiv2712 = trunc i64 %indvars.iv.next2710 to i32
-  %exitcond2713.not = icmp eq i32 %1332, %lftr.wideiv2712
-  br i1 %exitcond2713.not, label %.preheader2222, label %1411, !llvm.loop !114
+  %indvars.iv.next2708 = add nsw i64 %indvars.iv2707, 1
+  %lftr.wideiv2710 = trunc i64 %indvars.iv.next2708 to i32
+  %exitcond2711.not = icmp eq i32 %1332, %lftr.wideiv2710
+  br i1 %exitcond2711.not, label %.preheader2222, label %1411, !llvm.loop !114
 
 1561:                                             ; preds = %.lr.ph2347, %._crit_edge2343
-  %indvars.iv2721 = phi i64 [ %1409, %.lr.ph2347 ], [ %indvars.iv.next2722, %._crit_edge2343 ]
+  %indvars.iv2718 = phi i64 [ %1409, %.lr.ph2347 ], [ %indvars.iv.next2719, %._crit_edge2343 ]
   %.142346 = phi ptr [ %.13.lcssa, %.lr.ph2347 ], [ %1566, %._crit_edge2343 ]
-  %1562 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2721
+  %1562 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2718
   %1563 = load i32, ptr %1562, align 4
-  %1564 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2721
+  %1564 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2718
   %1565 = load i32, ptr %1564, align 4
   %1566 = getelementptr inbounds i8, ptr %.142346, i64 %1406
   %reass.sub2601 = sub i32 %1565, %1563
   %1567 = icmp ugt i32 %reass.sub2601, 2147483646
-  %brmerge2956 = select i1 %1567, i1 true, i1 %1407
-  br i1 %brmerge2956, label %._crit_edge2343, label %.lr.ph2335.us.preheader
+  %brmerge2945 = select i1 %1567, i1 true, i1 %1407
+  br i1 %brmerge2945, label %._crit_edge2343, label %.lr.ph2335.us.preheader
 
 .lr.ph2335.us.preheader:                          ; preds = %1561
-  %1568 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2721
+  %1568 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2718
   %1569 = load i32, ptr %1568, align 4
-  %1570 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2721
+  %1570 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2718
   %1571 = load i32, ptr %1570, align 4
   %1572 = mul nsw i32 %1563, %.val2191
   %1573 = sext i32 %1572 to i64
@@ -4614,7 +4614,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br label %1609
 
 1609:                                             ; preds = %.lr.ph2335.us, %1609
-  %indvars.iv2714 = phi i64 [ 0, %.lr.ph2335.us ], [ %indvars.iv.next2715, %1609 ]
+  %indvars.iv2712 = phi i64 [ 0, %.lr.ph2335.us ], [ %indvars.iv.next2713, %1609 ]
   %.319482332.us = phi ptr [ %1602, %.lr.ph2335.us ], [ %1629, %1609 ]
   %1610 = load float, ptr %.319482332.us, align 4
   %1611 = fpext float %1610 to double
@@ -4634,26 +4634,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1625 = fmul double %1584, %1624
   %1626 = tail call double @llvm.fmuladd.f64(double %1622, double %1608, double %1625)
   %1627 = fptrunc double %1626 to float
-  %1628 = getelementptr inbounds float, ptr %.319442340.us, i64 %indvars.iv2714
+  %1628 = getelementptr inbounds float, ptr %.319442340.us, i64 %indvars.iv2712
   store float %1627, ptr %1628, align 4
   %1629 = getelementptr inbounds i8, ptr %.319482332.us, i64 4
-  %indvars.iv.next2715 = add nuw nsw i64 %indvars.iv2714, 1
-  %exitcond2718.not = icmp eq i64 %indvars.iv.next2715, %wide.trip.count2717
-  br i1 %exitcond2718.not, label %._crit_edge2336.us, label %1609, !llvm.loop !115
+  %indvars.iv.next2713 = add nuw nsw i64 %indvars.iv2712, 1
+  %exitcond2716.not = icmp eq i64 %indvars.iv.next2713, %wide.trip.count2715
+  br i1 %exitcond2716.not, label %._crit_edge2336.us, label %1609, !llvm.loop !115
 
 ._crit_edge2336.us:                               ; preds = %1609
   %1630 = add nsw i32 %.1920682337.us, %32
   %1631 = add nsw i32 %.1920442338.us, %34
   %1632 = getelementptr inbounds float, ptr %.319442340.us, i64 %1408
   %1633 = add nuw nsw i32 %.192339.us, 1
-  %exitcond2720.not = icmp eq i32 %.192339.us, %reass.sub2601
-  br i1 %exitcond2720.not, label %._crit_edge2343, label %.lr.ph2335.us, !llvm.loop !116
+  %exitcond2717.not = icmp eq i32 %.192339.us, %reass.sub2601
+  br i1 %exitcond2717.not, label %._crit_edge2343, label %.lr.ph2335.us, !llvm.loop !116
 
 ._crit_edge2343:                                  ; preds = %._crit_edge2336.us, %1561
-  %indvars.iv.next2722 = add nsw i64 %indvars.iv2721, 1
-  %lftr.wideiv2724 = trunc i64 %indvars.iv.next2722 to i32
-  %exitcond2725.not = icmp eq i32 %1410, %lftr.wideiv2724
-  br i1 %exitcond2725.not, label %.loopexit, label %1561, !llvm.loop !117
+  %indvars.iv.next2719 = add nsw i64 %indvars.iv2718, 1
+  %lftr.wideiv2721 = trunc i64 %indvars.iv.next2719 to i32
+  %exitcond2722.not = icmp eq i32 %1410, %lftr.wideiv2721
+  br i1 %exitcond2722.not, label %.loopexit, label %1561, !llvm.loop !117
 
 1634:                                             ; preds = %2
   %1635 = ashr i32 %.val2192, 3
@@ -4695,8 +4695,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1651 = getelementptr inbounds i8, ptr %.152240, i64 %1637
   %reass.sub = sub i32 %1650, %1648
   %1652 = icmp ugt i32 %reass.sub, 2147483646
-  %brmerge2959 = select i1 %1652, i1 true, i1 %1638
-  br i1 %brmerge2959, label %._crit_edge2238, label %.lr.ph.us.preheader
+  %brmerge2948 = select i1 %1652, i1 true, i1 %1638
+  br i1 %brmerge2948, label %._crit_edge2238, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %1646
   %1653 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2652
@@ -4819,8 +4819,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1731 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2669
   %1732 = getelementptr inbounds i8, ptr %.162265, i64 %1641
   %.not2129 = icmp sgt i32 %1726, %1728
-  %.pre2890 = load i32, ptr %1730, align 4
-  %.pre2892 = load i32, ptr %1731, align 4
+  %.pre2879 = load i32, ptr %1730, align 4
+  %.pre2881 = load i32, ptr %1731, align 4
   br i1 %.not2129, label %.loopexit2228, label %1733
 
 1733:                                             ; preds = %1719
@@ -4837,8 +4837,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 .lr.ph2250:                                       ; preds = %.lr.ph2250.preheader, %._crit_edge
   %.119302248 = phi ptr [ %1791, %._crit_edge ], [ %1738, %.lr.ph2250.preheader ]
   %.212247 = phi i32 [ %1792, %._crit_edge ], [ 0, %.lr.ph2250.preheader ]
-  %.2120462246 = phi i32 [ %1790, %._crit_edge ], [ %.pre2892, %.lr.ph2250.preheader ]
-  %.2120702245 = phi i32 [ %1789, %._crit_edge ], [ %.pre2890, %.lr.ph2250.preheader ]
+  %.2120462246 = phi i32 [ %1790, %._crit_edge ], [ %.pre2881, %.lr.ph2250.preheader ]
+  %.2120702245 = phi i32 [ %1789, %._crit_edge ], [ %.pre2879, %.lr.ph2250.preheader ]
   %1739 = add nsw i32 %.2120462246, -32768
   %1740 = add nsw i32 %.2120702245, -32768
   %1741 = and i32 %1740, 65535
@@ -4913,12 +4913,12 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 
 .loopexit2228.loopexit:                           ; preds = %._crit_edge
   %.pre = load i32, ptr %1730, align 4
-  %.pre2891 = load i32, ptr %1731, align 4
+  %.pre2880 = load i32, ptr %1731, align 4
   br label %.loopexit2228
 
 .loopexit2228:                                    ; preds = %.loopexit2228.loopexit, %1733, %1719
-  %1793 = phi i32 [ %.pre2892, %1719 ], [ %.pre2892, %1733 ], [ %.pre2891, %.loopexit2228.loopexit ]
-  %1794 = phi i32 [ %.pre2890, %1719 ], [ %.pre2890, %1733 ], [ %.pre, %.loopexit2228.loopexit ]
+  %1793 = phi i32 [ %.pre2881, %1719 ], [ %.pre2881, %1733 ], [ %.pre2880, %.loopexit2228.loopexit ]
+  %1794 = phi i32 [ %.pre2879, %1719 ], [ %.pre2879, %1733 ], [ %.pre, %.loopexit2228.loopexit ]
   %.52006 = phi i32 [ %1721, %1719 ], [ %1729, %1733 ], [ %1729, %.loopexit2228.loopexit ]
   %1795 = sub i32 %1724, %.52006
   %1796 = icmp sgt i32 %1795, 0
@@ -5019,22 +5019,22 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   br i1 %exitcond2672.not, label %.preheader2226, label %1719, !llvm.loop !125
 
 1859:                                             ; preds = %.lr.ph2284, %._crit_edge2280
-  %indvars.iv2680 = phi i64 [ %1717, %.lr.ph2284 ], [ %indvars.iv.next2681, %._crit_edge2280 ]
+  %indvars.iv2679 = phi i64 [ %1717, %.lr.ph2284 ], [ %indvars.iv.next2680, %._crit_edge2280 ]
   %.172283 = phi ptr [ %.16.lcssa, %.lr.ph2284 ], [ %1864, %._crit_edge2280 ]
-  %1860 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2680
+  %1860 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv2679
   %1861 = load i32, ptr %1860, align 4
-  %1862 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2680
+  %1862 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv2679
   %1863 = load i32, ptr %1862, align 4
   %1864 = getelementptr inbounds i8, ptr %.172283, i64 %1714
   %reass.sub2599 = sub i32 %1863, %1861
   %1865 = icmp ugt i32 %reass.sub2599, 2147483646
-  %brmerge2962 = select i1 %1865, i1 true, i1 %1715
-  br i1 %brmerge2962, label %._crit_edge2280, label %.lr.ph2272.us.preheader
+  %brmerge2951 = select i1 %1865, i1 true, i1 %1715
+  br i1 %brmerge2951, label %._crit_edge2280, label %.lr.ph2272.us.preheader
 
 .lr.ph2272.us.preheader:                          ; preds = %1859
-  %1866 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2680
+  %1866 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv2679
   %1867 = load i32, ptr %1866, align 4
-  %1868 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2680
+  %1868 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv2679
   %1869 = load i32, ptr %1868, align 4
   %1870 = mul nsw i32 %1861, %.val2191
   %1871 = sext i32 %1870 to i64
@@ -5112,14 +5112,14 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1924 = add nsw i32 %.2320482275.us, %34
   %1925 = getelementptr inbounds double, ptr %.319322277.us, i64 %1716
   %1926 = add nuw nsw i32 %.232276.us, 1
-  %exitcond2679.not = icmp eq i32 %.232276.us, %reass.sub2599
-  br i1 %exitcond2679.not, label %._crit_edge2280, label %.lr.ph2272.us, !llvm.loop !127
+  %exitcond2678.not = icmp eq i32 %.232276.us, %reass.sub2599
+  br i1 %exitcond2678.not, label %._crit_edge2280, label %.lr.ph2272.us, !llvm.loop !127
 
 ._crit_edge2280:                                  ; preds = %._crit_edge2273.us, %1859
-  %indvars.iv.next2681 = add nsw i64 %indvars.iv2680, 1
-  %lftr.wideiv2683 = trunc i64 %indvars.iv.next2681 to i32
-  %exitcond2684.not = icmp eq i32 %1718, %lftr.wideiv2683
-  br i1 %exitcond2684.not, label %.loopexit, label %1859, !llvm.loop !128
+  %indvars.iv.next2680 = add nsw i64 %indvars.iv2679, 1
+  %lftr.wideiv2682 = trunc i64 %indvars.iv.next2680 to i32
+  %exitcond2683.not = icmp eq i32 %1718, %lftr.wideiv2682
+  br i1 %exitcond2683.not, label %.loopexit, label %1859, !llvm.loop !128
 
 .loopexit:                                        ; preds = %._crit_edge2280, %._crit_edge2343, %._crit_edge2406, %._crit_edge2469, %._crit_edge2532, %._crit_edge2594, %.preheader2226, %.preheader2222, %.preheader2218, %.preheader2214, %.preheader2210, %.preheader, %2
   ret i32 0
@@ -5200,8 +5200,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %50 = icmp sgt i32 %.val6756, 0
   %51 = sext i32 %.val6756 to i64
   %52 = sext i32 %20 to i64
-  %wide.trip.count7806 = sext i32 %16 to i64
-  %wide.trip.count7799 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7790 = sext i32 %16 to i64
+  %wide.trip.count7784 = zext nneg i32 %.val6756 to i64
   br label %60
 
 .preheader6818:                                   ; preds = %._crit_edge7363, %.thread
@@ -5218,16 +5218,16 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %57 = sext i32 %.val6756 to i64
   %58 = sext i32 %.06415.lcssa to i64
   %59 = add i32 %18, 1
-  %wide.trip.count7811 = zext nneg i32 %.val6756 to i64
-  %wide.trip.count7817 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7795 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7801 = zext nneg i32 %.val6756 to i64
   br label %278
 
 60:                                               ; preds = %.lr.ph7366, %._crit_edge7363
-  %indvars.iv7803 = phi i64 [ %52, %.lr.ph7366 ], [ %indvars.iv.next7804, %._crit_edge7363 ]
+  %indvars.iv7787 = phi i64 [ %52, %.lr.ph7366 ], [ %indvars.iv.next7788, %._crit_edge7363 ]
   %.062677365 = phi ptr [ %24, %.lr.ph7366 ], [ %65, %._crit_edge7363 ]
-  %61 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7803
+  %61 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7787
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7803
+  %63 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7787
   %64 = load i32, ptr %63, align 4
   %65 = getelementptr inbounds i8, ptr %.062677365, i64 %47
   %reass.sub7429 = sub i32 %64, %62
@@ -5238,9 +5238,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %67 = mul nsw i32 %62, %.val6756
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %65, i64 %68
-  %70 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7803
+  %70 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7787
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7803
+  %72 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7787
   %73 = load i32, ptr %72, align 4
   br label %.lr.ph7362
 
@@ -5345,7 +5345,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %160
 
 160:                                              ; preds = %.lr.ph7355, %160
-  %indvars.iv7796 = phi i64 [ 0, %.lr.ph7355 ], [ %indvars.iv.next7797, %160 ]
+  %indvars.iv7781 = phi i64 [ 0, %.lr.ph7355 ], [ %indvars.iv.next7782, %160 ]
   %.062597352 = phi ptr [ %117, %.lr.ph7355 ], [ %266, %160 ]
   %161 = getelementptr inbounds i8, ptr %.062597352, i64 %137
   %162 = load i8, ptr %161, align 1
@@ -5455,25 +5455,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %262 = lshr i32 %261, 24
   %263 = trunc nuw i32 %262 to i8
   %264 = xor i8 %263, -128
-  %265 = getelementptr inbounds i8, ptr %.062557360, i64 %indvars.iv7796
+  %265 = getelementptr inbounds i8, ptr %.062557360, i64 %indvars.iv7781
   store i8 %264, ptr %265, align 1
   %266 = getelementptr inbounds i8, ptr %.062597352, i64 1
-  %indvars.iv.next7797 = add nuw nsw i64 %indvars.iv7796, 1
-  %exitcond7800.not = icmp eq i64 %indvars.iv.next7797, %wide.trip.count7799
-  br i1 %exitcond7800.not, label %._crit_edge7356, label %160, !llvm.loop !129
+  %indvars.iv.next7782 = add nuw nsw i64 %indvars.iv7781, 1
+  %exitcond7785.not = icmp eq i64 %indvars.iv.next7782, %wide.trip.count7784
+  br i1 %exitcond7785.not, label %._crit_edge7356, label %160, !llvm.loop !129
 
 ._crit_edge7356:                                  ; preds = %160, %.lr.ph7362
   %267 = add nsw i32 %.063797357, %32
   %268 = add nsw i32 %.063437358, %34
   %269 = getelementptr inbounds i8, ptr %.062557360, i64 %51
   %270 = add nuw nsw i32 %.063077359, 1
-  %exitcond7802.not = icmp eq i32 %.063077359, %reass.sub7429
-  br i1 %exitcond7802.not, label %._crit_edge7363, label %.lr.ph7362, !llvm.loop !130
+  %exitcond7786.not = icmp eq i32 %.063077359, %reass.sub7429
+  br i1 %exitcond7786.not, label %._crit_edge7363, label %.lr.ph7362, !llvm.loop !130
 
 ._crit_edge7363:                                  ; preds = %._crit_edge7356, %60
-  %indvars.iv.next7804 = add nsw i64 %indvars.iv7803, 1
-  %exitcond7807.not = icmp eq i64 %indvars.iv.next7804, %wide.trip.count7806
-  br i1 %exitcond7807.not, label %.preheader6818, label %60, !llvm.loop !131
+  %indvars.iv.next7788 = add nsw i64 %indvars.iv7787, 1
+  %exitcond7791.not = icmp eq i64 %indvars.iv.next7788, %wide.trip.count7790
+  br i1 %exitcond7791.not, label %.preheader6818, label %60, !llvm.loop !131
 
 .preheader:                                       ; preds = %._crit_edge7391, %.preheader6818
   %.16416.lcssa = phi i32 [ %.06415.lcssa, %.preheader6818 ], [ %59, %._crit_edge7391 ]
@@ -5489,28 +5489,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %275 = sext i32 %.val6756 to i64
   %276 = sext i32 %.16416.lcssa to i64
   %277 = add i32 %22, 1
-  %wide.trip.count7828 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7812 = zext nneg i32 %.val6756 to i64
   br label %704
 
 278:                                              ; preds = %.lr.ph7395, %._crit_edge7391
-  %indvars.iv7820 = phi i64 [ %58, %.lr.ph7395 ], [ %indvars.iv.next7821, %._crit_edge7391 ]
+  %indvars.iv7804 = phi i64 [ %58, %.lr.ph7395 ], [ %indvars.iv.next7805, %._crit_edge7391 ]
   %.162687394 = phi ptr [ %.06267.lcssa, %.lr.ph7395 ], [ %291, %._crit_edge7391 ]
-  %279 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7820
+  %279 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7804
   %280 = load i32, ptr %279, align 4
-  %281 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7820
+  %281 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7804
   %282 = load i32, ptr %281, align 4
   %283 = add nsw i32 %282, 1
-  %284 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7820
+  %284 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7804
   %285 = load i32, ptr %284, align 4
-  %286 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7820
+  %286 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7804
   %287 = load i32, ptr %286, align 4
   %288 = add nsw i32 %287, 1
-  %289 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7820
-  %290 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7820
+  %289 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7804
+  %290 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7804
   %291 = getelementptr inbounds i8, ptr %.162687394, i64 %53
   %.not6737 = icmp sgt i32 %285, %287
-  %.pre7869 = load i32, ptr %289, align 4
-  %.pre7871 = load i32, ptr %290, align 4
+  %.pre7852 = load i32, ptr %289, align 4
+  %.pre7854 = load i32, ptr %290, align 4
   br i1 %.not6737, label %.loopexit6817, label %292
 
 292:                                              ; preds = %278
@@ -5527,8 +5527,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 .lr.ph7379:                                       ; preds = %.lr.ph7379.preheader, %._crit_edge7373
   %.162567377 = phi ptr [ %493, %._crit_edge7373 ], [ %297, %.lr.ph7379.preheader ]
   %.163087376 = phi i32 [ %494, %._crit_edge7373 ], [ 0, %.lr.ph7379.preheader ]
-  %.163447375 = phi i32 [ %492, %._crit_edge7373 ], [ %.pre7871, %.lr.ph7379.preheader ]
-  %.163807374 = phi i32 [ %491, %._crit_edge7373 ], [ %.pre7869, %.lr.ph7379.preheader ]
+  %.163447375 = phi i32 [ %492, %._crit_edge7373 ], [ %.pre7854, %.lr.ph7379.preheader ]
+  %.163807374 = phi i32 [ %491, %._crit_edge7373 ], [ %.pre7852, %.lr.ph7379.preheader ]
   %298 = add nsw i32 %.163807374, -32768
   %299 = lshr i32 %298, 4
   %300 = and i32 %299, 4080
@@ -5625,7 +5625,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %384
 
 384:                                              ; preds = %.lr.ph7372, %384
-  %indvars.iv7808 = phi i64 [ 0, %.lr.ph7372 ], [ %indvars.iv.next7809, %384 ]
+  %indvars.iv7792 = phi i64 [ 0, %.lr.ph7372 ], [ %indvars.iv.next7793, %384 ]
   %.162607369 = phi ptr [ %341, %.lr.ph7372 ], [ %490, %384 ]
   %385 = getelementptr inbounds i8, ptr %.162607369, i64 %361
   %386 = load i8, ptr %385, align 1
@@ -5735,29 +5735,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %486 = lshr i32 %485, 24
   %487 = trunc nuw i32 %486 to i8
   %488 = xor i8 %487, -128
-  %489 = getelementptr inbounds i8, ptr %.162567377, i64 %indvars.iv7808
+  %489 = getelementptr inbounds i8, ptr %.162567377, i64 %indvars.iv7792
   store i8 %488, ptr %489, align 1
   %490 = getelementptr inbounds i8, ptr %.162607369, i64 1
-  %indvars.iv.next7809 = add nuw nsw i64 %indvars.iv7808, 1
-  %exitcond7812.not = icmp eq i64 %indvars.iv.next7809, %wide.trip.count7811
-  br i1 %exitcond7812.not, label %._crit_edge7373, label %384, !llvm.loop !132
+  %indvars.iv.next7793 = add nuw nsw i64 %indvars.iv7792, 1
+  %exitcond7796.not = icmp eq i64 %indvars.iv.next7793, %wide.trip.count7795
+  br i1 %exitcond7796.not, label %._crit_edge7373, label %384, !llvm.loop !132
 
 ._crit_edge7373:                                  ; preds = %384, %.lr.ph7379
   %491 = add nsw i32 %.163807374, %32
   %492 = add nsw i32 %.163447375, %34
   %493 = getelementptr inbounds i8, ptr %.162567377, i64 %57
   %494 = add nuw nsw i32 %.163087376, 1
-  %exitcond7813.not = icmp eq i32 %494, %293
-  br i1 %exitcond7813.not, label %.loopexit6817.loopexit, label %.lr.ph7379, !llvm.loop !133
+  %exitcond7797.not = icmp eq i32 %494, %293
+  br i1 %exitcond7797.not, label %.loopexit6817.loopexit, label %.lr.ph7379, !llvm.loop !133
 
 .loopexit6817.loopexit:                           ; preds = %._crit_edge7373
-  %.pre7868 = load i32, ptr %289, align 4
-  %.pre7870 = load i32, ptr %290, align 4
+  %.pre7851 = load i32, ptr %289, align 4
+  %.pre7853 = load i32, ptr %290, align 4
   br label %.loopexit6817
 
 .loopexit6817:                                    ; preds = %.loopexit6817.loopexit, %292, %278
-  %495 = phi i32 [ %.pre7871, %278 ], [ %.pre7871, %292 ], [ %.pre7870, %.loopexit6817.loopexit ]
-  %496 = phi i32 [ %.pre7869, %278 ], [ %.pre7869, %292 ], [ %.pre7868, %.loopexit6817.loopexit ]
+  %495 = phi i32 [ %.pre7854, %278 ], [ %.pre7854, %292 ], [ %.pre7853, %.loopexit6817.loopexit ]
+  %496 = phi i32 [ %.pre7852, %278 ], [ %.pre7852, %292 ], [ %.pre7851, %.loopexit6817.loopexit ]
   %.06298 = phi i32 [ %280, %278 ], [ %288, %292 ], [ %288, %.loopexit6817.loopexit ]
   %497 = sub i32 %283, %.06298
   %498 = icmp sgt i32 %497, 0
@@ -5875,7 +5875,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %593
 
 593:                                              ; preds = %.lr.ph7383, %593
-  %indvars.iv7814 = phi i64 [ 0, %.lr.ph7383 ], [ %indvars.iv.next7815, %593 ]
+  %indvars.iv7798 = phi i64 [ 0, %.lr.ph7383 ], [ %indvars.iv.next7799, %593 ]
   %.262617380 = phi ptr [ %550, %.lr.ph7383 ], [ %699, %593 ]
   %594 = getelementptr inbounds i8, ptr %.262617380, i64 %570
   %595 = load i8, ptr %594, align 1
@@ -5985,33 +5985,33 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %695 = lshr i32 %694, 24
   %696 = trunc nuw i32 %695 to i8
   %697 = xor i8 %696, -128
-  %698 = getelementptr inbounds i8, ptr %.262577388, i64 %indvars.iv7814
+  %698 = getelementptr inbounds i8, ptr %.262577388, i64 %indvars.iv7798
   store i8 %697, ptr %698, align 1
   %699 = getelementptr inbounds i8, ptr %.262617380, i64 1
-  %indvars.iv.next7815 = add nuw nsw i64 %indvars.iv7814, 1
-  %exitcond7818.not = icmp eq i64 %indvars.iv.next7815, %wide.trip.count7817
-  br i1 %exitcond7818.not, label %._crit_edge7384, label %593, !llvm.loop !134
+  %indvars.iv.next7799 = add nuw nsw i64 %indvars.iv7798, 1
+  %exitcond7802.not = icmp eq i64 %indvars.iv.next7799, %wide.trip.count7801
+  br i1 %exitcond7802.not, label %._crit_edge7384, label %593, !llvm.loop !134
 
 ._crit_edge7384:                                  ; preds = %593, %.lr.ph7390
   %700 = add nsw i32 %.263817385, %32
   %701 = add nsw i32 %.263457386, %34
   %702 = getelementptr inbounds i8, ptr %.262577388, i64 %57
   %703 = add nuw nsw i32 %.263097387, 1
-  %exitcond7819.not = icmp eq i32 %703, %497
-  br i1 %exitcond7819.not, label %._crit_edge7391, label %.lr.ph7390, !llvm.loop !135
+  %exitcond7803.not = icmp eq i32 %703, %497
+  br i1 %exitcond7803.not, label %._crit_edge7391, label %.lr.ph7390, !llvm.loop !135
 
 ._crit_edge7391:                                  ; preds = %._crit_edge7384, %.loopexit6817
-  %indvars.iv.next7821 = add nsw i64 %indvars.iv7820, 1
-  %lftr.wideiv7823 = trunc i64 %indvars.iv.next7821 to i32
-  %exitcond7824.not = icmp eq i32 %59, %lftr.wideiv7823
-  br i1 %exitcond7824.not, label %.preheader, label %278, !llvm.loop !136
+  %indvars.iv.next7805 = add nsw i64 %indvars.iv7804, 1
+  %lftr.wideiv7807 = trunc i64 %indvars.iv.next7805 to i32
+  %exitcond7808.not = icmp eq i32 %59, %lftr.wideiv7807
+  br i1 %exitcond7808.not, label %.preheader, label %278, !llvm.loop !136
 
 704:                                              ; preds = %.lr.ph7413, %._crit_edge7409
-  %indvars.iv7832 = phi i64 [ %276, %.lr.ph7413 ], [ %indvars.iv.next7833, %._crit_edge7409 ]
+  %indvars.iv7815 = phi i64 [ %276, %.lr.ph7413 ], [ %indvars.iv.next7816, %._crit_edge7409 ]
   %.262697412 = phi ptr [ %.16268.lcssa, %.lr.ph7413 ], [ %709, %._crit_edge7409 ]
-  %705 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7832
+  %705 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7815
   %706 = load i32, ptr %705, align 4
-  %707 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7832
+  %707 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7815
   %708 = load i32, ptr %707, align 4
   %709 = getelementptr inbounds i8, ptr %.262697412, i64 %271
   %reass.sub7430 = sub i32 %708, %706
@@ -6022,9 +6022,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %711 = mul nsw i32 %706, %.val6756
   %712 = sext i32 %711 to i64
   %713 = getelementptr inbounds i8, ptr %709, i64 %712
-  %714 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7832
+  %714 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7815
   %715 = load i32, ptr %714, align 4
-  %716 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7832
+  %716 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7815
   %717 = load i32, ptr %716, align 4
   br label %.lr.ph7408
 
@@ -6129,7 +6129,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %804
 
 804:                                              ; preds = %.lr.ph7401, %804
-  %indvars.iv7825 = phi i64 [ 0, %.lr.ph7401 ], [ %indvars.iv.next7826, %804 ]
+  %indvars.iv7809 = phi i64 [ 0, %.lr.ph7401 ], [ %indvars.iv.next7810, %804 ]
   %.362627398 = phi ptr [ %761, %.lr.ph7401 ], [ %910, %804 ]
   %805 = getelementptr inbounds i8, ptr %.362627398, i64 %781
   %806 = load i8, ptr %805, align 1
@@ -6239,26 +6239,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %906 = lshr i32 %905, 24
   %907 = trunc nuw i32 %906 to i8
   %908 = xor i8 %907, -128
-  %909 = getelementptr inbounds i8, ptr %.362587406, i64 %indvars.iv7825
+  %909 = getelementptr inbounds i8, ptr %.362587406, i64 %indvars.iv7809
   store i8 %908, ptr %909, align 1
   %910 = getelementptr inbounds i8, ptr %.362627398, i64 1
-  %indvars.iv.next7826 = add nuw nsw i64 %indvars.iv7825, 1
-  %exitcond7829.not = icmp eq i64 %indvars.iv.next7826, %wide.trip.count7828
-  br i1 %exitcond7829.not, label %._crit_edge7402, label %804, !llvm.loop !137
+  %indvars.iv.next7810 = add nuw nsw i64 %indvars.iv7809, 1
+  %exitcond7813.not = icmp eq i64 %indvars.iv.next7810, %wide.trip.count7812
+  br i1 %exitcond7813.not, label %._crit_edge7402, label %804, !llvm.loop !137
 
 ._crit_edge7402:                                  ; preds = %804, %.lr.ph7408
   %911 = add nsw i32 %.363827403, %32
   %912 = add nsw i32 %.363467404, %34
   %913 = getelementptr inbounds i8, ptr %.362587406, i64 %275
   %914 = add nuw nsw i32 %.363107405, 1
-  %exitcond7831.not = icmp eq i32 %.363107405, %reass.sub7430
-  br i1 %exitcond7831.not, label %._crit_edge7409, label %.lr.ph7408, !llvm.loop !138
+  %exitcond7814.not = icmp eq i32 %.363107405, %reass.sub7430
+  br i1 %exitcond7814.not, label %._crit_edge7409, label %.lr.ph7408, !llvm.loop !138
 
 ._crit_edge7409:                                  ; preds = %._crit_edge7402, %704
-  %indvars.iv.next7833 = add nsw i64 %indvars.iv7832, 1
-  %lftr.wideiv7835 = trunc i64 %indvars.iv.next7833 to i32
-  %exitcond7836.not = icmp eq i32 %277, %lftr.wideiv7835
-  br i1 %exitcond7836.not, label %.loopexit, label %704, !llvm.loop !139
+  %indvars.iv.next7816 = add nsw i64 %indvars.iv7815, 1
+  %lftr.wideiv7818 = trunc i64 %indvars.iv.next7816 to i32
+  %exitcond7819.not = icmp eq i32 %277, %lftr.wideiv7818
+  br i1 %exitcond7819.not, label %.loopexit, label %704, !llvm.loop !139
 
 915:                                              ; preds = %45
   %916 = ashr i32 %.val6757, 1
@@ -6272,8 +6272,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %921 = icmp sgt i32 %.val6756, 0
   %922 = sext i32 %.val6756 to i64
   %923 = sext i32 %20 to i64
-  %wide.trip.count7765 = sext i32 %16 to i64
-  %wide.trip.count7758 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7751 = sext i32 %16 to i64
+  %wide.trip.count7745 = zext nneg i32 %.val6756 to i64
   br label %931
 
 .preheader6823:                                   ; preds = %._crit_edge7300, %915
@@ -6290,16 +6290,16 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %928 = sext i32 %.val6756 to i64
   %929 = sext i32 %.36418.lcssa to i64
   %930 = add i32 %18, 1
-  %wide.trip.count7770 = zext nneg i32 %.val6756 to i64
-  %wide.trip.count7776 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7756 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7762 = zext nneg i32 %.val6756 to i64
   br label %1115
 
 931:                                              ; preds = %.lr.ph7304, %._crit_edge7300
-  %indvars.iv7762 = phi i64 [ %923, %.lr.ph7304 ], [ %indvars.iv.next7763, %._crit_edge7300 ]
+  %indvars.iv7748 = phi i64 [ %923, %.lr.ph7304 ], [ %indvars.iv.next7749, %._crit_edge7300 ]
   %.362707302 = phi ptr [ %24, %.lr.ph7304 ], [ %936, %._crit_edge7300 ]
-  %932 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7762
+  %932 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7748
   %933 = load i32, ptr %932, align 4
-  %934 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7762
+  %934 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7748
   %935 = load i32, ptr %934, align 4
   %936 = getelementptr inbounds i8, ptr %.362707302, i64 %918
   %reass.sub7427 = sub i32 %935, %933
@@ -6310,9 +6310,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %938 = mul nsw i32 %933, %.val6756
   %939 = sext i32 %938 to i64
   %940 = getelementptr inbounds i16, ptr %936, i64 %939
-  %941 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7762
+  %941 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7748
   %942 = load i32, ptr %941, align 4
-  %943 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7762
+  %943 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7748
   %944 = load i32, ptr %943, align 4
   br label %.lr.ph7299
 
@@ -6417,7 +6417,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %1031
 
 1031:                                             ; preds = %.lr.ph7292, %1031
-  %indvars.iv7755 = phi i64 [ 0, %.lr.ph7292 ], [ %indvars.iv.next7756, %1031 ]
+  %indvars.iv7742 = phi i64 [ 0, %.lr.ph7292 ], [ %indvars.iv.next7743, %1031 ]
   %.062477289 = phi ptr [ %988, %.lr.ph7292 ], [ %1103, %1031 ]
   %1032 = getelementptr inbounds i16, ptr %.062477289, i64 %1008
   %1033 = load i16, ptr %1032, align 2
@@ -6493,25 +6493,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1099 = fptosi double %.96280 to i32
   %1100 = lshr i32 %1099, 16
   %1101 = trunc nuw i32 %1100 to i16
-  %1102 = getelementptr inbounds i16, ptr %.062437297, i64 %indvars.iv7755
+  %1102 = getelementptr inbounds i16, ptr %.062437297, i64 %indvars.iv7742
   store i16 %1101, ptr %1102, align 2
   %1103 = getelementptr inbounds i8, ptr %.062477289, i64 2
-  %indvars.iv.next7756 = add nuw nsw i64 %indvars.iv7755, 1
-  %exitcond7759.not = icmp eq i64 %indvars.iv.next7756, %wide.trip.count7758
-  br i1 %exitcond7759.not, label %._crit_edge7293, label %1031, !llvm.loop !140
+  %indvars.iv.next7743 = add nuw nsw i64 %indvars.iv7742, 1
+  %exitcond7746.not = icmp eq i64 %indvars.iv.next7743, %wide.trip.count7745
+  br i1 %exitcond7746.not, label %._crit_edge7293, label %1031, !llvm.loop !140
 
 ._crit_edge7293:                                  ; preds = %1031, %.lr.ph7299
   %1104 = add nsw i32 %.463837294, %32
   %1105 = add nsw i32 %.463477295, %34
   %1106 = getelementptr inbounds i16, ptr %.062437297, i64 %922
   %1107 = add nuw nsw i32 %.463117296, 1
-  %exitcond7761.not = icmp eq i32 %.463117296, %reass.sub7427
-  br i1 %exitcond7761.not, label %._crit_edge7300, label %.lr.ph7299, !llvm.loop !141
+  %exitcond7747.not = icmp eq i32 %.463117296, %reass.sub7427
+  br i1 %exitcond7747.not, label %._crit_edge7300, label %.lr.ph7299, !llvm.loop !141
 
 ._crit_edge7300:                                  ; preds = %._crit_edge7293, %931
-  %indvars.iv.next7763 = add nsw i64 %indvars.iv7762, 1
-  %exitcond7766.not = icmp eq i64 %indvars.iv.next7763, %wide.trip.count7765
-  br i1 %exitcond7766.not, label %.preheader6823, label %931, !llvm.loop !142
+  %indvars.iv.next7749 = add nsw i64 %indvars.iv7748, 1
+  %exitcond7752.not = icmp eq i64 %indvars.iv.next7749, %wide.trip.count7751
+  br i1 %exitcond7752.not, label %.preheader6823, label %931, !llvm.loop !142
 
 .preheader6820:                                   ; preds = %._crit_edge7329, %.preheader6823
   %.46419.lcssa = phi i32 [ %.36418.lcssa, %.preheader6823 ], [ %930, %._crit_edge7329 ]
@@ -6527,28 +6527,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1112 = sext i32 %.val6756 to i64
   %1113 = sext i32 %.46419.lcssa to i64
   %1114 = add i32 %22, 1
-  %wide.trip.count7787 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7773 = zext nneg i32 %.val6756 to i64
   br label %1473
 
 1115:                                             ; preds = %.lr.ph7333, %._crit_edge7329
-  %indvars.iv7779 = phi i64 [ %929, %.lr.ph7333 ], [ %indvars.iv.next7780, %._crit_edge7329 ]
+  %indvars.iv7765 = phi i64 [ %929, %.lr.ph7333 ], [ %indvars.iv.next7766, %._crit_edge7329 ]
   %.47332 = phi ptr [ %.36270.lcssa, %.lr.ph7333 ], [ %1128, %._crit_edge7329 ]
-  %1116 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7779
+  %1116 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7765
   %1117 = load i32, ptr %1116, align 4
-  %1118 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7779
+  %1118 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7765
   %1119 = load i32, ptr %1118, align 4
   %1120 = add nsw i32 %1119, 1
-  %1121 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7779
+  %1121 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7765
   %1122 = load i32, ptr %1121, align 4
-  %1123 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7779
+  %1123 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7765
   %1124 = load i32, ptr %1123, align 4
   %1125 = add nsw i32 %1124, 1
-  %1126 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7779
-  %1127 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7779
+  %1126 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7765
+  %1127 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7765
   %1128 = getelementptr inbounds i8, ptr %.47332, i64 %924
   %.not6710 = icmp sgt i32 %1122, %1124
-  %.pre7865 = load i32, ptr %1126, align 4
-  %.pre7867 = load i32, ptr %1127, align 4
+  %.pre7848 = load i32, ptr %1126, align 4
+  %.pre7850 = load i32, ptr %1127, align 4
   br i1 %.not6710, label %.loopexit6822, label %1129
 
 1129:                                             ; preds = %1115
@@ -6565,8 +6565,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 .lr.ph7317:                                       ; preds = %.lr.ph7317.preheader, %._crit_edge7311
   %.162447315 = phi ptr [ %1296, %._crit_edge7311 ], [ %1134, %.lr.ph7317.preheader ]
   %.563127314 = phi i32 [ %1297, %._crit_edge7311 ], [ 0, %.lr.ph7317.preheader ]
-  %.563487313 = phi i32 [ %1295, %._crit_edge7311 ], [ %.pre7867, %.lr.ph7317.preheader ]
-  %.563847312 = phi i32 [ %1294, %._crit_edge7311 ], [ %.pre7865, %.lr.ph7317.preheader ]
+  %.563487313 = phi i32 [ %1295, %._crit_edge7311 ], [ %.pre7850, %.lr.ph7317.preheader ]
+  %.563847312 = phi i32 [ %1294, %._crit_edge7311 ], [ %.pre7848, %.lr.ph7317.preheader ]
   %1135 = add nsw i32 %.563847312, -32768
   %1136 = lshr i32 %1135, 3
   %1137 = and i32 %1136, 8176
@@ -6663,7 +6663,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %1221
 
 1221:                                             ; preds = %.lr.ph7310, %1221
-  %indvars.iv7767 = phi i64 [ 0, %.lr.ph7310 ], [ %indvars.iv.next7768, %1221 ]
+  %indvars.iv7753 = phi i64 [ 0, %.lr.ph7310 ], [ %indvars.iv.next7754, %1221 ]
   %.162487307 = phi ptr [ %1178, %.lr.ph7310 ], [ %1293, %1221 ]
   %1222 = getelementptr inbounds i16, ptr %.162487307, i64 %1198
   %1223 = load i16, ptr %1222, align 2
@@ -6739,29 +6739,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1289 = fptosi double %.116282 to i32
   %1290 = lshr i32 %1289, 16
   %1291 = trunc nuw i32 %1290 to i16
-  %1292 = getelementptr inbounds i16, ptr %.162447315, i64 %indvars.iv7767
+  %1292 = getelementptr inbounds i16, ptr %.162447315, i64 %indvars.iv7753
   store i16 %1291, ptr %1292, align 2
   %1293 = getelementptr inbounds i8, ptr %.162487307, i64 2
-  %indvars.iv.next7768 = add nuw nsw i64 %indvars.iv7767, 1
-  %exitcond7771.not = icmp eq i64 %indvars.iv.next7768, %wide.trip.count7770
-  br i1 %exitcond7771.not, label %._crit_edge7311, label %1221, !llvm.loop !143
+  %indvars.iv.next7754 = add nuw nsw i64 %indvars.iv7753, 1
+  %exitcond7757.not = icmp eq i64 %indvars.iv.next7754, %wide.trip.count7756
+  br i1 %exitcond7757.not, label %._crit_edge7311, label %1221, !llvm.loop !143
 
 ._crit_edge7311:                                  ; preds = %1221, %.lr.ph7317
   %1294 = add nsw i32 %.563847312, %32
   %1295 = add nsw i32 %.563487313, %34
   %1296 = getelementptr inbounds i16, ptr %.162447315, i64 %928
   %1297 = add nuw nsw i32 %.563127314, 1
-  %exitcond7772.not = icmp eq i32 %1297, %1130
-  br i1 %exitcond7772.not, label %.loopexit6822.loopexit, label %.lr.ph7317, !llvm.loop !144
+  %exitcond7758.not = icmp eq i32 %1297, %1130
+  br i1 %exitcond7758.not, label %.loopexit6822.loopexit, label %.lr.ph7317, !llvm.loop !144
 
 .loopexit6822.loopexit:                           ; preds = %._crit_edge7311
-  %.pre7864 = load i32, ptr %1126, align 4
-  %.pre7866 = load i32, ptr %1127, align 4
+  %.pre7847 = load i32, ptr %1126, align 4
+  %.pre7849 = load i32, ptr %1127, align 4
   br label %.loopexit6822
 
 .loopexit6822:                                    ; preds = %.loopexit6822.loopexit, %1129, %1115
-  %1298 = phi i32 [ %.pre7867, %1115 ], [ %.pre7867, %1129 ], [ %.pre7866, %.loopexit6822.loopexit ]
-  %1299 = phi i32 [ %.pre7865, %1115 ], [ %.pre7865, %1129 ], [ %.pre7864, %.loopexit6822.loopexit ]
+  %1298 = phi i32 [ %.pre7850, %1115 ], [ %.pre7850, %1129 ], [ %.pre7849, %.loopexit6822.loopexit ]
+  %1299 = phi i32 [ %.pre7848, %1115 ], [ %.pre7848, %1129 ], [ %.pre7847, %.loopexit6822.loopexit ]
   %.16299 = phi i32 [ %1117, %1115 ], [ %1125, %1129 ], [ %1125, %.loopexit6822.loopexit ]
   %1300 = sub i32 %1120, %.16299
   %1301 = icmp sgt i32 %1300, 0
@@ -6879,7 +6879,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %1396
 
 1396:                                             ; preds = %.lr.ph7321, %1396
-  %indvars.iv7773 = phi i64 [ 0, %.lr.ph7321 ], [ %indvars.iv.next7774, %1396 ]
+  %indvars.iv7759 = phi i64 [ 0, %.lr.ph7321 ], [ %indvars.iv.next7760, %1396 ]
   %.262497318 = phi ptr [ %1353, %.lr.ph7321 ], [ %1468, %1396 ]
   %1397 = getelementptr inbounds i16, ptr %.262497318, i64 %1373
   %1398 = load i16, ptr %1397, align 2
@@ -6955,33 +6955,33 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1464 = fptosi double %.136284 to i32
   %1465 = lshr i32 %1464, 16
   %1466 = trunc nuw i32 %1465 to i16
-  %1467 = getelementptr inbounds i16, ptr %.262457326, i64 %indvars.iv7773
+  %1467 = getelementptr inbounds i16, ptr %.262457326, i64 %indvars.iv7759
   store i16 %1466, ptr %1467, align 2
   %1468 = getelementptr inbounds i8, ptr %.262497318, i64 2
-  %indvars.iv.next7774 = add nuw nsw i64 %indvars.iv7773, 1
-  %exitcond7777.not = icmp eq i64 %indvars.iv.next7774, %wide.trip.count7776
-  br i1 %exitcond7777.not, label %._crit_edge7322, label %1396, !llvm.loop !145
+  %indvars.iv.next7760 = add nuw nsw i64 %indvars.iv7759, 1
+  %exitcond7763.not = icmp eq i64 %indvars.iv.next7760, %wide.trip.count7762
+  br i1 %exitcond7763.not, label %._crit_edge7322, label %1396, !llvm.loop !145
 
 ._crit_edge7322:                                  ; preds = %1396, %.lr.ph7328
   %1469 = add nsw i32 %.663857323, %32
   %1470 = add nsw i32 %.663497324, %34
   %1471 = getelementptr inbounds i16, ptr %.262457326, i64 %928
   %1472 = add nuw nsw i32 %.663137325, 1
-  %exitcond7778.not = icmp eq i32 %1472, %1300
-  br i1 %exitcond7778.not, label %._crit_edge7329, label %.lr.ph7328, !llvm.loop !146
+  %exitcond7764.not = icmp eq i32 %1472, %1300
+  br i1 %exitcond7764.not, label %._crit_edge7329, label %.lr.ph7328, !llvm.loop !146
 
 ._crit_edge7329:                                  ; preds = %._crit_edge7322, %.loopexit6822
-  %indvars.iv.next7780 = add nsw i64 %indvars.iv7779, 1
-  %lftr.wideiv7782 = trunc i64 %indvars.iv.next7780 to i32
-  %exitcond7783.not = icmp eq i32 %930, %lftr.wideiv7782
-  br i1 %exitcond7783.not, label %.preheader6820, label %1115, !llvm.loop !147
+  %indvars.iv.next7766 = add nsw i64 %indvars.iv7765, 1
+  %lftr.wideiv7768 = trunc i64 %indvars.iv.next7766 to i32
+  %exitcond7769.not = icmp eq i32 %930, %lftr.wideiv7768
+  br i1 %exitcond7769.not, label %.preheader6820, label %1115, !llvm.loop !147
 
 1473:                                             ; preds = %.lr.ph7351, %._crit_edge7347
-  %indvars.iv7791 = phi i64 [ %1113, %.lr.ph7351 ], [ %indvars.iv.next7792, %._crit_edge7347 ]
+  %indvars.iv7776 = phi i64 [ %1113, %.lr.ph7351 ], [ %indvars.iv.next7777, %._crit_edge7347 ]
   %.57350 = phi ptr [ %.4.lcssa, %.lr.ph7351 ], [ %1478, %._crit_edge7347 ]
-  %1474 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7791
+  %1474 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7776
   %1475 = load i32, ptr %1474, align 4
-  %1476 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7791
+  %1476 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7776
   %1477 = load i32, ptr %1476, align 4
   %1478 = getelementptr inbounds i8, ptr %.57350, i64 %1108
   %reass.sub7428 = sub i32 %1477, %1475
@@ -6992,9 +6992,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1480 = mul nsw i32 %1475, %.val6756
   %1481 = sext i32 %1480 to i64
   %1482 = getelementptr inbounds i16, ptr %1478, i64 %1481
-  %1483 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7791
+  %1483 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7776
   %1484 = load i32, ptr %1483, align 4
-  %1485 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7791
+  %1485 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7776
   %1486 = load i32, ptr %1485, align 4
   br label %.lr.ph7346
 
@@ -7099,7 +7099,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %1573
 
 1573:                                             ; preds = %.lr.ph7339, %1573
-  %indvars.iv7784 = phi i64 [ 0, %.lr.ph7339 ], [ %indvars.iv.next7785, %1573 ]
+  %indvars.iv7770 = phi i64 [ 0, %.lr.ph7339 ], [ %indvars.iv.next7771, %1573 ]
   %.362507336 = phi ptr [ %1530, %.lr.ph7339 ], [ %1645, %1573 ]
   %1574 = getelementptr inbounds i16, ptr %.362507336, i64 %1550
   %1575 = load i16, ptr %1574, align 2
@@ -7175,26 +7175,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1641 = fptosi double %.156286 to i32
   %1642 = lshr i32 %1641, 16
   %1643 = trunc nuw i32 %1642 to i16
-  %1644 = getelementptr inbounds i16, ptr %.362467344, i64 %indvars.iv7784
+  %1644 = getelementptr inbounds i16, ptr %.362467344, i64 %indvars.iv7770
   store i16 %1643, ptr %1644, align 2
   %1645 = getelementptr inbounds i8, ptr %.362507336, i64 2
-  %indvars.iv.next7785 = add nuw nsw i64 %indvars.iv7784, 1
-  %exitcond7788.not = icmp eq i64 %indvars.iv.next7785, %wide.trip.count7787
-  br i1 %exitcond7788.not, label %._crit_edge7340, label %1573, !llvm.loop !148
+  %indvars.iv.next7771 = add nuw nsw i64 %indvars.iv7770, 1
+  %exitcond7774.not = icmp eq i64 %indvars.iv.next7771, %wide.trip.count7773
+  br i1 %exitcond7774.not, label %._crit_edge7340, label %1573, !llvm.loop !148
 
 ._crit_edge7340:                                  ; preds = %1573, %.lr.ph7346
   %1646 = add nsw i32 %.763867341, %32
   %1647 = add nsw i32 %.763507342, %34
   %1648 = getelementptr inbounds i16, ptr %.362467344, i64 %1112
   %1649 = add nuw nsw i32 %.763147343, 1
-  %exitcond7790.not = icmp eq i32 %.763147343, %reass.sub7428
-  br i1 %exitcond7790.not, label %._crit_edge7347, label %.lr.ph7346, !llvm.loop !149
+  %exitcond7775.not = icmp eq i32 %.763147343, %reass.sub7428
+  br i1 %exitcond7775.not, label %._crit_edge7347, label %.lr.ph7346, !llvm.loop !149
 
 ._crit_edge7347:                                  ; preds = %._crit_edge7340, %1473
-  %indvars.iv.next7792 = add nsw i64 %indvars.iv7791, 1
-  %lftr.wideiv7794 = trunc i64 %indvars.iv.next7792 to i32
-  %exitcond7795.not = icmp eq i32 %1114, %lftr.wideiv7794
-  br i1 %exitcond7795.not, label %.loopexit, label %1473, !llvm.loop !150
+  %indvars.iv.next7777 = add nsw i64 %indvars.iv7776, 1
+  %lftr.wideiv7779 = trunc i64 %indvars.iv.next7777 to i32
+  %exitcond7780.not = icmp eq i32 %1114, %lftr.wideiv7779
+  br i1 %exitcond7780.not, label %.loopexit, label %1473, !llvm.loop !150
 
 1650:                                             ; preds = %45
   %1651 = ashr i32 %.val6757, 1
@@ -7208,8 +7208,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1656 = icmp sgt i32 %.val6756, 0
   %1657 = sext i32 %.val6756 to i64
   %1658 = sext i32 %20 to i64
-  %wide.trip.count7724 = sext i32 %16 to i64
-  %wide.trip.count7717 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7712 = sext i32 %16 to i64
+  %wide.trip.count7706 = zext nneg i32 %.val6756 to i64
   br label %1666
 
 .preheader6827:                                   ; preds = %._crit_edge7237, %1650
@@ -7226,16 +7226,16 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1663 = sext i32 %.val6756 to i64
   %1664 = sext i32 %.66421.lcssa to i64
   %1665 = add i32 %18, 1
-  %wide.trip.count7729 = zext nneg i32 %.val6756 to i64
-  %wide.trip.count7735 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7717 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7723 = zext nneg i32 %.val6756 to i64
   br label %1852
 
 1666:                                             ; preds = %.lr.ph7241, %._crit_edge7237
-  %indvars.iv7721 = phi i64 [ %1658, %.lr.ph7241 ], [ %indvars.iv.next7722, %._crit_edge7237 ]
+  %indvars.iv7709 = phi i64 [ %1658, %.lr.ph7241 ], [ %indvars.iv.next7710, %._crit_edge7237 ]
   %.67239 = phi ptr [ %24, %.lr.ph7241 ], [ %1671, %._crit_edge7237 ]
-  %1667 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7721
+  %1667 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7709
   %1668 = load i32, ptr %1667, align 4
-  %1669 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7721
+  %1669 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7709
   %1670 = load i32, ptr %1669, align 4
   %1671 = getelementptr inbounds i8, ptr %.67239, i64 %1653
   %reass.sub7425 = sub i32 %1670, %1668
@@ -7246,9 +7246,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1673 = mul nsw i32 %1668, %.val6756
   %1674 = sext i32 %1673 to i64
   %1675 = getelementptr inbounds i16, ptr %1671, i64 %1674
-  %1676 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7721
+  %1676 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7709
   %1677 = load i32, ptr %1676, align 4
-  %1678 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7721
+  %1678 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7709
   %1679 = load i32, ptr %1678, align 4
   br label %.lr.ph7236
 
@@ -7353,7 +7353,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %1766
 
 1766:                                             ; preds = %.lr.ph7229, %1766
-  %indvars.iv7714 = phi i64 [ 0, %.lr.ph7229 ], [ %indvars.iv.next7715, %1766 ]
+  %indvars.iv7703 = phi i64 [ 0, %.lr.ph7229 ], [ %indvars.iv.next7704, %1766 ]
   %.062357226 = phi ptr [ %1723, %.lr.ph7229 ], [ %1840, %1766 ]
   %1767 = getelementptr inbounds i16, ptr %.062357226, i64 %1743
   %1768 = load i16, ptr %1767, align 2
@@ -7431,25 +7431,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1836 = lshr i32 %1835, 16
   %1837 = trunc nuw i32 %1836 to i16
   %1838 = xor i16 %1837, -32768
-  %1839 = getelementptr inbounds i16, ptr %.062317234, i64 %indvars.iv7714
+  %1839 = getelementptr inbounds i16, ptr %.062317234, i64 %indvars.iv7703
   store i16 %1838, ptr %1839, align 2
   %1840 = getelementptr inbounds i8, ptr %.062357226, i64 2
-  %indvars.iv.next7715 = add nuw nsw i64 %indvars.iv7714, 1
-  %exitcond7718.not = icmp eq i64 %indvars.iv.next7715, %wide.trip.count7717
-  br i1 %exitcond7718.not, label %._crit_edge7230, label %1766, !llvm.loop !151
+  %indvars.iv.next7704 = add nuw nsw i64 %indvars.iv7703, 1
+  %exitcond7707.not = icmp eq i64 %indvars.iv.next7704, %wide.trip.count7706
+  br i1 %exitcond7707.not, label %._crit_edge7230, label %1766, !llvm.loop !151
 
 ._crit_edge7230:                                  ; preds = %1766, %.lr.ph7236
   %1841 = add nsw i32 %.863877231, %32
   %1842 = add nsw i32 %.863517232, %34
   %1843 = getelementptr inbounds i16, ptr %.062317234, i64 %1657
   %1844 = add nuw nsw i32 %.863157233, 1
-  %exitcond7720.not = icmp eq i32 %.863157233, %reass.sub7425
-  br i1 %exitcond7720.not, label %._crit_edge7237, label %.lr.ph7236, !llvm.loop !152
+  %exitcond7708.not = icmp eq i32 %.863157233, %reass.sub7425
+  br i1 %exitcond7708.not, label %._crit_edge7237, label %.lr.ph7236, !llvm.loop !152
 
 ._crit_edge7237:                                  ; preds = %._crit_edge7230, %1666
-  %indvars.iv.next7722 = add nsw i64 %indvars.iv7721, 1
-  %exitcond7725.not = icmp eq i64 %indvars.iv.next7722, %wide.trip.count7724
-  br i1 %exitcond7725.not, label %.preheader6827, label %1666, !llvm.loop !153
+  %indvars.iv.next7710 = add nsw i64 %indvars.iv7709, 1
+  %exitcond7713.not = icmp eq i64 %indvars.iv.next7710, %wide.trip.count7712
+  br i1 %exitcond7713.not, label %.preheader6827, label %1666, !llvm.loop !153
 
 .preheader6824:                                   ; preds = %._crit_edge7266, %.preheader6827
   %.76422.lcssa = phi i32 [ %.66421.lcssa, %.preheader6827 ], [ %1665, %._crit_edge7266 ]
@@ -7465,28 +7465,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1849 = sext i32 %.val6756 to i64
   %1850 = sext i32 %.76422.lcssa to i64
   %1851 = add i32 %22, 1
-  %wide.trip.count7746 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7734 = zext nneg i32 %.val6756 to i64
   br label %2214
 
 1852:                                             ; preds = %.lr.ph7270, %._crit_edge7266
-  %indvars.iv7738 = phi i64 [ %1664, %.lr.ph7270 ], [ %indvars.iv.next7739, %._crit_edge7266 ]
+  %indvars.iv7726 = phi i64 [ %1664, %.lr.ph7270 ], [ %indvars.iv.next7727, %._crit_edge7266 ]
   %.77269 = phi ptr [ %.6.lcssa, %.lr.ph7270 ], [ %1865, %._crit_edge7266 ]
-  %1853 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7738
+  %1853 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7726
   %1854 = load i32, ptr %1853, align 4
-  %1855 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7738
+  %1855 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7726
   %1856 = load i32, ptr %1855, align 4
   %1857 = add nsw i32 %1856, 1
-  %1858 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7738
+  %1858 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7726
   %1859 = load i32, ptr %1858, align 4
-  %1860 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7738
+  %1860 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7726
   %1861 = load i32, ptr %1860, align 4
   %1862 = add nsw i32 %1861, 1
-  %1863 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7738
-  %1864 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7738
+  %1863 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7726
+  %1864 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7726
   %1865 = getelementptr inbounds i8, ptr %.77269, i64 %1659
   %.not6683 = icmp sgt i32 %1859, %1861
-  %.pre7861 = load i32, ptr %1863, align 4
-  %.pre7863 = load i32, ptr %1864, align 4
+  %.pre7844 = load i32, ptr %1863, align 4
+  %.pre7846 = load i32, ptr %1864, align 4
   br i1 %.not6683, label %.loopexit6826, label %1866
 
 1866:                                             ; preds = %1852
@@ -7503,8 +7503,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 .lr.ph7254:                                       ; preds = %.lr.ph7254.preheader, %._crit_edge7248
   %.162327252 = phi ptr [ %2035, %._crit_edge7248 ], [ %1871, %.lr.ph7254.preheader ]
   %.963167251 = phi i32 [ %2036, %._crit_edge7248 ], [ 0, %.lr.ph7254.preheader ]
-  %.963527250 = phi i32 [ %2034, %._crit_edge7248 ], [ %.pre7863, %.lr.ph7254.preheader ]
-  %.963887249 = phi i32 [ %2033, %._crit_edge7248 ], [ %.pre7861, %.lr.ph7254.preheader ]
+  %.963527250 = phi i32 [ %2034, %._crit_edge7248 ], [ %.pre7846, %.lr.ph7254.preheader ]
+  %.963887249 = phi i32 [ %2033, %._crit_edge7248 ], [ %.pre7844, %.lr.ph7254.preheader ]
   %1872 = add nsw i32 %.963887249, -32768
   %1873 = lshr i32 %1872, 3
   %1874 = and i32 %1873, 8176
@@ -7601,7 +7601,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %1958
 
 1958:                                             ; preds = %.lr.ph7247, %1958
-  %indvars.iv7726 = phi i64 [ 0, %.lr.ph7247 ], [ %indvars.iv.next7727, %1958 ]
+  %indvars.iv7714 = phi i64 [ 0, %.lr.ph7247 ], [ %indvars.iv.next7715, %1958 ]
   %.162367244 = phi ptr [ %1915, %.lr.ph7247 ], [ %2032, %1958 ]
   %1959 = getelementptr inbounds i16, ptr %.162367244, i64 %1935
   %1960 = load i16, ptr %1959, align 2
@@ -7679,29 +7679,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2028 = lshr i32 %2027, 16
   %2029 = trunc nuw i32 %2028 to i16
   %2030 = xor i16 %2029, -32768
-  %2031 = getelementptr inbounds i16, ptr %.162327252, i64 %indvars.iv7726
+  %2031 = getelementptr inbounds i16, ptr %.162327252, i64 %indvars.iv7714
   store i16 %2030, ptr %2031, align 2
   %2032 = getelementptr inbounds i8, ptr %.162367244, i64 2
-  %indvars.iv.next7727 = add nuw nsw i64 %indvars.iv7726, 1
-  %exitcond7730.not = icmp eq i64 %indvars.iv.next7727, %wide.trip.count7729
-  br i1 %exitcond7730.not, label %._crit_edge7248, label %1958, !llvm.loop !154
+  %indvars.iv.next7715 = add nuw nsw i64 %indvars.iv7714, 1
+  %exitcond7718.not = icmp eq i64 %indvars.iv.next7715, %wide.trip.count7717
+  br i1 %exitcond7718.not, label %._crit_edge7248, label %1958, !llvm.loop !154
 
 ._crit_edge7248:                                  ; preds = %1958, %.lr.ph7254
   %2033 = add nsw i32 %.963887249, %32
   %2034 = add nsw i32 %.963527250, %34
   %2035 = getelementptr inbounds i16, ptr %.162327252, i64 %1663
   %2036 = add nuw nsw i32 %.963167251, 1
-  %exitcond7731.not = icmp eq i32 %2036, %1867
-  br i1 %exitcond7731.not, label %.loopexit6826.loopexit, label %.lr.ph7254, !llvm.loop !155
+  %exitcond7719.not = icmp eq i32 %2036, %1867
+  br i1 %exitcond7719.not, label %.loopexit6826.loopexit, label %.lr.ph7254, !llvm.loop !155
 
 .loopexit6826.loopexit:                           ; preds = %._crit_edge7248
-  %.pre7860 = load i32, ptr %1863, align 4
-  %.pre7862 = load i32, ptr %1864, align 4
+  %.pre7843 = load i32, ptr %1863, align 4
+  %.pre7845 = load i32, ptr %1864, align 4
   br label %.loopexit6826
 
 .loopexit6826:                                    ; preds = %.loopexit6826.loopexit, %1866, %1852
-  %2037 = phi i32 [ %.pre7863, %1852 ], [ %.pre7863, %1866 ], [ %.pre7862, %.loopexit6826.loopexit ]
-  %2038 = phi i32 [ %.pre7861, %1852 ], [ %.pre7861, %1866 ], [ %.pre7860, %.loopexit6826.loopexit ]
+  %2037 = phi i32 [ %.pre7846, %1852 ], [ %.pre7846, %1866 ], [ %.pre7845, %.loopexit6826.loopexit ]
+  %2038 = phi i32 [ %.pre7844, %1852 ], [ %.pre7844, %1866 ], [ %.pre7843, %.loopexit6826.loopexit ]
   %.26300 = phi i32 [ %1854, %1852 ], [ %1862, %1866 ], [ %1862, %.loopexit6826.loopexit ]
   %2039 = sub i32 %1857, %.26300
   %2040 = icmp sgt i32 %2039, 0
@@ -7819,7 +7819,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %2135
 
 2135:                                             ; preds = %.lr.ph7258, %2135
-  %indvars.iv7732 = phi i64 [ 0, %.lr.ph7258 ], [ %indvars.iv.next7733, %2135 ]
+  %indvars.iv7720 = phi i64 [ 0, %.lr.ph7258 ], [ %indvars.iv.next7721, %2135 ]
   %.262377255 = phi ptr [ %2092, %.lr.ph7258 ], [ %2209, %2135 ]
   %2136 = getelementptr inbounds i16, ptr %.262377255, i64 %2112
   %2137 = load i16, ptr %2136, align 2
@@ -7897,33 +7897,33 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2205 = lshr i32 %2204, 16
   %2206 = trunc nuw i32 %2205 to i16
   %2207 = xor i16 %2206, -32768
-  %2208 = getelementptr inbounds i16, ptr %.262337263, i64 %indvars.iv7732
+  %2208 = getelementptr inbounds i16, ptr %.262337263, i64 %indvars.iv7720
   store i16 %2207, ptr %2208, align 2
   %2209 = getelementptr inbounds i8, ptr %.262377255, i64 2
-  %indvars.iv.next7733 = add nuw nsw i64 %indvars.iv7732, 1
-  %exitcond7736.not = icmp eq i64 %indvars.iv.next7733, %wide.trip.count7735
-  br i1 %exitcond7736.not, label %._crit_edge7259, label %2135, !llvm.loop !156
+  %indvars.iv.next7721 = add nuw nsw i64 %indvars.iv7720, 1
+  %exitcond7724.not = icmp eq i64 %indvars.iv.next7721, %wide.trip.count7723
+  br i1 %exitcond7724.not, label %._crit_edge7259, label %2135, !llvm.loop !156
 
 ._crit_edge7259:                                  ; preds = %2135, %.lr.ph7265
   %2210 = add nsw i32 %.1063897260, %32
   %2211 = add nsw i32 %.1063537261, %34
   %2212 = getelementptr inbounds i16, ptr %.262337263, i64 %1663
   %2213 = add nuw nsw i32 %.1063177262, 1
-  %exitcond7737.not = icmp eq i32 %2213, %2039
-  br i1 %exitcond7737.not, label %._crit_edge7266, label %.lr.ph7265, !llvm.loop !157
+  %exitcond7725.not = icmp eq i32 %2213, %2039
+  br i1 %exitcond7725.not, label %._crit_edge7266, label %.lr.ph7265, !llvm.loop !157
 
 ._crit_edge7266:                                  ; preds = %._crit_edge7259, %.loopexit6826
-  %indvars.iv.next7739 = add nsw i64 %indvars.iv7738, 1
-  %lftr.wideiv7741 = trunc i64 %indvars.iv.next7739 to i32
-  %exitcond7742.not = icmp eq i32 %1665, %lftr.wideiv7741
-  br i1 %exitcond7742.not, label %.preheader6824, label %1852, !llvm.loop !158
+  %indvars.iv.next7727 = add nsw i64 %indvars.iv7726, 1
+  %lftr.wideiv7729 = trunc i64 %indvars.iv.next7727 to i32
+  %exitcond7730.not = icmp eq i32 %1665, %lftr.wideiv7729
+  br i1 %exitcond7730.not, label %.preheader6824, label %1852, !llvm.loop !158
 
 2214:                                             ; preds = %.lr.ph7288, %._crit_edge7284
-  %indvars.iv7750 = phi i64 [ %1850, %.lr.ph7288 ], [ %indvars.iv.next7751, %._crit_edge7284 ]
+  %indvars.iv7737 = phi i64 [ %1850, %.lr.ph7288 ], [ %indvars.iv.next7738, %._crit_edge7284 ]
   %.87287 = phi ptr [ %.7.lcssa, %.lr.ph7288 ], [ %2219, %._crit_edge7284 ]
-  %2215 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7750
+  %2215 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7737
   %2216 = load i32, ptr %2215, align 4
-  %2217 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7750
+  %2217 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7737
   %2218 = load i32, ptr %2217, align 4
   %2219 = getelementptr inbounds i8, ptr %.87287, i64 %1845
   %reass.sub7426 = sub i32 %2218, %2216
@@ -7934,9 +7934,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2221 = mul nsw i32 %2216, %.val6756
   %2222 = sext i32 %2221 to i64
   %2223 = getelementptr inbounds i16, ptr %2219, i64 %2222
-  %2224 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7750
+  %2224 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7737
   %2225 = load i32, ptr %2224, align 4
-  %2226 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7750
+  %2226 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7737
   %2227 = load i32, ptr %2226, align 4
   br label %.lr.ph7283
 
@@ -8041,7 +8041,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %2314
 
 2314:                                             ; preds = %.lr.ph7276, %2314
-  %indvars.iv7743 = phi i64 [ 0, %.lr.ph7276 ], [ %indvars.iv.next7744, %2314 ]
+  %indvars.iv7731 = phi i64 [ 0, %.lr.ph7276 ], [ %indvars.iv.next7732, %2314 ]
   %.362387273 = phi ptr [ %2271, %.lr.ph7276 ], [ %2388, %2314 ]
   %2315 = getelementptr inbounds i16, ptr %.362387273, i64 %2291
   %2316 = load i16, ptr %2315, align 2
@@ -8119,26 +8119,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2384 = lshr i32 %2383, 16
   %2385 = trunc nuw i32 %2384 to i16
   %2386 = xor i16 %2385, -32768
-  %2387 = getelementptr inbounds i16, ptr %.362347281, i64 %indvars.iv7743
+  %2387 = getelementptr inbounds i16, ptr %.362347281, i64 %indvars.iv7731
   store i16 %2386, ptr %2387, align 2
   %2388 = getelementptr inbounds i8, ptr %.362387273, i64 2
-  %indvars.iv.next7744 = add nuw nsw i64 %indvars.iv7743, 1
-  %exitcond7747.not = icmp eq i64 %indvars.iv.next7744, %wide.trip.count7746
-  br i1 %exitcond7747.not, label %._crit_edge7277, label %2314, !llvm.loop !159
+  %indvars.iv.next7732 = add nuw nsw i64 %indvars.iv7731, 1
+  %exitcond7735.not = icmp eq i64 %indvars.iv.next7732, %wide.trip.count7734
+  br i1 %exitcond7735.not, label %._crit_edge7277, label %2314, !llvm.loop !159
 
 ._crit_edge7277:                                  ; preds = %2314, %.lr.ph7283
   %2389 = add nsw i32 %.1163907278, %32
   %2390 = add nsw i32 %.1163547279, %34
   %2391 = getelementptr inbounds i16, ptr %.362347281, i64 %1849
   %2392 = add nuw nsw i32 %.1163187280, 1
-  %exitcond7749.not = icmp eq i32 %.1163187280, %reass.sub7426
-  br i1 %exitcond7749.not, label %._crit_edge7284, label %.lr.ph7283, !llvm.loop !160
+  %exitcond7736.not = icmp eq i32 %.1163187280, %reass.sub7426
+  br i1 %exitcond7736.not, label %._crit_edge7284, label %.lr.ph7283, !llvm.loop !160
 
 ._crit_edge7284:                                  ; preds = %._crit_edge7277, %2214
-  %indvars.iv.next7751 = add nsw i64 %indvars.iv7750, 1
-  %lftr.wideiv7753 = trunc i64 %indvars.iv.next7751 to i32
-  %exitcond7754.not = icmp eq i32 %1851, %lftr.wideiv7753
-  br i1 %exitcond7754.not, label %.loopexit, label %2214, !llvm.loop !161
+  %indvars.iv.next7738 = add nsw i64 %indvars.iv7737, 1
+  %lftr.wideiv7740 = trunc i64 %indvars.iv.next7738 to i32
+  %exitcond7741.not = icmp eq i32 %1851, %lftr.wideiv7740
+  br i1 %exitcond7741.not, label %.loopexit, label %2214, !llvm.loop !161
 
 2393:                                             ; preds = %45
   %2394 = ashr i32 %.val6757, 2
@@ -8156,8 +8156,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2400 = icmp sgt i32 %.val6756, 0
   %2401 = sext i32 %.val6756 to i64
   %2402 = sext i32 %20 to i64
-  %wide.trip.count7642 = sext i32 %16 to i64
-  %wide.trip.count7635 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7634 = sext i32 %16 to i64
+  %wide.trip.count7628 = zext nneg i32 %.val6756 to i64
   br label %3134
 
 .preheader6832:                                   ; preds = %2393
@@ -8170,8 +8170,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2406 = icmp sgt i32 %.val6756, 0
   %2407 = sext i32 %.val6756 to i64
   %2408 = sext i32 %20 to i64
-  %wide.trip.count7683 = sext i32 %16 to i64
-  %wide.trip.count7676 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7673 = sext i32 %16 to i64
+  %wide.trip.count7667 = zext nneg i32 %.val6756 to i64
   br label %2416
 
 .preheader6831:                                   ; preds = %._crit_edge7175, %.preheader6832
@@ -8188,16 +8188,16 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2413 = sext i32 %.val6756 to i64
   %2414 = sext i32 %.96424.lcssa to i64
   %2415 = add i32 %18, 1
-  %wide.trip.count7688 = zext nneg i32 %.val6756 to i64
-  %wide.trip.count7694 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7678 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7684 = zext nneg i32 %.val6756 to i64
   br label %2598
 
 2416:                                             ; preds = %.lr.ph7178, %._crit_edge7175
-  %indvars.iv7680 = phi i64 [ %2408, %.lr.ph7178 ], [ %indvars.iv.next7681, %._crit_edge7175 ]
+  %indvars.iv7670 = phi i64 [ %2408, %.lr.ph7178 ], [ %indvars.iv.next7671, %._crit_edge7175 ]
   %.97177 = phi ptr [ %24, %.lr.ph7178 ], [ %2421, %._crit_edge7175 ]
-  %2417 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7680
+  %2417 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7670
   %2418 = load i32, ptr %2417, align 4
-  %2419 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7680
+  %2419 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7670
   %2420 = load i32, ptr %2419, align 4
   %2421 = getelementptr inbounds i8, ptr %.97177, i64 %2403
   %reass.sub7423 = sub i32 %2420, %2418
@@ -8208,9 +8208,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2423 = mul nsw i32 %2418, %.val6756
   %2424 = sext i32 %2423 to i64
   %2425 = getelementptr inbounds i32, ptr %2421, i64 %2424
-  %2426 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7680
+  %2426 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7670
   %2427 = load i32, ptr %2426, align 4
-  %2428 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7680
+  %2428 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7670
   %2429 = load i32, ptr %2428, align 4
   br label %.lr.ph7174
 
@@ -8315,7 +8315,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %2516
 
 2516:                                             ; preds = %.lr.ph7167, %2516
-  %indvars.iv7673 = phi i64 [ 0, %.lr.ph7167 ], [ %indvars.iv.next7674, %2516 ]
+  %indvars.iv7664 = phi i64 [ 0, %.lr.ph7167 ], [ %indvars.iv.next7665, %2516 ]
   %.062237164 = phi ptr [ %2473, %.lr.ph7167 ], [ %2586, %2516 ]
   %2517 = getelementptr inbounds i32, ptr %.062237164, i64 %2493
   %2518 = load i32, ptr %2517, align 4
@@ -8389,25 +8389,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6775 = fcmp ole double %.246295, 0xC1E0000000000000
   %.256296 = select i1 %.inv6775, double 0xC1E0000000000000, double %.246295
   %2584 = fptosi double %.256296 to i32
-  %2585 = getelementptr inbounds i32, ptr %.062197172, i64 %indvars.iv7673
+  %2585 = getelementptr inbounds i32, ptr %.062197172, i64 %indvars.iv7664
   store i32 %2584, ptr %2585, align 4
   %2586 = getelementptr inbounds i8, ptr %.062237164, i64 4
-  %indvars.iv.next7674 = add nuw nsw i64 %indvars.iv7673, 1
-  %exitcond7677.not = icmp eq i64 %indvars.iv.next7674, %wide.trip.count7676
-  br i1 %exitcond7677.not, label %._crit_edge7168, label %2516, !llvm.loop !162
+  %indvars.iv.next7665 = add nuw nsw i64 %indvars.iv7664, 1
+  %exitcond7668.not = icmp eq i64 %indvars.iv.next7665, %wide.trip.count7667
+  br i1 %exitcond7668.not, label %._crit_edge7168, label %2516, !llvm.loop !162
 
 ._crit_edge7168:                                  ; preds = %2516, %.lr.ph7174
   %2587 = add nsw i32 %.1263917169, %32
   %2588 = add nsw i32 %.1263557170, %34
   %2589 = getelementptr inbounds i32, ptr %.062197172, i64 %2407
   %2590 = add nuw nsw i32 %.1263197171, 1
-  %exitcond7679.not = icmp eq i32 %.1263197171, %reass.sub7423
-  br i1 %exitcond7679.not, label %._crit_edge7175, label %.lr.ph7174, !llvm.loop !163
+  %exitcond7669.not = icmp eq i32 %.1263197171, %reass.sub7423
+  br i1 %exitcond7669.not, label %._crit_edge7175, label %.lr.ph7174, !llvm.loop !163
 
 ._crit_edge7175:                                  ; preds = %._crit_edge7168, %2416
-  %indvars.iv.next7681 = add nsw i64 %indvars.iv7680, 1
-  %exitcond7684.not = icmp eq i64 %indvars.iv.next7681, %wide.trip.count7683
-  br i1 %exitcond7684.not, label %.preheader6831, label %2416, !llvm.loop !164
+  %indvars.iv.next7671 = add nsw i64 %indvars.iv7670, 1
+  %exitcond7674.not = icmp eq i64 %indvars.iv.next7671, %wide.trip.count7673
+  br i1 %exitcond7674.not, label %.preheader6831, label %2416, !llvm.loop !164
 
 .preheader6828:                                   ; preds = %._crit_edge7203, %.preheader6831
   %.106425.lcssa = phi i32 [ %.96424.lcssa, %.preheader6831 ], [ %2415, %._crit_edge7203 ]
@@ -8423,28 +8423,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2595 = sext i32 %.val6756 to i64
   %2596 = sext i32 %.106425.lcssa to i64
   %2597 = add i32 %22, 1
-  %wide.trip.count7705 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7695 = zext nneg i32 %.val6756 to i64
   br label %2952
 
 2598:                                             ; preds = %.lr.ph7207, %._crit_edge7203
-  %indvars.iv7697 = phi i64 [ %2414, %.lr.ph7207 ], [ %indvars.iv.next7698, %._crit_edge7203 ]
+  %indvars.iv7687 = phi i64 [ %2414, %.lr.ph7207 ], [ %indvars.iv.next7688, %._crit_edge7203 ]
   %.107206 = phi ptr [ %.9.lcssa, %.lr.ph7207 ], [ %2611, %._crit_edge7203 ]
-  %2599 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7697
+  %2599 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7687
   %2600 = load i32, ptr %2599, align 4
-  %2601 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7697
+  %2601 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7687
   %2602 = load i32, ptr %2601, align 4
   %2603 = add nsw i32 %2602, 1
-  %2604 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7697
+  %2604 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7687
   %2605 = load i32, ptr %2604, align 4
-  %2606 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7697
+  %2606 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7687
   %2607 = load i32, ptr %2606, align 4
   %2608 = add nsw i32 %2607, 1
-  %2609 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7697
-  %2610 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7697
+  %2609 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7687
+  %2610 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7687
   %2611 = getelementptr inbounds i8, ptr %.107206, i64 %2409
   %.not6656 = icmp sgt i32 %2605, %2607
-  %.pre7857 = load i32, ptr %2609, align 4
-  %.pre7859 = load i32, ptr %2610, align 4
+  %.pre7840 = load i32, ptr %2609, align 4
+  %.pre7842 = load i32, ptr %2610, align 4
   br i1 %.not6656, label %.loopexit6830, label %2612
 
 2612:                                             ; preds = %2598
@@ -8461,8 +8461,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 .lr.ph7191:                                       ; preds = %.lr.ph7191.preheader, %._crit_edge7185
   %.162207189 = phi ptr [ %2777, %._crit_edge7185 ], [ %2617, %.lr.ph7191.preheader ]
   %.1363207188 = phi i32 [ %2778, %._crit_edge7185 ], [ 0, %.lr.ph7191.preheader ]
-  %.1363567187 = phi i32 [ %2776, %._crit_edge7185 ], [ %.pre7859, %.lr.ph7191.preheader ]
-  %.1363927186 = phi i32 [ %2775, %._crit_edge7185 ], [ %.pre7857, %.lr.ph7191.preheader ]
+  %.1363567187 = phi i32 [ %2776, %._crit_edge7185 ], [ %.pre7842, %.lr.ph7191.preheader ]
+  %.1363927186 = phi i32 [ %2775, %._crit_edge7185 ], [ %.pre7840, %.lr.ph7191.preheader ]
   %2618 = add nsw i32 %.1363927186, -32768
   %2619 = and i32 %2618, 65535
   %2620 = uitofp nneg i32 %2619 to double
@@ -8559,7 +8559,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %2704
 
 2704:                                             ; preds = %.lr.ph7184, %2704
-  %indvars.iv7685 = phi i64 [ 0, %.lr.ph7184 ], [ %indvars.iv.next7686, %2704 ]
+  %indvars.iv7675 = phi i64 [ 0, %.lr.ph7184 ], [ %indvars.iv.next7676, %2704 ]
   %.162247181 = phi ptr [ %2661, %.lr.ph7184 ], [ %2774, %2704 ]
   %2705 = getelementptr inbounds i32, ptr %.162247181, i64 %2681
   %2706 = load i32, ptr %2705, align 4
@@ -8633,29 +8633,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6769 = fcmp ole double %.266297, 0xC1E0000000000000
   %.27 = select i1 %.inv6769, double 0xC1E0000000000000, double %.266297
   %2772 = fptosi double %.27 to i32
-  %2773 = getelementptr inbounds i32, ptr %.162207189, i64 %indvars.iv7685
+  %2773 = getelementptr inbounds i32, ptr %.162207189, i64 %indvars.iv7675
   store i32 %2772, ptr %2773, align 4
   %2774 = getelementptr inbounds i8, ptr %.162247181, i64 4
-  %indvars.iv.next7686 = add nuw nsw i64 %indvars.iv7685, 1
-  %exitcond7689.not = icmp eq i64 %indvars.iv.next7686, %wide.trip.count7688
-  br i1 %exitcond7689.not, label %._crit_edge7185, label %2704, !llvm.loop !165
+  %indvars.iv.next7676 = add nuw nsw i64 %indvars.iv7675, 1
+  %exitcond7679.not = icmp eq i64 %indvars.iv.next7676, %wide.trip.count7678
+  br i1 %exitcond7679.not, label %._crit_edge7185, label %2704, !llvm.loop !165
 
 ._crit_edge7185:                                  ; preds = %2704, %.lr.ph7191
   %2775 = add nsw i32 %.1363927186, %32
   %2776 = add nsw i32 %.1363567187, %34
   %2777 = getelementptr inbounds i32, ptr %.162207189, i64 %2413
   %2778 = add nuw nsw i32 %.1363207188, 1
-  %exitcond7690.not = icmp eq i32 %2778, %2613
-  br i1 %exitcond7690.not, label %.loopexit6830.loopexit, label %.lr.ph7191, !llvm.loop !166
+  %exitcond7680.not = icmp eq i32 %2778, %2613
+  br i1 %exitcond7680.not, label %.loopexit6830.loopexit, label %.lr.ph7191, !llvm.loop !166
 
 .loopexit6830.loopexit:                           ; preds = %._crit_edge7185
-  %.pre7856 = load i32, ptr %2609, align 4
-  %.pre7858 = load i32, ptr %2610, align 4
+  %.pre7839 = load i32, ptr %2609, align 4
+  %.pre7841 = load i32, ptr %2610, align 4
   br label %.loopexit6830
 
 .loopexit6830:                                    ; preds = %.loopexit6830.loopexit, %2612, %2598
-  %2779 = phi i32 [ %.pre7859, %2598 ], [ %.pre7859, %2612 ], [ %.pre7858, %.loopexit6830.loopexit ]
-  %2780 = phi i32 [ %.pre7857, %2598 ], [ %.pre7857, %2612 ], [ %.pre7856, %.loopexit6830.loopexit ]
+  %2779 = phi i32 [ %.pre7842, %2598 ], [ %.pre7842, %2612 ], [ %.pre7841, %.loopexit6830.loopexit ]
+  %2780 = phi i32 [ %.pre7840, %2598 ], [ %.pre7840, %2612 ], [ %.pre7839, %.loopexit6830.loopexit ]
   %.36301 = phi i32 [ %2600, %2598 ], [ %2608, %2612 ], [ %2608, %.loopexit6830.loopexit ]
   %2781 = sub i32 %2603, %.36301
   %2782 = icmp sgt i32 %2781, 0
@@ -8773,7 +8773,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %2877
 
 2877:                                             ; preds = %.lr.ph7195, %2877
-  %indvars.iv7691 = phi i64 [ 0, %.lr.ph7195 ], [ %indvars.iv.next7692, %2877 ]
+  %indvars.iv7681 = phi i64 [ 0, %.lr.ph7195 ], [ %indvars.iv.next7682, %2877 ]
   %.262257192 = phi ptr [ %2834, %.lr.ph7195 ], [ %2947, %2877 ]
   %2878 = getelementptr inbounds i32, ptr %.262257192, i64 %2854
   %2879 = load i32, ptr %2878, align 4
@@ -8847,33 +8847,33 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6771 = fcmp ole double %.28, 0xC1E0000000000000
   %.29 = select i1 %.inv6771, double 0xC1E0000000000000, double %.28
   %2945 = fptosi double %.29 to i32
-  %2946 = getelementptr inbounds i32, ptr %.262217200, i64 %indvars.iv7691
+  %2946 = getelementptr inbounds i32, ptr %.262217200, i64 %indvars.iv7681
   store i32 %2945, ptr %2946, align 4
   %2947 = getelementptr inbounds i8, ptr %.262257192, i64 4
-  %indvars.iv.next7692 = add nuw nsw i64 %indvars.iv7691, 1
-  %exitcond7695.not = icmp eq i64 %indvars.iv.next7692, %wide.trip.count7694
-  br i1 %exitcond7695.not, label %._crit_edge7196, label %2877, !llvm.loop !167
+  %indvars.iv.next7682 = add nuw nsw i64 %indvars.iv7681, 1
+  %exitcond7685.not = icmp eq i64 %indvars.iv.next7682, %wide.trip.count7684
+  br i1 %exitcond7685.not, label %._crit_edge7196, label %2877, !llvm.loop !167
 
 ._crit_edge7196:                                  ; preds = %2877, %.lr.ph7202
   %2948 = add nsw i32 %.1463937197, %32
   %2949 = add nsw i32 %.1463577198, %34
   %2950 = getelementptr inbounds i32, ptr %.262217200, i64 %2413
   %2951 = add nuw nsw i32 %.1463217199, 1
-  %exitcond7696.not = icmp eq i32 %2951, %2781
-  br i1 %exitcond7696.not, label %._crit_edge7203, label %.lr.ph7202, !llvm.loop !168
+  %exitcond7686.not = icmp eq i32 %2951, %2781
+  br i1 %exitcond7686.not, label %._crit_edge7203, label %.lr.ph7202, !llvm.loop !168
 
 ._crit_edge7203:                                  ; preds = %._crit_edge7196, %.loopexit6830
-  %indvars.iv.next7698 = add nsw i64 %indvars.iv7697, 1
-  %lftr.wideiv7700 = trunc i64 %indvars.iv.next7698 to i32
-  %exitcond7701.not = icmp eq i32 %2415, %lftr.wideiv7700
-  br i1 %exitcond7701.not, label %.preheader6828, label %2598, !llvm.loop !169
+  %indvars.iv.next7688 = add nsw i64 %indvars.iv7687, 1
+  %lftr.wideiv7690 = trunc i64 %indvars.iv.next7688 to i32
+  %exitcond7691.not = icmp eq i32 %2415, %lftr.wideiv7690
+  br i1 %exitcond7691.not, label %.preheader6828, label %2598, !llvm.loop !169
 
 2952:                                             ; preds = %.lr.ph7225, %._crit_edge7221
-  %indvars.iv7709 = phi i64 [ %2596, %.lr.ph7225 ], [ %indvars.iv.next7710, %._crit_edge7221 ]
+  %indvars.iv7698 = phi i64 [ %2596, %.lr.ph7225 ], [ %indvars.iv.next7699, %._crit_edge7221 ]
   %.117224 = phi ptr [ %.10.lcssa, %.lr.ph7225 ], [ %2957, %._crit_edge7221 ]
-  %2953 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7709
+  %2953 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7698
   %2954 = load i32, ptr %2953, align 4
-  %2955 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7709
+  %2955 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7698
   %2956 = load i32, ptr %2955, align 4
   %2957 = getelementptr inbounds i8, ptr %.117224, i64 %2591
   %reass.sub7424 = sub i32 %2956, %2954
@@ -8884,9 +8884,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2959 = mul nsw i32 %2954, %.val6756
   %2960 = sext i32 %2959 to i64
   %2961 = getelementptr inbounds i32, ptr %2957, i64 %2960
-  %2962 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7709
+  %2962 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7698
   %2963 = load i32, ptr %2962, align 4
-  %2964 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7709
+  %2964 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7698
   %2965 = load i32, ptr %2964, align 4
   br label %.lr.ph7220
 
@@ -8991,7 +8991,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %3052
 
 3052:                                             ; preds = %.lr.ph7213, %3052
-  %indvars.iv7702 = phi i64 [ 0, %.lr.ph7213 ], [ %indvars.iv.next7703, %3052 ]
+  %indvars.iv7692 = phi i64 [ 0, %.lr.ph7213 ], [ %indvars.iv.next7693, %3052 ]
   %.362267210 = phi ptr [ %3009, %.lr.ph7213 ], [ %3122, %3052 ]
   %3053 = getelementptr inbounds i32, ptr %.362267210, i64 %3029
   %3054 = load i32, ptr %3053, align 4
@@ -9065,26 +9065,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6773 = fcmp ole double %.30, 0xC1E0000000000000
   %.31 = select i1 %.inv6773, double 0xC1E0000000000000, double %.30
   %3120 = fptosi double %.31 to i32
-  %3121 = getelementptr inbounds i32, ptr %.362227218, i64 %indvars.iv7702
+  %3121 = getelementptr inbounds i32, ptr %.362227218, i64 %indvars.iv7692
   store i32 %3120, ptr %3121, align 4
   %3122 = getelementptr inbounds i8, ptr %.362267210, i64 4
-  %indvars.iv.next7703 = add nuw nsw i64 %indvars.iv7702, 1
-  %exitcond7706.not = icmp eq i64 %indvars.iv.next7703, %wide.trip.count7705
-  br i1 %exitcond7706.not, label %._crit_edge7214, label %3052, !llvm.loop !170
+  %indvars.iv.next7693 = add nuw nsw i64 %indvars.iv7692, 1
+  %exitcond7696.not = icmp eq i64 %indvars.iv.next7693, %wide.trip.count7695
+  br i1 %exitcond7696.not, label %._crit_edge7214, label %3052, !llvm.loop !170
 
 ._crit_edge7214:                                  ; preds = %3052, %.lr.ph7220
   %3123 = add nsw i32 %.1563947215, %32
   %3124 = add nsw i32 %.1563587216, %34
   %3125 = getelementptr inbounds i32, ptr %.362227218, i64 %2595
   %3126 = add nuw nsw i32 %.1563227217, 1
-  %exitcond7708.not = icmp eq i32 %.1563227217, %reass.sub7424
-  br i1 %exitcond7708.not, label %._crit_edge7221, label %.lr.ph7220, !llvm.loop !171
+  %exitcond7697.not = icmp eq i32 %.1563227217, %reass.sub7424
+  br i1 %exitcond7697.not, label %._crit_edge7221, label %.lr.ph7220, !llvm.loop !171
 
 ._crit_edge7221:                                  ; preds = %._crit_edge7214, %2952
-  %indvars.iv.next7710 = add nsw i64 %indvars.iv7709, 1
-  %lftr.wideiv7712 = trunc i64 %indvars.iv.next7710 to i32
-  %exitcond7713.not = icmp eq i32 %2597, %lftr.wideiv7712
-  br i1 %exitcond7713.not, label %.loopexit, label %2952, !llvm.loop !172
+  %indvars.iv.next7699 = add nsw i64 %indvars.iv7698, 1
+  %lftr.wideiv7701 = trunc i64 %indvars.iv.next7699 to i32
+  %exitcond7702.not = icmp eq i32 %2597, %lftr.wideiv7701
+  br i1 %exitcond7702.not, label %.loopexit, label %2952, !llvm.loop !172
 
 .preheader6836:                                   ; preds = %._crit_edge7113, %.preheader6837
   %.126427.lcssa = phi i32 [ %20, %.preheader6837 ], [ %16, %._crit_edge7113 ]
@@ -9100,16 +9100,16 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3131 = sext i32 %.val6756 to i64
   %3132 = sext i32 %.126427.lcssa to i64
   %3133 = add i32 %18, 1
-  %wide.trip.count7647 = zext nneg i32 %.val6756 to i64
-  %wide.trip.count7653 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7639 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7645 = zext nneg i32 %.val6756 to i64
   br label %3312
 
 3134:                                             ; preds = %.lr.ph7116, %._crit_edge7113
-  %indvars.iv7639 = phi i64 [ %2402, %.lr.ph7116 ], [ %indvars.iv.next7640, %._crit_edge7113 ]
+  %indvars.iv7631 = phi i64 [ %2402, %.lr.ph7116 ], [ %indvars.iv.next7632, %._crit_edge7113 ]
   %.127115 = phi ptr [ %24, %.lr.ph7116 ], [ %3139, %._crit_edge7113 ]
-  %3135 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7639
+  %3135 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7631
   %3136 = load i32, ptr %3135, align 4
-  %3137 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7639
+  %3137 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7631
   %3138 = load i32, ptr %3137, align 4
   %3139 = getelementptr inbounds i8, ptr %.127115, i64 %2397
   %reass.sub7421 = sub i32 %3138, %3136
@@ -9120,9 +9120,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3141 = mul nsw i32 %3136, %.val6756
   %3142 = sext i32 %3141 to i64
   %3143 = getelementptr inbounds i32, ptr %3139, i64 %3142
-  %3144 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7639
+  %3144 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7631
   %3145 = load i32, ptr %3144, align 4
-  %3146 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7639
+  %3146 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7631
   %3147 = load i32, ptr %3146, align 4
   br label %.lr.ph7112
 
@@ -9223,7 +9223,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %3230
 
 3230:                                             ; preds = %.lr.ph7105, %3230
-  %indvars.iv7632 = phi i64 [ 0, %.lr.ph7105 ], [ %indvars.iv.next7633, %3230 ]
+  %indvars.iv7625 = phi i64 [ 0, %.lr.ph7105 ], [ %indvars.iv.next7626, %3230 ]
   %.062117102 = phi ptr [ %3187, %.lr.ph7105 ], [ %3300, %3230 ]
   %3231 = getelementptr inbounds i32, ptr %.062117102, i64 %3207
   %3232 = load i32, ptr %3231, align 4
@@ -9297,25 +9297,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6767 = fcmp ole double %.32, 0xC1E0000000000000
   %.33 = select i1 %.inv6767, double 0xC1E0000000000000, double %.32
   %3298 = fptosi double %.33 to i32
-  %3299 = getelementptr inbounds i32, ptr %.062077110, i64 %indvars.iv7632
+  %3299 = getelementptr inbounds i32, ptr %.062077110, i64 %indvars.iv7625
   store i32 %3298, ptr %3299, align 4
   %3300 = getelementptr inbounds i8, ptr %.062117102, i64 4
-  %indvars.iv.next7633 = add nuw nsw i64 %indvars.iv7632, 1
-  %exitcond7636.not = icmp eq i64 %indvars.iv.next7633, %wide.trip.count7635
-  br i1 %exitcond7636.not, label %._crit_edge7106, label %3230, !llvm.loop !173
+  %indvars.iv.next7626 = add nuw nsw i64 %indvars.iv7625, 1
+  %exitcond7629.not = icmp eq i64 %indvars.iv.next7626, %wide.trip.count7628
+  br i1 %exitcond7629.not, label %._crit_edge7106, label %3230, !llvm.loop !173
 
 ._crit_edge7106:                                  ; preds = %3230, %.lr.ph7112
   %3301 = add nsw i32 %.1663957107, %32
   %3302 = add nsw i32 %.1663597108, %34
   %3303 = getelementptr inbounds i32, ptr %.062077110, i64 %2401
   %3304 = add nuw nsw i32 %.1663237109, 1
-  %exitcond7638.not = icmp eq i32 %.1663237109, %reass.sub7421
-  br i1 %exitcond7638.not, label %._crit_edge7113, label %.lr.ph7112, !llvm.loop !174
+  %exitcond7630.not = icmp eq i32 %.1663237109, %reass.sub7421
+  br i1 %exitcond7630.not, label %._crit_edge7113, label %.lr.ph7112, !llvm.loop !174
 
 ._crit_edge7113:                                  ; preds = %._crit_edge7106, %3134
-  %indvars.iv.next7640 = add nsw i64 %indvars.iv7639, 1
-  %exitcond7643.not = icmp eq i64 %indvars.iv.next7640, %wide.trip.count7642
-  br i1 %exitcond7643.not, label %.preheader6836, label %3134, !llvm.loop !175
+  %indvars.iv.next7632 = add nsw i64 %indvars.iv7631, 1
+  %exitcond7635.not = icmp eq i64 %indvars.iv.next7632, %wide.trip.count7634
+  br i1 %exitcond7635.not, label %.preheader6836, label %3134, !llvm.loop !175
 
 .preheader6833:                                   ; preds = %._crit_edge7141, %.preheader6836
   %.136428.lcssa = phi i32 [ %.126427.lcssa, %.preheader6836 ], [ %3133, %._crit_edge7141 ]
@@ -9331,28 +9331,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3309 = sext i32 %.val6756 to i64
   %3310 = sext i32 %.136428.lcssa to i64
   %3311 = add i32 %22, 1
-  %wide.trip.count7664 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7656 = zext nneg i32 %.val6756 to i64
   br label %3658
 
 3312:                                             ; preds = %.lr.ph7145, %._crit_edge7141
-  %indvars.iv7656 = phi i64 [ %3132, %.lr.ph7145 ], [ %indvars.iv.next7657, %._crit_edge7141 ]
+  %indvars.iv7648 = phi i64 [ %3132, %.lr.ph7145 ], [ %indvars.iv.next7649, %._crit_edge7141 ]
   %.137144 = phi ptr [ %.12.lcssa, %.lr.ph7145 ], [ %3325, %._crit_edge7141 ]
-  %3313 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7656
+  %3313 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7648
   %3314 = load i32, ptr %3313, align 4
-  %3315 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7656
+  %3315 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7648
   %3316 = load i32, ptr %3315, align 4
   %3317 = add nsw i32 %3316, 1
-  %3318 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7656
+  %3318 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7648
   %3319 = load i32, ptr %3318, align 4
-  %3320 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7656
+  %3320 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7648
   %3321 = load i32, ptr %3320, align 4
   %3322 = add nsw i32 %3321, 1
-  %3323 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7656
-  %3324 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7656
+  %3323 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7648
+  %3324 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7648
   %3325 = getelementptr inbounds i8, ptr %.137144, i64 %3127
   %.not6629 = icmp sgt i32 %3319, %3321
-  %.pre7853 = load i32, ptr %3323, align 4
-  %.pre7855 = load i32, ptr %3324, align 4
+  %.pre7836 = load i32, ptr %3323, align 4
+  %.pre7838 = load i32, ptr %3324, align 4
   br i1 %.not6629, label %.loopexit6835, label %3326
 
 3326:                                             ; preds = %3312
@@ -9369,8 +9369,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 .lr.ph7129:                                       ; preds = %.lr.ph7129.preheader, %._crit_edge7123
   %.162087127 = phi ptr [ %3487, %._crit_edge7123 ], [ %3331, %.lr.ph7129.preheader ]
   %.1763247126 = phi i32 [ %3488, %._crit_edge7123 ], [ 0, %.lr.ph7129.preheader ]
-  %.1763607125 = phi i32 [ %3486, %._crit_edge7123 ], [ %.pre7855, %.lr.ph7129.preheader ]
-  %.1763967124 = phi i32 [ %3485, %._crit_edge7123 ], [ %.pre7853, %.lr.ph7129.preheader ]
+  %.1763607125 = phi i32 [ %3486, %._crit_edge7123 ], [ %.pre7838, %.lr.ph7129.preheader ]
+  %.1763967124 = phi i32 [ %3485, %._crit_edge7123 ], [ %.pre7836, %.lr.ph7129.preheader ]
   %3332 = add nsw i32 %.1763967124, -32768
   %3333 = and i32 %3332, 65535
   %3334 = uitofp nneg i32 %3333 to double
@@ -9463,7 +9463,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %3414
 
 3414:                                             ; preds = %.lr.ph7122, %3414
-  %indvars.iv7644 = phi i64 [ 0, %.lr.ph7122 ], [ %indvars.iv.next7645, %3414 ]
+  %indvars.iv7636 = phi i64 [ 0, %.lr.ph7122 ], [ %indvars.iv.next7637, %3414 ]
   %.162127119 = phi ptr [ %3371, %.lr.ph7122 ], [ %3484, %3414 ]
   %3415 = getelementptr inbounds i32, ptr %.162127119, i64 %3391
   %3416 = load i32, ptr %3415, align 4
@@ -9537,29 +9537,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6761 = fcmp ole double %.34, 0xC1E0000000000000
   %.35 = select i1 %.inv6761, double 0xC1E0000000000000, double %.34
   %3482 = fptosi double %.35 to i32
-  %3483 = getelementptr inbounds i32, ptr %.162087127, i64 %indvars.iv7644
+  %3483 = getelementptr inbounds i32, ptr %.162087127, i64 %indvars.iv7636
   store i32 %3482, ptr %3483, align 4
   %3484 = getelementptr inbounds i8, ptr %.162127119, i64 4
-  %indvars.iv.next7645 = add nuw nsw i64 %indvars.iv7644, 1
-  %exitcond7648.not = icmp eq i64 %indvars.iv.next7645, %wide.trip.count7647
-  br i1 %exitcond7648.not, label %._crit_edge7123, label %3414, !llvm.loop !176
+  %indvars.iv.next7637 = add nuw nsw i64 %indvars.iv7636, 1
+  %exitcond7640.not = icmp eq i64 %indvars.iv.next7637, %wide.trip.count7639
+  br i1 %exitcond7640.not, label %._crit_edge7123, label %3414, !llvm.loop !176
 
 ._crit_edge7123:                                  ; preds = %3414, %.lr.ph7129
   %3485 = add nsw i32 %.1763967124, %32
   %3486 = add nsw i32 %.1763607125, %34
   %3487 = getelementptr inbounds i32, ptr %.162087127, i64 %3131
   %3488 = add nuw nsw i32 %.1763247126, 1
-  %exitcond7649.not = icmp eq i32 %3488, %3327
-  br i1 %exitcond7649.not, label %.loopexit6835.loopexit, label %.lr.ph7129, !llvm.loop !177
+  %exitcond7641.not = icmp eq i32 %3488, %3327
+  br i1 %exitcond7641.not, label %.loopexit6835.loopexit, label %.lr.ph7129, !llvm.loop !177
 
 .loopexit6835.loopexit:                           ; preds = %._crit_edge7123
-  %.pre7852 = load i32, ptr %3323, align 4
-  %.pre7854 = load i32, ptr %3324, align 4
+  %.pre7835 = load i32, ptr %3323, align 4
+  %.pre7837 = load i32, ptr %3324, align 4
   br label %.loopexit6835
 
 .loopexit6835:                                    ; preds = %.loopexit6835.loopexit, %3326, %3312
-  %3489 = phi i32 [ %.pre7855, %3312 ], [ %.pre7855, %3326 ], [ %.pre7854, %.loopexit6835.loopexit ]
-  %3490 = phi i32 [ %.pre7853, %3312 ], [ %.pre7853, %3326 ], [ %.pre7852, %.loopexit6835.loopexit ]
+  %3489 = phi i32 [ %.pre7838, %3312 ], [ %.pre7838, %3326 ], [ %.pre7837, %.loopexit6835.loopexit ]
+  %3490 = phi i32 [ %.pre7836, %3312 ], [ %.pre7836, %3326 ], [ %.pre7835, %.loopexit6835.loopexit ]
   %.46302 = phi i32 [ %3314, %3312 ], [ %3322, %3326 ], [ %3322, %.loopexit6835.loopexit ]
   %3491 = sub i32 %3317, %.46302
   %3492 = icmp sgt i32 %3491, 0
@@ -9673,7 +9673,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %3583
 
 3583:                                             ; preds = %.lr.ph7133, %3583
-  %indvars.iv7650 = phi i64 [ 0, %.lr.ph7133 ], [ %indvars.iv.next7651, %3583 ]
+  %indvars.iv7642 = phi i64 [ 0, %.lr.ph7133 ], [ %indvars.iv.next7643, %3583 ]
   %.262137130 = phi ptr [ %3540, %.lr.ph7133 ], [ %3653, %3583 ]
   %3584 = getelementptr inbounds i32, ptr %.262137130, i64 %3560
   %3585 = load i32, ptr %3584, align 4
@@ -9747,33 +9747,33 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6763 = fcmp ole double %.36, 0xC1E0000000000000
   %.37 = select i1 %.inv6763, double 0xC1E0000000000000, double %.36
   %3651 = fptosi double %.37 to i32
-  %3652 = getelementptr inbounds i32, ptr %.262097138, i64 %indvars.iv7650
+  %3652 = getelementptr inbounds i32, ptr %.262097138, i64 %indvars.iv7642
   store i32 %3651, ptr %3652, align 4
   %3653 = getelementptr inbounds i8, ptr %.262137130, i64 4
-  %indvars.iv.next7651 = add nuw nsw i64 %indvars.iv7650, 1
-  %exitcond7654.not = icmp eq i64 %indvars.iv.next7651, %wide.trip.count7653
-  br i1 %exitcond7654.not, label %._crit_edge7134, label %3583, !llvm.loop !178
+  %indvars.iv.next7643 = add nuw nsw i64 %indvars.iv7642, 1
+  %exitcond7646.not = icmp eq i64 %indvars.iv.next7643, %wide.trip.count7645
+  br i1 %exitcond7646.not, label %._crit_edge7134, label %3583, !llvm.loop !178
 
 ._crit_edge7134:                                  ; preds = %3583, %.lr.ph7140
   %3654 = add nsw i32 %.1863977135, %32
   %3655 = add nsw i32 %.1863617136, %34
   %3656 = getelementptr inbounds i32, ptr %.262097138, i64 %3131
   %3657 = add nuw nsw i32 %.1863257137, 1
-  %exitcond7655.not = icmp eq i32 %3657, %3491
-  br i1 %exitcond7655.not, label %._crit_edge7141, label %.lr.ph7140, !llvm.loop !179
+  %exitcond7647.not = icmp eq i32 %3657, %3491
+  br i1 %exitcond7647.not, label %._crit_edge7141, label %.lr.ph7140, !llvm.loop !179
 
 ._crit_edge7141:                                  ; preds = %._crit_edge7134, %.loopexit6835
-  %indvars.iv.next7657 = add nsw i64 %indvars.iv7656, 1
-  %lftr.wideiv7659 = trunc i64 %indvars.iv.next7657 to i32
-  %exitcond7660.not = icmp eq i32 %3133, %lftr.wideiv7659
-  br i1 %exitcond7660.not, label %.preheader6833, label %3312, !llvm.loop !180
+  %indvars.iv.next7649 = add nsw i64 %indvars.iv7648, 1
+  %lftr.wideiv7651 = trunc i64 %indvars.iv.next7649 to i32
+  %exitcond7652.not = icmp eq i32 %3133, %lftr.wideiv7651
+  br i1 %exitcond7652.not, label %.preheader6833, label %3312, !llvm.loop !180
 
 3658:                                             ; preds = %.lr.ph7163, %._crit_edge7159
-  %indvars.iv7668 = phi i64 [ %3310, %.lr.ph7163 ], [ %indvars.iv.next7669, %._crit_edge7159 ]
+  %indvars.iv7659 = phi i64 [ %3310, %.lr.ph7163 ], [ %indvars.iv.next7660, %._crit_edge7159 ]
   %.147162 = phi ptr [ %.13.lcssa, %.lr.ph7163 ], [ %3663, %._crit_edge7159 ]
-  %3659 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7668
+  %3659 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7659
   %3660 = load i32, ptr %3659, align 4
-  %3661 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7668
+  %3661 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7659
   %3662 = load i32, ptr %3661, align 4
   %3663 = getelementptr inbounds i8, ptr %.147162, i64 %3305
   %reass.sub7422 = sub i32 %3662, %3660
@@ -9784,9 +9784,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3665 = mul nsw i32 %3660, %.val6756
   %3666 = sext i32 %3665 to i64
   %3667 = getelementptr inbounds i32, ptr %3663, i64 %3666
-  %3668 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7668
+  %3668 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7659
   %3669 = load i32, ptr %3668, align 4
-  %3670 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7668
+  %3670 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7659
   %3671 = load i32, ptr %3670, align 4
   br label %.lr.ph7158
 
@@ -9887,7 +9887,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %3754
 
 3754:                                             ; preds = %.lr.ph7151, %3754
-  %indvars.iv7661 = phi i64 [ 0, %.lr.ph7151 ], [ %indvars.iv.next7662, %3754 ]
+  %indvars.iv7653 = phi i64 [ 0, %.lr.ph7151 ], [ %indvars.iv.next7654, %3754 ]
   %.362147148 = phi ptr [ %3711, %.lr.ph7151 ], [ %3824, %3754 ]
   %3755 = getelementptr inbounds i32, ptr %.362147148, i64 %3731
   %3756 = load i32, ptr %3755, align 4
@@ -9961,26 +9961,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6765 = fcmp ole double %.38, 0xC1E0000000000000
   %.39 = select i1 %.inv6765, double 0xC1E0000000000000, double %.38
   %3822 = fptosi double %.39 to i32
-  %3823 = getelementptr inbounds i32, ptr %.362107156, i64 %indvars.iv7661
+  %3823 = getelementptr inbounds i32, ptr %.362107156, i64 %indvars.iv7653
   store i32 %3822, ptr %3823, align 4
   %3824 = getelementptr inbounds i8, ptr %.362147148, i64 4
-  %indvars.iv.next7662 = add nuw nsw i64 %indvars.iv7661, 1
-  %exitcond7665.not = icmp eq i64 %indvars.iv.next7662, %wide.trip.count7664
-  br i1 %exitcond7665.not, label %._crit_edge7152, label %3754, !llvm.loop !181
+  %indvars.iv.next7654 = add nuw nsw i64 %indvars.iv7653, 1
+  %exitcond7657.not = icmp eq i64 %indvars.iv.next7654, %wide.trip.count7656
+  br i1 %exitcond7657.not, label %._crit_edge7152, label %3754, !llvm.loop !181
 
 ._crit_edge7152:                                  ; preds = %3754, %.lr.ph7158
   %3825 = add nsw i32 %.1963987153, %32
   %3826 = add nsw i32 %.1963627154, %34
   %3827 = getelementptr inbounds i32, ptr %.362107156, i64 %3309
   %3828 = add nuw nsw i32 %.1963267155, 1
-  %exitcond7667.not = icmp eq i32 %.1963267155, %reass.sub7422
-  br i1 %exitcond7667.not, label %._crit_edge7159, label %.lr.ph7158, !llvm.loop !182
+  %exitcond7658.not = icmp eq i32 %.1963267155, %reass.sub7422
+  br i1 %exitcond7658.not, label %._crit_edge7159, label %.lr.ph7158, !llvm.loop !182
 
 ._crit_edge7159:                                  ; preds = %._crit_edge7152, %3658
-  %indvars.iv.next7669 = add nsw i64 %indvars.iv7668, 1
-  %lftr.wideiv7671 = trunc i64 %indvars.iv.next7669 to i32
-  %exitcond7672.not = icmp eq i32 %3311, %lftr.wideiv7671
-  br i1 %exitcond7672.not, label %.loopexit, label %3658, !llvm.loop !183
+  %indvars.iv.next7660 = add nsw i64 %indvars.iv7659, 1
+  %lftr.wideiv7662 = trunc i64 %indvars.iv.next7660 to i32
+  %exitcond7663.not = icmp eq i32 %3311, %lftr.wideiv7662
+  br i1 %exitcond7663.not, label %.loopexit, label %3658, !llvm.loop !183
 
 3829:                                             ; preds = %45
   %3830 = ashr i32 %.val6757, 2
@@ -9998,8 +9998,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3836 = icmp sgt i32 %.val6756, 0
   %3837 = sext i32 %.val6756 to i64
   %3838 = sext i32 %20 to i64
-  %wide.trip.count7560 = sext i32 %16 to i64
-  %wide.trip.count7553 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7556 = sext i32 %16 to i64
+  %wide.trip.count7550 = zext nneg i32 %.val6756 to i64
   br label %4570
 
 .preheader6842:                                   ; preds = %3829
@@ -10012,8 +10012,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3842 = icmp sgt i32 %.val6756, 0
   %3843 = sext i32 %.val6756 to i64
   %3844 = sext i32 %20 to i64
-  %wide.trip.count7601 = sext i32 %16 to i64
-  %wide.trip.count7594 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7595 = sext i32 %16 to i64
+  %wide.trip.count7589 = zext nneg i32 %.val6756 to i64
   br label %3852
 
 .preheader6841:                                   ; preds = %._crit_edge7051, %.preheader6842
@@ -10030,16 +10030,16 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3849 = sext i32 %.val6756 to i64
   %3850 = sext i32 %.156430.lcssa to i64
   %3851 = add i32 %18, 1
+  %wide.trip.count7600 = zext nneg i32 %.val6756 to i64
   %wide.trip.count7606 = zext nneg i32 %.val6756 to i64
-  %wide.trip.count7612 = zext nneg i32 %.val6756 to i64
   br label %4034
 
 3852:                                             ; preds = %.lr.ph7054, %._crit_edge7051
-  %indvars.iv7598 = phi i64 [ %3844, %.lr.ph7054 ], [ %indvars.iv.next7599, %._crit_edge7051 ]
+  %indvars.iv7592 = phi i64 [ %3844, %.lr.ph7054 ], [ %indvars.iv.next7593, %._crit_edge7051 ]
   %.157053 = phi ptr [ %24, %.lr.ph7054 ], [ %3857, %._crit_edge7051 ]
-  %3853 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7598
+  %3853 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7592
   %3854 = load i32, ptr %3853, align 4
-  %3855 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7598
+  %3855 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7592
   %3856 = load i32, ptr %3855, align 4
   %3857 = getelementptr inbounds i8, ptr %.157053, i64 %3839
   %reass.sub7419 = sub i32 %3856, %3854
@@ -10050,9 +10050,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3859 = mul nsw i32 %3854, %.val6756
   %3860 = sext i32 %3859 to i64
   %3861 = getelementptr inbounds float, ptr %3857, i64 %3860
-  %3862 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7598
+  %3862 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7592
   %3863 = load i32, ptr %3862, align 4
-  %3864 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7598
+  %3864 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7592
   %3865 = load i32, ptr %3864, align 4
   br label %.lr.ph7050
 
@@ -10157,7 +10157,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %3952
 
 3952:                                             ; preds = %.lr.ph7043, %3952
-  %indvars.iv7591 = phi i64 [ 0, %.lr.ph7043 ], [ %indvars.iv.next7592, %3952 ]
+  %indvars.iv7586 = phi i64 [ 0, %.lr.ph7043 ], [ %indvars.iv.next7587, %3952 ]
   %.061997040 = phi ptr [ %3909, %.lr.ph7043 ], [ %4022, %3952 ]
   %3953 = getelementptr inbounds float, ptr %.061997040, i64 %3929
   %3954 = load float, ptr %3953, align 4
@@ -10227,25 +10227,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4018 = tail call double @llvm.fmuladd.f64(double %3999, double %3896, double %4017)
   %4019 = tail call double @llvm.fmuladd.f64(double %4015, double %3897, double %4018)
   %4020 = fptrunc double %4019 to float
-  %4021 = getelementptr inbounds float, ptr %.061957048, i64 %indvars.iv7591
+  %4021 = getelementptr inbounds float, ptr %.061957048, i64 %indvars.iv7586
   store float %4020, ptr %4021, align 4
   %4022 = getelementptr inbounds i8, ptr %.061997040, i64 4
-  %indvars.iv.next7592 = add nuw nsw i64 %indvars.iv7591, 1
-  %exitcond7595.not = icmp eq i64 %indvars.iv.next7592, %wide.trip.count7594
-  br i1 %exitcond7595.not, label %._crit_edge7044, label %3952, !llvm.loop !184
+  %indvars.iv.next7587 = add nuw nsw i64 %indvars.iv7586, 1
+  %exitcond7590.not = icmp eq i64 %indvars.iv.next7587, %wide.trip.count7589
+  br i1 %exitcond7590.not, label %._crit_edge7044, label %3952, !llvm.loop !184
 
 ._crit_edge7044:                                  ; preds = %3952, %.lr.ph7050
   %4023 = add nsw i32 %.2063997045, %32
   %4024 = add nsw i32 %.2063637046, %34
   %4025 = getelementptr inbounds float, ptr %.061957048, i64 %3843
   %4026 = add nuw nsw i32 %.2063277047, 1
-  %exitcond7597.not = icmp eq i32 %.2063277047, %reass.sub7419
-  br i1 %exitcond7597.not, label %._crit_edge7051, label %.lr.ph7050, !llvm.loop !185
+  %exitcond7591.not = icmp eq i32 %.2063277047, %reass.sub7419
+  br i1 %exitcond7591.not, label %._crit_edge7051, label %.lr.ph7050, !llvm.loop !185
 
 ._crit_edge7051:                                  ; preds = %._crit_edge7044, %3852
-  %indvars.iv.next7599 = add nsw i64 %indvars.iv7598, 1
-  %exitcond7602.not = icmp eq i64 %indvars.iv.next7599, %wide.trip.count7601
-  br i1 %exitcond7602.not, label %.preheader6841, label %3852, !llvm.loop !186
+  %indvars.iv.next7593 = add nsw i64 %indvars.iv7592, 1
+  %exitcond7596.not = icmp eq i64 %indvars.iv.next7593, %wide.trip.count7595
+  br i1 %exitcond7596.not, label %.preheader6841, label %3852, !llvm.loop !186
 
 .preheader6838:                                   ; preds = %._crit_edge7079, %.preheader6841
   %.166431.lcssa = phi i32 [ %.156430.lcssa, %.preheader6841 ], [ %3851, %._crit_edge7079 ]
@@ -10261,28 +10261,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4031 = sext i32 %.val6756 to i64
   %4032 = sext i32 %.166431.lcssa to i64
   %4033 = add i32 %22, 1
-  %wide.trip.count7623 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7617 = zext nneg i32 %.val6756 to i64
   br label %4388
 
 4034:                                             ; preds = %.lr.ph7083, %._crit_edge7079
-  %indvars.iv7615 = phi i64 [ %3850, %.lr.ph7083 ], [ %indvars.iv.next7616, %._crit_edge7079 ]
+  %indvars.iv7609 = phi i64 [ %3850, %.lr.ph7083 ], [ %indvars.iv.next7610, %._crit_edge7079 ]
   %.167082 = phi ptr [ %.15.lcssa, %.lr.ph7083 ], [ %4047, %._crit_edge7079 ]
-  %4035 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7615
+  %4035 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7609
   %4036 = load i32, ptr %4035, align 4
-  %4037 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7615
+  %4037 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7609
   %4038 = load i32, ptr %4037, align 4
   %4039 = add nsw i32 %4038, 1
-  %4040 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7615
+  %4040 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7609
   %4041 = load i32, ptr %4040, align 4
-  %4042 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7615
+  %4042 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7609
   %4043 = load i32, ptr %4042, align 4
   %4044 = add nsw i32 %4043, 1
-  %4045 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7615
-  %4046 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7615
+  %4045 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7609
+  %4046 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7609
   %4047 = getelementptr inbounds i8, ptr %.167082, i64 %3845
   %.not6602 = icmp sgt i32 %4041, %4043
-  %.pre7849 = load i32, ptr %4045, align 4
-  %.pre7851 = load i32, ptr %4046, align 4
+  %.pre7832 = load i32, ptr %4045, align 4
+  %.pre7834 = load i32, ptr %4046, align 4
   br i1 %.not6602, label %.loopexit6840, label %4048
 
 4048:                                             ; preds = %4034
@@ -10299,8 +10299,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 .lr.ph7067:                                       ; preds = %.lr.ph7067.preheader, %._crit_edge7061
   %.161967065 = phi ptr [ %4213, %._crit_edge7061 ], [ %4053, %.lr.ph7067.preheader ]
   %.2163287064 = phi i32 [ %4214, %._crit_edge7061 ], [ 0, %.lr.ph7067.preheader ]
-  %.2163647063 = phi i32 [ %4212, %._crit_edge7061 ], [ %.pre7851, %.lr.ph7067.preheader ]
-  %.2164007062 = phi i32 [ %4211, %._crit_edge7061 ], [ %.pre7849, %.lr.ph7067.preheader ]
+  %.2163647063 = phi i32 [ %4212, %._crit_edge7061 ], [ %.pre7834, %.lr.ph7067.preheader ]
+  %.2164007062 = phi i32 [ %4211, %._crit_edge7061 ], [ %.pre7832, %.lr.ph7067.preheader ]
   %4054 = add nsw i32 %.2164007062, -32768
   %4055 = and i32 %4054, 65535
   %4056 = uitofp nneg i32 %4055 to double
@@ -10397,7 +10397,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %4140
 
 4140:                                             ; preds = %.lr.ph7060, %4140
-  %indvars.iv7603 = phi i64 [ 0, %.lr.ph7060 ], [ %indvars.iv.next7604, %4140 ]
+  %indvars.iv7597 = phi i64 [ 0, %.lr.ph7060 ], [ %indvars.iv.next7598, %4140 ]
   %.162007057 = phi ptr [ %4097, %.lr.ph7060 ], [ %4210, %4140 ]
   %4141 = getelementptr inbounds float, ptr %.162007057, i64 %4117
   %4142 = load float, ptr %4141, align 4
@@ -10467,29 +10467,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4206 = tail call double @llvm.fmuladd.f64(double %4187, double %4084, double %4205)
   %4207 = tail call double @llvm.fmuladd.f64(double %4203, double %4085, double %4206)
   %4208 = fptrunc double %4207 to float
-  %4209 = getelementptr inbounds float, ptr %.161967065, i64 %indvars.iv7603
+  %4209 = getelementptr inbounds float, ptr %.161967065, i64 %indvars.iv7597
   store float %4208, ptr %4209, align 4
   %4210 = getelementptr inbounds i8, ptr %.162007057, i64 4
-  %indvars.iv.next7604 = add nuw nsw i64 %indvars.iv7603, 1
-  %exitcond7607.not = icmp eq i64 %indvars.iv.next7604, %wide.trip.count7606
-  br i1 %exitcond7607.not, label %._crit_edge7061, label %4140, !llvm.loop !187
+  %indvars.iv.next7598 = add nuw nsw i64 %indvars.iv7597, 1
+  %exitcond7601.not = icmp eq i64 %indvars.iv.next7598, %wide.trip.count7600
+  br i1 %exitcond7601.not, label %._crit_edge7061, label %4140, !llvm.loop !187
 
 ._crit_edge7061:                                  ; preds = %4140, %.lr.ph7067
   %4211 = add nsw i32 %.2164007062, %32
   %4212 = add nsw i32 %.2163647063, %34
   %4213 = getelementptr inbounds float, ptr %.161967065, i64 %3849
   %4214 = add nuw nsw i32 %.2163287064, 1
-  %exitcond7608.not = icmp eq i32 %4214, %4049
-  br i1 %exitcond7608.not, label %.loopexit6840.loopexit, label %.lr.ph7067, !llvm.loop !188
+  %exitcond7602.not = icmp eq i32 %4214, %4049
+  br i1 %exitcond7602.not, label %.loopexit6840.loopexit, label %.lr.ph7067, !llvm.loop !188
 
 .loopexit6840.loopexit:                           ; preds = %._crit_edge7061
-  %.pre7848 = load i32, ptr %4045, align 4
-  %.pre7850 = load i32, ptr %4046, align 4
+  %.pre7831 = load i32, ptr %4045, align 4
+  %.pre7833 = load i32, ptr %4046, align 4
   br label %.loopexit6840
 
 .loopexit6840:                                    ; preds = %.loopexit6840.loopexit, %4048, %4034
-  %4215 = phi i32 [ %.pre7851, %4034 ], [ %.pre7851, %4048 ], [ %.pre7850, %.loopexit6840.loopexit ]
-  %4216 = phi i32 [ %.pre7849, %4034 ], [ %.pre7849, %4048 ], [ %.pre7848, %.loopexit6840.loopexit ]
+  %4215 = phi i32 [ %.pre7834, %4034 ], [ %.pre7834, %4048 ], [ %.pre7833, %.loopexit6840.loopexit ]
+  %4216 = phi i32 [ %.pre7832, %4034 ], [ %.pre7832, %4048 ], [ %.pre7831, %.loopexit6840.loopexit ]
   %.56303 = phi i32 [ %4036, %4034 ], [ %4044, %4048 ], [ %4044, %.loopexit6840.loopexit ]
   %4217 = sub i32 %4039, %.56303
   %4218 = icmp sgt i32 %4217, 0
@@ -10607,7 +10607,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %4313
 
 4313:                                             ; preds = %.lr.ph7071, %4313
-  %indvars.iv7609 = phi i64 [ 0, %.lr.ph7071 ], [ %indvars.iv.next7610, %4313 ]
+  %indvars.iv7603 = phi i64 [ 0, %.lr.ph7071 ], [ %indvars.iv.next7604, %4313 ]
   %.262017068 = phi ptr [ %4270, %.lr.ph7071 ], [ %4383, %4313 ]
   %4314 = getelementptr inbounds float, ptr %.262017068, i64 %4290
   %4315 = load float, ptr %4314, align 4
@@ -10677,33 +10677,33 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4379 = tail call double @llvm.fmuladd.f64(double %4360, double %4257, double %4378)
   %4380 = tail call double @llvm.fmuladd.f64(double %4376, double %4258, double %4379)
   %4381 = fptrunc double %4380 to float
-  %4382 = getelementptr inbounds float, ptr %.261977076, i64 %indvars.iv7609
+  %4382 = getelementptr inbounds float, ptr %.261977076, i64 %indvars.iv7603
   store float %4381, ptr %4382, align 4
   %4383 = getelementptr inbounds i8, ptr %.262017068, i64 4
-  %indvars.iv.next7610 = add nuw nsw i64 %indvars.iv7609, 1
-  %exitcond7613.not = icmp eq i64 %indvars.iv.next7610, %wide.trip.count7612
-  br i1 %exitcond7613.not, label %._crit_edge7072, label %4313, !llvm.loop !189
+  %indvars.iv.next7604 = add nuw nsw i64 %indvars.iv7603, 1
+  %exitcond7607.not = icmp eq i64 %indvars.iv.next7604, %wide.trip.count7606
+  br i1 %exitcond7607.not, label %._crit_edge7072, label %4313, !llvm.loop !189
 
 ._crit_edge7072:                                  ; preds = %4313, %.lr.ph7078
   %4384 = add nsw i32 %.2264017073, %32
   %4385 = add nsw i32 %.2263657074, %34
   %4386 = getelementptr inbounds float, ptr %.261977076, i64 %3849
   %4387 = add nuw nsw i32 %.2263297075, 1
-  %exitcond7614.not = icmp eq i32 %4387, %4217
-  br i1 %exitcond7614.not, label %._crit_edge7079, label %.lr.ph7078, !llvm.loop !190
+  %exitcond7608.not = icmp eq i32 %4387, %4217
+  br i1 %exitcond7608.not, label %._crit_edge7079, label %.lr.ph7078, !llvm.loop !190
 
 ._crit_edge7079:                                  ; preds = %._crit_edge7072, %.loopexit6840
-  %indvars.iv.next7616 = add nsw i64 %indvars.iv7615, 1
-  %lftr.wideiv7618 = trunc i64 %indvars.iv.next7616 to i32
-  %exitcond7619.not = icmp eq i32 %3851, %lftr.wideiv7618
-  br i1 %exitcond7619.not, label %.preheader6838, label %4034, !llvm.loop !191
+  %indvars.iv.next7610 = add nsw i64 %indvars.iv7609, 1
+  %lftr.wideiv7612 = trunc i64 %indvars.iv.next7610 to i32
+  %exitcond7613.not = icmp eq i32 %3851, %lftr.wideiv7612
+  br i1 %exitcond7613.not, label %.preheader6838, label %4034, !llvm.loop !191
 
 4388:                                             ; preds = %.lr.ph7101, %._crit_edge7097
-  %indvars.iv7627 = phi i64 [ %4032, %.lr.ph7101 ], [ %indvars.iv.next7628, %._crit_edge7097 ]
+  %indvars.iv7620 = phi i64 [ %4032, %.lr.ph7101 ], [ %indvars.iv.next7621, %._crit_edge7097 ]
   %.177100 = phi ptr [ %.16.lcssa, %.lr.ph7101 ], [ %4393, %._crit_edge7097 ]
-  %4389 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7627
+  %4389 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7620
   %4390 = load i32, ptr %4389, align 4
-  %4391 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7627
+  %4391 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7620
   %4392 = load i32, ptr %4391, align 4
   %4393 = getelementptr inbounds i8, ptr %.177100, i64 %4027
   %reass.sub7420 = sub i32 %4392, %4390
@@ -10714,9 +10714,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4395 = mul nsw i32 %4390, %.val6756
   %4396 = sext i32 %4395 to i64
   %4397 = getelementptr inbounds float, ptr %4393, i64 %4396
-  %4398 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7627
+  %4398 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7620
   %4399 = load i32, ptr %4398, align 4
-  %4400 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7627
+  %4400 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7620
   %4401 = load i32, ptr %4400, align 4
   br label %.lr.ph7096
 
@@ -10821,7 +10821,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %4488
 
 4488:                                             ; preds = %.lr.ph7089, %4488
-  %indvars.iv7620 = phi i64 [ 0, %.lr.ph7089 ], [ %indvars.iv.next7621, %4488 ]
+  %indvars.iv7614 = phi i64 [ 0, %.lr.ph7089 ], [ %indvars.iv.next7615, %4488 ]
   %.362027086 = phi ptr [ %4445, %.lr.ph7089 ], [ %4558, %4488 ]
   %4489 = getelementptr inbounds float, ptr %.362027086, i64 %4465
   %4490 = load float, ptr %4489, align 4
@@ -10891,26 +10891,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4554 = tail call double @llvm.fmuladd.f64(double %4535, double %4432, double %4553)
   %4555 = tail call double @llvm.fmuladd.f64(double %4551, double %4433, double %4554)
   %4556 = fptrunc double %4555 to float
-  %4557 = getelementptr inbounds float, ptr %.361987094, i64 %indvars.iv7620
+  %4557 = getelementptr inbounds float, ptr %.361987094, i64 %indvars.iv7614
   store float %4556, ptr %4557, align 4
   %4558 = getelementptr inbounds i8, ptr %.362027086, i64 4
-  %indvars.iv.next7621 = add nuw nsw i64 %indvars.iv7620, 1
-  %exitcond7624.not = icmp eq i64 %indvars.iv.next7621, %wide.trip.count7623
-  br i1 %exitcond7624.not, label %._crit_edge7090, label %4488, !llvm.loop !192
+  %indvars.iv.next7615 = add nuw nsw i64 %indvars.iv7614, 1
+  %exitcond7618.not = icmp eq i64 %indvars.iv.next7615, %wide.trip.count7617
+  br i1 %exitcond7618.not, label %._crit_edge7090, label %4488, !llvm.loop !192
 
 ._crit_edge7090:                                  ; preds = %4488, %.lr.ph7096
   %4559 = add nsw i32 %.2364027091, %32
   %4560 = add nsw i32 %.2363667092, %34
   %4561 = getelementptr inbounds float, ptr %.361987094, i64 %4031
   %4562 = add nuw nsw i32 %.2363307093, 1
-  %exitcond7626.not = icmp eq i32 %.2363307093, %reass.sub7420
-  br i1 %exitcond7626.not, label %._crit_edge7097, label %.lr.ph7096, !llvm.loop !193
+  %exitcond7619.not = icmp eq i32 %.2363307093, %reass.sub7420
+  br i1 %exitcond7619.not, label %._crit_edge7097, label %.lr.ph7096, !llvm.loop !193
 
 ._crit_edge7097:                                  ; preds = %._crit_edge7090, %4388
-  %indvars.iv.next7628 = add nsw i64 %indvars.iv7627, 1
-  %lftr.wideiv7630 = trunc i64 %indvars.iv.next7628 to i32
-  %exitcond7631.not = icmp eq i32 %4033, %lftr.wideiv7630
-  br i1 %exitcond7631.not, label %.loopexit, label %4388, !llvm.loop !194
+  %indvars.iv.next7621 = add nsw i64 %indvars.iv7620, 1
+  %lftr.wideiv7623 = trunc i64 %indvars.iv.next7621 to i32
+  %exitcond7624.not = icmp eq i32 %4033, %lftr.wideiv7623
+  br i1 %exitcond7624.not, label %.loopexit, label %4388, !llvm.loop !194
 
 .preheader6846:                                   ; preds = %._crit_edge6989, %.preheader6847
   %.186433.lcssa = phi i32 [ %20, %.preheader6847 ], [ %16, %._crit_edge6989 ]
@@ -10926,16 +10926,16 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4567 = sext i32 %.val6756 to i64
   %4568 = sext i32 %.186433.lcssa to i64
   %4569 = add i32 %18, 1
-  %wide.trip.count7565 = zext nneg i32 %.val6756 to i64
-  %wide.trip.count7571 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7561 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7567 = zext nneg i32 %.val6756 to i64
   br label %4748
 
 4570:                                             ; preds = %.lr.ph6992, %._crit_edge6989
-  %indvars.iv7557 = phi i64 [ %3838, %.lr.ph6992 ], [ %indvars.iv.next7558, %._crit_edge6989 ]
+  %indvars.iv7553 = phi i64 [ %3838, %.lr.ph6992 ], [ %indvars.iv.next7554, %._crit_edge6989 ]
   %.186991 = phi ptr [ %24, %.lr.ph6992 ], [ %4575, %._crit_edge6989 ]
-  %4571 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7557
+  %4571 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7553
   %4572 = load i32, ptr %4571, align 4
-  %4573 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7557
+  %4573 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7553
   %4574 = load i32, ptr %4573, align 4
   %4575 = getelementptr inbounds i8, ptr %.186991, i64 %3833
   %reass.sub7417 = sub i32 %4574, %4572
@@ -10946,9 +10946,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4577 = mul nsw i32 %4572, %.val6756
   %4578 = sext i32 %4577 to i64
   %4579 = getelementptr inbounds float, ptr %4575, i64 %4578
-  %4580 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7557
+  %4580 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7553
   %4581 = load i32, ptr %4580, align 4
-  %4582 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7557
+  %4582 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7553
   %4583 = load i32, ptr %4582, align 4
   br label %.lr.ph6988
 
@@ -11049,7 +11049,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %4666
 
 4666:                                             ; preds = %.lr.ph6981, %4666
-  %indvars.iv7550 = phi i64 [ 0, %.lr.ph6981 ], [ %indvars.iv.next7551, %4666 ]
+  %indvars.iv7547 = phi i64 [ 0, %.lr.ph6981 ], [ %indvars.iv.next7548, %4666 ]
   %.061876978 = phi ptr [ %4623, %.lr.ph6981 ], [ %4736, %4666 ]
   %4667 = getelementptr inbounds float, ptr %.061876978, i64 %4643
   %4668 = load float, ptr %4667, align 4
@@ -11119,25 +11119,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4732 = tail call double @llvm.fmuladd.f64(double %4713, double %4610, double %4731)
   %4733 = tail call double @llvm.fmuladd.f64(double %4729, double %4611, double %4732)
   %4734 = fptrunc double %4733 to float
-  %4735 = getelementptr inbounds float, ptr %.061836986, i64 %indvars.iv7550
+  %4735 = getelementptr inbounds float, ptr %.061836986, i64 %indvars.iv7547
   store float %4734, ptr %4735, align 4
   %4736 = getelementptr inbounds i8, ptr %.061876978, i64 4
-  %indvars.iv.next7551 = add nuw nsw i64 %indvars.iv7550, 1
-  %exitcond7554.not = icmp eq i64 %indvars.iv.next7551, %wide.trip.count7553
-  br i1 %exitcond7554.not, label %._crit_edge6982, label %4666, !llvm.loop !195
+  %indvars.iv.next7548 = add nuw nsw i64 %indvars.iv7547, 1
+  %exitcond7551.not = icmp eq i64 %indvars.iv.next7548, %wide.trip.count7550
+  br i1 %exitcond7551.not, label %._crit_edge6982, label %4666, !llvm.loop !195
 
 ._crit_edge6982:                                  ; preds = %4666, %.lr.ph6988
   %4737 = add nsw i32 %.2464036983, %32
   %4738 = add nsw i32 %.2463676984, %34
   %4739 = getelementptr inbounds float, ptr %.061836986, i64 %3837
   %4740 = add nuw nsw i32 %.2463316985, 1
-  %exitcond7556.not = icmp eq i32 %.2463316985, %reass.sub7417
-  br i1 %exitcond7556.not, label %._crit_edge6989, label %.lr.ph6988, !llvm.loop !196
+  %exitcond7552.not = icmp eq i32 %.2463316985, %reass.sub7417
+  br i1 %exitcond7552.not, label %._crit_edge6989, label %.lr.ph6988, !llvm.loop !196
 
 ._crit_edge6989:                                  ; preds = %._crit_edge6982, %4570
-  %indvars.iv.next7558 = add nsw i64 %indvars.iv7557, 1
-  %exitcond7561.not = icmp eq i64 %indvars.iv.next7558, %wide.trip.count7560
-  br i1 %exitcond7561.not, label %.preheader6846, label %4570, !llvm.loop !197
+  %indvars.iv.next7554 = add nsw i64 %indvars.iv7553, 1
+  %exitcond7557.not = icmp eq i64 %indvars.iv.next7554, %wide.trip.count7556
+  br i1 %exitcond7557.not, label %.preheader6846, label %4570, !llvm.loop !197
 
 .preheader6843:                                   ; preds = %._crit_edge7017, %.preheader6846
   %.196434.lcssa = phi i32 [ %.186433.lcssa, %.preheader6846 ], [ %4569, %._crit_edge7017 ]
@@ -11153,28 +11153,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4745 = sext i32 %.val6756 to i64
   %4746 = sext i32 %.196434.lcssa to i64
   %4747 = add i32 %22, 1
-  %wide.trip.count7582 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7578 = zext nneg i32 %.val6756 to i64
   br label %5094
 
 4748:                                             ; preds = %.lr.ph7021, %._crit_edge7017
-  %indvars.iv7574 = phi i64 [ %4568, %.lr.ph7021 ], [ %indvars.iv.next7575, %._crit_edge7017 ]
+  %indvars.iv7570 = phi i64 [ %4568, %.lr.ph7021 ], [ %indvars.iv.next7571, %._crit_edge7017 ]
   %.197020 = phi ptr [ %.18.lcssa, %.lr.ph7021 ], [ %4761, %._crit_edge7017 ]
-  %4749 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7574
+  %4749 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7570
   %4750 = load i32, ptr %4749, align 4
-  %4751 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7574
+  %4751 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7570
   %4752 = load i32, ptr %4751, align 4
   %4753 = add nsw i32 %4752, 1
-  %4754 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7574
+  %4754 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7570
   %4755 = load i32, ptr %4754, align 4
-  %4756 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7574
+  %4756 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7570
   %4757 = load i32, ptr %4756, align 4
   %4758 = add nsw i32 %4757, 1
-  %4759 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7574
-  %4760 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7574
+  %4759 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7570
+  %4760 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7570
   %4761 = getelementptr inbounds i8, ptr %.197020, i64 %4563
   %.not6575 = icmp sgt i32 %4755, %4757
-  %.pre7845 = load i32, ptr %4759, align 4
-  %.pre7847 = load i32, ptr %4760, align 4
+  %.pre7828 = load i32, ptr %4759, align 4
+  %.pre7830 = load i32, ptr %4760, align 4
   br i1 %.not6575, label %.loopexit6845, label %4762
 
 4762:                                             ; preds = %4748
@@ -11191,8 +11191,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 .lr.ph7005:                                       ; preds = %.lr.ph7005.preheader, %._crit_edge6999
   %.161847003 = phi ptr [ %4923, %._crit_edge6999 ], [ %4767, %.lr.ph7005.preheader ]
   %.2563327002 = phi i32 [ %4924, %._crit_edge6999 ], [ 0, %.lr.ph7005.preheader ]
-  %.2563687001 = phi i32 [ %4922, %._crit_edge6999 ], [ %.pre7847, %.lr.ph7005.preheader ]
-  %.2564047000 = phi i32 [ %4921, %._crit_edge6999 ], [ %.pre7845, %.lr.ph7005.preheader ]
+  %.2563687001 = phi i32 [ %4922, %._crit_edge6999 ], [ %.pre7830, %.lr.ph7005.preheader ]
+  %.2564047000 = phi i32 [ %4921, %._crit_edge6999 ], [ %.pre7828, %.lr.ph7005.preheader ]
   %4768 = add nsw i32 %.2564047000, -32768
   %4769 = and i32 %4768, 65535
   %4770 = uitofp nneg i32 %4769 to double
@@ -11285,7 +11285,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %4850
 
 4850:                                             ; preds = %.lr.ph6998, %4850
-  %indvars.iv7562 = phi i64 [ 0, %.lr.ph6998 ], [ %indvars.iv.next7563, %4850 ]
+  %indvars.iv7558 = phi i64 [ 0, %.lr.ph6998 ], [ %indvars.iv.next7559, %4850 ]
   %.161886995 = phi ptr [ %4807, %.lr.ph6998 ], [ %4920, %4850 ]
   %4851 = getelementptr inbounds float, ptr %.161886995, i64 %4827
   %4852 = load float, ptr %4851, align 4
@@ -11355,29 +11355,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4916 = tail call double @llvm.fmuladd.f64(double %4897, double %4794, double %4915)
   %4917 = tail call double @llvm.fmuladd.f64(double %4913, double %4795, double %4916)
   %4918 = fptrunc double %4917 to float
-  %4919 = getelementptr inbounds float, ptr %.161847003, i64 %indvars.iv7562
+  %4919 = getelementptr inbounds float, ptr %.161847003, i64 %indvars.iv7558
   store float %4918, ptr %4919, align 4
   %4920 = getelementptr inbounds i8, ptr %.161886995, i64 4
-  %indvars.iv.next7563 = add nuw nsw i64 %indvars.iv7562, 1
-  %exitcond7566.not = icmp eq i64 %indvars.iv.next7563, %wide.trip.count7565
-  br i1 %exitcond7566.not, label %._crit_edge6999, label %4850, !llvm.loop !198
+  %indvars.iv.next7559 = add nuw nsw i64 %indvars.iv7558, 1
+  %exitcond7562.not = icmp eq i64 %indvars.iv.next7559, %wide.trip.count7561
+  br i1 %exitcond7562.not, label %._crit_edge6999, label %4850, !llvm.loop !198
 
 ._crit_edge6999:                                  ; preds = %4850, %.lr.ph7005
   %4921 = add nsw i32 %.2564047000, %32
   %4922 = add nsw i32 %.2563687001, %34
   %4923 = getelementptr inbounds float, ptr %.161847003, i64 %4567
   %4924 = add nuw nsw i32 %.2563327002, 1
-  %exitcond7567.not = icmp eq i32 %4924, %4763
-  br i1 %exitcond7567.not, label %.loopexit6845.loopexit, label %.lr.ph7005, !llvm.loop !199
+  %exitcond7563.not = icmp eq i32 %4924, %4763
+  br i1 %exitcond7563.not, label %.loopexit6845.loopexit, label %.lr.ph7005, !llvm.loop !199
 
 .loopexit6845.loopexit:                           ; preds = %._crit_edge6999
-  %.pre7844 = load i32, ptr %4759, align 4
-  %.pre7846 = load i32, ptr %4760, align 4
+  %.pre7827 = load i32, ptr %4759, align 4
+  %.pre7829 = load i32, ptr %4760, align 4
   br label %.loopexit6845
 
 .loopexit6845:                                    ; preds = %.loopexit6845.loopexit, %4762, %4748
-  %4925 = phi i32 [ %.pre7847, %4748 ], [ %.pre7847, %4762 ], [ %.pre7846, %.loopexit6845.loopexit ]
-  %4926 = phi i32 [ %.pre7845, %4748 ], [ %.pre7845, %4762 ], [ %.pre7844, %.loopexit6845.loopexit ]
+  %4925 = phi i32 [ %.pre7830, %4748 ], [ %.pre7830, %4762 ], [ %.pre7829, %.loopexit6845.loopexit ]
+  %4926 = phi i32 [ %.pre7828, %4748 ], [ %.pre7828, %4762 ], [ %.pre7827, %.loopexit6845.loopexit ]
   %.66304 = phi i32 [ %4750, %4748 ], [ %4758, %4762 ], [ %4758, %.loopexit6845.loopexit ]
   %4927 = sub i32 %4753, %.66304
   %4928 = icmp sgt i32 %4927, 0
@@ -11491,7 +11491,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %5019
 
 5019:                                             ; preds = %.lr.ph7009, %5019
-  %indvars.iv7568 = phi i64 [ 0, %.lr.ph7009 ], [ %indvars.iv.next7569, %5019 ]
+  %indvars.iv7564 = phi i64 [ 0, %.lr.ph7009 ], [ %indvars.iv.next7565, %5019 ]
   %.261897006 = phi ptr [ %4976, %.lr.ph7009 ], [ %5089, %5019 ]
   %5020 = getelementptr inbounds float, ptr %.261897006, i64 %4996
   %5021 = load float, ptr %5020, align 4
@@ -11561,33 +11561,33 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5085 = tail call double @llvm.fmuladd.f64(double %5066, double %4963, double %5084)
   %5086 = tail call double @llvm.fmuladd.f64(double %5082, double %4964, double %5085)
   %5087 = fptrunc double %5086 to float
-  %5088 = getelementptr inbounds float, ptr %.261857014, i64 %indvars.iv7568
+  %5088 = getelementptr inbounds float, ptr %.261857014, i64 %indvars.iv7564
   store float %5087, ptr %5088, align 4
   %5089 = getelementptr inbounds i8, ptr %.261897006, i64 4
-  %indvars.iv.next7569 = add nuw nsw i64 %indvars.iv7568, 1
-  %exitcond7572.not = icmp eq i64 %indvars.iv.next7569, %wide.trip.count7571
-  br i1 %exitcond7572.not, label %._crit_edge7010, label %5019, !llvm.loop !200
+  %indvars.iv.next7565 = add nuw nsw i64 %indvars.iv7564, 1
+  %exitcond7568.not = icmp eq i64 %indvars.iv.next7565, %wide.trip.count7567
+  br i1 %exitcond7568.not, label %._crit_edge7010, label %5019, !llvm.loop !200
 
 ._crit_edge7010:                                  ; preds = %5019, %.lr.ph7016
   %5090 = add nsw i32 %.2664057011, %32
   %5091 = add nsw i32 %.2663697012, %34
   %5092 = getelementptr inbounds float, ptr %.261857014, i64 %4567
   %5093 = add nuw nsw i32 %.2663337013, 1
-  %exitcond7573.not = icmp eq i32 %5093, %4927
-  br i1 %exitcond7573.not, label %._crit_edge7017, label %.lr.ph7016, !llvm.loop !201
+  %exitcond7569.not = icmp eq i32 %5093, %4927
+  br i1 %exitcond7569.not, label %._crit_edge7017, label %.lr.ph7016, !llvm.loop !201
 
 ._crit_edge7017:                                  ; preds = %._crit_edge7010, %.loopexit6845
-  %indvars.iv.next7575 = add nsw i64 %indvars.iv7574, 1
-  %lftr.wideiv7577 = trunc i64 %indvars.iv.next7575 to i32
-  %exitcond7578.not = icmp eq i32 %4569, %lftr.wideiv7577
-  br i1 %exitcond7578.not, label %.preheader6843, label %4748, !llvm.loop !202
+  %indvars.iv.next7571 = add nsw i64 %indvars.iv7570, 1
+  %lftr.wideiv7573 = trunc i64 %indvars.iv.next7571 to i32
+  %exitcond7574.not = icmp eq i32 %4569, %lftr.wideiv7573
+  br i1 %exitcond7574.not, label %.preheader6843, label %4748, !llvm.loop !202
 
 5094:                                             ; preds = %.lr.ph7039, %._crit_edge7035
-  %indvars.iv7586 = phi i64 [ %4746, %.lr.ph7039 ], [ %indvars.iv.next7587, %._crit_edge7035 ]
+  %indvars.iv7581 = phi i64 [ %4746, %.lr.ph7039 ], [ %indvars.iv.next7582, %._crit_edge7035 ]
   %.207038 = phi ptr [ %.19.lcssa, %.lr.ph7039 ], [ %5099, %._crit_edge7035 ]
-  %5095 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7586
+  %5095 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7581
   %5096 = load i32, ptr %5095, align 4
-  %5097 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7586
+  %5097 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7581
   %5098 = load i32, ptr %5097, align 4
   %5099 = getelementptr inbounds i8, ptr %.207038, i64 %4741
   %reass.sub7418 = sub i32 %5098, %5096
@@ -11598,9 +11598,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5101 = mul nsw i32 %5096, %.val6756
   %5102 = sext i32 %5101 to i64
   %5103 = getelementptr inbounds float, ptr %5099, i64 %5102
-  %5104 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7586
+  %5104 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7581
   %5105 = load i32, ptr %5104, align 4
-  %5106 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7586
+  %5106 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7581
   %5107 = load i32, ptr %5106, align 4
   br label %.lr.ph7034
 
@@ -11701,7 +11701,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %5190
 
 5190:                                             ; preds = %.lr.ph7027, %5190
-  %indvars.iv7579 = phi i64 [ 0, %.lr.ph7027 ], [ %indvars.iv.next7580, %5190 ]
+  %indvars.iv7575 = phi i64 [ 0, %.lr.ph7027 ], [ %indvars.iv.next7576, %5190 ]
   %.361907024 = phi ptr [ %5147, %.lr.ph7027 ], [ %5260, %5190 ]
   %5191 = getelementptr inbounds float, ptr %.361907024, i64 %5167
   %5192 = load float, ptr %5191, align 4
@@ -11771,26 +11771,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5256 = tail call double @llvm.fmuladd.f64(double %5237, double %5134, double %5255)
   %5257 = tail call double @llvm.fmuladd.f64(double %5253, double %5135, double %5256)
   %5258 = fptrunc double %5257 to float
-  %5259 = getelementptr inbounds float, ptr %.361867032, i64 %indvars.iv7579
+  %5259 = getelementptr inbounds float, ptr %.361867032, i64 %indvars.iv7575
   store float %5258, ptr %5259, align 4
   %5260 = getelementptr inbounds i8, ptr %.361907024, i64 4
-  %indvars.iv.next7580 = add nuw nsw i64 %indvars.iv7579, 1
-  %exitcond7583.not = icmp eq i64 %indvars.iv.next7580, %wide.trip.count7582
-  br i1 %exitcond7583.not, label %._crit_edge7028, label %5190, !llvm.loop !203
+  %indvars.iv.next7576 = add nuw nsw i64 %indvars.iv7575, 1
+  %exitcond7579.not = icmp eq i64 %indvars.iv.next7576, %wide.trip.count7578
+  br i1 %exitcond7579.not, label %._crit_edge7028, label %5190, !llvm.loop !203
 
 ._crit_edge7028:                                  ; preds = %5190, %.lr.ph7034
   %5261 = add nsw i32 %.2764067029, %32
   %5262 = add nsw i32 %.2763707030, %34
   %5263 = getelementptr inbounds float, ptr %.361867032, i64 %4745
   %5264 = add nuw nsw i32 %.2763347031, 1
-  %exitcond7585.not = icmp eq i32 %.2763347031, %reass.sub7418
-  br i1 %exitcond7585.not, label %._crit_edge7035, label %.lr.ph7034, !llvm.loop !204
+  %exitcond7580.not = icmp eq i32 %.2763347031, %reass.sub7418
+  br i1 %exitcond7580.not, label %._crit_edge7035, label %.lr.ph7034, !llvm.loop !204
 
 ._crit_edge7035:                                  ; preds = %._crit_edge7028, %5094
-  %indvars.iv.next7587 = add nsw i64 %indvars.iv7586, 1
-  %lftr.wideiv7589 = trunc i64 %indvars.iv.next7587 to i32
-  %exitcond7590.not = icmp eq i32 %4747, %lftr.wideiv7589
-  br i1 %exitcond7590.not, label %.loopexit, label %5094, !llvm.loop !205
+  %indvars.iv.next7582 = add nsw i64 %indvars.iv7581, 1
+  %lftr.wideiv7584 = trunc i64 %indvars.iv.next7582 to i32
+  %exitcond7585.not = icmp eq i32 %4747, %lftr.wideiv7584
+  br i1 %exitcond7585.not, label %.loopexit, label %5094, !llvm.loop !205
 
 5265:                                             ; preds = %45
   %5266 = ashr i32 %.val6757, 3
@@ -11822,8 +11822,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5278 = icmp sgt i32 %.val6756, 0
   %5279 = sext i32 %.val6756 to i64
   %5280 = sext i32 %20 to i64
-  %wide.trip.count7519 = sext i32 %16 to i64
-  %wide.trip.count7512 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7517 = sext i32 %16 to i64
+  %wide.trip.count7511 = zext nneg i32 %.val6756 to i64
   br label %5288
 
 .preheader6851:                                   ; preds = %._crit_edge6927, %.preheader6852
@@ -11840,16 +11840,16 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5285 = sext i32 %.val6756 to i64
   %5286 = sext i32 %.216436.lcssa to i64
   %5287 = add i32 %18, 1
-  %wide.trip.count7524 = zext nneg i32 %.val6756 to i64
-  %wide.trip.count7530 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7522 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7528 = zext nneg i32 %.val6756 to i64
   br label %5453
 
 5288:                                             ; preds = %.lr.ph6930, %._crit_edge6927
-  %indvars.iv7516 = phi i64 [ %5280, %.lr.ph6930 ], [ %indvars.iv.next7517, %._crit_edge6927 ]
+  %indvars.iv7514 = phi i64 [ %5280, %.lr.ph6930 ], [ %indvars.iv.next7515, %._crit_edge6927 ]
   %.216929 = phi ptr [ %24, %.lr.ph6930 ], [ %5293, %._crit_edge6927 ]
-  %5289 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7516
+  %5289 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7514
   %5290 = load i32, ptr %5289, align 4
-  %5291 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7516
+  %5291 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7514
   %5292 = load i32, ptr %5291, align 4
   %5293 = getelementptr inbounds i8, ptr %.216929, i64 %5275
   %reass.sub7415 = sub i32 %5292, %5290
@@ -11860,9 +11860,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5295 = mul nsw i32 %5290, %.val6756
   %5296 = sext i32 %5295 to i64
   %5297 = getelementptr inbounds double, ptr %5293, i64 %5296
-  %5298 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7516
+  %5298 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7514
   %5299 = load i32, ptr %5298, align 4
-  %5300 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7516
+  %5300 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7514
   %5301 = load i32, ptr %5300, align 4
   br label %.lr.ph6926
 
@@ -11967,7 +11967,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %5388
 
 5388:                                             ; preds = %.lr.ph6919, %5388
-  %indvars.iv7509 = phi i64 [ 0, %.lr.ph6919 ], [ %indvars.iv.next7510, %5388 ]
+  %indvars.iv7508 = phi i64 [ 0, %.lr.ph6919 ], [ %indvars.iv.next7509, %5388 ]
   %.061756916 = phi ptr [ %5345, %.lr.ph6919 ], [ %5441, %5388 ]
   %5389 = getelementptr inbounds double, ptr %.061756916, i64 %5365
   %5390 = load double, ptr %5389, align 8
@@ -12020,25 +12020,25 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5437 = tail call double @llvm.fmuladd.f64(double %5400, double %5327, double %5436)
   %5438 = tail call double @llvm.fmuladd.f64(double %5423, double %5332, double %5437)
   %5439 = tail call double @llvm.fmuladd.f64(double %5435, double %5333, double %5438)
-  %5440 = getelementptr inbounds double, ptr %.061716924, i64 %indvars.iv7509
+  %5440 = getelementptr inbounds double, ptr %.061716924, i64 %indvars.iv7508
   store double %5439, ptr %5440, align 8
   %5441 = getelementptr inbounds i8, ptr %.061756916, i64 8
-  %indvars.iv.next7510 = add nuw nsw i64 %indvars.iv7509, 1
-  %exitcond7513.not = icmp eq i64 %indvars.iv.next7510, %wide.trip.count7512
-  br i1 %exitcond7513.not, label %._crit_edge6920, label %5388, !llvm.loop !206
+  %indvars.iv.next7509 = add nuw nsw i64 %indvars.iv7508, 1
+  %exitcond7512.not = icmp eq i64 %indvars.iv.next7509, %wide.trip.count7511
+  br i1 %exitcond7512.not, label %._crit_edge6920, label %5388, !llvm.loop !206
 
 ._crit_edge6920:                                  ; preds = %5388, %.lr.ph6926
   %5442 = add nsw i32 %.2864076921, %32
   %5443 = add nsw i32 %.2863716922, %34
   %5444 = getelementptr inbounds double, ptr %.061716924, i64 %5279
   %5445 = add nuw nsw i32 %.2863356923, 1
-  %exitcond7515.not = icmp eq i32 %.2863356923, %reass.sub7415
-  br i1 %exitcond7515.not, label %._crit_edge6927, label %.lr.ph6926, !llvm.loop !207
+  %exitcond7513.not = icmp eq i32 %.2863356923, %reass.sub7415
+  br i1 %exitcond7513.not, label %._crit_edge6927, label %.lr.ph6926, !llvm.loop !207
 
 ._crit_edge6927:                                  ; preds = %._crit_edge6920, %5288
-  %indvars.iv.next7517 = add nsw i64 %indvars.iv7516, 1
-  %exitcond7520.not = icmp eq i64 %indvars.iv.next7517, %wide.trip.count7519
-  br i1 %exitcond7520.not, label %.preheader6851, label %5288, !llvm.loop !208
+  %indvars.iv.next7515 = add nsw i64 %indvars.iv7514, 1
+  %exitcond7518.not = icmp eq i64 %indvars.iv.next7515, %wide.trip.count7517
+  br i1 %exitcond7518.not, label %.preheader6851, label %5288, !llvm.loop !208
 
 .preheader6848:                                   ; preds = %._crit_edge6955, %.preheader6851
   %.226437.lcssa = phi i32 [ %.216436.lcssa, %.preheader6851 ], [ %5287, %._crit_edge6955 ]
@@ -12054,28 +12054,28 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5450 = sext i32 %.val6756 to i64
   %5451 = sext i32 %.226437.lcssa to i64
   %5452 = add i32 %22, 1
-  %wide.trip.count7541 = zext nneg i32 %.val6756 to i64
+  %wide.trip.count7539 = zext nneg i32 %.val6756 to i64
   br label %5773
 
 5453:                                             ; preds = %.lr.ph6959, %._crit_edge6955
-  %indvars.iv7533 = phi i64 [ %5286, %.lr.ph6959 ], [ %indvars.iv.next7534, %._crit_edge6955 ]
+  %indvars.iv7531 = phi i64 [ %5286, %.lr.ph6959 ], [ %indvars.iv.next7532, %._crit_edge6955 ]
   %.226958 = phi ptr [ %.21.lcssa, %.lr.ph6959 ], [ %5466, %._crit_edge6955 ]
-  %5454 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7533
+  %5454 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7531
   %5455 = load i32, ptr %5454, align 4
-  %5456 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7533
+  %5456 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7531
   %5457 = load i32, ptr %5456, align 4
   %5458 = add nsw i32 %5457, 1
-  %5459 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7533
+  %5459 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv7531
   %5460 = load i32, ptr %5459, align 4
-  %5461 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7533
+  %5461 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv7531
   %5462 = load i32, ptr %5461, align 4
   %5463 = add nsw i32 %5462, 1
-  %5464 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7533
-  %5465 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7533
+  %5464 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7531
+  %5465 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7531
   %5466 = getelementptr inbounds i8, ptr %.226958, i64 %5281
   %.not6548 = icmp sgt i32 %5460, %5462
-  %.pre7841 = load i32, ptr %5464, align 4
-  %.pre7843 = load i32, ptr %5465, align 4
+  %.pre7824 = load i32, ptr %5464, align 4
+  %.pre7826 = load i32, ptr %5465, align 4
   br i1 %.not6548, label %.loopexit6850, label %5467
 
 5467:                                             ; preds = %5453
@@ -12092,8 +12092,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 .lr.ph6943:                                       ; preds = %.lr.ph6943.preheader, %._crit_edge6937
   %.161726941 = phi ptr [ %5615, %._crit_edge6937 ], [ %5472, %.lr.ph6943.preheader ]
   %.2963366940 = phi i32 [ %5616, %._crit_edge6937 ], [ 0, %.lr.ph6943.preheader ]
-  %.2963726939 = phi i32 [ %5614, %._crit_edge6937 ], [ %.pre7843, %.lr.ph6943.preheader ]
-  %.2964086938 = phi i32 [ %5613, %._crit_edge6937 ], [ %.pre7841, %.lr.ph6943.preheader ]
+  %.2963726939 = phi i32 [ %5614, %._crit_edge6937 ], [ %.pre7826, %.lr.ph6943.preheader ]
+  %.2964086938 = phi i32 [ %5613, %._crit_edge6937 ], [ %.pre7824, %.lr.ph6943.preheader ]
   %5473 = add nsw i32 %.2964086938, -32768
   %5474 = and i32 %5473, 65535
   %5475 = uitofp nneg i32 %5474 to double
@@ -12190,7 +12190,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %5559
 
 5559:                                             ; preds = %.lr.ph6936, %5559
-  %indvars.iv7521 = phi i64 [ 0, %.lr.ph6936 ], [ %indvars.iv.next7522, %5559 ]
+  %indvars.iv7519 = phi i64 [ 0, %.lr.ph6936 ], [ %indvars.iv.next7520, %5559 ]
   %.161766933 = phi ptr [ %5516, %.lr.ph6936 ], [ %5612, %5559 ]
   %5560 = getelementptr inbounds double, ptr %.161766933, i64 %5536
   %5561 = load double, ptr %5560, align 8
@@ -12243,29 +12243,29 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5608 = tail call double @llvm.fmuladd.f64(double %5571, double %5498, double %5607)
   %5609 = tail call double @llvm.fmuladd.f64(double %5594, double %5503, double %5608)
   %5610 = tail call double @llvm.fmuladd.f64(double %5606, double %5504, double %5609)
-  %5611 = getelementptr inbounds double, ptr %.161726941, i64 %indvars.iv7521
+  %5611 = getelementptr inbounds double, ptr %.161726941, i64 %indvars.iv7519
   store double %5610, ptr %5611, align 8
   %5612 = getelementptr inbounds i8, ptr %.161766933, i64 8
-  %indvars.iv.next7522 = add nuw nsw i64 %indvars.iv7521, 1
-  %exitcond7525.not = icmp eq i64 %indvars.iv.next7522, %wide.trip.count7524
-  br i1 %exitcond7525.not, label %._crit_edge6937, label %5559, !llvm.loop !209
+  %indvars.iv.next7520 = add nuw nsw i64 %indvars.iv7519, 1
+  %exitcond7523.not = icmp eq i64 %indvars.iv.next7520, %wide.trip.count7522
+  br i1 %exitcond7523.not, label %._crit_edge6937, label %5559, !llvm.loop !209
 
 ._crit_edge6937:                                  ; preds = %5559, %.lr.ph6943
   %5613 = add nsw i32 %.2964086938, %32
   %5614 = add nsw i32 %.2963726939, %34
   %5615 = getelementptr inbounds double, ptr %.161726941, i64 %5285
   %5616 = add nuw nsw i32 %.2963366940, 1
-  %exitcond7526.not = icmp eq i32 %5616, %5468
-  br i1 %exitcond7526.not, label %.loopexit6850.loopexit, label %.lr.ph6943, !llvm.loop !210
+  %exitcond7524.not = icmp eq i32 %5616, %5468
+  br i1 %exitcond7524.not, label %.loopexit6850.loopexit, label %.lr.ph6943, !llvm.loop !210
 
 .loopexit6850.loopexit:                           ; preds = %._crit_edge6937
-  %.pre7840 = load i32, ptr %5464, align 4
-  %.pre7842 = load i32, ptr %5465, align 4
+  %.pre7823 = load i32, ptr %5464, align 4
+  %.pre7825 = load i32, ptr %5465, align 4
   br label %.loopexit6850
 
 .loopexit6850:                                    ; preds = %.loopexit6850.loopexit, %5467, %5453
-  %5617 = phi i32 [ %.pre7843, %5453 ], [ %.pre7843, %5467 ], [ %.pre7842, %.loopexit6850.loopexit ]
-  %5618 = phi i32 [ %.pre7841, %5453 ], [ %.pre7841, %5467 ], [ %.pre7840, %.loopexit6850.loopexit ]
+  %5617 = phi i32 [ %.pre7826, %5453 ], [ %.pre7826, %5467 ], [ %.pre7825, %.loopexit6850.loopexit ]
+  %5618 = phi i32 [ %.pre7824, %5453 ], [ %.pre7824, %5467 ], [ %.pre7823, %.loopexit6850.loopexit ]
   %.76305 = phi i32 [ %5455, %5453 ], [ %5463, %5467 ], [ %5463, %.loopexit6850.loopexit ]
   %5619 = sub i32 %5458, %.76305
   %5620 = icmp sgt i32 %5619, 0
@@ -12383,7 +12383,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %5715
 
 5715:                                             ; preds = %.lr.ph6947, %5715
-  %indvars.iv7527 = phi i64 [ 0, %.lr.ph6947 ], [ %indvars.iv.next7528, %5715 ]
+  %indvars.iv7525 = phi i64 [ 0, %.lr.ph6947 ], [ %indvars.iv.next7526, %5715 ]
   %.261776944 = phi ptr [ %5672, %.lr.ph6947 ], [ %5768, %5715 ]
   %5716 = getelementptr inbounds double, ptr %.261776944, i64 %5692
   %5717 = load double, ptr %5716, align 8
@@ -12436,33 +12436,33 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5764 = tail call double @llvm.fmuladd.f64(double %5727, double %5654, double %5763)
   %5765 = tail call double @llvm.fmuladd.f64(double %5750, double %5659, double %5764)
   %5766 = tail call double @llvm.fmuladd.f64(double %5762, double %5660, double %5765)
-  %5767 = getelementptr inbounds double, ptr %.261736952, i64 %indvars.iv7527
+  %5767 = getelementptr inbounds double, ptr %.261736952, i64 %indvars.iv7525
   store double %5766, ptr %5767, align 8
   %5768 = getelementptr inbounds i8, ptr %.261776944, i64 8
-  %indvars.iv.next7528 = add nuw nsw i64 %indvars.iv7527, 1
-  %exitcond7531.not = icmp eq i64 %indvars.iv.next7528, %wide.trip.count7530
-  br i1 %exitcond7531.not, label %._crit_edge6948, label %5715, !llvm.loop !211
+  %indvars.iv.next7526 = add nuw nsw i64 %indvars.iv7525, 1
+  %exitcond7529.not = icmp eq i64 %indvars.iv.next7526, %wide.trip.count7528
+  br i1 %exitcond7529.not, label %._crit_edge6948, label %5715, !llvm.loop !211
 
 ._crit_edge6948:                                  ; preds = %5715, %.lr.ph6954
   %5769 = add nsw i32 %.3064096949, %32
   %5770 = add nsw i32 %.3063736950, %34
   %5771 = getelementptr inbounds double, ptr %.261736952, i64 %5285
   %5772 = add nuw nsw i32 %.3063376951, 1
-  %exitcond7532.not = icmp eq i32 %5772, %5619
-  br i1 %exitcond7532.not, label %._crit_edge6955, label %.lr.ph6954, !llvm.loop !212
+  %exitcond7530.not = icmp eq i32 %5772, %5619
+  br i1 %exitcond7530.not, label %._crit_edge6955, label %.lr.ph6954, !llvm.loop !212
 
 ._crit_edge6955:                                  ; preds = %._crit_edge6948, %.loopexit6850
-  %indvars.iv.next7534 = add nsw i64 %indvars.iv7533, 1
-  %lftr.wideiv7536 = trunc i64 %indvars.iv.next7534 to i32
-  %exitcond7537.not = icmp eq i32 %5287, %lftr.wideiv7536
-  br i1 %exitcond7537.not, label %.preheader6848, label %5453, !llvm.loop !213
+  %indvars.iv.next7532 = add nsw i64 %indvars.iv7531, 1
+  %lftr.wideiv7534 = trunc i64 %indvars.iv.next7532 to i32
+  %exitcond7535.not = icmp eq i32 %5287, %lftr.wideiv7534
+  br i1 %exitcond7535.not, label %.preheader6848, label %5453, !llvm.loop !213
 
 5773:                                             ; preds = %.lr.ph6977, %._crit_edge6973
-  %indvars.iv7545 = phi i64 [ %5451, %.lr.ph6977 ], [ %indvars.iv.next7546, %._crit_edge6973 ]
+  %indvars.iv7542 = phi i64 [ %5451, %.lr.ph6977 ], [ %indvars.iv.next7543, %._crit_edge6973 ]
   %.236976 = phi ptr [ %.22.lcssa, %.lr.ph6977 ], [ %5778, %._crit_edge6973 ]
-  %5774 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7545
+  %5774 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7542
   %5775 = load i32, ptr %5774, align 4
-  %5776 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7545
+  %5776 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7542
   %5777 = load i32, ptr %5776, align 4
   %5778 = getelementptr inbounds i8, ptr %.236976, i64 %5446
   %reass.sub7416 = sub i32 %5777, %5775
@@ -12473,9 +12473,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5780 = mul nsw i32 %5775, %.val6756
   %5781 = sext i32 %5780 to i64
   %5782 = getelementptr inbounds double, ptr %5778, i64 %5781
-  %5783 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7545
+  %5783 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7542
   %5784 = load i32, ptr %5783, align 4
-  %5785 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7545
+  %5785 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7542
   %5786 = load i32, ptr %5785, align 4
   br label %.lr.ph6972
 
@@ -12580,7 +12580,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br label %5873
 
 5873:                                             ; preds = %.lr.ph6965, %5873
-  %indvars.iv7538 = phi i64 [ 0, %.lr.ph6965 ], [ %indvars.iv.next7539, %5873 ]
+  %indvars.iv7536 = phi i64 [ 0, %.lr.ph6965 ], [ %indvars.iv.next7537, %5873 ]
   %.361786962 = phi ptr [ %5830, %.lr.ph6965 ], [ %5926, %5873 ]
   %5874 = getelementptr inbounds double, ptr %.361786962, i64 %5850
   %5875 = load double, ptr %5874, align 8
@@ -12633,26 +12633,26 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5922 = tail call double @llvm.fmuladd.f64(double %5885, double %5812, double %5921)
   %5923 = tail call double @llvm.fmuladd.f64(double %5908, double %5817, double %5922)
   %5924 = tail call double @llvm.fmuladd.f64(double %5920, double %5818, double %5923)
-  %5925 = getelementptr inbounds double, ptr %.361746970, i64 %indvars.iv7538
+  %5925 = getelementptr inbounds double, ptr %.361746970, i64 %indvars.iv7536
   store double %5924, ptr %5925, align 8
   %5926 = getelementptr inbounds i8, ptr %.361786962, i64 8
-  %indvars.iv.next7539 = add nuw nsw i64 %indvars.iv7538, 1
-  %exitcond7542.not = icmp eq i64 %indvars.iv.next7539, %wide.trip.count7541
-  br i1 %exitcond7542.not, label %._crit_edge6966, label %5873, !llvm.loop !214
+  %indvars.iv.next7537 = add nuw nsw i64 %indvars.iv7536, 1
+  %exitcond7540.not = icmp eq i64 %indvars.iv.next7537, %wide.trip.count7539
+  br i1 %exitcond7540.not, label %._crit_edge6966, label %5873, !llvm.loop !214
 
 ._crit_edge6966:                                  ; preds = %5873, %.lr.ph6972
   %5927 = add nsw i32 %.3164106967, %32
   %5928 = add nsw i32 %.3163746968, %34
   %5929 = getelementptr inbounds double, ptr %.361746970, i64 %5450
   %5930 = add nuw nsw i32 %.3163386969, 1
-  %exitcond7544.not = icmp eq i32 %.3163386969, %reass.sub7416
-  br i1 %exitcond7544.not, label %._crit_edge6973, label %.lr.ph6972, !llvm.loop !215
+  %exitcond7541.not = icmp eq i32 %.3163386969, %reass.sub7416
+  br i1 %exitcond7541.not, label %._crit_edge6973, label %.lr.ph6972, !llvm.loop !215
 
 ._crit_edge6973:                                  ; preds = %._crit_edge6966, %5773
-  %indvars.iv.next7546 = add nsw i64 %indvars.iv7545, 1
-  %lftr.wideiv7548 = trunc i64 %indvars.iv.next7546 to i32
-  %exitcond7549.not = icmp eq i32 %5452, %lftr.wideiv7548
-  br i1 %exitcond7549.not, label %.loopexit, label %5773, !llvm.loop !216
+  %indvars.iv.next7543 = add nsw i64 %indvars.iv7542, 1
+  %lftr.wideiv7545 = trunc i64 %indvars.iv.next7543 to i32
+  %exitcond7546.not = icmp eq i32 %5452, %lftr.wideiv7545
+  br i1 %exitcond7546.not, label %.loopexit, label %5773, !llvm.loop !216
 
 .preheader6856:                                   ; preds = %._crit_edge6866, %.preheader6857
   %.246439.lcssa = phi i32 [ %20, %.preheader6857 ], [ %16, %._crit_edge6866 ]
@@ -12898,8 +12898,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6111 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7493
   %6112 = getelementptr inbounds i8, ptr %.256896, i64 %5931
   %.not6521 = icmp sgt i32 %6106, %6108
-  %.pre7837 = load i32, ptr %6110, align 4
-  %.pre7839 = load i32, ptr %6111, align 4
+  %.pre7820 = load i32, ptr %6110, align 4
+  %.pre7822 = load i32, ptr %6111, align 4
   br i1 %.not6521, label %.loopexit6855, label %6113
 
 6113:                                             ; preds = %6099
@@ -12916,8 +12916,8 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 .lr.ph6881:                                       ; preds = %.lr.ph6881.preheader, %._crit_edge6875
   %.161606879 = phi ptr [ %6257, %._crit_edge6875 ], [ %6118, %.lr.ph6881.preheader ]
   %.3363406878 = phi i32 [ %6258, %._crit_edge6875 ], [ 0, %.lr.ph6881.preheader ]
-  %.3363766877 = phi i32 [ %6256, %._crit_edge6875 ], [ %.pre7839, %.lr.ph6881.preheader ]
-  %.3364126876 = phi i32 [ %6255, %._crit_edge6875 ], [ %.pre7837, %.lr.ph6881.preheader ]
+  %.3363766877 = phi i32 [ %6256, %._crit_edge6875 ], [ %.pre7822, %.lr.ph6881.preheader ]
+  %.3364126876 = phi i32 [ %6255, %._crit_edge6875 ], [ %.pre7820, %.lr.ph6881.preheader ]
   %6119 = add nsw i32 %.3364126876, -32768
   %6120 = and i32 %6119, 65535
   %6121 = uitofp nneg i32 %6120 to double
@@ -13080,12 +13080,12 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
 
 .loopexit6855.loopexit:                           ; preds = %._crit_edge6875
   %.pre = load i32, ptr %6110, align 4
-  %.pre7838 = load i32, ptr %6111, align 4
+  %.pre7821 = load i32, ptr %6111, align 4
   br label %.loopexit6855
 
 .loopexit6855:                                    ; preds = %.loopexit6855.loopexit, %6113, %6099
-  %6259 = phi i32 [ %.pre7839, %6099 ], [ %.pre7839, %6113 ], [ %.pre7838, %.loopexit6855.loopexit ]
-  %6260 = phi i32 [ %.pre7837, %6099 ], [ %.pre7837, %6113 ], [ %.pre, %.loopexit6855.loopexit ]
+  %6259 = phi i32 [ %.pre7822, %6099 ], [ %.pre7822, %6113 ], [ %.pre7821, %.loopexit6855.loopexit ]
+  %6260 = phi i32 [ %.pre7820, %6099 ], [ %.pre7820, %6113 ], [ %.pre, %.loopexit6855.loopexit ]
   %.86306 = phi i32 [ %6101, %6099 ], [ %6109, %6113 ], [ %6109, %.loopexit6855.loopexit ]
   %6261 = sub i32 %6104, %.86306
   %6262 = icmp sgt i32 %6261, 0
@@ -13274,11 +13274,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   br i1 %exitcond7496.not, label %.preheader6853, label %6099, !llvm.loop !224
 
 6411:                                             ; preds = %.lr.ph6915, %._crit_edge6911
-  %indvars.iv7504 = phi i64 [ %6097, %.lr.ph6915 ], [ %indvars.iv.next7505, %._crit_edge6911 ]
+  %indvars.iv7503 = phi i64 [ %6097, %.lr.ph6915 ], [ %indvars.iv.next7504, %._crit_edge6911 ]
   %.266914 = phi ptr [ %.25.lcssa, %.lr.ph6915 ], [ %6416, %._crit_edge6911 ]
-  %6412 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7504
+  %6412 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv7503
   %6413 = load i32, ptr %6412, align 4
-  %6414 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7504
+  %6414 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv7503
   %6415 = load i32, ptr %6414, align 4
   %6416 = getelementptr inbounds i8, ptr %.266914, i64 %6092
   %reass.sub7414 = sub i32 %6415, %6413
@@ -13289,9 +13289,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6418 = mul nsw i32 %6413, %.val6756
   %6419 = sext i32 %6418 to i64
   %6420 = getelementptr inbounds double, ptr %6416, i64 %6419
-  %6421 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7504
+  %6421 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv7503
   %6422 = load i32, ptr %6421, align 4
-  %6423 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7504
+  %6423 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv7503
   %6424 = load i32, ptr %6423, align 4
   br label %.lr.ph6910
 
@@ -13457,14 +13457,14 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6562 = add nsw i32 %.3563786906, %34
   %6563 = getelementptr inbounds double, ptr %.361626908, i64 %6096
   %6564 = add nuw nsw i32 %.3563426907, 1
-  %exitcond7503.not = icmp eq i32 %.3563426907, %reass.sub7414
-  br i1 %exitcond7503.not, label %._crit_edge6911, label %.lr.ph6910, !llvm.loop !226
+  %exitcond7502.not = icmp eq i32 %.3563426907, %reass.sub7414
+  br i1 %exitcond7502.not, label %._crit_edge6911, label %.lr.ph6910, !llvm.loop !226
 
 ._crit_edge6911:                                  ; preds = %._crit_edge6904, %6411
-  %indvars.iv.next7505 = add nsw i64 %indvars.iv7504, 1
-  %lftr.wideiv7507 = trunc i64 %indvars.iv.next7505 to i32
-  %exitcond7508.not = icmp eq i32 %6098, %lftr.wideiv7507
-  br i1 %exitcond7508.not, label %.loopexit, label %6411, !llvm.loop !227
+  %indvars.iv.next7504 = add nsw i64 %indvars.iv7503, 1
+  %lftr.wideiv7506 = trunc i64 %indvars.iv.next7504 to i32
+  %exitcond7507.not = icmp eq i32 %6098, %lftr.wideiv7506
+  br i1 %exitcond7507.not, label %.loopexit, label %6411, !llvm.loop !227
 
 .loopexit:                                        ; preds = %._crit_edge7035, %._crit_edge7097, %._crit_edge7159, %._crit_edge7221, %._crit_edge7284, %._crit_edge7347, %._crit_edge6911, %._crit_edge6973, %._crit_edge7409, %.preheader6853, %.preheader6848, %.preheader6843, %.preheader6838, %.preheader6833, %.preheader6828, %.preheader6824, %.preheader6820, %.preheader, %45
   ret i32 0

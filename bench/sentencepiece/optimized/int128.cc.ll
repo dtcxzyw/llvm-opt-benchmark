@@ -70,7 +70,7 @@ define void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %0, i64 %
 
 21:                                               ; preds = %20
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #8
-  br label %136
+  br label %135
 
 22:                                               ; preds = %20, %18, %16, %14, %12
   %23 = landingpad { ptr, i32 }
@@ -90,7 +90,7 @@ define void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %0, i64 %
   store i64 %0, ptr %5, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %1, ptr %.sroa.9.0..sroa_idx, align 8
-  br label %136
+  br label %135
 
 30:                                               ; preds = %24
   %.not.i = icmp eq i64 %1, 0
@@ -280,9 +280,8 @@ _ZN6google8protobuf7uint128pLERKS1_.exit:         ; preds = %_ZN6google8protobuf
   %.sroa.052.1 = phi i64 [ %.sroa.052.066, %_ZN6google8protobuflsERKNS0_7uint128Ei.exit ], [ %132, %_ZN6google8protobuf7uint128mIERKS1_.exit ]
   %.sroa.9.1 = phi i64 [ %.sroa.9.067, %_ZN6google8protobuflsERKNS0_7uint128Ei.exit ], [ %spec.select, %_ZN6google8protobuf7uint128mIERKS1_.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %134 = trunc nuw i64 %indvars.iv to i32
-  %135 = icmp sgt i32 %134, 0
-  br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  %134 = icmp sgt i64 %indvars.iv, 0
+  br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf7uint128pLERKS1_.exit, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30
   %.sroa.035.0.lcssa = phi i64 [ 0, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30 ], [ %.sroa.035.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
@@ -295,9 +294,9 @@ _ZN6google8protobuf7uint128pLERKS1_.exit:         ; preds = %_ZN6google8protobuf
   store i64 %.sroa.052.0.lcssa, ptr %5, align 8
   %.sroa.9.0..sroa_idx57 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx57, align 8
-  br label %136
+  br label %135
 
-136:                                              ; preds = %._crit_edge, %29, %21
+135:                                              ; preds = %._crit_edge, %29, %21
   ret void
 }
 

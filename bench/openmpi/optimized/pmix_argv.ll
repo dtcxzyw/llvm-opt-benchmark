@@ -571,9 +571,8 @@ define range(i32 -27, 1) i32 @pmix_argv_insert_element(ptr noundef %0, i32 nound
   %38 = getelementptr i8, ptr %37, i64 8
   store ptr %35, ptr %38, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %39 = trunc nuw i64 %indvars.iv to i32
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %31, label %._crit_edge.loopexit, !llvm.loop !15
+  %.not = icmp eq i64 %indvars.iv, 0
+  br i1 %.not, label %._crit_edge.loopexit, label %31, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %31
   %.pre = load ptr, ptr %0, align 8
@@ -581,15 +580,15 @@ define range(i32 -27, 1) i32 @pmix_argv_insert_element(ptr noundef %0, i32 nound
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
   %.pre-phi = phi i64 [ %.pre35, %.._crit_edge_crit_edge ], [ %29, %._crit_edge.loopexit ]
-  %41 = phi ptr [ %24, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
-  %42 = sext i32 %12 to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
-  %44 = getelementptr i8, ptr %43, i64 8
-  store ptr null, ptr %44, align 8
-  %45 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #9
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %.pre-phi
-  store ptr %45, ptr %47, align 8
+  %39 = phi ptr [ %24, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
+  %40 = sext i32 %12 to i64
+  %41 = getelementptr ptr, ptr %39, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 8
+  store ptr null, ptr %42, align 8
+  %43 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #9
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds ptr, ptr %44, i64 %.pre-phi
+  store ptr %43, ptr %45, align 8
   br label %pmix_argv_append.exit
 
 pmix_argv_append.exit:                            ; preds = %16, %14, %9, %3, %5, %._crit_edge

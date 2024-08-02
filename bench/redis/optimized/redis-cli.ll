@@ -1921,11 +1921,11 @@ clusterManagerNodeIsCluster.exit:                 ; preds = %if.end3.i.i
   br i1 %tobool9.not, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end7, %clusterManagerNodeIsCluster.exit, %clusterManagerNodeIsCluster.exit.thread232
-  %port2.i503 = getelementptr inbounds i8, ptr %call.i178, i64 24
-  %ip1.i509 = getelementptr inbounds i8, ptr %call.i178, i64 16
+  %port2.i502 = getelementptr inbounds i8, ptr %call.i178, i64 24
+  %ip1.i508 = getelementptr inbounds i8, ptr %call.i178, i64 16
   %8 = load ptr, ptr %err, align 8
-  %call3.val174 = load ptr, ptr %ip1.i509, align 8
-  %call3.val175 = load i32, ptr %port2.i503, align 8
+  %call3.val174 = load ptr, ptr %ip1.i508, align 8
+  %call3.val175 = load i32, ptr %port2.i502, align 8
   %tobool.not.i = icmp eq ptr %8, null
   %cond.i = select i1 %tobool.not.i, ptr @.str.187, ptr %8
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.188, ptr noundef %call3.val174, i32 noundef %call3.val175, ptr noundef nonnull %cond.i)
@@ -1953,10 +1953,10 @@ if.then17:                                        ; preds = %if.end14
   br i1 %tobool18.not, label %if.end22, label %if.then19
 
 if.then19:                                        ; preds = %if.then17
-  %port2.i.le521 = getelementptr inbounds i8, ptr %call.i178, i64 24
-  %ip1.i.le528 = getelementptr inbounds i8, ptr %call.i178, i64 16
-  %11 = load ptr, ptr %ip1.i.le528, align 8
-  %12 = load i32, ptr %port2.i.le521, align 8
+  %port2.i.le520 = getelementptr inbounds i8, ptr %call.i178, i64 24
+  %ip1.i.le527 = getelementptr inbounds i8, ptr %call.i178, i64 16
+  %11 = load ptr, ptr %ip1.i.le527, align 8
+  %12 = load i32, ptr %port2.i.le520, align 8
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %11, i32 noundef %12, ptr noundef nonnull %10)
   %13 = load ptr, ptr %err, align 8
   call void @zfree(ptr noundef %13) #33
@@ -2042,8 +2042,8 @@ while.cond77.preheader:                           ; preds = %if.end76
   br i1 %cmp78319, label %for.cond81.preheader.lr.ph, label %for.body105.lr.ph
 
 while.cond77.preheader.thread:                    ; preds = %if.end36
-  %cmp78319462 = icmp sgt i32 %conv, 0
-  br i1 %cmp78319462, label %for.cond81.preheader.preheader, label %for.body105.lr.ph
+  %cmp78319461 = icmp sgt i32 %conv, 0
+  br i1 %cmp78319461, label %for.cond81.preheader.preheader, label %for.body105.lr.ph
 
 for.cond81.preheader.lr.ph:                       ; preds = %while.cond77.preheader
   %cmp82315 = icmp sgt i32 %ip_count.1, 0
@@ -2153,7 +2153,7 @@ if.end70:                                         ; preds = %if.end70.loopexit, 
 
 if.end70.if.end76_crit_edge:                      ; preds = %if.end70
   %count.i183.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx72, i64 20
-  %.pre459 = load i32, ptr %count.i183.phi.trans.insert, align 4
+  %.pre458 = load i32, ptr %count.i183.phi.trans.insert, align 4
   br label %if.end76
 
 if.then75:                                        ; preds = %if.end70
@@ -2166,7 +2166,7 @@ if.then75:                                        ; preds = %if.end70
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end70.if.end76_crit_edge, %if.then75
-  %30 = phi i32 [ 0, %if.then75 ], [ %.pre459, %if.end70.if.end76_crit_edge ]
+  %30 = phi i32 [ 0, %if.then75 ], [ %.pre458, %if.end70.if.end76_crit_edge ]
   %31 = phi ptr [ %call.i182, %if.then75 ], [ %29, %if.end70.if.end76_crit_edge ]
   %count.i183 = getelementptr inbounds i8, ptr %arrayidx72, i64 20
   %inc.i = add nsw i32 %30, 1
@@ -2182,8 +2182,8 @@ for.cond81.preheader:                             ; preds = %for.cond81.preheade
   br label %for.cond81.preheader
 
 for.body105.lr.ph:                                ; preds = %for.cond81.while.cond77.loopexit_crit_edge.us, %while.cond77.preheader, %while.cond77.preheader.thread
-  %cmp78319466 = phi i1 [ false, %while.cond77.preheader ], [ false, %while.cond77.preheader.thread ], [ true, %for.cond81.while.cond77.loopexit_crit_edge.us ]
-  %ip_count.0.lcssa463 = phi i32 [ %ip_count.1, %while.cond77.preheader ], [ 0, %while.cond77.preheader.thread ], [ %ip_count.1, %for.cond81.while.cond77.loopexit_crit_edge.us ]
+  %cmp78319465 = phi i1 [ false, %while.cond77.preheader ], [ false, %while.cond77.preheader.thread ], [ true, %for.cond81.while.cond77.loopexit_crit_edge.us ]
+  %ip_count.0.lcssa462 = phi i32 [ %ip_count.1, %while.cond77.preheader ], [ 0, %while.cond77.preheader.thread ], [ %ip_count.1, %for.cond81.while.cond77.loopexit_crit_edge.us ]
   %interleaved_len.0.lcssa = phi i32 [ 0, %while.cond77.preheader ], [ 0, %while.cond77.preheader.thread ], [ %interleaved_len.2.us, %for.cond81.while.cond77.loopexit_crit_edge.us ]
   %idx.ext = zext nneg i32 %div to i64
   %add.ptr = getelementptr ptr, ptr %call39, i64 %idx.ext
@@ -2250,7 +2250,7 @@ for.end141:                                       ; preds = %for.end136
   br i1 %cmp145330, label %for.body147.preheader, label %for.end155
 
 for.body147.preheader:                            ; preds = %for.end141
-  %wide.trip.count435 = zext nneg i32 %sub144 to i64
+  %wide.trip.count434 = zext nneg i32 %sub144 to i64
   br label %for.body147
 
 for.body147:                                      ; preds = %for.body147.preheader, %for.body147
@@ -2260,15 +2260,15 @@ for.body147:                                      ; preds = %for.body147.prehead
   %37 = load ptr, ptr %arrayidx150, align 8
   %arrayidx152 = getelementptr inbounds ptr, ptr %add.ptr, i64 %indvars.iv431
   store ptr %37, ptr %arrayidx152, align 8
-  %exitcond436.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count435
-  br i1 %exitcond436.not, label %for.end155, label %for.body147, !llvm.loop !20
+  %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count434
+  br i1 %exitcond435.not, label %for.end155, label %for.body147, !llvm.loop !20
 
 for.end155:                                       ; preds = %for.body147, %for.end141
   %idxprom157 = sext i32 %sub144 to i64
   %arrayidx158 = getelementptr inbounds ptr, ptr %add.ptr, i64 %idxprom157
   store ptr %36, ptr %arrayidx158, align 8
-  %smax445 = call i32 @llvm.smax.i32(i32 %div, i32 1)
-  %wide.trip.count446 = zext nneg i32 %smax445 to i64
+  %smax444 = call i32 @llvm.smax.i32(i32 %div, i32 1)
+  %wide.trip.count445 = zext nneg i32 %smax444 to i64
   br label %for.body162.preheader
 
 for.body162.preheader:                            ; preds = %for.end155, %if.then243
@@ -2279,11 +2279,11 @@ for.body162.preheader:                            ; preds = %for.end155, %if.the
   br label %for.body162
 
 for.body162:                                      ; preds = %for.body162.preheader, %for.inc237
-  %indvars.iv442 = phi i64 [ 0, %for.body162.preheader ], [ %indvars.iv.next443, %for.inc237 ]
+  %indvars.iv441 = phi i64 [ 0, %for.body162.preheader ], [ %indvars.iv.next442, %for.inc237 ]
   %interleaved_len.4340 = phi i32 [ %interleaved_len.3, %for.body162.preheader ], [ %interleaved_len.7, %for.inc237 ]
   %interleaved.1339 = phi ptr [ %interleaved.0, %for.body162.preheader ], [ %interleaved.4, %for.inc237 ]
   %available_count.1338 = phi i32 [ %available_count.0, %for.body162.preheader ], [ %available_count.3, %for.inc237 ]
-  %arrayidx165 = getelementptr inbounds ptr, ptr %call39, i64 %indvars.iv442
+  %arrayidx165 = getelementptr inbounds ptr, ptr %call39, i64 %indvars.iv441
   %38 = load ptr, ptr %arrayidx165, align 8
   %ip187 = getelementptr inbounds i8, ptr %38, i64 16
   %name = getelementptr inbounds i8, ptr %38, i64 8
@@ -2297,19 +2297,19 @@ while.cond166:                                    ; preds = %if.end222, %for.bod
   %interleaved_len.5 = phi i32 [ %interleaved_len.4340, %for.body162 ], [ %interleaved_len.6248, %if.end222 ]
   %cmp167 = icmp slt i32 %assigned_replicas.0, %19
   %cmp170 = icmp ne i32 %available_count.2, 0
-  %or.cond1.not536 = select i1 %cmp167, i1 %cmp170, i1 false
+  %or.cond1.not535 = select i1 %cmp167, i1 %cmp170, i1 false
   %cmp176333 = icmp sgt i32 %interleaved_len.5, 0
-  %or.cond474 = select i1 %or.cond1.not536, i1 %cmp176333, i1 false
-  br i1 %or.cond474, label %for.body178.preheader, label %for.inc237
+  %or.cond473 = select i1 %or.cond1.not535, i1 %cmp176333, i1 false
+  br i1 %or.cond473, label %for.body178.preheader, label %for.inc237
 
 for.body178.preheader:                            ; preds = %while.cond166
-  %wide.trip.count440 = zext nneg i32 %interleaved_len.5 to i64
+  %wide.trip.count439 = zext nneg i32 %interleaved_len.5 to i64
   br label %for.body178
 
 for.body178:                                      ; preds = %for.body178.preheader, %for.inc198
-  %indvars.iv437 = phi i64 [ 0, %for.body178.preheader ], [ %indvars.iv.next438, %for.inc198 ]
+  %indvars.iv436 = phi i64 [ 0, %for.body178.preheader ], [ %indvars.iv.next437, %for.inc198 ]
   %firstNodeIdx.0334 = phi i32 [ -1, %for.body178.preheader ], [ %firstNodeIdx.1, %for.inc198 ]
-  %arrayidx181 = getelementptr inbounds ptr, ptr %interleaved.2, i64 %indvars.iv437
+  %arrayidx181 = getelementptr inbounds ptr, ptr %interleaved.2, i64 %indvars.iv436
   %39 = load ptr, ptr %arrayidx181, align 8
   %cmp182 = icmp eq ptr %39, null
   br i1 %cmp182, label %for.inc198, label %if.end185
@@ -2324,18 +2324,18 @@ if.end185:                                        ; preds = %for.body178
 
 if.end193:                                        ; preds = %if.end185
   %cmp194 = icmp slt i32 %firstNodeIdx.0334, 0
-  %42 = trunc nuw nsw i64 %indvars.iv437 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv436 to i32
   %spec.select = select i1 %cmp194, i32 %42, i32 %firstNodeIdx.0334
   br label %for.inc198
 
 for.inc198:                                       ; preds = %if.end193, %for.body178
   %firstNodeIdx.1 = phi i32 [ %firstNodeIdx.0334, %for.body178 ], [ %spec.select, %if.end193 ]
-  %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
-  %exitcond441.not = icmp eq i64 %indvars.iv.next438, %wide.trip.count440
-  br i1 %exitcond441.not, label %if.else, label %for.body178, !llvm.loop !21
+  %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
+  %exitcond440.not = icmp eq i64 %indvars.iv.next437, %wide.trip.count439
+  br i1 %exitcond440.not, label %if.else, label %for.body178, !llvm.loop !21
 
 if.end214.thread241:                              ; preds = %if.end185
-  %arrayidx181.le = getelementptr inbounds ptr, ptr %interleaved.2, i64 %indvars.iv437
+  %arrayidx181.le = getelementptr inbounds ptr, ptr %interleaved.2, i64 %indvars.iv436
   store ptr null, ptr %arrayidx181.le, align 8
   br label %if.then217
 
@@ -2388,9 +2388,9 @@ for.inc237:                                       ; preds = %if.else, %while.con
   %available_count.3 = phi i32 [ %available_count.2, %while.cond166 ], [ %dec, %if.end222 ], [ %available_count.2, %if.end214 ], [ %available_count.2, %if.else ]
   %interleaved.4 = phi ptr [ %interleaved.2, %while.cond166 ], [ %interleaved.3247, %if.end222 ], [ %add.ptr212, %if.end214 ], [ %interleaved.2, %if.else ]
   %interleaved_len.7 = phi i32 [ %interleaved_len.5, %while.cond166 ], [ %interleaved_len.6248, %if.end222 ], [ %sub209, %if.end214 ], [ %interleaved_len.5, %if.else ]
-  %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
-  %exitcond447.not = icmp eq i64 %indvars.iv.next443, %wide.trip.count446
-  br i1 %exitcond447.not, label %for.end239, label %for.body162, !llvm.loop !23
+  %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
+  %exitcond446.not = icmp eq i64 %indvars.iv.next442, %wide.trip.count445
+  br i1 %exitcond446.not, label %for.end239, label %for.body162, !llvm.loop !23
 
 for.end239:                                       ; preds = %for.inc237
   %cmp241 = icmp sgt i32 %available_count.3, 0
@@ -2398,11 +2398,11 @@ for.end239:                                       ; preds = %for.inc237
   br i1 %or.cond, label %if.then243, label %for.cond246.preheader
 
 for.cond246.preheader:                            ; preds = %for.end239
-  %cmp247345 = icmp sgt i32 %ip_count.0.lcssa463, 0
+  %cmp247345 = icmp sgt i32 %ip_count.0.lcssa462, 0
   br i1 %cmp247345, label %for.body249.preheader, label %for.end255
 
 for.body249.preheader:                            ; preds = %for.cond246.preheader
-  %wide.trip.count451 = zext nneg i32 %ip_count.0.lcssa463 to i64
+  %wide.trip.count450 = zext nneg i32 %ip_count.0.lcssa462 to i64
   br label %for.body249
 
 if.then243:                                       ; preds = %for.end239
@@ -2410,8 +2410,8 @@ if.then243:                                       ; preds = %for.end239
   br label %for.body162.preheader
 
 for.body249:                                      ; preds = %for.body249.preheader, %clusterManagerNodeArrayReset.exit
-  %indvars.iv448 = phi i64 [ 0, %for.body249.preheader ], [ %indvars.iv.next449, %clusterManagerNodeArrayReset.exit ]
-  %add.ptr252 = getelementptr inbounds %struct.clusterManagerNodeArray, ptr %call45, i64 %indvars.iv448
+  %indvars.iv447 = phi i64 [ 0, %for.body249.preheader ], [ %indvars.iv.next448, %clusterManagerNodeArrayReset.exit ]
+  %add.ptr252 = getelementptr inbounds %struct.clusterManagerNodeArray, ptr %call45, i64 %indvars.iv447
   %50 = load ptr, ptr %add.ptr252, align 8
   %alloc.i190 = getelementptr inbounds i8, ptr %add.ptr252, i64 8
   %51 = load ptr, ptr %alloc.i190, align 8
@@ -2456,16 +2456,16 @@ for.inc.i:                                        ; preds = %if.then11.i, %for.b
   br i1 %exitcond.not.i, label %clusterManagerNodeArrayReset.exit, label %for.body.i, !llvm.loop !24
 
 clusterManagerNodeArrayReset.exit:                ; preds = %for.inc.i, %for.body249, %if.then.i191
-  %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
-  %exitcond452.not = icmp eq i64 %indvars.iv.next449, %wide.trip.count451
-  br i1 %exitcond452.not, label %for.end255, label %for.body249, !llvm.loop !25
+  %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
+  %exitcond451.not = icmp eq i64 %indvars.iv.next448, %wide.trip.count450
+  br i1 %exitcond451.not, label %for.end255, label %for.body249, !llvm.loop !25
 
 for.end255:                                       ; preds = %clusterManagerNodeArrayReset.exit, %for.cond246.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offenders.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offending_len.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i)
   store ptr null, ptr %offenders.i, align 8
-  %call.i197 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa463, ptr noundef null, ptr noundef null)
+  %call.i197 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa462, ptr noundef null, ptr noundef null)
   %cmp.i198 = icmp eq i32 %call.i197, 0
   br i1 %cmp.i198, label %clusterManagerOptimizeAntiAffinity.exit, label %if.end.i199
 
@@ -2501,7 +2501,7 @@ if.then7.i206:                                    ; preds = %while.body.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then7.i206, %while.body.i
-  %call9.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa463, ptr noundef nonnull %offenders.i, ptr noundef nonnull %offending_len.i)
+  %call9.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa462, ptr noundef nonnull %offenders.i, ptr noundef nonnull %offending_len.i)
   %cmp10.i = icmp eq i32 %call9.i, 0
   %58 = load i32, ptr %offending_len.i, align 4
   %cmp12.i = icmp eq i32 %58, 0
@@ -2574,7 +2574,7 @@ if.end36.i:                                       ; preds = %while.end.i
   store ptr %66, ptr %replicate42.i, align 8
   %dirty45.i = getelementptr inbounds i8, ptr %65, i64 80
   store i32 1, ptr %dirty45.i, align 8
-  %call46.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa463, ptr noundef null, ptr noundef null)
+  %call46.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa462, ptr noundef null, ptr noundef null)
   %cmp47.i = icmp ugt i32 %call46.i, %call9.i
   br i1 %cmp47.i, label %if.then49.i, label %if.end52.i
 
@@ -2590,7 +2590,7 @@ if.end52.i:                                       ; preds = %if.then49.i, %if.en
   br i1 %cmp3.i, label %while.body.i, label %while.end53.i, !llvm.loop !27
 
 while.end53.i:                                    ; preds = %if.end52.i, %if.end8.i, %if.then35.i, %if.end.i199
-  %call54.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa463, ptr noundef null, ptr noundef null)
+  %call54.i = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %call45, i32 noundef %ip_count.0.lcssa462, ptr noundef null, ptr noundef null)
   %cmp55.i = icmp eq i32 %call54.i, 0
   %cond.i203 = select i1 %cmp55.i, i32 4, i32 2
   %cmp59.i = icmp ugt i32 %call54.i, 9999
@@ -2781,12 +2781,12 @@ while.body308:                                    ; preds = %while.body308.lr.ph
   %90 = load ptr, ptr %value310, align 8
   %91 = load i32, ptr %bus_port.le, align 4
   %cmp324 = icmp eq i32 %91, 0
-  %.pre460 = load i32, ptr %port328.le, align 8
-  %add329 = add nsw i32 %.pre460, 10000
+  %.pre459 = load i32, ptr %port328.le, align 8
+  %add329 = add nsw i32 %.pre459, 10000
   %cmp330 = icmp eq i32 %91, %add329
-  %or.cond535 = select i1 %cmp324, i1 true, i1 %cmp330
+  %or.cond534 = select i1 %cmp324, i1 true, i1 %cmp330
   %92 = load ptr, ptr %90, align 8
-  br i1 %or.cond535, label %if.then332, label %if.else337
+  br i1 %or.cond534, label %if.then332, label %if.else337
 
 if.then318:                                       ; preds = %while.body308.lr.ph.split.us
   %ip314.le = getelementptr inbounds i8, ptr %88, i64 16
@@ -2796,11 +2796,11 @@ if.then318:                                       ; preds = %while.body308.lr.ph
   br label %cleanup
 
 if.then332:                                       ; preds = %while.body308
-  %call336 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %92, ptr noundef nonnull @.str.177, ptr noundef nonnull %first_ip, i32 noundef %.pre460) #33
+  %call336 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %92, ptr noundef nonnull @.str.177, ptr noundef nonnull %first_ip, i32 noundef %.pre459) #33
   br label %if.end343
 
 if.else337:                                       ; preds = %while.body308
-  %call342 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %92, ptr noundef nonnull @.str.178, ptr noundef nonnull %first_ip, i32 noundef %.pre460, i32 noundef %91) #33
+  %call342 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %92, ptr noundef nonnull @.str.178, ptr noundef nonnull %first_ip, i32 noundef %.pre459, i32 noundef %91) #33
   br label %if.end343
 
 if.end343:                                        ; preds = %if.else337, %if.then332
@@ -2935,20 +2935,20 @@ cleanup:                                          ; preds = %if.end355.thread256
   %success.0 = phi i32 [ 0, %if.then318 ], [ 1, %if.end409 ], [ 1, %confirmWithYes.exit ], [ 0, %if.then278 ], [ 0, %if.then275 ], [ 0, %if.then382 ], [ 0, %if.then379 ], [ 0, %while.end405 ], [ 1, %confirmWithYes.exit.thread ], [ 0, %if.end355.thread ], [ 0, %if.end355.thread256 ]
   call void @zfree(ptr noundef %call39) #33
   call void @zfree(ptr noundef %call42) #33
-  br i1 %cmp78319466, label %for.body415.preheader, label %for.end421
+  br i1 %cmp78319465, label %for.body415.preheader, label %for.end421
 
 for.body415.preheader:                            ; preds = %cleanup
-  %wide.trip.count456 = and i64 %18, 2147483647
+  %wide.trip.count455 = and i64 %18, 2147483647
   br label %for.body415
 
 for.body415:                                      ; preds = %for.body415.preheader, %for.body415
-  %indvars.iv453 = phi i64 [ 0, %for.body415.preheader ], [ %indvars.iv.next454, %for.body415 ]
-  %alloc = getelementptr inbounds %struct.clusterManagerNodeArray, ptr %call45, i64 %indvars.iv453, i32 1
+  %indvars.iv452 = phi i64 [ 0, %for.body415.preheader ], [ %indvars.iv.next453, %for.body415 ]
+  %alloc = getelementptr inbounds %struct.clusterManagerNodeArray, ptr %call45, i64 %indvars.iv452, i32 1
   %113 = load ptr, ptr %alloc, align 8
   call void @zfree(ptr noundef %113) #33
-  %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
-  %exitcond457.not = icmp eq i64 %indvars.iv.next454, %wide.trip.count456
-  br i1 %exitcond457.not, label %for.end421, label %for.body415, !llvm.loop !34
+  %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
+  %exitcond456.not = icmp eq i64 %indvars.iv.next453, %wide.trip.count455
+  br i1 %exitcond456.not, label %for.end421, label %for.body415, !llvm.loop !34
 
 for.end421:                                       ; preds = %for.body415, %cleanup
   call void @zfree(ptr noundef %call45) #33

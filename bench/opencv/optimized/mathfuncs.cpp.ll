@@ -6753,7 +6753,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %22, %25
   br label %412
 
 59:                                               ; preds = %44
-  %60 = add nsw i32 %49, %46
+  %60 = add i32 %49, %46
   %61 = add nsw i32 %60, -2
   %62 = or disjoint i32 %28, 8
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %61, i32 noundef 1, i32 noundef %62, i32 noundef -1, i1 noundef zeroext true, i32 noundef 96)
@@ -6890,8 +6890,8 @@ _ZNK2cv11_InputArray6getMatEi.exit197:            ; preds = %66, %69
   %117 = zext nneg i32 %61 to i64
   br label %.lr.ph273
 
-.lr.ph273:                                        ; preds = %.lr.ph273.preheader, %125
-  %indvars.iv333 = phi i64 [ %117, %.lr.ph273.preheader ], [ %indvars.iv.next334, %125 ]
+.lr.ph273:                                        ; preds = %.lr.ph273.preheader, %124
+  %indvars.iv333 = phi i64 [ %117, %.lr.ph273.preheader ], [ %indvars.iv.next334, %124 ]
   %118 = getelementptr inbounds %"class.cv::Complex", ptr %80, i64 %indvars.iv333
   %119 = load <2 x double>, ptr %118, align 8
   %120 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %119)
@@ -6899,16 +6899,19 @@ _ZNK2cv11_InputArray6getMatEi.exit197:            ; preds = %66, %69
   %121 = fadd <2 x double> %120, %shift
   %122 = extractelement <2 x double> %121, i64 0
   %123 = fcmp ogt double %122, 0x3CB0000000000000
-  %124 = trunc nuw i64 %indvars.iv333 to i32
-  br i1 %123, label %._crit_edge, label %125
+  br i1 %123, label %._crit_edge.loopexit, label %124
 
-125:                                              ; preds = %.lr.ph273
+124:                                              ; preds = %.lr.ph273
   %indvars.iv.next334 = add nsw i64 %indvars.iv333, -1
-  %126 = icmp sgt i32 %124, 2
-  br i1 %126, label %.lr.ph273, label %._crit_edge, !llvm.loop !132
+  %125 = icmp sgt i64 %indvars.iv333, 2
+  br i1 %125, label %.lr.ph273, label %.lr.ph280.preheader, !llvm.loop !132
 
-._crit_edge:                                      ; preds = %125, %.lr.ph273, %.loopexit266
-  %.0132.lcssa = phi i32 [ %61, %.loopexit266 ], [ %124, %.lr.ph273 ], [ 1, %125 ]
+._crit_edge.loopexit:                             ; preds = %.lr.ph273
+  %126 = trunc nuw nsw i64 %indvars.iv333 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit266
+  %.0132.lcssa = phi i32 [ %61, %.loopexit266 ], [ %126, %._crit_edge.loopexit ]
   %127 = icmp sgt i32 %.0132.lcssa, 0
   br i1 %127, label %.lr.ph280.preheader, label %._crit_edge281.thread
 
@@ -6916,8 +6919,9 @@ _ZNK2cv11_InputArray6getMatEi.exit197:            ; preds = %66, %69
   %128 = sext i32 %.0132.lcssa to i64
   br label %.loopexit
 
-.lr.ph280.preheader:                              ; preds = %._crit_edge
-  %wide.trip.count339 = zext nneg i32 %.0132.lcssa to i64
+.lr.ph280.preheader:                              ; preds = %124, %._crit_edge
+  %.0132.lcssa365 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ 1, %124 ]
+  %wide.trip.count339 = zext nneg i32 %.0132.lcssa365 to i64
   br label %.lr.ph280
 
 .lr.ph280:                                        ; preds = %.lr.ph280.preheader, %.lr.ph280
@@ -6937,7 +6941,7 @@ _ZNK2cv11_InputArray6getMatEi.exit197:            ; preds = %66, %69
 ._crit_edge281:                                   ; preds = %.lr.ph280
   %136 = icmp slt i32 %2, 1
   %137 = select i1 %136, i32 1000, i32 %2
-  %138 = zext nneg i32 %.0132.lcssa to i64
+  %138 = zext nneg i32 %.0132.lcssa365 to i64
   %139 = getelementptr inbounds %"class.cv::Complex", ptr %80, i64 %138
   %140 = getelementptr inbounds i8, ptr %14, i64 64
   %141 = getelementptr inbounds i8, ptr %14, i64 12
@@ -6949,14 +6953,11 @@ _ZNK2cv11_InputArray6getMatEi.exit197:            ; preds = %66, %69
   %147 = getelementptr inbounds i8, ptr %17, i64 8
   %148 = getelementptr inbounds i8, ptr %17, i64 16
   %149 = getelementptr inbounds i8, ptr %15, i64 16
-  br i1 %127, label %.preheader263.us.preheader, label %.loopexit
-
-.preheader263.us.preheader:                       ; preds = %._crit_edge281
-  %wide.trip.count350 = zext nneg i32 %.0132.lcssa to i64
+  %wide.trip.count350 = zext nneg i32 %.0132.lcssa365 to i64
   br label %.preheader263.us
 
-.preheader263.us:                                 ; preds = %.preheader263.us.preheader, %._crit_edge308.us
-  %.0310.us = phi i32 [ %364, %._crit_edge308.us ], [ 0, %.preheader263.us.preheader ]
+.preheader263.us:                                 ; preds = %._crit_edge281, %._crit_edge308.us
+  %.0310.us = phi i32 [ %364, %._crit_edge308.us ], [ 0, %._crit_edge281 ]
   br label %.lr.ph289.us
 
 .lr.ph289.us:                                     ; preds = %.preheader263.us, %288
@@ -7068,14 +7069,14 @@ _ZN2cv3Mat2atIdEERT_i.exit.us:                    ; preds = %195, %189, %177
   %214 = load i32, ptr %141, align 4
   %215 = sdiv i32 2, %214
   %216 = mul nsw i32 %215, %214
-  %.recomposed380 = srem i32 2, %214
+  %.recomposed394 = srem i32 2, %214
   %217 = load ptr, ptr %142, align 8
   %218 = load ptr, ptr %143, align 8
   %219 = load i64, ptr %218, align 8
   %220 = sext i32 %215 to i64
   %221 = mul i64 %219, %220
   %222 = getelementptr inbounds i8, ptr %217, i64 %221
-  %223 = sext i32 %.recomposed380 to i64
+  %223 = sext i32 %.recomposed394 to i64
   %224 = getelementptr inbounds double, ptr %222, i64 %223
   br label %_ZN2cv3Mat2atIdEERT_i.exit213.us
 
@@ -7182,8 +7183,8 @@ _ZN2cv3Mat2atIdEERT_i.exit228.us:                 ; preds = %_ZN2cv3Mat2atIdEERT
   %280 = insertelement <2 x double> %279, double %square262.us, i64 0
   %281 = insertelement <2 x double> <double 3.000000e+00, double poison>, double %278, i64 1
   %282 = fdiv <2 x double> %280, %281
-  %shift373 = shufflevector <2 x double> %282, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %283 = fsub <2 x double> %282, %shift373
+  %shift385 = shufflevector <2 x double> %282, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %283 = fsub <2 x double> %282, %shift385
   %284 = extractelement <2 x double> %283, i64 0
   %285 = call double @sqrt(double noundef %284) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #22
@@ -7338,11 +7339,10 @@ _ZN2cv3Mat2atIdEERT_i.exit228.us:                 ; preds = %_ZN2cv3Mat2atIdEERT
   %.pre = load i32, ptr %5, align 8
   %369 = and i32 %.pre, 4088
   %370 = icmp eq i32 %369, 0
-  %or.cond328 = and i1 %370, %127
-  br i1 %or.cond328, label %.lr.ph321.preheader, label %.loopexit
+  br i1 %370, label %.lr.ph321.preheader, label %.loopexit
 
 .lr.ph321.preheader:                              ; preds = %.split312.us
-  %wide.trip.count355 = zext nneg i32 %.0132.lcssa to i64
+  %wide.trip.count355 = zext nneg i32 %.0132.lcssa365 to i64
   br label %.lr.ph321
 
 .lr.ph321:                                        ; preds = %.lr.ph321.preheader, %376
@@ -7362,10 +7362,11 @@ _ZN2cv3Mat2atIdEERT_i.exit228.us:                 ; preds = %_ZN2cv3Mat2atIdEERT
   %exitcond356.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count355
   br i1 %exitcond356.not, label %.loopexit, label %.lr.ph321, !llvm.loop !138
 
-.loopexit:                                        ; preds = %376, %._crit_edge281.thread, %._crit_edge281, %.split312.us
-  %.us-phi366 = phi double [ %.sroa.speculated.us, %.split312.us ], [ 0.000000e+00, %._crit_edge281 ], [ 0.000000e+00, %._crit_edge281.thread ], [ %.sroa.speculated.us, %376 ]
-  %377 = phi i64 [ %138, %.split312.us ], [ %138, %._crit_edge281 ], [ %128, %._crit_edge281.thread ], [ %138, %376 ]
-  %378 = icmp slt i32 %.0132.lcssa, %61
+.loopexit:                                        ; preds = %376, %._crit_edge281.thread, %.split312.us
+  %.us-phi375 = phi double [ %.sroa.speculated.us, %.split312.us ], [ 0.000000e+00, %._crit_edge281.thread ], [ %.sroa.speculated.us, %376 ]
+  %.0132.lcssa364368374 = phi i32 [ %.0132.lcssa365, %.split312.us ], [ %.0132.lcssa, %._crit_edge281.thread ], [ %.0132.lcssa365, %376 ]
+  %377 = phi i64 [ %138, %.split312.us ], [ %128, %._crit_edge281.thread ], [ %138, %376 ]
+  %378 = icmp slt i32 %.0132.lcssa364368374, %61
   br i1 %378, label %.lr.ph324, label %._crit_edge325
 
 .lr.ph324:                                        ; preds = %.loopexit, %.lr.ph324
@@ -7441,7 +7442,7 @@ _ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit: ; preds = %391, %396
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit, %399
-  ret double %.us-phi366
+  ret double %.us-phi375
 
 403:                                              ; preds = %386
   %404 = landingpad { ptr, i32 }

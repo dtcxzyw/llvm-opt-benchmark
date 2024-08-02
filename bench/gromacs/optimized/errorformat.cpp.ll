@@ -140,23 +140,26 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr noc
   %11 = and i64 %8, 2147483647
   br label %12
 
-12:                                               ; preds = %.lr.ph, %17
-  %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %17 ]
+12:                                               ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %gep = getelementptr i8, ptr %gep23, i64 %indvars.iv
   %13 = load i8, ptr %gep, align 1
   %14 = sext i8 %13 to i32
   %15 = call i32 @isspace(i32 noundef %14) #10
   %.not = icmp eq i32 %15, 0
-  %16 = trunc nuw i64 %indvars.iv to i32
-  br i1 %.not, label %.critedge, label %17
+  br i1 %.not, label %.critedge.loopexit.split.loop.exit28, label %16
 
-17:                                               ; preds = %12
+16:                                               ; preds = %12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = icmp sgt i32 %16, 1
-  br i1 %18, label %12, label %.critedge, !llvm.loop !5
+  %17 = icmp sgt i64 %indvars.iv, 1
+  br i1 %17, label %12, label %.critedge, !llvm.loop !5
 
-.critedge:                                        ; preds = %12, %17, %.lr.ph25
-  %.0.lcssa = phi i32 [ %9, %.lr.ph25 ], [ 0, %17 ], [ %16, %12 ]
+.critedge.loopexit.split.loop.exit28:             ; preds = %12
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %16, %.critedge.loopexit.split.loop.exit28, %.lr.ph25
+  %.0.lcssa = phi i32 [ %9, %.lr.ph25 ], [ %18, %.critedge.loopexit.split.loop.exit28 ], [ 0, %16 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 %.01824
   %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %.0.lcssa, ptr noundef %19) #9
   %21 = icmp ult i64 %7, %6

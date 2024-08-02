@@ -2126,46 +2126,44 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap25merge_local_state_vectors
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK13CellTypeState5mergeES_i.exit
   %indvars.iv = phi i64 [ %10, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK13CellTypeState5mergeES_i.exit ]
-  %.01518 = phi i1 [ false, %.lr.ph.preheader ], [ %29, %_ZNK13CellTypeState5mergeES_i.exit ]
-  %11 = trunc nuw i64 %indvars.iv to i32
-  %.019 = add nsw i32 %11, -1
-  %12 = zext nneg i32 %.019 to i64
-  %13 = getelementptr inbounds %class.CellTypeState, ptr %1, i64 %12
-  %14 = getelementptr inbounds %class.CellTypeState, ptr %2, i64 %12
-  %.sroa.01.0.copyload = load i32, ptr %14, align 4
-  %15 = load i32, ptr %13, align 4
-  %16 = or i32 %15, %.sroa.01.0.copyload
-  %17 = and i32 %16, 134217728
-  %18 = icmp ne i32 %17, 0
-  %19 = icmp eq i32 %15, %.sroa.01.0.copyload
-  %or.cond.i = or i1 %19, %18
-  br i1 %or.cond.i, label %_ZNK13CellTypeState5mergeES_i.exit, label %20
-
-20:                                               ; preds = %.lr.ph
-  %21 = and i32 %16, -268435456
-  %22 = icmp eq i32 %21, 1073741824
-  br i1 %22, label %23, label %26
-
-23:                                               ; preds = %20
-  %24 = and i32 %.019, 16777215
-  %25 = or disjoint i32 %24, 1191182336
-  br label %_ZNK13CellTypeState5mergeES_i.exit
-
-26:                                               ; preds = %20
-  %27 = or i32 %16, 268435455
-  br label %_ZNK13CellTypeState5mergeES_i.exit
-
-_ZNK13CellTypeState5mergeES_i.exit:               ; preds = %.lr.ph, %23, %26
-  %.sroa.0.0.i = phi i32 [ %16, %.lr.ph ], [ %25, %23 ], [ %27, %26 ]
-  %28 = icmp ne i32 %.sroa.0.0.i, %.sroa.01.0.copyload
-  %29 = select i1 %.01518, i1 true, i1 %28
-  store i32 %.sroa.0.0.i, ptr %14, align 4
-  %30 = icmp sgt i32 %11, 1
+  %.01518 = phi i1 [ false, %.lr.ph.preheader ], [ %28, %_ZNK13CellTypeState5mergeES_i.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %11 = getelementptr inbounds %class.CellTypeState, ptr %1, i64 %indvars.iv.next
+  %12 = getelementptr inbounds %class.CellTypeState, ptr %2, i64 %indvars.iv.next
+  %.sroa.01.0.copyload = load i32, ptr %12, align 4
+  %13 = load i32, ptr %11, align 4
+  %14 = or i32 %13, %.sroa.01.0.copyload
+  %15 = and i32 %14, 134217728
+  %16 = icmp ne i32 %15, 0
+  %17 = icmp eq i32 %13, %.sroa.01.0.copyload
+  %or.cond.i = or i1 %17, %16
+  br i1 %or.cond.i, label %_ZNK13CellTypeState5mergeES_i.exit, label %18
+
+18:                                               ; preds = %.lr.ph
+  %19 = and i32 %14, -268435456
+  %20 = icmp eq i32 %19, 1073741824
+  br i1 %20, label %21, label %25
+
+21:                                               ; preds = %18
+  %22 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %23 = and i32 %22, 16777215
+  %24 = or disjoint i32 %23, 1191182336
+  br label %_ZNK13CellTypeState5mergeES_i.exit
+
+25:                                               ; preds = %18
+  %26 = or i32 %14, 268435455
+  br label %_ZNK13CellTypeState5mergeES_i.exit
+
+_ZNK13CellTypeState5mergeES_i.exit:               ; preds = %.lr.ph, %21, %25
+  %.sroa.0.0.i = phi i32 [ %14, %.lr.ph ], [ %24, %21 ], [ %26, %25 ]
+  %27 = icmp ne i32 %.sroa.0.0.i, %.sroa.01.0.copyload
+  %28 = select i1 %.01518, i1 true, i1 %27
+  store i32 %.sroa.0.0.i, ptr %12, align 4
+  %29 = icmp ugt i64 %indvars.iv, 1
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZNK13CellTypeState5mergeES_i.exit, %3
-  %.015.lcssa = phi i1 [ false, %3 ], [ %29, %_ZNK13CellTypeState5mergeES_i.exit ]
+  %.015.lcssa = phi i1 [ false, %3 ], [ %28, %_ZNK13CellTypeState5mergeES_i.exit ]
   ret i1 %.015.lcssa
 }
 
@@ -2319,7 +2317,7 @@ define hidden void @_ZN14GenerateOopMap19merge_state_into_bbEP10BasicBlock(ptr n
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %7, %9
-  br i1 %10, label %11, label %84
+  br i1 %10, label %11, label %83
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2330,230 +2328,228 @@ define hidden void @_ZN14GenerateOopMap19merge_state_into_bbEP10BasicBlock(ptr n
   %17 = load i32, ptr %16, align 8
   %18 = add nsw i32 %17, %7
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph.i.preheader, label %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread
+  br i1 %19, label %.lr.ph.preheader.i, label %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-.lr.ph.i.preheader:                               ; preds = %11
+.lr.ph.preheader.i:                               ; preds = %11
   %20 = zext nneg i32 %18 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNK13CellTypeState5mergeES_i.exit.i
-  %indvars.iv = phi i64 [ %20, %.lr.ph.i.preheader ], [ %indvars.iv.next, %_ZNK13CellTypeState5mergeES_i.exit.i ]
-  %.01518.i = phi i1 [ false, %.lr.ph.i.preheader ], [ %39, %_ZNK13CellTypeState5mergeES_i.exit.i ]
-  %21 = trunc nuw i64 %indvars.iv to i32
-  %.019.i = add nsw i32 %21, -1
-  %22 = zext nneg i32 %.019.i to i64
-  %23 = getelementptr inbounds %class.CellTypeState, ptr %13, i64 %22
-  %24 = getelementptr inbounds %class.CellTypeState, ptr %15, i64 %22
-  %.sroa.01.0.copyload.i = load i32, ptr %24, align 4
-  %25 = load i32, ptr %23, align 4
-  %26 = or i32 %25, %.sroa.01.0.copyload.i
-  %27 = and i32 %26, 134217728
-  %28 = icmp ne i32 %27, 0
-  %29 = icmp eq i32 %25, %.sroa.01.0.copyload.i
-  %or.cond.i.i = or i1 %29, %28
-  br i1 %or.cond.i.i, label %_ZNK13CellTypeState5mergeES_i.exit.i, label %30
+.lr.ph.i:                                         ; preds = %_ZNK13CellTypeState5mergeES_i.exit.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ %20, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZNK13CellTypeState5mergeES_i.exit.i ]
+  %.01518.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %38, %_ZNK13CellTypeState5mergeES_i.exit.i ]
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %21 = getelementptr inbounds %class.CellTypeState, ptr %13, i64 %indvars.iv.next.i
+  %22 = getelementptr inbounds %class.CellTypeState, ptr %15, i64 %indvars.iv.next.i
+  %.sroa.01.0.copyload.i = load i32, ptr %22, align 4
+  %23 = load i32, ptr %21, align 4
+  %24 = or i32 %23, %.sroa.01.0.copyload.i
+  %25 = and i32 %24, 134217728
+  %26 = icmp ne i32 %25, 0
+  %27 = icmp eq i32 %23, %.sroa.01.0.copyload.i
+  %or.cond.i.i = or i1 %27, %26
+  br i1 %or.cond.i.i, label %_ZNK13CellTypeState5mergeES_i.exit.i, label %28
 
-30:                                               ; preds = %.lr.ph.i
-  %31 = and i32 %26, -268435456
-  %32 = icmp eq i32 %31, 1073741824
-  br i1 %32, label %33, label %36
+28:                                               ; preds = %.lr.ph.i
+  %29 = and i32 %24, -268435456
+  %30 = icmp eq i32 %29, 1073741824
+  br i1 %30, label %31, label %35
 
-33:                                               ; preds = %30
-  %34 = and i32 %.019.i, 16777215
-  %35 = or disjoint i32 %34, 1191182336
+31:                                               ; preds = %28
+  %32 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %33 = and i32 %32, 16777215
+  %34 = or disjoint i32 %33, 1191182336
   br label %_ZNK13CellTypeState5mergeES_i.exit.i
 
-36:                                               ; preds = %30
-  %37 = or i32 %26, 268435455
+35:                                               ; preds = %28
+  %36 = or i32 %24, 268435455
   br label %_ZNK13CellTypeState5mergeES_i.exit.i
 
-_ZNK13CellTypeState5mergeES_i.exit.i:             ; preds = %36, %33, %.lr.ph.i
-  %.sroa.0.0.i.i = phi i32 [ %26, %.lr.ph.i ], [ %35, %33 ], [ %37, %36 ]
-  %38 = icmp ne i32 %.sroa.0.0.i.i, %.sroa.01.0.copyload.i
-  %39 = select i1 %.01518.i, i1 true, i1 %38
-  store i32 %.sroa.0.0.i.i, ptr %24, align 4
-  %40 = icmp sgt i32 %21, 1
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  br i1 %40, label %.lr.ph.i, label %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit, !llvm.loop !22
+_ZNK13CellTypeState5mergeES_i.exit.i:             ; preds = %35, %31, %.lr.ph.i
+  %.sroa.0.0.i.i = phi i32 [ %24, %.lr.ph.i ], [ %34, %31 ], [ %36, %35 ]
+  %37 = icmp ne i32 %.sroa.0.0.i.i, %.sroa.01.0.copyload.i
+  %38 = select i1 %.01518.i, i1 true, i1 %37
+  store i32 %.sroa.0.0.i.i, ptr %22, align 4
+  %39 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %39, label %.lr.ph.i, label %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit, !llvm.loop !22
 
 _ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit: ; preds = %_ZNK13CellTypeState5mergeES_i.exit.i
-  br i1 %39, label %41, label %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread
+  br i1 %38, label %40, label %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-41:                                               ; preds = %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit
+40:                                               ; preds = %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit
   store i8 1, ptr %1, align 8
   br label %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread: ; preds = %11, %41, %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 92
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 36
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %43, %45
-  br i1 %46, label %47, label %79
+_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread: ; preds = %11, %40, %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit
+  %41 = getelementptr inbounds i8, ptr %0, i64 92
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %1, i64 36
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %42, %44
+  br i1 %45, label %46, label %78
 
-47:                                               ; preds = %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread
-  %48 = load ptr, ptr %12, align 8
-  %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp sgt i32 %51, 0
-  %.not19.not22.i = icmp sgt i32 %43, 0
-  %or.cond = and i1 %.not19.not22.i, %52
+46:                                               ; preds = %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread
+  %47 = load ptr, ptr %12, align 8
+  %48 = load ptr, ptr %14, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp sgt i32 %50, 0
+  %.not19.not22.i = icmp sgt i32 %42, 0
+  %or.cond = and i1 %.not19.not22.i, %51
   br i1 %or.cond, label %.lr.ph.preheader.i16, label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-.lr.ph.preheader.i16:                             ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %0, i64 36
-  %54 = load i32, ptr %53, align 4
-  %55 = load i32, ptr %16, align 8
-  %56 = add i32 %55, %54
-  %57 = add i32 %56, %43
-  %58 = sext i32 %57 to i64
-  %59 = sext i32 %56 to i64
+.lr.ph.preheader.i16:                             ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %0, i64 36
+  %53 = load i32, ptr %52, align 4
+  %54 = load i32, ptr %16, align 8
+  %55 = add i32 %54, %53
+  %56 = add i32 %55, %42
+  %57 = sext i32 %56 to i64
+  %58 = sext i32 %55 to i64
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %_ZNK13CellTypeState5mergeES_i.exit.i22, %.lr.ph.preheader.i16
-  %indvars.iv.i18 = phi i64 [ %58, %.lr.ph.preheader.i16 ], [ %indvars.iv.next.i19, %_ZNK13CellTypeState5mergeES_i.exit.i22 ]
-  %.123.i = phi i1 [ false, %.lr.ph.preheader.i16 ], [ %77, %_ZNK13CellTypeState5mergeES_i.exit.i22 ]
+  %indvars.iv.i18 = phi i64 [ %57, %.lr.ph.preheader.i16 ], [ %indvars.iv.next.i19, %_ZNK13CellTypeState5mergeES_i.exit.i22 ]
+  %.123.i = phi i1 [ false, %.lr.ph.preheader.i16 ], [ %76, %_ZNK13CellTypeState5mergeES_i.exit.i22 ]
   %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i18, -1
+  %59 = getelementptr inbounds %class.CellTypeState, ptr %47, i64 %indvars.iv.next.i19
   %60 = getelementptr inbounds %class.CellTypeState, ptr %48, i64 %indvars.iv.next.i19
-  %61 = getelementptr inbounds %class.CellTypeState, ptr %49, i64 %indvars.iv.next.i19
-  %.sroa.01.0.copyload.i20 = load i32, ptr %61, align 4
-  %62 = load i32, ptr %60, align 4
-  %63 = or i32 %62, %.sroa.01.0.copyload.i20
-  %64 = and i32 %63, 134217728
-  %65 = icmp ne i32 %64, 0
-  %66 = icmp eq i32 %62, %.sroa.01.0.copyload.i20
-  %or.cond.i.i21 = or i1 %66, %65
-  br i1 %or.cond.i.i21, label %_ZNK13CellTypeState5mergeES_i.exit.i22, label %67
+  %.sroa.01.0.copyload.i20 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %59, align 4
+  %62 = or i32 %61, %.sroa.01.0.copyload.i20
+  %63 = and i32 %62, 134217728
+  %64 = icmp ne i32 %63, 0
+  %65 = icmp eq i32 %61, %.sroa.01.0.copyload.i20
+  %or.cond.i.i21 = or i1 %65, %64
+  br i1 %or.cond.i.i21, label %_ZNK13CellTypeState5mergeES_i.exit.i22, label %66
 
-67:                                               ; preds = %.lr.ph.i17
-  %68 = and i32 %63, -268435456
-  %69 = icmp eq i32 %68, 1073741824
-  br i1 %69, label %70, label %74
+66:                                               ; preds = %.lr.ph.i17
+  %67 = and i32 %62, -268435456
+  %68 = icmp eq i32 %67, 1073741824
+  br i1 %68, label %69, label %73
 
-70:                                               ; preds = %67
-  %71 = trunc nsw i64 %indvars.iv.next.i19 to i32
-  %72 = and i32 %71, 16777215
-  %73 = or disjoint i32 %72, 1191182336
+69:                                               ; preds = %66
+  %70 = trunc nsw i64 %indvars.iv.next.i19 to i32
+  %71 = and i32 %70, 16777215
+  %72 = or disjoint i32 %71, 1191182336
   br label %_ZNK13CellTypeState5mergeES_i.exit.i22
 
-74:                                               ; preds = %67
-  %75 = or i32 %63, 268435455
+73:                                               ; preds = %66
+  %74 = or i32 %62, 268435455
   br label %_ZNK13CellTypeState5mergeES_i.exit.i22
 
-_ZNK13CellTypeState5mergeES_i.exit.i22:           ; preds = %74, %70, %.lr.ph.i17
-  %.sroa.0.0.i.i23 = phi i32 [ %63, %.lr.ph.i17 ], [ %73, %70 ], [ %75, %74 ]
-  %76 = icmp ne i32 %.sroa.0.0.i.i23, %.sroa.01.0.copyload.i20
-  %77 = select i1 %.123.i, i1 true, i1 %76
-  store i32 %.sroa.0.0.i.i23, ptr %61, align 4
-  %.not19.not.i = icmp sgt i64 %indvars.iv.next.i19, %59
+_ZNK13CellTypeState5mergeES_i.exit.i22:           ; preds = %73, %69, %.lr.ph.i17
+  %.sroa.0.0.i.i23 = phi i32 [ %62, %.lr.ph.i17 ], [ %72, %69 ], [ %74, %73 ]
+  %75 = icmp ne i32 %.sroa.0.0.i.i23, %.sroa.01.0.copyload.i20
+  %76 = select i1 %.123.i, i1 true, i1 %75
+  store i32 %.sroa.0.0.i.i23, ptr %60, align 4
+  %.not19.not.i = icmp sgt i64 %indvars.iv.next.i19, %58
   br i1 %.not19.not.i, label %.lr.ph.i17, label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit, !llvm.loop !23
 
 _ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit: ; preds = %_ZNK13CellTypeState5mergeES_i.exit.i22
-  br i1 %77, label %78, label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread
+  br i1 %76, label %77, label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-78:                                               ; preds = %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit
+77:                                               ; preds = %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit
   store i8 1, ptr %1, align 8
   br label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-79:                                               ; preds = %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread
-  %80 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE91ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not30 = icmp eq ptr %80, null
-  br i1 %.not30, label %82, label %81
+78:                                               ; preds = %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread
+  %79 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE91ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not30 = icmp eq ptr %79, null
+  br i1 %.not30, label %81, label %80
 
-81:                                               ; preds = %79
+80:                                               ; preds = %78
   tail call void @_ZN14GenerateOopMap23report_monitor_mismatchEPKc(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.28)
-  br label %82
+  br label %81
 
-82:                                               ; preds = %81, %79
-  store i32 -1, ptr %44, align 4
+81:                                               ; preds = %80, %78
+  store i32 -1, ptr %43, align 4
   store i8 1, ptr %1, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 66
-  store i8 0, ptr %83, align 2
+  %82 = getelementptr inbounds i8, ptr %0, i64 66
+  store i8 0, ptr %82, align 2
   br label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-84:                                               ; preds = %5
-  %85 = icmp sgt i32 %9, -1
-  br i1 %85, label %125, label %86
+83:                                               ; preds = %5
+  %84 = icmp sgt i32 %9, -1
+  br i1 %84, label %124, label %85
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %1, i64 24
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 72
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 32
-  %92 = load i32, ptr %91, align 8
-  %93 = add nsw i32 %92, %7
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph.preheader.i24, label %._crit_edge.i
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds i8, ptr %1, i64 24
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 72
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 32
+  %91 = load i32, ptr %90, align 8
+  %92 = add nsw i32 %91, %7
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %.lr.ph.preheader.i24, label %._crit_edge.i
 
-.lr.ph.preheader.i24:                             ; preds = %86
-  %wide.trip.count.i = zext nneg i32 %93 to i64
+.lr.ph.preheader.i24:                             ; preds = %85
+  %wide.trip.count.i = zext nneg i32 %92 to i64
   br label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %.lr.ph.i25, %.lr.ph.preheader.i24
   %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.preheader.i24 ], [ %indvars.iv.next.i27, %.lr.ph.i25 ]
-  %95 = getelementptr inbounds %class.CellTypeState, ptr %90, i64 %indvars.iv.i26
-  %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, -100663296
-  %98 = icmp eq i32 %97, 1107296256
-  %99 = trunc nuw nsw i64 %indvars.iv.i26 to i32
-  %100 = and i32 %99, 16777215
-  %101 = or disjoint i32 %100, 1191182336
-  %.sink.i = select i1 %98, i32 %101, i32 %96
-  %102 = getelementptr inbounds %class.CellTypeState, ptr %88, i64 %indvars.iv.i26
-  store i32 %.sink.i, ptr %102, align 4
+  %94 = getelementptr inbounds %class.CellTypeState, ptr %89, i64 %indvars.iv.i26
+  %95 = load i32, ptr %94, align 4
+  %96 = and i32 %95, -100663296
+  %97 = icmp eq i32 %96, 1107296256
+  %98 = trunc nuw nsw i64 %indvars.iv.i26 to i32
+  %99 = and i32 %98, 16777215
+  %100 = or disjoint i32 %99, 1191182336
+  %.sink.i = select i1 %97, i32 %100, i32 %95
+  %101 = getelementptr inbounds %class.CellTypeState, ptr %87, i64 %indvars.iv.i26
+  store i32 %.sink.i, ptr %101, align 4
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i25, !llvm.loop !24
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i25, %86
-  %103 = getelementptr inbounds i8, ptr %0, i64 40
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %106, label %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit
+._crit_edge.i:                                    ; preds = %.lr.ph.i25, %85
+  %102 = getelementptr inbounds i8, ptr %0, i64 40
+  %103 = load i32, ptr %102, align 8
+  %104 = icmp sgt i32 %103, 0
+  br i1 %104, label %105, label %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit
 
-106:                                              ; preds = %._crit_edge.i
-  %107 = getelementptr inbounds i8, ptr %0, i64 92
-  %108 = load i32, ptr %107, align 4
-  %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %.lr.ph26.preheader.i, label %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit
+105:                                              ; preds = %._crit_edge.i
+  %106 = getelementptr inbounds i8, ptr %0, i64 92
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp sgt i32 %107, 0
+  br i1 %108, label %.lr.ph26.preheader.i, label %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit
 
-.lr.ph26.preheader.i:                             ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %0, i64 36
-  %111 = load i32, ptr %110, align 4
-  %112 = load i32, ptr %91, align 8
-  %113 = add i32 %112, %111
-  %114 = add nsw i32 %113, %108
+.lr.ph26.preheader.i:                             ; preds = %105
+  %109 = getelementptr inbounds i8, ptr %0, i64 36
+  %110 = load i32, ptr %109, align 4
+  %111 = load i32, ptr %90, align 8
+  %112 = add i32 %111, %110
+  %113 = add nsw i32 %112, %107
+  %114 = sext i32 %112 to i64
   %115 = sext i32 %113 to i64
-  %116 = sext i32 %114 to i64
   br label %.lr.ph26.i
 
 .lr.ph26.i:                                       ; preds = %.lr.ph26.i, %.lr.ph26.preheader.i
-  %indvars.iv29.i = phi i64 [ %115, %.lr.ph26.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph26.i ]
-  %117 = getelementptr inbounds %class.CellTypeState, ptr %90, i64 %indvars.iv29.i
-  %118 = getelementptr inbounds %class.CellTypeState, ptr %88, i64 %indvars.iv29.i
-  %119 = load i32, ptr %117, align 4
-  store i32 %119, ptr %118, align 4
+  %indvars.iv29.i = phi i64 [ %114, %.lr.ph26.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph26.i ]
+  %116 = getelementptr inbounds %class.CellTypeState, ptr %89, i64 %indvars.iv29.i
+  %117 = getelementptr inbounds %class.CellTypeState, ptr %87, i64 %indvars.iv29.i
+  %118 = load i32, ptr %116, align 4
+  store i32 %118, ptr %117, align 4
   %indvars.iv.next30.i = add nsw i64 %indvars.iv29.i, 1
-  %120 = icmp slt i64 %indvars.iv.next30.i, %116
-  br i1 %120, label %.lr.ph26.i, label %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit, !llvm.loop !25
+  %119 = icmp slt i64 %indvars.iv.next30.i, %115
+  br i1 %119, label %.lr.ph26.i, label %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit, !llvm.loop !25
 
-_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit: ; preds = %.lr.ph26.i, %._crit_edge.i, %106
-  %121 = load i32, ptr %6, align 8
-  store i32 %121, ptr %8, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 92
-  %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %1, i64 36
-  store i32 %123, ptr %124, align 4
+_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit: ; preds = %.lr.ph26.i, %._crit_edge.i, %105
+  %120 = load i32, ptr %6, align 8
+  store i32 %120, ptr %8, align 8
+  %121 = getelementptr inbounds i8, ptr %0, i64 92
+  %122 = load i32, ptr %121, align 4
+  %123 = getelementptr inbounds i8, ptr %1, i64 36
+  store i32 %122, ptr %123, align 4
   store i8 1, ptr %1, align 8
   br label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-125:                                              ; preds = %84
+124:                                              ; preds = %83
   tail call void (ptr, ptr, ...) @_ZN14GenerateOopMap12report_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.78)
   br label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread: ; preds = %47, %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit, %125, %82, %78, %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit
+_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread: ; preds = %46, %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit, %124, %81, %77, %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit
   ret void
 }
 
@@ -7613,99 +7609,97 @@ _ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit: ; preds = %27, %_ZNK13C
   %40 = zext nneg i32 %37 to i64
   br label %41
 
-41:                                               ; preds = %47, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %40, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
+41:                                               ; preds = %46, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %40, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %42 = load ptr, ptr %39, align 8
-  %43 = and i64 %indvars.iv.next.i, 4294967295
-  %44 = getelementptr inbounds %class.CellTypeState, ptr %42, i64 %43
-  %.sroa.02.0.copyload.i = load i32, ptr %44, align 4
-  %45 = icmp eq i32 %.sroa.02.0.copyload.i, %.sroa.0.0.i
-  br i1 %45, label %46, label %47
+  %43 = getelementptr inbounds %class.CellTypeState, ptr %42, i64 %indvars.iv.next.i
+  %.sroa.02.0.copyload.i = load i32, ptr %43, align 4
+  %44 = icmp eq i32 %.sroa.02.0.copyload.i, %.sroa.0.0.i
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %41
-  store i32 %29, ptr %44, align 4
-  br label %47
+45:                                               ; preds = %41
+  store i32 %29, ptr %43, align 4
+  br label %46
 
-47:                                               ; preds = %46, %41
-  %48 = trunc nuw i64 %indvars.iv.i to i32
-  %49 = icmp sgt i32 %48, 1
-  br i1 %49, label %41, label %._crit_edge.i, !llvm.loop !50
+46:                                               ; preds = %45, %41
+  %47 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %47, label %41, label %._crit_edge.i, !llvm.loop !50
 
-._crit_edge.i:                                    ; preds = %47, %33
-  %50 = load i32, ptr %17, align 4
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit
+._crit_edge.i:                                    ; preds = %46, %33
+  %48 = load i32, ptr %17, align 4
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %50, label %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit
 
-52:                                               ; preds = %._crit_edge.i
-  %53 = load i32, ptr %34, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 36
-  %55 = load i32, ptr %54, align 4
-  %56 = add i32 %55, %53
-  %57 = add i32 %56, %50
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
-  %59 = sext i32 %57 to i64
-  %60 = sext i32 %56 to i64
-  br label %61
+50:                                               ; preds = %._crit_edge.i
+  %51 = load i32, ptr %34, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 36
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, %51
+  %55 = add i32 %54, %48
+  %56 = getelementptr inbounds i8, ptr %0, i64 72
+  %57 = sext i32 %55 to i64
+  %58 = sext i32 %54 to i64
+  br label %59
 
-61:                                               ; preds = %66, %52
-  %indvars.iv22.i = phi i64 [ %59, %52 ], [ %indvars.iv.next23.i, %66 ]
+59:                                               ; preds = %64, %50
+  %indvars.iv22.i = phi i64 [ %57, %50 ], [ %indvars.iv.next23.i, %64 ]
   %indvars.iv.next23.i = add nsw i64 %indvars.iv22.i, -1
-  %62 = load ptr, ptr %58, align 8
-  %63 = getelementptr inbounds %class.CellTypeState, ptr %62, i64 %indvars.iv.next23.i
-  %.sroa.0.0.copyload.i = load i32, ptr %63, align 4
-  %64 = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.0.0.i
-  br i1 %64, label %65, label %66
+  %60 = load ptr, ptr %56, align 8
+  %61 = getelementptr inbounds %class.CellTypeState, ptr %60, i64 %indvars.iv.next23.i
+  %.sroa.0.0.copyload.i = load i32, ptr %61, align 4
+  %62 = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.0.0.i
+  br i1 %62, label %63, label %64
 
-65:                                               ; preds = %61
-  store i32 %29, ptr %63, align 4
-  br label %66
+63:                                               ; preds = %59
+  store i32 %29, ptr %61, align 4
+  br label %64
 
-66:                                               ; preds = %65, %61
-  %.not.not.i = icmp sgt i64 %indvars.iv.next23.i, %60
-  br i1 %.not.not.i, label %61, label %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit.loopexit, !llvm.loop !51
+64:                                               ; preds = %63, %59
+  %.not.not.i = icmp sgt i64 %indvars.iv.next23.i, %58
+  br i1 %.not.not.i, label %59, label %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit.loopexit, !llvm.loop !51
 
-_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit.loopexit: ; preds = %66
+_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit.loopexit: ; preds = %64
   %.pre = load i32, ptr %17, align 4
   br label %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit
 
 _ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit: ; preds = %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit.loopexit, %._crit_edge.i
-  %67 = phi i32 [ %.pre, %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit.loopexit ], [ %50, %._crit_edge.i ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
-  %69 = load i32, ptr %68, align 8
-  %.not.i = icmp slt i32 %67, %69
-  br i1 %.not.i, label %74, label %70
+  %65 = phi i32 [ %.pre, %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit.loopexit ], [ %48, %._crit_edge.i ]
+  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %67 = load i32, ptr %66, align 8
+  %.not.i = icmp slt i32 %65, %67
+  br i1 %.not.i, label %72, label %68
 
-70:                                               ; preds = %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit
-  %71 = getelementptr inbounds i8, ptr %0, i64 66
-  store i8 0, ptr %71, align 2
+68:                                               ; preds = %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit
+  %69 = getelementptr inbounds i8, ptr %0, i64 66
+  store i8 0, ptr %69, align 2
   store i32 -1, ptr %17, align 4
-  %72 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE91ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not1.i = icmp eq ptr %72, null
-  br i1 %.not1.i, label %_ZN14GenerateOopMap12monitor_pushE13CellTypeState.exit, label %73
+  %70 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE91ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not1.i = icmp eq ptr %70, null
+  br i1 %.not1.i, label %_ZN14GenerateOopMap12monitor_pushE13CellTypeState.exit, label %71
 
-73:                                               ; preds = %70
+71:                                               ; preds = %68
   tail call void @_ZN14GenerateOopMap23report_monitor_mismatchEPKc(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.35)
   br label %_ZN14GenerateOopMap12monitor_pushE13CellTypeState.exit
 
-74:                                               ; preds = %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit
-  %75 = getelementptr inbounds i8, ptr %0, i64 72
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i32, ptr %34, align 8
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %class.CellTypeState, ptr %76, i64 %78
-  %80 = getelementptr inbounds i8, ptr %0, i64 36
-  %81 = load i32, ptr %80, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %class.CellTypeState, ptr %79, i64 %82
-  %84 = add nsw i32 %67, 1
-  store i32 %84, ptr %17, align 4
-  %85 = sext i32 %67 to i64
-  %86 = getelementptr inbounds %class.CellTypeState, ptr %83, i64 %85
-  store i32 %29, ptr %86, align 4
+72:                                               ; preds = %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit
+  %73 = getelementptr inbounds i8, ptr %0, i64 72
+  %74 = load ptr, ptr %73, align 8
+  %75 = load i32, ptr %34, align 8
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %class.CellTypeState, ptr %74, i64 %76
+  %78 = getelementptr inbounds i8, ptr %0, i64 36
+  %79 = load i32, ptr %78, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds %class.CellTypeState, ptr %77, i64 %80
+  %82 = add nsw i32 %65, 1
+  store i32 %82, ptr %17, align 4
+  %83 = sext i32 %65 to i64
+  %84 = getelementptr inbounds %class.CellTypeState, ptr %81, i64 %83
+  store i32 %29, ptr %84, align 4
   br label %_ZN14GenerateOopMap12monitor_pushE13CellTypeState.exit
 
-_ZN14GenerateOopMap12monitor_pushE13CellTypeState.exit: ; preds = %74, %73, %70, %23, %26, %_ZN14GenerateOopMap3popEv.exit, %_ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit
+_ZN14GenerateOopMap12monitor_pushE13CellTypeState.exit: ; preds = %72, %71, %68, %23, %26, %_ZN14GenerateOopMap3popEv.exit, %_ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit
   ret void
 }
 
@@ -7871,59 +7865,57 @@ _ZNK14GenerateOopMap26get_basic_block_containingEi.exit: ; preds = %62, %.lr.ph.
   %83 = zext nneg i32 %80 to i64
   br label %84
 
-84:                                               ; preds = %90, %.lr.ph.i13
-  %indvars.iv.i = phi i64 [ %83, %.lr.ph.i13 ], [ %indvars.iv.next.i, %90 ]
+84:                                               ; preds = %89, %.lr.ph.i13
+  %indvars.iv.i = phi i64 [ %83, %.lr.ph.i13 ], [ %indvars.iv.next.i, %89 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %85 = load ptr, ptr %82, align 8
-  %86 = and i64 %indvars.iv.next.i, 4294967295
-  %87 = getelementptr inbounds %class.CellTypeState, ptr %85, i64 %86
-  %.sroa.02.0.copyload.i = load i32, ptr %87, align 4
-  %88 = icmp eq i32 %.sroa.02.0.copyload.i, %.sroa.0.0.i
-  br i1 %88, label %89, label %90
+  %86 = getelementptr inbounds %class.CellTypeState, ptr %85, i64 %indvars.iv.next.i
+  %.sroa.02.0.copyload.i = load i32, ptr %86, align 4
+  %87 = icmp eq i32 %.sroa.02.0.copyload.i, %.sroa.0.0.i
+  br i1 %87, label %88, label %89
 
-89:                                               ; preds = %84
-  store i32 %76, ptr %87, align 4
-  br label %90
+88:                                               ; preds = %84
+  store i32 %76, ptr %86, align 4
+  br label %89
 
-90:                                               ; preds = %89, %84
-  %91 = trunc nuw i64 %indvars.iv.i to i32
-  %92 = icmp sgt i32 %91, 1
-  br i1 %92, label %84, label %._crit_edge.i12, !llvm.loop !50
+89:                                               ; preds = %88, %84
+  %90 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %90, label %84, label %._crit_edge.i12, !llvm.loop !50
 
-._crit_edge.i12:                                  ; preds = %90, %74
-  %93 = load i32, ptr %17, align 4
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %95, label %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit
+._crit_edge.i12:                                  ; preds = %89, %74
+  %91 = load i32, ptr %17, align 4
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit
 
-95:                                               ; preds = %._crit_edge.i12
-  %96 = load i32, ptr %77, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 36
-  %98 = load i32, ptr %97, align 4
-  %99 = add i32 %98, %96
-  %100 = add i32 %99, %93
-  %101 = getelementptr inbounds i8, ptr %0, i64 72
-  %102 = sext i32 %100 to i64
-  %103 = sext i32 %99 to i64
-  br label %104
+93:                                               ; preds = %._crit_edge.i12
+  %94 = load i32, ptr %77, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 36
+  %96 = load i32, ptr %95, align 4
+  %97 = add i32 %96, %94
+  %98 = add i32 %97, %91
+  %99 = getelementptr inbounds i8, ptr %0, i64 72
+  %100 = sext i32 %98 to i64
+  %101 = sext i32 %97 to i64
+  br label %102
 
-104:                                              ; preds = %109, %95
-  %indvars.iv22.i = phi i64 [ %102, %95 ], [ %indvars.iv.next23.i, %109 ]
+102:                                              ; preds = %107, %93
+  %indvars.iv22.i = phi i64 [ %100, %93 ], [ %indvars.iv.next23.i, %107 ]
   %indvars.iv.next23.i = add nsw i64 %indvars.iv22.i, -1
-  %105 = load ptr, ptr %101, align 8
-  %106 = getelementptr inbounds %class.CellTypeState, ptr %105, i64 %indvars.iv.next23.i
-  %.sroa.0.0.copyload.i = load i32, ptr %106, align 4
-  %107 = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.0.0.i
-  br i1 %107, label %108, label %109
+  %103 = load ptr, ptr %99, align 8
+  %104 = getelementptr inbounds %class.CellTypeState, ptr %103, i64 %indvars.iv.next23.i
+  %.sroa.0.0.copyload.i = load i32, ptr %104, align 4
+  %105 = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.0.0.i
+  br i1 %105, label %106, label %107
 
-108:                                              ; preds = %104
-  store i32 %76, ptr %106, align 4
-  br label %109
+106:                                              ; preds = %102
+  store i32 %76, ptr %104, align 4
+  br label %107
 
-109:                                              ; preds = %108, %104
-  %.not.not.i = icmp sgt i64 %indvars.iv.next23.i, %103
-  br i1 %.not.not.i, label %104, label %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit, !llvm.loop !51
+107:                                              ; preds = %106, %102
+  %.not.not.i = icmp sgt i64 %indvars.iv.next23.i, %101
+  br i1 %.not.not.i, label %102, label %_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit, !llvm.loop !51
 
-_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit: ; preds = %109, %._crit_edge.i12, %_ZNK14GenerateOopMap26get_basic_block_containingEi.exit, %73, %_ZN14GenerateOopMap3popEv.exit
+_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeStateS0_.exit: ; preds = %107, %._crit_edge.i12, %_ZNK14GenerateOopMap26get_basic_block_containingEi.exit, %73, %_ZN14GenerateOopMap3popEv.exit
   ret void
 }
 
@@ -8102,60 +8094,58 @@ define hidden void @_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeState
   %11 = zext nneg i32 %8 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %18 ]
+12:                                               ; preds = %.lr.ph, %17
+  %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %13 = load ptr, ptr %10, align 8
-  %14 = and i64 %indvars.iv.next, 4294967295
-  %15 = getelementptr inbounds %class.CellTypeState, ptr %13, i64 %14
-  %.sroa.02.0.copyload = load i32, ptr %15, align 4
-  %16 = icmp eq i32 %.sroa.02.0.copyload, %1
-  br i1 %16, label %17, label %18
+  %14 = getelementptr inbounds %class.CellTypeState, ptr %13, i64 %indvars.iv.next
+  %.sroa.02.0.copyload = load i32, ptr %14, align 4
+  %15 = icmp eq i32 %.sroa.02.0.copyload, %1
+  br i1 %15, label %16, label %17
 
-17:                                               ; preds = %12
-  store i32 %2, ptr %15, align 4
-  br label %18
+16:                                               ; preds = %12
+  store i32 %2, ptr %14, align 4
+  br label %17
 
-18:                                               ; preds = %12, %17
-  %19 = trunc nuw i64 %indvars.iv to i32
-  %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %12, label %._crit_edge, !llvm.loop !50
+17:                                               ; preds = %12, %16
+  %18 = icmp ugt i64 %indvars.iv, 1
+  br i1 %18, label %12, label %._crit_edge, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %18, %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 92
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %24, label %.loopexit
+._crit_edge:                                      ; preds = %17, %3
+  %19 = getelementptr inbounds i8, ptr %0, i64 92
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %22, label %.loopexit
 
-24:                                               ; preds = %._crit_edge
-  %25 = load i32, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 36
-  %27 = load i32, ptr %26, align 4
-  %28 = add i32 %27, %25
-  %29 = add i32 %28, %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
-  %31 = sext i32 %29 to i64
-  %32 = sext i32 %28 to i64
-  br label %33
+22:                                               ; preds = %._crit_edge
+  %23 = load i32, ptr %4, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 36
+  %25 = load i32, ptr %24, align 4
+  %26 = add i32 %25, %23
+  %27 = add i32 %26, %20
+  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = sext i32 %27 to i64
+  %30 = sext i32 %26 to i64
+  br label %31
 
-33:                                               ; preds = %24, %38
-  %indvars.iv22 = phi i64 [ %31, %24 ], [ %indvars.iv.next23, %38 ]
+31:                                               ; preds = %22, %36
+  %indvars.iv22 = phi i64 [ %29, %22 ], [ %indvars.iv.next23, %36 ]
   %indvars.iv.next23 = add nsw i64 %indvars.iv22, -1
-  %34 = load ptr, ptr %30, align 8
-  %35 = getelementptr inbounds %class.CellTypeState, ptr %34, i64 %indvars.iv.next23
-  %.sroa.0.0.copyload = load i32, ptr %35, align 4
-  %36 = icmp eq i32 %.sroa.0.0.copyload, %1
-  br i1 %36, label %37, label %38
+  %32 = load ptr, ptr %28, align 8
+  %33 = getelementptr inbounds %class.CellTypeState, ptr %32, i64 %indvars.iv.next23
+  %.sroa.0.0.copyload = load i32, ptr %33, align 4
+  %34 = icmp eq i32 %.sroa.0.0.copyload, %1
+  br i1 %34, label %35, label %36
 
-37:                                               ; preds = %33
-  store i32 %2, ptr %35, align 4
-  br label %38
+35:                                               ; preds = %31
+  store i32 %2, ptr %33, align 4
+  br label %36
 
-38:                                               ; preds = %33, %37
-  %.not.not = icmp sgt i64 %indvars.iv.next23, %32
-  br i1 %.not.not, label %33, label %.loopexit, !llvm.loop !51
+36:                                               ; preds = %31, %35
+  %.not.not = icmp sgt i64 %indvars.iv.next23, %30
+  br i1 %.not.not, label %31, label %.loopexit, !llvm.loop !51
 
-.loopexit:                                        ; preds = %38, %._crit_edge
+.loopexit:                                        ; preds = %36, %._crit_edge
   ret void
 }
 

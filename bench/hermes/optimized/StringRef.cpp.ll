@@ -1663,7 +1663,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %Count.023.us = phi i64 [ %spec.select24, %for.body.us ], [ 0, %for.body.lr.ph ]
   %i.022.us = phi i64 [ %inc8.us, %for.body.us ], [ 0, %for.body.lr.ph ]
   %spec.select24 = add i64 %Count.023.us, 1
-  %inc8.us = add i64 %i.022.us, 1
+  %inc8.us = add nuw i64 %i.022.us, 1
   %cmp3.not.us = icmp eq i64 %i.022.us, %reass.sub
   br i1 %cmp3.not.us, label %return, label %for.body.us, !llvm.loop !33
 
@@ -1686,7 +1686,7 @@ land.rhs.i:                                       ; preds = %for.body
 
 for.inc:                                          ; preds = %land.rhs.i, %for.body
   %Count.1 = phi i64 [ %Count.023, %for.body ], [ %spec.select, %land.rhs.i ]
-  %inc8 = add i64 %i.022, 1
+  %inc8 = add nuw i64 %i.022, 1
   %cmp3.not = icmp eq i64 %i.022, %reass.sub
   br i1 %cmp3.not, label %return, label %for.body, !llvm.loop !33
 

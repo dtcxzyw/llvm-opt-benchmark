@@ -14044,7 +14044,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.17814153394679541470.exit.i.i.
   br i1 %.not.i151, label %.thread.i, label %.lr.ph.i152
 
 .lr.ph.i152:                                      ; preds = %447
-  %448 = add i64 %221, 1
+  %448 = add nuw nsw i64 %221, 1
   br label %450
 
 449:                                              ; preds = %491

@@ -49,7 +49,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
 
 .critedge:                                        ; preds = %15, %.critedge.split.loop.exit97
   %.028.lcssa = phi i32 [ %21, %.critedge.split.loop.exit97 ], [ %smax, %15 ]
-  %22 = sub nsw i32 %.028.lcssa, %.03157
+  %22 = sub i32 %.028.lcssa, %.03157
   %23 = icmp eq i8 %12, 0
   br i1 %23, label %24, label %55
 
@@ -64,6 +64,8 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
   %29 = shl nuw nsw i64 %28, 1
   %30 = getelementptr i8, ptr %.059, i64 %29
   %scevgep.i = getelementptr i8, ptr %30, i64 2
+  %31 = udiv i32 %26, 138
+  %wide.trip.count = zext nneg i32 %31 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.preheader.i
@@ -71,36 +73,36 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
   %indvar.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvar.next.i, %50 ]
   %.02232.i = phi ptr [ %.059, %.lr.ph.preheader.i ], [ %52, %50 ]
   %.02331.i = phi i32 [ %22, %.lr.ph.preheader.i ], [ %53, %50 ]
-  %31 = icmp ult i32 %.02331.i, 3
-  br i1 %31, label %.lr.ph35.preheader.i, label %36
+  %32 = icmp ult i32 %.02331.i, 3
+  br i1 %32, label %.lr.ph35.preheader.i, label %37
 
 .lr.ph35.preheader.i:                             ; preds = %.lr.ph.i
-  %32 = shl nuw i32 %22, 1
-  %33 = zext i32 %32 to i64
-  %34 = mul nsw i64 %indvar.i, -276
-  %35 = add i64 %34, %33
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.02232.i, i8 0, i64 %35, i1 false)
+  %33 = shl nuw i32 %22, 1
+  %34 = zext i32 %33 to i64
+  %35 = mul nsw i64 %indvar.i, -276
+  %36 = add i64 %35, %34
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.02232.i, i8 0, i64 %36, i1 false)
   br label %CodeRepeatedZeros.exit
 
-36:                                               ; preds = %.lr.ph.i
-  %37 = icmp ult i32 %.02331.i, 11
-  br i1 %37, label %38, label %43
+37:                                               ; preds = %.lr.ph.i
+  %38 = icmp ult i32 %.02331.i, 11
+  br i1 %38, label %39, label %44
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   store i8 17, ptr %.02232.i, align 1
-  %39 = trunc nuw i32 %.02331.i to i8
-  %40 = add nsw i8 %39, -3
-  %41 = getelementptr inbounds i8, ptr %.02232.i, i64 1
-  store i8 %40, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %.02232.i, i64 2
+  %40 = trunc nuw i32 %.02331.i to i8
+  %41 = add nsw i8 %40, -3
+  %42 = getelementptr inbounds i8, ptr %.02232.i, i64 1
+  store i8 %41, ptr %42, align 1
+  %43 = getelementptr inbounds i8, ptr %.02232.i, i64 2
   br label %CodeRepeatedZeros.exit
 
-43:                                               ; preds = %36
-  %44 = icmp ult i32 %.02331.i, 139
+44:                                               ; preds = %37
+  %exitcond = icmp eq i64 %indvar.i, %wide.trip.count
   store i8 18, ptr %.02232.i, align 1
-  br i1 %44, label %45, label %50
+  br i1 %exitcond, label %45, label %50
 
-45:                                               ; preds = %43
+45:                                               ; preds = %44
   %46 = trunc nuw i32 %27 to i8
   %47 = add i8 %46, -10
   %48 = getelementptr inbounds i8, ptr %.02232.i, i64 1
@@ -108,7 +110,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
   %49 = getelementptr inbounds i8, ptr %.02232.i, i64 2
   br label %CodeRepeatedZeros.exit
 
-50:                                               ; preds = %43
+50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %.02232.i, i64 1
   store i8 127, ptr %51, align 1
   %52 = getelementptr i8, ptr %.02232.i, i64 2
@@ -181,9 +183,9 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
   %77 = icmp ult i32 %76, 3
   br i1 %77, label %.lr.ph38.i.preheader, label %.lr.ph, !llvm.loop !8
 
-CodeRepeatedZeros.exit:                           ; preds = %.lr.ph38.i, %50, %69, %60, %45, %38, %.lr.ph35.preheader.i, %24
-  %.130 = phi i32 [ %.02958, %24 ], [ %.02958, %.lr.ph35.preheader.i ], [ %.02958, %38 ], [ %.02958, %45 ], [ %13, %60 ], [ %13, %69 ], [ %.02958, %50 ], [ %13, %.lr.ph38.i ]
-  %.1 = phi ptr [ %.059, %24 ], [ %indvars.iv.i, %.lr.ph35.preheader.i ], [ %42, %38 ], [ %49, %45 ], [ %.026.i, %60 ], [ %73, %69 ], [ %52, %50 ], [ %66, %.lr.ph38.i ]
+CodeRepeatedZeros.exit:                           ; preds = %.lr.ph38.i, %50, %69, %60, %45, %39, %.lr.ph35.preheader.i, %24
+  %.130 = phi i32 [ %.02958, %24 ], [ %.02958, %.lr.ph35.preheader.i ], [ %.02958, %39 ], [ %.02958, %45 ], [ %13, %60 ], [ %13, %69 ], [ %.02958, %50 ], [ %13, %.lr.ph38.i ]
+  %.1 = phi ptr [ %.059, %24 ], [ %indvars.iv.i, %.lr.ph35.preheader.i ], [ %43, %39 ], [ %49, %45 ], [ %.026.i, %60 ], [ %73, %69 ], [ %52, %50 ], [ %66, %.lr.ph38.i ]
   %78 = icmp slt i32 %.028.lcssa, %4
   br i1 %78, label %8, label %._crit_edge, !llvm.loop !9
 

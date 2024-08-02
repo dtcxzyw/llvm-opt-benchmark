@@ -1124,7 +1124,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %32 = trunc nsw i64 %indvars.iv.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.reass.i = add i32 %invariant.op.i, %32
   tail call fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.096160, i32 noundef %.reass.i, ptr noundef readonly %5, i32 noundef 0)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1

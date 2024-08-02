@@ -4233,7 +4233,7 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
   %139 = load i32, ptr %138, align 4
   %140 = zext i32 %139 to i64
   %141 = shl nuw i64 %140, 32
-  %142 = trunc nuw i64 %indvars.iv333 to i32
+  %142 = trunc nuw nsw i64 %indvars.iv333 to i32
   %.reass = add i32 %invariant.op, %142
   %143 = zext nneg i32 %.reass to i64
   %144 = getelementptr inbounds [129 x i32], ptr %6, i64 0, i64 %143
@@ -4343,7 +4343,7 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
 
 203:                                              ; preds = %._crit_edge259, %._crit_edge264
   %indvars.iv.next334 = add nsw i64 %indvars.iv333, -1
-  %204 = icmp sgt i32 %142, 0
+  %204 = icmp sgt i64 %indvars.iv333, 0
   br i1 %204, label %136, label %._crit_edge272, !llvm.loop !24
 
 ._crit_edge272:                                   ; preds = %203, %125

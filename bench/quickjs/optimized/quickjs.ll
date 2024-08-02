@@ -81398,11 +81398,11 @@ js_ecvt.exit:                                     ; preds = %156, %162
   br i1 %184, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %181
-  %185 = sub i32 %172, %.13647.i
-  %186 = zext i32 %185 to i64
-  %187 = add nuw nsw i64 %186, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %182, i8 48, i64 %187, i1 false)
-  %188 = add nsw i64 %166, %186
+  %185 = zext nneg i32 %183 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %182, i8 48, i64 %185, i1 false)
+  %186 = sub i32 %172, %.13647.i
+  %187 = zext i32 %186 to i64
+  %188 = add nsw i64 %166, %187
   %189 = add nsw i64 %188, 1
   %scevgep = getelementptr i8, ptr %.090, i64 %189
   br label %._crit_edge

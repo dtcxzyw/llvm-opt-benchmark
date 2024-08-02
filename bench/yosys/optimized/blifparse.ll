@@ -10745,8 +10745,7 @@ define internal fastcc noundef zeroext i1 @_ZN5YosysL14read_next_lineERPcRmRiRSi
   %17 = getelementptr i8, ptr %16, i64 %indvars.iv
   %18 = getelementptr i8, ptr %17, i64 -1
   %19 = load i8, ptr %18, align 1
-  %20 = trunc nuw i64 %indvars.iv to i32
-  switch i8 %19, label %.critedge [
+  switch i8 %19, label %.critedge.loopexit.split.loop.exit [
     i8 32, label %.critedge2
     i8 9, label %.critedge2
     i8 13, label %.critedge2
@@ -10754,110 +10753,112 @@ define internal fastcc noundef zeroext i1 @_ZN5YosysL14read_next_lineERPcRmRiRSi
   ]
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %21 = add i64 %indvars.iv, 4294967295
-  %22 = and i64 %21, 4294967295
-  %23 = getelementptr inbounds i8, ptr %16, i64 %22
-  store i8 0, ptr %23, align 1
-  %24 = icmp sgt i32 %20, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !73
+  %20 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.next
+  store i8 0, ptr %20, align 1
+  %21 = icmp sgt i64 %indvars.iv, 1
+  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !73
 
-.critedge:                                        ; preds = %.critedge2, %.lr.ph, %7
-  %.1.lcssa = phi i32 [ %13, %7 ], [ %20, %.lr.ph ], [ 0, %.critedge2 ]
-  %.lcssa = phi i1 [ false, %7 ], [ true, %.lr.ph ], [ false, %.critedge2 ]
-  %25 = load i64, ptr %1, align 8
-  %26 = sext i32 %.1.lcssa to i64
-  %27 = sub i64 %25, %26
-  %28 = icmp ult i64 %27, 4096
-  br i1 %28, label %29, label %33
+.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.critedge
 
-29:                                               ; preds = %.critedge
-  %30 = shl i64 %25, 1
-  store i64 %30, ptr %1, align 8
-  %31 = load ptr, ptr %0, align 8
-  %32 = call ptr @realloc(ptr noundef %31, i64 noundef %30) #32
-  store ptr %32, ptr %0, align 8
-  br label %33
+.critedge:                                        ; preds = %.critedge2, %.critedge.loopexit.split.loop.exit, %7
+  %.1.lcssa = phi i32 [ %13, %7 ], [ %22, %.critedge.loopexit.split.loop.exit ], [ 0, %.critedge2 ]
+  %.lcssa = phi i1 [ false, %7 ], [ true, %.critedge.loopexit.split.loop.exit ], [ false, %.critedge2 ]
+  %23 = load i64, ptr %1, align 8
+  %24 = sext i32 %.1.lcssa to i64
+  %25 = sub i64 %23, %24
+  %26 = icmp ult i64 %25, 4096
+  br i1 %26, label %27, label %31
 
-33:                                               ; preds = %29, %.critedge
-  %34 = icmp eq i32 %.1.lcssa, 0
-  br i1 %34, label %.thread, label %35
+27:                                               ; preds = %.critedge
+  %28 = shl i64 %23, 1
+  store i64 %28, ptr %1, align 8
+  %29 = load ptr, ptr %0, align 8
+  %30 = call ptr @realloc(ptr noundef %29, i64 noundef %28) #32
+  store ptr %30, ptr %0, align 8
+  br label %31
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr i8, ptr %36, i64 %26
-  %38 = getelementptr i8, ptr %37, i64 -1
-  %39 = load i8, ptr %38, align 1
-  %40 = icmp eq i8 %39, 92
-  br i1 %40, label %41, label %77
+31:                                               ; preds = %27, %.critedge
+  %32 = icmp eq i32 %.1.lcssa, 0
+  br i1 %32, label %.thread, label %33
 
-41:                                               ; preds = %35
-  br i1 %.lcssa, label %42, label %.thread
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr i8, ptr %34, i64 %24
+  %36 = getelementptr i8, ptr %35, i64 -1
+  %37 = load i8, ptr %36, align 1
+  %38 = icmp eq i8 %37, 92
+  br i1 %38, label %39, label %75
 
-42:                                               ; preds = %41
-  %43 = add nsw i32 %.1.lcssa, -1
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %36, i64 %44
-  store i8 0, ptr %45, align 1
+39:                                               ; preds = %33
+  br i1 %.lcssa, label %40, label %.thread
+
+40:                                               ; preds = %39
+  %41 = add nsw i32 %.1.lcssa, -1
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %34, i64 %42
+  store i8 0, ptr %43, align 1
   br label %.thread
 
-.thread:                                          ; preds = %33, %42, %41
-  %.2 = phi i32 [ %43, %42 ], [ %.1.lcssa, %41 ], [ 0, %33 ]
-  %46 = load i32, ptr %2, align 4
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %2, align 4
-  %48 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %49 unwind label %62
+.thread:                                          ; preds = %31, %40, %39
+  %.2 = phi i32 [ %41, %40 ], [ %.1.lcssa, %39 ], [ 0, %31 ]
+  %44 = load i32, ptr %2, align 4
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %2, align 4
+  %46 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %47 unwind label %60
 
-49:                                               ; preds = %.thread
-  %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr i8, ptr %50, i64 -24
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %48, i64 %52
-  %54 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %53)
-          to label %55 unwind label %62
+47:                                               ; preds = %.thread
+  %48 = load ptr, ptr %46, align 8
+  %49 = getelementptr i8, ptr %48, i64 -24
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %46, i64 %50
+  %52 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %51)
+          to label %53 unwind label %60
 
-55:                                               ; preds = %49
-  br i1 %54, label %77, label %.preheader
+53:                                               ; preds = %47
+  br i1 %52, label %75, label %.preheader
 
-.preheader:                                       ; preds = %55
-  %56 = sext i32 %.2 to i64
-  %57 = load i64, ptr %1, align 8
-  %58 = sub i64 %57, %56
-  %59 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  %60 = add i64 %59, 1
-  %61 = icmp ult i64 %58, %60
-  br i1 %61, label %.lr.ph51, label %._crit_edge
+.preheader:                                       ; preds = %53
+  %54 = sext i32 %.2 to i64
+  %55 = load i64, ptr %1, align 8
+  %56 = sub i64 %55, %54
+  %57 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
+  %58 = add i64 %57, 1
+  %59 = icmp ult i64 %56, %58
+  br i1 %59, label %.lr.ph51, label %._crit_edge
 
-62:                                               ; preds = %49, %.thread
-  %63 = landingpad { ptr, i32 }
+60:                                               ; preds = %47, %.thread
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  resume { ptr, i32 } %63
+  resume { ptr, i32 } %61
 
 .lr.ph51:                                         ; preds = %.preheader, %.lr.ph51
-  %64 = load i64, ptr %1, align 8
-  %65 = shl i64 %64, 1
-  store i64 %65, ptr %1, align 8
-  %66 = load ptr, ptr %0, align 8
-  %67 = call ptr @realloc(ptr noundef %66, i64 noundef %65) #32
-  store ptr %67, ptr %0, align 8
-  %68 = load i64, ptr %1, align 8
-  %69 = sub i64 %68, %56
-  %70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  %71 = add i64 %70, 1
-  %72 = icmp ult i64 %69, %71
-  br i1 %72, label %.lr.ph51, label %._crit_edge, !llvm.loop !74
+  %62 = load i64, ptr %1, align 8
+  %63 = shl i64 %62, 1
+  store i64 %63, ptr %1, align 8
+  %64 = load ptr, ptr %0, align 8
+  %65 = call ptr @realloc(ptr noundef %64, i64 noundef %63) #32
+  store ptr %65, ptr %0, align 8
+  %66 = load i64, ptr %1, align 8
+  %67 = sub i64 %66, %54
+  %68 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
+  %69 = add i64 %68, 1
+  %70 = icmp ult i64 %67, %69
+  br i1 %70, label %.lr.ph51, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph51, %.preheader
-  %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 %56
-  %75 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  %76 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %75) #25
+  %71 = load ptr, ptr %0, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 %54
+  %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
+  %74 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %73) #25
   br label %7, !llvm.loop !75
 
-77:                                               ; preds = %35, %55
-  %.0 = phi i1 [ false, %55 ], [ true, %35 ]
+75:                                               ; preds = %33, %53
+  %.0 = phi i1 [ false, %53 ], [ true, %33 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   ret i1 %.0
 }

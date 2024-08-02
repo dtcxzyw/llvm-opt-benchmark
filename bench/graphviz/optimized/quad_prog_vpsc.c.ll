@@ -1056,12 +1056,9 @@ define noalias noundef ptr @assign_digcola_levels(ptr nocapture noundef readonly
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
   %scevgep = getelementptr i8, ptr %0, i64 %28
-  %29 = xor i32 %19, -1
-  %30 = add i32 %17, %29
-  %31 = zext i32 %30 to i64
-  %32 = shl nuw nsw i64 %31, 2
-  %33 = add nuw nsw i64 %32, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %24, ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i64 %33, i1 false)
+  %29 = zext nneg i32 %20 to i64
+  %30 = shl nuw nsw i64 %29, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %scevgep, i64 %30, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph61, %.lr.ph63
@@ -1070,38 +1067,35 @@ define noalias noundef ptr @assign_digcola_levels(ptr nocapture noundef readonly
   br i1 %exitcond.not, label %._crit_edge64, label %.lr.ph63
 
 ._crit_edge64:                                    ; preds = %._crit_edge, %.preheader
-  %34 = icmp sgt i32 %3, 0
-  br i1 %34, label %35, label %.loopexit
+  %31 = icmp sgt i32 %3, 0
+  br i1 %31, label %32, label %.loopexit
 
-35:                                               ; preds = %._crit_edge64
-  %36 = zext nneg i32 %3 to i64
-  %37 = getelementptr i32, ptr %2, i64 %36
-  %38 = getelementptr i8, ptr %37, i64 -4
-  %39 = load i32, ptr %38, align 4
-  %40 = sub nsw i32 %1, %39
-  %41 = getelementptr inbounds %struct.DigColaLevel, ptr %7, i64 %36
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  store i32 %40, ptr %42, align 8
-  %43 = sext i32 %40 to i64
-  %44 = tail call fastcc ptr @gv_calloc(i64 noundef %43, i64 noundef 4)
-  store ptr %44, ptr %41, align 8
-  %45 = icmp sgt i32 %40, 0
-  br i1 %45, label %.lr.ph67, label %.loopexit
+32:                                               ; preds = %._crit_edge64
+  %33 = zext nneg i32 %3 to i64
+  %34 = getelementptr i32, ptr %2, i64 %33
+  %35 = getelementptr i8, ptr %34, i64 -4
+  %36 = load i32, ptr %35, align 4
+  %37 = sub nsw i32 %1, %36
+  %38 = getelementptr inbounds %struct.DigColaLevel, ptr %7, i64 %33
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  store i32 %37, ptr %39, align 8
+  %40 = sext i32 %37 to i64
+  %41 = tail call fastcc ptr @gv_calloc(i64 noundef %40, i64 noundef 4)
+  store ptr %41, ptr %38, align 8
+  %42 = icmp sgt i32 %37, 0
+  br i1 %42, label %.lr.ph67, label %.loopexit
 
-.lr.ph67:                                         ; preds = %35
-  %46 = load i32, ptr %38, align 4
-  %47 = sext i32 %46 to i64
-  %48 = shl nsw i64 %47, 2
-  %scevgep71 = getelementptr i8, ptr %0, i64 %48
-  %49 = xor i32 %39, -1
-  %50 = add i32 %49, %1
-  %51 = zext i32 %50 to i64
-  %52 = shl nuw nsw i64 %51, 2
-  %53 = add nuw nsw i64 %52, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %44, ptr noundef nonnull align 4 dereferenceable(1) %scevgep71, i64 %53, i1 false)
+.lr.ph67:                                         ; preds = %32
+  %43 = load i32, ptr %35, align 4
+  %44 = sext i32 %43 to i64
+  %45 = shl nsw i64 %44, 2
+  %scevgep71 = getelementptr i8, ptr %0, i64 %45
+  %46 = zext nneg i32 %37 to i64
+  %47 = shl nuw nsw i64 %46, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr align 4 %scevgep71, i64 %47, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph67, %35, %._crit_edge64
+.loopexit:                                        ; preds = %.lr.ph67, %32, %._crit_edge64
   ret ptr %7
 }
 

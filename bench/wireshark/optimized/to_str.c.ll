@@ -998,7 +998,7 @@ define noundef ptr @uint64_to_str_back(ptr noundef writeonly %0, i64 noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @uint_to_str_back_len(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define ptr @uint_to_str_back_len(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.sink.split.i, label %5
 
@@ -1062,8 +1062,8 @@ uint_to_str_back.exit:                            ; preds = %._crit_edge.i, %.si
   %31 = zext i32 %30 to i64
   %32 = xor i64 %31, -1
   %scevgep = getelementptr i8, ptr %.2.i, i64 %32
-  %33 = add nuw nsw i64 %31, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %33, i1 false)
+  %33 = zext nneg i32 %24 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %33, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %uint_to_str_back.exit
@@ -1072,7 +1072,7 @@ uint_to_str_back.exit:                            ; preds = %._crit_edge.i, %.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @uint64_to_str_back_len(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define ptr @uint64_to_str_back_len(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %.sink.split.i, label %5
 
@@ -1135,8 +1135,8 @@ uint64_to_str_back.exit:                          ; preds = %._crit_edge.i, %.si
   %30 = zext i32 %29 to i64
   %31 = xor i64 %30, -1
   %scevgep = getelementptr i8, ptr %.2.i, i64 %31
-  %32 = add nuw nsw i64 %30, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %32, i1 false)
+  %32 = zext nneg i32 %23 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %32, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %uint64_to_str_back.exit
@@ -2407,8 +2407,8 @@ uint_to_str_back.exit.i:                          ; preds = %.sink.split.i.i, %.
   %70 = zext i32 %69 to i64
   %71 = xor i64 %70, -1
   %scevgep.i = getelementptr i8, ptr %.2.i.i, i64 %71
-  %72 = add nuw nsw i64 %70, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 48, i64 %72, i1 false)
+  %72 = zext nneg i32 %63 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %72, i1 false)
   %.pre = ptrtoint ptr %scevgep.i to i64
   br label %uint_to_str_back_len.exit
 

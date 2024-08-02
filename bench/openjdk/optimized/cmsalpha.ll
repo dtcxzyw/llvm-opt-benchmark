@@ -346,7 +346,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
   %13 = and i32 %0, 7
   %14 = icmp eq i32 %13, 0
   %..i.i8 = select i1 %14, i32 8, i32 %13
-  br i1 %.not, label %45, label %15
+  br i1 %.not, label %42, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
@@ -413,39 +413,37 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
 
 .lr.ph57.preheader.i:                             ; preds = %27
   %scevgep.i = getelementptr inbounds i8, ptr %6, i64 4
-  %30 = add nsw i32 %12, -2
-  %31 = zext i32 %30 to i64
-  %32 = shl nuw nsw i64 %31, 2
-  %33 = add nuw nsw i64 %32, 4
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, i64 %33, i1 false)
+  %30 = zext i32 %29 to i64
+  %31 = shl nuw nsw i64 %30, 2
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 4 %scevgep.i, i64 %31, i1 false)
   br label %._crit_edge58.i
 
 ._crit_edge58.i:                                  ; preds = %.lr.ph57.preheader.i, %27
-  %34 = zext nneg i32 %29 to i64
-  %35 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %34
-  store i32 %28, ptr %35, align 4
+  %.pre-phi.i = phi i64 [ %30, %.lr.ph57.preheader.i ], [ 0, %27 ]
+  %32 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %.pre-phi.i
+  store i32 %28, ptr %32, align 4
   br label %.lr.ph61.i.preheader
 
 .preheader.i:                                     ; preds = %.lr.ph61.i
   br i1 %.not64.i, label %ComputeIncrementsForPlanar.exit, label %.lr.ph63.preheader.i
 
 .lr.ph63.preheader.i:                             ; preds = %.preheader.i
-  %36 = shl nuw nsw i32 %10, 2
-  %37 = and i32 %36, 60
+  %33 = shl nuw nsw i32 %10, 2
+  %34 = and i32 %33, 60
+  %35 = zext nneg i32 %34 to i64
+  %scevgep89.i = getelementptr i8, ptr %6, i64 %35
+  %36 = shl nuw nsw i32 %8, 2
+  %37 = and i32 %36, 28
   %38 = zext nneg i32 %37 to i64
-  %scevgep89.i = getelementptr i8, ptr %6, i64 %38
-  %39 = shl nuw nsw i32 %8, 2
-  %40 = and i32 %39, 28
-  %41 = zext nneg i32 %40 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %scevgep89.i, i64 %41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %scevgep89.i, i64 %38, i1 false)
   br label %ComputeIncrementsForPlanar.exit
 
 .lr.ph61.i:                                       ; preds = %.lr.ph61.i.preheader, %.lr.ph61.i
   %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %.lr.ph61.i ], [ 0, %.lr.ph61.i.preheader ]
-  %42 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv84.i
-  %43 = load i32, ptr %42, align 4
-  %44 = mul i32 %43, %1
-  store i32 %44, ptr %42, align 4
+  %39 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv84.i
+  %40 = load i32, ptr %39, align 4
+  %41 = mul i32 %40, %1
+  store i32 %41, ptr %39, align 4
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %exitcond88.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count79.i
   br i1 %exitcond88.not.i, label %.preheader.i, label %.lr.ph61.i, !llvm.loop !16
@@ -453,115 +451,112 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
 ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, %.lr.ph63.preheader.i
   %.0.i = phi i32 [ 0, %15 ], [ 1, %.preheader.i ], [ 1, %.lr.ph63.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %80
+  br label %74
 
-45:                                               ; preds = %4
+42:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %46 = mul nuw nsw i32 %..i.i8, %12
-  %47 = add nsw i32 %12, -16
-  %or.cond.i9 = icmp ult i32 %47, -15
-  br i1 %or.cond.i9, label %ComputeIncrementsForChunky.exit, label %48
+  %43 = mul nuw nsw i32 %..i.i8, %12
+  %44 = add nsw i32 %12, -16
+  %or.cond.i9 = icmp ult i32 %44, -15
+  br i1 %or.cond.i9, label %ComputeIncrementsForChunky.exit, label %45
 
-48:                                               ; preds = %45
+45:                                               ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %.not69.i = icmp eq i32 %9, 0
   br i1 %.not69.i, label %.lr.ph58.i, label %.lr.ph.preheader.i10
 
-.lr.ph.preheader.i10:                             ; preds = %48
+.lr.ph.preheader.i10:                             ; preds = %45
   %wide.trip.count.i11 = zext nneg i32 %9 to i64
   br label %.lr.ph.i12
 
-.lr.ph58.i:                                       ; preds = %.lr.ph.i12, %48
-  %49 = and i32 %0, 1024
-  %.not.i16 = icmp eq i32 %49, 0
+.lr.ph58.i:                                       ; preds = %.lr.ph.i12, %45
+  %46 = and i32 %0, 1024
+  %.not.i16 = icmp eq i32 %46, 0
   %wide.trip.count83.i = zext nneg i32 %12 to i64
   br i1 %.not.i16, label %.lr.ph58.split.us.i, label %.lr.ph58.split.i
 
 .lr.ph58.split.us.i:                              ; preds = %.lr.ph58.i, %.lr.ph58.split.us.i
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %.lr.ph58.split.us.i ], [ 0, %.lr.ph58.i ]
-  %50 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv80.i
-  %51 = trunc nuw nsw i64 %indvars.iv80.i to i32
-  store i32 %51, ptr %50, align 4
+  %47 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv80.i
+  %48 = trunc nuw nsw i64 %indvars.iv80.i to i32
+  store i32 %48, ptr %47, align 4
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
   br i1 %exitcond84.not.i, label %._crit_edge.i17, label %.lr.ph58.split.us.i, !llvm.loop !17
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i10
   %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.preheader.i10 ], [ %indvars.iv.next.i14, %.lr.ph.i12 ]
-  %52 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i13
-  store i32 %46, ptr %52, align 4
+  %49 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i13
+  store i32 %43, ptr %49, align 4
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i11
   br i1 %exitcond.not.i15, label %.lr.ph58.i, label %.lr.ph.i12, !llvm.loop !18
 
 .lr.ph58.split.i:                                 ; preds = %.lr.ph58.i, %.lr.ph58.split.i
   %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %.lr.ph58.split.i ], [ 0, %.lr.ph58.i ]
-  %53 = trunc nuw nsw i64 %indvars.iv75.i to i32
-  %54 = xor i32 %53, -1
-  %55 = add nsw i32 %12, %54
-  %56 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv75.i
-  store i32 %55, ptr %56, align 4
+  %50 = trunc nuw nsw i64 %indvars.iv75.i to i32
+  %51 = xor i32 %50, -1
+  %52 = add nsw i32 %12, %51
+  %53 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv75.i
+  store i32 %52, ptr %53, align 4
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %wide.trip.count83.i
   br i1 %exitcond79.not.i, label %._crit_edge.i17, label %.lr.ph58.split.i, !llvm.loop !17
 
 ._crit_edge.i17:                                  ; preds = %.lr.ph58.split.i, %.lr.ph58.split.us.i
-  %57 = and i32 %0, 16384
-  %58 = icmp ne i32 %57, 0
-  %59 = icmp ugt i32 %12, 1
-  %or.cond3.i = and i1 %58, %59
-  br i1 %or.cond3.i, label %._crit_edge62.i, label %68
+  %54 = and i32 %0, 16384
+  %55 = icmp ne i32 %54, 0
+  %56 = icmp ugt i32 %12, 1
+  %or.cond3.i = and i1 %55, %56
+  br i1 %or.cond3.i, label %._crit_edge62.i, label %62
 
 ._crit_edge62.i:                                  ; preds = %._crit_edge.i17
-  %60 = load i32, ptr %5, align 16
-  %61 = add nsw i32 %12, -1
+  %57 = load i32, ptr %5, align 16
+  %58 = add nsw i32 %12, -1
   %scevgep.i19 = getelementptr inbounds i8, ptr %5, i64 4
-  %62 = add nsw i32 %12, -2
-  %63 = zext i32 %62 to i64
-  %64 = shl nuw nsw i64 %63, 2
-  %65 = add nuw nsw i64 %64, 4
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i19, i64 %65, i1 false)
-  %66 = zext nneg i32 %61 to i64
-  %67 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %66
-  store i32 %60, ptr %67, align 4
-  br label %68
+  %59 = zext i32 %58 to i64
+  %60 = shl nuw nsw i64 %59, 2
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 4 %scevgep.i19, i64 %60, i1 false)
+  %61 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %59
+  store i32 %57, ptr %61, align 4
+  br label %62
 
-68:                                               ; preds = %._crit_edge62.i, %._crit_edge.i17
-  %69 = icmp ugt i32 %..i.i8, 1
-  %70 = icmp ne i32 %12, 0
-  %or.cond68.i = and i1 %69, %70
+62:                                               ; preds = %._crit_edge62.i, %._crit_edge.i17
+  %63 = icmp ugt i32 %..i.i8, 1
+  %64 = icmp ne i32 %12, 0
+  %or.cond68.i = and i1 %63, %64
   br i1 %or.cond68.i, label %.lr.ph64.i, label %.loopexit54.i
 
-.lr.ph64.i:                                       ; preds = %68, %.lr.ph64.i
-  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.lr.ph64.i ], [ 0, %68 ]
-  %71 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv88.i
-  %72 = load i32, ptr %71, align 4
-  %73 = mul i32 %72, %..i.i8
-  store i32 %73, ptr %71, align 4
+.lr.ph64.i:                                       ; preds = %62, %.lr.ph64.i
+  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.lr.ph64.i ], [ 0, %62 ]
+  %65 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv88.i
+  %66 = load i32, ptr %65, align 4
+  %67 = mul i32 %66, %..i.i8
+  store i32 %67, ptr %65, align 4
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
   %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %wide.trip.count83.i
   br i1 %exitcond92.not.i, label %.loopexit54.i, label %.lr.ph64.i, !llvm.loop !19
 
-.loopexit54.i:                                    ; preds = %.lr.ph64.i, %68
+.loopexit54.i:                                    ; preds = %.lr.ph64.i, %62
   br i1 %.not69.i, label %ComputeIncrementsForChunky.exit, label %.lr.ph67.preheader.i
 
 .lr.ph67.preheader.i:                             ; preds = %.loopexit54.i
-  %74 = shl nuw nsw i32 %10, 2
-  %75 = and i32 %74, 60
-  %76 = zext nneg i32 %75 to i64
-  %scevgep93.i = getelementptr i8, ptr %5, i64 %76
-  %77 = shl nuw nsw i32 %8, 2
-  %78 = and i32 %77, 28
-  %79 = zext nneg i32 %78 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %scevgep93.i, i64 %79, i1 false)
+  %68 = shl nuw nsw i32 %10, 2
+  %69 = and i32 %68, 60
+  %70 = zext nneg i32 %69 to i64
+  %scevgep93.i = getelementptr i8, ptr %5, i64 %70
+  %71 = shl nuw nsw i32 %8, 2
+  %72 = and i32 %71, 28
+  %73 = zext nneg i32 %72 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %scevgep93.i, i64 %73, i1 false)
   br label %ComputeIncrementsForChunky.exit
 
-ComputeIncrementsForChunky.exit:                  ; preds = %45, %.loopexit54.i, %.lr.ph67.preheader.i
-  %.0.i18 = phi i32 [ 0, %45 ], [ 1, %.loopexit54.i ], [ 1, %.lr.ph67.preheader.i ]
+ComputeIncrementsForChunky.exit:                  ; preds = %42, %.loopexit54.i, %.lr.ph67.preheader.i
+  %.0.i18 = phi i32 [ 0, %42 ], [ 1, %.loopexit54.i ], [ 1, %.lr.ph67.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  br label %80
+  br label %74
 
-80:                                               ; preds = %ComputeIncrementsForChunky.exit, %ComputeIncrementsForPlanar.exit
+74:                                               ; preds = %ComputeIncrementsForChunky.exit, %ComputeIncrementsForPlanar.exit
   %.0 = phi i32 [ %.0.i, %ComputeIncrementsForPlanar.exit ], [ %.0.i18, %ComputeIncrementsForChunky.exit ]
   ret i32 %.0
 }

@@ -40,7 +40,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   br i1 %29, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %24, %28
-  %.05741126 = phi ptr [ %10, %28 ], [ %26, %24 ]
+  %.05741125 = phi ptr [ %10, %28 ], [ %26, %24 ]
   %wide.trip.count = zext nneg i32 %22 to i64
   br label %.lr.ph
 
@@ -49,14 +49,14 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   %30 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
   %31 = load double, ptr %30, align 8
   %32 = fptrunc double %31 to float
-  %33 = getelementptr inbounds float, ptr %.05741126, i64 %indvars.iv
+  %33 = getelementptr inbounds float, ptr %.05741125, i64 %indvars.iv
   store float %32, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
-  %.05741127 = phi ptr [ %10, %28 ], [ %.05741126, %.lr.ph ]
+  %.05741126 = phi ptr [ %10, %28 ], [ %.05741125, %.lr.ph ]
   %34 = icmp eq i32 %3, 1
   br i1 %34, label %35, label %270
 
@@ -122,8 +122,8 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
 .lr.ph69.us.us.preheader.i:                       ; preds = %.lr.ph.split.us.i
   %69 = sext i32 %52 to i64
   %wide.trip.count131.i = zext nneg i32 %.val342.i to i64
-  %smax1117 = tail call i64 @llvm.smax.i64(i64 %69, i64 4)
-  %70 = add nsw i64 %smax1117, -1
+  %smax = tail call i64 @llvm.smax.i64(i64 %69, i64 4)
+  %70 = add nsw i64 %smax, -1
   %71 = and i64 %70, -4
   %72 = add nuw nsw i64 %71, 4
   %73 = mul nsw i64 %72, %59
@@ -133,7 +133,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   br label %.lr.ph69.us.us.i
 
 .lr.ph69.us.us.i:                                 ; preds = %._crit_edge70.split.us.us.us.i, %.lr.ph69.us.us.preheader.i
-  %indvars.iv1118 = phi ptr [ %scevgep1119, %._crit_edge70.split.us.us.us.i ], [ %scevgep, %.lr.ph69.us.us.preheader.i ]
+  %indvars.iv1117 = phi ptr [ %scevgep1118, %._crit_edge70.split.us.us.us.i ], [ %scevgep, %.lr.ph69.us.us.preheader.i ]
   %.029982.us.us.i = phi i32 [ %256, %._crit_edge70.split.us.us.us.i ], [ 0, %.lr.ph69.us.us.preheader.i ]
   %.031280.us.us.i = phi ptr [ %255, %._crit_edge70.split.us.us.us.i ], [ %41, %.lr.ph69.us.us.preheader.i ]
   %.031378.us.us.i = phi ptr [ %254, %._crit_edge70.split.us.us.us.i ], [ %.val341.i, %.lr.ph69.us.us.preheader.i ]
@@ -149,7 +149,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   br label %83
 
 83:                                               ; preds = %..loopexit6_crit_edge.us.us.us.i, %.lr.ph69.us.us.i
-  %indvars.iv1120 = phi ptr [ %scevgep1121, %..loopexit6_crit_edge.us.us.us.i ], [ %indvars.iv1118, %.lr.ph69.us.us.i ]
+  %indvars.iv1119 = phi ptr [ %scevgep1120, %..loopexit6_crit_edge.us.us.us.i ], [ %indvars.iv1117, %.lr.ph69.us.us.i ]
   %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %..loopexit6_crit_edge.us.us.us.i ], [ 0, %.lr.ph69.us.us.i ]
   %84 = trunc nuw nsw i64 %indvars.iv128.i to i32
   %85 = xor i32 %84, -1
@@ -172,7 +172,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   br label %.preheader4.us.us.us.i
 
 ._crit_edge17.us.us.us.loopexit.i:                ; preds = %._crit_edge.us.us.us.i.loopexit.us, %.lr.ph16.us.us.us.i.preheader
-  %.us-phi = phi ptr [ %indvars.iv1122, %.lr.ph16.us.us.us.i.preheader ], [ %252, %._crit_edge.us.us.us.i.loopexit.us ]
+  %.us-phi = phi ptr [ %indvars.iv1121, %.lr.ph16.us.us.us.i.preheader ], [ %252, %._crit_edge.us.us.us.i.loopexit.us ]
   %.us-phi1002 = phi i64 [ %72, %.lr.ph16.us.us.us.i.preheader ], [ %indvars.iv.next112.i.us, %._crit_edge.us.us.us.i.loopexit.us ]
   %92 = trunc nuw nsw i64 %.us-phi1002 to i32
   br label %._crit_edge17.us.us.us.i
@@ -181,7 +181,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   %.0311.lcssa.us.us.us.i = phi ptr [ %.031063.us.us.us.i, %.preheader4.us.us.us.i ], [ %.us-phi, %._crit_edge17.us.us.us.loopexit.i ]
   %.0301.lcssa.us.us.us.i = phi i32 [ 0, %.preheader4.us.us.us.i ], [ %92, %._crit_edge17.us.us.us.loopexit.i ]
   %93 = zext nneg i32 %.0301.lcssa.us.us.us.i to i64
-  %94 = getelementptr inbounds float, ptr %.05741127, i64 %93
+  %94 = getelementptr inbounds float, ptr %.05741126, i64 %93
   %95 = load float, ptr %94, align 4
   %96 = getelementptr inbounds i8, ptr %94, i64 4
   %97 = load float, ptr %96, align 4
@@ -386,7 +386,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   %201 = getelementptr inbounds float, ptr %.030964.us.us.us.i, i64 %63
   %202 = add nuw nsw i32 %.030466.us.us.us.i, 1
   %exitcond127.not.i = icmp eq i32 %202, %.val337.fr.i
-  %scevgep1123 = getelementptr i8, ptr %indvars.iv1122, i64 %75
+  %scevgep1122 = getelementptr i8, ptr %indvars.iv1121, i64 %75
   br i1 %exitcond127.not.i, label %..loopexit6_crit_edge.us.us.us.i, label %.preheader4.us.us.us.i, !llvm.loop !11
 
 .lr.ph62.us.us.us.i:                              ; preds = %.preheader.us.us.us.i, %.lr.ph62.us.us.us.i
@@ -408,7 +408,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
 ..loopexit6_crit_edge.us.us.us.i:                 ; preds = %.loopexit.us.us.us.i, %83
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %exitcond132.not.i = icmp eq i64 %indvars.iv.next129.i, %wide.trip.count131.i
-  %scevgep1121 = getelementptr i8, ptr %indvars.iv1120, i64 4
+  %scevgep1120 = getelementptr i8, ptr %indvars.iv1119, i64 4
   br i1 %exitcond132.not.i, label %._crit_edge70.split.us.us.us.i, label %83, !llvm.loop !13
 
 .preheader.us.us.us.i:                            ; preds = %._crit_edge17.us.us.us.i
@@ -421,7 +421,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   br i1 %.not33419.us.us.i, label %._crit_edge25.us.us.us.i, label %.lr.ph24.us.us.us.i
 
 .preheader4.us.us.us.i:                           ; preds = %.preheader4.us.us.us.i.preheader, %.loopexit.us.us.us.i
-  %indvars.iv1122 = phi ptr [ %scevgep1123, %.loopexit.us.us.us.i ], [ %indvars.iv1120, %.preheader4.us.us.us.i.preheader ]
+  %indvars.iv1121 = phi ptr [ %scevgep1122, %.loopexit.us.us.us.i ], [ %indvars.iv1119, %.preheader4.us.us.us.i.preheader ]
   %.030466.us.us.us.i = phi i32 [ %202, %.loopexit.us.us.us.i ], [ 0, %.preheader4.us.us.us.i.preheader ]
   %.030964.us.us.us.i = phi ptr [ %201, %.loopexit.us.us.us.i ], [ %91, %.preheader4.us.us.us.i.preheader ]
   %.031063.us.us.us.i = phi ptr [ %200, %.loopexit.us.us.us.i ], [ %90, %.preheader4.us.us.us.i.preheader ]
@@ -433,7 +433,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
 .lr.ph16.us.us.us.i.us:                           ; preds = %.lr.ph16.us.us.us.i.preheader, %._crit_edge.us.us.us.i.loopexit.us
   %indvars.iv111.i.us = phi i64 [ %indvars.iv.next112.i.us, %._crit_edge.us.us.us.i.loopexit.us ], [ 0, %.lr.ph16.us.us.us.i.preheader ]
   %.031114.us.us.us.i.us = phi ptr [ %252, %._crit_edge.us.us.us.i.loopexit.us ], [ %.031063.us.us.us.i, %.lr.ph16.us.us.us.i.preheader ]
-  %209 = getelementptr inbounds float, ptr %.05741127, i64 %indvars.iv111.i.us
+  %209 = getelementptr inbounds float, ptr %.05741126, i64 %indvars.iv111.i.us
   %210 = load float, ptr %209, align 4
   %211 = getelementptr inbounds i8, ptr %209, i64 4
   %212 = load float, ptr %211, align 4
@@ -497,7 +497,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr nocapture noundef read
   %255 = getelementptr inbounds float, ptr %.031280.us.us.i, i64 %67
   %256 = add nsw i32 %spec.select.us.us.i, %.029982.us.us.i
   %257 = icmp slt i32 %256, %38
-  %scevgep1119 = getelementptr i8, ptr %indvars.iv1118, i64 %74
+  %scevgep1118 = getelementptr i8, ptr %indvars.iv1117, i64 %74
   br i1 %257, label %.lr.ph69.us.us.i, label %._crit_edge.i, !llvm.loop !16
 
 .lr.ph69.us.i:                                    ; preds = %.lr.ph.split.us.i, %._crit_edge70.split.us89.i
@@ -579,8 +579,8 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
   %289 = icmp sgt i32 %4, 0
   %or.cond = and i1 %277, %289
   %290 = icmp sgt i32 %3, 0
-  %or.cond1206 = and i1 %or.cond, %290
-  br i1 %or.cond1206, label %.lr.ph937.split.us.split.us.split.us.preheader, label %._crit_edge938
+  %or.cond1205 = and i1 %or.cond, %290
+  br i1 %or.cond1205, label %.lr.ph937.split.us.split.us.split.us.preheader, label %._crit_edge938
 
 .lr.ph937.split.us.split.us.split.us.preheader:   ; preds = %.lr.ph937
   %291 = and i32 %282, -2
@@ -628,7 +628,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
 
 .lr.ph849.us.us.us.us.us.us:                      ; preds = %._crit_edge850.us.us.us.us.us.us, %.preheader707.us.us.us.us.us
   %indvars.iv1096 = phi i64 [ %indvars.iv.next1097, %._crit_edge850.us.us.us.us.us.us ], [ 0, %.preheader707.us.us.us.us.us ]
-  %.0572857.us.us.us.us.us.us = phi ptr [ %571, %._crit_edge850.us.us.us.us.us.us ], [ %.05741127, %.preheader707.us.us.us.us.us ]
+  %.0572857.us.us.us.us.us.us = phi ptr [ %571, %._crit_edge850.us.us.us.us.us.us ], [ %.05741126, %.preheader707.us.us.us.us.us ]
   %304 = mul nsw i64 %indvars.iv1096, %287
   %305 = getelementptr inbounds float, ptr %.0608879.us.us.us.us.us, i64 %304
   br label %306
@@ -676,7 +676,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
 
 334:                                              ; preds = %306
   %335 = getelementptr inbounds float, ptr %316, i64 %281
-  %336 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741127
+  %336 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741126
   br i1 %336, label %.preheader703.us.us.us.us.us.us, label %.preheader705.us.us.us.us.us.us
 
 .lr.ph727.us.us.us.us.us.us:                      ; preds = %.preheader705.us.us.us.us.us.us, %.lr.ph727.us.us.us.us.us.us
@@ -732,7 +732,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
   br i1 %.not664.us.us.us.us.us.us, label %.loopexit.us.us.us.us.us.us, label %.lr.ph736.us.us.us.us.us.us, !llvm.loop !20
 
 367:                                              ; preds = %306
-  %368 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741127
+  %368 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741126
   br i1 %368, label %.preheader699.us.us.us.us.us.us, label %.preheader701.us.us.us.us.us.us
 
 .lr.ph746.us.us.us.us.us.us:                      ; preds = %.preheader701.us.us.us.us.us.us, %.lr.ph746.us.us.us.us.us.us
@@ -794,7 +794,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
   br i1 %.not666.us.us.us.us.us.us, label %.loopexit.us.us.us.us.us.us, label %.lr.ph756.us.us.us.us.us.us, !llvm.loop !22
 
 403:                                              ; preds = %306
-  %404 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741127
+  %404 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741126
   br i1 %404, label %.preheader695.us.us.us.us.us.us, label %.preheader697.us.us.us.us.us.us
 
 .lr.ph767.us.us.us.us.us.us:                      ; preds = %.preheader697.us.us.us.us.us.us, %.lr.ph767.us.us.us.us.us.us
@@ -862,7 +862,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
   br i1 %.not668.us.us.us.us.us.us, label %.loopexit.us.us.us.us.us.us, label %.lr.ph778.us.us.us.us.us.us, !llvm.loop !24
 
 443:                                              ; preds = %306
-  %444 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741127
+  %444 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741126
   br i1 %444, label %.preheader691.us.us.us.us.us.us, label %.preheader693.us.us.us.us.us.us
 
 .lr.ph790.us.us.us.us.us.us:                      ; preds = %.preheader693.us.us.us.us.us.us, %.lr.ph790.us.us.us.us.us.us
@@ -937,7 +937,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
 
 487:                                              ; preds = %306
   %488 = getelementptr inbounds float, ptr %316, i64 %280
-  %489 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741127
+  %489 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741126
   br i1 %489, label %.preheader687.us.us.us.us.us.us, label %.preheader689.us.us.us.us.us.us
 
 .lr.ph814.us.us.us.us.us.us:                      ; preds = %.preheader689.us.us.us.us.us.us, %.lr.ph814.us.us.us.us.us.us
@@ -1020,7 +1020,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
 
 540:                                              ; preds = %306
   %541 = getelementptr inbounds float, ptr %316, i64 %285
-  %542 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741127
+  %542 = icmp eq ptr %.1573846.us.us.us.us.us.us, %.05741126
   br i1 %542, label %.preheader.us.us.us.us.us.us, label %.preheader685.us.us.us.us.us.us
 
 .lr.ph834.us.us.us.us.us.us:                      ; preds = %.preheader685.us.us.us.us.us.us, %.lr.ph834.us.us.us.us.us.us
@@ -1132,7 +1132,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
 
 .lr.ph867.us.us.us.us.us.us:                      ; preds = %.lr.ph867.us.us.us.us.us.us.preheader, %._crit_edge868.us.us.us.us.us.us
   %indvars.iv1106 = phi i64 [ 0, %.lr.ph867.us.us.us.us.us.us.preheader ], [ %indvars.iv.next1107, %._crit_edge868.us.us.us.us.us.us ]
-  %.0565873.us.us.us.us.us.us = phi ptr [ %.05741127, %.lr.ph867.us.us.us.us.us.us.preheader ], [ %583, %._crit_edge868.us.us.us.us.us.us ]
+  %.0565873.us.us.us.us.us.us = phi ptr [ %.05741126, %.lr.ph867.us.us.us.us.us.us.preheader ], [ %583, %._crit_edge868.us.us.us.us.us.us ]
   %.0566872.us.us.us.us.us.us = phi float [ 0.000000e+00, %.lr.ph867.us.us.us.us.us.us.preheader ], [ %585, %._crit_edge868.us.us.us.us.us.us ]
   %577 = mul nsw i64 %indvars.iv1106, %287
   %578 = getelementptr inbounds float, ptr %576, i64 %577
@@ -1158,11 +1158,11 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %269
   br i1 %exitcond1110.not, label %._crit_edge876.us.us.us.us.us, label %.lr.ph867.us.us.us.us.us.us, !llvm.loop !34
 
 ._crit_edge938:                                   ; preds = %..loopexit708_crit_edge.split.us.us.us.split.us.us, %.lr.ph937, %270
-  %.not = icmp eq ptr %.05741127, %10
+  %.not = icmp eq ptr %.05741126, %10
   br i1 %.not, label %587, label %586
 
 586:                                              ; preds = %._crit_edge938
-  call void @mlib_free(ptr noundef nonnull %.05741127) #6
+  call void @mlib_free(ptr noundef nonnull %.05741126) #6
   br label %587
 
 587:                                              ; preds = %._crit_edge938, %586, %24, %mlib_ImageConv1xN.exit

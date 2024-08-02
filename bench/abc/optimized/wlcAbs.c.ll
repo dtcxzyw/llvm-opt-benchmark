@@ -3111,13 +3111,13 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader1
-  %smax = add nsw i32 %5, -1
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %7 = add nsw i32 %5, -1
+  %wide.trip.count = zext nneg i32 %7 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %0
-  %7 = icmp sgt i32 %5, 0
-  br i1 %7, label %.lr.ph7.preheader, label %.loopexit
+  %8 = icmp sgt i32 %5, 0
+  br i1 %8, label %.lr.ph7.preheader, label %.loopexit
 
 .lr.ph7.preheader:                                ; preds = %.preheader
   %wide.trip.count15 = zext nneg i32 %5 to i64
@@ -3125,99 +3125,99 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03 = phi i32 [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
-  %8 = getelementptr inbounds i32, ptr %.8.val, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 1431655765
-  %11 = lshr i32 %9, 1
-  %12 = and i32 %11, 1431655765
-  %13 = add nuw i32 %12, %10
-  %14 = and i32 %13, 858993459
-  %15 = lshr i32 %13, 2
-  %16 = and i32 %15, 858993459
-  %17 = add nuw nsw i32 %16, %14
-  %18 = and i32 %17, 117901063
-  %19 = lshr i32 %17, 4
-  %20 = and i32 %19, 117901063
-  %21 = add nuw nsw i32 %20, %18
-  %22 = and i32 %21, 983055
-  %23 = lshr i32 %21, 8
-  %24 = and i32 %23, 983055
-  %25 = add nuw nsw i32 %24, %22
-  %26 = and i32 %25, 31
-  %27 = lshr i32 %25, 16
-  %28 = add nuw nsw i32 %27, %.03
-  %29 = add nuw nsw i32 %28, %26
+  %.03 = phi i32 [ 0, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+  %9 = getelementptr inbounds i32, ptr %.8.val, i64 %indvars.iv
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 1431655765
+  %12 = lshr i32 %10, 1
+  %13 = and i32 %12, 1431655765
+  %14 = add nuw i32 %13, %11
+  %15 = and i32 %14, 858993459
+  %16 = lshr i32 %14, 2
+  %17 = and i32 %16, 858993459
+  %18 = add nuw nsw i32 %17, %15
+  %19 = and i32 %18, 117901063
+  %20 = lshr i32 %18, 4
+  %21 = and i32 %20, 117901063
+  %22 = add nuw nsw i32 %21, %19
+  %23 = and i32 %22, 983055
+  %24 = lshr i32 %22, 8
+  %25 = and i32 %24, 983055
+  %26 = add nuw nsw i32 %25, %23
+  %27 = and i32 %26, 31
+  %28 = lshr i32 %26, 16
+  %29 = add nuw nsw i32 %28, %.03
+  %30 = add nuw nsw i32 %29, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %30 = add nsw i32 %5, -1
-  %31 = zext nneg i32 %30 to i64
+  %31 = add nsw i32 %5, -1
+  %32 = zext nneg i32 %31 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader1
-  %.020.lcssa = phi i64 [ 0, %.preheader1 ], [ %31, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %.preheader1 ], [ %29, %._crit_edge.loopexit ]
-  %32 = getelementptr inbounds i32, ptr %.8.val, i64 %.020.lcssa
-  %33 = load i32, ptr %32, align 4
-  %34 = shl nsw i32 -1, %2
-  %35 = xor i32 %34, -1
-  %36 = and i32 %33, %35
-  %37 = and i32 %36, 1431655765
-  %38 = lshr i32 %36, 1
-  %39 = and i32 %38, 357913941
-  %40 = add nuw nsw i32 %39, %37
-  %41 = and i32 %40, 858993459
-  %42 = lshr i32 %40, 2
-  %43 = and i32 %42, 322122547
-  %44 = add nuw nsw i32 %43, %41
-  %45 = and i32 %44, 117901063
-  %46 = lshr i32 %44, 4
-  %47 = and i32 %46, 117901063
-  %48 = add nuw nsw i32 %47, %45
-  %49 = and i32 %48, 983055
-  %50 = lshr i32 %48, 8
-  %51 = and i32 %50, 983055
-  %52 = add nuw nsw i32 %51, %49
-  %53 = and i32 %52, 31
-  %54 = lshr i32 %52, 16
-  %55 = add nuw nsw i32 %54, %.0.lcssa
-  %56 = add nuw nsw i32 %55, %53
+  %.020.lcssa = phi i64 [ 0, %.preheader1 ], [ %32, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %.preheader1 ], [ %30, %._crit_edge.loopexit ]
+  %33 = getelementptr inbounds i32, ptr %.8.val, i64 %.020.lcssa
+  %34 = load i32, ptr %33, align 4
+  %35 = shl nsw i32 -1, %2
+  %36 = xor i32 %35, -1
+  %37 = and i32 %34, %36
+  %38 = and i32 %37, 1431655765
+  %39 = lshr i32 %37, 1
+  %40 = and i32 %39, 357913941
+  %41 = add nuw nsw i32 %40, %38
+  %42 = and i32 %41, 858993459
+  %43 = lshr i32 %41, 2
+  %44 = and i32 %43, 322122547
+  %45 = add nuw nsw i32 %44, %42
+  %46 = and i32 %45, 117901063
+  %47 = lshr i32 %45, 4
+  %48 = and i32 %47, 117901063
+  %49 = add nuw nsw i32 %48, %46
+  %50 = and i32 %49, 983055
+  %51 = lshr i32 %49, 8
+  %52 = and i32 %51, 983055
+  %53 = add nuw nsw i32 %52, %50
+  %54 = and i32 %53, 31
+  %55 = lshr i32 %53, 16
+  %56 = add nuw nsw i32 %55, %.0.lcssa
+  %57 = add nuw nsw i32 %56, %54
   br label %.loopexit
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv12 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next13, %.lr.ph7 ]
-  %.26 = phi i32 [ 0, %.lr.ph7.preheader ], [ %78, %.lr.ph7 ]
-  %57 = getelementptr inbounds i32, ptr %.8.val, i64 %indvars.iv12
-  %58 = load i32, ptr %57, align 4
-  %59 = and i32 %58, 1431655765
-  %60 = lshr i32 %58, 1
-  %61 = and i32 %60, 1431655765
-  %62 = add nuw i32 %61, %59
-  %63 = and i32 %62, 858993459
-  %64 = lshr i32 %62, 2
-  %65 = and i32 %64, 858993459
-  %66 = add nuw nsw i32 %65, %63
-  %67 = and i32 %66, 117901063
-  %68 = lshr i32 %66, 4
-  %69 = and i32 %68, 117901063
-  %70 = add nuw nsw i32 %69, %67
-  %71 = and i32 %70, 983055
-  %72 = lshr i32 %70, 8
-  %73 = and i32 %72, 983055
-  %74 = add nuw nsw i32 %73, %71
-  %75 = and i32 %74, 31
-  %76 = lshr i32 %74, 16
-  %77 = add nuw nsw i32 %76, %.26
-  %78 = add nuw nsw i32 %77, %75
+  %.26 = phi i32 [ 0, %.lr.ph7.preheader ], [ %79, %.lr.ph7 ]
+  %58 = getelementptr inbounds i32, ptr %.8.val, i64 %indvars.iv12
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, 1431655765
+  %61 = lshr i32 %59, 1
+  %62 = and i32 %61, 1431655765
+  %63 = add nuw i32 %62, %60
+  %64 = and i32 %63, 858993459
+  %65 = lshr i32 %63, 2
+  %66 = and i32 %65, 858993459
+  %67 = add nuw nsw i32 %66, %64
+  %68 = and i32 %67, 117901063
+  %69 = lshr i32 %67, 4
+  %70 = and i32 %69, 117901063
+  %71 = add nuw nsw i32 %70, %68
+  %72 = and i32 %71, 983055
+  %73 = lshr i32 %71, 8
+  %74 = and i32 %73, 983055
+  %75 = add nuw nsw i32 %74, %72
+  %76 = and i32 %75, 31
+  %77 = lshr i32 %75, 16
+  %78 = add nuw nsw i32 %77, %.26
+  %79 = add nuw nsw i32 %78, %76
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count15
   br i1 %exitcond16.not, label %.loopexit, label %.lr.ph7, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph7, %.preheader, %._crit_edge
-  %.1 = phi i32 [ %56, %._crit_edge ], [ 0, %.preheader ], [ %78, %.lr.ph7 ]
+  %.1 = phi i32 [ %57, %._crit_edge ], [ 0, %.preheader ], [ %79, %.lr.ph7 ]
   ret i32 %.1
 }
 

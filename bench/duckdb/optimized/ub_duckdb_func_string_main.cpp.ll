@@ -48383,7 +48383,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %cmp4.not.i, label %return.loopexit.split.loop.exit17.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add i64 %offset.019.i, 1
+  %inc.i = add nuw i64 %offset.019.i, 1
   %exitcond.not.i = icmp eq i64 %offset.019.i, %1
   br i1 %exitcond.not.i, label %cleanup18, label %for.body.i, !llvm.loop !931
 
@@ -48468,7 +48468,7 @@ for.body.i62:                                     ; preds = %for.inc.i64, %if.en
   br i1 %cmp3.not.i, label %return.loopexit.split.loop.exit16.i, label %for.inc.i64
 
 for.inc.i64:                                      ; preds = %for.body.i62
-  %inc.i65 = add i64 %offset.018.i, 1
+  %inc.i65 = add nuw i64 %offset.018.i, 1
   %exitcond.not.i66 = icmp eq i64 %offset.018.i, %8
   br i1 %exitcond.not.i66, label %cleanup18, label %for.body.i62, !llvm.loop !933
 
@@ -48768,7 +48768,7 @@ for.body.i214:                                    ; preds = %for.inc.i219, %if.e
   br i1 %cmp3.not.i218, label %return.loopexit.split.loop.exit16.i223, label %for.inc.i219
 
 for.inc.i219:                                     ; preds = %for.body.i214
-  %inc.i220 = add i64 %offset.018.i215, 1
+  %inc.i220 = add nuw i64 %offset.018.i215, 1
   %exitcond.not.i221 = icmp eq i64 %offset.018.i215, %45
   br i1 %exitcond.not.i221, label %cleanup18, label %for.body.i214, !llvm.loop !937
 

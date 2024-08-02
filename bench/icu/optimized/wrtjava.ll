@@ -426,20 +426,21 @@ _ZL6strrchPKcjc.exit.i.i:                         ; preds = %if.end.i.i.i, %whil
   br i1 %cmp22.i.i, label %if.end49.i.i, label %while.cond25.i.i
 
 while.cond25.i.i:                                 ; preds = %_ZL6strrchPKcjc.exit.i.i, %while.body27.i.i
-  %num.0.in.i.i = phi i32 [ %num.0.i.i, %while.body27.i.i ], [ %retval.0.i67.i.i, %_ZL6strrchPKcjc.exit.i.i ]
-  %num.0.i.i = add i32 %num.0.in.i.i, -1
-  %cmp26.i.i = icmp sgt i32 %num.0.i.i, 0
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %while.body27.i.i ], [ %sub.ptr.sub6.i.i.i, %_ZL6strrchPKcjc.exit.i.i ]
+  %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, -1
+  %indvars.i.i = trunc i64 %indvars.iv.next.i.i to i32
+  %cmp26.i.i = icmp sgt i32 %indvars.i.i, 0
   br i1 %cmp26.i.i, label %while.body27.i.i, label %while.end.i.i
 
 while.body27.i.i:                                 ; preds = %while.cond25.i.i
-  %idxprom.i.i = zext nneg i32 %num.0.i.i to i64
+  %idxprom.i.i = and i64 %indvars.iv.next.i.i, 2147483647
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idxprom.i.i
   %27 = load i8, ptr %arrayidx.i.i, align 1
   %cmp29.i.i = icmp eq i8 %27, 92
   br i1 %cmp29.i.i, label %while.cond25.i.i, label %while.end.i.i, !llvm.loop !10
 
 while.end.i.i:                                    ; preds = %while.body27.i.i, %while.cond25.i.i
-  %sub33.i.i = sub i32 %retval.0.i67.i.i, %num.0.i.i
+  %sub33.i.i = sub i32 %retval.0.i67.i.i, %indvars.i.i
   %rem.i.i = and i32 %sub33.i.i, 1
   %sext.i.i = add i32 %retval.0.i67.i.i, -1
   %spec.select.i.i = add i32 %sext.i.i, %rem.i.i
@@ -468,9 +469,9 @@ while.cond54.preheader.i.i:                       ; preds = %if.end49.i.i
   br i1 %cmp5575.not.i.i, label %while.end87.i.i, label %while.body56.i.i
 
 while.body56.i.i:                                 ; preds = %while.cond54.preheader.i.i, %if.end86.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end86.i.i ], [ 0, %while.cond54.preheader.i.i ]
+  %indvars.iv81.i.i = phi i64 [ %indvars.iv.next82.i.i, %if.end86.i.i ], [ 0, %while.cond54.preheader.i.i ]
   %add14.176.i.i = phi i32 [ %add14.2.i.i, %if.end86.i.i ], [ %add14.0.i.i, %while.cond54.preheader.i.i ]
-  %add.ptr58.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %indvars.iv.i.i
+  %add.ptr58.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %indvars.iv81.i.i
   %30 = load i8, ptr %add.ptr58.i.i, align 1
   %sub60.i.i = add i8 %30, 62
   %cmp63.i.i = icmp ult i8 %sub60.i.i, 51
@@ -488,9 +489,9 @@ cond.end.i.i:                                     ; preds = %while.body56.i.i
 
 if.end86.i.i:                                     ; preds = %cond.end.i.i, %while.body56.i.i
   %add14.2.i.i = phi i32 [ %add85.i.i, %cond.end.i.i ], [ %add14.176.i.i, %while.body56.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next82.i.i = add nuw nsw i64 %indvars.iv81.i.i, 1
   %31 = zext i32 %add14.2.i.i to i64
-  %cmp55.i.i = icmp ult i64 %indvars.iv.next.i.i, %31
+  %cmp55.i.i = icmp ult i64 %indvars.iv.next82.i.i, %31
   br i1 %cmp55.i.i, label %while.body56.i.i, label %while.end87.i.i, !llvm.loop !11
 
 while.end87.i.i:                                  ; preds = %if.end86.i.i, %while.cond54.preheader.i.i

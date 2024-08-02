@@ -2858,7 +2858,7 @@ define internal fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr nound
   call void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %4, i32 noundef %19, ptr noundef %21, i32 noundef 0)
   %22 = call noundef i32 @_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_(ptr noundef nonnull %3, ptr noundef nonnull %4)
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %24, label %133
+  br i1 %23, label %24, label %131
 
 24:                                               ; preds = %2
   call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef nonnull %5)
@@ -3012,35 +3012,33 @@ define internal fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr nound
   %.1 = phi i32 [ %97, %90 ], [ %.2, %113 ]
   %.276 = add i32 %.neg80.pn, %.17588
   %117 = add nsw i32 %.276, 1
-  %118 = and i64 %indvars.iv.next97, 4294967295
-  %119 = getelementptr inbounds i32, ptr %.pre.pre, i64 %118
-  store i32 %117, ptr %119, align 4
-  %120 = trunc nuw i64 %indvars.iv96 to i32
-  %121 = icmp sgt i32 %120, 1
-  br i1 %121, label %74, label %._crit_edge93, !llvm.loop !25
+  %118 = getelementptr inbounds i32, ptr %.pre.pre, i64 %indvars.iv.next97
+  store i32 %117, ptr %118, align 4
+  %119 = icmp ugt i64 %indvars.iv96, 1
+  br i1 %119, label %74, label %._crit_edge93, !llvm.loop !25
 
 ._crit_edge93:                                    ; preds = %116, %._crit_edge
-  %122 = load i32, ptr %17, align 8
-  %123 = add nsw i32 %122, %.077.lcssa
-  store i32 %123, ptr %17, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 48
-  %125 = load i32, ptr %124, align 8
-  %126 = add nsw i32 %125, %.077.lcssa
-  store i32 %126, ptr %124, align 8
-  %127 = load ptr, ptr %20, align 8
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.18, i32 noundef 916, ptr noundef %127)
-  %128 = load i32, ptr %5, align 8
-  store i32 %128, ptr %18, align 8
-  %129 = getelementptr inbounds i8, ptr %5, i64 8
-  %130 = load ptr, ptr %129, align 8
-  store ptr %130, ptr %20, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 %128, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %132, i32 noundef %128, ptr noundef %130, i32 noundef 0)
-  br label %133
+  %120 = load i32, ptr %17, align 8
+  %121 = add nsw i32 %120, %.077.lcssa
+  store i32 %121, ptr %17, align 8
+  %122 = getelementptr inbounds i8, ptr %0, i64 48
+  %123 = load i32, ptr %122, align 8
+  %124 = add nsw i32 %123, %.077.lcssa
+  store i32 %124, ptr %122, align 8
+  %125 = load ptr, ptr %20, align 8
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.18, i32 noundef 916, ptr noundef %125)
+  %126 = load i32, ptr %5, align 8
+  store i32 %126, ptr %18, align 8
+  %127 = getelementptr inbounds i8, ptr %5, i64 8
+  %128 = load ptr, ptr %127, align 8
+  store ptr %128, ptr %20, align 8
+  %129 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 %126, ptr %129, align 4
+  %130 = getelementptr inbounds i8, ptr %0, i64 64
+  call void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %130, i32 noundef %126, ptr noundef %128, i32 noundef 0)
+  br label %131
 
-133:                                              ; preds = %._crit_edge93, %2
+131:                                              ; preds = %._crit_edge93, %2
   ret void
 }
 

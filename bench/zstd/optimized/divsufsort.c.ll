@@ -444,11 +444,11 @@ for.body106:                                      ; preds = %for.body106.prehead
   store i32 %dec120, ptr %arrayidx119, align 4
   %idxprom121 = sext i32 %dec120 to i64
   %arrayidx122 = getelementptr inbounds i32, ptr %SA, i64 %idxprom121
-  %25 = trunc nuw i64 %indvars.iv485 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv485 to i32
   store i32 %25, ptr %arrayidx122, align 4
   %indvars.iv.next486 = add nsw i64 %indvars.iv485, -1
-  %cmp104 = icmp sgt i32 %25, 0
-  br i1 %cmp104, label %for.body106, label %for.cond151.preheader.lr.ph, !llvm.loop !13
+  %cmp104.not = icmp eq i64 %indvars.iv485, 0
+  br i1 %cmp104.not, label %for.cond151.preheader.lr.ph, label %for.body106, !llvm.loop !13
 
 for.cond151.preheader.lr.ph:                      ; preds = %for.body106, %if.then97
   %sub126 = add nsw i32 %sub55, -1

@@ -35535,7 +35535,7 @@ for.body.preheader:                               ; preds = %if.end41
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ %6, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %8 = trunc nsw i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %call44 = call noundef i32 @_ZN7testing8internal6Random8GenerateEj(ptr noundef nonnull align 4 dereferenceable(4) %random, i32 noundef %8)
   %add45 = add i32 %call44, %begin
   %conv46 = sext i32 %add45 to i64

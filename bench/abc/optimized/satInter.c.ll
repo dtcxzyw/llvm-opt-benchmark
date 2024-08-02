@@ -753,33 +753,31 @@ select.unfold.us:                                 ; preds = %.lr.ph.us, %select.
 
 select.unfold._crit_edge.us:                      ; preds = %select.unfold.us
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %21 = trunc nuw i64 %indvars.iv to i32
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.us, label %._crit_edge, !llvm.loop !16
+  %21 = icmp sgt i64 %indvars.iv, 0
+  br i1 %21, label %.lr.ph.us, label %._crit_edge, !llvm.loop !16
 
 .lr.ph19.split:                                   ; preds = %.lr.ph19, %select.unfold._crit_edge
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %select.unfold._crit_edge ], [ %14, %.lr.ph19 ]
-  %23 = icmp eq i64 %indvars.iv22, %14
-  %24 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22
-  %spec.select = select i1 %23, i32 %13, i32 31
+  %22 = icmp eq i64 %indvars.iv22, %14
+  %23 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22
+  %spec.select = select i1 %22, i32 %13, i32 31
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.lr.ph19.split, %select.unfold
-  %.017 = phi i32 [ %29, %select.unfold ], [ %spec.select, %.lr.ph19.split ]
-  %25 = load i32, ptr %24, align 4
-  %26 = lshr i32 %25, %.017
-  %27 = and i32 %26, 1
-  %28 = or disjoint i32 %27, 48
-  %fputc = tail call i32 @fputc(i32 %28, ptr %0)
-  %29 = add nsw i32 %.017, -1
-  %30 = icmp sgt i32 %.017, 0
-  br i1 %30, label %select.unfold, label %select.unfold._crit_edge, !llvm.loop !15
+  %.017 = phi i32 [ %28, %select.unfold ], [ %spec.select, %.lr.ph19.split ]
+  %24 = load i32, ptr %23, align 4
+  %25 = lshr i32 %24, %.017
+  %26 = and i32 %25, 1
+  %27 = or disjoint i32 %26, 48
+  %fputc = tail call i32 @fputc(i32 %27, ptr %0)
+  %28 = add nsw i32 %.017, -1
+  %29 = icmp sgt i32 %.017, 0
+  br i1 %29, label %select.unfold, label %select.unfold._crit_edge, !llvm.loop !15
 
 select.unfold._crit_edge:                         ; preds = %select.unfold
   %indvars.iv.next23 = add nsw i64 %indvars.iv22, -1
-  %31 = trunc nuw i64 %indvars.iv22 to i32
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph19.split, label %._crit_edge, !llvm.loop !16
+  %30 = icmp sgt i64 %indvars.iv22, 0
+  br i1 %30, label %.lr.ph19.split, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %select.unfold._crit_edge.us, %select.unfold._crit_edge, %3
   ret void
@@ -839,33 +837,31 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
 
 select.unfold._crit_edge.us.i:                    ; preds = %select.unfold.us.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %32 = trunc nuw i64 %indvars.iv.i to i32
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph.us.i, label %Extra_PrintBinary__.exit, !llvm.loop !16
+  %32 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %32, label %.lr.ph.us.i, label %Extra_PrintBinary__.exit, !llvm.loop !16
 
 .lr.ph19.split.i:                                 ; preds = %.lr.ph19.i, %select.unfold._crit_edge.i
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %select.unfold._crit_edge.i ], [ %25, %.lr.ph19.i ]
-  %34 = icmp eq i64 %indvars.iv22.i, %25
-  %35 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv22.i
-  %spec.select = select i1 %34, i32 %24, i32 31
+  %33 = icmp eq i64 %indvars.iv22.i, %25
+  %34 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv22.i
+  %spec.select = select i1 %33, i32 %24, i32 31
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %.lr.ph19.split.i, %select.unfold.i
-  %.017.i = phi i32 [ %40, %select.unfold.i ], [ %spec.select, %.lr.ph19.split.i ]
-  %36 = load i32, ptr %35, align 4
-  %37 = lshr i32 %36, %.017.i
-  %38 = and i32 %37, 1
-  %39 = or disjoint i32 %38, 48
-  %fputc.i = tail call i32 @fputc(i32 %39, ptr %6)
-  %40 = add nsw i32 %.017.i, -1
-  %41 = icmp sgt i32 %.017.i, 0
-  br i1 %41, label %select.unfold.i, label %select.unfold._crit_edge.i, !llvm.loop !15
+  %.017.i = phi i32 [ %39, %select.unfold.i ], [ %spec.select, %.lr.ph19.split.i ]
+  %35 = load i32, ptr %34, align 4
+  %36 = lshr i32 %35, %.017.i
+  %37 = and i32 %36, 1
+  %38 = or disjoint i32 %37, 48
+  %fputc.i = tail call i32 @fputc(i32 %38, ptr %6)
+  %39 = add nsw i32 %.017.i, -1
+  %40 = icmp sgt i32 %.017.i, 0
+  br i1 %40, label %select.unfold.i, label %select.unfold._crit_edge.i, !llvm.loop !15
 
 select.unfold._crit_edge.i:                       ; preds = %select.unfold.i
   %indvars.iv.next23.i = add nsw i64 %indvars.iv22.i, -1
-  %42 = trunc nuw i64 %indvars.iv22.i to i32
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph19.split.i, label %Extra_PrintBinary__.exit, !llvm.loop !16
+  %41 = icmp sgt i64 %indvars.iv22.i, 0
+  br i1 %41, label %.lr.ph19.split.i, label %Extra_PrintBinary__.exit, !llvm.loop !16
 
 Extra_PrintBinary__.exit:                         ; preds = %select.unfold._crit_edge.us.i, %select.unfold._crit_edge.i, %2
   %putchar = tail call i32 @putchar(i32 10)

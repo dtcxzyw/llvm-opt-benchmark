@@ -2786,19 +2786,22 @@ define dso_local ptr @expr_scanner_get_substring(ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ %11, %.preheader ], [ %indvars.iv.next, %.critedge2 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %13 = load i8, ptr %gep, align 1
-  %14 = trunc nuw i64 %indvars.iv to i32
-  switch i8 %13, label %.critedge [
+  switch i8 %13, label %.critedge.loopexit.split.loop.exit26 [
     i8 10, label %.critedge2
     i8 13, label %.critedge2
   ]
 
 .critedge2:                                       ; preds = %12, %12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.old3 = icmp sgt i32 %14, 1
+  %.old3 = icmp sgt i64 %indvars.iv, 1
   br i1 %.old3, label %12, label %.critedge
 
-.critedge:                                        ; preds = %12, %.critedge2, %4
-  %.0 = phi i32 [ %9, %4 ], [ %14, %12 ], [ 0, %.critedge2 ]
+.critedge.loopexit.split.loop.exit26:             ; preds = %12
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge2, %.critedge.loopexit.split.loop.exit26, %4
+  %.0 = phi i32 [ %9, %4 ], [ %14, %.critedge.loopexit.split.loop.exit26 ], [ 0, %.critedge2 ]
   %15 = add i32 %.0, 1
   %16 = sext i32 %15 to i64
   %17 = tail call ptr @pg_malloc(i64 noundef %16) #30

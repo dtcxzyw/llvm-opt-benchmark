@@ -8268,7 +8268,7 @@ for.cond5.preheader.i.i:                          ; preds = %for.cond.loopexit.i
   %indvars.iv.i = add i32 %indvars.iv.in.i, -1
   %89 = sext i32 %indvars.iv.i to i64
   %indvars.iv.next85.i.i = add nsw i64 %indvars.iv84.i.i, -1
-  %90 = trunc nsw i64 %indvars.iv84.i.i to i32
+  %90 = trunc nuw nsw i64 %indvars.iv84.i.i to i32
   %add.reass.i.i = add i32 %invariant.op.i.i, %90
   %cmp674.i.i = icmp sgt i32 %add.reass.i.i, %86
   br i1 %cmp674.i.i, label %for.body7.i.i, label %for.cond.loopexit.i.i
@@ -53516,8 +53516,7 @@ if.then11.i:                                      ; preds = %if.end7.i
 
 for.inc.i:                                        ; preds = %if.end7.i, %lor.lhs.false.i, %for.body.i
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %21 = trunc nuw i64 %indvars.iv to i32
-  %cmp1.i = icmp sgt i32 %21, 0
+  %cmp1.i = icmp sgt i64 %indvars.iv, 0
   br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !86
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end.i

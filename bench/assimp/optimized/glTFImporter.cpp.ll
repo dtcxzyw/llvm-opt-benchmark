@@ -51066,7 +51066,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i64 %inc.i45, ptr %m_numTFANs.i, align 8
   %4 = load i64, ptr %m_sizeTFANAllocatedSize.i, align 8
   %cmp.i = icmp eq i64 %inc.i45, %4
-  %.pre713 = load ptr, ptr %m_sizeTFAN.i, align 8
+  %.pre708 = load ptr, ptr %m_sizeTFAN.i, align 8
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body
@@ -51078,18 +51078,18 @@ if.then.i:                                        ; preds = %for.body
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #30
   store ptr %call.i, ptr %m_sizeTFAN.i, align 8
   %mul8.i = shl i64 %inc.i45, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr align 8 %.pre713, i64 %mul8.i, i1 false)
-  %isnull.i = icmp eq ptr %.pre713, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr align 8 %.pre708, i64 %mul8.i, i1 false)
+  %isnull.i = icmp eq ptr %.pre708, null
   br i1 %isnull.i, label %if.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre713) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre708) #27
   %.pr.pre.i = load i64, ptr %m_numTFANs.i, align 8
   %.pre = load ptr, ptr %m_sizeTFAN.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %if.then.i, %for.body
-  %8 = phi ptr [ %.pre713, %for.body ], [ %.pre, %delete.notnull.i ], [ %call.i, %if.then.i ]
+  %8 = phi ptr [ %.pre708, %for.body ], [ %.pre, %delete.notnull.i ], [ %call.i, %if.then.i ]
   %9 = phi i64 [ %inc.i45, %for.body ], [ %.pr.pre.i, %delete.notnull.i ], [ %inc.i45, %if.then.i ]
   %cmp10.i = icmp sgt i64 %9, 1
   br i1 %cmp10.i, label %cond.true.i, label %_ZN5o3dgc12TriangleFans7AddTFANEv.exit
@@ -51125,7 +51125,7 @@ _ZN5o3dgc12TriangleFans7AddTFANEv.exit:           ; preds = %if.end.i, %cond.tru
   store i64 %inc.i51, ptr %m_numVertices.i, align 8
   %21 = load i64, ptr %m_tfans, align 8
   %cmp.i52 = icmp eq i64 %inc.i51, %21
-  %.pre715 = load ptr, ptr %m_vertices.i, align 8
+  %.pre710 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i52, label %if.then.i57, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit
 
 if.then.i57:                                      ; preds = %_ZN5o3dgc12TriangleFans7AddTFANEv.exit
@@ -51137,18 +51137,18 @@ if.then.i57:                                      ; preds = %_ZN5o3dgc12Triangle
   %call.i59 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #30
   store ptr %call.i59, ptr %m_vertices.i, align 8
   %mul8.i60 = shl i64 %inc.i51, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i59, ptr align 8 %.pre715, i64 %mul8.i60, i1 false)
-  %isnull.i61 = icmp eq ptr %.pre715, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i59, ptr align 8 %.pre710, i64 %mul8.i60, i1 false)
+  %isnull.i61 = icmp eq ptr %.pre710, null
   br i1 %isnull.i61, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit, label %delete.notnull.i62
 
 delete.notnull.i62:                               ; preds = %if.then.i57
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre715) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre710) #27
   %.pre.i = load i64, ptr %m_numVertices.i, align 8
-  %.pre714 = load ptr, ptr %m_vertices.i, align 8
+  %.pre709 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit:         ; preds = %_ZN5o3dgc12TriangleFans7AddTFANEv.exit, %if.then.i57, %delete.notnull.i62
-  %25 = phi ptr [ %call.i59, %if.then.i57 ], [ %.pre714, %delete.notnull.i62 ], [ %.pre715, %_ZN5o3dgc12TriangleFans7AddTFANEv.exit ]
+  %25 = phi ptr [ %call.i59, %if.then.i57 ], [ %.pre709, %delete.notnull.i62 ], [ %.pre710, %_ZN5o3dgc12TriangleFans7AddTFANEv.exit ]
   %26 = phi i64 [ %inc.i51, %if.then.i57 ], [ %.pre.i, %delete.notnull.i62 ], [ %inc.i51, %_ZN5o3dgc12TriangleFans7AddTFANEv.exit ]
   %27 = getelementptr i64, ptr %25, i64 %26
   %arrayidx.i54 = getelementptr i8, ptr %27, i64 -8
@@ -51205,7 +51205,7 @@ sw.bb:                                            ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i64, ptr %m_numVertices.i, align 8
   %37 = load i64, ptr %m_tfans, align 8
   %cmp.i65 = icmp eq i64 %inc.i64, %37
-  %.pre767 = load ptr, ptr %m_vertices.i, align 8
+  %.pre762 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i65, label %if.then.i73, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit81
 
 if.then.i73:                                      ; preds = %sw.bb
@@ -51217,18 +51217,18 @@ if.then.i73:                                      ; preds = %sw.bb
   %call.i76 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #30
   store ptr %call.i76, ptr %m_vertices.i, align 8
   %mul8.i77 = shl i64 %inc.i64, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i76, ptr align 8 %.pre767, i64 %mul8.i77, i1 false)
-  %isnull.i78 = icmp eq ptr %.pre767, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i76, ptr align 8 %.pre762, i64 %mul8.i77, i1 false)
+  %isnull.i78 = icmp eq ptr %.pre762, null
   br i1 %isnull.i78, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit81, label %delete.notnull.i79
 
 delete.notnull.i79:                               ; preds = %if.then.i73
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre767) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre762) #27
   %.pre.i80 = load i64, ptr %m_numVertices.i, align 8
-  %.pre766 = load ptr, ptr %m_vertices.i, align 8
+  %.pre761 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit81
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit81:       ; preds = %sw.bb, %if.then.i73, %delete.notnull.i79
-  %41 = phi ptr [ %call.i76, %if.then.i73 ], [ %.pre766, %delete.notnull.i79 ], [ %.pre767, %sw.bb ]
+  %41 = phi ptr [ %call.i76, %if.then.i73 ], [ %.pre761, %delete.notnull.i79 ], [ %.pre762, %sw.bb ]
   %42 = phi i64 [ %inc.i64, %if.then.i73 ], [ %.pre.i80, %delete.notnull.i79 ], [ %inc.i64, %sw.bb ]
   %43 = getelementptr i64, ptr %41, i64 %42
   %arrayidx.i68 = getelementptr i8, ptr %43, i64 -8
@@ -51263,7 +51263,7 @@ for.body17:                                       ; preds = %for.body17.preheade
   store i64 %inc.i83, ptr %m_numVertices.i, align 8
   %53 = load i64, ptr %m_tfans, align 8
   %cmp.i84 = icmp eq i64 %inc.i83, %53
-  %.pre769 = load ptr, ptr %m_vertices.i, align 8
+  %.pre764 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i84, label %if.then.i92, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit100
 
 if.then.i92:                                      ; preds = %for.body17
@@ -51275,18 +51275,18 @@ if.then.i92:                                      ; preds = %for.body17
   %call.i95 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %56) #30
   store ptr %call.i95, ptr %m_vertices.i, align 8
   %mul8.i96 = shl i64 %inc.i83, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i95, ptr align 8 %.pre769, i64 %mul8.i96, i1 false)
-  %isnull.i97 = icmp eq ptr %.pre769, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i95, ptr align 8 %.pre764, i64 %mul8.i96, i1 false)
+  %isnull.i97 = icmp eq ptr %.pre764, null
   br i1 %isnull.i97, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit100, label %delete.notnull.i98
 
 delete.notnull.i98:                               ; preds = %if.then.i92
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre769) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre764) #27
   %.pre.i99 = load i64, ptr %m_numVertices.i, align 8
-  %.pre768 = load ptr, ptr %m_vertices.i, align 8
+  %.pre763 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit100
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit100:      ; preds = %for.body17, %if.then.i92, %delete.notnull.i98
-  %57 = phi ptr [ %call.i95, %if.then.i92 ], [ %.pre768, %delete.notnull.i98 ], [ %.pre769, %for.body17 ]
+  %57 = phi ptr [ %call.i95, %if.then.i92 ], [ %.pre763, %delete.notnull.i98 ], [ %.pre764, %for.body17 ]
   %58 = phi i64 [ %inc.i83, %if.then.i92 ], [ %.pre.i99, %delete.notnull.i98 ], [ %inc.i83, %for.body17 ]
   %59 = getelementptr i64, ptr %57, i64 %58
   %arrayidx.i87 = getelementptr i8, ptr %59, i64 -8
@@ -51299,8 +51299,8 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit100:      ; preds = %for.body17, %if.the
   %inc13.i91 = add nsw i64 %63, 1
   store i64 %inc13.i91, ptr %arrayidx12.i90, align 8
   %inc24 = add nuw nsw i64 %u.0687, 1
-  %exitcond711.not = icmp eq i64 %u.0687, %48
-  br i1 %exitcond711.not, label %for.end, label %for.body17, !llvm.loop !526
+  %exitcond706.not = icmp eq i64 %u.0687, %48
+  br i1 %exitcond706.not, label %for.end, label %for.body17, !llvm.loop !526
 
 for.end:                                          ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit100, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit81
   %64 = load ptr, ptr %m_visitedVertices280, align 8
@@ -51311,7 +51311,7 @@ for.end:                                          ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i102, ptr %m_numVertices.i, align 8
   %67 = load i64, ptr %m_tfans, align 8
   %cmp.i103 = icmp eq i64 %inc.i102, %67
-  %.pre771 = load ptr, ptr %m_vertices.i, align 8
+  %.pre766 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i103, label %if.then.i111, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119
 
 if.then.i111:                                     ; preds = %for.end
@@ -51323,18 +51323,18 @@ if.then.i111:                                     ; preds = %for.end
   %call.i114 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %70) #30
   store ptr %call.i114, ptr %m_vertices.i, align 8
   %mul8.i115 = shl i64 %inc.i102, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i114, ptr align 8 %.pre771, i64 %mul8.i115, i1 false)
-  %isnull.i116 = icmp eq ptr %.pre771, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i114, ptr align 8 %.pre766, i64 %mul8.i115, i1 false)
+  %isnull.i116 = icmp eq ptr %.pre766, null
   br i1 %isnull.i116, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119, label %delete.notnull.i117
 
 delete.notnull.i117:                              ; preds = %if.then.i111
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre771) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre766) #27
   %.pre.i118 = load i64, ptr %m_numVertices.i, align 8
-  %.pre770 = load ptr, ptr %m_vertices.i, align 8
+  %.pre765 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit119:      ; preds = %for.end, %if.then.i111, %delete.notnull.i117
-  %71 = phi ptr [ %call.i114, %if.then.i111 ], [ %.pre770, %delete.notnull.i117 ], [ %.pre771, %for.end ]
+  %71 = phi ptr [ %call.i114, %if.then.i111 ], [ %.pre765, %delete.notnull.i117 ], [ %.pre766, %for.end ]
   %72 = phi i64 [ %inc.i102, %if.then.i111 ], [ %.pre.i118, %delete.notnull.i117 ], [ %inc.i102, %for.end ]
   %73 = getelementptr i64, ptr %71, i64 %72
   br label %sw.epilog.sink.split
@@ -51347,7 +51347,7 @@ sw.bb29:                                          ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i121, ptr %m_numVertices.i, align 8
   %77 = load i64, ptr %m_tfans, align 8
   %cmp.i122 = icmp eq i64 %inc.i121, %77
-  %.pre757 = load ptr, ptr %m_vertices.i, align 8
+  %.pre752 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i122, label %if.then.i130, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit138
 
 if.then.i130:                                     ; preds = %sw.bb29
@@ -51359,18 +51359,18 @@ if.then.i130:                                     ; preds = %sw.bb29
   %call.i133 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %80) #30
   store ptr %call.i133, ptr %m_vertices.i, align 8
   %mul8.i134 = shl i64 %inc.i121, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i133, ptr align 8 %.pre757, i64 %mul8.i134, i1 false)
-  %isnull.i135 = icmp eq ptr %.pre757, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i133, ptr align 8 %.pre752, i64 %mul8.i134, i1 false)
+  %isnull.i135 = icmp eq ptr %.pre752, null
   br i1 %isnull.i135, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit138, label %delete.notnull.i136
 
 delete.notnull.i136:                              ; preds = %if.then.i130
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre757) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre752) #27
   %.pre.i137 = load i64, ptr %m_numVertices.i, align 8
-  %.pre756 = load ptr, ptr %m_vertices.i, align 8
+  %.pre751 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit138
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit138:      ; preds = %sw.bb29, %if.then.i130, %delete.notnull.i136
-  %81 = phi ptr [ %call.i133, %if.then.i130 ], [ %.pre756, %delete.notnull.i136 ], [ %.pre757, %sw.bb29 ]
+  %81 = phi ptr [ %call.i133, %if.then.i130 ], [ %.pre751, %delete.notnull.i136 ], [ %.pre752, %sw.bb29 ]
   %82 = phi i64 [ %inc.i121, %if.then.i130 ], [ %.pre.i137, %delete.notnull.i136 ], [ %inc.i121, %sw.bb29 ]
   %83 = getelementptr i64, ptr %81, i64 %82
   %arrayidx.i125 = getelementptr i8, ptr %83, i64 -8
@@ -51420,7 +51420,7 @@ if.then46:                                        ; preds = %if.then42
   store i64 %inc.i144, ptr %m_numVertices.i, align 8
   %98 = load i64, ptr %m_tfans, align 8
   %cmp.i145 = icmp eq i64 %inc.i144, %98
-  %.pre763 = load ptr, ptr %m_vertices.i, align 8
+  %.pre758 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i145, label %if.then.i153, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161
 
 if.then.i153:                                     ; preds = %if.then46
@@ -51432,18 +51432,18 @@ if.then.i153:                                     ; preds = %if.then46
   %call.i156 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %101) #30
   store ptr %call.i156, ptr %m_vertices.i, align 8
   %mul8.i157 = shl i64 %inc.i144, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i156, ptr align 8 %.pre763, i64 %mul8.i157, i1 false)
-  %isnull.i158 = icmp eq ptr %.pre763, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i156, ptr align 8 %.pre758, i64 %mul8.i157, i1 false)
+  %isnull.i158 = icmp eq ptr %.pre758, null
   br i1 %isnull.i158, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161, label %delete.notnull.i159
 
 delete.notnull.i159:                              ; preds = %if.then.i153
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre763) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre758) #27
   %.pre.i160 = load i64, ptr %m_numVertices.i, align 8
-  %.pre762 = load ptr, ptr %m_vertices.i, align 8
+  %.pre757 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit161:      ; preds = %if.then46, %if.then.i153, %delete.notnull.i159
-  %102 = phi ptr [ %call.i156, %if.then.i153 ], [ %.pre762, %delete.notnull.i159 ], [ %.pre763, %if.then46 ]
+  %102 = phi ptr [ %call.i156, %if.then.i153 ], [ %.pre757, %delete.notnull.i159 ], [ %.pre758, %if.then46 ]
   %103 = phi i64 [ %inc.i144, %if.then.i153 ], [ %.pre.i160, %delete.notnull.i159 ], [ %inc.i144, %if.then46 ]
   %104 = getelementptr i64, ptr %102, i64 %103
   br label %for.inc67
@@ -51455,7 +51455,7 @@ if.else:                                          ; preds = %if.then42
   store i64 %inc.i163, ptr %m_numVertices.i, align 8
   %106 = load i64, ptr %m_tfans, align 8
   %cmp.i164 = icmp eq i64 %inc.i163, %106
-  %.pre761 = load ptr, ptr %m_vertices.i, align 8
+  %.pre756 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i164, label %if.then.i172, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180
 
 if.then.i172:                                     ; preds = %if.else
@@ -51467,18 +51467,18 @@ if.then.i172:                                     ; preds = %if.else
   %call.i175 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %109) #30
   store ptr %call.i175, ptr %m_vertices.i, align 8
   %mul8.i176 = shl i64 %inc.i163, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i175, ptr align 8 %.pre761, i64 %mul8.i176, i1 false)
-  %isnull.i177 = icmp eq ptr %.pre761, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i175, ptr align 8 %.pre756, i64 %mul8.i176, i1 false)
+  %isnull.i177 = icmp eq ptr %.pre756, null
   br i1 %isnull.i177, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180, label %delete.notnull.i178
 
 delete.notnull.i178:                              ; preds = %if.then.i172
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre761) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre756) #27
   %.pre.i179 = load i64, ptr %m_numVertices.i, align 8
-  %.pre760 = load ptr, ptr %m_vertices.i, align 8
+  %.pre755 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit180:      ; preds = %if.else, %if.then.i172, %delete.notnull.i178
-  %110 = phi ptr [ %call.i175, %if.then.i172 ], [ %.pre760, %delete.notnull.i178 ], [ %.pre761, %if.else ]
+  %110 = phi ptr [ %call.i175, %if.then.i172 ], [ %.pre755, %delete.notnull.i178 ], [ %.pre756, %if.else ]
   %111 = phi i64 [ %inc.i163, %if.then.i172 ], [ %.pre.i179, %delete.notnull.i178 ], [ %inc.i163, %if.else ]
   %112 = getelementptr i64, ptr %110, i64 %111
   br label %for.inc67
@@ -51498,7 +51498,7 @@ if.else56:                                        ; preds = %for.body38
   store i64 %inc.i182, ptr %m_numVertices.i, align 8
   %117 = load i64, ptr %m_tfans, align 8
   %cmp.i183 = icmp eq i64 %inc.i182, %117
-  %.pre759 = load ptr, ptr %m_vertices.i, align 8
+  %.pre754 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i183, label %if.then.i191, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199
 
 if.then.i191:                                     ; preds = %if.else56
@@ -51510,26 +51510,26 @@ if.then.i191:                                     ; preds = %if.else56
   %call.i194 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %120) #30
   store ptr %call.i194, ptr %m_vertices.i, align 8
   %mul8.i195 = shl i64 %inc.i182, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i194, ptr align 8 %.pre759, i64 %mul8.i195, i1 false)
-  %isnull.i196 = icmp eq ptr %.pre759, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i194, ptr align 8 %.pre754, i64 %mul8.i195, i1 false)
+  %isnull.i196 = icmp eq ptr %.pre754, null
   br i1 %isnull.i196, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199, label %delete.notnull.i197
 
 delete.notnull.i197:                              ; preds = %if.then.i191
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre759) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre754) #27
   %.pre.i198 = load i64, ptr %m_numVertices.i, align 8
-  %.pre758 = load ptr, ptr %m_vertices.i, align 8
+  %.pre753 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit199:      ; preds = %if.else56, %if.then.i191, %delete.notnull.i197
-  %121 = phi ptr [ %call.i194, %if.then.i191 ], [ %.pre758, %delete.notnull.i197 ], [ %.pre759, %if.else56 ]
+  %121 = phi ptr [ %call.i194, %if.then.i191 ], [ %.pre753, %delete.notnull.i197 ], [ %.pre754, %if.else56 ]
   %122 = phi i64 [ %inc.i182, %if.then.i191 ], [ %.pre.i198, %delete.notnull.i197 ], [ %inc.i182, %if.else56 ]
   %123 = getelementptr i64, ptr %121, i64 %122
   br label %for.inc67
 
 for.inc67:                                        ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161
-  %.sink787 = phi ptr [ %123, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199 ], [ %112, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180 ], [ %104, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161 ]
+  %.sink782 = phi ptr [ %123, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199 ], [ %112, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180 ], [ %104, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161 ]
   %.sink = phi i64 [ %113, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199 ], [ %add54, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180 ], [ %96, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161 ]
-  %arrayidx.i186 = getelementptr i8, ptr %.sink787, i64 -8
+  %arrayidx.i186 = getelementptr i8, ptr %.sink782, i64 -8
   store i64 %.sink, ptr %arrayidx.i186, align 8
   %124 = load ptr, ptr %m_sizeTFAN.i, align 8
   %125 = load i64, ptr %m_numTFANs.i, align 8
@@ -51539,8 +51539,8 @@ for.inc67:                                        ; preds = %_ZN5o3dgc12Triangle
   %inc13.i190 = add nsw i64 %127, 1
   store i64 %inc13.i190, ptr %arrayidx12.i189, align 8
   %inc68 = add nuw nsw i64 %u34.0685, 1
-  %exitcond709.not = icmp eq i64 %u34.0685, %88
-  br i1 %exitcond709.not, label %for.end69, label %for.body38, !llvm.loop !527
+  %exitcond705.not = icmp eq i64 %u34.0685, %88
+  br i1 %exitcond705.not, label %for.end69, label %for.body38, !llvm.loop !527
 
 for.end69:                                        ; preds = %for.inc67, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit138
   %128 = load ptr, ptr %m_visitedVertices280, align 8
@@ -51551,7 +51551,7 @@ for.end69:                                        ; preds = %for.inc67, %_ZN5o3d
   store i64 %inc.i201, ptr %m_numVertices.i, align 8
   %131 = load i64, ptr %m_tfans, align 8
   %cmp.i202 = icmp eq i64 %inc.i201, %131
-  %.pre765 = load ptr, ptr %m_vertices.i, align 8
+  %.pre760 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i202, label %if.then.i210, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218
 
 if.then.i210:                                     ; preds = %for.end69
@@ -51563,18 +51563,18 @@ if.then.i210:                                     ; preds = %for.end69
   %call.i213 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %134) #30
   store ptr %call.i213, ptr %m_vertices.i, align 8
   %mul8.i214 = shl i64 %inc.i201, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i213, ptr align 8 %.pre765, i64 %mul8.i214, i1 false)
-  %isnull.i215 = icmp eq ptr %.pre765, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i213, ptr align 8 %.pre760, i64 %mul8.i214, i1 false)
+  %isnull.i215 = icmp eq ptr %.pre760, null
   br i1 %isnull.i215, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218, label %delete.notnull.i216
 
 delete.notnull.i216:                              ; preds = %if.then.i210
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre765) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre760) #27
   %.pre.i217 = load i64, ptr %m_numVertices.i, align 8
-  %.pre764 = load ptr, ptr %m_vertices.i, align 8
+  %.pre759 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit218:      ; preds = %for.end69, %if.then.i210, %delete.notnull.i216
-  %135 = phi ptr [ %call.i213, %if.then.i210 ], [ %.pre764, %delete.notnull.i216 ], [ %.pre765, %for.end69 ]
+  %135 = phi ptr [ %call.i213, %if.then.i210 ], [ %.pre759, %delete.notnull.i216 ], [ %.pre760, %for.end69 ]
   %136 = phi i64 [ %inc.i201, %if.then.i210 ], [ %.pre.i217, %delete.notnull.i216 ], [ %inc.i201, %for.end69 ]
   %137 = getelementptr i64, ptr %135, i64 %136
   br label %sw.epilog.sink.split
@@ -51595,7 +51595,7 @@ for.body79:                                       ; preds = %for.body79.preheade
   store i64 %inc.i220, ptr %m_numVertices.i, align 8
   %142 = load i64, ptr %m_tfans, align 8
   %cmp.i221 = icmp eq i64 %inc.i220, %142
-  %.pre753 = load ptr, ptr %m_vertices.i, align 8
+  %.pre748 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i221, label %if.then.i229, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit237
 
 if.then.i229:                                     ; preds = %for.body79
@@ -51607,18 +51607,18 @@ if.then.i229:                                     ; preds = %for.body79
   %call.i232 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %145) #30
   store ptr %call.i232, ptr %m_vertices.i, align 8
   %mul8.i233 = shl i64 %inc.i220, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i232, ptr align 8 %.pre753, i64 %mul8.i233, i1 false)
-  %isnull.i234 = icmp eq ptr %.pre753, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i232, ptr align 8 %.pre748, i64 %mul8.i233, i1 false)
+  %isnull.i234 = icmp eq ptr %.pre748, null
   br i1 %isnull.i234, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit237, label %delete.notnull.i235
 
 delete.notnull.i235:                              ; preds = %if.then.i229
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre753) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre748) #27
   %.pre.i236 = load i64, ptr %m_numVertices.i, align 8
-  %.pre752 = load ptr, ptr %m_vertices.i, align 8
+  %.pre747 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit237
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit237:      ; preds = %for.body79, %if.then.i229, %delete.notnull.i235
-  %146 = phi ptr [ %call.i232, %if.then.i229 ], [ %.pre752, %delete.notnull.i235 ], [ %.pre753, %for.body79 ]
+  %146 = phi ptr [ %call.i232, %if.then.i229 ], [ %.pre747, %delete.notnull.i235 ], [ %.pre748, %for.body79 ]
   %147 = phi i64 [ %inc.i220, %if.then.i229 ], [ %.pre.i236, %delete.notnull.i235 ], [ %inc.i220, %for.body79 ]
   %148 = getelementptr i64, ptr %146, i64 %147
   %arrayidx.i224 = getelementptr i8, ptr %148, i64 -8
@@ -51631,8 +51631,8 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit237:      ; preds = %for.body79, %if.the
   %inc13.i228 = add nsw i64 %152, 1
   store i64 %inc13.i228, ptr %arrayidx12.i227, align 8
   %inc90 = add nuw nsw i64 %u75.0683, 1
-  %exitcond707.not = icmp eq i64 %u75.0683, %33
-  br i1 %exitcond707.not, label %for.end91, label %for.body79, !llvm.loop !528
+  %exitcond704.not = icmp eq i64 %u75.0683, %33
+  br i1 %exitcond704.not, label %for.end91, label %for.body79, !llvm.loop !528
 
 for.end91:                                        ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit237, %for.cond76.preheader
   %153 = load ptr, ptr %m_visitedVertices280, align 8
@@ -51642,7 +51642,7 @@ for.end91:                                        ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i239, ptr %m_numVertices.i, align 8
   %156 = load i64, ptr %m_tfans, align 8
   %cmp.i240 = icmp eq i64 %inc.i239, %156
-  %.pre755 = load ptr, ptr %m_vertices.i, align 8
+  %.pre750 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i240, label %if.then.i248, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256
 
 if.then.i248:                                     ; preds = %for.end91
@@ -51654,18 +51654,18 @@ if.then.i248:                                     ; preds = %for.end91
   %call.i251 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %159) #30
   store ptr %call.i251, ptr %m_vertices.i, align 8
   %mul8.i252 = shl i64 %inc.i239, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i251, ptr align 8 %.pre755, i64 %mul8.i252, i1 false)
-  %isnull.i253 = icmp eq ptr %.pre755, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i251, ptr align 8 %.pre750, i64 %mul8.i252, i1 false)
+  %isnull.i253 = icmp eq ptr %.pre750, null
   br i1 %isnull.i253, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256, label %delete.notnull.i254
 
 delete.notnull.i254:                              ; preds = %if.then.i248
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre755) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre750) #27
   %.pre.i255 = load i64, ptr %m_numVertices.i, align 8
-  %.pre754 = load ptr, ptr %m_vertices.i, align 8
+  %.pre749 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit256:      ; preds = %for.end91, %if.then.i248, %delete.notnull.i254
-  %160 = phi ptr [ %call.i251, %if.then.i248 ], [ %.pre754, %delete.notnull.i254 ], [ %.pre755, %for.end91 ]
+  %160 = phi ptr [ %call.i251, %if.then.i248 ], [ %.pre749, %delete.notnull.i254 ], [ %.pre750, %for.end91 ]
   %161 = phi i64 [ %inc.i239, %if.then.i248 ], [ %.pre.i255, %delete.notnull.i254 ], [ %inc.i239, %for.end91 ]
   %162 = getelementptr i64, ptr %160, i64 %161
   br label %sw.epilog.sink.split
@@ -51686,7 +51686,7 @@ for.body101:                                      ; preds = %for.body101.prehead
   store i64 %inc.i258, ptr %m_numVertices.i, align 8
   %167 = load i64, ptr %m_tfans, align 8
   %cmp.i259 = icmp eq i64 %inc.i258, %167
-  %.pre749 = load ptr, ptr %m_vertices.i, align 8
+  %.pre744 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i259, label %if.then.i267, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit275
 
 if.then.i267:                                     ; preds = %for.body101
@@ -51698,18 +51698,18 @@ if.then.i267:                                     ; preds = %for.body101
   %call.i270 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %170) #30
   store ptr %call.i270, ptr %m_vertices.i, align 8
   %mul8.i271 = shl i64 %inc.i258, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i270, ptr align 8 %.pre749, i64 %mul8.i271, i1 false)
-  %isnull.i272 = icmp eq ptr %.pre749, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i270, ptr align 8 %.pre744, i64 %mul8.i271, i1 false)
+  %isnull.i272 = icmp eq ptr %.pre744, null
   br i1 %isnull.i272, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit275, label %delete.notnull.i273
 
 delete.notnull.i273:                              ; preds = %if.then.i267
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre749) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre744) #27
   %.pre.i274 = load i64, ptr %m_numVertices.i, align 8
-  %.pre748 = load ptr, ptr %m_vertices.i, align 8
+  %.pre743 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit275
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit275:      ; preds = %for.body101, %if.then.i267, %delete.notnull.i273
-  %171 = phi ptr [ %call.i270, %if.then.i267 ], [ %.pre748, %delete.notnull.i273 ], [ %.pre749, %for.body101 ]
+  %171 = phi ptr [ %call.i270, %if.then.i267 ], [ %.pre743, %delete.notnull.i273 ], [ %.pre744, %for.body101 ]
   %172 = phi i64 [ %inc.i258, %if.then.i267 ], [ %.pre.i274, %delete.notnull.i273 ], [ %inc.i258, %for.body101 ]
   %173 = getelementptr i64, ptr %171, i64 %172
   %arrayidx.i262 = getelementptr i8, ptr %173, i64 -8
@@ -51722,8 +51722,8 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit275:      ; preds = %for.body101, %if.th
   %inc13.i266 = add nsw i64 %177, 1
   store i64 %inc13.i266, ptr %arrayidx12.i265, align 8
   %inc112 = add nuw nsw i64 %u97.0681, 1
-  %exitcond705.not = icmp eq i64 %u97.0681, %32
-  br i1 %exitcond705.not, label %for.end113, label %for.body101, !llvm.loop !529
+  %exitcond703.not = icmp eq i64 %u97.0681, %32
+  br i1 %exitcond703.not, label %for.end113, label %for.body101, !llvm.loop !529
 
 for.end113:                                       ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit275, %for.cond98.preheader
   %178 = load ptr, ptr %m_visitedVertices280, align 8
@@ -51734,7 +51734,7 @@ for.end113:                                       ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i277, ptr %m_numVertices.i, align 8
   %181 = load i64, ptr %m_tfans, align 8
   %cmp.i278 = icmp eq i64 %inc.i277, %181
-  %.pre751 = load ptr, ptr %m_vertices.i, align 8
+  %.pre746 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i278, label %if.then.i286, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294
 
 if.then.i286:                                     ; preds = %for.end113
@@ -51746,18 +51746,18 @@ if.then.i286:                                     ; preds = %for.end113
   %call.i289 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %184) #30
   store ptr %call.i289, ptr %m_vertices.i, align 8
   %mul8.i290 = shl i64 %inc.i277, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i289, ptr align 8 %.pre751, i64 %mul8.i290, i1 false)
-  %isnull.i291 = icmp eq ptr %.pre751, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i289, ptr align 8 %.pre746, i64 %mul8.i290, i1 false)
+  %isnull.i291 = icmp eq ptr %.pre746, null
   br i1 %isnull.i291, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294, label %delete.notnull.i292
 
 delete.notnull.i292:                              ; preds = %if.then.i286
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre751) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre746) #27
   %.pre.i293 = load i64, ptr %m_numVertices.i, align 8
-  %.pre750 = load ptr, ptr %m_vertices.i, align 8
+  %.pre745 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit294:      ; preds = %for.end113, %if.then.i286, %delete.notnull.i292
-  %185 = phi ptr [ %call.i289, %if.then.i286 ], [ %.pre750, %delete.notnull.i292 ], [ %.pre751, %for.end113 ]
+  %185 = phi ptr [ %call.i289, %if.then.i286 ], [ %.pre745, %delete.notnull.i292 ], [ %.pre746, %for.end113 ]
   %186 = phi i64 [ %inc.i277, %if.then.i286 ], [ %.pre.i293, %delete.notnull.i292 ], [ %inc.i277, %for.end113 ]
   %187 = getelementptr i64, ptr %185, i64 %186
   br label %sw.epilog.sink.split
@@ -51770,7 +51770,7 @@ sw.bb118:                                         ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i296, ptr %m_numVertices.i, align 8
   %191 = load i64, ptr %m_tfans, align 8
   %cmp.i297 = icmp eq i64 %inc.i296, %191
-  %.pre745 = load ptr, ptr %m_vertices.i, align 8
+  %.pre740 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i297, label %if.then.i305, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit313
 
 if.then.i305:                                     ; preds = %sw.bb118
@@ -51782,18 +51782,18 @@ if.then.i305:                                     ; preds = %sw.bb118
   %call.i308 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %194) #30
   store ptr %call.i308, ptr %m_vertices.i, align 8
   %mul8.i309 = shl i64 %inc.i296, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i308, ptr align 8 %.pre745, i64 %mul8.i309, i1 false)
-  %isnull.i310 = icmp eq ptr %.pre745, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i308, ptr align 8 %.pre740, i64 %mul8.i309, i1 false)
+  %isnull.i310 = icmp eq ptr %.pre740, null
   br i1 %isnull.i310, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit313, label %delete.notnull.i311
 
 delete.notnull.i311:                              ; preds = %if.then.i305
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre745) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre740) #27
   %.pre.i312 = load i64, ptr %m_numVertices.i, align 8
-  %.pre744 = load ptr, ptr %m_vertices.i, align 8
+  %.pre739 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit313
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit313:      ; preds = %sw.bb118, %if.then.i305, %delete.notnull.i311
-  %195 = phi ptr [ %call.i308, %if.then.i305 ], [ %.pre744, %delete.notnull.i311 ], [ %.pre745, %sw.bb118 ]
+  %195 = phi ptr [ %call.i308, %if.then.i305 ], [ %.pre739, %delete.notnull.i311 ], [ %.pre740, %sw.bb118 ]
   %196 = phi i64 [ %inc.i296, %if.then.i305 ], [ %.pre.i312, %delete.notnull.i311 ], [ %inc.i296, %sw.bb118 ]
   %197 = getelementptr i64, ptr %195, i64 %196
   %arrayidx.i300 = getelementptr i8, ptr %197, i64 -8
@@ -51824,7 +51824,7 @@ for.body126:                                      ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i315, ptr %m_numVertices.i, align 8
   %206 = load i64, ptr %m_tfans, align 8
   %cmp.i316 = icmp eq i64 %inc.i315, %206
-  %.pre747 = load ptr, ptr %m_vertices.i, align 8
+  %.pre742 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i316, label %if.then.i324, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit332
 
 if.then.i324:                                     ; preds = %for.body126
@@ -51836,18 +51836,18 @@ if.then.i324:                                     ; preds = %for.body126
   %call.i327 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %209) #30
   store ptr %call.i327, ptr %m_vertices.i, align 8
   %mul8.i328 = shl i64 %inc.i315, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i327, ptr align 8 %.pre747, i64 %mul8.i328, i1 false)
-  %isnull.i329 = icmp eq ptr %.pre747, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i327, ptr align 8 %.pre742, i64 %mul8.i328, i1 false)
+  %isnull.i329 = icmp eq ptr %.pre742, null
   br i1 %isnull.i329, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit332, label %delete.notnull.i330
 
 delete.notnull.i330:                              ; preds = %if.then.i324
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre747) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre742) #27
   %.pre.i331 = load i64, ptr %m_numVertices.i, align 8
-  %.pre746 = load ptr, ptr %m_vertices.i, align 8
+  %.pre741 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit332
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit332:      ; preds = %for.body126, %if.then.i324, %delete.notnull.i330
-  %210 = phi ptr [ %call.i327, %if.then.i324 ], [ %.pre746, %delete.notnull.i330 ], [ %.pre747, %for.body126 ]
+  %210 = phi ptr [ %call.i327, %if.then.i324 ], [ %.pre741, %delete.notnull.i330 ], [ %.pre742, %for.body126 ]
   %211 = phi i64 [ %inc.i315, %if.then.i324 ], [ %.pre.i331, %delete.notnull.i330 ], [ %inc.i315, %for.body126 ]
   %212 = getelementptr i64, ptr %210, i64 %211
   %arrayidx.i319 = getelementptr i8, ptr %212, i64 -8
@@ -51860,8 +51860,8 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit332:      ; preds = %for.body126, %if.th
   %inc13.i323 = add nsw i64 %216, 1
   store i64 %inc13.i323, ptr %arrayidx12.i322, align 8
   %inc137 = add nuw nsw i64 %u123.0679, 1
-  %exitcond703.not = icmp eq i64 %inc137, %sub
-  br i1 %exitcond703.not, label %sw.epilog, label %for.body126, !llvm.loop !530
+  %exitcond702.not = icmp eq i64 %inc137, %sub
+  br i1 %exitcond702.not, label %sw.epilog, label %for.body126, !llvm.loop !530
 
 sw.bb139:                                         ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit
   %217 = load ptr, ptr %m_visitedVertices280, align 8
@@ -51872,7 +51872,7 @@ sw.bb139:                                         ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i334, ptr %m_numVertices.i, align 8
   %220 = load i64, ptr %m_tfans, align 8
   %cmp.i335 = icmp eq i64 %inc.i334, %220
-  %.pre741 = load ptr, ptr %m_vertices.i, align 8
+  %.pre736 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i335, label %if.then.i343, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit351
 
 if.then.i343:                                     ; preds = %sw.bb139
@@ -51884,18 +51884,18 @@ if.then.i343:                                     ; preds = %sw.bb139
   %call.i346 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %223) #30
   store ptr %call.i346, ptr %m_vertices.i, align 8
   %mul8.i347 = shl i64 %inc.i334, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i346, ptr align 8 %.pre741, i64 %mul8.i347, i1 false)
-  %isnull.i348 = icmp eq ptr %.pre741, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i346, ptr align 8 %.pre736, i64 %mul8.i347, i1 false)
+  %isnull.i348 = icmp eq ptr %.pre736, null
   br i1 %isnull.i348, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit351, label %delete.notnull.i349
 
 delete.notnull.i349:                              ; preds = %if.then.i343
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre741) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre736) #27
   %.pre.i350 = load i64, ptr %m_numVertices.i, align 8
-  %.pre740 = load ptr, ptr %m_vertices.i, align 8
+  %.pre735 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit351
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit351:      ; preds = %sw.bb139, %if.then.i343, %delete.notnull.i349
-  %224 = phi ptr [ %call.i346, %if.then.i343 ], [ %.pre740, %delete.notnull.i349 ], [ %.pre741, %sw.bb139 ]
+  %224 = phi ptr [ %call.i346, %if.then.i343 ], [ %.pre735, %delete.notnull.i349 ], [ %.pre736, %sw.bb139 ]
   %225 = phi i64 [ %inc.i334, %if.then.i343 ], [ %.pre.i350, %delete.notnull.i349 ], [ %inc.i334, %sw.bb139 ]
   %226 = getelementptr i64, ptr %224, i64 %225
   %arrayidx.i338 = getelementptr i8, ptr %226, i64 -8
@@ -51926,7 +51926,7 @@ for.body147:                                      ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i353, ptr %m_numVertices.i, align 8
   %235 = load i64, ptr %m_tfans, align 8
   %cmp.i354 = icmp eq i64 %inc.i353, %235
-  %.pre743 = load ptr, ptr %m_vertices.i, align 8
+  %.pre738 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i354, label %if.then.i362, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit370
 
 if.then.i362:                                     ; preds = %for.body147
@@ -51938,18 +51938,18 @@ if.then.i362:                                     ; preds = %for.body147
   %call.i365 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %238) #30
   store ptr %call.i365, ptr %m_vertices.i, align 8
   %mul8.i366 = shl i64 %inc.i353, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i365, ptr align 8 %.pre743, i64 %mul8.i366, i1 false)
-  %isnull.i367 = icmp eq ptr %.pre743, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i365, ptr align 8 %.pre738, i64 %mul8.i366, i1 false)
+  %isnull.i367 = icmp eq ptr %.pre738, null
   br i1 %isnull.i367, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit370, label %delete.notnull.i368
 
 delete.notnull.i368:                              ; preds = %if.then.i362
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre743) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre738) #27
   %.pre.i369 = load i64, ptr %m_numVertices.i, align 8
-  %.pre742 = load ptr, ptr %m_vertices.i, align 8
+  %.pre737 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit370
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit370:      ; preds = %for.body147, %if.then.i362, %delete.notnull.i368
-  %239 = phi ptr [ %call.i365, %if.then.i362 ], [ %.pre742, %delete.notnull.i368 ], [ %.pre743, %for.body147 ]
+  %239 = phi ptr [ %call.i365, %if.then.i362 ], [ %.pre737, %delete.notnull.i368 ], [ %.pre738, %for.body147 ]
   %240 = phi i64 [ %inc.i353, %if.then.i362 ], [ %.pre.i369, %delete.notnull.i368 ], [ %inc.i353, %for.body147 ]
   %241 = getelementptr i64, ptr %239, i64 %240
   %arrayidx.i357 = getelementptr i8, ptr %241, i64 -8
@@ -51962,8 +51962,8 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit370:      ; preds = %for.body147, %if.th
   %inc13.i361 = add nsw i64 %245, 1
   store i64 %inc13.i361, ptr %arrayidx12.i360, align 8
   %inc158 = add nuw nsw i64 %u144.0677, 1
-  %exitcond702.not = icmp eq i64 %inc158, %sub
-  br i1 %exitcond702.not, label %sw.epilog, label %for.body147, !llvm.loop !531
+  %exitcond701.not = icmp eq i64 %inc158, %sub
+  br i1 %exitcond701.not, label %sw.epilog, label %for.body147, !llvm.loop !531
 
 for.body164:                                      ; preds = %for.cond162.preheader, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit389
   %u161.0675 = phi i64 [ %inc175, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit389 ], [ 0, %for.cond162.preheader ]
@@ -51981,7 +51981,7 @@ for.body164:                                      ; preds = %for.cond162.prehead
   store i64 %inc.i372, ptr %m_numVertices.i, align 8
   %250 = load i64, ptr %m_tfans, align 8
   %cmp.i373 = icmp eq i64 %inc.i372, %250
-  %.pre739 = load ptr, ptr %m_vertices.i, align 8
+  %.pre734 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i373, label %if.then.i381, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit389
 
 if.then.i381:                                     ; preds = %for.body164
@@ -51993,18 +51993,18 @@ if.then.i381:                                     ; preds = %for.body164
   %call.i384 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %253) #30
   store ptr %call.i384, ptr %m_vertices.i, align 8
   %mul8.i385 = shl i64 %inc.i372, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i384, ptr align 8 %.pre739, i64 %mul8.i385, i1 false)
-  %isnull.i386 = icmp eq ptr %.pre739, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i384, ptr align 8 %.pre734, i64 %mul8.i385, i1 false)
+  %isnull.i386 = icmp eq ptr %.pre734, null
   br i1 %isnull.i386, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit389, label %delete.notnull.i387
 
 delete.notnull.i387:                              ; preds = %if.then.i381
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre739) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre734) #27
   %.pre.i388 = load i64, ptr %m_numVertices.i, align 8
-  %.pre738 = load ptr, ptr %m_vertices.i, align 8
+  %.pre733 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit389
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit389:      ; preds = %for.body164, %if.then.i381, %delete.notnull.i387
-  %254 = phi ptr [ %call.i384, %if.then.i381 ], [ %.pre738, %delete.notnull.i387 ], [ %.pre739, %for.body164 ]
+  %254 = phi ptr [ %call.i384, %if.then.i381 ], [ %.pre733, %delete.notnull.i387 ], [ %.pre734, %for.body164 ]
   %255 = phi i64 [ %inc.i372, %if.then.i381 ], [ %.pre.i388, %delete.notnull.i387 ], [ %inc.i372, %for.body164 ]
   %256 = getelementptr i64, ptr %254, i64 %255
   %arrayidx.i376 = getelementptr i8, ptr %256, i64 -8
@@ -52017,8 +52017,8 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit389:      ; preds = %for.body164, %if.th
   %inc13.i380 = add nsw i64 %260, 1
   store i64 %inc13.i380, ptr %arrayidx12.i379, align 8
   %inc175 = add nuw nsw i64 %u161.0675, 1
-  %exitcond701.not = icmp eq i64 %inc175, %sub
-  br i1 %exitcond701.not, label %sw.epilog, label %for.body164, !llvm.loop !532
+  %exitcond700.not = icmp eq i64 %inc175, %sub
+  br i1 %exitcond700.not, label %sw.epilog, label %for.body164, !llvm.loop !532
 
 sw.bb177:                                         ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit
   %261 = load ptr, ptr %m_visitedVertices280, align 8
@@ -52029,7 +52029,7 @@ sw.bb177:                                         ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i391, ptr %m_numVertices.i, align 8
   %264 = load i64, ptr %m_tfans, align 8
   %cmp.i392 = icmp eq i64 %inc.i391, %264
-  %.pre733 = load ptr, ptr %m_vertices.i, align 8
+  %.pre728 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i392, label %if.then.i400, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit408
 
 if.then.i400:                                     ; preds = %sw.bb177
@@ -52041,18 +52041,18 @@ if.then.i400:                                     ; preds = %sw.bb177
   %call.i403 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %267) #30
   store ptr %call.i403, ptr %m_vertices.i, align 8
   %mul8.i404 = shl i64 %inc.i391, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i403, ptr align 8 %.pre733, i64 %mul8.i404, i1 false)
-  %isnull.i405 = icmp eq ptr %.pre733, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i403, ptr align 8 %.pre728, i64 %mul8.i404, i1 false)
+  %isnull.i405 = icmp eq ptr %.pre728, null
   br i1 %isnull.i405, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit408, label %delete.notnull.i406
 
 delete.notnull.i406:                              ; preds = %if.then.i400
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre733) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre728) #27
   %.pre.i407 = load i64, ptr %m_numVertices.i, align 8
-  %.pre732 = load ptr, ptr %m_vertices.i, align 8
+  %.pre727 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit408
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit408:      ; preds = %sw.bb177, %if.then.i400, %delete.notnull.i406
-  %268 = phi ptr [ %call.i403, %if.then.i400 ], [ %.pre732, %delete.notnull.i406 ], [ %.pre733, %sw.bb177 ]
+  %268 = phi ptr [ %call.i403, %if.then.i400 ], [ %.pre727, %delete.notnull.i406 ], [ %.pre728, %sw.bb177 ]
   %269 = phi i64 [ %inc.i391, %if.then.i400 ], [ %.pre.i407, %delete.notnull.i406 ], [ %inc.i391, %sw.bb177 ]
   %270 = getelementptr i64, ptr %268, i64 %269
   %arrayidx.i395 = getelementptr i8, ptr %270, i64 -8
@@ -52087,7 +52087,7 @@ for.body186:                                      ; preds = %for.body186.prehead
   store i64 %inc.i410, ptr %m_numVertices.i, align 8
   %280 = load i64, ptr %m_tfans, align 8
   %cmp.i411 = icmp eq i64 %inc.i410, %280
-  %.pre735 = load ptr, ptr %m_vertices.i, align 8
+  %.pre730 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i411, label %if.then.i419, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit427
 
 if.then.i419:                                     ; preds = %for.body186
@@ -52099,18 +52099,18 @@ if.then.i419:                                     ; preds = %for.body186
   %call.i422 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %283) #30
   store ptr %call.i422, ptr %m_vertices.i, align 8
   %mul8.i423 = shl i64 %inc.i410, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i422, ptr align 8 %.pre735, i64 %mul8.i423, i1 false)
-  %isnull.i424 = icmp eq ptr %.pre735, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i422, ptr align 8 %.pre730, i64 %mul8.i423, i1 false)
+  %isnull.i424 = icmp eq ptr %.pre730, null
   br i1 %isnull.i424, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit427, label %delete.notnull.i425
 
 delete.notnull.i425:                              ; preds = %if.then.i419
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre735) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre730) #27
   %.pre.i426 = load i64, ptr %m_numVertices.i, align 8
-  %.pre734 = load ptr, ptr %m_vertices.i, align 8
+  %.pre729 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit427
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit427:      ; preds = %for.body186, %if.then.i419, %delete.notnull.i425
-  %284 = phi ptr [ %call.i422, %if.then.i419 ], [ %.pre734, %delete.notnull.i425 ], [ %.pre735, %for.body186 ]
+  %284 = phi ptr [ %call.i422, %if.then.i419 ], [ %.pre729, %delete.notnull.i425 ], [ %.pre730, %for.body186 ]
   %285 = phi i64 [ %inc.i410, %if.then.i419 ], [ %.pre.i426, %delete.notnull.i425 ], [ %inc.i410, %for.body186 ]
   %286 = getelementptr i64, ptr %284, i64 %285
   %arrayidx.i414 = getelementptr i8, ptr %286, i64 -8
@@ -52123,8 +52123,8 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit427:      ; preds = %for.body186, %if.th
   %inc13.i418 = add nsw i64 %290, 1
   store i64 %inc13.i418, ptr %arrayidx12.i417, align 8
   %inc197 = add nuw nsw i64 %u182.0673, 1
-  %exitcond700.not = icmp eq i64 %u182.0673, %275
-  br i1 %exitcond700.not, label %for.end198, label %for.body186, !llvm.loop !533
+  %exitcond699.not = icmp eq i64 %u182.0673, %275
+  br i1 %exitcond699.not, label %for.end198, label %for.body186, !llvm.loop !533
 
 for.end198:                                       ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit427, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit408
   %291 = load ptr, ptr %m_visitedVertices280, align 8
@@ -52134,7 +52134,7 @@ for.end198:                                       ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i429, ptr %m_numVertices.i, align 8
   %294 = load i64, ptr %m_tfans, align 8
   %cmp.i430 = icmp eq i64 %inc.i429, %294
-  %.pre737 = load ptr, ptr %m_vertices.i, align 8
+  %.pre732 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i430, label %if.then.i438, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446
 
 if.then.i438:                                     ; preds = %for.end198
@@ -52146,18 +52146,18 @@ if.then.i438:                                     ; preds = %for.end198
   %call.i441 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %297) #30
   store ptr %call.i441, ptr %m_vertices.i, align 8
   %mul8.i442 = shl i64 %inc.i429, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i441, ptr align 8 %.pre737, i64 %mul8.i442, i1 false)
-  %isnull.i443 = icmp eq ptr %.pre737, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i441, ptr align 8 %.pre732, i64 %mul8.i442, i1 false)
+  %isnull.i443 = icmp eq ptr %.pre732, null
   br i1 %isnull.i443, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446, label %delete.notnull.i444
 
 delete.notnull.i444:                              ; preds = %if.then.i438
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre737) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre732) #27
   %.pre.i445 = load i64, ptr %m_numVertices.i, align 8
-  %.pre736 = load ptr, ptr %m_vertices.i, align 8
+  %.pre731 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit446:      ; preds = %for.end198, %if.then.i438, %delete.notnull.i444
-  %298 = phi ptr [ %call.i441, %if.then.i438 ], [ %.pre736, %delete.notnull.i444 ], [ %.pre737, %for.end198 ]
+  %298 = phi ptr [ %call.i441, %if.then.i438 ], [ %.pre731, %delete.notnull.i444 ], [ %.pre732, %for.end198 ]
   %299 = phi i64 [ %inc.i429, %if.then.i438 ], [ %.pre.i445, %delete.notnull.i444 ], [ %inc.i429, %for.end198 ]
   %300 = getelementptr i64, ptr %298, i64 %299
   br label %sw.epilog.sink.split
@@ -52171,7 +52171,7 @@ sw.bb203:                                         ; preds = %_ZN5o3dgc12Triangle
   store i64 %inc.i448, ptr %m_numVertices.i, align 8
   %304 = load i64, ptr %m_tfans, align 8
   %cmp.i449 = icmp eq i64 %inc.i448, %304
-  %.pre723 = load ptr, ptr %m_vertices.i, align 8
+  %.pre718 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i449, label %if.then.i457, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit465
 
 if.then.i457:                                     ; preds = %sw.bb203
@@ -52183,18 +52183,18 @@ if.then.i457:                                     ; preds = %sw.bb203
   %call.i460 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %307) #30
   store ptr %call.i460, ptr %m_vertices.i, align 8
   %mul8.i461 = shl i64 %inc.i448, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i460, ptr align 8 %.pre723, i64 %mul8.i461, i1 false)
-  %isnull.i462 = icmp eq ptr %.pre723, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i460, ptr align 8 %.pre718, i64 %mul8.i461, i1 false)
+  %isnull.i462 = icmp eq ptr %.pre718, null
   br i1 %isnull.i462, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit465, label %delete.notnull.i463
 
 delete.notnull.i463:                              ; preds = %if.then.i457
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre723) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre718) #27
   %.pre.i464 = load i64, ptr %m_numVertices.i, align 8
-  %.pre722 = load ptr, ptr %m_vertices.i, align 8
+  %.pre717 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit465
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit465:      ; preds = %sw.bb203, %if.then.i457, %delete.notnull.i463
-  %308 = phi ptr [ %call.i460, %if.then.i457 ], [ %.pre722, %delete.notnull.i463 ], [ %.pre723, %sw.bb203 ]
+  %308 = phi ptr [ %call.i460, %if.then.i457 ], [ %.pre717, %delete.notnull.i463 ], [ %.pre718, %sw.bb203 ]
   %309 = phi i64 [ %inc.i448, %if.then.i457 ], [ %.pre.i464, %delete.notnull.i463 ], [ %inc.i448, %sw.bb203 ]
   %310 = getelementptr i64, ptr %308, i64 %309
   %arrayidx.i452 = getelementptr i8, ptr %310, i64 -8
@@ -52244,7 +52244,7 @@ if.then222:                                       ; preds = %if.then217
   store i64 %inc.i473, ptr %m_numVertices.i, align 8
   %325 = load i64, ptr %m_tfans, align 8
   %cmp.i474 = icmp eq i64 %inc.i473, %325
-  %.pre729 = load ptr, ptr %m_vertices.i, align 8
+  %.pre724 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i474, label %if.then.i482, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490
 
 if.then.i482:                                     ; preds = %if.then222
@@ -52256,18 +52256,18 @@ if.then.i482:                                     ; preds = %if.then222
   %call.i485 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %328) #30
   store ptr %call.i485, ptr %m_vertices.i, align 8
   %mul8.i486 = shl i64 %inc.i473, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i485, ptr align 8 %.pre729, i64 %mul8.i486, i1 false)
-  %isnull.i487 = icmp eq ptr %.pre729, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i485, ptr align 8 %.pre724, i64 %mul8.i486, i1 false)
+  %isnull.i487 = icmp eq ptr %.pre724, null
   br i1 %isnull.i487, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490, label %delete.notnull.i488
 
 delete.notnull.i488:                              ; preds = %if.then.i482
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre729) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre724) #27
   %.pre.i489 = load i64, ptr %m_numVertices.i, align 8
-  %.pre728 = load ptr, ptr %m_vertices.i, align 8
+  %.pre723 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit490:      ; preds = %if.then222, %if.then.i482, %delete.notnull.i488
-  %329 = phi ptr [ %call.i485, %if.then.i482 ], [ %.pre728, %delete.notnull.i488 ], [ %.pre729, %if.then222 ]
+  %329 = phi ptr [ %call.i485, %if.then.i482 ], [ %.pre723, %delete.notnull.i488 ], [ %.pre724, %if.then222 ]
   %330 = phi i64 [ %inc.i473, %if.then.i482 ], [ %.pre.i489, %delete.notnull.i488 ], [ %inc.i473, %if.then222 ]
   %331 = getelementptr i64, ptr %329, i64 %330
   br label %for.inc245
@@ -52279,7 +52279,7 @@ if.else229:                                       ; preds = %if.then217
   store i64 %inc.i492, ptr %m_numVertices.i, align 8
   %333 = load i64, ptr %m_tfans, align 8
   %cmp.i493 = icmp eq i64 %inc.i492, %333
-  %.pre727 = load ptr, ptr %m_vertices.i, align 8
+  %.pre722 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i493, label %if.then.i501, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509
 
 if.then.i501:                                     ; preds = %if.else229
@@ -52291,18 +52291,18 @@ if.then.i501:                                     ; preds = %if.else229
   %call.i504 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %336) #30
   store ptr %call.i504, ptr %m_vertices.i, align 8
   %mul8.i505 = shl i64 %inc.i492, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i504, ptr align 8 %.pre727, i64 %mul8.i505, i1 false)
-  %isnull.i506 = icmp eq ptr %.pre727, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i504, ptr align 8 %.pre722, i64 %mul8.i505, i1 false)
+  %isnull.i506 = icmp eq ptr %.pre722, null
   br i1 %isnull.i506, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509, label %delete.notnull.i507
 
 delete.notnull.i507:                              ; preds = %if.then.i501
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre727) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre722) #27
   %.pre.i508 = load i64, ptr %m_numVertices.i, align 8
-  %.pre726 = load ptr, ptr %m_vertices.i, align 8
+  %.pre721 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit509:      ; preds = %if.else229, %if.then.i501, %delete.notnull.i507
-  %337 = phi ptr [ %call.i504, %if.then.i501 ], [ %.pre726, %delete.notnull.i507 ], [ %.pre727, %if.else229 ]
+  %337 = phi ptr [ %call.i504, %if.then.i501 ], [ %.pre721, %delete.notnull.i507 ], [ %.pre722, %if.else229 ]
   %338 = phi i64 [ %inc.i492, %if.then.i501 ], [ %.pre.i508, %delete.notnull.i507 ], [ %inc.i492, %if.else229 ]
   %339 = getelementptr i64, ptr %337, i64 %338
   br label %for.inc245
@@ -52322,7 +52322,7 @@ if.else234:                                       ; preds = %for.body212
   store i64 %inc.i511, ptr %m_numVertices.i, align 8
   %344 = load i64, ptr %m_tfans, align 8
   %cmp.i512 = icmp eq i64 %inc.i511, %344
-  %.pre725 = load ptr, ptr %m_vertices.i, align 8
+  %.pre720 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i512, label %if.then.i520, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528
 
 if.then.i520:                                     ; preds = %if.else234
@@ -52334,27 +52334,27 @@ if.then.i520:                                     ; preds = %if.else234
   %call.i523 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %347) #30
   store ptr %call.i523, ptr %m_vertices.i, align 8
   %mul8.i524 = shl i64 %inc.i511, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i523, ptr align 8 %.pre725, i64 %mul8.i524, i1 false)
-  %isnull.i525 = icmp eq ptr %.pre725, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i523, ptr align 8 %.pre720, i64 %mul8.i524, i1 false)
+  %isnull.i525 = icmp eq ptr %.pre720, null
   br i1 %isnull.i525, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528, label %delete.notnull.i526
 
 delete.notnull.i526:                              ; preds = %if.then.i520
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre725) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre720) #27
   %.pre.i527 = load i64, ptr %m_numVertices.i, align 8
-  %.pre724 = load ptr, ptr %m_vertices.i, align 8
+  %.pre719 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit528:      ; preds = %if.else234, %if.then.i520, %delete.notnull.i526
-  %348 = phi ptr [ %call.i523, %if.then.i520 ], [ %.pre724, %delete.notnull.i526 ], [ %.pre725, %if.else234 ]
+  %348 = phi ptr [ %call.i523, %if.then.i520 ], [ %.pre719, %delete.notnull.i526 ], [ %.pre720, %if.else234 ]
   %349 = phi i64 [ %inc.i511, %if.then.i520 ], [ %.pre.i527, %delete.notnull.i526 ], [ %inc.i511, %if.else234 ]
   %350 = getelementptr i64, ptr %348, i64 %349
   br label %for.inc245
 
 for.inc245:                                       ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490
-  %.sink794 = phi ptr [ %350, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528 ], [ %339, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509 ], [ %331, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490 ]
-  %.sink793 = phi i64 [ %340, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528 ], [ %add231, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509 ], [ %323, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490 ]
-  %arrayidx.i515 = getelementptr i8, ptr %.sink794, i64 -8
-  store i64 %.sink793, ptr %arrayidx.i515, align 8
+  %.sink789 = phi ptr [ %350, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528 ], [ %339, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509 ], [ %331, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490 ]
+  %.sink788 = phi i64 [ %340, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528 ], [ %add231, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509 ], [ %323, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490 ]
+  %arrayidx.i515 = getelementptr i8, ptr %.sink789, i64 -8
+  store i64 %.sink788, ptr %arrayidx.i515, align 8
   %351 = load ptr, ptr %m_sizeTFAN.i, align 8
   %352 = load i64, ptr %m_numTFANs.i, align 8
   %353 = getelementptr i64, ptr %351, i64 %352
@@ -52374,7 +52374,7 @@ for.end247:                                       ; preds = %for.inc245, %_ZN5o3
   store i64 %inc.i530, ptr %m_numVertices.i, align 8
   %358 = load i64, ptr %m_tfans, align 8
   %cmp.i531 = icmp eq i64 %inc.i530, %358
-  %.pre731 = load ptr, ptr %m_vertices.i, align 8
+  %.pre726 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i531, label %if.then.i539, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547
 
 if.then.i539:                                     ; preds = %for.end247
@@ -52386,18 +52386,18 @@ if.then.i539:                                     ; preds = %for.end247
   %call.i542 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %361) #30
   store ptr %call.i542, ptr %m_vertices.i, align 8
   %mul8.i543 = shl i64 %inc.i530, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i542, ptr align 8 %.pre731, i64 %mul8.i543, i1 false)
-  %isnull.i544 = icmp eq ptr %.pre731, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i542, ptr align 8 %.pre726, i64 %mul8.i543, i1 false)
+  %isnull.i544 = icmp eq ptr %.pre726, null
   br i1 %isnull.i544, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547, label %delete.notnull.i545
 
 delete.notnull.i545:                              ; preds = %if.then.i539
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre731) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre726) #27
   %.pre.i546 = load i64, ptr %m_numVertices.i, align 8
-  %.pre730 = load ptr, ptr %m_vertices.i, align 8
+  %.pre725 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit547:      ; preds = %for.end247, %if.then.i539, %delete.notnull.i545
-  %362 = phi ptr [ %call.i542, %if.then.i539 ], [ %.pre730, %delete.notnull.i545 ], [ %.pre731, %for.end247 ]
+  %362 = phi ptr [ %call.i542, %if.then.i539 ], [ %.pre725, %delete.notnull.i545 ], [ %.pre726, %for.end247 ]
   %363 = phi i64 [ %inc.i530, %if.then.i539 ], [ %.pre.i546, %delete.notnull.i545 ], [ %inc.i530, %for.end247 ]
   %364 = getelementptr i64, ptr %362, i64 %363
   br label %sw.epilog.sink.split
@@ -52433,7 +52433,7 @@ if.then266:                                       ; preds = %if.then261
   store i64 %inc.i555, ptr %m_numVertices.i, align 8
   %374 = load i64, ptr %m_tfans, align 8
   %cmp.i556 = icmp eq i64 %inc.i555, %374
-  %.pre721 = load ptr, ptr %m_vertices.i, align 8
+  %.pre716 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i556, label %if.then.i564, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572
 
 if.then.i564:                                     ; preds = %if.then266
@@ -52445,18 +52445,18 @@ if.then.i564:                                     ; preds = %if.then266
   %call.i567 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %377) #30
   store ptr %call.i567, ptr %m_vertices.i, align 8
   %mul8.i568 = shl i64 %inc.i555, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i567, ptr align 8 %.pre721, i64 %mul8.i568, i1 false)
-  %isnull.i569 = icmp eq ptr %.pre721, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i567, ptr align 8 %.pre716, i64 %mul8.i568, i1 false)
+  %isnull.i569 = icmp eq ptr %.pre716, null
   br i1 %isnull.i569, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572, label %delete.notnull.i570
 
 delete.notnull.i570:                              ; preds = %if.then.i564
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre721) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre716) #27
   %.pre.i571 = load i64, ptr %m_numVertices.i, align 8
-  %.pre720 = load ptr, ptr %m_vertices.i, align 8
+  %.pre715 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit572:      ; preds = %if.then266, %if.then.i564, %delete.notnull.i570
-  %378 = phi ptr [ %call.i567, %if.then.i564 ], [ %.pre720, %delete.notnull.i570 ], [ %.pre721, %if.then266 ]
+  %378 = phi ptr [ %call.i567, %if.then.i564 ], [ %.pre715, %delete.notnull.i570 ], [ %.pre716, %if.then266 ]
   %379 = phi i64 [ %inc.i555, %if.then.i564 ], [ %.pre.i571, %delete.notnull.i570 ], [ %inc.i555, %if.then266 ]
   %380 = getelementptr i64, ptr %378, i64 %379
   br label %for.inc289
@@ -52468,7 +52468,7 @@ if.else273:                                       ; preds = %if.then261
   store i64 %inc.i574, ptr %m_numVertices.i, align 8
   %382 = load i64, ptr %m_tfans, align 8
   %cmp.i575 = icmp eq i64 %inc.i574, %382
-  %.pre719 = load ptr, ptr %m_vertices.i, align 8
+  %.pre714 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i575, label %if.then.i583, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591
 
 if.then.i583:                                     ; preds = %if.else273
@@ -52480,18 +52480,18 @@ if.then.i583:                                     ; preds = %if.else273
   %call.i586 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %385) #30
   store ptr %call.i586, ptr %m_vertices.i, align 8
   %mul8.i587 = shl i64 %inc.i574, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i586, ptr align 8 %.pre719, i64 %mul8.i587, i1 false)
-  %isnull.i588 = icmp eq ptr %.pre719, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i586, ptr align 8 %.pre714, i64 %mul8.i587, i1 false)
+  %isnull.i588 = icmp eq ptr %.pre714, null
   br i1 %isnull.i588, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591, label %delete.notnull.i589
 
 delete.notnull.i589:                              ; preds = %if.then.i583
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre719) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre714) #27
   %.pre.i590 = load i64, ptr %m_numVertices.i, align 8
-  %.pre718 = load ptr, ptr %m_vertices.i, align 8
+  %.pre713 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit591:      ; preds = %if.else273, %if.then.i583, %delete.notnull.i589
-  %386 = phi ptr [ %call.i586, %if.then.i583 ], [ %.pre718, %delete.notnull.i589 ], [ %.pre719, %if.else273 ]
+  %386 = phi ptr [ %call.i586, %if.then.i583 ], [ %.pre713, %delete.notnull.i589 ], [ %.pre714, %if.else273 ]
   %387 = phi i64 [ %inc.i574, %if.then.i583 ], [ %.pre.i590, %delete.notnull.i589 ], [ %inc.i574, %if.else273 ]
   %388 = getelementptr i64, ptr %386, i64 %387
   br label %for.inc289
@@ -52511,7 +52511,7 @@ if.else278:                                       ; preds = %for.body256
   store i64 %inc.i593, ptr %m_numVertices.i, align 8
   %393 = load i64, ptr %m_tfans, align 8
   %cmp.i594 = icmp eq i64 %inc.i593, %393
-  %.pre717 = load ptr, ptr %m_vertices.i, align 8
+  %.pre712 = load ptr, ptr %m_vertices.i, align 8
   br i1 %cmp.i594, label %if.then.i602, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610
 
 if.then.i602:                                     ; preds = %if.else278
@@ -52523,27 +52523,27 @@ if.then.i602:                                     ; preds = %if.else278
   %call.i605 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %396) #30
   store ptr %call.i605, ptr %m_vertices.i, align 8
   %mul8.i606 = shl i64 %inc.i593, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i605, ptr align 8 %.pre717, i64 %mul8.i606, i1 false)
-  %isnull.i607 = icmp eq ptr %.pre717, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i605, ptr align 8 %.pre712, i64 %mul8.i606, i1 false)
+  %isnull.i607 = icmp eq ptr %.pre712, null
   br i1 %isnull.i607, label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610, label %delete.notnull.i608
 
 delete.notnull.i608:                              ; preds = %if.then.i602
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre717) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre712) #27
   %.pre.i609 = load i64, ptr %m_numVertices.i, align 8
-  %.pre716 = load ptr, ptr %m_vertices.i, align 8
+  %.pre711 = load ptr, ptr %m_vertices.i, align 8
   br label %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610
 
 _ZN5o3dgc12TriangleFans9AddVertexEl.exit610:      ; preds = %if.else278, %if.then.i602, %delete.notnull.i608
-  %397 = phi ptr [ %call.i605, %if.then.i602 ], [ %.pre716, %delete.notnull.i608 ], [ %.pre717, %if.else278 ]
+  %397 = phi ptr [ %call.i605, %if.then.i602 ], [ %.pre711, %delete.notnull.i608 ], [ %.pre712, %if.else278 ]
   %398 = phi i64 [ %inc.i593, %if.then.i602 ], [ %.pre.i609, %delete.notnull.i608 ], [ %inc.i593, %if.else278 ]
   %399 = getelementptr i64, ptr %397, i64 %398
   br label %for.inc289
 
 for.inc289:                                       ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572
-  %.sink801 = phi ptr [ %399, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610 ], [ %388, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591 ], [ %380, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572 ]
-  %.sink800 = phi i64 [ %389, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610 ], [ %add275, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591 ], [ %372, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572 ]
-  %arrayidx.i597 = getelementptr i8, ptr %.sink801, i64 -8
-  store i64 %.sink800, ptr %arrayidx.i597, align 8
+  %.sink796 = phi ptr [ %399, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610 ], [ %388, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591 ], [ %380, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572 ]
+  %.sink795 = phi i64 [ %389, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610 ], [ %add275, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591 ], [ %372, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572 ]
+  %arrayidx.i597 = getelementptr i8, ptr %.sink796, i64 -8
+  store i64 %.sink795, ptr %arrayidx.i597, align 8
   %400 = load ptr, ptr %m_sizeTFAN.i, align 8
   %401 = load i64, ptr %m_numTFANs.i, align 8
   %402 = getelementptr i64, ptr %400, i64 %401
@@ -52556,10 +52556,10 @@ for.inc289:                                       ; preds = %_ZN5o3dgc12Triangle
   br i1 %exitcond.not, label %sw.epilog, label %for.body256, !llvm.loop !535
 
 sw.epilog.sink.split:                             ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547
-  %.sink808 = phi ptr [ %364, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547 ], [ %300, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446 ], [ %187, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294 ], [ %162, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256 ], [ %137, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218 ], [ %73, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119 ]
-  %.sink807 = phi i64 [ %356, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547 ], [ %292, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446 ], [ %179, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294 ], [ %154, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256 ], [ %129, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218 ], [ %65, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119 ]
-  %arrayidx.i534 = getelementptr i8, ptr %.sink808, i64 -8
-  store i64 %.sink807, ptr %arrayidx.i534, align 8
+  %.sink803 = phi ptr [ %364, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547 ], [ %300, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446 ], [ %187, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294 ], [ %162, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256 ], [ %137, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218 ], [ %73, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119 ]
+  %.sink802 = phi i64 [ %356, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547 ], [ %292, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446 ], [ %179, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294 ], [ %154, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256 ], [ %129, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218 ], [ %65, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119 ]
+  %arrayidx.i534 = getelementptr i8, ptr %.sink803, i64 -8
+  store i64 %.sink802, ptr %arrayidx.i534, align 8
   %404 = load ptr, ptr %m_sizeTFAN.i, align 8
   %405 = load i64, ptr %m_numTFANs.i, align 8
   %406 = getelementptr i64, ptr %404, i64 %405
@@ -52579,11 +52579,11 @@ for.body300.preheader:                            ; preds = %sw.epilog
   %409 = load ptr, ptr %m_vertices.i, align 8
   %arrayidx.i613 = getelementptr inbounds i64, ptr %409, i64 %inc.i51
   %410 = load i64, ptr %arrayidx.i613, align 8
-  %.pre772 = load i64, ptr %m_triangleCount, align 8
+  %.pre767 = load i64, ptr %m_triangleCount, align 8
   br label %for.body300
 
 for.body300:                                      ; preds = %for.body300.preheader, %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit661
-  %411 = phi i64 [ %inc321, %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit661 ], [ %.pre772, %for.body300.preheader ]
+  %411 = phi i64 [ %inc321, %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit661 ], [ %.pre767, %for.body300.preheader ]
   %k.0690 = phi i64 [ %inc323, %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit661 ], [ %add297, %for.body300.preheader ]
   %b.0689 = phi i64 [ %413, %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit661 ], [ %410, %for.body300.preheader ]
   %412 = load ptr, ptr %m_vertices.i, align 8
@@ -52634,8 +52634,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 if.then.i618:                                     ; preds = %for.body.i
   %arrayidx.i616.le = getelementptr inbounds i64, ptr %424, i64 %p.08.i
   store i64 %419, ptr %arrayidx.i616.le, align 8
-  %.pre773 = load i64, ptr %m_triangleCount, align 8
-  %.pre774 = load ptr, ptr %m_numNeighbors.i.i, align 8
+  %.pre768 = load i64, ptr %m_triangleCount, align 8
+  %.pre769 = load ptr, ptr %m_numNeighbors.i.i, align 8
   br label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -52644,8 +52644,8 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit, label %for.body.i, !llvm.loop !536
 
 _ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit:    ; preds = %for.inc.i, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i, %if.then.i618
-  %426 = phi ptr [ %420, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i ], [ %.pre774, %if.then.i618 ], [ %420, %for.inc.i ]
-  %427 = phi i64 [ %419, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i ], [ %.pre773, %if.then.i618 ], [ %419, %for.inc.i ]
+  %426 = phi ptr [ %420, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i ], [ %.pre769, %if.then.i618 ], [ %420, %for.inc.i ]
+  %427 = phi i64 [ %419, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i ], [ %.pre768, %if.then.i618 ], [ %419, %for.inc.i ]
   %cmp.i.i620 = icmp sgt i64 %b.0689, 0
   br i1 %cmp.i.i620, label %cond.true.i.i638, label %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i622
 
@@ -52676,8 +52676,8 @@ for.body.i629:                                    ; preds = %for.inc.i633, %for.
 if.then.i636:                                     ; preds = %for.body.i629
   %arrayidx.i631.le = getelementptr inbounds i64, ptr %431, i64 %p.08.i630
   store i64 %427, ptr %arrayidx.i631.le, align 8
-  %.pre775 = load i64, ptr %m_triangleCount, align 8
-  %.pre776 = load ptr, ptr %m_numNeighbors.i.i, align 8
+  %.pre770 = load i64, ptr %m_triangleCount, align 8
+  %.pre771 = load ptr, ptr %m_numNeighbors.i.i, align 8
   br label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit640
 
 for.inc.i633:                                     ; preds = %for.body.i629
@@ -52686,8 +52686,8 @@ for.inc.i633:                                     ; preds = %for.body.i629
   br i1 %exitcond.not.i635, label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit640, label %for.body.i629, !llvm.loop !536
 
 _ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit640: ; preds = %for.inc.i633, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i622, %if.then.i636
-  %433 = phi ptr [ %426, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i622 ], [ %.pre776, %if.then.i636 ], [ %426, %for.inc.i633 ]
-  %434 = phi i64 [ %427, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i622 ], [ %.pre775, %if.then.i636 ], [ %427, %for.inc.i633 ]
+  %433 = phi ptr [ %426, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i622 ], [ %.pre771, %if.then.i636 ], [ %426, %for.inc.i633 ]
+  %434 = phi i64 [ %427, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i622 ], [ %.pre770, %if.then.i636 ], [ %427, %for.inc.i633 ]
   %cmp.i.i641 = icmp sgt i64 %413, 0
   br i1 %cmp.i.i641, label %cond.true.i.i659, label %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i643
 
@@ -52718,7 +52718,7 @@ for.body.i650:                                    ; preds = %for.inc.i654, %for.
 if.then.i657:                                     ; preds = %for.body.i650
   %arrayidx.i652.le = getelementptr inbounds i64, ptr %438, i64 %p.08.i651
   store i64 %434, ptr %arrayidx.i652.le, align 8
-  %.pre777 = load i64, ptr %m_triangleCount, align 8
+  %.pre772 = load i64, ptr %m_triangleCount, align 8
   br label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit661
 
 for.inc.i654:                                     ; preds = %for.body.i650
@@ -52727,12 +52727,12 @@ for.inc.i654:                                     ; preds = %for.body.i650
   br i1 %exitcond.not.i656, label %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit661, label %for.body.i650, !llvm.loop !536
 
 _ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit661: ; preds = %for.inc.i654, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i643, %if.then.i657
-  %440 = phi i64 [ %434, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i643 ], [ %.pre777, %if.then.i657 ], [ %434, %for.inc.i654 ]
+  %440 = phi i64 [ %434, %_ZNK5o3dgc13AdjacencyInfo5BeginEl.exit.i643 ], [ %.pre772, %if.then.i657 ], [ %434, %for.inc.i654 ]
   %inc321 = add nsw i64 %440, 1
   store i64 %inc321, ptr %m_triangleCount, align 8
   %inc323 = add nsw i64 %k.0690, 1
-  %exitcond712.not = icmp eq i64 %inc323, %408
-  br i1 %exitcond712.not, label %for.inc325, label %for.body300, !llvm.loop !537
+  %exitcond707.not = icmp eq i64 %inc323, %408
+  br i1 %exitcond707.not, label %for.inc325, label %for.body300, !llvm.loop !537
 
 for.inc325:                                       ; preds = %_ZN5o3dgc13AdjacencyInfo11AddNeighborEll.exit661, %sw.epilog
   %inc326 = add nuw nsw i64 %f.0691, 1

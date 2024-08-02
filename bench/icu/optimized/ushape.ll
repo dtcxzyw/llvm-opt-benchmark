@@ -3109,11 +3109,10 @@ if.end43:                                         ; preds = %if.end38, %if.then1
   %j.1 = phi i32 [ %dec29, %if.then17 ], [ %j.057, %if.end38 ]
   %countr.2 = phi i32 [ %dec30, %if.then17 ], [ %countr.158, %if.end38 ]
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, -1
-  %14 = trunc nuw i64 %indvars.iv63 to i32
-  %cmp10 = icmp sgt i32 %14, 0
+  %cmp10 = icmp sgt i64 %indvars.iv63, 0
   %cmp11 = icmp sgt i32 %j.1, 0
-  %15 = select i1 %cmp10, i1 %cmp11, i1 false
-  br i1 %15, label %while.body12, label %while.end46, !llvm.loop !30
+  %14 = select i1 %cmp10, i1 %cmp11, i1 false
+  br i1 %14, label %while.body12, label %while.end46, !llvm.loop !30
 
 while.end46:                                      ; preds = %if.end43, %while.end
   %countr.1.lcssa = phi i32 [ %countr.0.lcssa, %while.end ], [ %countr.2, %if.end43 ]
@@ -3130,7 +3129,7 @@ if.then48:                                        ; preds = %while.end46
 
 for.body.preheader:                               ; preds = %if.then48
   %sub54 = sub nsw i32 %sourceLength, %countr.1.lcssa
-  %16 = sext i32 %sub54 to i64
+  %15 = sext i32 %sub54 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -3138,7 +3137,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv66 = add nsw i64 %indvars.iv66.in, -1
   %arrayidx57 = getelementptr inbounds i16, ptr %call, i64 %indvars.iv66
   store i16 32, ptr %arrayidx57, align 2
-  %cmp55.not.not = icmp sgt i64 %indvars.iv66, %16
+  %cmp55.not.not = icmp sgt i64 %indvars.iv66, %15
   br i1 %cmp55.not.not, label %for.body, label %if.end60, !llvm.loop !31
 
 if.end60:                                         ; preds = %for.body, %if.then48, %while.end46

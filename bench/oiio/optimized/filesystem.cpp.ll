@@ -65315,11 +65315,11 @@ if.then11:                                        ; preds = %if.then4
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then11
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
-  %.pre109 = load ptr, ptr %_M_finish, align 8
+  %.pre108 = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit
 
 _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %if.then11, %if.then.i.i.i.i.i.i.i.i.i
-  %2 = phi ptr [ %1, %if.then11 ], [ %.pre109, %if.then.i.i.i.i.i.i.i.i.i ]
+  %2 = phi ptr [ %1, %if.then11 ], [ %.pre108, %if.then.i.i.i.i.i.i.i.i.i ]
   %add.ptr22 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr22, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
@@ -65381,11 +65381,11 @@ _ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt22_
 
 if.then.i.i.i.i.i.i.i.i.i42:                      ; preds = %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr36, ptr align 1 %__position.coerce, i64 %sub.ptr.sub.i, i1 false)
-  %.pre108 = load ptr, ptr %_M_finish, align 8
+  %.pre107 = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit44
 
 _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit44: ; preds = %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit, %if.then.i.i.i.i.i.i.i.i.i42
-  %6 = phi ptr [ %add.ptr36, %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit ], [ %.pre108, %if.then.i.i.i.i.i.i.i.i.i42 ]
+  %6 = phi ptr [ %add.ptr36, %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit ], [ %.pre107, %if.then.i.i.i.i.i.i.i.i.i42 ]
   %add.ptr44 = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i
   store ptr %add.ptr44, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i48 = icmp sgt i64 %sub.ptr.sub.i, 0
@@ -65445,12 +65445,11 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i.i.i76, label %for.body.i.i.i.i.i.i.i.i78.preheader, label %invoke.cont61
 
 for.body.i.i.i.i.i.i.i.i78.preheader:             ; preds = %invoke.cont
-  %10 = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i.i.i.i72, ptr align 1 %__first, i64 %10, i1 false)
-  %11 = add i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i67
-  %12 = add i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i.i64
-  %13 = sub i64 %11, %12
-  %scevgep = getelementptr i8, ptr %cond.i66, i64 %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i.i.i.i72, ptr align 1 %__first, i64 %sub.ptr.sub.i.i, i1 false)
+  %10 = add i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i67
+  %11 = add i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i.i64
+  %12 = sub i64 %10, %11
+  %scevgep = getelementptr i8, ptr %cond.i66, i64 %12
   br label %invoke.cont61
 
 invoke.cont61:                                    ; preds = %for.body.i.i.i.i.i.i.i.i78.preheader, %invoke.cont

@@ -1340,9 +1340,8 @@ opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %opal
   %48 = getelementptr i8, ptr %47, i64 8
   store ptr %45, ptr %48, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %49 = trunc nuw i64 %indvars.iv to i32
-  %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %41, label %._crit_edge.loopexit, !llvm.loop !21
+  %.not41 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not41, label %._crit_edge.loopexit, label %41, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %41
   %.pre = load ptr, ptr %0, align 8
@@ -1350,15 +1349,15 @@ opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %opal
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
   %.pre-phi = phi i64 [ %.pre37, %.._crit_edge_crit_edge ], [ %39, %._crit_edge.loopexit ]
-  %51 = phi ptr [ %34, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
-  %52 = sext i32 %.07.i39 to i64
-  %53 = getelementptr ptr, ptr %51, i64 %52
-  %54 = getelementptr i8, ptr %53, i64 8
-  store ptr null, ptr %54, align 8
-  %55 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #13
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %.pre-phi
-  store ptr %55, ptr %57, align 8
+  %49 = phi ptr [ %34, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
+  %50 = sext i32 %.07.i39 to i64
+  %51 = getelementptr ptr, ptr %49, i64 %50
+  %52 = getelementptr i8, ptr %51, i64 8
+  store ptr null, ptr %52, align 8
+  %53 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #13
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds ptr, ptr %54, i64 %.pre-phi
+  store ptr %53, ptr %55, align 8
   br label %opal_argv_append.exit
 
 opal_argv_append.exit:                            ; preds = %.preheader.i.i, %24, %opal_argv_count.exit.i.i, %9, %3, %5, %._crit_edge

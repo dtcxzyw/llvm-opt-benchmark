@@ -2956,46 +2956,47 @@ define void @Sbd_SolverTopoPrint(ptr nocapture noundef readonly %0, i32 noundef 
 .preheader.lr.ph.us.us.preheader:                 ; preds = %.lr.ph42.split.us
   %16 = zext nneg i32 %3 to i64
   %17 = zext nneg i32 %12 to i64
+  %18 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.preheader.lr.ph.us.us
 
 .preheader.lr.ph.us.us:                           ; preds = %.preheader.lr.ph.us.us.preheader, %._crit_edge39.split.us.us.us
   %indvars.iv56 = phi i64 [ %17, %.preheader.lr.ph.us.us.preheader ], [ %indvars.iv.next57, %._crit_edge39.split.us.us.us ]
-  %18 = trunc nuw i64 %indvars.iv56 to i32
-  %19 = icmp slt i32 %18, %1
+  %19 = icmp slt i64 %indvars.iv56, %18
   %20 = select i1 %19, i32 105, i32 32
-  %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %18, i32 noundef %20)
+  %21 = trunc nuw nsw i64 %indvars.iv56 to i32
+  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %21, i32 noundef %20)
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge37.us.us.us, %.preheader.lr.ph.us.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge37.us.us.us ], [ 0, %.preheader.lr.ph.us.us ]
-  br label %22
+  br label %23
 
-22:                                               ; preds = %31, %.preheader.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ %16, %.preheader.us.us.us ]
+23:                                               ; preds = %32, %.preheader.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ %16, %.preheader.us.us.us ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %23 = getelementptr inbounds [38 x [6 x i32]], ptr %4, i64 %indvars.iv52, i64 %indvars.iv56, i64 %indvars.iv.next
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, -1
-  br i1 %25, label %31, label %26
+  %24 = getelementptr inbounds [38 x [6 x i32]], ptr %4, i64 %indvars.iv52, i64 %indvars.iv56, i64 %indvars.iv.next
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp eq i32 %25, -1
+  br i1 %26, label %32, label %27
 
-26:                                               ; preds = %22
+27:                                               ; preds = %23
   %.val.us.us.us = load ptr, ptr %14, align 8
-  %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds i32, ptr %.val.us.us.us, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %.not.us.us.us = icmp eq i32 %29, 1
-  %30 = select i1 %.not.us.us.us, i32 42, i32 46
-  br label %31
+  %28 = sext i32 %25 to i64
+  %29 = getelementptr inbounds i32, ptr %.val.us.us.us, i64 %28
+  %30 = load i32, ptr %29, align 4
+  %.not.us.us.us = icmp eq i32 %30, 1
+  %31 = select i1 %.not.us.us.us, i32 42, i32 46
+  br label %32
 
-31:                                               ; preds = %22, %26
-  %.sink = phi i32 [ %30, %26 ], [ 32, %22 ]
+32:                                               ; preds = %23, %27
+  %.sink = phi i32 [ %31, %27 ], [ 32, %23 ]
   %putchar32.us.us.us = tail call i32 @putchar(i32 %.sink)
-  %32 = icmp sgt i64 %indvars.iv, 1
-  br i1 %32, label %22, label %._crit_edge37.us.us.us, !llvm.loop !67
+  %33 = icmp sgt i64 %indvars.iv, 1
+  br i1 %33, label %23, label %._crit_edge37.us.us.us, !llvm.loop !67
 
-._crit_edge37.us.us.us:                           ; preds = %31
-  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
+._crit_edge37.us.us.us:                           ; preds = %32
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
   br i1 %exitcond55.not, label %._crit_edge39.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !68
@@ -3003,36 +3004,36 @@ define void @Sbd_SolverTopoPrint(ptr nocapture noundef readonly %0, i32 noundef 
 ._crit_edge39.split.us.us.us:                     ; preds = %._crit_edge37.us.us.us
   %putchar30.us.us = tail call i32 @putchar(i32 10)
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, -1
-  %34 = icmp sgt i32 %18, 0
-  br i1 %34, label %.preheader.lr.ph.us.us, label %._crit_edge43, !llvm.loop !69
+  %35 = icmp sgt i64 %indvars.iv56, 0
+  br i1 %35, label %.preheader.lr.ph.us.us, label %._crit_edge43, !llvm.loop !69
 
 .preheader.lr.ph.us:                              ; preds = %.lr.ph42.split.us, %._crit_edge39.split.us46
-  %.02640.us = phi i32 [ %40, %._crit_edge39.split.us46 ], [ %12, %.lr.ph42.split.us ]
-  %35 = icmp slt i32 %.02640.us, %1
-  %36 = select i1 %35, i32 105, i32 32
-  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.02640.us, i32 noundef %36)
+  %.02640.us = phi i32 [ %41, %._crit_edge39.split.us46 ], [ %12, %.lr.ph42.split.us ]
+  %36 = icmp slt i32 %.02640.us, %1
+  %37 = select i1 %36, i32 105, i32 32
+  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.02640.us, i32 noundef %37)
   br label %.preheader.us44
 
 .preheader.us44:                                  ; preds = %.preheader.lr.ph.us, %.preheader.us44
-  %.138.us45 = phi i32 [ 0, %.preheader.lr.ph.us ], [ %39, %.preheader.us44 ]
-  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
-  %39 = add nuw nsw i32 %.138.us45, 1
-  %exitcond50.not = icmp eq i32 %39, %2
+  %.138.us45 = phi i32 [ 0, %.preheader.lr.ph.us ], [ %40, %.preheader.us44 ]
+  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
+  %40 = add nuw nsw i32 %.138.us45, 1
+  %exitcond50.not = icmp eq i32 %40, %2
   br i1 %exitcond50.not, label %._crit_edge39.split.us46, label %.preheader.us44, !llvm.loop !68
 
 ._crit_edge39.split.us46:                         ; preds = %.preheader.us44
   %putchar30.us = tail call i32 @putchar(i32 10)
-  %40 = add nsw i32 %.02640.us, -1
-  %41 = icmp sgt i32 %.02640.us, 0
-  br i1 %41, label %.preheader.lr.ph.us, label %._crit_edge43, !llvm.loop !69
+  %41 = add nsw i32 %.02640.us, -1
+  %42 = icmp sgt i32 %.02640.us, 0
+  br i1 %42, label %.preheader.lr.ph.us, label %._crit_edge43, !llvm.loop !69
 
 .lr.ph42.split:                                   ; preds = %.lr.ph42, %.lr.ph42.split
-  %.02640 = phi i32 [ %45, %.lr.ph42.split ], [ %12, %.lr.ph42 ]
-  %42 = icmp slt i32 %.02640, %1
-  %43 = select i1 %42, i32 105, i32 32
-  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.02640, i32 noundef %43)
+  %.02640 = phi i32 [ %46, %.lr.ph42.split ], [ %12, %.lr.ph42 ]
+  %43 = icmp slt i32 %.02640, %1
+  %44 = select i1 %43, i32 105, i32 32
+  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.02640, i32 noundef %44)
   %putchar30 = tail call i32 @putchar(i32 10)
-  %45 = add nsw i32 %.02640, -1
+  %46 = add nsw i32 %.02640, -1
   %.not = icmp eq i32 %.02640, 0
   br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !69
 

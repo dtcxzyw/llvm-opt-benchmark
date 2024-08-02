@@ -414,8 +414,8 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br i1 %176, label %.thread.us.sink.split.i, label %.thread.us.i
 
 .thread.us.sink.split.i:                          ; preds = %175, %168, %158, %152, %140, %123, %111
-  %.sink149.i = phi i64 [ -8, %111 ], [ -12, %123 ], [ -12, %140 ], [ -8, %152 ], [ -4, %158 ], [ -12, %168 ], [ -12, %175 ]
-  %177 = getelementptr i8, ptr %101, i64 %.sink149.i
+  %.sink148.i = phi i64 [ -8, %111 ], [ -12, %123 ], [ -12, %140 ], [ -8, %152 ], [ -4, %158 ], [ -12, %168 ], [ -12, %175 ]
+  %177 = getelementptr i8, ptr %101, i64 %.sink148.i
   store i32 1, ptr %177, align 4
   br label %.thread.us.i
 
@@ -427,8 +427,8 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 178:                                              ; preds = %.thread.us.i, %.lr.ph139.us.i
   %.2.us.i = phi i32 [ %.1.us.i, %.thread.us.i ], [ %.0138.us.i, %.lr.ph139.us.i ]
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
-  %exitcond148.not.i = icmp eq i64 %indvars.iv.next144.i, %89
-  br i1 %exitcond148.not.i, label %._crit_edge.us.i, label %.lr.ph139.us.i.backedge
+  %exitcond147.not.i = icmp eq i64 %indvars.iv.next144.i, %89
+  br i1 %exitcond147.not.i, label %._crit_edge.us.i, label %.lr.ph139.us.i.backedge
 
 .lr.ph139.us.i.backedge:                          ; preds = %178, %._crit_edge.us.i
   %indvars.iv143.i.be = phi i64 [ %indvars.iv.next144.i, %178 ], [ 0, %._crit_edge.us.i ]
@@ -604,11 +604,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   %11 = shl nuw nsw i64 %10, 2
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #6
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %8
-  %wide.trip.count = zext nneg i32 %9 to i64
-  br label %.lr.ph
+  br i1 %13, label %14, label %.lr.ph
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %0, i64 624
@@ -620,8 +616,8 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   %17 = add nsw i32 %4, -3
   %18 = sext i32 %17 to i64
   %19 = sext i32 %16 to i64
-  %smax82 = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
-  %wide.trip.count83 = zext nneg i32 %smax82 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
+  %wide.trip.count82 = zext nneg i32 %smax to i64
   br label %.lr.ph75.us
 
 .lr.ph75.us:                                      ; preds = %.lr.ph75.us.backedge, %.lr.ph75.us.preheader
@@ -700,8 +696,8 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   br i1 %47, label %.thread.us.sink.split, label %.thread.us
 
 .thread.us.sink.split:                            ; preds = %46, %40, %30
-  %.sink85 = phi i64 [ -4, %30 ], [ -8, %40 ], [ -8, %46 ]
-  %48 = getelementptr i8, ptr %20, i64 %.sink85
+  %.sink84 = phi i64 [ -4, %30 ], [ -8, %40 ], [ -8, %46 ]
+  %48 = getelementptr i8, ptr %20, i64 %.sink84
   store i32 1, ptr %48, align 4
   br label %.thread.us
 
@@ -713,8 +709,8 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 49:                                               ; preds = %.thread.us, %.lr.ph75.us
   %.2.us = phi i32 [ %.1.us, %.thread.us ], [ %.074.us, %.lr.ph75.us ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond84.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge.us, label %.lr.ph75.us.backedge
+  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
+  br i1 %exitcond83.not, label %._crit_edge.us, label %.lr.ph75.us.backedge
 
 .lr.ph75.us.backedge:                             ; preds = %49, %._crit_edge.us
   %indvars.iv79.be = phi i64 [ %indvars.iv.next80, %49 ], [ 0, %._crit_edge.us ]
@@ -725,12 +721,12 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   %.not.us = icmp eq i32 %.2.us, 0
   br i1 %.not.us, label %.split.us, label %.lr.ph75.us.backedge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.lr.ph:                                           ; preds = %8, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %50 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
   store i32 1, ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %.lr.ph75.us.preheader, label %.lr.ph, !llvm.loop !13
 
 .split77.us:                                      ; preds = %22

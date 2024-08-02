@@ -451,8 +451,8 @@ for.cond4.preheader.us.i:                         ; preds = %invoke.cont15, %for
   %arrayidx.i.i.us.i = getelementptr inbounds float, ptr %49, i64 %idxprom.i.i.us.i
   store float -1.000000e+00, ptr %arrayidx.i.i.us.i, align 4
   %inc10.us.i = add nuw nsw i32 %row.010.us.i, 1
-  %exitcond14.not.i = icmp eq i32 %row.010.us.i, %sub
-  br i1 %exitcond14.not.i, label %invoke.cont19, label %for.cond4.preheader.us.i, !llvm.loop !13
+  %exitcond13.not.i = icmp eq i32 %row.010.us.i, %sub
+  br i1 %exitcond13.not.i, label %invoke.cont19, label %for.cond4.preheader.us.i, !llvm.loop !13
 
 invoke.cont19:                                    ; preds = %for.cond4.preheader.us.i, %invoke.cont15
   %add21 = or disjoint i32 %mul, 1

@@ -81,8 +81,8 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
 .lr.ph69.us.us.preheader.i:                       ; preds = %.lr.ph.split.us.i
   %54 = sext i32 %37 to i64
   %wide.trip.count131.i = zext nneg i32 %.val660 to i64
-  %smax1079 = tail call i64 @llvm.smax.i64(i64 %54, i64 4)
-  %55 = add nsw i64 %smax1079, -1
+  %smax = tail call i64 @llvm.smax.i64(i64 %54, i64 4)
+  %55 = add nsw i64 %smax, -1
   %56 = shl nuw nsw i64 %55, 1
   %57 = and i64 %56, 9223372036854775800
   %58 = add nuw nsw i64 %57, 8
@@ -95,7 +95,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   br label %.lr.ph69.us.us.i
 
 .lr.ph69.us.us.i:                                 ; preds = %._crit_edge70.split.us.us.us.i, %.lr.ph69.us.us.preheader.i
-  %indvars.iv1080 = phi ptr [ %scevgep1081, %._crit_edge70.split.us.us.us.i ], [ %scevgep, %.lr.ph69.us.us.preheader.i ]
+  %indvars.iv1079 = phi ptr [ %scevgep1080, %._crit_edge70.split.us.us.us.i ], [ %scevgep, %.lr.ph69.us.us.preheader.i ]
   %.029982.us.us.i = phi i32 [ %244, %._crit_edge70.split.us.us.us.i ], [ 0, %.lr.ph69.us.us.preheader.i ]
   %.031280.us.us.i = phi ptr [ %243, %._crit_edge70.split.us.us.us.i ], [ %26, %.lr.ph69.us.us.preheader.i ]
   %.031378.us.us.i = phi ptr [ %242, %._crit_edge70.split.us.us.us.i ], [ %.val658, %.lr.ph69.us.us.preheader.i ]
@@ -111,7 +111,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   br label %71
 
 71:                                               ; preds = %..loopexit6_crit_edge.us.us.us.i, %.lr.ph69.us.us.i
-  %indvars.iv1082 = phi ptr [ %scevgep1083, %..loopexit6_crit_edge.us.us.us.i ], [ %indvars.iv1080, %.lr.ph69.us.us.i ]
+  %indvars.iv1081 = phi ptr [ %scevgep1082, %..loopexit6_crit_edge.us.us.us.i ], [ %indvars.iv1079, %.lr.ph69.us.us.i ]
   %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %..loopexit6_crit_edge.us.us.us.i ], [ 0, %.lr.ph69.us.us.i ]
   %72 = trunc nuw nsw i64 %indvars.iv128.i to i32
   %73 = xor i32 %72, -1
@@ -134,7 +134,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   br label %.preheader4.us.us.us.i
 
 ._crit_edge17.us.us.us.loopexit.i:                ; preds = %._crit_edge.us.us.us.i.loopexit.us, %.lr.ph16.us.us.us.i.preheader
-  %.us-phi = phi ptr [ %indvars.iv1084, %.lr.ph16.us.us.us.i.preheader ], [ %240, %._crit_edge.us.us.us.i.loopexit.us ]
+  %.us-phi = phi ptr [ %indvars.iv1083, %.lr.ph16.us.us.us.i.preheader ], [ %240, %._crit_edge.us.us.us.i.loopexit.us ]
   %.us-phi978 = phi i64 [ %63, %.lr.ph16.us.us.us.i.preheader ], [ %indvars.iv.next112.i.us, %._crit_edge.us.us.us.i.loopexit.us ]
   %80 = trunc nuw nsw i64 %.us-phi978 to i32
   br label %._crit_edge17.us.us.us.i
@@ -348,7 +348,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   %189 = getelementptr inbounds double, ptr %.030964.us.us.us.i, i64 %48
   %190 = add nuw nsw i32 %.030466.us.us.us.i, 1
   %exitcond127.not.i = icmp eq i32 %190, %.val337.fr.i
-  %scevgep1085 = getelementptr i8, ptr %indvars.iv1084, i64 %61
+  %scevgep1084 = getelementptr i8, ptr %indvars.iv1083, i64 %61
   br i1 %exitcond127.not.i, label %..loopexit6_crit_edge.us.us.us.i, label %.preheader4.us.us.us.i, !llvm.loop !10
 
 .lr.ph62.us.us.us.i:                              ; preds = %.preheader.us.us.us.i, %.lr.ph62.us.us.us.i
@@ -370,7 +370,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
 ..loopexit6_crit_edge.us.us.us.i:                 ; preds = %.loopexit.us.us.us.i, %71
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %exitcond132.not.i = icmp eq i64 %indvars.iv.next129.i, %wide.trip.count131.i
-  %scevgep1083 = getelementptr i8, ptr %indvars.iv1082, i64 8
+  %scevgep1082 = getelementptr i8, ptr %indvars.iv1081, i64 8
   br i1 %exitcond132.not.i, label %._crit_edge70.split.us.us.us.i, label %71, !llvm.loop !12
 
 .preheader.us.us.us.i:                            ; preds = %._crit_edge17.us.us.us.i
@@ -383,7 +383,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   br i1 %.not33419.us.us.i, label %._crit_edge25.us.us.us.i, label %.lr.ph24.us.us.us.i
 
 .preheader4.us.us.us.i:                           ; preds = %.preheader4.us.us.us.i.preheader, %.loopexit.us.us.us.i
-  %indvars.iv1084 = phi ptr [ %scevgep1085, %.loopexit.us.us.us.i ], [ %indvars.iv1082, %.preheader4.us.us.us.i.preheader ]
+  %indvars.iv1083 = phi ptr [ %scevgep1084, %.loopexit.us.us.us.i ], [ %indvars.iv1081, %.preheader4.us.us.us.i.preheader ]
   %.030466.us.us.us.i = phi i32 [ %190, %.loopexit.us.us.us.i ], [ 0, %.preheader4.us.us.us.i.preheader ]
   %.030964.us.us.us.i = phi ptr [ %189, %.loopexit.us.us.us.i ], [ %79, %.preheader4.us.us.us.i.preheader ]
   %.031063.us.us.us.i = phi ptr [ %188, %.loopexit.us.us.us.i ], [ %78, %.preheader4.us.us.us.i.preheader ]
@@ -459,7 +459,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr nocapture noundef readonly %0,
   %243 = getelementptr inbounds double, ptr %.031280.us.us.i, i64 %52
   %244 = add nsw i32 %spec.select.us.us.i, %.029982.us.us.i
   %245 = icmp slt i32 %244, %23
-  %scevgep1081 = getelementptr i8, ptr %indvars.iv1080, i64 %60
+  %scevgep1080 = getelementptr i8, ptr %indvars.iv1079, i64 %60
   br i1 %245, label %.lr.ph69.us.us.i, label %._crit_edge.i, !llvm.loop !15
 
 .lr.ph69.us.i:                                    ; preds = %.lr.ph.split.us.i, %._crit_edge70.split.us89.i
@@ -539,8 +539,8 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %257
   %277 = icmp sgt i32 %4, 0
   %or.cond = and i1 %265, %277
   %278 = icmp sgt i32 %3, 0
-  %or.cond1165 = and i1 %or.cond, %278
-  br i1 %or.cond1165, label %.lr.ph.split.us.split.us.split.us.preheader, label %.loopexit691
+  %or.cond1164 = and i1 %or.cond, %278
+  br i1 %or.cond1164, label %.lr.ph.split.us.split.us.split.us.preheader, label %.loopexit691
 
 .lr.ph.split.us.split.us.split.us.preheader:      ; preds = %.lr.ph
   %279 = and i32 %270, -2

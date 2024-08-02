@@ -6230,28 +6230,26 @@ while.body.preheader:                             ; preds = %_ZL12us_arrayCopyPK
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %indvars.iv = phi i64 [ %7, %while.body.preheader ], [ %indvars.iv.next, %while.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx = getelementptr inbounds i16, ptr %cond.i10, i64 %idxprom
+  %arrayidx = getelementptr inbounds i16, ptr %cond.i10, i64 %indvars.iv.next
   store i16 %padChar, ptr %arrayidx, align 2
-  %8 = trunc nuw i64 %indvars.iv to i32
-  %cmp4 = icmp sgt i32 %8, 1
+  %cmp4 = icmp ugt i64 %indvars.iv, 1
   br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %_ZL12us_arrayCopyPKDsiPDsii.exit
   %cmp.i11 = icmp slt i32 %targetLength, 1024
-  %9 = load i16, ptr %fUnion.i.i, align 8
+  %8 = load i16, ptr %fUnion.i.i, align 8
   br i1 %cmp.i11, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end
-  %10 = and i16 %9, 31
+  %9 = and i16 %8, 31
   %len.tr.i.i = trunc i32 %targetLength to i16
-  %11 = shl i16 %len.tr.i.i, 5
-  %conv2.i.i = or disjoint i16 %10, %11
+  %10 = shl i16 %len.tr.i.i, 5
+  %conv2.i.i = or disjoint i16 %9, %10
   store i16 %conv2.i.i, ptr %fUnion.i.i, align 8
   br label %return
 
 if.else.i:                                        ; preds = %while.end
-  %or.i = or i16 %9, -32
+  %or.i = or i16 %8, -32
   store i16 %or.i, ptr %fUnion.i.i, align 8
   store i32 %targetLength, ptr %fLength.i, align 4
   br label %return

@@ -3024,7 +3024,7 @@ _ZN5ropey4tree13node_children12NodeChildren21search_char_idx_range17h6d3cc8f7387
   br i1 %289, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.llvm.15236414416081531888.exit, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7240af60d106f18E.llvm.15236414416081531888.exit132"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7240af60d106f18E.llvm.15236414416081531888.exit132": ; preds = %288
-  %290 = add i64 %.sroa.8162.0, 1
+  %290 = add nuw i64 %.sroa.8162.0, 1
   %291 = getelementptr inbounds i8, ptr %.sroa.0160.0, i64 1
   %292 = load i8, ptr %.sroa.0160.0, align 1, !noundef !7
   %293 = and i8 %292, -64

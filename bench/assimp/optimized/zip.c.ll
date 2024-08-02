@@ -9217,7 +9217,7 @@ cond.end:                                         ; preds = %if.end15
   br i1 %cmp18, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end15, %cond.end
-  %cond148 = phi i64 [ %call17, %cond.end ], [ 0, %if.end15 ]
+  %cond146 = phi i64 [ %call17, %cond.end ], [ 0, %if.end15 ]
   %m_total_files = getelementptr inbounds i8, ptr %pZip, i64 16
   %16 = load i32, ptr %m_total_files, align 8
   %cmp21121.not = icmp eq i32 %16, 0
@@ -9227,17 +9227,17 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %17 = load ptr, ptr %0, align 8
   %m_central_dir_offsets = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load ptr, ptr %m_central_dir_offsets, align 8
-  %tobool37.not = icmp eq i64 %cond148, 0
+  %tobool37.not = icmp eq i64 %cond146, 0
   %and.i112 = and i32 %flags, 256
   %tobool.i113.not = icmp eq i32 %and.i112, 0
   %and67 = and i32 %flags, 512
   %tobool68 = icmp ne i32 %and67, 0
-  %wide.trip.count144 = zext i32 %16 to i64
+  %wide.trip.count142 = zext i32 %16 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv140 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next141, %for.inc ]
-  %arrayidx = getelementptr inbounds i32, ptr %18, i64 %indvars.iv140
+  %indvars.iv139 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next140, %for.inc ]
+  %arrayidx = getelementptr inbounds i32, ptr %18, i64 %indvars.iv139
   %19 = load i32, ptr %arrayidx, align 4
   %idxprom25 = zext i32 %19 to i64
   %arrayidx26 = getelementptr inbounds i8, ptr %17, i64 %idxprom25
@@ -9272,7 +9272,7 @@ if.then38:                                        ; preds = %if.end36
   %add.ptr55 = getelementptr inbounds i8, ptr %add.ptr31, i64 %conv32
   %add.ptr57 = getelementptr inbounds i8, ptr %add.ptr55, i64 %23
   %conv58 = zext nneg i32 %or54 to i64
-  %cmp59.not = icmp eq i64 %cond148, %conv58
+  %cmp59.not = icmp eq i64 %cond146, %conv58
   br i1 %cmp59.not, label %lor.lhs.false61, label %for.inc
 
 lor.lhs.false61:                                  ; preds = %if.then38
@@ -9284,7 +9284,7 @@ for.cond.i115.preheader:                          ; preds = %lor.lhs.false61
 
 for.cond.i115:                                    ; preds = %for.body.i118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %cond148
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %cond146
   br i1 %exitcond.not, label %if.end66, label %for.body.i118
 
 for.body.i118:                                    ; preds = %for.cond.i115.preheader, %for.cond.i115
@@ -9309,7 +9309,7 @@ for.body.i118:                                    ; preds = %for.cond.i115.prehe
   br i1 %cmp41.i139.not, label %for.cond.i115, label %for.inc
 
 mz_zip_reader_string_equal.exit170:               ; preds = %lor.lhs.false61
-  %bcmp = tail call i32 @bcmp(ptr %pComment, ptr nonnull %add.ptr57, i64 %cond148)
+  %bcmp = tail call i32 @bcmp(ptr %pComment, ptr nonnull %add.ptr57, i64 %cond146)
   %cmp.i168.not = icmp eq i32 %bcmp, 0
   br i1 %cmp.i168.not, label %if.end66, label %for.inc
 
@@ -9321,8 +9321,7 @@ if.end66:                                         ; preds = %for.cond.i115, %for
 do.body:                                          ; preds = %if.end66, %do.cond
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %do.cond ], [ %conv32, %if.end66 ]
   %indvars.iv.next132 = add nsw i64 %indvars.iv131, -1
-  %idxprom72 = and i64 %indvars.iv.next132, 4294967295
-  %arrayidx73 = getelementptr inbounds i8, ptr %add.ptr31, i64 %idxprom72
+  %arrayidx73 = getelementptr inbounds i8, ptr %add.ptr31, i64 %indvars.iv.next132
   %30 = load i8, ptr %arrayidx73, align 1
   switch i8 %30, label %do.cond [
     i8 47, label %do.end.split.loop.exit
@@ -9331,15 +9330,15 @@ do.body:                                          ; preds = %if.end66, %do.cond
   ]
 
 do.cond:                                          ; preds = %do.body
-  %31 = icmp sgt i64 %indvars.iv131, 1
-  br i1 %31, label %do.body, label %do.end
+  %cmp91 = icmp sgt i64 %indvars.iv131, 1
+  br i1 %cmp91, label %do.body, label %do.end
 
 do.end.split.loop.exit:                           ; preds = %do.body, %do.body, %do.body
-  %32 = trunc nuw i64 %indvars.iv131 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv131 to i32
   br label %do.end
 
 do.end:                                           ; preds = %do.cond, %do.end.split.loop.exit
-  %ofs.1 = phi i32 [ %32, %do.end.split.loop.exit ], [ 0, %do.cond ]
+  %ofs.1 = phi i32 [ %31, %do.end.split.loop.exit ], [ 0, %do.cond ]
   %idx.ext93 = zext nneg i32 %ofs.1 to i64
   %add.ptr94 = getelementptr inbounds i8, ptr %add.ptr31, i64 %idx.ext93
   %sub95 = sub nsw i32 %or, %ofs.1
@@ -9358,30 +9357,30 @@ land.lhs.true100:                                 ; preds = %if.end96
 
 for.cond.i.preheader:                             ; preds = %land.lhs.true100
   %cmp2.i118.not = icmp eq i32 %filename_len.0, 0
-  br i1 %cmp2.i118.not, label %return.loopexit150.split.loop.exit, label %for.body.i
+  br i1 %cmp2.i118.not, label %return.loopexit148.split.loop.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next135, %call12
-  br i1 %exitcond139.not, label %return.loopexit, label %for.body.i
+  %exitcond138.not = icmp eq i64 %indvars.iv.next135, %call12
+  br i1 %exitcond138.not, label %return.loopexit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i.preheader, %for.cond.i
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %for.cond.i ], [ 0, %for.cond.i.preheader ]
   %arrayidx.i = getelementptr inbounds i8, ptr %pName, i64 %indvars.iv134
-  %33 = load i8, ptr %arrayidx.i, align 1
-  %34 = add i8 %33, -65
-  %or.cond94 = icmp ult i8 %34, 26
-  %narrow89 = add nuw nsw i8 %33, 32
+  %32 = load i8, ptr %arrayidx.i, align 1
+  %33 = add i8 %32, -65
+  %or.cond94 = icmp ult i8 %33, 26
+  %narrow89 = add nuw nsw i8 %32, 32
   %add.i = zext nneg i8 %narrow89 to i32
-  %conv17.i = sext i8 %33 to i32
+  %conv17.i = sext i8 %32 to i32
   %cond.i = select i1 %or.cond94, i32 %add.i, i32 %conv17.i
   %arrayidx19.i = getelementptr inbounds i8, ptr %pFilename.0, i64 %indvars.iv134
-  %35 = load i8, ptr %arrayidx19.i, align 1
-  %36 = add i8 %35, -65
-  %or.cond95 = icmp ult i8 %36, 26
-  %narrow91 = add nuw nsw i8 %35, 32
+  %34 = load i8, ptr %arrayidx19.i, align 1
+  %35 = add i8 %34, -65
+  %or.cond95 = icmp ult i8 %35, 26
+  %narrow91 = add nuw nsw i8 %34, 32
   %add34.i = zext nneg i8 %narrow91 to i32
-  %conv38.i = sext i8 %35 to i32
+  %conv38.i = sext i8 %34 to i32
   %cond40.i = select i1 %or.cond95, i32 %add34.i, i32 %conv38.i
   %cmp41.i.not = icmp eq i32 %cond.i, %cond40.i
   br i1 %cmp41.i.not, label %for.cond.i, label %for.inc
@@ -9389,27 +9388,27 @@ for.body.i:                                       ; preds = %for.cond.i.preheade
 mz_zip_reader_string_equal.exit:                  ; preds = %land.lhs.true100
   %bcmp110 = tail call i32 @bcmp(ptr nonnull %pName, ptr nonnull %pFilename.0, i64 %call12)
   %cmp.i.not = icmp eq i32 %bcmp110, 0
-  br i1 %cmp.i.not, label %return.loopexit150.split.loop.exit157, label %for.inc
+  br i1 %cmp.i.not, label %return.loopexit148.split.loop.exit155, label %for.inc
 
 for.inc:                                          ; preds = %for.body.i118, %for.body.i, %if.end96, %mz_zip_reader_string_equal.exit, %if.then38, %mz_zip_reader_string_equal.exit170, %for.body
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond145.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count144
-  br i1 %exitcond145.not, label %return, label %for.body
+  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
+  %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
+  br i1 %exitcond143.not, label %return, label %for.body
 
 return.loopexit:                                  ; preds = %for.cond.i
-  %37 = trunc nuw i64 %indvars.iv140 to i32
+  %36 = trunc nuw i64 %indvars.iv139 to i32
   br label %return
 
-return.loopexit150.split.loop.exit:               ; preds = %for.cond.i.preheader
-  %38 = trunc nuw i64 %indvars.iv140 to i32
+return.loopexit148.split.loop.exit:               ; preds = %for.cond.i.preheader
+  %37 = trunc nuw i64 %indvars.iv139 to i32
   br label %return
 
-return.loopexit150.split.loop.exit157:            ; preds = %mz_zip_reader_string_equal.exit
-  %39 = trunc nuw i64 %indvars.iv140 to i32
+return.loopexit148.split.loop.exit155:            ; preds = %mz_zip_reader_string_equal.exit
+  %38 = trunc nuw i64 %indvars.iv139 to i32
   br label %return
 
-return:                                           ; preds = %if.else.i, %while.end.i.i, %for.inc, %return.loopexit150.split.loop.exit, %return.loopexit150.split.loop.exit157, %return.loopexit, %for.cond.preheader, %if.then10, %cond.end, %if.end11, %entry, %lor.lhs.false, %lor.lhs.false4
-  %retval.0 = phi i32 [ -1, %lor.lhs.false4 ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ -1, %if.end11 ], [ -1, %cond.end ], [ -1, %if.then10 ], [ -1, %for.cond.preheader ], [ %37, %return.loopexit ], [ %38, %return.loopexit150.split.loop.exit ], [ %39, %return.loopexit150.split.loop.exit157 ], [ -1, %for.inc ], [ %7, %while.end.i.i ], [ -1, %if.else.i ]
+return:                                           ; preds = %if.else.i, %while.end.i.i, %for.inc, %return.loopexit148.split.loop.exit, %return.loopexit148.split.loop.exit155, %return.loopexit, %for.cond.preheader, %if.then10, %cond.end, %if.end11, %entry, %lor.lhs.false, %lor.lhs.false4
+  %retval.0 = phi i32 [ -1, %lor.lhs.false4 ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ -1, %if.end11 ], [ -1, %cond.end ], [ -1, %if.then10 ], [ -1, %for.cond.preheader ], [ %36, %return.loopexit ], [ %37, %return.loopexit148.split.loop.exit ], [ %38, %return.loopexit148.split.loop.exit155 ], [ -1, %for.inc ], [ %7, %while.end.i.i ], [ -1, %if.else.i ]
   ret i32 %retval.0
 }
 

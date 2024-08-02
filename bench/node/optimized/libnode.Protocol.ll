@@ -21791,11 +21791,11 @@ if.then11:                                        ; preds = %if.then4
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then11
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
-  %.pre102 = load ptr, ptr %_M_finish, align 8
+  %.pre101 = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit
 
 _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %if.then11, %if.then.i.i.i.i.i.i.i.i.i
-  %2 = phi ptr [ %1, %if.then11 ], [ %.pre102, %if.then.i.i.i.i.i.i.i.i.i ]
+  %2 = phi ptr [ %1, %if.then11 ], [ %.pre101, %if.then.i.i.i.i.i.i.i.i.i ]
   %add.ptr22 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr22, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
@@ -21857,11 +21857,11 @@ _ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt22_
 
 if.then.i.i.i.i.i.i.i.i.i38:                      ; preds = %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr36, ptr align 1 %__position.coerce, i64 %sub.ptr.sub.i, i1 false)
-  %.pre101 = load ptr, ptr %_M_finish, align 8
+  %.pre100 = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit40
 
 _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit40: ; preds = %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit, %if.then.i.i.i.i.i.i.i.i.i38
-  %6 = phi ptr [ %add.ptr36, %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit ], [ %.pre101, %if.then.i.i.i.i.i.i.i.i.i38 ]
+  %6 = phi ptr [ %add.ptr36, %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit ], [ %.pre100, %if.then.i.i.i.i.i.i.i.i.i38 ]
   %add.ptr44 = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i
   store ptr %add.ptr44, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i44 = icmp sgt i64 %sub.ptr.sub.i, 0
@@ -21921,12 +21921,11 @@ _ZSt34__uninitialized_move_if_noexcept_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; pred
   br i1 %cmp6.i.i.i.i.i.i.i.i72, label %for.body.i.i.i.i.i.i.i.i74.preheader, label %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit82
 
 for.body.i.i.i.i.i.i.i.i74.preheader:             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit
-  %10 = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i.i.i.i68, ptr align 1 %__first, i64 %10, i1 false)
-  %11 = add i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i63
-  %12 = add i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i.i60
-  %13 = sub i64 %11, %12
-  %scevgep = getelementptr i8, ptr %cond.i62, i64 %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i.i.i.i68, ptr align 1 %__first, i64 %sub.ptr.sub.i.i, i1 false)
+  %10 = add i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i63
+  %11 = add i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i.i60
+  %12 = sub i64 %10, %11
+  %scevgep = getelementptr i8, ptr %cond.i62, i64 %12
   br label %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit82
 
 _ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit82: ; preds = %for.body.i.i.i.i.i.i.i.i74.preheader, %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit
@@ -22003,11 +22002,11 @@ if.then16:                                        ; preds = %if.then9
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then16
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %add.ptr, i64 %sub.ptr.sub.i.i.i, i1 false)
-  %.pre92 = load ptr, ptr %_M_finish, align 8
+  %.pre91 = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit
 
 _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %if.then16, %if.then.i.i.i.i.i.i.i.i.i
-  %2 = phi ptr [ %1, %if.then16 ], [ %.pre92, %if.then.i.i.i.i.i.i.i.i.i ]
+  %2 = phi ptr [ %1, %if.then16 ], [ %.pre91, %if.then.i.i.i.i.i.i.i.i.i ]
   %add.ptr27 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr27, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
@@ -22069,11 +22068,11 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
 
 if.then.i.i.i.i.i.i.i.i.i32:                      ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr50, ptr align 1 %__position.coerce, i64 %sub.ptr.sub.i, i1 false)
-  %.pre91 = load ptr, ptr %_M_finish, align 8
+  %.pre90 = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit34
 
 _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit34: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit, %if.then.i.i.i.i.i.i.i.i.i32
-  %6 = phi ptr [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit ], [ %.pre91, %if.then.i.i.i.i.i.i.i.i.i32 ]
+  %6 = phi ptr [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit ], [ %.pre90, %if.then.i.i.i.i.i.i.i.i.i32 ]
   %add.ptr58 = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i38 = icmp sgt i64 %sub.ptr.sub.i, 0
@@ -22133,12 +22132,11 @@ _ZSt34__uninitialized_move_if_noexcept_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; pred
   br i1 %cmp6.i.i.i.i.i.i.i.i64, label %for.body.i.i.i.i.i.i.i.i66.preheader, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit74
 
 for.body.i.i.i.i.i.i.i.i66.preheader:             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit
-  %10 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i.i.i.i60, ptr align 1 %__first.coerce, i64 %10, i1 false)
-  %11 = add i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i55
-  %12 = add i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %13 = sub i64 %11, %12
-  %scevgep = getelementptr i8, ptr %cond.i54, i64 %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i.i.i.i60, ptr align 1 %__first.coerce, i64 %sub.ptr.sub.i.i.i, i1 false)
+  %10 = add i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i55
+  %11 = add i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
+  %12 = sub i64 %10, %11
+  %scevgep = getelementptr i8, ptr %cond.i54, i64 %12
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit74
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit74: ; preds = %for.body.i.i.i.i.i.i.i.i66.preheader, %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit

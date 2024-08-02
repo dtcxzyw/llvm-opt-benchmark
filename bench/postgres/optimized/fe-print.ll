@@ -1043,18 +1043,18 @@ define internal fastcc noundef ptr @do_header(ptr noundef %0, ptr nocapture noun
   %47 = load i8, ptr %24, align 2
   %.not101 = icmp eq i8 %47, 0
   %48 = select i1 %.not101, i32 0, i32 2
-  %49 = sub i32 0, %46
-  %.not102126 = icmp eq i32 %48, %49
+  %49 = add i32 %48, %46
+  %.not102126 = icmp eq i32 %49, 0
   br i1 %.not102126, label %._crit_edge131, label %.lr.ph130.preheader
 
 .lr.ph130.preheader:                              ; preds = %44
-  %50 = add nsw i32 %48, -1
-  %51 = add i32 %50, %46
-  %52 = zext i32 %51 to i64
-  %53 = add nuw nsw i64 %52, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.2139, i8 45, i64 %53, i1 false)
+  %50 = zext i32 %49 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.2139, i8 45, i64 %50, i1 false)
+  %51 = add nsw i32 %48, -1
+  %52 = add i32 %51, %46
+  %53 = zext i32 %52 to i64
   %scevgep = getelementptr i8, ptr %.2139, i64 1
-  %scevgep153 = getelementptr i8, ptr %scevgep, i64 %52
+  %scevgep153 = getelementptr i8, ptr %scevgep, i64 %53
   %.pre164 = load i8, ptr %24, align 2
   br label %._crit_edge131
 

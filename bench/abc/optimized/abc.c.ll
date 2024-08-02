@@ -14754,28 +14754,25 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunTest(ptr nocapture readnone %
   %16 = sext i32 %12 to i64
   %17 = shl nsw i64 %16, 3
   %scevgep = getelementptr i8, ptr %2, i64 %17
-  %18 = xor i32 %12, -1
-  %19 = add i32 %18, %1
-  %20 = zext i32 %19 to i64
-  %21 = shl nuw nsw i64 %20, 3
-  %22 = add nuw nsw i64 %21, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i64 %22, i1 false)
+  %18 = shl nuw nsw i32 %13, 3
+  %19 = zext nneg i32 %18 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 8 %scevgep, i64 %19, i1 false)
   call void @Acb_NtkRunTest(ptr noundef nonnull %4, i32 noundef %.017.ph, i32 noundef %.0) #28
-  br label %25
+  br label %22
 
 .loopexit:                                        ; preds = %5, %15
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1152)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1153)
   %.not23 = icmp eq i32 %.017.ph, 0
-  %23 = select i1 %.not23, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1154, ptr noundef nonnull %23)
+  %20 = select i1 %.not23, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1154, ptr noundef nonnull %20)
   %.not24 = icmp eq i32 %.0, 0
-  %24 = select i1 %.not24, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1155, ptr noundef nonnull %24)
+  %21 = select i1 %.not24, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1155, ptr noundef nonnull %21)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.670)
-  br label %25
+  br label %22
 
-25:                                               ; preds = %.loopexit, %._crit_edge
+22:                                               ; preds = %.loopexit, %._crit_edge
   %.020 = phi i32 [ 1, %.loopexit ], [ 0, %._crit_edge ]
   ret i32 %.020
 }

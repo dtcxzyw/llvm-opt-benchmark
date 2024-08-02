@@ -96604,14 +96604,13 @@ _ZN17QArrayDataPointerIPjE5derefEv.exit.i.i63:    ; preds = %._crit_edge112
   %101 = add nsw i32 %20, -1
   %102 = sitofp i32 %101 to double
   %103 = icmp ult i32 %reass.sub119, 2147483647
-  %smax130 = call i32 @llvm.smax.i32(i32 %93, i32 1)
-  %wide.trip.count136 = zext nneg i32 %20 to i64
-  %wide.trip.count131 = zext nneg i32 %smax130 to i64
+  %wide.trip.count135 = zext nneg i32 %20 to i64
+  %wide.trip.count130 = zext nneg i32 %93 to i64
   br label %104
 
 104:                                              ; preds = %.lr.ph118, %._crit_edge115
-  %indvars.iv133 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next134, %._crit_edge115 ]
-  %105 = trunc nuw nsw i64 %indvars.iv133 to i32
+  %indvars.iv132 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next133, %._crit_edge115 ]
+  %105 = trunc nuw nsw i64 %indvars.iv132 to i32
   %106 = invoke noundef ptr @_ZN6QImage8scanLineEi(ptr noundef nonnull align 8 dereferenceable(24) %95, i32 noundef %105)
           to label %107 unwind label %.loopexit
 
@@ -96667,13 +96666,13 @@ _ZNK17QArrayDataPointerIdE11needsDetachEv.exit.thread.i.i.i.i74: ; preds = %_ZNK
   %124 = getelementptr i32, ptr %106, i64 %indvars.iv127
   store i32 %123, ptr %124, align 4
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count131
-  br i1 %exitcond132.not, label %._crit_edge115, label %.lr.ph114, !llvm.loop !867
+  %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
+  br i1 %exitcond131.not, label %._crit_edge115, label %.lr.ph114, !llvm.loop !867
 
 ._crit_edge115:                                   ; preds = %.lr.ph114, %.preheader
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
-  br i1 %exitcond137.not, label %_ZN5QListIPjED2Ev.exit65, label %104, !llvm.loop !868
+  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
+  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
+  br i1 %exitcond136.not, label %_ZN5QListIPjED2Ev.exit65, label %104, !llvm.loop !868
 
 _ZN5QListIPjED2Ev.exit65:                         ; preds = %._crit_edge115, %94, %90, %_ZN17QArrayDataPointerIPjE5derefEv.exit.i.i63, %._crit_edge112
   %125 = getelementptr inbounds i8, ptr %0, i64 464

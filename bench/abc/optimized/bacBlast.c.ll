@@ -605,7 +605,7 @@ define i32 @Bac_ManExtract_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %10 = getelementptr inbounds i32, ptr %.val, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %232, label %13
+  br i1 %12, label %235, label %13
 
 13:                                               ; preds = %5
   %14 = getelementptr i8, ptr %1, i64 88
@@ -622,11 +622,11 @@ define i32 @Bac_ManExtract_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %20 = getelementptr inbounds i32, ptr %.val150, i64 %9
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @Bac_ManExtract_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %21, i32 noundef %3, ptr noundef %4)
-  br label %228
+  br label %231
 
 23:                                               ; preds = %13
   %.mask.i = and i8 %16, -2
-  switch i8 %.mask.i, label %228 [
+  switch i8 %.mask.i, label %231 [
     i8 2, label %24
     i8 8, label %61
   ]
@@ -663,7 +663,7 @@ Bac_NtkHostNtk.exit:                              ; preds = %24, %Bac_ManNtkIsOk
   %41 = add i32 %.val152, %40
   %42 = tail call i32 @Bac_ManExtract_rec(ptr noundef %0, ptr noundef %35, i32 noundef %41, i32 noundef %3, ptr noundef %4)
   %.not146 = icmp eq i32 %3, 0
-  br i1 %.not146, label %228, label %43
+  br i1 %.not146, label %231, label %43
 
 43:                                               ; preds = %Bac_NtkHostNtk.exit
   %44 = load ptr, ptr %1, align 8
@@ -683,7 +683,7 @@ Bac_NtkHostNtk.exit:                              ; preds = %24, %Bac_ManNtkIsOk
   %58 = sdiv exact i64 %57, 208
   %59 = trunc i64 %58 to i32
   %60 = tail call i32 @Bac_ManAddBarbuf(ptr noundef %0, i32 noundef %42, ptr noundef %44, i32 noundef %51, i32 noundef %2, i32 noundef %59, i32 noundef %41, ptr noundef %4)
-  br label %228
+  br label %231
 
 61:                                               ; preds = %23
   %62 = getelementptr i8, ptr %1, i64 120
@@ -697,7 +697,7 @@ Bac_NtkHostNtk.exit:                              ; preds = %24, %Bac_ManNtkIsOk
   %69 = load i8, ptr %68, align 1
   %.mask.i162 = and i8 %69, -2
   %.not168 = icmp eq i8 %.mask.i162, 10
-  br i1 %.not168, label %73, label %.preheader
+  br i1 %.not168, label %74, label %.preheader
 
 .preheader:                                       ; preds = %61
   %70 = add i32 %66, -1
@@ -706,289 +706,293 @@ Bac_NtkHostNtk.exit:                              ; preds = %24, %Bac_ManNtkIsOk
 
 .lr.ph:                                           ; preds = %.preheader
   %72 = getelementptr i8, ptr %1, i64 104
-  %wide.trip.count = zext i32 %66 to i64
-  br label %109
+  %73 = zext i32 %66 to i64
+  br label %110
 
-73:                                               ; preds = %61
-  %74 = load ptr, ptr %1, align 8
-  %75 = getelementptr i8, ptr %1, i64 104
-  %.val.i = load ptr, ptr %75, align 8
-  %76 = getelementptr inbounds i32, ptr %.val.i, i64 %67
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %Bac_ManNtkIsOk.exit.i.i163, label %Bac_BoxBoNtk.exit
+74:                                               ; preds = %61
+  %75 = load ptr, ptr %1, align 8
+  %76 = getelementptr i8, ptr %1, i64 104
+  %.val.i = load ptr, ptr %76, align 8
+  %77 = getelementptr inbounds i32, ptr %.val.i, i64 %67
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %Bac_ManNtkIsOk.exit.i.i163, label %Bac_BoxBoNtk.exit
 
-Bac_ManNtkIsOk.exit.i.i163:                       ; preds = %73
-  %79 = getelementptr i8, ptr %74, i64 36
-  %.val.i.i.i164 = load i32, ptr %79, align 4
-  %.not4.i.i165 = icmp slt i32 %.val.i.i.i164, %77
-  br i1 %.not4.i.i165, label %Bac_BoxBoNtk.exit, label %80
+Bac_ManNtkIsOk.exit.i.i163:                       ; preds = %74
+  %80 = getelementptr i8, ptr %75, i64 36
+  %.val.i.i.i164 = load i32, ptr %80, align 4
+  %.not4.i.i165 = icmp slt i32 %.val.i.i.i164, %78
+  br i1 %.not4.i.i165, label %Bac_BoxBoNtk.exit, label %81
 
-80:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i163
-  %81 = getelementptr inbounds i8, ptr %74, i64 40
-  %82 = load ptr, ptr %81, align 8
-  %83 = zext nneg i32 %77 to i64
-  %84 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %82, i64 %83
+81:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i163
+  %82 = getelementptr inbounds i8, ptr %75, i64 40
+  %83 = load ptr, ptr %82, align 8
+  %84 = zext nneg i32 %78 to i64
+  %85 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %83, i64 %84
   br label %Bac_BoxBoNtk.exit
 
-Bac_BoxBoNtk.exit:                                ; preds = %73, %Bac_ManNtkIsOk.exit.i.i163, %80
-  %85 = phi ptr [ %84, %80 ], [ null, %Bac_ManNtkIsOk.exit.i.i163 ], [ null, %73 ]
-  %86 = getelementptr i8, ptr %85, i64 56
-  %.val159 = load ptr, ptr %86, align 8
-  %87 = sext i32 %64 to i64
-  %88 = getelementptr inbounds i32, ptr %.val159, i64 %87
-  %89 = load i32, ptr %88, align 4
-  %90 = tail call i32 @Bac_ManExtract_rec(ptr noundef %0, ptr noundef %85, i32 noundef %89, i32 noundef %3, ptr noundef %4)
+Bac_BoxBoNtk.exit:                                ; preds = %74, %Bac_ManNtkIsOk.exit.i.i163, %81
+  %86 = phi ptr [ %85, %81 ], [ null, %Bac_ManNtkIsOk.exit.i.i163 ], [ null, %74 ]
+  %87 = getelementptr i8, ptr %86, i64 56
+  %.val159 = load ptr, ptr %87, align 8
+  %88 = sext i32 %64 to i64
+  %89 = getelementptr inbounds i32, ptr %.val159, i64 %88
+  %90 = load i32, ptr %89, align 4
+  %91 = tail call i32 @Bac_ManExtract_rec(ptr noundef %0, ptr noundef %86, i32 noundef %90, i32 noundef %3, ptr noundef %4)
   %.not145 = icmp eq i32 %3, 0
-  br i1 %.not145, label %228, label %91
+  br i1 %.not145, label %231, label %92
 
-91:                                               ; preds = %Bac_BoxBoNtk.exit
-  %92 = load ptr, ptr %1, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 40
-  %94 = load ptr, ptr %93, align 8
-  %95 = ptrtoint ptr %1 to i64
-  %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %95, %96
-  %98 = sdiv exact i64 %97, 208
-  %99 = trunc i64 %98 to i32
-  %100 = load ptr, ptr %85, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 40
-  %102 = load ptr, ptr %101, align 8
-  %103 = ptrtoint ptr %85 to i64
-  %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = sdiv exact i64 %105, 208
-  %107 = trunc i64 %106 to i32
-  %108 = tail call i32 @Bac_ManAddBarbuf(ptr noundef %0, i32 noundef %90, ptr noundef %92, i32 noundef %99, i32 noundef %2, i32 noundef %107, i32 noundef %89, ptr noundef %4)
-  br label %228
+92:                                               ; preds = %Bac_BoxBoNtk.exit
+  %93 = load ptr, ptr %1, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 40
+  %95 = load ptr, ptr %94, align 8
+  %96 = ptrtoint ptr %1 to i64
+  %97 = ptrtoint ptr %95 to i64
+  %98 = sub i64 %96, %97
+  %99 = sdiv exact i64 %98, 208
+  %100 = trunc i64 %99 to i32
+  %101 = load ptr, ptr %86, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 40
+  %103 = load ptr, ptr %102, align 8
+  %104 = ptrtoint ptr %86 to i64
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = sdiv exact i64 %106, 208
+  %108 = trunc i64 %107 to i32
+  %109 = tail call i32 @Bac_ManAddBarbuf(ptr noundef %0, i32 noundef %91, ptr noundef %93, i32 noundef %100, i32 noundef %2, i32 noundef %108, i32 noundef %90, ptr noundef %4)
+  br label %231
 
-109:                                              ; preds = %.lr.ph, %115
+110:                                              ; preds = %.lr.ph, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %115 ]
-  %110 = phi i32 [ %70, %.lr.ph ], [ %120, %115 ]
+  %111 = phi i32 [ %70, %.lr.ph ], [ %122, %115 ]
   %.val148 = load ptr, ptr %14, align 8
-  %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %.val148, i64 %111
-  %113 = load i8, ptr %112, align 1
-  %.mask.i166 = and i8 %113, -2
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr %.val148, i64 %112
+  %114 = load i8, ptr %113, align 1
+  %.mask.i166 = and i8 %114, -2
   %.not169 = icmp eq i8 %.mask.i166, 6
-  %114 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %.not169, label %115, label %.critedge
+  br i1 %.not169, label %115, label %.critedge.loopexit.split.loop.exit
 
-115:                                              ; preds = %109
+115:                                              ; preds = %110
   %.val160 = load ptr, ptr %72, align 8
-  %116 = getelementptr inbounds i32, ptr %.val160, i64 %111
+  %116 = getelementptr inbounds i32, ptr %.val160, i64 %112
   %117 = load i32, ptr %116, align 4
   %118 = tail call i32 @Bac_ManExtract_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %117, i32 noundef %3, ptr noundef %4)
   %119 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv
   store i32 %118, ptr %119, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %reass.sub = sub i32 %66, %114
-  %120 = add i32 %reass.sub, -2
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %109, !llvm.loop !7
+  %120 = trunc i64 %indvars.iv to i32
+  %121 = sub i32 %66, %120
+  %122 = add i32 %121, -2
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %73
+  br i1 %exitcond.not, label %.critedge, label %110, !llvm.loop !7
 
-.critedge:                                        ; preds = %115, %109, %.preheader
-  %.0133.lcssa = phi i32 [ 0, %.preheader ], [ %114, %109 ], [ %66, %115 ]
-  %121 = load ptr, ptr %1, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 136
-  %123 = load ptr, ptr %122, align 8
-  %.not144 = icmp eq ptr %123, null
-  br i1 %.not144, label %134, label %124
+.critedge.loopexit.split.loop.exit:               ; preds = %110
+  %123 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.critedge
 
-124:                                              ; preds = %.critedge
-  %125 = getelementptr i8, ptr %1, i64 104
-  %.val158 = load ptr, ptr %125, align 8
-  %126 = getelementptr inbounds i32, ptr %.val158, i64 %67
-  %127 = load i32, ptr %126, align 4
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %123, i64 %128
-  %130 = load ptr, ptr %129, align 8
+.critedge:                                        ; preds = %115, %.critedge.loopexit.split.loop.exit, %.preheader
+  %.0133.lcssa = phi i32 [ 0, %.preheader ], [ %123, %.critedge.loopexit.split.loop.exit ], [ %66, %115 ]
+  %124 = load ptr, ptr %1, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 136
+  %126 = load ptr, ptr %125, align 8
+  %.not144 = icmp eq ptr %126, null
+  br i1 %.not144, label %137, label %127
+
+127:                                              ; preds = %.critedge
+  %128 = getelementptr i8, ptr %1, i64 104
+  %.val158 = load ptr, ptr %128, align 8
+  %129 = getelementptr inbounds i32, ptr %.val158, i64 %67
+  %130 = load i32, ptr %129, align 4
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds ptr, ptr %126, i64 %131
+  %133 = load ptr, ptr %132, align 8
   store i32 %.0133.lcssa, ptr %7, align 8
-  %131 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %.0133.lcssa, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %6, ptr %132, align 8
-  %133 = call i32 @Gia_ManFactorGraph(ptr noundef %0, ptr noundef %130, ptr noundef nonnull %7) #17
-  br label %232
+  %134 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %.0133.lcssa, ptr %134, align 4
+  %135 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %6, ptr %135, align 8
+  %136 = call i32 @Gia_ManFactorGraph(ptr noundef %0, ptr noundef %133, ptr noundef nonnull %7) #17
+  br label %235
 
-134:                                              ; preds = %.critedge
+137:                                              ; preds = %.critedge
   %.val147 = load ptr, ptr %14, align 8
-  %135 = getelementptr inbounds i8, ptr %.val147, i64 %67
-  %136 = load i8, ptr %135, align 1
-  %137 = lshr i8 %136, 1
-  switch i32 %.0133.lcssa, label %228 [
-    i32 0, label %138
-    i32 1, label %140
-    i32 2, label %146
-    i32 3, label %192
+  %138 = getelementptr inbounds i8, ptr %.val147, i64 %67
+  %139 = load i8, ptr %138, align 1
+  %140 = lshr i8 %139, 1
+  switch i32 %.0133.lcssa, label %231 [
+    i32 0, label %141
+    i32 1, label %143
+    i32 2, label %149
+    i32 3, label %195
   ]
 
-138:                                              ; preds = %134
-  switch i8 %137, label %.fold.split [
-    i8 6, label %228
-    i8 7, label %139
+141:                                              ; preds = %137
+  switch i8 %140, label %.fold.split [
+    i8 6, label %231
+    i8 7, label %142
   ]
 
-139:                                              ; preds = %138
-  br label %228
+142:                                              ; preds = %141
+  br label %231
 
-140:                                              ; preds = %134
-  switch i8 %137, label %228 [
-    i8 10, label %141
-    i8 11, label %143
+143:                                              ; preds = %137
+  switch i8 %140, label %231 [
+    i8 10, label %144
+    i8 11, label %146
   ]
 
-141:                                              ; preds = %140
-  %142 = load i32, ptr %6, align 16
-  br label %228
+144:                                              ; preds = %143
+  %145 = load i32, ptr %6, align 16
+  br label %231
 
-143:                                              ; preds = %140
-  %144 = load i32, ptr %6, align 16
-  %145 = xor i32 %144, 1
-  br label %228
+146:                                              ; preds = %143
+  %147 = load i32, ptr %6, align 16
+  %148 = xor i32 %147, 1
+  br label %231
 
-146:                                              ; preds = %134
-  switch i8 %137, label %228 [
-    i8 12, label %147
-    i8 13, label %152
-    i8 14, label %158
-    i8 15, label %163
-    i8 16, label %169
-    i8 17, label %174
-    i8 18, label %180
-    i8 19, label %186
+149:                                              ; preds = %137
+  switch i8 %140, label %231 [
+    i8 12, label %150
+    i8 13, label %155
+    i8 14, label %161
+    i8 15, label %166
+    i8 16, label %172
+    i8 17, label %177
+    i8 18, label %183
+    i8 19, label %189
   ]
 
-147:                                              ; preds = %146
-  %148 = load i32, ptr %6, align 16
-  %149 = getelementptr inbounds i8, ptr %6, i64 4
-  %150 = load i32, ptr %149, align 4
-  %151 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %148, i32 noundef %150) #17
-  br label %228
+150:                                              ; preds = %149
+  %151 = load i32, ptr %6, align 16
+  %152 = getelementptr inbounds i8, ptr %6, i64 4
+  %153 = load i32, ptr %152, align 4
+  %154 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %151, i32 noundef %153) #17
+  br label %231
 
-152:                                              ; preds = %146
-  %153 = load i32, ptr %6, align 16
-  %154 = getelementptr inbounds i8, ptr %6, i64 4
-  %155 = load i32, ptr %154, align 4
-  %156 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %153, i32 noundef %155) #17
-  %157 = xor i32 %156, 1
-  br label %228
+155:                                              ; preds = %149
+  %156 = load i32, ptr %6, align 16
+  %157 = getelementptr inbounds i8, ptr %6, i64 4
+  %158 = load i32, ptr %157, align 4
+  %159 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %156, i32 noundef %158) #17
+  %160 = xor i32 %159, 1
+  br label %231
 
-158:                                              ; preds = %146
-  %159 = load i32, ptr %6, align 16
-  %160 = getelementptr inbounds i8, ptr %6, i64 4
-  %161 = load i32, ptr %160, align 4
-  %162 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %159, i32 noundef %161) #17
-  br label %228
+161:                                              ; preds = %149
+  %162 = load i32, ptr %6, align 16
+  %163 = getelementptr inbounds i8, ptr %6, i64 4
+  %164 = load i32, ptr %163, align 4
+  %165 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %162, i32 noundef %164) #17
+  br label %231
 
-163:                                              ; preds = %146
-  %164 = load i32, ptr %6, align 16
-  %165 = getelementptr inbounds i8, ptr %6, i64 4
-  %166 = load i32, ptr %165, align 4
-  %167 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %164, i32 noundef %166) #17
-  %168 = xor i32 %167, 1
-  br label %228
+166:                                              ; preds = %149
+  %167 = load i32, ptr %6, align 16
+  %168 = getelementptr inbounds i8, ptr %6, i64 4
+  %169 = load i32, ptr %168, align 4
+  %170 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %167, i32 noundef %169) #17
+  %171 = xor i32 %170, 1
+  br label %231
 
-169:                                              ; preds = %146
-  %170 = load i32, ptr %6, align 16
-  %171 = getelementptr inbounds i8, ptr %6, i64 4
-  %172 = load i32, ptr %171, align 4
-  %173 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %170, i32 noundef %172) #17
-  br label %228
+172:                                              ; preds = %149
+  %173 = load i32, ptr %6, align 16
+  %174 = getelementptr inbounds i8, ptr %6, i64 4
+  %175 = load i32, ptr %174, align 4
+  %176 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %173, i32 noundef %175) #17
+  br label %231
 
-174:                                              ; preds = %146
-  %175 = load i32, ptr %6, align 16
-  %176 = getelementptr inbounds i8, ptr %6, i64 4
-  %177 = load i32, ptr %176, align 4
-  %178 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %175, i32 noundef %177) #17
-  %179 = xor i32 %178, 1
-  br label %228
+177:                                              ; preds = %149
+  %178 = load i32, ptr %6, align 16
+  %179 = getelementptr inbounds i8, ptr %6, i64 4
+  %180 = load i32, ptr %179, align 4
+  %181 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %178, i32 noundef %180) #17
+  %182 = xor i32 %181, 1
+  br label %231
 
-180:                                              ; preds = %146
-  %181 = load i32, ptr %6, align 16
-  %182 = getelementptr inbounds i8, ptr %6, i64 4
-  %183 = load i32, ptr %182, align 4
-  %184 = xor i32 %183, 1
-  %185 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %181, i32 noundef %184) #17
-  br label %228
+183:                                              ; preds = %149
+  %184 = load i32, ptr %6, align 16
+  %185 = getelementptr inbounds i8, ptr %6, i64 4
+  %186 = load i32, ptr %185, align 4
+  %187 = xor i32 %186, 1
+  %188 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %184, i32 noundef %187) #17
+  br label %231
 
-186:                                              ; preds = %146
-  %187 = load i32, ptr %6, align 16
-  %188 = xor i32 %187, 1
-  %189 = getelementptr inbounds i8, ptr %6, i64 4
-  %190 = load i32, ptr %189, align 4
-  %191 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %188, i32 noundef %190) #17
-  br label %228
+189:                                              ; preds = %149
+  %190 = load i32, ptr %6, align 16
+  %191 = xor i32 %190, 1
+  %192 = getelementptr inbounds i8, ptr %6, i64 4
+  %193 = load i32, ptr %192, align 4
+  %194 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %191, i32 noundef %193) #17
+  br label %231
 
-192:                                              ; preds = %134
-  switch i8 %137, label %228 [
-    i8 20, label %193
-    i8 21, label %200
-    i8 41, label %207
+195:                                              ; preds = %137
+  switch i8 %140, label %231 [
+    i8 20, label %196
+    i8 21, label %203
+    i8 41, label %210
   ]
 
-193:                                              ; preds = %192
-  %194 = load i32, ptr %6, align 16
-  %195 = getelementptr inbounds i8, ptr %6, i64 4
-  %196 = load i32, ptr %195, align 4
-  %197 = getelementptr inbounds i8, ptr %6, i64 8
-  %198 = load i32, ptr %197, align 8
-  %199 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %194, i32 noundef %196, i32 noundef %198) #17
-  br label %228
+196:                                              ; preds = %195
+  %197 = load i32, ptr %6, align 16
+  %198 = getelementptr inbounds i8, ptr %6, i64 4
+  %199 = load i32, ptr %198, align 4
+  %200 = getelementptr inbounds i8, ptr %6, i64 8
+  %201 = load i32, ptr %200, align 8
+  %202 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %197, i32 noundef %199, i32 noundef %201) #17
+  br label %231
 
-200:                                              ; preds = %192
-  %201 = load i32, ptr %6, align 16
-  %202 = getelementptr inbounds i8, ptr %6, i64 4
-  %203 = load i32, ptr %202, align 4
-  %204 = getelementptr inbounds i8, ptr %6, i64 8
-  %205 = load i32, ptr %204, align 8
-  %206 = tail call i32 @Gia_ManHashMaj(ptr noundef %0, i32 noundef %201, i32 noundef %203, i32 noundef %205) #17
-  br label %228
+203:                                              ; preds = %195
+  %204 = load i32, ptr %6, align 16
+  %205 = getelementptr inbounds i8, ptr %6, i64 4
+  %206 = load i32, ptr %205, align 4
+  %207 = getelementptr inbounds i8, ptr %6, i64 8
+  %208 = load i32, ptr %207, align 8
+  %209 = tail call i32 @Gia_ManHashMaj(ptr noundef %0, i32 noundef %204, i32 noundef %206, i32 noundef %208) #17
+  br label %231
 
-207:                                              ; preds = %192
-  %208 = getelementptr inbounds i8, ptr %6, i64 4
-  %209 = load i32, ptr %208, align 4
-  %210 = getelementptr inbounds i8, ptr %6, i64 8
-  %211 = load i32, ptr %210, align 8
-  %212 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %209, i32 noundef %211) #17
-  %213 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %209, i32 noundef %211) #17
-  %214 = icmp eq i32 %64, 0
-  br i1 %214, label %215, label %220
+210:                                              ; preds = %195
+  %211 = getelementptr inbounds i8, ptr %6, i64 4
+  %212 = load i32, ptr %211, align 4
+  %213 = getelementptr inbounds i8, ptr %6, i64 8
+  %214 = load i32, ptr %213, align 8
+  %215 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %212, i32 noundef %214) #17
+  %216 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %212, i32 noundef %214) #17
+  %217 = icmp eq i32 %64, 0
+  br i1 %217, label %218, label %223
 
-215:                                              ; preds = %207
-  %216 = load i32, ptr %6, align 16
-  %217 = xor i32 %212, 1
-  %218 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %217, i32 noundef %213) #17
-  %219 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %216, i32 noundef %218) #17
-  br label %228
+218:                                              ; preds = %210
+  %219 = load i32, ptr %6, align 16
+  %220 = xor i32 %215, 1
+  %221 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %220, i32 noundef %216) #17
+  %222 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %219, i32 noundef %221) #17
+  br label %231
 
-220:                                              ; preds = %207
-  %221 = add i32 %2, 1
-  %222 = sub i32 %221, %64
-  %223 = icmp eq i32 %222, %2
-  br i1 %223, label %224, label %228
+223:                                              ; preds = %210
+  %224 = add i32 %2, 1
+  %225 = sub i32 %224, %64
+  %226 = icmp eq i32 %225, %2
+  br i1 %226, label %227, label %231
 
-224:                                              ; preds = %220
-  %225 = load i32, ptr %6, align 16
-  %226 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %225, i32 noundef %213) #17
-  %227 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %212, i32 noundef %226) #17
-  br label %228
+227:                                              ; preds = %223
+  %228 = load i32, ptr %6, align 16
+  %229 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %228, i32 noundef %216) #17
+  %230 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %215, i32 noundef %229) #17
+  br label %231
 
-.fold.split:                                      ; preds = %138
-  br label %228
+.fold.split:                                      ; preds = %141
+  br label %231
 
-228:                                              ; preds = %23, %192, %134, %146, %140, %138, %.fold.split, %43, %Bac_NtkHostNtk.exit, %91, %Bac_BoxBoNtk.exit, %139, %152, %163, %174, %186, %180, %169, %158, %147, %193, %224, %220, %215, %200, %141, %143, %18
-  %.0132 = phi i32 [ %22, %18 ], [ %60, %43 ], [ %42, %Bac_NtkHostNtk.exit ], [ %108, %91 ], [ %90, %Bac_BoxBoNtk.exit ], [ 1, %139 ], [ %142, %141 ], [ %145, %143 ], [ %151, %147 ], [ %157, %152 ], [ %162, %158 ], [ %168, %163 ], [ %173, %169 ], [ %179, %174 ], [ %185, %180 ], [ %191, %186 ], [ %199, %193 ], [ %206, %200 ], [ %219, %215 ], [ %227, %224 ], [ %11, %220 ], [ 0, %138 ], [ %11, %.fold.split ], [ %11, %140 ], [ %11, %146 ], [ %11, %134 ], [ %11, %192 ], [ %11, %23 ]
-  %229 = getelementptr inbounds i8, ptr %1, i64 160
-  %230 = add nsw i32 %2, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %229, i32 noundef %230, i32 noundef 0)
+231:                                              ; preds = %23, %195, %137, %149, %143, %141, %.fold.split, %43, %Bac_NtkHostNtk.exit, %92, %Bac_BoxBoNtk.exit, %142, %155, %166, %177, %189, %183, %172, %161, %150, %196, %227, %223, %218, %203, %144, %146, %18
+  %.0132 = phi i32 [ %22, %18 ], [ %60, %43 ], [ %42, %Bac_NtkHostNtk.exit ], [ %109, %92 ], [ %91, %Bac_BoxBoNtk.exit ], [ 1, %142 ], [ %145, %144 ], [ %148, %146 ], [ %154, %150 ], [ %160, %155 ], [ %165, %161 ], [ %171, %166 ], [ %176, %172 ], [ %182, %177 ], [ %188, %183 ], [ %194, %189 ], [ %202, %196 ], [ %209, %203 ], [ %222, %218 ], [ %230, %227 ], [ %11, %223 ], [ 0, %141 ], [ %11, %.fold.split ], [ %11, %143 ], [ %11, %149 ], [ %11, %137 ], [ %11, %195 ], [ %11, %23 ]
+  %232 = getelementptr inbounds i8, ptr %1, i64 160
+  %233 = add nsw i32 %2, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %232, i32 noundef %233, i32 noundef 0)
   %.val.i.i = load ptr, ptr %8, align 8
-  %231 = getelementptr inbounds i32, ptr %.val.i.i, i64 %9
-  store i32 %.0132, ptr %231, align 4
-  br label %232
+  %234 = getelementptr inbounds i32, ptr %.val.i.i, i64 %9
+  store i32 %.0132, ptr %234, align 4
+  br label %235
 
-232:                                              ; preds = %5, %228, %124
-  %.0 = phi i32 [ %.0132, %228 ], [ %133, %124 ], [ %11, %5 ]
+235:                                              ; preds = %5, %231, %127
+  %.0 = phi i32 [ %.0132, %231 ], [ %136, %127 ], [ %11, %5 ]
   ret i32 %.0
 }
 
