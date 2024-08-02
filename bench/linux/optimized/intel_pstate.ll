@@ -715,40 +715,41 @@ define internal void @intel_cpufreq_adjust_perf(i32 noundef %0, i64 noundef %1, 
   %55 = load i32, ptr %54, align 4
   %56 = tail call i32 @llvm.smin.i32(i32 %53, i32 %55)
   %57 = tail call i32 @llvm.smin.i32(i32 %27, i32 %55)
-  %58 = tail call i32 @llvm.smax.i32(i32 %57, i32 %56)
-  %59 = icmp slt i32 %37, %58
-  %60 = select i1 %59, i32 %37, i32 %57
-  %61 = tail call i32 @llvm.smax.i32(i32 %60, i32 %56)
-  %62 = getelementptr inbounds i8, ptr %8, i64 312
-  %63 = load volatile i64, ptr %62, align 8
-  %64 = and i64 %63, -16777216
-  %65 = and i32 %56, 255
-  %66 = shl i32 %58, 8
-  %67 = and i32 %66, 65280
-  %68 = shl i32 %61, 16
-  %69 = and i32 %68, 16711680
-  %70 = or disjoint i32 %67, %65
-  %71 = or disjoint i32 %70, %69
-  %72 = zext nneg i32 %71 to i64
-  %73 = or disjoint i64 %64, %72
-  %74 = icmp eq i64 %73, %63
-  br i1 %74, label %80, label %75
+  %58 = tail call i32 @llvm.smax.i32(i32 %27, i32 %53)
+  %59 = tail call i32 @llvm.smin.i32(i32 %58, i32 %55)
+  %60 = icmp slt i32 %37, %59
+  %61 = select i1 %60, i32 %37, i32 %57
+  %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 %56)
+  %63 = getelementptr inbounds i8, ptr %8, i64 312
+  %64 = load volatile i64, ptr %63, align 8
+  %65 = and i64 %64, -16777216
+  %66 = and i32 %56, 255
+  %67 = shl i32 %59, 8
+  %68 = and i32 %67, 65280
+  %69 = shl i32 %62, 16
+  %70 = and i32 %69, 16711680
+  %71 = or disjoint i32 %68, %66
+  %72 = or disjoint i32 %71, %70
+  %73 = zext nneg i32 %72 to i64
+  %74 = or disjoint i64 %65, %73
+  %75 = icmp eq i64 %74, %64
+  br i1 %75, label %81, label %76
 
-75:                                               ; preds = %46
-  store volatile i64 %73, ptr %62, align 8
-  %76 = trunc i64 %73 to i32
-  %77 = lshr i64 %63, 32
-  %78 = trunc nuw i64 %77 to i32
-  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %76, i32 %78) #26, !srcloc !17
+76:                                               ; preds = %46
+  store volatile i64 %74, ptr %63, align 8
+  %77 = trunc i64 %74 to i32
+  %78 = lshr i64 %64, 32
+  %79 = trunc nuw i64 %78 to i32
+  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %77, i32 %79) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #26
-          to label %80 [label %79], !srcloc !8
+          to label %81 [label %80], !srcloc !8
 
-79:                                               ; preds = %75
-  tail call void @do_trace_write_msr(i32 noundef 1908, i64 noundef %73, i32 noundef 0) #26
-  br label %80
+80:                                               ; preds = %76
+  tail call void @do_trace_write_msr(i32 noundef 1908, i64 noundef %74, i32 noundef 0) #26
+  br label %81
 
-80:                                               ; preds = %79, %75, %46
-  store i32 %61, ptr %11, align 4
+81:                                               ; preds = %80, %76, %46
+  store i32 %62, ptr %11, align 4
   tail call fastcc void @intel_cpufreq_trace(ptr noundef %8, i32 noundef 90, i32 noundef %12)
   ret void
 }

@@ -22552,7 +22552,6 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h32852852daf0bf99E.
   unreachable
 
 "_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17hb0f29833fdc7b110E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit42.i"
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %.sroa.09.0)
   %92 = extractvalue { ptr, i64 } %88, 0
   %93 = icmp ne ptr %92, null
   tail call void @llvm.assume(i1 %93)
@@ -22563,8 +22562,10 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h32852852daf0bf99E.
   %96 = load i64, ptr %84, align 8, !alias.scope !4881, !noalias !4865, !noundef !12
   %97 = add i64 %96, %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i49.i
   store i64 %97, ptr %84, align 8, !alias.scope !4881, !noalias !4865
-  %98 = tail call i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i.i, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i49.i)
-  %.sroa.0.0.sroa.speculated.i53.i = tail call i64 @llvm.umax.i64(i64 %98, i64 %.sroa.09.0)
+  %98 = tail call i64 @llvm.umax.i64(i64 %.sroa.09.0, i64 %95)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i50.i = tail call i64 @llvm.umin.i64(i64 %98, i64 %63)
+  %.sroa.0.0.sroa.speculated.i52.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.09.0, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i49.i)
+  %.sroa.0.0.sroa.speculated.i53.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i52.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i50.i)
   br label %99
 
 99:                                               ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17hb0f29833fdc7b110E.exit", %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17hb0f29833fdc7b110E.exit.thread95"
@@ -23779,7 +23780,6 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h97580df8a44b4189E.
   unreachable
 
 "_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h44404cf99327f09cE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit42.i"
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %.sroa.09.0)
   %92 = extractvalue { ptr, i64 } %88, 0
   %93 = icmp ne ptr %92, null
   tail call void @llvm.assume(i1 %93)
@@ -23790,8 +23790,10 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h97580df8a44b4189E.
   %96 = load i64, ptr %84, align 8, !alias.scope !5025, !noalias !5009, !noundef !12
   %97 = add i64 %96, %.sroa.0.0.sroa.speculated.i.i15.i.i47.i
   store i64 %97, ptr %84, align 8, !alias.scope !5025, !noalias !5009
-  %98 = tail call i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i.i, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i47.i)
-  %.sroa.0.0.sroa.speculated.i51.i = tail call i64 @llvm.umax.i64(i64 %98, i64 %.sroa.09.0)
+  %98 = tail call i64 @llvm.umax.i64(i64 %.sroa.09.0, i64 %95)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i48.i = tail call i64 @llvm.umin.i64(i64 %98, i64 %63)
+  %.sroa.0.0.sroa.speculated.i50.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.09.0, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i47.i)
+  %.sroa.0.0.sroa.speculated.i51.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i50.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i48.i)
   br label %99
 
 99:                                               ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h44404cf99327f09cE.exit", %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h44404cf99327f09cE.exit.thread95"
@@ -24063,7 +24065,6 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17hbaee1dfc2e851864E.
   unreachable
 
 "_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h76e80d87d32533bdE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit42.i"
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %.sroa.09.0)
   %92 = extractvalue { ptr, i64 } %88, 0
   %93 = icmp ne ptr %92, null
   tail call void @llvm.assume(i1 %93)
@@ -24074,8 +24075,10 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17hbaee1dfc2e851864E.
   %96 = load i64, ptr %84, align 8, !alias.scope !5089, !noalias !5073, !noundef !12
   %97 = add i64 %96, %.sroa.0.0.sroa.speculated.i.i15.i.i.i48.i
   store i64 %97, ptr %84, align 8, !alias.scope !5089, !noalias !5073
-  %98 = tail call i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i.i, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i48.i)
-  %.sroa.0.0.sroa.speculated.i52.i = tail call i64 @llvm.umax.i64(i64 %98, i64 %.sroa.09.0)
+  %98 = tail call i64 @llvm.umax.i64(i64 %.sroa.09.0, i64 %95)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i49.i = tail call i64 @llvm.umin.i64(i64 %98, i64 %63)
+  %.sroa.0.0.sroa.speculated.i51.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.09.0, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i48.i)
+  %.sroa.0.0.sroa.speculated.i52.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i51.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i49.i)
   br label %99
 
 99:                                               ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h76e80d87d32533bdE.exit", %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h76e80d87d32533bdE.exit.thread95"

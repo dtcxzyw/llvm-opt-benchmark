@@ -912,8 +912,8 @@ define hidden noundef i32 @_ZNK8G1Policy30calculate_young_desired_lengthEmmm(ptr
   %.035 = phi i32 [ %50, %45 ], [ %6, %4 ]
   %.034 = phi i32 [ %48, %45 ], [ 0, %4 ]
   %.0 = phi i32 [ %39, %45 ], [ 0, %4 ]
-  %52 = tail call noundef i32 @llvm.umax.i32(i32 %.035, i32 %21)
-  %53 = tail call noundef i32 @llvm.umin.i32(i32 %52, i32 %22)
+  %52 = tail call i32 @llvm.umin.i32(i32 %.035, i32 %8)
+  %53 = tail call i32 @llvm.umax.i32(i32 %52, i32 %21)
   %54 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not36 = icmp eq ptr %54, null
   br i1 %.not36, label %56, label %55

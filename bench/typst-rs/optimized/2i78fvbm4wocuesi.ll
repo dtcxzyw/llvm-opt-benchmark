@@ -11033,9 +11033,10 @@ define internal fastcc noundef ptr @"_ZN41_$LT$T$u20$as$u20$exif..util..ReadExt$
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull readonly align 1 %99, i64 %.0.sroa.speculated.i.i18.i.i.i38.i.i, i1 false), !alias.scope !2096, !noalias !2100
   %101 = add i64 %.0.sroa.speculated.i.i18.i.i.i38.i.i, %96
   store i64 %101, ptr %13, align 8, !alias.scope !2082, !noalias !2088
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %47, i64 %.052.i)
-  %102 = tail call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i, i64 %.0.sroa.speculated.i.i18.i.i.i38.i.i)
-  %.0.sroa.speculated.i43.i.i = tail call i64 @llvm.umax.i64(i64 %102, i64 %.052.i)
+  %102 = tail call i64 @llvm.umax.i64(i64 %.052.i, i64 %100)
+  %.0.sroa.speculated.i.i.i.i.i.i39.i.i = tail call i64 @llvm.umin.i64(i64 %102, i64 %47)
+  %.0.sroa.speculated.i42.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.052.i, i64 %.0.sroa.speculated.i.i18.i.i.i38.i.i)
+  %.0.sroa.speculated.i43.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i42.i.i, i64 %.0.sroa.speculated.i.i.i.i.i.i39.i.i)
   br label %103
 
 103:                                              ; preds = %95, %.thread104.i
@@ -40692,12 +40693,12 @@ define hidden noalias noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$
   %47 = add i64 %.0.sroa.speculated.i.i18.i.i37, %42
   store i64 %47, ptr %41, align 8, !alias.scope !8264, !noalias !8270
   %48 = sub nuw i64 %24, %11
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 %48)
-  %49 = tail call i64 @llvm.usub.sat.i64(i64 %.0.sroa.speculated.i, i64 %.0.sroa.speculated.i.i18.i.i37)
+  %49 = tail call i64 @llvm.umax.i64(i64 %48, i64 %46)
+  %.0.sroa.speculated.i.i.i.i.i38 = tail call i64 @llvm.umin.i64(i64 %49, i64 %5)
   %50 = add i64 %.0.sroa.speculated.i.i18.i.i37, %11
   store i64 %50, ptr %10, align 8
   %.0.sroa.speculated.i41 = tail call noundef i64 @llvm.umax.i64(i64 %24, i64 %50)
-  %51 = add i64 %50, %49
+  %51 = add i64 %.0.sroa.speculated.i.i.i.i.i38, %11
   %.0.sroa.speculated.i42 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i41, i64 %51)
   store i64 %.0.sroa.speculated.i42, ptr %23, align 8
   %52 = sub i64 %5, %.0.sroa.speculated.i.i18.i.i37

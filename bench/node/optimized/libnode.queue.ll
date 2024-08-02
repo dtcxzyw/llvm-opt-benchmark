@@ -5434,10 +5434,11 @@ _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %lor.lhs.false
   %.sroa.speculated61 = tail call i64 @llvm.umin.i64(i64 %2, i64 %start)
   %tobool.i.i14 = trunc i8 %maybeEnd.coerce1 to i1
   %retval.0.i = select i1 %tobool.i.i14, i64 %maybeEnd.coerce0, i64 %2
-  %3 = tail call i64 @llvm.umin.i64(i64 %2, i64 %retval.0.i)
-  %sub = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %.sroa.speculated61)
-  %cmp.not.not = icmp ugt i64 %3, %start
-  br i1 %cmp.not.not, label %if.then9, label %if.end41
+  %3 = tail call i64 @llvm.umax.i64(i64 %start, i64 %retval.0.i)
+  %.sroa.speculated58 = tail call i64 @llvm.umin.i64(i64 %3, i64 %2)
+  %sub = sub i64 %.sroa.speculated58, %.sroa.speculated61
+  %cmp.not = icmp eq i64 %sub, 0
+  br i1 %cmp.not, label %if.end41, label %if.then9
 
 if.then9:                                         ; preds = %_ZNRSt8optionalImE5valueEv.exit
   %entries_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -11775,11 +11776,11 @@ entry:
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %entry
   %add8 = add i64 %0, %maybeEnd.coerce0
-  %2 = tail call i64 @llvm.umin.i64(i64 %add3, i64 %add8)
-  %.sroa.speculated41 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 %2)
+  %2 = tail call i64 @llvm.umax.i64(i64 %add, i64 %add8)
+  %.sroa.speculated41 = tail call i64 @llvm.umin.i64(i64 %2, i64 %add3)
   %sub = sub i64 %.sroa.speculated41, %.sroa.speculated
-  %cmp.i9.not = icmp ult i64 %add, %2
-  br i1 %cmp.i9.not, label %if.end.i10, label %return.sink.split
+  %cmp.i9 = icmp eq i64 %.sroa.speculated41, %.sroa.speculated
+  br i1 %cmp.i9, label %return.sink.split, label %if.end.i10
 
 if.end.i10:                                       ; preds = %_ZNRSt8optionalImE5valueEv.exit
   %backing_store_.i = getelementptr inbounds i8, ptr %this, i64 8
