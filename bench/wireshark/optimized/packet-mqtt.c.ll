@@ -1747,8 +1747,8 @@ mqtt_user_decode_message.exit:                    ; preds = %275, %.preheader.i,
 
 477:                                              ; preds = %468
   %478 = zext nneg i8 %15 to i64
-  %479 = lshr i64 13579, %478
-  %480 = and i64 %479, 1
+  %479 = shl nuw nsw i64 1, %478
+  %480 = and i64 %479, 13579
   %.not.not.i389 = icmp eq i64 %480, 0
   br i1 %.not.not.i389, label %481, label %dissect_mqtt_reason_code.exit390
 
@@ -1803,26 +1803,35 @@ dissect_mqtt_reason_code.exit392.us:              ; preds = %500, %dissect_mqtt_
   %513 = icmp eq i8 %512, 5
   %514 = icmp sgt i32 %41, 0
   %or.cond14 = select i1 %513, i1 %514, i1 false
-  br i1 %or.cond14, label %dissect_mqtt_reason_code.exit394, label %.loopexit
+  br i1 %or.cond14, label %515, label %.loopexit
 
-dissect_mqtt_reason_code.exit394:                 ; preds = %511
-  %515 = zext nneg i8 %15 to i64
-  %516 = getelementptr [16 x ptr], ptr @dissect_mqtt_reason_code.hf_rcode, i64 0, i64 %515
-  %517 = load ptr, ptr %516, align 8
-  %518 = load i32, ptr %517, align 4
-  %519 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %518, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0) #6
-  %520 = add nuw nsw i32 %70, 2
-  %521 = icmp ugt i32 %41, 1
-  br i1 %521, label %522, label %.loopexit
+515:                                              ; preds = %511
+  %516 = zext nneg i8 %15 to i64
+  %517 = shl nuw nsw i64 1, %516
+  %518 = and i64 %517, 13579
+  %.not.not.i393 = icmp eq i64 %518, 0
+  br i1 %.not.not.i393, label %519, label %dissect_mqtt_reason_code.exit394
 
-522:                                              ; preds = %dissect_mqtt_reason_code.exit394
-  %523 = load i32, ptr @hf_mqtt_property, align 4
-  %524 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %520, i32 noundef %523, ptr noundef nonnull %11)
-  %525 = add i32 %524, %520
+519:                                              ; preds = %515
+  %520 = getelementptr [16 x ptr], ptr @dissect_mqtt_reason_code.hf_rcode, i64 0, i64 %516
+  %521 = load ptr, ptr %520, align 8
+  %522 = load i32, ptr %521, align 4
+  %523 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %522, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0) #6
+  br label %dissect_mqtt_reason_code.exit394
+
+dissect_mqtt_reason_code.exit394:                 ; preds = %515, %519
+  %524 = add nuw nsw i32 %70, 2
+  %525 = icmp ugt i32 %41, 1
+  br i1 %525, label %526, label %.loopexit
+
+526:                                              ; preds = %dissect_mqtt_reason_code.exit394
+  %527 = load i32, ptr @hf_mqtt_property, align 4
+  %528 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %524, i32 noundef %527, ptr noundef nonnull %11)
+  %529 = add i32 %528, %524
   br label %.loopexit
 
-.loopexit:                                        ; preds = %dissect_mqtt_reason_code.exit392.us, %.lr.ph400, %444, %414, %500, %459, %430, %387, %511, %522, %dissect_mqtt_reason_code.exit394, %492, %468, %488, %dissect_mqtt_reason_code.exit390, %367, %368, %dissect_mqtt_reason_code.exit, %185, %155, %158, %161, %65
-  %.0354 = phi i32 [ %73, %65 ], [ %525, %522 ], [ %520, %dissect_mqtt_reason_code.exit394 ], [ %73, %511 ], [ %495, %492 ], [ %491, %488 ], [ %486, %dissect_mqtt_reason_code.exit390 ], [ %471, %468 ], [ %.8, %367 ], [ %.8, %368 ], [ %188, %185 ], [ %182, %dissect_mqtt_reason_code.exit ], [ %164, %161 ], [ %.5, %158 ], [ %.5, %155 ], [ %.9, %387 ], [ %.12, %430 ], [ %.15, %459 ], [ %503, %500 ], [ %415, %414 ], [ %.14, %444 ], [ %465, %.lr.ph400 ], [ %508, %dissect_mqtt_reason_code.exit392.us ]
+.loopexit:                                        ; preds = %dissect_mqtt_reason_code.exit392.us, %.lr.ph400, %444, %414, %500, %459, %430, %387, %511, %526, %dissect_mqtt_reason_code.exit394, %492, %468, %488, %dissect_mqtt_reason_code.exit390, %367, %368, %dissect_mqtt_reason_code.exit, %185, %155, %158, %161, %65
+  %.0354 = phi i32 [ %73, %65 ], [ %529, %526 ], [ %524, %dissect_mqtt_reason_code.exit394 ], [ %73, %511 ], [ %495, %492 ], [ %491, %488 ], [ %486, %dissect_mqtt_reason_code.exit390 ], [ %471, %468 ], [ %.8, %367 ], [ %.8, %368 ], [ %188, %185 ], [ %182, %dissect_mqtt_reason_code.exit ], [ %164, %161 ], [ %.5, %158 ], [ %.5, %155 ], [ %.9, %387 ], [ %.12, %430 ], [ %.15, %459 ], [ %503, %500 ], [ %415, %414 ], [ %.14, %444 ], [ %465, %.lr.ph400 ], [ %508, %dissect_mqtt_reason_code.exit392.us ]
   ret i32 %.0354
 }
 

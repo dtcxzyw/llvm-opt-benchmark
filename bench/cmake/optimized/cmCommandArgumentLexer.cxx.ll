@@ -207,8 +207,8 @@ _ZL39cmCommandArgument_yyensure_buffer_stackPv.exit: ; preds = %32, %.critedge, 
   %89 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = zext nneg i32 %.1 to i64
-  %92 = lshr i64 709623935, %91
-  %93 = and i64 %92, 1
+  %92 = shl nuw i64 1, %91
+  %93 = and i64 %92, 709623935
   %.not181.not = icmp eq i64 %93, 0
   br i1 %.not181.not, label %94, label %95
 
@@ -236,8 +236,8 @@ _ZL39cmCommandArgument_yyensure_buffer_stackPv.exit: ; preds = %32, %.critedge, 
   %.0165351 = phi i8 [ %.1166, %114 ], [ %90, %95 ]
   %107 = getelementptr inbounds [35 x i16], ptr @_ZL6yy_def, i64 0, i64 %106
   %108 = load i16, ptr %107, align 2
-  %109 = lshr i64 6721280, %106
-  %110 = and i64 %109, 1
+  %109 = shl nuw i64 1, %106
+  %110 = and i64 %109, 6721280
   %.not186 = icmp eq i64 %110, 0
   br i1 %.not186, label %114, label %111
 
@@ -265,8 +265,8 @@ _ZL39cmCommandArgument_yyensure_buffer_stackPv.exit: ; preds = %32, %.critedge, 
   %124 = load i16, ptr %123, align 2
   %125 = sext i16 %124 to i32
   %126 = getelementptr inbounds i8, ptr %.1168, i64 1
-  %127 = lshr i64 9002869927706624, %.lcssa
-  %128 = and i64 %127, 1
+  %127 = shl nuw i64 1, %.lcssa
+  %128 = and i64 %127, 9002869927706624
   %.not183.not = icmp eq i64 %128, 0
   br i1 %.not183.not, label %86, label %.outer.sink.split, !llvm.loop !7
 
@@ -534,8 +534,8 @@ _ZL39cmCommandArgument_yyensure_buffer_stackPv.exit: ; preds = %32, %.critedge, 
 262:                                              ; preds = %258, %.lr.ph33.i
   %263 = phi i8 [ %261, %258 ], [ 1, %.lr.ph33.i ]
   %264 = zext nneg i32 %.02131.i to i64
-  %265 = lshr i64 709623935, %264
-  %266 = and i64 %265, 1
+  %265 = shl nuw i64 1, %264
+  %266 = and i64 %265, 709623935
   %.not25.not.i = icmp eq i64 %266, 0
   br i1 %.not25.not.i, label %267, label %268
 
@@ -563,8 +563,8 @@ _ZL39cmCommandArgument_yyensure_buffer_stackPv.exit: ; preds = %32, %.critedge, 
   %.029.i = phi i8 [ %.1.i, %287 ], [ %263, %268 ]
   %280 = getelementptr inbounds [35 x i16], ptr @_ZL6yy_def, i64 0, i64 %279
   %281 = load i16, ptr %280, align 2
-  %282 = lshr i64 6721280, %279
-  %283 = and i64 %282, 1
+  %282 = shl nuw i64 1, %279
+  %283 = and i64 %282, 6721280
   %.not27.i = icmp eq i64 %283, 0
   br i1 %.not27.i, label %287, label %284
 
@@ -598,8 +598,8 @@ _ZL39cmCommandArgument_yyensure_buffer_stackPv.exit: ; preds = %32, %.critedge, 
 _ZL21yy_get_previous_statePv.exit:                ; preds = %._crit_edge.i, %247
   %.021.lcssa.i = phi i32 [ %255, %247 ], [ %298, %._crit_edge.i ]
   %300 = zext nneg i32 %.021.lcssa.i to i64
-  %301 = lshr i64 709623935, %300
-  %302 = and i64 %301, 1
+  %301 = shl nuw i64 1, %300
+  %302 = and i64 %301, 709623935
   %.not.not.i = icmp eq i64 %302, 0
   br i1 %.not.not.i, label %303, label %304
 
@@ -636,8 +636,8 @@ _ZL21yy_get_previous_statePv.exit:                ; preds = %._crit_edge.i, %247
 
 _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i188, %304
   %.lcssa.i191 = phi i64 [ %309, %304 ], [ %320, %.lr.ph.i188 ]
-  %323 = lshr i64 9002869927706624, %.lcssa.i191
-  %324 = and i64 %323, 1
+  %323 = shl nuw i64 1, %.lcssa.i191
+  %324 = and i64 %323, 9002869927706624
   %.not18.i = icmp ne i64 %324, 0
   %.not185362 = icmp eq i64 %.lcssa.i191, 0
   %.not185 = or i1 %.not18.i, %.not185362
@@ -1085,8 +1085,8 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %341, %_ZL18yy_get_n
 553:                                              ; preds = %549, %.lr.ph33.i197
   %554 = phi i8 [ %552, %549 ], [ 1, %.lr.ph33.i197 ]
   %555 = zext nneg i32 %.02131.i198 to i64
-  %556 = lshr i64 709623935, %555
-  %557 = and i64 %556, 1
+  %556 = shl nuw i64 1, %555
+  %557 = and i64 %556, 709623935
   %.not25.not.i201 = icmp eq i64 %557, 0
   br i1 %.not25.not.i201, label %558, label %559
 
@@ -1114,8 +1114,8 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %341, %_ZL18yy_get_n
   %.029.i204 = phi i8 [ %.1.i206, %578 ], [ %554, %559 ]
   %571 = getelementptr inbounds [35 x i16], ptr @_ZL6yy_def, i64 0, i64 %570
   %572 = load i16, ptr %571, align 2
-  %573 = lshr i64 6721280, %570
-  %574 = and i64 %573, 1
+  %573 = shl nuw i64 1, %570
+  %574 = and i64 %573, 6721280
   %.not27.i205 = icmp eq i64 %574, 0
   br i1 %.not27.i205, label %578, label %575
 
@@ -1176,8 +1176,8 @@ _ZL18yy_get_next_bufferPv.exit.thread229:         ; preds = %341, %_ZL18yy_get_n
 601:                                              ; preds = %597, %.lr.ph33.i213
   %602 = phi i8 [ %600, %597 ], [ 1, %.lr.ph33.i213 ]
   %603 = zext nneg i32 %.02131.i214 to i64
-  %604 = lshr i64 709623935, %603
-  %605 = and i64 %604, 1
+  %604 = shl nuw i64 1, %603
+  %605 = and i64 %604, 709623935
   %.not25.not.i217 = icmp eq i64 %605, 0
   br i1 %.not25.not.i217, label %606, label %607
 
@@ -1205,8 +1205,8 @@ _ZL18yy_get_next_bufferPv.exit.thread229:         ; preds = %341, %_ZL18yy_get_n
   %.029.i220 = phi i8 [ %.1.i222, %626 ], [ %602, %607 ]
   %619 = getelementptr inbounds [35 x i16], ptr @_ZL6yy_def, i64 0, i64 %618
   %620 = load i16, ptr %619, align 2
-  %621 = lshr i64 6721280, %618
-  %622 = and i64 %621, 1
+  %621 = shl nuw i64 1, %618
+  %622 = and i64 %621, 6721280
   %.not27.i221 = icmp eq i64 %622, 0
   br i1 %.not27.i221, label %626, label %623
 

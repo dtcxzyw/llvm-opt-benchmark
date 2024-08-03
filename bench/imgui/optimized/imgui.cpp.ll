@@ -1567,9 +1567,10 @@ entry:
   %arrayidx = getelementptr inbounds [32 x i8], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E7lengths, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %conv1 = sext i8 %2 to i32
-  %3 = lshr i64 2164195328, %idxprom
-  %4 = trunc nuw i64 %3 to i32
-  %cond = and i32 %4, 1
+  %3 = shl nuw nsw i64 1, %idxprom
+  %4 = and i64 %3, 2164195328
+  %tobool.not.not = icmp ne i64 %4, 0
+  %cond = zext i1 %tobool.not.not to i32
   %add = add nsw i32 %cond, %conv1
   %cmp = icmp eq ptr %in_text_end, null
   %idx.ext = sext i32 %add to i64

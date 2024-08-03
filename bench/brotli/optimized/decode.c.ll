@@ -8638,8 +8638,8 @@ if.end18.i:                                       ; preds = %if.end.if.end18_cri
   %idxprom.i = zext i8 %30 to i64
   %arrayidx24.i = getelementptr inbounds [18 x i8], ptr %code_length_code_lengths, i64 0, i64 %idxprom.i
   store i8 %39, ptr %arrayidx24.i, align 1
-  %40 = lshr i64 4369, %ix.2.i
-  %41 = and i64 %40, 1
+  %40 = shl nuw nsw i64 1, %ix.2.i
+  %41 = and i64 %40, 4369
   %cmp25.not.not.i = icmp eq i64 %41, 0
   br i1 %cmp25.not.not.i, label %if.then27.i, label %for.inc.i
 

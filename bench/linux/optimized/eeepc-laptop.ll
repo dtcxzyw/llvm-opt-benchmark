@@ -1871,8 +1871,8 @@ define internal fastcc i32 @eeepc_new_rfkill(ptr nocapture noundef readonly %0, 
   %8 = zext nneg i32 %4 to i64
   %9 = getelementptr [28 x ptr], ptr @cm_setv, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = lshr i64 59173100, %8
-  %12 = and i64 %11, 1
+  %11 = shl nuw i64 1, %8
+  %12 = and i64 %11, 59173100
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %.thread
 
@@ -1908,51 +1908,50 @@ define internal fastcc i32 @eeepc_new_rfkill(ptr nocapture noundef readonly %0, 
 33:                                               ; preds = %26
   %34 = getelementptr [28 x ptr], ptr @cm_getv, i64 0, i64 %8
   %35 = load ptr, ptr %34, align 8
-  %36 = lshr i64 454124, %8
-  %37 = and i64 %36, 1
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %51
+  %36 = and i64 %11, 1280
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %50
 
-39:                                               ; preds = %33
-  %40 = load i32, ptr %15, align 8
-  %41 = and i32 %40, %17
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %51, label %43
+38:                                               ; preds = %33
+  %39 = load i32, ptr %15, align 8
+  %40 = and i32 %39, %17
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %50, label %42
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %0, align 8
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   store i64 0, ptr %6, align 8, !annotation !7
-  %45 = call i32 @acpi_evaluate_integer(ptr noundef %44, ptr noundef %35, ptr noundef null, ptr noundef nonnull %6) #12
-  %46 = icmp eq i32 %45, 0
-  %47 = load i64, ptr %6, align 8
-  %48 = trunc i64 %47 to i32
+  %44 = call i32 @acpi_evaluate_integer(ptr noundef %43, ptr noundef %35, ptr noundef null, ptr noundef nonnull %6) #12
+  %45 = icmp eq i32 %44, 0
+  %46 = load i64, ptr %6, align 8
+  %47 = trunc i64 %46 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  br i1 %46, label %51, label %49
+  br i1 %45, label %50, label %48
 
-49:                                               ; preds = %43
-  %50 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38, ptr noundef %35) #13
-  br label %51
+48:                                               ; preds = %42
+  %49 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38, ptr noundef %35) #13
+  br label %50
 
-51:                                               ; preds = %49, %43, %39, %33
-  %52 = phi i32 [ -19, %33 ], [ -19, %39 ], [ -1, %49 ], [ %48, %43 ]
-  %53 = icmp ne i32 %52, 1
-  call void @rfkill_init_sw_state(ptr noundef nonnull %31, i1 noundef zeroext %53) #12
-  %54 = load ptr, ptr %1, align 8
-  %55 = call i32 @rfkill_register(ptr noundef %54) #12
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.thread, label %57
+50:                                               ; preds = %48, %42, %38, %33
+  %51 = phi i32 [ -19, %33 ], [ -19, %38 ], [ -1, %48 ], [ %47, %42 ]
+  %52 = icmp ne i32 %51, 1
+  call void @rfkill_init_sw_state(ptr noundef nonnull %31, i1 noundef zeroext %52) #12
+  %53 = load ptr, ptr %1, align 8
+  %54 = call i32 @rfkill_register(ptr noundef %53) #12
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %.thread, label %56
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %1, align 8
-  call void @rfkill_destroy(ptr noundef %58) #12
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %1, align 8
+  call void @rfkill_destroy(ptr noundef %57) #12
   store ptr null, ptr %1, align 8
   br label %.thread
 
-.thread:                                          ; preds = %14, %5, %24, %57, %51, %26
-  %59 = phi i32 [ %55, %57 ], [ -22, %26 ], [ 0, %51 ], [ -19, %24 ], [ -19, %5 ], [ -19, %14 ]
+.thread:                                          ; preds = %14, %5, %24, %56, %50, %26
+  %58 = phi i32 [ %54, %56 ], [ -22, %26 ], [ 0, %50 ], [ -19, %24 ], [ -19, %5 ], [ -19, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  ret i32 %59
+  ret i32 %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

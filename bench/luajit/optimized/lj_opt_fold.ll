@@ -3615,9 +3615,9 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %and = zext nneg i8 %3 to i32
-  %shr = lshr i32 6315993, %and
-  %and16 = and i32 %shr, 1
-  %tobool.not = icmp eq i32 %and16, 0
+  %4 = shl nuw i32 1, %and
+  %5 = and i32 %4, 6315993
+  %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.then
@@ -4005,38 +4005,38 @@ entry:
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %shr = lshr i32 6315993, %and
-  %and1 = and i32 %shr, 1
-  %tobool.not = icmp eq i32 %and1, 0
+  %2 = shl nuw i32 1, %and
+  %3 = and i32 %2, 6315993
+  %tobool.not = icmp eq i32 %3, 0
   %cond = select i1 %tobool.not, i32 31, i32 63
   %right = getelementptr inbounds i8, ptr %J, i64 208
-  %2 = load i32, ptr %right, align 8
-  %and3 = and i32 %cond, %2
+  %4 = load i32, ptr %right, align 8
+  %and3 = and i32 %cond, %4
   switch i32 %and3, label %if.end24 [
     i32 0, label %if.then
     i32 1, label %land.lhs.true
   ]
 
 if.then:                                          ; preds = %entry
-  %3 = load i16, ptr %fold, align 8
-  %conv7 = zext i16 %3 to i32
+  %5 = load i16, ptr %fold, align 8
+  %conv7 = zext i16 %5 to i32
   br label %return
 
 land.lhs.true:                                    ; preds = %entry
   %o = getelementptr inbounds i8, ptr %J, i64 189
-  %4 = load i8, ptr %o, align 1
-  %cmp13 = icmp eq i8 %4, 36
+  %6 = load i8, ptr %o, align 1
+  %cmp13 = icmp eq i8 %6, 36
   br i1 %cmp13, label %if.then15, label %if.end24
 
 if.then15:                                        ; preds = %land.lhs.true
   store i8 41, ptr %o, align 1
-  %5 = load i16, ptr %fold, align 8
+  %7 = load i16, ptr %fold, align 8
   %op2 = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 %5, ptr %op2, align 2
+  store i16 %7, ptr %op2, align 2
   br label %return
 
 if.end24:                                         ; preds = %entry, %land.lhs.true
-  %cmp28.not.not = icmp ugt i32 %2, %cond
+  %cmp28.not.not = icmp ugt i32 %4, %cond
   br i1 %cmp28.not.not, label %if.then30, label %if.end35
 
 if.then30:                                        ; preds = %if.end24
@@ -4048,8 +4048,8 @@ if.then30:                                        ; preds = %if.end24
 
 if.end35:                                         ; preds = %if.end24
   %o38 = getelementptr inbounds i8, ptr %J, i64 189
-  %6 = load i8, ptr %o38, align 1
-  %cmp40 = icmp eq i8 %6, 40
+  %8 = load i8, ptr %o38, align 1
+  %cmp40 = icmp eq i8 %8, 40
   br i1 %cmp40, label %if.then42, label %return
 
 if.then42:                                        ; preds = %if.end35
@@ -4094,19 +4094,19 @@ if.then11:                                        ; preds = %land.lhs.true
   %5 = load i8, ptr %t14, align 4
   %6 = and i8 %5, 31
   %and17 = zext nneg i8 %6 to i32
-  %shr = lshr i32 6315993, %and17
-  %and18 = and i32 %shr, 1
-  %tobool19.not = icmp eq i32 %and18, 0
-  %7 = load i32, ptr %arrayidx, align 8
-  %8 = select i1 %tobool19.not, i32 -32, i32 -64
-  %9 = or i32 %8, %7
-  %cmp21 = icmp eq i32 %9, -1
+  %7 = shl nuw i32 1, %and17
+  %8 = and i32 %7, 6315993
+  %tobool19.not = icmp eq i32 %8, 0
+  %9 = load i32, ptr %arrayidx, align 8
+  %10 = select i1 %tobool19.not, i32 -32, i32 -64
+  %11 = or i32 %10, %9
+  %cmp21 = icmp eq i32 %11, -1
   br i1 %cmp21, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.then11
-  %10 = load i16, ptr %right, align 8
+  %12 = load i16, ptr %right, align 8
   %op229 = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 %10, ptr %op229, align 2
+  store i16 %12, ptr %op229, align 2
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.then11, %entry, %if.then23
@@ -5081,23 +5081,23 @@ if.then6:                                         ; preds = %if.end
   %5 = load i8, ptr %t8, align 4
   %6 = and i8 %5, 31
   %and11 = zext nneg i8 %6 to i32
-  %shr = lshr i32 6315993, %and11
-  %and12 = and i32 %shr, 1
-  %tobool13.not = icmp eq i32 %and12, 0
+  %7 = shl nuw i32 1, %and11
+  %8 = and i32 %7, 6315993
+  %tobool13.not = icmp eq i32 %8, 0
   %cond = select i1 %tobool13.not, i32 31, i32 63
-  %7 = load i32, ptr %arrayidx, align 8
-  %and14 = and i32 %cond, %7
+  %9 = load i32, ptr %arrayidx, align 8
+  %and14 = and i32 %cond, %9
   %right = getelementptr inbounds i8, ptr %J, i64 208
-  %8 = load i32, ptr %right, align 8
-  %and17 = and i32 %cond, %8
+  %10 = load i32, ptr %right, align 8
+  %and17 = and i32 %cond, %10
   %add = add nuw nsw i32 %and14, %and17
   %cmp18 = icmp ugt i32 %add, %cond
   br i1 %cmp18, label %if.then20, label %if.end50
 
 if.then20:                                        ; preds = %if.then6
   %o23 = getelementptr inbounds i8, ptr %J, i64 189
-  %9 = load i8, ptr %o23, align 1
-  switch i8 %9, label %if.else46 [
+  %11 = load i8, ptr %o23, align 1
+  switch i8 %11, label %if.else46 [
     i8 36, label %if.then33
     i8 37, label %if.then33
     i8 38, label %if.end50
@@ -5120,8 +5120,8 @@ if.else46:                                        ; preds = %if.then20
 
 if.end50:                                         ; preds = %if.then20, %if.else46, %if.then6
   %k.0 = phi i32 [ %and47, %if.else46 ], [ %add, %if.then6 ], [ %cond, %if.then20 ]
-  %10 = load i16, ptr %left, align 8
-  store i16 %10, ptr %fold, align 8
+  %12 = load i16, ptr %left, align 8
+  store i16 %12, ptr %fold, align 8
   %call57 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %k.0) #11
   %conv58 = trunc i32 %call57 to i16
   %op261 = getelementptr inbounds i8, ptr %J, i64 186
@@ -5630,9 +5630,9 @@ if.then:                                          ; preds = %entry
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 31
   %and = zext nneg i8 %3 to i32
-  %shr = lshr i32 6315993, %and
-  %and8 = and i32 %shr, 1
-  %tobool.not = icmp eq i32 %and8, 0
+  %4 = shl nuw i32 1, %and
+  %5 = and i32 %4, 6315993
+  %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.then
@@ -6609,20 +6609,20 @@ if.then:                                          ; preds = %entry
   %3 = load i8, ptr %t, align 4
   %4 = and i8 %3, 31
   %and5 = zext nneg i8 %4 to i32
-  %shr = lshr i32 6315993, %and5
-  %and6 = and i32 %shr, 1
-  %tobool7.not = icmp eq i32 %and6, 0
+  %5 = shl nuw i32 1, %and5
+  %6 = and i32 %5, 6315993
+  %tobool7.not = icmp eq i32 %6, 0
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %5 = load i64, ptr %add.ptr, align 8
-  %call = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %5) #11
+  %7 = load i64, ptr %add.ptr, align 8
+  %call = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %7) #11
   br label %return
 
 if.else:                                          ; preds = %if.then
   %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %6 = load i32, ptr %add.ptr, align 4
-  store i32 %6, ptr %fold, align 8
+  %8 = load i32, ptr %add.ptr, align 4
+  store i32 %8, ptr %fold, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.else, %if.then8

@@ -2792,84 +2792,84 @@ while.body.i.i:                                   ; preds = %land.rhs.lr.ph.i.i,
 
 switch.hole_check:                                ; preds = %while.body.i.i
   %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 29, %switch.maskindex
-  %44 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %44, 0
+  %44 = shl nuw nsw i8 1, %switch.maskindex
+  %45 = and i8 %44, 29
+  %switch.lobit.not = icmp eq i8 %45, 0
   br i1 %switch.lobit.not, label %if.then75, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN9GUIButton4drawEv, i64 0, i64 %45
+  %46 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN9GUIButton4drawEv, i64 0, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   %idxprom.i.i = zext nneg i32 %switch.load to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.GUIButton::ButtonImage", ptr %ButtonImages, i64 %idxprom.i.i
-  %46 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !67
-  %tobool35.not.i.i = icmp eq ptr %46, null
+  %47 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !67
+  %tobool35.not.i.i = icmp eq ptr %47, null
   br i1 %tobool35.not.i.i, label %while.body.i.i, label %lor.lhs.false67, !llvm.loop !104
 
 lor.lhs.false67:                                  ; preds = %switch.lookup, %land.rhs.lr.ph.i.i
   %idxprom72.pre-phi = phi i64 [ %idxprom.i.i253, %land.rhs.lr.ph.i.i ], [ %idxprom.i.i, %switch.lookup ]
   %arrayidx73 = getelementptr inbounds [9 x %"struct.GUIButton::ButtonImage"], ptr %ButtonImages, i64 0, i64 %idxprom72.pre-phi
-  %47 = load ptr, ptr %ButtonImages, align 8, !tbaa !67
-  %48 = load ptr, ptr %arrayidx73, align 8, !tbaa !67
-  %cmp.i175 = icmp eq ptr %47, %48
+  %48 = load ptr, ptr %ButtonImages, align 8, !tbaa !67
+  %49 = load ptr, ptr %arrayidx73, align 8, !tbaa !67
+  %cmp.i175 = icmp eq ptr %48, %49
   br i1 %cmp.i175, label %land.rhs.i176, label %if.end86
 
 land.rhs.i176:                                    ; preds = %lor.lhs.false67
   %SourceRect3.i = getelementptr inbounds i8, ptr %arrayidx73, i64 8
-  %49 = load <2 x i32>, ptr %SourceRect, align 8
-  %50 = load <2 x i32>, ptr %SourceRect3.i, align 8
-  %51 = icmp eq <2 x i32> %49, %50
-  %52 = extractelement <2 x i1> %51, i64 0
-  %53 = extractelement <2 x i1> %51, i64 1
-  %54 = select i1 %52, i1 %53, i1 false
-  br i1 %54, label %_ZNK9GUIButton11ButtonImageeqERKS0_.exit, label %if.end86
+  %50 = load <2 x i32>, ptr %SourceRect, align 8
+  %51 = load <2 x i32>, ptr %SourceRect3.i, align 8
+  %52 = icmp eq <2 x i32> %50, %51
+  %53 = extractelement <2 x i1> %52, i64 0
+  %54 = extractelement <2 x i1> %52, i64 1
+  %55 = select i1 %53, i1 %54, i1 false
+  br i1 %55, label %_ZNK9GUIButton11ButtonImageeqERKS0_.exit, label %if.end86
 
 _ZNK9GUIButton11ButtonImageeqERKS0_.exit:         ; preds = %land.rhs.i176
   %LowerRightCorner.i.i = getelementptr inbounds i8, ptr %this, i64 416
   %LowerRightCorner3.i.i = getelementptr inbounds i8, ptr %arrayidx73, i64 16
-  %55 = load <2 x i32>, ptr %LowerRightCorner.i.i, align 8
-  %56 = load <2 x i32>, ptr %LowerRightCorner3.i.i, align 8
-  %57 = icmp eq <2 x i32> %55, %56
-  %58 = extractelement <2 x i1> %57, i64 0
-  %59 = extractelement <2 x i1> %57, i64 1
-  %60 = select i1 %58, i1 %59, i1 false
-  br i1 %60, label %if.then75, label %if.end86
+  %56 = load <2 x i32>, ptr %LowerRightCorner.i.i, align 8
+  %57 = load <2 x i32>, ptr %LowerRightCorner3.i.i, align 8
+  %58 = icmp eq <2 x i32> %56, %57
+  %59 = extractelement <2 x i1> %58, i64 0
+  %60 = extractelement <2 x i1> %58, i64 1
+  %61 = select i1 %59, i1 %60, i1 false
+  br i1 %61, label %if.then75, label %if.end86
 
 if.then75:                                        ; preds = %switch.hole_check, %while.body.i.i, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit, %if.then.i.i
   %vtable76 = load ptr, ptr %13, align 8, !tbaa !4
   %vfn77 = getelementptr inbounds i8, ptr %vtable76, i64 16
-  %61 = load ptr, ptr %vfn77, align 8
-  %call78 = tail call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(616) %13, i32 noundef 17)
+  %62 = load ptr, ptr %vfn77, align 8
+  %call78 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(616) %13, i32 noundef 17)
   %add = add nsw i32 %call78, %sub
   %vtable80 = load ptr, ptr %13, align 8, !tbaa !4
   %vfn81 = getelementptr inbounds i8, ptr %vtable80, i64 16
-  %62 = load ptr, ptr %vfn81, align 8
-  %call82 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(616) %13, i32 noundef 18)
+  %63 = load ptr, ptr %vfn81, align 8
+  %call82 = tail call noundef i32 %63(ptr noundef nonnull align 8 dereferenceable(616) %13, i32 noundef 18)
   %add84 = add nsw i32 %call82, %sub61
   %.pre258 = load ptr, ptr %ButtonImages, align 8, !tbaa !67
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then75, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit, %land.rhs.i176, %lor.lhs.false67, %if.end57
-  %63 = phi ptr [ %23, %if.end57 ], [ %.pre258, %if.then75 ], [ %47, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit ], [ %47, %lor.lhs.false67 ], [ %47, %land.rhs.i176 ]
+  %64 = phi ptr [ %23, %if.end57 ], [ %.pre258, %if.then75 ], [ %48, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit ], [ %48, %lor.lhs.false67 ], [ %48, %land.rhs.i176 ]
   %pos.sroa.0.0 = phi i32 [ %sub, %if.end57 ], [ %add, %if.then75 ], [ %sub, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit ], [ %sub, %lor.lhs.false67 ], [ %sub, %land.rhs.i176 ]
   %pos.sroa.11.0 = phi i32 [ %sub61, %if.end57 ], [ %add84, %if.then75 ], [ %sub61, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit ], [ %sub61, %lor.lhs.false67 ], [ %sub61, %land.rhs.i176 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %image_colors) #29
   %BgColor = getelementptr inbounds i8, ptr %this, i64 7448
-  %64 = load i32, ptr %BgColor, align 8, !tbaa !62
-  %65 = insertelement <4 x i32> poison, i32 %64, i64 0
-  %66 = shufflevector <4 x i32> %65, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %66, ptr %image_colors, align 16, !tbaa !62
+  %65 = load i32, ptr %BgColor, align 8, !tbaa !62
+  %66 = insertelement <4 x i32> poison, i32 %65, i64 0
+  %67 = shufflevector <4 x i32> %66, <4 x i32> poison, <4 x i32> zeroinitializer
+  store <4 x i32> %67, ptr %image_colors, align 16, !tbaa !62
   %BgMiddle = getelementptr inbounds i8, ptr %this, i64 7408
   %LowerRightCorner.i.i180 = getelementptr inbounds i8, ptr %this, i64 7416
-  %67 = load i32, ptr %LowerRightCorner.i.i180, align 8, !tbaa !99
-  %68 = load i32, ptr %BgMiddle, align 8, !tbaa !96
-  %sub.i.i = sub nsw i32 %67, %68
+  %68 = load i32, ptr %LowerRightCorner.i.i180, align 8, !tbaa !99
+  %69 = load i32, ptr %BgMiddle, align 8, !tbaa !96
+  %sub.i.i = sub nsw i32 %68, %69
   %Y.i.i181 = getelementptr inbounds i8, ptr %this, i64 7420
-  %69 = load i32, ptr %Y.i.i181, align 4, !tbaa !100
+  %70 = load i32, ptr %Y.i.i181, align 4, !tbaa !100
   %Y2.i.i = getelementptr inbounds i8, ptr %this, i64 7412
-  %70 = load i32, ptr %Y2.i.i, align 4, !tbaa !97
-  %sub.i3.i = sub nsw i32 %69, %70
+  %71 = load i32, ptr %Y2.i.i, align 4, !tbaa !97
+  %sub.i3.i = sub nsw i32 %70, %71
   %mul.i = mul nsw i32 %sub.i3.i, %sub.i.i
   %cmp97 = icmp eq i32 %mul.i, 0
   %ScaleImage = getelementptr inbounds i8, ptr %this, i64 7370
@@ -2877,8 +2877,8 @@ if.end86:                                         ; preds = %if.then75, %_ZNK9GU
 
 if.then98:                                        ; preds = %if.end86
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp99) #29
-  %71 = load i8, ptr %ScaleImage, align 2, !tbaa !46, !range !54, !noundef !55
-  %tobool100.not = icmp eq i8 %71, 0
+  %72 = load i8, ptr %ScaleImage, align 2, !tbaa !46, !range !54, !noundef !55
+  %tobool100.not = icmp eq i8 %72, 0
   br i1 %tobool100.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.then98
@@ -2903,19 +2903,19 @@ cond.false:                                       ; preds = %if.then98
 cond.end:                                         ; preds = %cond.false, %cond.true
   %AbsoluteClippingRect104 = getelementptr inbounds i8, ptr %this, i64 80
   %UseAlphaChannel = getelementptr inbounds i8, ptr %this, i64 7368
-  %72 = load i8, ptr %UseAlphaChannel, align 8, !tbaa !106, !range !54, !noundef !55
-  %tobool106 = icmp ne i8 %72, 0
+  %73 = load i8, ptr %UseAlphaChannel, align 8, !tbaa !106, !range !54, !noundef !55
+  %tobool106 = icmp ne i8 %73, 0
   %vtable107 = load ptr, ptr %call24, align 8, !tbaa !4
   %vfn108 = getelementptr inbounds i8, ptr %vtable107, i64 400
-  %73 = load ptr, ptr %vfn108, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %call24, ptr noundef %63, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp99, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull %AbsoluteClippingRect104, ptr noundef nonnull %image_colors, i1 noundef zeroext %tobool106)
+  %74 = load ptr, ptr %vfn108, align 8
+  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %call24, ptr noundef %64, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp99, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull %AbsoluteClippingRect104, ptr noundef nonnull %image_colors, i1 noundef zeroext %tobool106)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp99) #29
   br label %if.end122
 
 if.else109:                                       ; preds = %if.end86
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp110) #29
-  %74 = load i8, ptr %ScaleImage, align 2, !tbaa !46, !range !54, !noundef !55
-  %tobool112.not = icmp eq i8 %74, 0
+  %75 = load i8, ptr %ScaleImage, align 2, !tbaa !46, !range !54, !noundef !55
+  %tobool112.not = icmp eq i8 %75, 0
   br i1 %tobool112.not, label %cond.false115, label %cond.true113
 
 cond.true113:                                     ; preds = %if.else109
@@ -2939,7 +2939,7 @@ cond.false115:                                    ; preds = %if.else109
 
 cond.end118:                                      ; preds = %cond.false115, %cond.true113
   %AbsoluteClippingRect120 = getelementptr inbounds i8, ptr %this, i64 80
-  call void @_Z17draw2DImage9SlicePN3irr5video12IVideoDriverEPNS0_8ITextureERKNS_4core4rectIiEES9_S9_PS8_PKNS0_6SColorE(ptr noundef %call24, ptr noundef %63, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp110, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull align 4 dereferenceable(16) %BgMiddle, ptr noundef nonnull %AbsoluteClippingRect120, ptr noundef nonnull %image_colors)
+  call void @_Z17draw2DImage9SlicePN3irr5video12IVideoDriverEPNS0_8ITextureERKNS_4core4rectIiEES9_S9_PS8_PKNS0_6SColorE(ptr noundef %call24, ptr noundef %64, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp110, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull align 4 dereferenceable(16) %BgMiddle, ptr noundef nonnull %AbsoluteClippingRect120, ptr noundef nonnull %image_colors)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp110) #29
   br label %if.end122
 
@@ -2950,40 +2950,40 @@ if.end122:                                        ; preds = %cond.end118, %cond.
 
 if.end123:                                        ; preds = %if.end122, %if.end38
   %SpriteBank = getelementptr inbounds i8, ptr %this, i64 392
-  %75 = load ptr, ptr %SpriteBank, align 8, !tbaa !83
-  %tobool124.not = icmp eq ptr %75, null
+  %76 = load ptr, ptr %SpriteBank, align 8, !tbaa !83
+  %tobool124.not = icmp eq ptr %76, null
   br i1 %tobool124.not, label %if.end142, label %if.then125
 
 if.then125:                                       ; preds = %if.end123
   %vtable126 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn127 = getelementptr inbounds i8, ptr %vtable126, i64 144
-  %76 = load ptr, ptr %vfn127, align 8
-  %call128 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %77 = load ptr, ptr %vfn127, align 8
+  %call128 = call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(308) %this)
   br i1 %call128, label %if.then129, label %if.end142
 
 if.then129:                                       ; preds = %if.then125
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pos130) #29
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %pos130, align 8, !tbaa.struct !105
   %Pressed131 = getelementptr inbounds i8, ptr %this, i64 7367
-  %77 = load i8, ptr %Pressed131, align 1, !tbaa !88, !range !54, !noundef !55
-  %cond = zext nneg i8 %77 to i32
+  %78 = load i8, ptr %Pressed131, align 1, !tbaa !88, !range !54, !noundef !55
+  %cond = zext nneg i8 %78 to i32
   %ClickTime = getelementptr inbounds i8, ptr %this, i64 7352
-  %78 = load i32, ptr %ClickTime, align 8, !tbaa !107
-  call void @_ZN9GUIButton10drawSpriteEN3irr3gui17EGUI_BUTTON_STATEEjRKNS0_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 noundef %cond, i32 noundef %78, ptr noundef nonnull align 4 dereferenceable(8) %pos130)
-  %79 = load ptr, ptr %Environment.i, align 8, !tbaa !61
-  %vtable134 = load ptr, ptr %79, align 8, !tbaa !4
+  %79 = load i32, ptr %ClickTime, align 8, !tbaa !107
+  call void @_ZN9GUIButton10drawSpriteEN3irr3gui17EGUI_BUTTON_STATEEjRKNS0_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 noundef %cond, i32 noundef %79, ptr noundef nonnull align 4 dereferenceable(8) %pos130)
+  %80 = load ptr, ptr %Environment.i, align 8, !tbaa !61
+  %vtable134 = load ptr, ptr %80, align 8, !tbaa !4
   %vfn135 = getelementptr inbounds i8, ptr %vtable134, i64 40
-  %80 = load ptr, ptr %vfn135, align 8
-  %call136 = call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull %this, i1 noundef zeroext false)
+  %81 = load ptr, ptr %vfn135, align 8
+  %call136 = call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull %this, i1 noundef zeroext false)
   %cond137 = select i1 %call136, i32 4, i32 5
   %FocusTime = getelementptr inbounds i8, ptr %this, i64 7360
-  %81 = load i32, ptr %FocusTime, align 8, !tbaa !94
-  call void @_ZN9GUIButton10drawSpriteEN3irr3gui17EGUI_BUTTON_STATEEjRKNS0_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 noundef %cond137, i32 noundef %81, ptr noundef nonnull align 4 dereferenceable(8) %pos130)
-  %82 = load ptr, ptr %Environment.i, align 8, !tbaa !61
-  %vtable.i212 = load ptr, ptr %82, align 8, !tbaa !4
+  %82 = load i32, ptr %FocusTime, align 8, !tbaa !94
+  call void @_ZN9GUIButton10drawSpriteEN3irr3gui17EGUI_BUTTON_STATEEjRKNS0_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 noundef %cond137, i32 noundef %82, ptr noundef nonnull align 4 dereferenceable(8) %pos130)
+  %83 = load ptr, ptr %Environment.i, align 8, !tbaa !61
+  %vtable.i212 = load ptr, ptr %83, align 8, !tbaa !4
   %vfn.i213 = getelementptr inbounds i8, ptr %vtable.i212, i64 24
-  %83 = load ptr, ptr %vfn.i213, align 8
-  %call.i214 = call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(8) %82)
+  %84 = load ptr, ptr %vfn.i213, align 8
+  %call.i214 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(8) %83)
   %cmp.i215 = icmp eq ptr %call.i214, %this
   br i1 %cmp.i215, label %_ZNK9GUIButton9isHoveredEv.exit221.thread, label %lor.rhs.i216
 
@@ -2993,8 +2993,8 @@ lor.rhs.i216:                                     ; preds = %if.then129
 
 _ZNK9GUIButton9isHoveredEv.exit221:               ; preds = %lor.rhs.i216
   %Parent.i.i219 = getelementptr inbounds i8, ptr %call.i214, i64 32
-  %84 = load ptr, ptr %Parent.i.i219, align 8, !tbaa !56
-  %.fr = freeze ptr %84
+  %85 = load ptr, ptr %Parent.i.i219, align 8, !tbaa !56
+  %.fr = freeze ptr %85
   %cmp4.i220 = icmp eq ptr %.fr, %this
   br i1 %cmp4.i220, label %_ZNK9GUIButton9isHoveredEv.exit221.thread, label %_ZNK9GUIButton9isHoveredEv.exit221.thread247
 
@@ -3002,18 +3002,18 @@ _ZNK9GUIButton9isHoveredEv.exit221.thread:        ; preds = %_ZNK9GUIButton9isHo
   br label %_ZNK9GUIButton9isHoveredEv.exit221.thread247
 
 _ZNK9GUIButton9isHoveredEv.exit221.thread247:     ; preds = %_ZNK9GUIButton9isHoveredEv.exit221.thread, %_ZNK9GUIButton9isHoveredEv.exit221, %lor.rhs.i216
-  %85 = phi i32 [ 2, %_ZNK9GUIButton9isHoveredEv.exit221.thread ], [ 3, %_ZNK9GUIButton9isHoveredEv.exit221 ], [ 3, %lor.rhs.i216 ]
+  %86 = phi i32 [ 2, %_ZNK9GUIButton9isHoveredEv.exit221.thread ], [ 3, %_ZNK9GUIButton9isHoveredEv.exit221 ], [ 3, %lor.rhs.i216 ]
   %HoverTime = getelementptr inbounds i8, ptr %this, i64 7356
-  %86 = load i32, ptr %HoverTime, align 4, !tbaa !95
-  call void @_ZN9GUIButton10drawSpriteEN3irr3gui17EGUI_BUTTON_STATEEjRKNS0_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 noundef %85, i32 noundef %86, ptr noundef nonnull align 4 dereferenceable(8) %pos130)
+  %87 = load i32, ptr %HoverTime, align 4, !tbaa !95
+  call void @_ZN9GUIButton10drawSpriteEN3irr3gui17EGUI_BUTTON_STATEEjRKNS0_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 noundef %86, i32 noundef %87, ptr noundef nonnull align 4 dereferenceable(8) %pos130)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pos130) #29
   br label %if.end142
 
 if.end142:                                        ; preds = %_ZNK9GUIButton9isHoveredEv.exit221.thread247, %if.then125, %if.end123
   %vtable.i222 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn.i223 = getelementptr inbounds i8, ptr %vtable.i222, i64 104
-  %87 = load ptr, ptr %vfn.i223, align 8
-  %call.i224 = call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %88 = load ptr, ptr %vfn.i223, align 8
+  %call.i224 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(308) %this)
   br i1 %call.i224, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end142
@@ -3025,11 +3025,11 @@ if.then.i:                                        ; preds = %if.end142
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
   %__begin3.sroa.0.015.i = phi ptr [ %__begin3.sroa.0.0.i, %for.body.i ], [ %__begin3.sroa.0.013.i, %if.then.i ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.015.i, i64 16
-  %88 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !60
-  %vtable7.i = load ptr, ptr %88, align 8, !tbaa !4
+  %89 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !60
+  %vtable7.i = load ptr, ptr %89, align 8, !tbaa !4
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 80
-  %89 = load ptr, ptr %vfn8.i, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(308) %88)
+  %90 = load ptr, ptr %vfn8.i, align 8
+  call void %90(ptr noundef nonnull align 8 dereferenceable(308) %89)
   %__begin3.sroa.0.0.i = load ptr, ptr %__begin3.sroa.0.015.i, align 8, !tbaa !108
   %cmp.i.not.i = icmp eq ptr %__begin3.sroa.0.0.i, %Children.i
   br i1 %cmp.i.not.i, label %return, label %for.body.i

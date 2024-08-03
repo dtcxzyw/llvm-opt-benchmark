@@ -244,8 +244,8 @@ _Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit:    ; preds = %55
   %101 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = zext nneg i32 %.1 to i64
-  %104 = lshr i64 276824071, %103
-  %105 = and i64 %104, 1
+  %104 = shl nuw i64 1, %103
+  %105 = and i64 %104, 276824071
   %.not140.not = icmp eq i64 %105, 0
   br i1 %.not140.not, label %106, label %107
 
@@ -273,8 +273,8 @@ _Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit:    ; preds = %55
   %.0122297 = phi i8 [ %.1123, %126 ], [ %102, %107 ]
   %119 = getelementptr inbounds [32 x i16], ptr @_ZL6yy_def, i64 0, i64 %118
   %120 = load i16, ptr %119, align 2
-  %121 = lshr i64 209747968, %118
-  %122 = and i64 %121, 1
+  %121 = shl nuw i64 1, %118
+  %122 = and i64 %121, 209747968
   %.not151 = icmp eq i64 %122, 0
   br i1 %.not151, label %126, label %123
 
@@ -303,8 +303,8 @@ _Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit:    ; preds = %55
   %137 = sext i16 %136 to i32
   %138 = getelementptr inbounds i8, ptr %.1125, i64 1
   %139 = zext nneg i16 %136 to i64
-  %140 = lshr i64 322469872, %139
-  %141 = and i64 %140, 1
+  %140 = shl nuw i64 1, %139
+  %141 = and i64 %140, 322469872
   %.not142.not = icmp eq i64 %141, 0
   br i1 %.not142.not, label %98, label %.outer, !llvm.loop !7
 
@@ -319,8 +319,8 @@ _Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit:    ; preds = %55
   %.2126 = phi ptr [ %159, %157 ], [ %.2126.ph, %.outer ]
   %.3 = phi i32 [ %160, %157 ], [ %.3.ph, %.outer ]
   %144 = sext i32 %.3 to i64
-  %145 = lshr i64 276824071, %144
-  %146 = and i64 %145, 1
+  %145 = shl nuw i64 1, %144
+  %146 = and i64 %145, 276824071
   %.not143 = icmp eq i64 %146, 0
   br i1 %.not143, label %151, label %147
 
@@ -681,8 +681,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit160: ;
 280:                                              ; preds = %276, %.lr.ph33.i
   %281 = phi i8 [ %279, %276 ], [ 1, %.lr.ph33.i ]
   %282 = zext nneg i32 %.02131.i to i64
-  %283 = lshr i64 276824071, %282
-  %284 = and i64 %283, 1
+  %283 = shl nuw i64 1, %282
+  %284 = and i64 %283, 276824071
   %.not25.not.i = icmp eq i64 %284, 0
   br i1 %.not25.not.i, label %285, label %286
 
@@ -710,8 +710,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit160: ;
   %.029.i = phi i8 [ %.1.i, %305 ], [ %281, %286 ]
   %298 = getelementptr inbounds [32 x i16], ptr @_ZL6yy_def, i64 0, i64 %297
   %299 = load i16, ptr %298, align 2
-  %300 = lshr i64 209747968, %297
-  %301 = and i64 %300, 1
+  %300 = shl nuw i64 1, %297
+  %301 = and i64 %300, 209747968
   %.not27.i = icmp eq i64 %301, 0
   br i1 %.not27.i, label %305, label %302
 
@@ -745,8 +745,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit160: ;
 _ZL21yy_get_previous_statePv.exit:                ; preds = %._crit_edge.i, %265
   %.021.lcssa.i = phi i32 [ %273, %265 ], [ %316, %._crit_edge.i ]
   %318 = zext nneg i32 %.021.lcssa.i to i64
-  %319 = lshr i64 276824071, %318
-  %320 = and i64 %319, 1
+  %319 = shl nuw i64 1, %318
+  %320 = and i64 %319, 276824071
   %.not.not.i = icmp eq i64 %320, 0
   br i1 %.not.not.i, label %321, label %322
 
@@ -783,8 +783,8 @@ _ZL21yy_get_previous_statePv.exit:                ; preds = %._crit_edge.i, %265
 
 _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i167, %322
   %.lcssa.i170 = phi i64 [ %327, %322 ], [ %338, %.lr.ph.i167 ]
-  %341 = lshr i64 72057542498320384, %.lcssa.i170
-  %342 = and i64 %341, 1
+  %341 = shl nuw i64 1, %.lcssa.i170
+  %342 = and i64 %341, 72057542498320384
   %.not18.i = icmp ne i64 %342, 0
   %.not145308 = icmp eq i64 %.lcssa.i170, 0
   %.not145 = or i1 %.not18.i, %.not145308
@@ -1110,8 +1110,8 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %359, %_ZL18yy_get_n
 511:                                              ; preds = %507, %.lr.ph33.i176
   %512 = phi i8 [ %510, %507 ], [ 1, %.lr.ph33.i176 ]
   %513 = zext nneg i32 %.02131.i177 to i64
-  %514 = lshr i64 276824071, %513
-  %515 = and i64 %514, 1
+  %514 = shl nuw i64 1, %513
+  %515 = and i64 %514, 276824071
   %.not25.not.i180 = icmp eq i64 %515, 0
   br i1 %.not25.not.i180, label %516, label %517
 
@@ -1139,8 +1139,8 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %359, %_ZL18yy_get_n
   %.029.i183 = phi i8 [ %.1.i185, %536 ], [ %512, %517 ]
   %529 = getelementptr inbounds [32 x i16], ptr @_ZL6yy_def, i64 0, i64 %528
   %530 = load i16, ptr %529, align 2
-  %531 = lshr i64 209747968, %528
-  %532 = and i64 %531, 1
+  %531 = shl nuw i64 1, %528
+  %532 = and i64 %531, 209747968
   %.not27.i184 = icmp eq i64 %532, 0
   br i1 %.not27.i184, label %536, label %533
 
@@ -1203,8 +1203,8 @@ _ZL18yy_get_next_bufferPv.exit.thread210:         ; preds = %359, %_ZL18yy_get_n
 559:                                              ; preds = %555, %.lr.ph33.i192
   %560 = phi i8 [ %558, %555 ], [ 1, %.lr.ph33.i192 ]
   %561 = zext nneg i32 %.02131.i193 to i64
-  %562 = lshr i64 276824071, %561
-  %563 = and i64 %562, 1
+  %562 = shl nuw i64 1, %561
+  %563 = and i64 %562, 276824071
   %.not25.not.i196 = icmp eq i64 %563, 0
   br i1 %.not25.not.i196, label %564, label %565
 
@@ -1232,8 +1232,8 @@ _ZL18yy_get_next_bufferPv.exit.thread210:         ; preds = %359, %_ZL18yy_get_n
   %.029.i199 = phi i8 [ %.1.i201, %584 ], [ %560, %565 ]
   %577 = getelementptr inbounds [32 x i16], ptr @_ZL6yy_def, i64 0, i64 %576
   %578 = load i16, ptr %577, align 2
-  %579 = lshr i64 209747968, %576
-  %580 = and i64 %579, 1
+  %579 = shl nuw i64 1, %576
+  %580 = and i64 %579, 209747968
   %.not27.i200 = icmp eq i64 %580, 0
   br i1 %.not27.i200, label %584, label %581
 

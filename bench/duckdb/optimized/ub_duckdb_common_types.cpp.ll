@@ -8622,14 +8622,14 @@ switch.early.test:                                ; preds = %entry
 
 switch.lookup:                                    ; preds = %switch.early.test
   %switch.cast = zext nneg i8 %switch.tableidx to i59
-  %switch.downshift = lshr i59 288230376151711710, %switch.cast
-  %2 = and i59 %switch.downshift, 1
-  %switch.masked = icmp ne i59 %2, 0
+  %2 = shl nuw i59 1, %switch.cast
+  %3 = and i59 %2, 288230376151711710
+  %switch.masked = icmp ne i59 %3, 0
   br label %land.end
 
 land.end:                                         ; preds = %switch.lookup, %switch.early.test, %entry
-  %3 = phi i1 [ false, %entry ], [ %switch.masked, %switch.lookup ], [ true, %switch.early.test ]
-  ret i1 %3
+  %4 = phi i1 [ false, %entry ], [ %switch.masked, %switch.lookup ], [ true, %switch.early.test ]
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -46138,9 +46138,9 @@ if.end51:                                         ; preds = %_ZN6duckdb4Date16Pa
 
 switch.hole_check:                                ; preds = %lor.lhs.false
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
-  %switch.shifted = lshr i32 8388639, %switch.maskindex
-  %21 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %21, 0
+  %21 = shl nuw nsw i32 1, %switch.maskindex
+  %22 = and i32 %21, 8388639
+  %switch.lobit.not = icmp eq i32 %22, 0
   br i1 %switch.lobit.not, label %if.end, label %return
 
 return:                                           ; preds = %switch.hole_check, %if.end51, %_ZN6duckdb4Date16ParseDoubleDigitEPKcmRmRi.exit115, %land.lhs.true.i100, %if.then44, %_ZN6duckdb4Date16ParseDoubleDigitEPKcmRmRi.exit, %land.lhs.true.i, %if.then30, %for.end, %if.end3, %if.end, %entry

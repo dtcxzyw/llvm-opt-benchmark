@@ -2703,71 +2703,64 @@ define internal i64 @sdev_show_blacklist(ptr nocapture noundef readonly %0, ptr 
   %4 = getelementptr i8, ptr %0, i64 -120
   br label %5
 
-5:                                                ; preds = %36, %3
-  %6 = phi i64 [ 0, %3 ], [ %38, %36 ]
-  %7 = phi i64 [ 0, %3 ], [ %37, %36 ]
+5:                                                ; preds = %30, %3
+  %6 = phi i64 [ 0, %3 ], [ %32, %30 ]
+  %7 = phi i64 [ 0, %3 ], [ %31, %30 ]
   %8 = load i64, ptr %4, align 8
   %9 = shl nuw i64 1, %6
   %10 = and i64 %8, %9
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %36, label %12
+  br i1 %11, label %30, label %12
 
 12:                                               ; preds = %5
   %13 = icmp ult i64 %6, 34
-  br i1 %13, label %14, label %.thread
+  %14 = and i64 %9, 151109632
+  %15 = icmp eq i64 %14, 0
+  %or.cond = and i1 %13, %15
+  %16 = icmp eq i64 %7, 0
+  %17 = select i1 %16, ptr @.str.41, ptr @.str.96
+  %18 = sub i64 4096, %7
+  %19 = getelementptr i8, ptr %2, i64 %7
+  br i1 %or.cond, label %20, label %.thread
 
-14:                                               ; preds = %12
-  %15 = lshr i64 151109632, %6
-  %16 = and i64 %15, 1
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %.thread
+20:                                               ; preds = %12
+  %21 = getelementptr [34 x ptr], ptr @sdev_bflags_name, i64 0, i64 %6
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %19, i64 noundef %18, ptr noundef nonnull @.str.39, ptr noundef nonnull %17, ptr noundef nonnull %22) #15
+  br label %26
 
-18:                                               ; preds = %14
-  %19 = icmp eq i64 %7, 0
-  %20 = select i1 %19, ptr @.str.41, ptr @.str.96
-  %21 = sub i64 4096, %7
-  %22 = getelementptr i8, ptr %2, i64 %7
-  %23 = getelementptr [34 x ptr], ptr @sdev_bflags_name, i64 0, i64 %6
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %22, i64 noundef %21, ptr noundef nonnull @.str.39, ptr noundef nonnull %20, ptr noundef nonnull %24) #15
-  br label %32
+.thread:                                          ; preds = %12
+  %24 = trunc i64 %6 to i32
+  %25 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %19, i64 noundef %18, ptr noundef nonnull @.str.97, ptr noundef nonnull %17, i32 noundef %24) #15
+  br label %26
 
-.thread:                                          ; preds = %12, %14
-  %26 = icmp eq i64 %7, 0
-  %27 = select i1 %26, ptr @.str.41, ptr @.str.96
-  %28 = sub i64 4096, %7
-  %29 = getelementptr i8, ptr %2, i64 %7
-  %30 = trunc i64 %6 to i32
-  %31 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %29, i64 noundef %28, ptr noundef nonnull @.str.97, ptr noundef nonnull %27, i32 noundef %30) #15
-  br label %32
+26:                                               ; preds = %.thread, %20
+  %27 = phi i32 [ %23, %20 ], [ %25, %.thread ]
+  %28 = sext i32 %27 to i64
+  %29 = add i64 %7, %28
+  br label %30
 
-32:                                               ; preds = %.thread, %18
-  %33 = phi i32 [ %25, %18 ], [ %31, %.thread ]
-  %34 = sext i32 %33 to i64
-  %35 = add i64 %7, %34
-  br label %36
+30:                                               ; preds = %26, %5
+  %31 = phi i64 [ %29, %26 ], [ %7, %5 ]
+  %32 = add nuw nsw i64 %6, 1
+  %33 = icmp eq i64 %32, 64
+  br i1 %33, label %34, label %5, !llvm.loop !31
 
-36:                                               ; preds = %32, %5
-  %37 = phi i64 [ %35, %32 ], [ %7, %5 ]
-  %38 = add nuw nsw i64 %6, 1
-  %39 = icmp eq i64 %38, 64
-  br i1 %39, label %40, label %5, !llvm.loop !31
+34:                                               ; preds = %30
+  %35 = icmp eq i64 %31, 0
+  br i1 %35, label %42, label %36
 
-40:                                               ; preds = %36
-  %41 = icmp eq i64 %37, 0
-  br i1 %41, label %48, label %42
+36:                                               ; preds = %34
+  %37 = getelementptr i8, ptr %2, i64 %31
+  %38 = sub i64 4096, %31
+  %39 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %37, i64 noundef %38, ptr noundef nonnull @.str.43) #15
+  %40 = sext i32 %39 to i64
+  %41 = add i64 %31, %40
+  br label %42
 
-42:                                               ; preds = %40
-  %43 = getelementptr i8, ptr %2, i64 %37
-  %44 = sub i64 4096, %37
-  %45 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %43, i64 noundef %44, ptr noundef nonnull @.str.43) #15
-  %46 = sext i32 %45 to i64
-  %47 = add i64 %37, %46
-  br label %48
-
-48:                                               ; preds = %42, %40
-  %49 = phi i64 [ %47, %42 ], [ 0, %40 ]
-  ret i64 %49
+42:                                               ; preds = %36, %34
+  %43 = phi i64 [ %41, %36 ], [ 0, %34 ]
+  ret i64 %43
 }
 
 ; Function Attrs: null_pointer_is_valid

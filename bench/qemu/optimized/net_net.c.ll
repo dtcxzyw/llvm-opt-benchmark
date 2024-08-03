@@ -2459,8 +2459,8 @@ if.then:                                          ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.then
   %idxprom = zext nneg i32 %0 to i64
-  %1 = lshr i64 2309, %idxprom
-  %2 = and i64 %1, 1
+  %1 = shl nuw i64 1, %idxprom
+  %2 = and i64 %1, 2309
   %tobool2.not.not = icmp eq i64 %2, 0
   br i1 %tobool2.not.not, label %if.end31, label %if.then3
 
@@ -2482,8 +2482,8 @@ if.then11:                                        ; preds = %if.else
 
 if.end14:                                         ; preds = %if.else
   %idxprom16 = zext nneg i32 %0 to i64
-  %3 = lshr i64 2309, %idxprom16
-  %4 = and i64 %3, 1
+  %3 = shl nuw i64 1, %idxprom16
+  %4 = and i64 %3, 2309
   %tobool18.not.not = icmp eq i64 %4, 0
   br i1 %tobool18.not.not, label %if.end22, label %if.then19
 
@@ -2567,36 +2567,16 @@ if.end50:                                         ; preds = %if.end36
 
 if.then52:                                        ; preds = %if.end50
   %14 = load ptr, ptr %netdev, align 8
-  %nc.05.i28 = load ptr, ptr @net_clients, align 8
-  %tobool.not6.i29 = icmp eq ptr %nc.05.i28, null
-  br i1 %tobool.not6.i29, label %if.else57, label %for.body.i30
+  %call54 = tail call ptr @qemu_find_netdev(ptr noundef %14)
+  %tobool55.not = icmp eq ptr %call54, null
+  br i1 %tobool55.not, label %if.else57, label %if.end58
 
-for.body.i30:                                     ; preds = %if.then52, %for.inc.i37
-  %nc.07.i31 = phi ptr [ %nc.0.i39, %for.inc.i37 ], [ %nc.05.i28, %if.then52 ]
-  %15 = load ptr, ptr %nc.07.i31, align 8
-  %16 = load i32, ptr %15, align 8
-  %cmp.i32 = icmp eq i32 %16, 1
-  br i1 %cmp.i32, label %for.inc.i37, label %if.end.i33
-
-if.end.i33:                                       ; preds = %for.body.i30
-  %name.i34 = getelementptr inbounds i8, ptr %nc.07.i31, i64 56
-  %17 = load ptr, ptr %name.i34, align 8
-  %call.i35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %14) #30
-  %tobool1.not.i36 = icmp eq i32 %call.i35, 0
-  br i1 %tobool1.not.i36, label %if.end58, label %for.inc.i37
-
-for.inc.i37:                                      ; preds = %if.end.i33, %for.body.i30
-  %next.i38 = getelementptr inbounds i8, ptr %nc.07.i31, i64 16
-  %nc.0.i39 = load ptr, ptr %next.i38, align 8
-  %tobool.not.i40 = icmp eq ptr %nc.0.i39, null
-  br i1 %tobool.not.i40, label %if.else57, label %for.body.i30, !llvm.loop !21
-
-if.else57:                                        ; preds = %for.inc.i37, %if.then52
+if.else57:                                        ; preds = %if.then52
   tail call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str, i32 noundef 1185, ptr noundef nonnull @__PRETTY_FUNCTION__.net_client_init1) #28
   unreachable
 
-if.end58:                                         ; preds = %if.end.i33
-  %is_netdev59 = getelementptr inbounds i8, ptr %nc.07.i31, i64 352
+if.end58:                                         ; preds = %if.then52
+  %is_netdev59 = getelementptr inbounds i8, ptr %call54, i64 352
   store i8 1, ptr %is_netdev59, align 8
   br label %return
 

@@ -82,7 +82,7 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %.sink.split, %29, %26, %23, %20
   %38 = getelementptr inbounds i8, ptr %0, i64 64
   %39 = load i32, ptr %38, align 8
-  switch i32 %39, label %262 [
+  switch i32 %39, label %256 [
     i32 1, label %40
     i32 2, label %73
     i32 6, label %73
@@ -95,8 +95,8 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
     i32 13, label %73
     i32 14, label %73
     i32 15, label %73
-    i32 16, label %158
-    i32 4, label %201
+    i32 16, label %152
+    i32 4, label %195
   ]
 
 40:                                               ; preds = %37
@@ -105,11 +105,11 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
   %43 = getelementptr inbounds i8, ptr %42, i64 20
   %44 = load i32, ptr %43, align 4
   %.not146 = icmp eq i32 %44, 0
-  %.pr.pre170 = load i32, ptr %18, align 4
+  %.pr.pre171 = load i32, ptr %18, align 4
   br i1 %.not146, label %52, label %45
 
 45:                                               ; preds = %40
-  %.not147 = icmp eq i32 %.pr.pre170, 1
+  %.not147 = icmp eq i32 %.pr.pre171, 1
   br i1 %.not147, label %.thread, label %47
 
 .thread:                                          ; preds = %45
@@ -128,7 +128,7 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
   br label %52
 
 52:                                               ; preds = %47, %40
-  %.pr = phi i32 [ %.pr.pre, %47 ], [ %.pr.pre170, %40 ]
+  %.pr = phi i32 [ %.pr.pre, %47 ], [ %.pr.pre171, %40 ]
   %53 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 1, ptr %53, align 8
   switch i32 %.pr, label %68 [
@@ -181,11 +181,11 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
   %76 = getelementptr inbounds i8, ptr %75, i64 20
   %77 = load i32, ptr %76, align 4
   %.not139 = icmp eq i32 %77, 0
-  %.pr155.pre168 = load i32, ptr %18, align 4
+  %.pr155.pre169 = load i32, ptr %18, align 4
   br i1 %.not139, label %88, label %78
 
 78:                                               ; preds = %73
-  %.not140 = icmp eq i32 %.pr155.pre168, 2
+  %.not140 = icmp eq i32 %.pr155.pre169, 2
   br i1 %.not140, label %.thread156, label %83
 
 .thread156:                                       ; preds = %78
@@ -209,13 +209,13 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
 
 88:                                               ; preds = %83, %73
   %89 = phi i32 [ %.pre, %83 ], [ %39, %73 ]
-  %.pr155 = phi i32 [ %.pr155.pre, %83 ], [ %.pr155.pre168, %73 ]
+  %.pr155 = phi i32 [ %.pr155.pre, %83 ], [ %.pr155.pre169, %73 ]
   %90 = zext i32 %89 to i64
   %91 = getelementptr inbounds [17 x i32], ptr @rgb_pixelsize, i64 0, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %92, ptr %93, align 8
-  switch i32 %.pr155, label %153 [
+  switch i32 %.pr155, label %147 [
     i32 3, label %94
     i32 1, label %137
     i32 2, label %139
@@ -294,287 +294,277 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
 
 139:                                              ; preds = %.thread156, %88
   %140 = phi i64 [ %79, %.thread156 ], [ %90, %88 ]
-  %141 = lshr i64 4292, %140
-  %142 = and i64 %141, 1
+  %141 = shl nuw i64 1, %140
+  %142 = and i64 %141, 4292
   %.not141 = icmp eq i64 %142, 0
-  br i1 %.not141, label %151, label %143
+  %143 = and i64 %141, 324
+  %.not144 = icmp eq i64 %143, 0
+  %or.cond160 = or i1 %.not141, %.not144
+  %144 = getelementptr inbounds i8, ptr %16, i64 8
+  br i1 %or.cond160, label %146, label %145
 
-143:                                              ; preds = %139
-  %144 = lshr i64 13252, %140
-  %145 = and i64 %144, 1
-  %.not142 = icmp eq i64 %145, 0
-  br i1 %.not142, label %151, label %146
-
-146:                                              ; preds = %143
-  %147 = lshr i64 324, %140
-  %148 = and i64 %147, 1
-  %.not144 = icmp eq i64 %148, 0
-  br i1 %.not144, label %151, label %149
-
-149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @null_convert, ptr %150, align 8
+145:                                              ; preds = %139
+  store ptr @null_convert, ptr %144, align 8
   br label %build_ycc_rgb_table.exit
 
-151:                                              ; preds = %146, %143, %139
-  %152 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @rgb_rgb_convert, ptr %152, align 8
+146:                                              ; preds = %139
+  store ptr @rgb_rgb_convert, ptr %144, align 8
   br label %build_ycc_rgb_table.exit
 
-153:                                              ; preds = %88
-  %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 40
-  store i32 27, ptr %155, align 8
-  %156 = load ptr, ptr %0, align 8
-  %157 = load ptr, ptr %156, align 8
-  tail call void %157(ptr noundef nonnull %0) #4
+147:                                              ; preds = %88
+  %148 = load ptr, ptr %0, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 40
+  store i32 27, ptr %149, align 8
+  %150 = load ptr, ptr %0, align 8
+  %151 = load ptr, ptr %150, align 8
+  tail call void %151(ptr noundef nonnull %0) #4
   br label %build_ycc_rgb_table.exit
 
-158:                                              ; preds = %37
-  %159 = getelementptr inbounds i8, ptr %0, i64 544
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 20
-  %162 = load i32, ptr %161, align 4
-  %.not137 = icmp eq i32 %162, 0
-  br i1 %.not137, label %168, label %163
+152:                                              ; preds = %37
+  %153 = getelementptr inbounds i8, ptr %0, i64 544
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 20
+  %156 = load i32, ptr %155, align 4
+  %.not137 = icmp eq i32 %156, 0
+  br i1 %.not137, label %162, label %157
 
-163:                                              ; preds = %158
-  %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 40
-  store i32 27, ptr %165, align 8
-  %166 = load ptr, ptr %0, align 8
-  %167 = load ptr, ptr %166, align 8
-  tail call void %167(ptr noundef nonnull %0) #4
-  br label %168
+157:                                              ; preds = %152
+  %158 = load ptr, ptr %0, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 40
+  store i32 27, ptr %159, align 8
+  %160 = load ptr, ptr %0, align 8
+  %161 = load ptr, ptr %160, align 8
+  tail call void %161(ptr noundef nonnull %0) #4
+  br label %162
 
-168:                                              ; preds = %163, %158
-  %169 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 3, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 112
-  %171 = load i32, ptr %170, align 8
-  %172 = icmp eq i32 %171, 0
-  %173 = load i32, ptr %18, align 4
-  br i1 %172, label %174, label %189
+162:                                              ; preds = %157, %152
+  %163 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 3, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %0, i64 112
+  %165 = load i32, ptr %164, align 8
+  %166 = icmp eq i32 %165, 0
+  %167 = load i32, ptr %18, align 4
+  br i1 %166, label %168, label %183
+
+168:                                              ; preds = %162
+  switch i32 %167, label %178 [
+    i32 3, label %169
+    i32 1, label %174
+    i32 2, label %176
+  ]
+
+169:                                              ; preds = %168
+  %170 = tail call i32 @jsimd_can_ycc_rgb565() #4
+  %.not138 = icmp eq i32 %170, 0
+  %171 = getelementptr inbounds i8, ptr %16, i64 8
+  br i1 %.not138, label %173, label %172
+
+172:                                              ; preds = %169
+  store ptr @jsimd_ycc_rgb565_convert, ptr %171, align 8
+  br label %build_ycc_rgb_table.exit
+
+173:                                              ; preds = %169
+  store ptr @ycc_rgb565_convert, ptr %171, align 8
+  tail call fastcc void @build_ycc_rgb_table(ptr noundef nonnull %0)
+  br label %build_ycc_rgb_table.exit
 
 174:                                              ; preds = %168
-  switch i32 %173, label %184 [
-    i32 3, label %175
-    i32 1, label %180
-    i32 2, label %182
-  ]
+  %175 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @gray_rgb565_convert, ptr %175, align 8
+  br label %build_ycc_rgb_table.exit
 
-175:                                              ; preds = %174
-  %176 = tail call i32 @jsimd_can_ycc_rgb565() #4
-  %.not138 = icmp eq i32 %176, 0
+176:                                              ; preds = %168
   %177 = getelementptr inbounds i8, ptr %16, i64 8
-  br i1 %.not138, label %179, label %178
-
-178:                                              ; preds = %175
-  store ptr @jsimd_ycc_rgb565_convert, ptr %177, align 8
+  store ptr @rgb_rgb565_convert, ptr %177, align 8
   br label %build_ycc_rgb_table.exit
 
-179:                                              ; preds = %175
-  store ptr @ycc_rgb565_convert, ptr %177, align 8
-  tail call fastcc void @build_ycc_rgb_table(ptr noundef nonnull %0)
+178:                                              ; preds = %168
+  %179 = load ptr, ptr %0, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 40
+  store i32 27, ptr %180, align 8
+  %181 = load ptr, ptr %0, align 8
+  %182 = load ptr, ptr %181, align 8
+  tail call void %182(ptr noundef nonnull %0) #4
   br label %build_ycc_rgb_table.exit
 
-180:                                              ; preds = %174
-  %181 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @gray_rgb565_convert, ptr %181, align 8
-  br label %build_ycc_rgb_table.exit
-
-182:                                              ; preds = %174
-  %183 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @rgb_rgb565_convert, ptr %183, align 8
-  br label %build_ycc_rgb_table.exit
-
-184:                                              ; preds = %174
-  %185 = load ptr, ptr %0, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 40
-  store i32 27, ptr %186, align 8
-  %187 = load ptr, ptr %0, align 8
-  %188 = load ptr, ptr %187, align 8
-  tail call void %188(ptr noundef nonnull %0) #4
-  br label %build_ycc_rgb_table.exit
-
-189:                                              ; preds = %168
-  switch i32 %173, label %196 [
-    i32 3, label %190
-    i32 1, label %192
-    i32 2, label %194
+183:                                              ; preds = %162
+  switch i32 %167, label %190 [
+    i32 3, label %184
+    i32 1, label %186
+    i32 2, label %188
   ]
 
-190:                                              ; preds = %189
-  %191 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @ycc_rgb565D_convert, ptr %191, align 8
+184:                                              ; preds = %183
+  %185 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @ycc_rgb565D_convert, ptr %185, align 8
   tail call fastcc void @build_ycc_rgb_table(ptr noundef nonnull %0)
   br label %build_ycc_rgb_table.exit
 
-192:                                              ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @gray_rgb565D_convert, ptr %193, align 8
+186:                                              ; preds = %183
+  %187 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @gray_rgb565D_convert, ptr %187, align 8
   br label %build_ycc_rgb_table.exit
 
-194:                                              ; preds = %189
-  %195 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @rgb_rgb565D_convert, ptr %195, align 8
+188:                                              ; preds = %183
+  %189 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @rgb_rgb565D_convert, ptr %189, align 8
   br label %build_ycc_rgb_table.exit
 
-196:                                              ; preds = %189
-  %197 = load ptr, ptr %0, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 40
-  store i32 27, ptr %198, align 8
-  %199 = load ptr, ptr %0, align 8
-  %200 = load ptr, ptr %199, align 8
-  tail call void %200(ptr noundef nonnull %0) #4
+190:                                              ; preds = %183
+  %191 = load ptr, ptr %0, align 8
+  %192 = getelementptr inbounds i8, ptr %191, i64 40
+  store i32 27, ptr %192, align 8
+  %193 = load ptr, ptr %0, align 8
+  %194 = load ptr, ptr %193, align 8
+  tail call void %194(ptr noundef nonnull %0) #4
   br label %build_ycc_rgb_table.exit
 
-201:                                              ; preds = %37
-  %202 = getelementptr inbounds i8, ptr %0, i64 544
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 20
-  %205 = load i32, ptr %204, align 4
-  %.not135 = icmp eq i32 %205, 0
-  %.pr158.pre166 = load i32, ptr %18, align 4
-  br i1 %.not135, label %213, label %206
+195:                                              ; preds = %37
+  %196 = getelementptr inbounds i8, ptr %0, i64 544
+  %197 = load ptr, ptr %196, align 8
+  %198 = getelementptr inbounds i8, ptr %197, i64 20
+  %199 = load i32, ptr %198, align 4
+  %.not135 = icmp eq i32 %199, 0
+  %.pr158.pre167 = load i32, ptr %18, align 4
+  br i1 %.not135, label %207, label %200
 
-206:                                              ; preds = %201
-  %.not136 = icmp eq i32 %.pr158.pre166, 4
-  br i1 %.not136, label %.thread159, label %208
+200:                                              ; preds = %195
+  %.not136 = icmp eq i32 %.pr158.pre167, 4
+  br i1 %.not136, label %.thread159, label %202
 
-.thread159:                                       ; preds = %206
-  %207 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 4, ptr %207, align 8
-  br label %255
+.thread159:                                       ; preds = %200
+  %201 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 4, ptr %201, align 8
+  br label %249
 
-208:                                              ; preds = %206
-  %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 40
-  store i32 27, ptr %210, align 8
-  %211 = load ptr, ptr %0, align 8
-  %212 = load ptr, ptr %211, align 8
-  tail call void %212(ptr noundef nonnull %0) #4
+202:                                              ; preds = %200
+  %203 = load ptr, ptr %0, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 40
+  store i32 27, ptr %204, align 8
+  %205 = load ptr, ptr %0, align 8
+  %206 = load ptr, ptr %205, align 8
+  tail call void %206(ptr noundef nonnull %0) #4
   %.pr158.pre = load i32, ptr %18, align 4
-  br label %213
+  br label %207
 
-213:                                              ; preds = %208, %201
-  %.pr158 = phi i32 [ %.pr158.pre, %208 ], [ %.pr158.pre166, %201 ]
-  %214 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 4, ptr %214, align 8
-  switch i32 %.pr158, label %257 [
-    i32 5, label %215
-    i32 4, label %255
+207:                                              ; preds = %202, %195
+  %.pr158 = phi i32 [ %.pr158.pre, %202 ], [ %.pr158.pre167, %195 ]
+  %208 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 4, ptr %208, align 8
+  switch i32 %.pr158, label %251 [
+    i32 5, label %209
+    i32 4, label %249
   ]
 
-215:                                              ; preds = %213
-  %216 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @ycck_cmyk_convert, ptr %216, align 8
-  %217 = load ptr, ptr %17, align 8
-  %218 = load ptr, ptr %13, align 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = tail call ptr %219(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 1024) #4
-  %221 = getelementptr inbounds i8, ptr %217, i64 32
-  store ptr %220, ptr %221, align 8
-  %222 = load ptr, ptr %13, align 8
-  %223 = load ptr, ptr %222, align 8
-  %224 = tail call ptr %223(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 1024) #4
-  %225 = getelementptr inbounds i8, ptr %217, i64 40
-  store ptr %224, ptr %225, align 8
-  %226 = load ptr, ptr %13, align 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = tail call ptr %227(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2048) #4
-  %229 = getelementptr inbounds i8, ptr %217, i64 48
-  store ptr %228, ptr %229, align 8
-  %230 = load ptr, ptr %13, align 8
-  %231 = load ptr, ptr %230, align 8
-  %232 = tail call ptr %231(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2048) #4
-  %233 = getelementptr inbounds i8, ptr %217, i64 56
-  store ptr %232, ptr %233, align 8
-  br label %234
+209:                                              ; preds = %207
+  %210 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @ycck_cmyk_convert, ptr %210, align 8
+  %211 = load ptr, ptr %17, align 8
+  %212 = load ptr, ptr %13, align 8
+  %213 = load ptr, ptr %212, align 8
+  %214 = tail call ptr %213(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 1024) #4
+  %215 = getelementptr inbounds i8, ptr %211, i64 32
+  store ptr %214, ptr %215, align 8
+  %216 = load ptr, ptr %13, align 8
+  %217 = load ptr, ptr %216, align 8
+  %218 = tail call ptr %217(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 1024) #4
+  %219 = getelementptr inbounds i8, ptr %211, i64 40
+  store ptr %218, ptr %219, align 8
+  %220 = load ptr, ptr %13, align 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = tail call ptr %221(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2048) #4
+  %223 = getelementptr inbounds i8, ptr %211, i64 48
+  store ptr %222, ptr %223, align 8
+  %224 = load ptr, ptr %13, align 8
+  %225 = load ptr, ptr %224, align 8
+  %226 = tail call ptr %225(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2048) #4
+  %227 = getelementptr inbounds i8, ptr %211, i64 56
+  store ptr %226, ptr %227, align 8
+  br label %228
 
-234:                                              ; preds = %234, %215
-  %indvars.iv.i149 = phi i64 [ 0, %215 ], [ %indvars.iv.next.i151, %234 ]
-  %.029.i150 = phi i64 [ -128, %215 ], [ %254, %234 ]
-  %235 = mul nsw i64 %.029.i150, 91881
+228:                                              ; preds = %228, %209
+  %indvars.iv.i149 = phi i64 [ 0, %209 ], [ %indvars.iv.next.i151, %228 ]
+  %.029.i150 = phi i64 [ -128, %209 ], [ %248, %228 ]
+  %229 = mul nsw i64 %.029.i150, 91881
+  %230 = add nsw i64 %229, 32768
+  %231 = lshr i64 %230, 16
+  %232 = trunc i64 %231 to i32
+  %233 = load ptr, ptr %215, align 8
+  %234 = getelementptr inbounds i32, ptr %233, i64 %indvars.iv.i149
+  store i32 %232, ptr %234, align 4
+  %235 = mul nsw i64 %.029.i150, 116130
   %236 = add nsw i64 %235, 32768
   %237 = lshr i64 %236, 16
   %238 = trunc i64 %237 to i32
-  %239 = load ptr, ptr %221, align 8
+  %239 = load ptr, ptr %219, align 8
   %240 = getelementptr inbounds i32, ptr %239, i64 %indvars.iv.i149
   store i32 %238, ptr %240, align 4
-  %241 = mul nsw i64 %.029.i150, 116130
-  %242 = add nsw i64 %241, 32768
-  %243 = lshr i64 %242, 16
-  %244 = trunc i64 %243 to i32
-  %245 = load ptr, ptr %225, align 8
-  %246 = getelementptr inbounds i32, ptr %245, i64 %indvars.iv.i149
-  store i32 %244, ptr %246, align 4
-  %247 = mul nsw i64 %.029.i150, -46802
-  %248 = load ptr, ptr %229, align 8
-  %249 = getelementptr inbounds i64, ptr %248, i64 %indvars.iv.i149
-  store i64 %247, ptr %249, align 8
-  %250 = mul nsw i64 %.029.i150, -22554
-  %251 = add nsw i64 %250, 32768
-  %252 = load ptr, ptr %233, align 8
-  %253 = getelementptr inbounds i64, ptr %252, i64 %indvars.iv.i149
-  store i64 %251, ptr %253, align 8
+  %241 = mul nsw i64 %.029.i150, -46802
+  %242 = load ptr, ptr %223, align 8
+  %243 = getelementptr inbounds i64, ptr %242, i64 %indvars.iv.i149
+  store i64 %241, ptr %243, align 8
+  %244 = mul nsw i64 %.029.i150, -22554
+  %245 = add nsw i64 %244, 32768
+  %246 = load ptr, ptr %227, align 8
+  %247 = getelementptr inbounds i64, ptr %246, i64 %indvars.iv.i149
+  store i64 %245, ptr %247, align 8
   %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i149, 1
-  %254 = add nsw i64 %.029.i150, 1
+  %248 = add nsw i64 %.029.i150, 1
   %exitcond.not.i152 = icmp eq i64 %indvars.iv.next.i151, 256
-  br i1 %exitcond.not.i152, label %build_ycc_rgb_table.exit, label %234, !llvm.loop !6
+  br i1 %exitcond.not.i152, label %build_ycc_rgb_table.exit, label %228, !llvm.loop !6
 
-255:                                              ; preds = %.thread159, %213
-  %256 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @null_convert, ptr %256, align 8
+249:                                              ; preds = %.thread159, %207
+  %250 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @null_convert, ptr %250, align 8
   br label %build_ycc_rgb_table.exit
 
-257:                                              ; preds = %213
-  %258 = load ptr, ptr %0, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 40
-  store i32 27, ptr %259, align 8
-  %260 = load ptr, ptr %0, align 8
-  %261 = load ptr, ptr %260, align 8
-  tail call void %261(ptr noundef nonnull %0) #4
+251:                                              ; preds = %207
+  %252 = load ptr, ptr %0, align 8
+  %253 = getelementptr inbounds i8, ptr %252, i64 40
+  store i32 27, ptr %253, align 8
+  %254 = load ptr, ptr %0, align 8
+  %255 = load ptr, ptr %254, align 8
+  tail call void %255(ptr noundef nonnull %0) #4
   br label %build_ycc_rgb_table.exit
 
-262:                                              ; preds = %37
-  %263 = load i32, ptr %18, align 4
-  %264 = icmp eq i32 %39, %263
-  br i1 %264, label %265, label %270
+256:                                              ; preds = %37
+  %257 = load i32, ptr %18, align 4
+  %258 = icmp eq i32 %39, %257
+  br i1 %258, label %259, label %264
 
-265:                                              ; preds = %262
-  %266 = getelementptr inbounds i8, ptr %0, i64 56
-  %267 = load i32, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %267, ptr %268, align 8
-  %269 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @null_convert, ptr %269, align 8
+259:                                              ; preds = %256
+  %260 = getelementptr inbounds i8, ptr %0, i64 56
+  %261 = load i32, ptr %260, align 8
+  %262 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %261, ptr %262, align 8
+  %263 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @null_convert, ptr %263, align 8
   br label %build_ycc_rgb_table.exit
 
-270:                                              ; preds = %262
-  %271 = load ptr, ptr %0, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 40
-  store i32 27, ptr %272, align 8
-  %273 = load ptr, ptr %0, align 8
-  %274 = load ptr, ptr %273, align 8
-  tail call void %274(ptr noundef nonnull %0) #4
+264:                                              ; preds = %256
+  %265 = load ptr, ptr %0, align 8
+  %266 = getelementptr inbounds i8, ptr %265, i64 40
+  store i32 27, ptr %266, align 8
+  %267 = load ptr, ptr %0, align 8
+  %268 = load ptr, ptr %267, align 8
+  tail call void %268(ptr noundef nonnull %0) #4
   br label %build_ycc_rgb_table.exit
 
-build_ycc_rgb_table.exit:                         ; preds = %234, %116, %60, %54, %265, %270, %257, %255, %180, %184, %182, %178, %179, %192, %196, %194, %190, %97, %153, %151, %149, %137, %68, %66
-  %275 = getelementptr inbounds i8, ptr %0, i64 108
-  %276 = load i32, ptr %275, align 4
-  %.not148 = icmp eq i32 %276, 0
-  br i1 %.not148, label %277, label %280
+build_ycc_rgb_table.exit:                         ; preds = %228, %116, %60, %54, %259, %264, %251, %249, %174, %178, %176, %172, %173, %186, %190, %188, %184, %97, %147, %146, %145, %137, %68, %66
+  %269 = getelementptr inbounds i8, ptr %0, i64 108
+  %270 = load i32, ptr %269, align 4
+  %.not148 = icmp eq i32 %270, 0
+  br i1 %.not148, label %271, label %274
 
-277:                                              ; preds = %build_ycc_rgb_table.exit
-  %278 = getelementptr inbounds i8, ptr %0, i64 144
-  %279 = load i32, ptr %278, align 8
-  br label %280
+271:                                              ; preds = %build_ycc_rgb_table.exit
+  %272 = getelementptr inbounds i8, ptr %0, i64 144
+  %273 = load i32, ptr %272, align 8
+  br label %274
 
-280:                                              ; preds = %build_ycc_rgb_table.exit, %277
-  %.sink = phi i32 [ %279, %277 ], [ 1, %build_ycc_rgb_table.exit ]
-  %281 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 %.sink, ptr %281, align 4
+274:                                              ; preds = %build_ycc_rgb_table.exit, %271
+  %.sink = phi i32 [ %273, %271 ], [ 1, %build_ycc_rgb_table.exit ]
+  %275 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 %.sink, ptr %275, align 4
   ret void
 }
 

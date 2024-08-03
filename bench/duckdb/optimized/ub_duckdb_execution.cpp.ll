@@ -60126,9 +60126,9 @@ lor.rhs:                                          ; preds = %switch.hole_check, 
   br label %lor.end
 
 switch.hole_check:                                ; preds = %lor.lhs.false
-  %switch.shifted = lshr i8 27, %switch.tableidx
-  %14 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %14, 0
+  %14 = shl nuw nsw i8 1, %switch.tableidx
+  %15 = and i8 %14, 27
+  %switch.lobit.not = icmp eq i8 %15, 0
   br i1 %switch.lobit.not, label %lor.rhs, label %lor.end
 
 lor.end:                                          ; preds = %switch.hole_check, %lor.rhs, %cond.end, %cond.end, %cond.end
