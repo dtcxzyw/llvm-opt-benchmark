@@ -392,11 +392,10 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i
   %cmp26.i.i.i.i.i = icmp eq i32 %cond10.sink.i.i.i.i.i, 0
   %mul.i.i.i.i.i = mul nsw i64 %ts.val.i, 1000000
   %cond27.i.i.i.i.i = select i1 %cmp26.i.i.i.i.i, i64 %mul.i.i.i.i.i, i64 0
-  %1 = trunc nuw nsw i32 %cond10.sink.i.i.i.i.i to i8
   br label %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
 
 _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.end.i
-  %validity.0.i.i.i.i = phi i8 [ %1, %if.else.i.i.i.i.i ], [ 0, %if.end.i ]
+  %validity.0.i.i.i.i = phi i1 [ %cmp26.i.i.i.i.i, %if.else.i.i.i.i.i ], [ true, %if.end.i ]
   %retval.0.i.i.i.i.i = phi i64 [ %cond27.i.i.i.i.i, %if.else.i.i.i.i.i ], [ 0, %if.end.i ]
   %div.i.i = sdiv i64 %ts.val1.i, 1000
   %add.i.i.i.i.i = add i64 %retval.0.i.i.i.i.i, %div.i.i
@@ -404,12 +403,8 @@ _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.
   %xor1.i.i.i.i.i = xor i64 %add.i.i.i.i.i, %div.i.i
   %and.i.i.i.i.i = and i64 %xor.i.i.i.i.i, %xor1.i.i.i.i.i
   %tobool.i.i.i.i.i.i = icmp sgt i64 %and.i.i.i.i.i, -1
-  %tobool.i7.i.i.i.i.i = icmp slt i64 %add.i.i.i.i.i, 0
-  %cond.i.i.i2.i.i = select i1 %tobool.i7.i.i.i.i.i, i8 2, i8 1
-  %storemerge.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i, i8 0, i8 %cond.i.i.i2.i.i
-  %or5.i.i.i.i = or i8 %storemerge.i.i.i.i.i, %validity.0.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i.i.i)
-  %cmp.i.i.i.i = icmp eq i8 %or5.i.i.i.i, 0
+  %cmp.i.i.i.i = and i1 %validity.0.i.i.i.i, %tobool.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
@@ -472,11 +467,10 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i
   %cmp26.i.i.i.i.i = icmp eq i32 %cond10.sink.i.i.i.i.i, 0
   %mul.i.i.i.i.i = mul nsw i64 %ts.val.i, 1000000
   %cond27.i.i.i.i.i = select i1 %cmp26.i.i.i.i.i, i64 %mul.i.i.i.i.i, i64 0
-  %1 = trunc nuw nsw i32 %cond10.sink.i.i.i.i.i to i8
   br label %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
 
 _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.end.i
-  %validity.0.i.i.i.i = phi i8 [ %1, %if.else.i.i.i.i.i ], [ 0, %if.end.i ]
+  %validity.0.i.i.i.i = phi i1 [ %cmp26.i.i.i.i.i, %if.else.i.i.i.i.i ], [ true, %if.end.i ]
   %retval.0.i.i.i.i.i = phi i64 [ %cond27.i.i.i.i.i, %if.else.i.i.i.i.i ], [ 0, %if.end.i ]
   %div.i.i = sdiv i64 %ts.val1.i, 1000
   %add.i.i.i.i.i = add i64 %retval.0.i.i.i.i.i, %div.i.i
@@ -484,12 +478,8 @@ _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.
   %xor1.i.i.i.i.i = xor i64 %add.i.i.i.i.i, %div.i.i
   %and.i.i.i.i.i = and i64 %xor.i.i.i.i.i, %xor1.i.i.i.i.i
   %tobool.i.i.i.i.i.i = icmp sgt i64 %and.i.i.i.i.i, -1
-  %tobool.i7.i.i.i.i.i = icmp slt i64 %add.i.i.i.i.i, 0
-  %cond.i.i.i2.i.i = select i1 %tobool.i7.i.i.i.i.i, i8 2, i8 1
-  %storemerge.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i, i8 0, i8 %cond.i.i.i2.i.i
-  %or5.i.i.i.i = or i8 %storemerge.i.i.i.i.i, %validity.0.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i.i.i)
-  %cmp.i.i.i.i = icmp eq i8 %or5.i.i.i.i, 0
+  %cmp.i.i.i.i = and i1 %validity.0.i.i.i.i, %tobool.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
