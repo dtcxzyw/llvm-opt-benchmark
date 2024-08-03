@@ -2620,11 +2620,11 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE16PerVertexPerFaceERS2_.exit: ; preds = %53, %
   %71 = getelementptr inbounds i8, ptr %.sroa.03.010.i, i64 32
   %72 = load float, ptr %71, align 4
   %73 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %70)
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
-  %74 = fcmp ogt float %sqrt.i.i, 0.000000e+00
+  %74 = fcmp ogt float %73, 0.000000e+00
   br i1 %74, label %75, label %_ZN3vcg6Point3IfE9NormalizeEv.exit.i
 
 75:                                               ; preds = %64
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
   %76 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
   %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> zeroinitializer
   %78 = fdiv <2 x float> %66, %77

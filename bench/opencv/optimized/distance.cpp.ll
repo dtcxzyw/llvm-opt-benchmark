@@ -284,7 +284,7 @@ define hidden noundef double @_ZN2cv3ccm15deltaCIEDE2000_ERKNS_3VecIdLi3EEES4_RK
   %45 = fadd double %sqrt122, %sqrt
   %46 = fmul double %45, 5.000000e-01
   %47 = fsub double %sqrt, %sqrt122
-  %48 = fcmp oeq double %sqrt122, 0.000000e+00
+  %48 = fcmp oeq double %42, 0.000000e+00
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %5
@@ -298,7 +298,7 @@ define hidden noundef double @_ZN2cv3ccm15deltaCIEDE2000_ERKNS_3VecIdLi3EEES4_RK
 
 54:                                               ; preds = %5, %49, %52
   %.0 = phi double [ %53, %52 ], [ %50, %49 ], [ 0.000000e+00, %5 ]
-  %55 = fcmp oeq double %sqrt, 0.000000e+00
+  %55 = fcmp oeq double %44, 0.000000e+00
   br i1 %55, label %62, label %56
 
 56:                                               ; preds = %54
@@ -500,7 +500,7 @@ define hidden noundef double @_ZN2cv3ccm8deltaCMCERKNS_3VecIdLi3EEES4_RKdS6_(ptr
   %square55 = fmul double %21, %21
   %23 = fsub double %22, %square55
   %24 = tail call double @sqrt(double noundef %23) #12
-  %25 = fcmp oeq double %sqrt57, 0.000000e+00
+  %25 = fcmp oeq double %19, 0.000000e+00
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %4

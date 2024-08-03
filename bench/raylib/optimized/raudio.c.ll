@@ -31862,11 +31862,11 @@ ma_spatializer_get_velocity.exit:                 ; preds = %.loopexit.i.i.i371,
   %363 = fmul float %351, %351
   %364 = call float @llvm.fmuladd.f32(float %349, float %349, float %363)
   %365 = call float @llvm.fmuladd.f32(float %352, float %352, float %364)
-  %sqrt.i.i = call float @llvm.sqrt.f32(float %365)
-  %366 = fcmp oeq float %sqrt.i.i, 0.000000e+00
+  %366 = fcmp oeq float %365, 0.000000e+00
   br i1 %366, label %ma_copy_pcm_frames.exit, label %367
 
 367:                                              ; preds = %ma_spatializer_get_velocity.exit
+  %sqrt.i.i = call float @llvm.sqrt.f32(float %365)
   %368 = fdiv float %69, %57
   %369 = fneg float %57
   %370 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i, <2 x float> %.sroa.03.0.copyload.i.i373, <2 x i32> <i32 1, i32 3>

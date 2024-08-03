@@ -1108,8 +1108,8 @@ define void @_ZN12colvarmodule8rotationC2EdRKNS_7rvectorE(ptr nocapture noundef 
   %12 = extractelement <2 x double> %9, i64 0
   %13 = tail call double @llvm.fmuladd.f64(double %12, double %12, double %11)
   %14 = tail call noundef double @llvm.fmuladd.f64(double %7, double %7, double %13)
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %14)
-  %15 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %15 = fcmp ogt double %14, 0.000000e+00
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %14)
   %16 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0
   %17 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> zeroinitializer
   %18 = fdiv <2 x double> %9, %17

@@ -357,11 +357,11 @@ sw.epilog:                                        ; preds = %sw.bb35, %sw.bb44, 
   %48 = load float, ptr %XX.0.sroa.phi226, align 4
   %mul63 = fmul float %45, %45
   %49 = tail call float @llvm.fmuladd.f32(float %48, float %48, float %mul63)
-  %sqrt = tail call float @llvm.sqrt.f32(float %49)
-  %cmp = fcmp une float %sqrt, 0.000000e+00
+  %cmp = fcmp une float %49, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.epilog
+  %sqrt = tail call float @llvm.sqrt.f32(float %49)
   %div = fdiv float %46, %sqrt
   %mul = fmul float %div, %48
   store float %mul, ptr %XX.0.sroa.phi, align 4

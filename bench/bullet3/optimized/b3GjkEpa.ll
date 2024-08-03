@@ -2134,13 +2134,13 @@ if.end247:                                        ; preds = %if.end, %land.lhs.t
   %178 = extractelement <2 x float> %175, i64 0
   %179 = tail call float @llvm.fmuladd.f32(float %178, float %178, float %mul5.i.i.i307)
   %180 = tail call noundef float @llvm.fmuladd.f32(float %176, float %176, float %179)
-  %sqrt.i309 = tail call noundef float @llvm.sqrt.f32(float %180)
-  %cmp256 = fcmp ogt float %sqrt.i309, 0.000000e+00
+  %cmp256 = fcmp ogt float %180, 0.000000e+00
   br i1 %cmp256, label %if.then257, label %if.end270
 
 if.then257:                                       ; preds = %if.end247
   %fneg4.i = fneg float %176
   %181 = fneg <2 x float> %175
+  %sqrt.i309 = tail call noundef float @llvm.sqrt.f32(float %180)
   %div.i = fdiv float 1.000000e+00, %sqrt.i309
   %182 = insertelement <2 x float> poison, float %div.i, i64 0
   %183 = shufflevector <2 x float> %182, <2 x float> poison, <2 x i32> zeroinitializer

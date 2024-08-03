@@ -4044,19 +4044,25 @@ invoke.cont30:                                    ; preds = %for.body
   %44 = extractelement <2 x float> %38, i64 0
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %44, float %mul4.i.i.i)
   %46 = tail call noundef float @llvm.fmuladd.f32(float %42, float %42, float %45)
+  %cmp.i95 = fcmp oeq float %46, 0.000000e+00
+  br i1 %cmp.i95, label %for.body38.preheader, label %_ZN10aiVector3tIfEdVEf.exit.i
+
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %invoke.cont30
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %46)
-  %cmp.i95 = fcmp oeq float %sqrt.i.i, 0.000000e+00
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %47 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %48 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> zeroinitializer
   %49 = fmul <2 x float> %38, %48
   %mul3.i.i = fmul float %42, %div.i.i
-  %ref.tmp.sroa.0.0 = select i1 %cmp.i95, <2 x float> %38, <2 x float> %49
-  %ref.tmp.sroa.6.0 = select i1 %cmp.i95, float %42, float %mul3.i.i
+  br label %for.body38.preheader
+
+for.body38.preheader:                             ; preds = %invoke.cont30, %_ZN10aiVector3tIfEdVEf.exit.i
+  %ref.tmp.sroa.0.0 = phi <2 x float> [ %38, %invoke.cont30 ], [ %49, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %ref.tmp.sroa.6.0 = phi float [ %42, %invoke.cont30 ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
   br label %for.body38
 
-for.body38:                                       ; preds = %invoke.cont30, %for.body38
-  %indvars.iv = phi i64 [ 0, %invoke.cont30 ], [ %indvars.iv.next, %for.body38 ]
+for.body38:                                       ; preds = %for.body38.preheader, %for.body38
+  %indvars.iv = phi i64 [ 0, %for.body38.preheader ], [ %indvars.iv.next, %for.body38 ]
   %50 = load ptr, ptr %mIndices, align 8
   %arrayidx41 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv
   %51 = load i32, ptr %arrayidx41, align 4

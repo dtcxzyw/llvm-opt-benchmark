@@ -17375,7 +17375,7 @@ if.then31:                                        ; preds = %for.body
   %mul61 = extractelement <2 x float> %141, i64 0
   %142 = call float @llvm.fmuladd.f32(float %sub56, float %sub56, float %mul61)
   %sqrt = call float @llvm.sqrt.f32(float %142)
-  %cmp65 = fcmp oeq float %sqrt, 0.000000e+00
+  %cmp65 = fcmp oeq float %142, 0.000000e+00
   %div = fdiv float 1.000000e+00, %sqrt
   %cond = select i1 %cmp65, float 0.000000e+00, float %div
   br label %for.inc

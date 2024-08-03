@@ -902,11 +902,11 @@ for.body33.us:                                    ; preds = %for.cond31.preheade
   %mul4.i.i.i.us = fmul float %div50.us, %div50.us
   %28 = tail call float @llvm.fmuladd.f32(float %div47.us, float %div47.us, float %mul4.i.i.i.us)
   %29 = fadd float %28, 1.000000e+00
-  %sqrt.i.i.us = tail call noundef float @llvm.sqrt.f32(float %29)
-  %cmp.i.us = fcmp oeq float %sqrt.i.i.us, 0.000000e+00
+  %cmp.i.us = fcmp oeq float %29, 0.000000e+00
   br i1 %cmp.i.us, label %_ZN10aiVector3tIfE9NormalizeEv.exit.us, label %_ZN10aiVector3tIfEdVEf.exit.i.us
 
 _ZN10aiVector3tIfEdVEf.exit.i.us:                 ; preds = %for.body33.us
+  %sqrt.i.i.us = tail call noundef float @llvm.sqrt.f32(float %29)
   %div.i.i.us = fdiv float 1.000000e+00, %sqrt.i.i.us
   %30 = insertelement <2 x float> poison, float %div47.us, i64 0
   %31 = insertelement <2 x float> %30, float %div50.us, i64 1

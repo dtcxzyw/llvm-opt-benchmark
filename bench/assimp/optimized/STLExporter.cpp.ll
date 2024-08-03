@@ -1058,11 +1058,11 @@ for.end:                                          ; preds = %for.body4, %for.con
   %12 = extractelement <2 x float> %10, i64 0
   %13 = call float @llvm.fmuladd.f32(float %12, float %12, float %mul4.i.i.i)
   %14 = call noundef float @llvm.fmuladd.f32(float %nor.sroa.12.1.lcssa, float %nor.sroa.12.1.lcssa, float %13)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %14)
-  %cmp.i = fcmp oeq float %sqrt.i.i, 0.000000e+00
+  %cmp.i = fcmp oeq float %14, 0.000000e+00
   br i1 %cmp.i, label %if.end, label %_ZN10aiVector3tIfEdVEf.exit.i
 
 _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %for.end
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %14)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %15 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1295,11 +1295,11 @@ for.end:                                          ; preds = %for.body4, %for.con
   %12 = extractelement <2 x float> %10, i64 0
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %mul4.i.i.i)
   %14 = tail call noundef float @llvm.fmuladd.f32(float %nor.sroa.12.1.lcssa, float %nor.sroa.12.1.lcssa, float %13)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %14)
-  %or.cond.i = fcmp ule float %sqrt.i.i, 0.000000e+00
+  %or.cond.i = fcmp ule float %14, 0.000000e+00
   br i1 %or.cond.i, label %if.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.end
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %14)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %15 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer

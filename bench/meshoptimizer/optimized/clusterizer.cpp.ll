@@ -274,7 +274,7 @@ for.body.i105:                                    ; preds = %invoke.cont4, %for.
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %46, float %mul57.i)
   %48 = tail call float @llvm.fmuladd.f32(float %44, float %44, float %47)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %48)
-  %cmp59.i = fcmp oeq float %sqrt.i, 0.000000e+00
+  %cmp59.i = fcmp oeq float %48, 0.000000e+00
   %div60.i = fdiv float 1.000000e+00, %sqrt.i
   %cond.i109 = select i1 %cmp59.i, float 0.000000e+00, float %div60.i
   store float %div66.i, ptr %arrayidx67.i, align 4
@@ -1708,15 +1708,15 @@ for.body:                                         ; preds = %entry, %for.inc
   %29 = extractelement <2 x float> %23, i64 0
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %mul53)
   %31 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %30)
-  %sqrt = tail call float @llvm.sqrt.f32(float %31)
-  %cmp55 = fcmp oeq float %sqrt, 0.000000e+00
+  %cmp55 = fcmp oeq float %31, 0.000000e+00
   br i1 %cmp55, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
+  %sqrt = tail call float @llvm.sqrt.f32(float %31)
+  %arrayidx57 = getelementptr inbounds [512 x [3 x float]], ptr %normals, i64 0, i64 %triangles.0121
   %32 = insertelement <2 x float> poison, float %sqrt, i64 0
   %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> zeroinitializer
   %34 = fdiv <2 x float> %23, %33
-  %arrayidx57 = getelementptr inbounds [512 x [3 x float]], ptr %normals, i64 0, i64 %triangles.0121
   store <2 x float> %34, ptr %arrayidx57, align 4
   %div62 = fdiv float %27, %sqrt
   %arrayidx64 = getelementptr inbounds i8, ptr %arrayidx57, i64 8
@@ -1759,7 +1759,7 @@ if.end76:                                         ; preds = %for.end
   %41 = tail call float @llvm.fmuladd.f32(float %40, float %40, float %mul100)
   %42 = tail call float @llvm.fmuladd.f32(float %38, float %38, float %41)
   %sqrt118 = tail call float @llvm.sqrt.f32(float %42)
-  %cmp105 = fcmp oeq float %sqrt118, 0.000000e+00
+  %cmp105 = fcmp oeq float %42, 0.000000e+00
   %div106 = fdiv float 1.000000e+00, %sqrt118
   %cond = select i1 %cmp105, float 0.000000e+00, float %div106
   %43 = insertelement <2 x float> poison, float %cond, i64 0

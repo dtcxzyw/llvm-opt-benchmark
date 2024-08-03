@@ -1530,7 +1530,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %217 = fmul contract <4 x float> %216, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %218 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %217)
   %219 = fdiv contract <4 x float> zeroinitializer, %218
-  %220 = fcmp contract oeq <4 x float> %214, zeroinitializer
+  %220 = fcmp contract oeq <4 x float> %213, zeroinitializer
   %221 = fcmp contract oge <4 x float> %210, zeroinitializer
   %222 = call <4 x float> @llvm.fabs.v4f32(<4 x float> %219)
   %223 = select contract <4 x i1> %221, <4 x float> %218, <4 x float> %222
@@ -2420,7 +2420,7 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller19specular_reflectionINS_8Sp
   %24 = fmul contract <4 x float> %23, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %25 = tail call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %24)
   %26 = fdiv contract <4 x float> zeroinitializer, %25
-  %27 = fcmp contract oeq <4 x float> %21, zeroinitializer
+  %27 = fcmp contract oeq <4 x float> %20, zeroinitializer
   %28 = fcmp contract oge <4 x float> %17, zeroinitializer
   %29 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %26)
   %30 = select contract <4 x i1> %28, <4 x float> %25, <4 x float> %29
@@ -2524,7 +2524,7 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller19specular_reflectionINS_8Sp
   %126 = fmul contract <4 x float> %125, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %127 = fmul contract <4 x float> %114, %122
   %128 = tail call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %127)
-  %129 = fcmp contract oeq <4 x float> %128, zeroinitializer
+  %129 = fcmp contract oeq <4 x float> %127, zeroinitializer
   %130 = select contract <4 x i1> %129, <4 x float> zeroinitializer, <4 x float> %107
   %131 = select contract <4 x i1> %129, <4 x float> zeroinitializer, <4 x float> %106
   %132 = fmul contract <4 x float> %128, %131

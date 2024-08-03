@@ -16894,11 +16894,11 @@ _ZNK3vcg8Matrix44IdEneERKS1_.exit:                ; preds = %18, %11
   %38 = getelementptr inbounds i8, ptr %.sroa.03.010.i, i64 40
   %39 = load double, ptr %38, align 8
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %37)
-  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %40)
-  %41 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %41 = fcmp ogt double %40, 0.000000e+00
   br i1 %41, label %42, label %_ZN3vcg6Point3IdE9NormalizeEv.exit.i
 
 42:                                               ; preds = %31
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %40)
   %43 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0
   %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
   %45 = fdiv <2 x double> %33, %44
@@ -17107,11 +17107,11 @@ _ZNK3vcg8Matrix44IdEneERKS1_.exit:                ; preds = %19, %12
   %38 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i, i64 40
   %39 = load double, ptr %38, align 8
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %37)
-  %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %40)
-  %41 = fcmp ogt double %sqrt.i.i.i, 0.000000e+00
+  %41 = fcmp ogt double %40, 0.000000e+00
   br i1 %41, label %42, label %_ZN3vcg6Point3IdE9NormalizeEv.exit.i.i
 
 42:                                               ; preds = %31
+  %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %40)
   %43 = insertelement <2 x double> poison, double %sqrt.i.i.i, i64 0
   %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
   %45 = fdiv <2 x double> %33, %44
@@ -25385,11 +25385,11 @@ _ZN3vcg3tri12UpdateNormalINS_9AlignPair6A2MeshEE16PerVertexPerFaceERS3_.exit: ; 
   %67 = getelementptr inbounds i8, ptr %.sroa.03.010.i, i64 40
   %68 = load double, ptr %67, align 8
   %69 = tail call double @llvm.fmuladd.f64(double %68, double %68, double %66)
-  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %69)
-  %70 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %70 = fcmp ogt double %69, 0.000000e+00
   br i1 %70, label %71, label %_ZN3vcg6Point3IdE9NormalizeEv.exit.i
 
 71:                                               ; preds = %60
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %69)
   %72 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0
   %73 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> zeroinitializer
   %74 = fdiv <2 x double> %62, %73
@@ -30611,8 +30611,8 @@ _ZN3vcgmlIdEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %_ZN3vcgml
   %131 = extractelement <2 x double> %128, i64 0
   %132 = tail call double @llvm.fmuladd.f64(double %131, double %131, double %130)
   %133 = tail call double @llvm.fmuladd.f64(double %116, double %116, double %132)
+  %134 = fcmp ogt double %133, 0.000000e+00
   %sqrt.i = tail call double @llvm.sqrt.f64(double %133)
-  %134 = fcmp ogt double %sqrt.i, 0.000000e+00
   %135 = insertelement <2 x double> poison, double %sqrt.i, i64 0
   %136 = shufflevector <2 x double> %135, <2 x double> poison, <2 x i32> zeroinitializer
   %137 = fdiv <2 x double> %128, %136
@@ -32007,13 +32007,13 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg9DecomposeIdEEbRNS_8Matrix44IT_EE
   %34 = fmul double %32, %32
   %35 = tail call double @llvm.fmuladd.f64(double %31, double %31, double %34)
   %36 = tail call double @llvm.fmuladd.f64(double %33, double %33, double %35)
-  %sqrt.i = tail call double @llvm.sqrt.f64(double %36)
-  %37 = fcmp ogt double %sqrt.i, 0.000000e+00
+  %37 = fcmp ogt double %36, 0.000000e+00
   %38 = insertelement <2 x double> poison, double %31, i64 0
   %39 = insertelement <2 x double> %38, double %32, i64 1
   br i1 %37, label %40, label %_ZN3vcg6Point3IdE9NormalizeEv.exit
 
 40:                                               ; preds = %16
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %36)
   %41 = insertelement <2 x double> poison, double %sqrt.i, i64 0
   %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> zeroinitializer
   %43 = fdiv <2 x double> %39, %42
@@ -33259,8 +33259,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg4face17PointDistanceBaseINS_9Alig
   %29 = fmul double %27, %27
   %30 = call double @llvm.fmuladd.f64(double %24, double %24, double %29)
   %31 = call double @llvm.fmuladd.f64(double %28, double %28, double %30)
-  %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %31)
-  %32 = fcmp ogt double %sqrt.i.i.i, 0.000000e+00
+  %32 = fcmp ogt double %31, 0.000000e+00
   br i1 %32, label %33, label %99
 
 33:                                               ; preds = %15
@@ -33382,8 +33381,8 @@ _ZNK3vcg6Point3IdEeqERKS1_.exit.thread:           ; preds = %4
   %117 = fmul double %10, %10
   %118 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %117)
   %119 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %118)
+  %120 = fcmp ogt double %119, 0.000000e+00
   %sqrt.i.i.i212 = tail call double @llvm.sqrt.f64(double %119)
-  %120 = fcmp ogt double %sqrt.i.i.i212, 0.000000e+00
   %121 = fdiv double %13, %sqrt.i.i.i212
   %.sroa.13.0 = select i1 %120, double %121, double %13
   %122 = load double, ptr %116, align 8
@@ -55395,8 +55394,8 @@ _ZN3vcg6Point3IdE9NormalizeEv.exit:               ; preds = %_ZN3vcg6Point3IdE9N
   %282 = extractelement <2 x double> %279, i64 0
   %283 = tail call double @llvm.fmuladd.f64(double %282, double %282, double %281)
   %284 = tail call double @llvm.fmuladd.f64(double %261, double %261, double %283)
+  %285 = fcmp ogt double %284, 0.000000e+00
   %sqrt.i = tail call double @llvm.sqrt.f64(double %284)
-  %285 = fcmp ogt double %sqrt.i, 0.000000e+00
   %286 = insertelement <2 x double> poison, double %sqrt.i, i64 0
   %287 = shufflevector <2 x double> %286, <2 x double> poison, <2 x i32> zeroinitializer
   %288 = fdiv <2 x double> %279, %287

@@ -1352,7 +1352,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %56
   %134 = fmul contract <4 x float> %133, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %135 = fmul contract <4 x float> %122, %130
   %136 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %135)
-  %137 = fcmp contract oeq <4 x float> %136, zeroinitializer
+  %137 = fcmp contract oeq <4 x float> %135, zeroinitializer
   %138 = select contract <4 x i1> %137, <4 x float> zeroinitializer, <4 x float> %115
   %139 = select contract <4 x i1> %137, <4 x float> zeroinitializer, <4 x float> %114
   %140 = fmul contract <4 x float> %136, %139
@@ -5257,7 +5257,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %48 = tail call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %47)
   %49 = fmul contract <4 x float> %40, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %50 = fdiv contract <4 x float> %49, %48
-  %51 = fcmp contract oeq <4 x float> %44, zeroinitializer
+  %51 = fcmp contract oeq <4 x float> %43, zeroinitializer
   %52 = fcmp contract oge <4 x float> %39, zeroinitializer
   %53 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %50)
   %54 = select contract <4 x i1> %52, <4 x float> %48, <4 x float> %53

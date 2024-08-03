@@ -7251,7 +7251,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %427 = fcmp olt double %.3596, 0.000000e+00
   %428 = fneg double %sqrt755
   %.0577 = select i1 %427, double %428, double %sqrt755
-  %429 = fcmp une double %sqrt755, 0.000000e+00
+  %429 = fcmp une double %426, 0.000000e+00
   br i1 %429, label %430, label %.loopexit766
 
 430:                                              ; preds = %420

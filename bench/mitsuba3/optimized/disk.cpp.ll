@@ -1465,7 +1465,7 @@ _ZNK7mitsuba4DiskIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_pre
 
 183:                                              ; preds = %.critedge.i
   %184 = fdiv contract float 1.000000e+00, %152
-  %185 = fcmp contract une float %152, 0.000000e+00
+  %185 = fcmp contract une float %151, 0.000000e+00
   %186 = fmul contract float %.sroa.0139.0.vec.extract.i.i, %184
   %187 = select contract i1 %185, float %186, float 1.000000e+00
   %188 = fmul contract float %.sroa.0139.4.vec.extract.i.i, %184
@@ -1816,7 +1816,7 @@ define weak_odr void @_ZNK7mitsuba4DiskIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
 
 81:                                               ; preds = %.critedge
   %82 = fdiv contract float 1.000000e+00, %51
-  %83 = fcmp contract une float %51, 0.000000e+00
+  %83 = fcmp contract une float %50, 0.000000e+00
   %84 = fmul contract float %45, %82
   %85 = select contract i1 %83, float %84, float 1.000000e+00
   %86 = fmul contract float %48, %82

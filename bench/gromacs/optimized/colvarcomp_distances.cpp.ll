@@ -532,8 +532,8 @@ define void @_ZN6colvar8distance14calc_gradientsEv(ptr nocapture noundef nonnull
   %10 = extractelement <2 x double> %7, i64 0
   %11 = tail call double @llvm.fmuladd.f64(double %10, double %10, double %9)
   %12 = tail call noundef double @llvm.fmuladd.f64(double %6, double %6, double %11)
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %12)
-  %13 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %13 = fcmp ogt double %12, 0.000000e+00
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %12)
   %14 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0
   %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
   %16 = fdiv <2 x double> %7, %15
@@ -590,8 +590,8 @@ define void @_ZN6colvar8distance19calc_force_invgradsEv(ptr nocapture noundef no
   %20 = getelementptr inbounds i8, ptr %0, i64 1680
   %21 = load double, ptr %20, align 8, !noalias !11
   %22 = call noundef double @llvm.fmuladd.f64(double %21, double %21, double %19)
-  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %22)
-  %23 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %23 = fcmp ogt double %22, 0.000000e+00
+  %sqrt.i.i = call double @llvm.sqrt.f64(double %22)
   %24 = fdiv double %15, %sqrt.i.i
   %25 = fdiv double %17, %sqrt.i.i
   %26 = fdiv double %21, %sqrt.i.i
@@ -639,8 +639,8 @@ define void @_ZN6colvar8distance19calc_force_invgradsEv(ptr nocapture noundef no
   %60 = getelementptr inbounds i8, ptr %0, i64 1680
   %61 = load double, ptr %60, align 8, !noalias !17
   %62 = call noundef double @llvm.fmuladd.f64(double %61, double %61, double %59)
-  %sqrt.i.i1 = call noundef double @llvm.sqrt.f64(double %62)
-  %63 = fcmp ogt double %sqrt.i.i1, 0.000000e+00
+  %63 = fcmp ogt double %62, 0.000000e+00
+  %sqrt.i.i1 = call double @llvm.sqrt.f64(double %62)
   %64 = fdiv double %55, %sqrt.i.i1
   %65 = fdiv double %57, %sqrt.i.i1
   %66 = fdiv double %61, %sqrt.i.i1
@@ -1026,8 +1026,8 @@ define void @_ZN6colvar12distance_dir10calc_valueEv(ptr nocapture noundef nonnul
   %36 = extractelement <2 x double> %33, i64 0
   %37 = call double @llvm.fmuladd.f64(double %36, double %36, double %35)
   %38 = call noundef double @llvm.fmuladd.f64(double %32, double %32, double %37)
-  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %38)
-  %39 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %39 = fcmp ogt double %38, 0.000000e+00
+  %sqrt.i.i = call double @llvm.sqrt.f64(double %38)
   %40 = fdiv double %32, %sqrt.i.i
   %.sink.i = select i1 %39, double %40, double 0.000000e+00
   %41 = getelementptr inbounds i8, ptr %0, i64 648
@@ -1353,7 +1353,7 @@ define void @_ZN6colvar10distance_z10calc_valueEv(ptr noundef nonnull align 8 de
   %sqrt.i = call noundef double @llvm.sqrt.f64(double %98)
   %99 = getelementptr inbounds i8, ptr %0, i64 1696
   store double %sqrt.i, ptr %99, align 8
-  %100 = fcmp ogt double %sqrt.i, 0.000000e+00
+  %100 = fcmp ogt double %98, 0.000000e+00
   %101 = fdiv double %90, %sqrt.i
   %.sink.i = select i1 %100, double %101, double 0.000000e+00
   %102 = insertelement <2 x double> poison, double %sqrt.i, i64 0
@@ -1993,7 +1993,7 @@ define void @_ZN6colvar11distance_xy10calc_valueEv(ptr nocapture noundef nonnull
   %sqrt.i = call noundef double @llvm.sqrt.f64(double %71)
   %72 = getelementptr inbounds i8, ptr %0, i64 1696
   store double %sqrt.i, ptr %72, align 8
-  %73 = fcmp ogt double %sqrt.i, 0.000000e+00
+  %73 = fcmp ogt double %71, 0.000000e+00
   %74 = fdiv double %65, %sqrt.i
   %75 = insertelement <2 x double> poison, double %sqrt.i, i64 0
   %76 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> zeroinitializer
@@ -3081,7 +3081,7 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %85 = tail call noundef double @llvm.fmuladd.f64(double %73, double %73, double %84)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %85)
   store double %sqrt.i, ptr %77, align 8
-  %86 = fcmp ogt double %sqrt.i, 0.000000e+00
+  %86 = fcmp ogt double %85, 0.000000e+00
   %87 = insertelement <2 x double> poison, double %sqrt.i, i64 0
   %88 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> zeroinitializer
   %89 = fdiv <2 x double> %80, %88
@@ -3191,8 +3191,8 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %167 = extractelement <2 x double> %164, i64 0
   %168 = call double @llvm.fmuladd.f64(double %167, double %167, double %166)
   %169 = call noundef double @llvm.fmuladd.f64(double %158, double %158, double %168)
-  %sqrt.i.i30 = call noundef double @llvm.sqrt.f64(double %169)
-  %170 = fcmp ogt double %sqrt.i.i30, 0.000000e+00
+  %170 = fcmp ogt double %169, 0.000000e+00
+  %sqrt.i.i30 = call double @llvm.sqrt.f64(double %169)
   %171 = fneg <2 x double> %164
   %172 = insertelement <2 x double> poison, double %sqrt.i.i30, i64 0
   %173 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> zeroinitializer
@@ -3216,8 +3216,8 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %188 = extractelement <2 x double> %185, i64 0
   %189 = call double @llvm.fmuladd.f64(double %188, double %188, double %187)
   %190 = call noundef double @llvm.fmuladd.f64(double %180, double %180, double %189)
-  %sqrt.i.i34 = call noundef double @llvm.sqrt.f64(double %190)
-  %191 = fcmp ogt double %sqrt.i.i34, 0.000000e+00
+  %191 = fcmp ogt double %190, 0.000000e+00
+  %sqrt.i.i34 = call double @llvm.sqrt.f64(double %190)
   %192 = insertelement <2 x double> poison, double %sqrt.i.i34, i64 0
   %193 = shufflevector <2 x double> %192, <2 x double> poison, <2 x i32> zeroinitializer
   %194 = fdiv <2 x double> %185, %193
@@ -3588,8 +3588,8 @@ _ZNK11colvarvalueixEi.exit:                       ; preds = %102, %107, %_ZNK12c
   %139 = extractelement <2 x double> %80, i64 0
   %140 = call double @llvm.fmuladd.f64(double %139, double %139, double %138)
   %141 = call noundef double @llvm.fmuladd.f64(double %85, double %85, double %140)
-  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %141)
-  %142 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %142 = fcmp ogt double %141, 0.000000e+00
+  %sqrt.i.i = call double @llvm.sqrt.f64(double %141)
   %143 = fdiv double %85, %sqrt.i.i
   %144 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0
   %145 = shufflevector <2 x double> %144, <2 x double> poison, <2 x i32> zeroinitializer
@@ -4110,8 +4110,8 @@ _ZNK11colvarvalueixEi.exit52:                     ; preds = %305, %310, %_ZNK12c
   %350 = extractelement <2 x double> %347, i64 0
   %351 = call double @llvm.fmuladd.f64(double %350, double %350, double %349)
   %352 = call noundef double @llvm.fmuladd.f64(double %340, double %340, double %351)
-  %sqrt.i.i53 = call noundef double @llvm.sqrt.f64(double %352)
-  %353 = fcmp ogt double %sqrt.i.i53, 0.000000e+00
+  %353 = fcmp ogt double %352, 0.000000e+00
+  %sqrt.i.i53 = call double @llvm.sqrt.f64(double %352)
   %354 = insertelement <2 x double> poison, double %sqrt.i.i53, i64 0
   %355 = shufflevector <2 x double> %354, <2 x double> poison, <2 x i32> zeroinitializer
   %356 = fdiv <2 x double> %347, %355
@@ -4349,8 +4349,8 @@ _ZNK11colvarvalueixEi.exit65:                     ; preds = %396, %401, %_ZNK12c
   %441 = extractelement <2 x double> %438, i64 0
   %442 = call double @llvm.fmuladd.f64(double %441, double %441, double %440)
   %443 = call noundef double @llvm.fmuladd.f64(double %431, double %431, double %442)
-  %sqrt.i.i66 = call noundef double @llvm.sqrt.f64(double %443)
-  %444 = fcmp ogt double %sqrt.i.i66, 0.000000e+00
+  %444 = fcmp ogt double %443, 0.000000e+00
+  %sqrt.i.i66 = call double @llvm.sqrt.f64(double %443)
   %445 = insertelement <2 x double> poison, double %sqrt.i.i66, i64 0
   %446 = shufflevector <2 x double> %445, <2 x double> poison, <2 x i32> zeroinitializer
   %447 = fdiv <2 x double> %438, %446
@@ -4479,8 +4479,8 @@ define void @_ZN6colvar16dipole_magnitude14calc_gradientsEv(ptr nocapture nounde
   %10 = extractelement <2 x double> %7, i64 0
   %11 = tail call double @llvm.fmuladd.f64(double %10, double %10, double %9)
   %12 = tail call noundef double @llvm.fmuladd.f64(double %6, double %6, double %11)
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %12)
-  %13 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %13 = fcmp ogt double %12, 0.000000e+00
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %12)
   %14 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0
   %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
   %16 = fdiv <2 x double> %7, %15
@@ -8315,8 +8315,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51: ; 
   br i1 %117, label %118, label %141
 
 118:                                              ; preds = %116
-  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %105)
-  %119 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %119 = fcmp ogt double %105, 0.000000e+00
+  %sqrt.i.i = call double @llvm.sqrt.f64(double %105)
   %120 = fdiv double %104, %sqrt.i.i
   %.sink.i = select i1 %119, double %120, double 0.000000e+00
   %121 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0
@@ -11062,8 +11062,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21: ; 
   br i1 %49, label %50, label %73
 
 50:                                               ; preds = %48
-  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %30)
-  %51 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %51 = fcmp ogt double %30, 0.000000e+00
+  %sqrt.i.i = call double @llvm.sqrt.f64(double %30)
   %52 = fdiv double %29, %sqrt.i.i
   %.sink.i = select i1 %51, double %52, double 0.000000e+00
   %53 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0

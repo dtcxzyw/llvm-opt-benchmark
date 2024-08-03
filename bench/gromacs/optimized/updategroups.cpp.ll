@@ -4174,7 +4174,7 @@ _ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_ra
   %sqrt.i151.i = call float @llvm.sqrt.f32(float %528)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  %529 = fcmp oge float %sqrt.i151.i, 0.000000e+00
+  %529 = fcmp oge float %528, 0.000000e+00
   %or.cond5.i = and i1 %40, %529
   br i1 %or.cond5.i, label %530, label %.thread249.i
 

@@ -597,8 +597,7 @@ entry:
   %add.i.i25 = fadd float %mul.i.i.i, %39
   %40 = extractelement <2 x float> %38, i64 0
   %add3.i.i = fadd float %40, %add.i.i25
-  %sqrt.i = call noundef float @llvm.sqrt.f32(float %add3.i.i)
-  %cmp = fcmp oeq float %sqrt.i, 0.000000e+00
+  %cmp = fcmp oeq float %add3.i.i, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -608,14 +607,15 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
+  %sqrt.i = call noundef float @llvm.sqrt.f32(float %add3.i.i)
   %div.i.i69 = fdiv float %add.i.i, %sqrt.i
+  %fneg1.i.i80 = fneg float %div3.i.i
   %41 = insertelement <2 x float> poison, float %sqrt.i, i64 0
   %42 = shufflevector <2 x float> %41, <2 x float> poison, <2 x i32> zeroinitializer
   %43 = fdiv <2 x float> %37, %42
   %44 = extractelement <2 x float> %43, i64 1
   %mul.i.i78 = fmul float %div3.i.i, %44
   %fneg.i.i79 = fneg float %mul.i.i78
-  %fneg1.i.i80 = fneg float %div3.i.i
   %45 = insertelement <2 x float> %22, float %fneg1.i.i80, i64 1
   %46 = insertelement <2 x float> poison, float %fneg.i.i79, i64 0
   %47 = insertelement <2 x float> %46, float %mul.i.i78, i64 1
@@ -1405,7 +1405,7 @@ if.else:                                          ; preds = %entry
   %mul88 = fmul float %sqrt.i, 5.000000e-01
   %arrayidx90 = getelementptr inbounds [3 x float], ptr %q, i64 0, i64 %idxprom
   store float %mul88, ptr %arrayidx90, align 4
-  %cmp91 = fcmp une float %sqrt.i, 0.000000e+00
+  %cmp91 = fcmp une float %.sroa.speculated.i, 0.000000e+00
   %div93 = fdiv float 5.000000e-01, %sqrt.i
   %s68.0 = select i1 %cmp91, float %div93, float %sqrt.i
   %call97 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef %27)

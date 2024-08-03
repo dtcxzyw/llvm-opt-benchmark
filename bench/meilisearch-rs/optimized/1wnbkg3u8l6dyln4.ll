@@ -27014,7 +27014,7 @@ _ZN5arroy8distance8Distance4norm17hb08b4ea62e3c95ecE.exit: ; preds = %5, %10
   %.sroa.0.0.i.i = phi ptr [ %7, %5 ], [ %12, %10 ]
   %14 = tail call noundef float @_ZN5arroy6spaces6simple11dot_product17h2dd6023192d24103E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i)
   %15 = tail call noundef float @llvm.sqrt.f32(float %14)
-  %16 = fcmp ogt float %15, 0.000000e+00
+  %16 = fcmp ogt float %14, 0.000000e+00
   br i1 %16, label %17, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h6b604aa954bcd4e0E.llvm.331090089658796353.exit"
 
 17:                                               ; preds = %_ZN5arroy8distance8Distance4norm17hb08b4ea62e3c95ecE.exit

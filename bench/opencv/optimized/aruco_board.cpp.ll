@@ -8163,8 +8163,7 @@ _ZN2cv3Mat2atIiEERT_i.exit38.thread:              ; preds = %72, %_ZN2cv3Mat2atI
   store double 1.000000e+00, ptr %174, align 8
   %175 = fmul double %167, %167
   %176 = call double @llvm.fmuladd.f64(double %166, double %166, double %175)
-  %sqrt = call double @llvm.sqrt.f64(double %176)
-  %177 = fcmp une double %sqrt, 0.000000e+00
+  %177 = fcmp une double %176, 0.000000e+00
   br i1 %177, label %186, label %178
 
 178:                                              ; preds = %154
@@ -8196,6 +8195,7 @@ _ZN2cv3Mat2atIiEERT_i.exit38.thread:              ; preds = %72, %_ZN2cv3Mat2atI
   br label %315
 
 186:                                              ; preds = %154
+  %sqrt = call double @llvm.sqrt.f64(double %176)
   %187 = fdiv double 1.000000e+00, %sqrt
   br label %188
 

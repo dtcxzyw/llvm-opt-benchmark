@@ -9033,11 +9033,11 @@ _ZN11Output_FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   %2174 = call float @llvm.fmuladd.f32(float %2173, float %2173, float %2172)
   %2175 = load float, ptr %2168, align 4
   %2176 = call float @llvm.fmuladd.f32(float %2175, float %2175, float %2174)
-  %sqrt.i = call float @llvm.sqrt.f32(float %2176)
-  %2177 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %2177 = fcmp ogt float %2176, 0.000000e+00
   br i1 %2177, label %2178, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
 2178:                                             ; preds = %2169
+  %sqrt.i = call float @llvm.sqrt.f32(float %2176)
   %2179 = insertelement <2 x float> poison, float %sqrt.i, i64 0
   %2180 = shufflevector <2 x float> %2179, <2 x float> poison, <2 x i32> zeroinitializer
   %2181 = fdiv <2 x float> %2170, %2180

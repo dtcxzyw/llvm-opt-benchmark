@@ -1588,7 +1588,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %171 = fmul contract float %167, 0x3FD45F3060000000
   %172 = fmul contract float %105, %171
   %173 = load float, ptr %46, align 8
-  %174 = fcmp contract oge float %167, 0.000000e+00
+  %174 = fcmp contract oge float %..i, 0.000000e+00
   %175 = fdiv contract float 1.000000e+00, %173
   %176 = select contract i1 %174, float %173, float %175
   %177 = select contract i1 %174, float %175, float %173
@@ -1602,7 +1602,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %..i.i333 = select contract i1 %184, float 0.000000e+00, float %182
   %185 = tail call contract noundef float @llvm.sqrt.f32(float %..i.i333)
   %186 = fcmp contract oeq float %173, 1.000000e+00
-  %187 = fcmp contract oeq float %167, 0.000000e+00
+  %187 = fcmp contract oeq float %..i, 0.000000e+00
   %188 = fneg contract float %176
   %189 = tail call contract noundef float @llvm.fma.f32(float %188, float %185, float %183)
   %190 = tail call contract noundef float @llvm.fma.f32(float %176, float %185, float %183)

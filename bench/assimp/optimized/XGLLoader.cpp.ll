@@ -6675,24 +6675,36 @@ _ZN6Assimp12LogFunctionsINS_11XGLImporterEE8LogErrorIJRA58_KcEEEvDpOT_.exit: ; p
   br label %return
 
 if.end55:                                         ; preds = %lor.lhs.false
+  %cmp.i53 = fcmp oeq float %17, 0.000000e+00
+  br i1 %cmp.i53, label %_ZN10aiVector3tIfE9NormalizeEv.exit, label %_ZN10aiVector3tIfEdVEf.exit.i
+
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %if.end55
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %17)
-  %cmp.i53 = fcmp oeq float %sqrt.i.i, 0.000000e+00
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %20 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
   %22 = fmul <2 x float> %forward.sroa.0.0.lcssa, %21
   %mul3.i.i = fmul float %forward.sroa.19.0.lcssa, %div.i.i
-  %forward.sroa.0.2 = select i1 %cmp.i53, <2 x float> %forward.sroa.0.0.lcssa, <2 x float> %22
-  %forward.sroa.19.2 = select i1 %cmp.i53, float %forward.sroa.19.0.lcssa, float %mul3.i.i
-  %sqrt.i.i57 = call noundef float @llvm.sqrt.f32(float %19)
-  %cmp.i58 = fcmp oeq float %sqrt.i.i57, 0.000000e+00
-  %div.i.i60 = fdiv float 1.000000e+00, %sqrt.i.i57
+  br label %_ZN10aiVector3tIfE9NormalizeEv.exit
+
+_ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %if.end55, %_ZN10aiVector3tIfEdVEf.exit.i
+  %forward.sroa.0.2 = phi <2 x float> [ %forward.sroa.0.0.lcssa, %if.end55 ], [ %22, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %forward.sroa.19.2 = phi float [ %forward.sroa.19.0.lcssa, %if.end55 ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %cmp.i57 = fcmp oeq float %19, 0.000000e+00
+  br i1 %cmp.i57, label %_ZN10aiVector3tIfE9NormalizeEv.exit64, label %_ZN10aiVector3tIfEdVEf.exit.i58
+
+_ZN10aiVector3tIfEdVEf.exit.i58:                  ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit
+  %sqrt.i.i59 = call noundef float @llvm.sqrt.f32(float %19)
+  %div.i.i60 = fdiv float 1.000000e+00, %sqrt.i.i59
   %mul.i.i61 = fmul float %up.sroa.0.0.vec.extract106, %div.i.i60
   %mul2.i.i62 = fmul float %up.sroa.0.4.vec.extract121, %div.i.i60
   %mul3.i.i63 = fmul float %up.sroa.19.0.lcssa, %div.i.i60
-  %up.sroa.0.0.vec.extract112.pre-phi = select i1 %cmp.i58, float %up.sroa.0.0.vec.extract106, float %mul.i.i61
-  %up.sroa.0.4.vec.extract127.pre-phi = select i1 %cmp.i58, float %up.sroa.0.4.vec.extract121, float %mul2.i.i62
-  %up.sroa.19.2 = select i1 %cmp.i58, float %up.sroa.19.0.lcssa, float %mul3.i.i63
+  br label %_ZN10aiVector3tIfE9NormalizeEv.exit64
+
+_ZN10aiVector3tIfE9NormalizeEv.exit64:            ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit, %_ZN10aiVector3tIfEdVEf.exit.i58
+  %up.sroa.0.0.vec.extract112.pre-phi = phi float [ %up.sroa.0.0.vec.extract106, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %mul.i.i61, %_ZN10aiVector3tIfEdVEf.exit.i58 ]
+  %up.sroa.0.4.vec.extract127.pre-phi = phi float [ %up.sroa.0.4.vec.extract121, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %mul2.i.i62, %_ZN10aiVector3tIfEdVEf.exit.i58 ]
+  %up.sroa.19.2 = phi float [ %up.sroa.19.0.lcssa, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %mul3.i.i63, %_ZN10aiVector3tIfEdVEf.exit.i58 ]
   %forward.sroa.0.4.vec.extract162 = extractelement <2 x float> %forward.sroa.0.2, i64 1
   %forward.sroa.0.0.vec.extract147 = extractelement <2 x float> %forward.sroa.0.2, i64 0
   %mul3.i = fmul float %forward.sroa.0.4.vec.extract162, %up.sroa.0.4.vec.extract127.pre-phi
@@ -6703,7 +6715,7 @@ if.end55:                                         ; preds = %lor.lhs.false
   %cmp64 = fcmp ogt double %conv63, 1.000000e-04
   br i1 %cmp64, label %if.then65, label %if.end66
 
-if.then65:                                        ; preds = %if.end55
+if.then65:                                        ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i72)
   %call.i73 = call noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
   br i1 %call.i73, label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE8LogErrorIJRA70_KcEEEvDpOT_.exit, label %if.then.i74
@@ -6718,7 +6730,7 @@ _ZN6Assimp12LogFunctionsINS_11XGLImporterEE8LogErrorIJRA70_KcEEEvDpOT_.exit: ; p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i72)
   br label %return
 
-if.end66:                                         ; preds = %if.end55
+if.end66:                                         ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit64
   %26 = fneg float %forward.sroa.0.4.vec.extract162
   %neg14.i = fmul float %up.sroa.0.0.vec.extract112.pre-phi, %26
   %27 = call float @llvm.fmuladd.f32(float %forward.sroa.0.0.vec.extract147, float %up.sroa.0.4.vec.extract127.pre-phi, float %neg14.i)

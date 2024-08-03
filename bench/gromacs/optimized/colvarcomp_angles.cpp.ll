@@ -224,7 +224,7 @@ define void @_ZN6colvar9polar_phi10calc_valueEv(ptr nocapture noundef nonnull al
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %7)
   %8 = getelementptr inbounds i8, ptr %0, i64 1656
   store double %sqrt.i, ptr %8, align 8
-  %9 = fcmp ogt double %sqrt.i, 0.000000e+00
+  %9 = fcmp ogt double %7, 0.000000e+00
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %1
@@ -475,7 +475,7 @@ define void @_ZN6colvar11polar_theta10calc_valueEv(ptr nocapture noundef nonnull
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %7)
   %8 = getelementptr inbounds i8, ptr %0, i64 1656
   store double %sqrt.i, ptr %8, align 8
-  %9 = fcmp ogt double %sqrt.i, 0.000000e+00
+  %9 = fcmp ogt double %7, 0.000000e+00
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %1
@@ -2125,7 +2125,7 @@ define void @_ZN6colvar8dihedral19calc_force_invgradsEv(ptr nocapture noundef no
   %27 = extractelement <2 x double> %26, i64 0
   %28 = fdiv double %9, %27
   %29 = fdiv double %11, %27
-  %30 = fcmp ogt <2 x double> %26, zeroinitializer
+  %30 = fcmp ogt <2 x double> %25, zeroinitializer
   %31 = extractelement <2 x i1> %30, i64 0
   %.sink3.i = select i1 %31, double %28, double 0.000000e+00
   %.sink.i = select i1 %31, double %29, double 0.000000e+00
@@ -2164,115 +2164,116 @@ define void @_ZN6colvar8dihedral19calc_force_invgradsEv(ptr nocapture noundef no
   %62 = insertelement <2 x double> poison, double %55, i64 0
   %63 = insertelement <2 x double> %62, double %44, i64 1
   %64 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %63, <2 x double> %63, <2 x double> %61)
-  %65 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %64)
-  %66 = extractelement <2 x double> %65, i64 1
-  %67 = fdiv double %40, %66
-  %68 = fdiv double %42, %66
-  %69 = fdiv double %44, %66
-  %70 = fcmp ogt <2 x double> %65, zeroinitializer
-  %71 = extractelement <2 x i1> %70, i64 1
-  %.sink4.i15 = select i1 %71, double %67, double 1.000000e+00
-  %.sink3.i16 = select i1 %71, double %68, double 0.000000e+00
-  %.sink.i17 = select i1 %71, double %69, double 0.000000e+00
-  %72 = extractelement <2 x double> %65, i64 0
-  %73 = fdiv double %48, %72
-  %74 = fdiv double %52, %72
-  %75 = fdiv double %55, %72
-  %76 = extractelement <2 x i1> %70, i64 0
-  %.sink4.i20 = select i1 %76, double %73, double 1.000000e+00
-  %.sink3.i21 = select i1 %76, double %74, double 0.000000e+00
-  %.sink.i22 = select i1 %76, double %75, double 0.000000e+00
-  %77 = fmul double %.sink3.i, %.sink3.i12
-  %78 = tail call double @llvm.fmuladd.f64(double %.sink4.i11, double %50, double %77)
-  %79 = tail call noundef double @llvm.fmuladd.f64(double %46, double %.sink.i, double %78)
-  %80 = fmul double %.sink3.i12, %.sink3.i16
-  %81 = tail call double @llvm.fmuladd.f64(double %.sink4.i11, double %.sink4.i15, double %80)
-  %82 = tail call noundef double @llvm.fmuladd.f64(double %46, double %.sink.i17, double %81)
-  %83 = fneg double %79
-  %84 = tail call double @llvm.fmuladd.f64(double %83, double %79, double 1.000000e+00)
-  %85 = tail call noundef double @sqrt(double noundef %84) #21
-  %86 = fmul double %27, %85
-  %87 = fneg double %82
-  %88 = tail call double @llvm.fmuladd.f64(double %87, double %82, double 1.000000e+00)
-  %89 = tail call noundef double @sqrt(double noundef %88) #21
-  %90 = getelementptr inbounds i8, ptr %0, i64 1648
-  %91 = load ptr, ptr %90, align 8
-  tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %91)
-  %92 = getelementptr inbounds i8, ptr %0, i64 368
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 321
-  %95 = load i8, ptr %94, align 1
-  %96 = trunc i8 %95 to i1
-  br i1 %96, label %97, label %109
+  %65 = extractelement <2 x double> %64, i64 1
+  %sqrt.i.i14 = tail call double @llvm.sqrt.f64(double %65)
+  %66 = fdiv double %40, %sqrt.i.i14
+  %67 = fdiv double %42, %sqrt.i.i14
+  %68 = fdiv double %44, %sqrt.i.i14
+  %69 = fcmp ogt <2 x double> %64, zeroinitializer
+  %70 = extractelement <2 x i1> %69, i64 1
+  %.sink4.i15 = select i1 %70, double %66, double 1.000000e+00
+  %.sink3.i16 = select i1 %70, double %67, double 0.000000e+00
+  %.sink.i17 = select i1 %70, double %68, double 0.000000e+00
+  %71 = extractelement <2 x double> %64, i64 0
+  %sqrt.i.i19 = tail call double @llvm.sqrt.f64(double %71)
+  %72 = fdiv double %48, %sqrt.i.i19
+  %73 = fdiv double %52, %sqrt.i.i19
+  %74 = fdiv double %55, %sqrt.i.i19
+  %75 = extractelement <2 x i1> %69, i64 0
+  %.sink4.i20 = select i1 %75, double %72, double 1.000000e+00
+  %.sink3.i21 = select i1 %75, double %73, double 0.000000e+00
+  %.sink.i22 = select i1 %75, double %74, double 0.000000e+00
+  %76 = fmul double %.sink3.i, %.sink3.i12
+  %77 = tail call double @llvm.fmuladd.f64(double %.sink4.i11, double %50, double %76)
+  %78 = tail call noundef double @llvm.fmuladd.f64(double %46, double %.sink.i, double %77)
+  %79 = fmul double %.sink3.i12, %.sink3.i16
+  %80 = tail call double @llvm.fmuladd.f64(double %.sink4.i11, double %.sink4.i15, double %79)
+  %81 = tail call noundef double @llvm.fmuladd.f64(double %46, double %.sink.i17, double %80)
+  %82 = fneg double %78
+  %83 = tail call double @llvm.fmuladd.f64(double %82, double %78, double 1.000000e+00)
+  %84 = tail call noundef double @sqrt(double noundef %83) #21
+  %85 = fmul double %27, %84
+  %86 = fneg double %81
+  %87 = tail call double @llvm.fmuladd.f64(double %86, double %81, double 1.000000e+00)
+  %88 = tail call noundef double @sqrt(double noundef %87) #21
+  %89 = getelementptr inbounds i8, ptr %0, i64 1648
+  %90 = load ptr, ptr %89, align 8
+  tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %90)
+  %91 = getelementptr inbounds i8, ptr %0, i64 368
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 321
+  %94 = load i8, ptr %93, align 1
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %96, label %108
 
-97:                                               ; preds = %1
-  %98 = fmul double %86, 0x3F91DF46A2529D39
-  %99 = load ptr, ptr %90, align 8
-  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %2, ptr noundef nonnull align 8 dereferenceable(1440) %99)
-  %100 = load double, ptr %2, align 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 8
-  %102 = load double, ptr %101, align 8
-  %103 = fmul double %.sink3.i21, %102
-  %104 = call double @llvm.fmuladd.f64(double %.sink4.i20, double %100, double %103)
-  %105 = getelementptr inbounds i8, ptr %2, i64 16
-  %106 = load double, ptr %105, align 8
-  %107 = call noundef double @llvm.fmuladd.f64(double %.sink.i22, double %106, double %104)
-  %108 = fmul double %98, %107
-  br label %149
+96:                                               ; preds = %1
+  %97 = fmul double %85, 0x3F91DF46A2529D39
+  %98 = load ptr, ptr %89, align 8
+  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %2, ptr noundef nonnull align 8 dereferenceable(1440) %98)
+  %99 = load double, ptr %2, align 8
+  %100 = getelementptr inbounds i8, ptr %2, i64 8
+  %101 = load double, ptr %100, align 8
+  %102 = fmul double %.sink3.i21, %101
+  %103 = call double @llvm.fmuladd.f64(double %.sink4.i20, double %99, double %102)
+  %104 = getelementptr inbounds i8, ptr %2, i64 16
+  %105 = load double, ptr %104, align 8
+  %106 = call noundef double @llvm.fmuladd.f64(double %.sink.i22, double %105, double %103)
+  %107 = fmul double %97, %106
+  br label %148
 
-109:                                              ; preds = %1
-  %110 = fneg double %.sink4.i15
-  %111 = fmul double %.sink3.i12, %110
-  %112 = tail call double @llvm.fmuladd.f64(double %.sink4.i11, double %.sink3.i16, double %111)
-  %113 = fneg double %.sink3.i16
-  %114 = fmul double %46, %113
-  %115 = tail call double @llvm.fmuladd.f64(double %.sink3.i12, double %.sink.i17, double %114)
-  %116 = fmul double %46, %.sink4.i15
-  %117 = tail call double @llvm.fmuladd.f64(double %49, double %.sink.i17, double %116)
-  %118 = fmul double %117, %117
-  %119 = tail call double @llvm.fmuladd.f64(double %115, double %115, double %118)
-  %120 = tail call noundef double @llvm.fmuladd.f64(double %112, double %112, double %119)
-  %sqrt.i.i23 = tail call noundef double @llvm.sqrt.f64(double %120)
-  %121 = fcmp ogt double %sqrt.i.i23, 0.000000e+00
-  %122 = fdiv double %112, %sqrt.i.i23
-  %.sink.i26 = select i1 %121, double %122, double 0.000000e+00
-  %123 = fdiv double %117, %sqrt.i.i23
-  %.sink3.i25 = select i1 %121, double %123, double 0.000000e+00
-  %124 = fdiv double %115, %sqrt.i.i23
-  %.sink4.i24 = select i1 %121, double %124, double 1.000000e+00
-  %125 = fmul double %89, %66
-  %126 = getelementptr inbounds i8, ptr %0, i64 1672
-  %127 = load ptr, ptr %126, align 8
-  tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %127)
-  %128 = load ptr, ptr %90, align 8
-  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1440) %128)
-  %129 = load double, ptr %3, align 8
-  %130 = getelementptr inbounds i8, ptr %3, i64 8
-  %131 = load double, ptr %130, align 8
-  %132 = fmul double %.sink3.i21, %131
-  %133 = call double @llvm.fmuladd.f64(double %.sink4.i20, double %129, double %132)
-  %134 = getelementptr inbounds i8, ptr %3, i64 16
-  %135 = load double, ptr %134, align 8
-  %136 = call noundef double @llvm.fmuladd.f64(double %.sink.i22, double %135, double %133)
-  %137 = load ptr, ptr %126, align 8
-  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(1440) %137)
-  %138 = load double, ptr %4, align 8
-  %139 = getelementptr inbounds i8, ptr %4, i64 8
-  %140 = load double, ptr %139, align 8
-  %141 = fmul double %.sink3.i25, %140
-  %142 = call double @llvm.fmuladd.f64(double %.sink4.i24, double %138, double %141)
-  %143 = getelementptr inbounds i8, ptr %4, i64 16
-  %144 = load double, ptr %143, align 8
-  %145 = call noundef double @llvm.fmuladd.f64(double %.sink.i26, double %144, double %142)
-  %146 = fmul double %125, %145
-  %147 = call double @llvm.fmuladd.f64(double %86, double %136, double %146)
-  %148 = fmul double %147, 0x3F81DF46A2529D39
-  br label %149
+108:                                              ; preds = %1
+  %109 = fneg double %.sink4.i15
+  %110 = fmul double %.sink3.i12, %109
+  %111 = tail call double @llvm.fmuladd.f64(double %.sink4.i11, double %.sink3.i16, double %110)
+  %112 = fneg double %.sink3.i16
+  %113 = fmul double %46, %112
+  %114 = tail call double @llvm.fmuladd.f64(double %.sink3.i12, double %.sink.i17, double %113)
+  %115 = fmul double %46, %.sink4.i15
+  %116 = tail call double @llvm.fmuladd.f64(double %49, double %.sink.i17, double %115)
+  %117 = fmul double %116, %116
+  %118 = tail call double @llvm.fmuladd.f64(double %114, double %114, double %117)
+  %119 = tail call noundef double @llvm.fmuladd.f64(double %111, double %111, double %118)
+  %120 = fcmp ogt double %119, 0.000000e+00
+  %sqrt.i.i23 = tail call double @llvm.sqrt.f64(double %119)
+  %121 = fdiv double %111, %sqrt.i.i23
+  %.sink.i26 = select i1 %120, double %121, double 0.000000e+00
+  %122 = fdiv double %116, %sqrt.i.i23
+  %.sink3.i25 = select i1 %120, double %122, double 0.000000e+00
+  %123 = fdiv double %114, %sqrt.i.i23
+  %.sink4.i24 = select i1 %120, double %123, double 1.000000e+00
+  %124 = fmul double %88, %sqrt.i.i14
+  %125 = getelementptr inbounds i8, ptr %0, i64 1672
+  %126 = load ptr, ptr %125, align 8
+  tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %126)
+  %127 = load ptr, ptr %89, align 8
+  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1440) %127)
+  %128 = load double, ptr %3, align 8
+  %129 = getelementptr inbounds i8, ptr %3, i64 8
+  %130 = load double, ptr %129, align 8
+  %131 = fmul double %.sink3.i21, %130
+  %132 = call double @llvm.fmuladd.f64(double %.sink4.i20, double %128, double %131)
+  %133 = getelementptr inbounds i8, ptr %3, i64 16
+  %134 = load double, ptr %133, align 8
+  %135 = call noundef double @llvm.fmuladd.f64(double %.sink.i22, double %134, double %132)
+  %136 = load ptr, ptr %125, align 8
+  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(1440) %136)
+  %137 = load double, ptr %4, align 8
+  %138 = getelementptr inbounds i8, ptr %4, i64 8
+  %139 = load double, ptr %138, align 8
+  %140 = fmul double %.sink3.i25, %139
+  %141 = call double @llvm.fmuladd.f64(double %.sink4.i24, double %137, double %140)
+  %142 = getelementptr inbounds i8, ptr %4, i64 16
+  %143 = load double, ptr %142, align 8
+  %144 = call noundef double @llvm.fmuladd.f64(double %.sink.i26, double %143, double %141)
+  %145 = fmul double %124, %144
+  %146 = call double @llvm.fmuladd.f64(double %85, double %135, double %145)
+  %147 = fmul double %146, 0x3F81DF46A2529D39
+  br label %148
 
-149:                                              ; preds = %109, %97
-  %.sink = phi double [ %108, %97 ], [ %148, %109 ]
-  %150 = getelementptr inbounds i8, ptr %0, i64 976
-  store double %.sink, ptr %150, align 8
+148:                                              ; preds = %108, %96
+  %.sink = phi double [ %107, %96 ], [ %147, %108 ]
+  %149 = getelementptr inbounds i8, ptr %0, i64 976
+  store double %.sink, ptr %149, align 8
   ret void
 }
 

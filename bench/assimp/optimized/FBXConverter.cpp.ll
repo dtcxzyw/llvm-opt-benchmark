@@ -13266,11 +13266,11 @@ if.then372:                                       ; preds = %for.body362
   %z.i.i.i = getelementptr inbounds i8, ptr %arrayidx380, i64 8
   %210 = load float, ptr %z.i.i.i, align 4
   %211 = call noundef float @llvm.fmuladd.f32(float %210, float %210, float %209)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %211)
-  %or.cond.i358 = fcmp ule float %sqrt.i.i, 0.000000e+00
+  %or.cond.i358 = fcmp ule float %211, 0.000000e+00
   br i1 %or.cond.i358, label %for.inc384, label %if.end.i.i359
 
 if.end.i.i359:                                    ; preds = %if.then372
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %211)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %212 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %213 = shufflevector <2 x float> %212, <2 x float> poison, <2 x i32> zeroinitializer
@@ -16124,11 +16124,11 @@ if.then378:                                       ; preds = %invoke.cont369
   %z.i.i.i = getelementptr inbounds i8, ptr %arrayidx386, i64 8
   %154 = load float, ptr %z.i.i.i, align 4
   %155 = call noundef float @llvm.fmuladd.f32(float %154, float %154, float %153)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %155)
-  %or.cond.i = fcmp ule float %sqrt.i.i, 0.000000e+00
+  %or.cond.i = fcmp ule float %155, 0.000000e+00
   br i1 %or.cond.i, label %for.inc390, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then378
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %155)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %156 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %157 = shufflevector <2 x float> %156, <2 x float> poison, <2 x i32> zeroinitializer

@@ -667,7 +667,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %280 = fadd reassoc nsz arcp contract afn <2 x float> %279, %278
   %281 = extractelement <2 x float> %280, i64 0
   %282 = tail call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %281)
-  %283 = fcmp reassoc nsz arcp contract afn une float %282, 0.000000e+00
+  %283 = fcmp reassoc nsz arcp contract afn une float %281, 0.000000e+00
   %284 = extractelement <2 x float> %277, i64 1
   %285 = fdiv reassoc nsz arcp contract afn float %284, %282
   %286 = select reassoc nsz arcp contract afn i1 %283, float %285, float 1.000000e+00
@@ -1394,7 +1394,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %972 = fmul reassoc nsz arcp contract afn float %970, %970
   %973 = fadd reassoc nsz arcp contract afn float %972, %971
   %974 = tail call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %973)
-  %975 = fcmp reassoc nsz arcp contract afn ogt float %974, 0.000000e+00
+  %975 = fcmp reassoc nsz arcp contract afn ogt float %973, 0.000000e+00
   %976 = fdiv reassoc nsz arcp contract afn float %963, %974
   %977 = select reassoc nsz arcp contract afn i1 %975, float %976, float 0.000000e+00
   %978 = fdiv reassoc nsz arcp contract afn float %970, %974
@@ -3227,7 +3227,7 @@ define hidden void @pipe_RGB_to_Ych(ptr noundef %0, ptr noundef %1, ptr nocaptur
   %145 = fadd reassoc nsz arcp contract afn <2 x float> %144, %143
   %146 = extractelement <2 x float> %145, i64 0
   %147 = tail call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %146)
-  %148 = fcmp reassoc nsz arcp contract afn une float %147, 0.000000e+00
+  %148 = fcmp reassoc nsz arcp contract afn une float %146, 0.000000e+00
   %149 = insertelement <2 x float> poison, float %147, i64 0
   %150 = shufflevector <2 x float> %149, <2 x float> poison, <2 x i32> zeroinitializer
   %151 = fdiv reassoc nsz arcp contract afn <2 x float> %142, %150

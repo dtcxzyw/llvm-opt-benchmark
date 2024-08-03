@@ -60426,8 +60426,7 @@ define linkonce_odr hidden void @_ZN5Eigen6BDCSVDINS_6MatrixIdLin1ELin1ELi1ELin1
   %21 = fmul double %17, %17
   %22 = fmul double %20, %20
   %23 = fadd double %21, %22
-  %sqrt = tail call double @llvm.sqrt.f64(double %23)
-  %24 = fcmp oeq double %sqrt, 0.000000e+00
+  %24 = fcmp oeq double %23, 0.000000e+00
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %8
@@ -60442,6 +60441,7 @@ define linkonce_odr hidden void @_ZN5Eigen6BDCSVDINS_6MatrixIdLin1ELin1ELi1ELin1
   br label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit64
 
 33:                                               ; preds = %8
+  %sqrt = tail call double @llvm.sqrt.f64(double %23)
   %34 = insertelement <2 x double> poison, double %20, i64 0
   %35 = insertelement <2 x double> %34, double %17, i64 1
   %36 = insertelement <2 x double> poison, double %sqrt, i64 0

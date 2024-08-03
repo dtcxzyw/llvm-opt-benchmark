@@ -16823,9 +16823,9 @@ define internal fastcc void @_compute_patches_delta_E(ptr noalias nocapture noun
   %135 = fadd reassoc nsz arcp contract afn float %125, %129
   %136 = tail call reassoc nsz arcp contract afn float @atan2f(float noundef %98, float noundef %120) #31
   %137 = tail call reassoc nsz arcp contract afn float @atan2f(float noundef %90, float noundef %121) #31
-  %138 = fcmp reassoc nsz arcp contract afn oeq float %125, 0.000000e+00
+  %138 = fcmp reassoc nsz arcp contract afn oeq float %124, 0.000000e+00
   %139 = select i1 %138, float 0.000000e+00, float %136
-  %140 = fcmp reassoc nsz arcp contract afn oeq float %129, 0.000000e+00
+  %140 = fcmp reassoc nsz arcp contract afn oeq float %128, 0.000000e+00
   %141 = select i1 %140, float 0.000000e+00, float %137
   %142 = fcmp reassoc nsz arcp contract afn olt float %139, 0.000000e+00
   %143 = fpext float %139 to double

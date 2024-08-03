@@ -393,8 +393,7 @@ define void @DrawLineEx(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3
   %8 = extractelement <2 x float> %7, i64 1
   %9 = extractelement <2 x float> %6, i64 0
   %10 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %8)
-  %sqrt = tail call float @llvm.sqrt.f32(float %10)
-  %11 = fcmp ogt float %sqrt, 0.000000e+00
+  %11 = fcmp ogt float %10, 0.000000e+00
   %12 = fcmp ogt float %2, 0.000000e+00
   %or.cond = and i1 %12, %11
   br i1 %or.cond, label %13, label %30
@@ -402,6 +401,7 @@ define void @DrawLineEx(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3
 13:                                               ; preds = %4
   %14 = shufflevector <2 x float> %0, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %15 = shufflevector <2 x float> %1, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %sqrt = tail call float @llvm.sqrt.f32(float %10)
   %16 = fmul float %sqrt, 2.000000e+00
   %17 = fdiv float %2, %16
   %18 = fneg float %17
@@ -2881,7 +2881,7 @@ define void @DrawSplineLinear(ptr nocapture noundef readonly %0, i32 noundef %1,
   %18 = extractelement <2 x float> %15, i64 0
   %19 = tail call float @llvm.fmuladd.f32(float %18, float %18, float %17)
   %sqrt = tail call float @llvm.sqrt.f32(float %19)
-  %20 = fcmp ogt float %sqrt, 0.000000e+00
+  %20 = fcmp ogt float %19, 0.000000e+00
   %21 = fmul float %sqrt, 2.000000e+00
   %22 = fdiv float %2, %21
   %.1 = select i1 %20, float %22, float %.050
@@ -3551,8 +3551,7 @@ define void @DrawSplineSegmentLinear(<2 x float> %0, <2 x float> %1, float nound
   %8 = extractelement <2 x float> %7, i64 1
   %9 = extractelement <2 x float> %6, i64 0
   %10 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %8)
-  %sqrt = tail call float @llvm.sqrt.f32(float %10)
-  %11 = fcmp ogt float %sqrt, 0.000000e+00
+  %11 = fcmp ogt float %10, 0.000000e+00
   %12 = fcmp ogt float %2, 0.000000e+00
   %or.cond = and i1 %12, %11
   br i1 %or.cond, label %13, label %30
@@ -3560,6 +3559,7 @@ define void @DrawSplineSegmentLinear(<2 x float> %0, <2 x float> %1, float nound
 13:                                               ; preds = %4
   %14 = shufflevector <2 x float> %0, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %15 = shufflevector <2 x float> %1, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %sqrt = tail call float @llvm.sqrt.f32(float %10)
   %16 = fmul float %sqrt, 2.000000e+00
   %17 = fdiv float %2, %16
   %18 = fneg float %17

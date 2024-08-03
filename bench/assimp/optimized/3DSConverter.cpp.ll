@@ -3328,10 +3328,10 @@ arrayctor.cont327:                                ; preds = %arrayctor.loop323, 
   %cmp331539.not = icmp eq i32 %conv315, 0
   br i1 %cmp331539.not, label %if.end357, label %for.body332
 
-for.body332:                                      ; preds = %arrayctor.cont327, %cond.end
-  %indvars.iv555 = phi i64 [ %indvars.iv.next556, %cond.end ], [ 0, %arrayctor.cont327 ]
-  %abs1.sroa.0.0541 = phi <2 x float> [ %abs1.sroa.0.1, %cond.end ], [ <float 1.000000e+00, float 0.000000e+00>, %arrayctor.cont327 ]
-  %abs1.sroa.10.0540 = phi <2 x float> [ %abs1.sroa.10.1, %cond.end ], [ zeroinitializer, %arrayctor.cont327 ]
+for.body332:                                      ; preds = %arrayctor.cont327, %invoke.cont348
+  %indvars.iv555 = phi i64 [ %indvars.iv.next556, %invoke.cont348 ], [ 0, %arrayctor.cont327 ]
+  %abs1.sroa.0.0541 = phi <2 x float> [ %abs1.sroa.0.1, %invoke.cont348 ], [ <float 1.000000e+00, float 0.000000e+00>, %arrayctor.cont327 ]
+  %abs1.sroa.10.0540 = phi <2 x float> [ %abs1.sroa.10.1, %invoke.cont348 ], [ zeroinitializer, %arrayctor.cont327 ]
   %219 = load ptr, ptr %aRotationKeys, align 8
   %add.ptr.i393 = getelementptr inbounds %struct.aiQuatKey, ptr %219, i64 %indvars.iv555
   %tobool338.not = icmp eq i64 %indvars.iv555, 0
@@ -3394,15 +3394,21 @@ cond.end:                                         ; preds = %cond.false, %invoke
   %255 = call float @llvm.fmuladd.f32(float %254, float %254, float %253)
   %256 = extractelement <2 x float> %ref.tmp337.sroa.0.0, i64 0
   %257 = call float @llvm.fmuladd.f32(float %256, float %256, float %255)
+  %tobool.i = fcmp une float %257, 0.000000e+00
+  br i1 %tobool.i, label %if.then.i408, label %invoke.cont348
+
+if.then.i408:                                     ; preds = %cond.end
   %sqrt.i = call float @llvm.sqrt.f32(float %257)
-  %tobool.i = fcmp une float %sqrt.i, 0.000000e+00
   %div.i = fdiv float 1.000000e+00, %sqrt.i
   %258 = insertelement <2 x float> poison, float %div.i, i64 0
   %259 = shufflevector <2 x float> %258, <2 x float> poison, <2 x i32> zeroinitializer
   %260 = fmul <2 x float> %ref.tmp337.sroa.3.0, %259
   %261 = fmul <2 x float> %ref.tmp337.sroa.0.0, %259
-  %abs1.sroa.10.1 = select i1 %tobool.i, <2 x float> %260, <2 x float> %ref.tmp337.sroa.3.0
-  %abs1.sroa.0.1 = select i1 %tobool.i, <2 x float> %261, <2 x float> %ref.tmp337.sroa.0.0
+  br label %invoke.cont348
+
+invoke.cont348:                                   ; preds = %if.then.i408, %cond.end
+  %abs1.sroa.10.1 = phi <2 x float> [ %260, %if.then.i408 ], [ %ref.tmp337.sroa.3.0, %cond.end ]
+  %abs1.sroa.0.1 = phi <2 x float> [ %261, %if.then.i408 ], [ %ref.tmp337.sroa.0.0, %cond.end ]
   %262 = load ptr, ptr %mRotationKeys.i, align 8
   %mValue353 = getelementptr inbounds %struct.aiQuatKey, ptr %262, i64 %indvars.iv555, i32 1
   store <2 x float> %abs1.sroa.0.1, ptr %mValue353, align 8
@@ -3414,7 +3420,7 @@ cond.end:                                         ; preds = %cond.false, %invoke
   %cmp331 = icmp ult i64 %indvars.iv.next556, %264
   br i1 %cmp331, label %for.body332, label %if.end357, !llvm.loop !32
 
-if.end357:                                        ; preds = %cond.end, %arrayctor.cont327, %if.end308
+if.end357:                                        ; preds = %invoke.cont348, %arrayctor.cont327, %if.end308
   %265 = load ptr, ptr %_M_finish.i269, align 8
   %266 = load ptr, ptr %aScalingKeys, align 8
   %cmp360.not = icmp eq ptr %265, %266

@@ -371,11 +371,11 @@ entry:
   %3 = load float, ptr %arrayidx8.i, align 4
   %mul11.i = fmul float %3, %3
   %4 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %mul11.i)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %4)
-  %cmp.i = fcmp une float %sqrt.i, 0.000000e+00
+  %cmp.i = fcmp une float %4, 0.000000e+00
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %4)
   %div.i = fdiv float %0, %sqrt.i
   %mul.i = fmul float %2, %div.i
   %5 = load float, ptr %vec, align 4
@@ -417,11 +417,11 @@ entry:
   %mul11.i = extractelement <2 x float> %3, i64 1
   %4 = extractelement <2 x float> %2, i64 0
   %5 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %mul11.i)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %5)
-  %cmp.i = fcmp une float %sqrt.i, 0.000000e+00
+  %cmp.i = fcmp une float %5, 0.000000e+00
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %5)
   %div.i = fdiv float %0, %sqrt.i
   %arrayidx18.i = getelementptr inbounds i8, ptr %vec, i64 8
   %6 = load float, ptr %arrayidx18.i, align 4
@@ -464,11 +464,11 @@ entry:
   %3 = load float, ptr %arrayidx8.i, align 4
   %mul11.i = fmul float %3, %3
   %4 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %mul11.i)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %4)
-  %cmp.i = fcmp une float %sqrt.i, 0.000000e+00
+  %cmp.i = fcmp une float %4, 0.000000e+00
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %4)
   %div.i = fdiv float %0, %sqrt.i
   %mul.i = fmul float %2, %div.i
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
@@ -522,11 +522,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %3 = load float, ptr %arrayidx8.i, align 4
   %mul11.i = fmul float %3, %3
   %4 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %mul11.i)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %4)
-  %cmp.i = fcmp une float %sqrt.i, 0.000000e+00
+  %cmp.i = fcmp une float %4, 0.000000e+00
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %4)
   %div.i = fdiv float %0, %sqrt.i
   %mul.i = fmul float %2, %div.i
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
@@ -587,11 +587,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul11.i = extractelement <2 x float> %3, i64 1
   %4 = extractelement <2 x float> %2, i64 0
   %5 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %mul11.i)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %5)
-  %cmp.i = fcmp une float %sqrt.i, 0.000000e+00
+  %cmp.i = fcmp une float %5, 0.000000e+00
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %5)
   %div.i = fdiv float %0, %sqrt.i
   %arrayidx18.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load float, ptr %arrayidx18.i, align 4
@@ -652,11 +652,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %3 = load float, ptr %arrayidx8.i, align 4
   %mul11.i = fmul float %3, %3
   %4 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %mul11.i)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %4)
-  %cmp.i = fcmp une float %sqrt.i, 0.000000e+00
+  %cmp.i = fcmp une float %4, 0.000000e+00
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %4)
   %div.i = fdiv float %0, %sqrt.i
   %mul.i = fmul float %2, %div.i
   %5 = load float, ptr %arrayidx, align 4

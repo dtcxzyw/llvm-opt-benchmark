@@ -6133,11 +6133,11 @@ define linkonce_odr void @_ZN3vcg13EmbreeAdaptorI6CMeshOE18loadVCGMeshInSceneERS
   %18 = getelementptr inbounds i8, ptr %.sroa.03.010.i.i, i64 32
   %19 = load float, ptr %18, align 4
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %17)
-  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %20)
-  %21 = fcmp ogt float %sqrt.i.i.i, 0.000000e+00
+  %21 = fcmp ogt float %20, 0.000000e+00
   br i1 %21, label %22, label %_ZN3vcg6Point3IfE9NormalizeEv.exit.i.i
 
 22:                                               ; preds = %11
+  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %20)
   %23 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
   %24 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> zeroinitializer
   %25 = fdiv <2 x float> %13, %24
@@ -6488,11 +6488,11 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE7PerFaceERS2_.exit: ; preds = %53
   %67 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 44
   %68 = load float, ptr %67, align 4
   %69 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %66)
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %69)
-  %70 = fcmp ogt float %sqrt.i.i, 0.000000e+00
+  %70 = fcmp ogt float %69, 0.000000e+00
   br i1 %70, label %71, label %_ZN3vcg6Point3IfE9NormalizeEv.exit.i
 
 71:                                               ; preds = %60
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %69)
   %72 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
   %73 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> zeroinitializer
   %74 = fdiv <2 x float> %62, %73

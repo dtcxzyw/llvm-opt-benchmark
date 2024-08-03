@@ -4281,7 +4281,7 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller19specular_reflectionIffEEN5
   %46 = fmul contract float %45, 5.000000e-01
   %47 = fmul contract float %41, %42
   %48 = call contract noundef float @llvm.sqrt.f32(float %47)
-  %49 = fcmp contract oeq float %48, 0.000000e+00
+  %49 = fcmp contract oeq float %47, 0.000000e+00
   %.0112 = select i1 %49, float 0.000000e+00, float %29
   %.0 = select i1 %49, float 0.000000e+00, float %28
   %50 = fmul contract float %48, %.0
@@ -9151,7 +9151,7 @@ _ZN5drjit15StaticArrayImplIfLm2ELb0ENS_7ComplexIfEEiEC2IfNS_5ArrayIfLm2EEES2_TnN
   %17 = fmul contract float %16, 5.000000e-01
   %18 = tail call contract noundef float @llvm.sqrt.f32(float %17)
   %19 = fdiv contract float 0.000000e+00, %18
-  %20 = fcmp contract oeq float %14, 0.000000e+00
+  %20 = fcmp contract oeq float %13, 0.000000e+00
   %21 = fcmp contract oge float %11, 0.000000e+00
   %22 = tail call contract noundef float @llvm.fabs.f32(float %19)
   %23 = select contract i1 %21, float %18, float %22

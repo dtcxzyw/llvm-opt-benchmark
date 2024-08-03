@@ -678,11 +678,11 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %211 = extractelement <2 x float> %202, i64 0
   %212 = call float @llvm.fmuladd.f32(float %211, float %211, float %210)
   %213 = call float @llvm.fmuladd.f32(float %207, float %207, float %212)
-  %sqrt = call float @llvm.sqrt.f32(float %213)
-  %214 = fcmp ogt float %sqrt, 0.000000e+00
+  %214 = fcmp ogt float %213, 0.000000e+00
   br i1 %214, label %215, label %221
 
 215:                                              ; preds = %189
+  %sqrt = call float @llvm.sqrt.f32(float %213)
   %216 = fdiv float 1.000000e+00, %sqrt
   %217 = insertelement <2 x float> poison, float %216, i64 0
   %218 = shufflevector <2 x float> %217, <2 x float> poison, <2 x i32> zeroinitializer

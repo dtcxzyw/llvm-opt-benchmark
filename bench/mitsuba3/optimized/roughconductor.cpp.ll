@@ -2507,7 +2507,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %213 = fmul contract <4 x float> %212, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %214 = fmul contract <4 x float> %201, %209
   %215 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %214)
-  %216 = fcmp contract oeq <4 x float> %215, zeroinitializer
+  %216 = fcmp contract oeq <4 x float> %214, zeroinitializer
   %217 = select contract <4 x i1> %216, <4 x float> zeroinitializer, <4 x float> %194
   %218 = select contract <4 x i1> %216, <4 x float> zeroinitializer, <4 x float> %193
   %219 = fmul contract <4 x float> %215, %218
@@ -4068,7 +4068,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %208 = fmul contract <4 x float> %207, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %209 = fmul contract <4 x float> %196, %204
   %210 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %209)
-  %211 = fcmp contract oeq <4 x float> %210, zeroinitializer
+  %211 = fcmp contract oeq <4 x float> %209, zeroinitializer
   %212 = select contract <4 x i1> %211, <4 x float> zeroinitializer, <4 x float> %189
   %213 = select contract <4 x i1> %211, <4 x float> zeroinitializer, <4 x float> %188
   %214 = fmul contract <4 x float> %210, %213
@@ -5109,7 +5109,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %291 = fmul contract <4 x float> %290, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %292 = fmul contract <4 x float> %279, %287
   %293 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %292)
-  %294 = fcmp contract oeq <4 x float> %293, zeroinitializer
+  %294 = fcmp contract oeq <4 x float> %292, zeroinitializer
   %295 = select contract <4 x i1> %294, <4 x float> zeroinitializer, <4 x float> %272
   %296 = select contract <4 x i1> %294, <4 x float> zeroinitializer, <4 x float> %271
   %297 = fmul contract <4 x float> %293, %296
@@ -9585,7 +9585,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %48 = tail call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %47)
   %49 = fmul contract <4 x float> %40, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %50 = fdiv contract <4 x float> %49, %48
-  %51 = fcmp contract oeq <4 x float> %44, zeroinitializer
+  %51 = fcmp contract oeq <4 x float> %43, zeroinitializer
   %52 = fcmp contract oge <4 x float> %39, zeroinitializer
   %53 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %50)
   %54 = select contract <4 x i1> %52, <4 x float> %48, <4 x float> %53

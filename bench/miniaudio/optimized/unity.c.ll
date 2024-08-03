@@ -32685,11 +32685,11 @@ ma_spatializer_get_velocity.exit:                 ; preds = %for.cond.i.loopexit
   %mul4.i.i.i.i = fmul float %sub4.i, %sub4.i
   %104 = call float @llvm.fmuladd.f32(float %sub.i360, float %sub.i360, float %mul4.i.i.i.i)
   %105 = call float @llvm.fmuladd.f32(float %sub6.i, float %sub6.i, float %104)
-  %sqrt.i.i = call float @llvm.sqrt.f32(float %105)
-  %cmp.i385 = fcmp oeq float %sqrt.i.i, 0.000000e+00
+  %cmp.i385 = fcmp oeq float %105, 0.000000e+00
   br i1 %cmp.i385, label %return, label %if.end.i386
 
 if.end.i386:                                      ; preds = %ma_spatializer_get_velocity.exit
+  %sqrt.i.i = call float @llvm.sqrt.f32(float %105)
   %div8.i = fdiv float %21, %16
   %neg.i = fneg float %16
   %106 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i, <2 x float> %retval.sroa.0.0.copyload.i.i377, <2 x i32> <i32 1, i32 3>

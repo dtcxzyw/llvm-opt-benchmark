@@ -1982,7 +1982,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %63 = fmul contract float %62, %62
   %64 = fadd contract float %60, %63
   %65 = tail call contract noundef float @llvm.sqrt.f32(float %64)
-  %66 = fcmp contract une float %65, 0.000000e+00
+  %66 = fcmp contract une float %64, 0.000000e+00
   %67 = fdiv contract float %62, %65
   %68 = fcmp contract ogt float %67, 1.000000e+00
   %..i.i = select contract i1 %68, float 1.000000e+00, float %67
@@ -2876,7 +2876,7 @@ define weak_odr noundef float @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfL
   %7 = fmul contract float %6, %6
   %8 = fadd contract float %4, %7
   %9 = tail call contract noundef float @llvm.sqrt.f32(float %8)
-  %10 = fcmp contract une float %9, 0.000000e+00
+  %10 = fcmp contract une float %8, 0.000000e+00
   %11 = fdiv contract float %6, %9
   %12 = fcmp contract ogt float %11, 1.000000e+00
   %..i.i = select contract i1 %12, float 1.000000e+00, float %11
@@ -2976,7 +2976,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   %14 = fmul contract float %13, %13
   %15 = fadd contract float %11, %14
   %16 = tail call contract noundef float @llvm.sqrt.f32(float %15)
-  %17 = fcmp contract une float %16, 0.000000e+00
+  %17 = fcmp contract une float %15, 0.000000e+00
   %18 = fdiv contract float %13, %16
   %19 = fcmp contract ogt float %18, 1.000000e+00
   %..i.i = select contract i1 %19, float 1.000000e+00, float %18
@@ -3704,7 +3704,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %45 = fmul contract float %44, %44
   %46 = fadd contract float %42, %45
   %47 = tail call contract noundef float @llvm.sqrt.f32(float %46)
-  %48 = fcmp contract une float %47, 0.000000e+00
+  %48 = fcmp contract une float %46, 0.000000e+00
   %49 = fdiv contract float %44, %47
   %50 = fcmp contract ogt float %49, 1.000000e+00
   %..i.i = select contract i1 %50, float 1.000000e+00, float %49
@@ -4473,7 +4473,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %23 = fmul contract float %22, %22
   %24 = fadd contract float %20, %23
   %25 = tail call contract noundef float @llvm.sqrt.f32(float %24)
-  %26 = fcmp contract une float %25, 0.000000e+00
+  %26 = fcmp contract une float %24, 0.000000e+00
   %27 = fdiv contract float %22, %25
   %28 = fcmp contract ogt float %27, 1.000000e+00
   %..i.i = select contract i1 %28, float 1.000000e+00, float %27
@@ -4875,7 +4875,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %48 = fmul contract float %47, %47
   %49 = fadd contract float %45, %48
   %50 = tail call contract noundef float @llvm.sqrt.f32(float %49)
-  %51 = fcmp contract une float %50, 0.000000e+00
+  %51 = fcmp contract une float %49, 0.000000e+00
   %52 = fdiv contract float %47, %50
   %53 = fcmp contract ogt float %52, 1.000000e+00
   %..i.i = select contract i1 %53, float 1.000000e+00, float %52

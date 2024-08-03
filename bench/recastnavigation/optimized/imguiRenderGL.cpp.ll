@@ -9681,7 +9681,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %0, i32 noundef 
   %19 = fmul float %18, %18
   %20 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %19)
   %sqrt = tail call float @llvm.sqrt.f32(float %20)
-  %21 = fcmp ogt float %sqrt, 0.000000e+00
+  %21 = fcmp ogt float %20, 0.000000e+00
   %22 = fdiv float 1.000000e+00, %sqrt
   %23 = fmul float %13, %22
   %24 = fmul float %18, %22

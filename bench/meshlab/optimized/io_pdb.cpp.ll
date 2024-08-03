@@ -10756,11 +10756,11 @@ define linkonce_odr void @_ZN3vcg3tri6SphereI6CMeshOEEvRT_i(ptr noundef nonnull 
   %46 = getelementptr inbounds i8, ptr %.sroa.0191.0197, i64 16
   %47 = load float, ptr %46, align 4
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %47, float %45)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %48)
-  %49 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %49 = fcmp ogt float %48, 0.000000e+00
   br i1 %49, label %50, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
 50:                                               ; preds = %.lr.ph
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %48)
   %51 = insertelement <2 x float> poison, float %sqrt.i, i64 0
   %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
   %53 = fdiv <2 x float> %41, %52
@@ -11168,11 +11168,11 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit.i158: ; preds = %168, %16
   %206 = getelementptr inbounds i8, ptr %.sroa.0170.0202, i64 16
   %207 = load float, ptr %206, align 4
   %208 = call float @llvm.fmuladd.f32(float %207, float %207, float %205)
-  %sqrt.i168 = call float @llvm.sqrt.f32(float %208)
-  %209 = fcmp ogt float %sqrt.i168, 0.000000e+00
+  %209 = fcmp ogt float %208, 0.000000e+00
   br i1 %209, label %210, label %_ZN3vcg6Point3IfE9NormalizeEv.exit169
 
 210:                                              ; preds = %.lr.ph204
+  %sqrt.i168 = call float @llvm.sqrt.f32(float %208)
   %211 = insertelement <2 x float> poison, float %sqrt.i168, i64 0
   %212 = shufflevector <2 x float> %211, <2 x float> poison, <2 x i32> zeroinitializer
   %213 = fdiv <2 x float> %201, %212
@@ -11728,11 +11728,11 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE16PerVertexPerFaceERS2_.exit: ; preds = %53, %
   %71 = getelementptr inbounds i8, ptr %.sroa.03.010.i, i64 32
   %72 = load float, ptr %71, align 4
   %73 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %70)
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
-  %74 = fcmp ogt float %sqrt.i.i, 0.000000e+00
+  %74 = fcmp ogt float %73, 0.000000e+00
   br i1 %74, label %75, label %_ZN3vcg6Point3IfE9NormalizeEv.exit.i
 
 75:                                               ; preds = %64
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
   %76 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
   %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> zeroinitializer
   %78 = fdiv <2 x float> %66, %77

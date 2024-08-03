@@ -3209,11 +3209,11 @@ entry:
   %z.i.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %4 = load float, ptr %z.i.i.i, align 4
   %5 = tail call noundef float @llvm.fmuladd.f32(float %4, float %4, float %3)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %5)
-  %cmp.i = fcmp oeq float %sqrt.i.i, 0.000000e+00
+  %cmp.i = fcmp oeq float %5, 0.000000e+00
   br i1 %cmp.i, label %_ZN10aiVector3tIfE9NormalizeEv.exit, label %_ZN10aiVector3tIfEdVEf.exit.i
 
 _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %entry
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %5)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %6 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
@@ -3238,11 +3238,11 @@ entry:
   %z.i.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %4 = load float, ptr %z.i.i.i, align 4
   %5 = tail call noundef float @llvm.fmuladd.f32(float %4, float %4, float %3)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %5)
-  %or.cond.i = fcmp ule float %sqrt.i.i, 0.000000e+00
+  %or.cond.i = fcmp ule float %5, 0.000000e+00
   br i1 %or.cond.i, label %_ZN10aiVector3tIfE13NormalizeSafeEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %5)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %6 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
@@ -5104,11 +5104,11 @@ entry:
   %5 = call float @llvm.fmuladd.f32(float %4, float %4, float %3)
   %6 = load float, ptr %pRotation.i, align 16
   %7 = call float @llvm.fmuladd.f32(float %6, float %6, float %5)
-  %sqrt.i.i = call float @llvm.sqrt.f32(float %7)
-  %tobool.i.i = fcmp une float %sqrt.i.i, 0.000000e+00
+  %tobool.i.i = fcmp une float %7, 0.000000e+00
   br i1 %tobool.i.i, label %if.then.i.i, label %_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfES3_RfS3_.exit
 
 if.then.i.i:                                      ; preds = %entry
+  %sqrt.i.i = call float @llvm.sqrt.f32(float %7)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %8 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %9 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> zeroinitializer
@@ -5619,27 +5619,31 @@ entry:
   %1 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 0
   %2 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %mul4.i.i.i.i)
   %3 = tail call noundef float @llvm.fmuladd.f32(float %agg.tmp.sroa.2.0.copyload, float %agg.tmp.sroa.2.0.copyload, float %2)
+  %cmp.i.i = fcmp oeq float %3, 0.000000e+00
+  br i1 %cmp.i.i, label %_ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit, label %_ZN10aiVector3tIfEdVEf.exit.i.i
+
+_ZN10aiVector3tIfEdVEf.exit.i.i:                  ; preds = %entry
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %3)
-  %cmp.i.i = fcmp oeq float %sqrt.i.i.i, 0.000000e+00
   %div.i.i.i = fdiv float 1.000000e+00, %sqrt.i.i.i
-  %mul3.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload, %div.i.i.i
-  %axis.sroa.7.0.i = select i1 %cmp.i.i, float %agg.tmp.sroa.2.0.copyload, float %mul3.i.i.i
-  %div.i = fmul float %angle, 5.000000e-01
-  %call.i.i = tail call noundef float @sinf(float noundef %div.i) #43
-  %call.i4.i = tail call noundef float @cosf(float noundef %div.i) #43
-  %mul8.i = fmul float %call.i.i, %axis.sroa.7.0.i
-  store float %call.i4.i, ptr %q, align 4
-  %ref.tmp.sroa.2.0.q.sroa_idx = getelementptr inbounds i8, ptr %q, i64 4
   %4 = insertelement <2 x float> poison, float %div.i.i.i, i64 0
   %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
   %6 = fmul <2 x float> %agg.tmp.sroa.0.0.copyload, %5
-  %7 = insertelement <2 x i1> poison, i1 %cmp.i.i, i64 0
-  %8 = shufflevector <2 x i1> %7, <2 x i1> poison, <2 x i32> zeroinitializer
-  %9 = select <2 x i1> %8, <2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %6
-  %10 = insertelement <2 x float> poison, float %call.i.i, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x float> %11, %9
-  store <2 x float> %12, ptr %ref.tmp.sroa.2.0.q.sroa_idx, align 4
+  %mul3.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload, %div.i.i.i
+  br label %_ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit
+
+_ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit:    ; preds = %entry, %_ZN10aiVector3tIfEdVEf.exit.i.i
+  %axis.sroa.7.0.i = phi float [ %agg.tmp.sroa.2.0.copyload, %entry ], [ %mul3.i.i.i, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
+  %7 = phi <2 x float> [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %6, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
+  %div.i = fmul float %angle, 5.000000e-01
+  %call.i.i = tail call noundef float @sinf(float noundef %div.i) #43
+  %call.i4.i = tail call noundef float @cosf(float noundef %div.i) #43
+  %mul8.i = fmul float %axis.sroa.7.0.i, %call.i.i
+  store float %call.i4.i, ptr %q, align 4
+  %ref.tmp.sroa.2.0.q.sroa_idx = getelementptr inbounds i8, ptr %q, i64 4
+  %8 = insertelement <2 x float> poison, float %call.i.i, i64 0
+  %9 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> zeroinitializer
+  %10 = fmul <2 x float> %7, %9
+  store <2 x float> %10, ptr %ref.tmp.sroa.2.0.q.sroa_idx, align 4
   %ref.tmp.sroa.4.0.q.sroa_idx = getelementptr inbounds i8, ptr %q, i64 12
   store float %mul8.i, ptr %ref.tmp.sroa.4.0.q.sroa_idx, align 4
   ret void
@@ -5772,11 +5776,11 @@ entry:
   %5 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %3)
   %6 = extractelement <4 x float> %0, i64 0
   %7 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %5)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %7)
-  %tobool.i = fcmp une float %sqrt.i, 0.000000e+00
+  %tobool.i = fcmp une float %7, 0.000000e+00
   br i1 %tobool.i, label %if.then.i, label %_ZN13aiQuaterniontIfE9NormalizeEv.exit
 
 if.then.i:                                        ; preds = %entry
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %7)
   %div.i = fdiv float 1.000000e+00, %sqrt.i
   %8 = insertelement <4 x float> poison, float %div.i, i64 0
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> zeroinitializer

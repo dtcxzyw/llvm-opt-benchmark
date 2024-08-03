@@ -204,7 +204,7 @@ _ZN20minEnclosingTriangleL10initialiseERSt6vectorIN2cv6Point_IfEESaIS3_EERd.exit
   %85 = fmul double %84, %84
   %86 = call double @llvm.fmuladd.f64(double %82, double %82, double %85)
   %sqrt.i.i.i.i.i.i = call double @llvm.sqrt.f64(double %86)
-  %87 = fcmp une double %sqrt.i.i.i.i.i.i, 0.000000e+00
+  %87 = fcmp une double %86, 0.000000e+00
   %.phi.trans.insert.i.i.i = zext i32 %.0..0..0..0..0..0..0..0..0..pre.i.i.i.i to i64
   %.phi.trans.insert237.i.i.i = getelementptr inbounds %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load float, ptr %.phi.trans.insert237.i.i.i, align 4
@@ -301,7 +301,7 @@ _ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS
   %153 = fmul double %152, %152
   %154 = call double @llvm.fmuladd.f64(double %150, double %150, double %153)
   %sqrt.i.i.i34.i.i.i = call double @llvm.sqrt.f64(double %154)
-  %155 = fcmp une double %sqrt.i.i.i34.i.i.i, 0.000000e+00
+  %155 = fcmp une double %154, 0.000000e+00
   %.0..0..0..0..0..0..0..0..0.124.i.i.i = load i32, ptr %26, align 4
   %156 = zext i32 %.0..0..0..0..0..0..0..0..0.124.i.i.i to i64
   %157 = getelementptr inbounds %"class.cv::Point_", ptr %.val.i30.i.i.i, i64 %156
@@ -590,7 +590,7 @@ _ZN20minEnclosingTriangleL20moveAIfLowAndBIfHighERKSt6vectorIN2cv6Point_IfEESaIS
   %328 = fmul double %327, %327
   %329 = call double @llvm.fmuladd.f64(double %325, double %325, double %328)
   %sqrt.i.i.i43.i.i.i = call double @llvm.sqrt.f64(double %329)
-  %330 = fcmp une double %sqrt.i.i.i43.i.i.i, 0.000000e+00
+  %330 = fcmp une double %329, 0.000000e+00
   %331 = getelementptr inbounds %"class.cv::Point_", ptr %.val.i39.i.i.i, i64 %295
   %332 = load float, ptr %331, align 4
   %.sroa_idx.i25.i.i.i.i = getelementptr inbounds i8, ptr %331, i64 4
@@ -877,7 +877,7 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %510 = fmul double %509, %509
   %511 = call double @llvm.fmuladd.f64(double %507, double %507, double %510)
   %sqrt.i.i.i55.i.i.i = call double @llvm.sqrt.f64(double %511)
-  %512 = fcmp une double %sqrt.i.i.i55.i.i.i, 0.000000e+00
+  %512 = fcmp une double %511, 0.000000e+00
   %513 = getelementptr inbounds %"class.cv::Point_", ptr %.val.i50.i.i.i, i64 %465
   %514 = load float, ptr %513, align 4
   %.sroa_idx.i24.i.i.i.i = getelementptr inbounds i8, ptr %513, i64 4
@@ -1044,7 +1044,7 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %650 = fmul double %649, %649
   %651 = call double @llvm.fmuladd.f64(double %647, double %647, double %650)
   %sqrt.i.i.i61.i.i.i = call double @llvm.sqrt.f64(double %651)
-  %652 = fcmp une double %sqrt.i.i.i61.i.i.i, 0.000000e+00
+  %652 = fcmp une double %651, 0.000000e+00
   %653 = getelementptr inbounds %"class.cv::Point_", ptr %546, i64 %465
   %654 = load float, ptr %653, align 4
   %.sroa_idx.i52.i.i.i.i = getelementptr inbounds i8, ptr %653, i64 4
@@ -2186,7 +2186,7 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGamma
   %40 = fmul double %35, %35
   %41 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %40)
   %sqrt.i.i = tail call double @llvm.sqrt.f64(double %41)
-  %42 = fcmp une double %sqrt.i.i, 0.000000e+00
+  %42 = fcmp une double %41, 0.000000e+00
   %43 = fdiv double %39, %sqrt.i.i
   %44 = fmul double %43, 2.000000e+00
   %45 = load ptr, ptr %12, align 8
@@ -2662,7 +2662,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN20minEnclosingTriangleL10
   %95 = fmul double %94, %94
   %96 = tail call double @llvm.fmuladd.f64(double %92, double %92, double %95)
   %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %96)
-  %97 = fcmp une double %sqrt.i.i.i, 0.000000e+00
+  %97 = fcmp une double %96, 0.000000e+00
   %98 = getelementptr inbounds %"class.cv::Point_", ptr %.val51, i64 %11
   %99 = load float, ptr %98, align 4
   %.sroa_idx.i12.i = getelementptr inbounds i8, ptr %98, i64 4
@@ -2734,7 +2734,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN20minEnclosingTriangleL10
   %153 = fmul double %152, %152
   %154 = tail call double @llvm.fmuladd.f64(double %150, double %150, double %153)
   %sqrt.i.i.i66 = tail call double @llvm.sqrt.f64(double %154)
-  %155 = fcmp une double %sqrt.i.i.i66, 0.000000e+00
+  %155 = fcmp une double %154, 0.000000e+00
   %156 = getelementptr inbounds %"class.cv::Point_", ptr %.val52, i64 %11
   %157 = load float, ptr %156, align 4
   %.sroa_idx.i12.i67 = getelementptr inbounds i8, ptr %156, i64 4

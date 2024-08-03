@@ -17463,11 +17463,11 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE7PerFaceERS2_.exit: ; preds = %54
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %82, float %81)
   %84 = load float, ptr %63, align 4
   %85 = tail call float @llvm.fmuladd.f32(float %84, float %84, float %83)
-  %sqrt.i5 = tail call float @llvm.sqrt.f32(float %85)
-  %86 = fcmp ogt float %sqrt.i5, 0.000000e+00
+  %86 = fcmp ogt float %85, 0.000000e+00
   br i1 %86, label %87, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
 87:                                               ; preds = %.lr.ph
+  %sqrt.i5 = tail call float @llvm.sqrt.f32(float %85)
   %88 = insertelement <2 x float> poison, float %sqrt.i5, i64 0
   %89 = shufflevector <2 x float> %88, <2 x float> poison, <2 x i32> zeroinitializer
   %90 = fdiv <2 x float> %79, %89

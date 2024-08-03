@@ -4164,11 +4164,11 @@ for.body112:                                      ; preds = %for.cond109.prehead
   %z.i.i.i = getelementptr inbounds i8, ptr %arrayidx115, i64 8
   %80 = load float, ptr %z.i.i.i, align 4
   %81 = call noundef float @llvm.fmuladd.f32(float %80, float %80, float %79)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %81)
-  %or.cond.i = fcmp ule float %sqrt.i.i, 0.000000e+00
+  %or.cond.i = fcmp ule float %81, 0.000000e+00
   br i1 %or.cond.i, label %for.inc118, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body112
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %81)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %82 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %83 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> zeroinitializer

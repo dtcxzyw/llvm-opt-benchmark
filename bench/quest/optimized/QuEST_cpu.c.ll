@@ -11914,7 +11914,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   ]
 
 212:                                              ; preds = %.loopexit178
-  %213 = fcmp oeq double %sqrt, 0.000000e+00
+  %213 = fcmp oeq double %.4153, 0.000000e+00
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %212

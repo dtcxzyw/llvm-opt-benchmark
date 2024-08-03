@@ -8303,11 +8303,11 @@ for.end174:                                       ; preds = %_ZN10aiVector3tIfEi
   %101 = call float @llvm.fmuladd.f32(float %100, float %100, float %99)
   %102 = extractelement <4 x float> %96, i64 0
   %103 = call float @llvm.fmuladd.f32(float %102, float %102, float %101)
-  %sqrt.i = call float @llvm.sqrt.f32(float %103)
-  %tobool.i = fcmp une float %sqrt.i, 0.000000e+00
+  %tobool.i = fcmp une float %103, 0.000000e+00
   br i1 %tobool.i, label %if.then.i144, label %_ZN13aiQuaterniontIfE9NormalizeEv.exit
 
 if.then.i144:                                     ; preds = %for.end174
+  %sqrt.i = call float @llvm.sqrt.f32(float %103)
   %div.i = fdiv float 1.000000e+00, %sqrt.i
   %104 = insertelement <4 x float> poison, float %div.i, i64 0
   %105 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> zeroinitializer

@@ -391,7 +391,7 @@ define weak_odr { <2 x float>, float } @_ZNK7GaelMls5RIMLSI6CMeshOE7projectERKN3
 15:                                               ; preds = %45, %4
   %.0 = phi i32 [ 0, %4 ], [ %46, %45 ]
   %16 = call noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE27computePotentialAndGradientERKN3vcg6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(348) %0, ptr noundef nonnull align 4 dereferenceable(12) %5)
-  br i1 %16, label %_ZN3vcg6Point3IfE9NormalizeEv.exit, label %17
+  br i1 %16, label %20, label %17
 
 17:                                               ; preds = %15
   %.not = icmp eq ptr %3, null
@@ -407,29 +407,33 @@ define weak_odr { <2 x float>, float } @_ZNK7GaelMls5RIMLSI6CMeshOE7projectERKN3
   %.sroa.022.0.pre = load <2 x float>, ptr %1, align 4
   br label %53
 
-_ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %15
+20:                                               ; preds = %15
+  %21 = load <2 x float>, ptr %11, align 4
   %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 4
-  %20 = load <2 x float>, ptr %11, align 4
-  %21 = fmul <2 x float> %20, %20
-  %22 = extractelement <2 x float> %21, i64 1
-  %23 = extractelement <2 x float> %20, i64 0
-  %24 = call float @llvm.fmuladd.f32(float %23, float %23, float %22)
-  %25 = call float @llvm.fmuladd.f32(float %.sroa.8.0.copyload, float %.sroa.8.0.copyload, float %24)
-  %sqrt.i = call float @llvm.sqrt.f32(float %25)
-  %26 = fcmp ogt float %sqrt.i, 0.000000e+00
-  %27 = insertelement <2 x float> poison, float %sqrt.i, i64 0
-  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
-  %29 = fdiv <2 x float> %20, %28
-  %30 = fdiv float %.sroa.8.0.copyload, %sqrt.i
-  %31 = insertelement <2 x i1> poison, i1 %26, i64 0
-  %32 = shufflevector <2 x i1> %31, <2 x i1> poison, <2 x i32> zeroinitializer
-  %33 = select <2 x i1> %32, <2 x float> %29, <2 x float> %20
-  %.sroa.8.0 = select i1 %26, float %30, float %.sroa.8.0.copyload
+  %22 = fmul <2 x float> %21, %21
+  %23 = extractelement <2 x float> %22, i64 1
+  %24 = extractelement <2 x float> %21, i64 0
+  %25 = call float @llvm.fmuladd.f32(float %24, float %24, float %23)
+  %26 = call float @llvm.fmuladd.f32(float %.sroa.8.0.copyload, float %.sroa.8.0.copyload, float %25)
+  %27 = fcmp ogt float %26, 0.000000e+00
+  br i1 %27, label %28, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
+
+28:                                               ; preds = %20
+  %sqrt.i = call float @llvm.sqrt.f32(float %26)
+  %29 = insertelement <2 x float> poison, float %sqrt.i, i64 0
+  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
+  %31 = fdiv <2 x float> %21, %30
+  %32 = fdiv float %.sroa.8.0.copyload, %sqrt.i
+  br label %_ZN3vcg6Point3IfE9NormalizeEv.exit
+
+_ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %20, %28
+  %.sroa.8.0 = phi float [ %32, %28 ], [ %.sroa.8.0.copyload, %20 ]
+  %33 = phi <2 x float> [ %31, %28 ], [ %21, %20 ]
   %34 = load float, ptr %12, align 8
-  %35 = fmul float %34, %.sroa.8.0
+  %35 = fmul float %.sroa.8.0, %34
   %36 = insertelement <2 x float> poison, float %34, i64 0
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
-  %38 = fmul <2 x float> %37, %33
+  %38 = fmul <2 x float> %33, %37
   %39 = load <2 x float>, ptr %5, align 8
   %40 = fsub <2 x float> %39, %38
   %41 = load float, ptr %13, align 8

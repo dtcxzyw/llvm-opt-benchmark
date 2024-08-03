@@ -22667,9 +22667,8 @@ if.end.i:                                         ; preds = %_ZN4pbrt9FrComplexE
   br i1 %cmp.i65, label %_ZNK4pbrt27TrowbridgeReitzDistribution1DENS_7Vector3IfEE.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i)
-  %cmp.i.i66 = fcmp oeq float %sqrt.i.i.i, 0.000000e+00
-  br i1 %cmp.i.i66, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i, label %cond.false.i14.i
+  %cmp.i.i66 = fcmp oeq float %.sroa.speculated.i.i.i, 0.000000e+00
+  br i1 %cmp.i.i66, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i, label %cond.false.i13.i
 
 _ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i:    ; preds = %if.end7.i
   %25 = load float, ptr %this, align 4
@@ -22677,7 +22676,8 @@ _ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i:    ; preds = %if.end7.i
   %mul.i725.i = fmul float %div24.i, %div24.i
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i
 
-cond.false.i14.i:                                 ; preds = %if.end7.i
+cond.false.i13.i:                                 ; preds = %if.end7.i
+  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i)
   %26 = extractelement <2 x float> %call27.fca.0.extract, i64 0
   %div.i6.i = fdiv float %26, %sqrt.i.i.i
   %cmp.i.i.i = fcmp olt float %div.i6.i, -1.000000e+00
@@ -22695,10 +22695,10 @@ cond.false.i14.i:                                 ; preds = %if.end7.i
   %retval.0.i.i19.i = select i1 %cmp.i.i16.i, float -1.000000e+00, float %conv2.val.i.i18.i
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i
 
-_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i:           ; preds = %cond.false.i14.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i
-  %mul.i726.i = phi float [ %mul.i7.i, %cond.false.i14.i ], [ %mul.i725.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
-  %29 = phi float [ %27, %cond.false.i14.i ], [ %25, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
-  %cond.i20.i = phi float [ %retval.0.i.i19.i, %cond.false.i14.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i:           ; preds = %cond.false.i13.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i
+  %mul.i726.i = phi float [ %mul.i7.i, %cond.false.i13.i ], [ %mul.i725.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+  %29 = phi float [ %27, %cond.false.i13.i ], [ %25, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+  %cond.i20.i = phi float [ %retval.0.i.i19.i, %cond.false.i13.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
   %30 = load float, ptr %alpha_y.i, align 4
   %div13.i = fdiv float %cond.i20.i, %30
   %mul.i21.i = fmul float %div13.i, %div13.i
@@ -22996,16 +22996,16 @@ entry:
   br i1 %1, label %_ZNK4pbrt27TrowbridgeReitzDistribution6LambdaENS_7Vector3IfEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i)
-  %cmp.i.i = fcmp oeq float %sqrt.i.i.i, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i, label %cond.false.i11.i
+  %cmp.i.i = fcmp oeq float %.sroa.speculated.i.i.i, 0.000000e+00
+  br i1 %cmp.i.i, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i, label %cond.false.i10.i
 
 _ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i:    ; preds = %if.end.i
   %2 = load float, ptr %this, align 4
   %mul.i21.i = fmul float %2, %2
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i
 
-cond.false.i11.i:                                 ; preds = %if.end.i
+cond.false.i10.i:                                 ; preds = %if.end.i
+  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i)
   %3 = load float, ptr %this, align 4
   %4 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
   %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
@@ -23025,9 +23025,9 @@ cond.false.i11.i:                                 ; preds = %if.end.i
   %retval.0.i.i16.i = select i1 %cmp.i.i13.i, float -1.000000e+00, float %conv2.val.i.i15.i
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i
 
-_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i:           ; preds = %cond.false.i11.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i
-  %mul.i22.i = phi float [ %mul.i.i, %cond.false.i11.i ], [ %mul.i21.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
-  %cond.i17.i = phi float [ %retval.0.i.i16.i, %cond.false.i11.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i:           ; preds = %cond.false.i10.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i
+  %mul.i22.i = phi float [ %mul.i.i, %cond.false.i10.i ], [ %mul.i21.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+  %cond.i17.i = phi float [ %retval.0.i.i16.i, %cond.false.i10.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
   %alpha_y.i = getelementptr inbounds i8, ptr %this, i64 4
   %12 = load float, ptr %alpha_y.i, align 4
   %mul8.i = fmul float %cond.i17.i, %12
@@ -23053,18 +23053,18 @@ _ZNK4pbrt27TrowbridgeReitzDistribution6LambdaENS_7Vector3IfEE.exit: ; preds = %e
   br i1 %15, label %_ZNK4pbrt27TrowbridgeReitzDistribution6LambdaENS_7Vector3IfEE.exit39, label %if.end.i6
 
 if.end.i6:                                        ; preds = %_ZNK4pbrt27TrowbridgeReitzDistribution6LambdaENS_7Vector3IfEE.exit
-  %sqrt.i.i.i7 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i4)
-  %cmp.i.i8 = fcmp oeq float %sqrt.i.i.i7, 0.000000e+00
-  br i1 %cmp.i.i8, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i37, label %cond.false.i11.i9
+  %cmp.i.i7 = fcmp oeq float %.sroa.speculated.i.i.i4, 0.000000e+00
+  br i1 %cmp.i.i7, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i37, label %cond.false.i10.i8
 
 _ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i37:  ; preds = %if.end.i6
   %16 = load float, ptr %this, align 4
   %mul.i21.i38 = fmul float %16, %16
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i24
 
-cond.false.i11.i9:                                ; preds = %if.end.i6
+cond.false.i10.i8:                                ; preds = %if.end.i6
+  %sqrt.i.i.i9 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i4)
   %17 = load float, ptr %this, align 4
-  %18 = insertelement <2 x float> poison, float %sqrt.i.i.i7, i64 0
+  %18 = insertelement <2 x float> poison, float %sqrt.i.i.i9, i64 0
   %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
   %20 = fdiv <2 x float> %wi.coerce0, %19
   %21 = extractelement <2 x float> %20, i64 0
@@ -23082,9 +23082,9 @@ cond.false.i11.i9:                                ; preds = %if.end.i6
   %retval.0.i.i16.i23 = select i1 %cmp.i.i13.i20, float -1.000000e+00, float %conv2.val.i.i15.i22
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i24
 
-_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i24:         ; preds = %cond.false.i11.i9, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i37
-  %mul.i22.i25 = phi float [ %mul.i.i17, %cond.false.i11.i9 ], [ %mul.i21.i38, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i37 ]
-  %cond.i17.i26 = phi float [ %retval.0.i.i16.i23, %cond.false.i11.i9 ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i37 ]
+_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i24:         ; preds = %cond.false.i10.i8, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i37
+  %mul.i22.i25 = phi float [ %mul.i.i17, %cond.false.i10.i8 ], [ %mul.i21.i38, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i37 ]
+  %cond.i17.i26 = phi float [ %retval.0.i.i16.i23, %cond.false.i10.i8 ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i37 ]
   %alpha_y.i27 = getelementptr inbounds i8, ptr %this, i64 4
   %26 = load float, ptr %alpha_y.i27, align 4
   %mul8.i28 = fmul float %cond.i17.i26, %26
@@ -23145,7 +23145,7 @@ entry:
   %call.i.i = tail call noundef float @sqrtf(float noundef %mul.i19) #17
   %mul3.i = fmul float %sub4.i.i, 5.000000e-01
   %div.i = fdiv float %mul3.i, %call.i.i
-  %cmp.i20 = fcmp oeq float %sqrt.i.i, 0.000000e+00
+  %cmp.i20 = fcmp oeq float %add.i.i.i, 0.000000e+00
   br i1 %cmp.i20, label %_ZN4pstd4sqrtIfEENS_7complexIT_EERKS3_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -23255,16 +23255,16 @@ entry:
   br i1 %1, label %_ZNK4pbrt27TrowbridgeReitzDistribution2G1ENS_7Vector3IfEE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %sqrt.i.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i.i)
-  %cmp.i.i.i = fcmp oeq float %sqrt.i.i.i.i, 0.000000e+00
-  br i1 %cmp.i.i.i, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i.i, label %cond.false.i11.i.i
+  %cmp.i.i.i = fcmp oeq float %.sroa.speculated.i.i.i.i, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i.i, label %cond.false.i10.i.i
 
 _ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i.i:  ; preds = %if.end.i.i
   %2 = load float, ptr %this, align 4
   %mul.i21.i.i = fmul float %2, %2
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i.i
 
-cond.false.i11.i.i:                               ; preds = %if.end.i.i
+cond.false.i10.i.i:                               ; preds = %if.end.i.i
+  %sqrt.i.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i.i)
   %3 = load float, ptr %this, align 4
   %4 = insertelement <2 x float> poison, float %sqrt.i.i.i.i, i64 0
   %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
@@ -23284,9 +23284,9 @@ cond.false.i11.i.i:                               ; preds = %if.end.i.i
   %retval.0.i.i16.i.i = select i1 %cmp.i.i13.i.i, float -1.000000e+00, float %conv2.val.i.i15.i.i
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i.i
 
-_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i.i:         ; preds = %cond.false.i11.i.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i.i
-  %mul.i22.i.i = phi float [ %mul.i.i.i, %cond.false.i11.i.i ], [ %mul.i21.i.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i.i ]
-  %cond.i17.i.i = phi float [ %retval.0.i.i16.i.i, %cond.false.i11.i.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i.i ]
+_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i.i:         ; preds = %cond.false.i10.i.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i.i
+  %mul.i22.i.i = phi float [ %mul.i.i.i, %cond.false.i10.i.i ], [ %mul.i21.i.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i.i ]
+  %cond.i17.i.i = phi float [ %retval.0.i.i16.i.i, %cond.false.i10.i.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i.i ]
   %alpha_y.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %12 = load float, ptr %alpha_y.i.i, align 4
   %mul8.i.i = fmul float %cond.i17.i.i, %12
@@ -23317,9 +23317,8 @@ if.end.i:                                         ; preds = %_ZNK4pbrt27Trowbrid
   br i1 %cmp.i, label %_ZNK4pbrt27TrowbridgeReitzDistribution1DENS_7Vector3IfEE.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i)
-  %cmp.i.i = fcmp oeq float %sqrt.i.i.i, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i, label %cond.false.i14.i
+  %cmp.i.i = fcmp oeq float %.sroa.speculated.i.i.i, 0.000000e+00
+  br i1 %cmp.i.i, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i, label %cond.false.i13.i
 
 _ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i:    ; preds = %if.end7.i
   %16 = load float, ptr %this, align 4
@@ -23327,7 +23326,8 @@ _ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i:    ; preds = %if.end7.i
   %mul.i725.i = fmul float %div24.i, %div24.i
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i
 
-cond.false.i14.i:                                 ; preds = %if.end7.i
+cond.false.i13.i:                                 ; preds = %if.end7.i
+  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i)
   %17 = load float, ptr %this, align 4
   %18 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
   %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
@@ -23347,10 +23347,10 @@ cond.false.i14.i:                                 ; preds = %if.end7.i
   %retval.0.i.i19.i = select i1 %cmp.i.i16.i, float -1.000000e+00, float %conv2.val.i.i18.i
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i
 
-_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i:           ; preds = %cond.false.i14.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i
-  %mul.i726.i = phi float [ %mul.i7.i, %cond.false.i14.i ], [ %mul.i725.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
-  %26 = phi float [ %17, %cond.false.i14.i ], [ %16, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
-  %cond.i20.i = phi float [ %retval.0.i.i19.i, %cond.false.i14.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i:           ; preds = %cond.false.i13.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i
+  %mul.i726.i = phi float [ %mul.i7.i, %cond.false.i13.i ], [ %mul.i725.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+  %26 = phi float [ %17, %cond.false.i13.i ], [ %16, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+  %cond.i20.i = phi float [ %retval.0.i.i19.i, %cond.false.i13.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
   %alpha_y.i = getelementptr inbounds i8, ptr %this, i64 4
   %27 = load float, ptr %alpha_y.i, align 4
   %div13.i = fdiv float %cond.i20.i, %27
@@ -23609,9 +23609,8 @@ if.end.i:                                         ; preds = %_ZN4pbrt9FrComplexE
   br i1 %cmp.i17, label %_ZNK4pbrt27TrowbridgeReitzDistribution1DENS_7Vector3IfEE.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i)
-  %cmp.i.i18 = fcmp oeq float %sqrt.i.i.i, 0.000000e+00
-  br i1 %cmp.i.i18, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i, label %cond.false.i14.i
+  %cmp.i.i18 = fcmp oeq float %.sroa.speculated.i.i.i, 0.000000e+00
+  br i1 %cmp.i.i18, label %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i, label %cond.false.i13.i
 
 _ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i:    ; preds = %if.end7.i
   %21 = load float, ptr %this, align 4
@@ -23619,30 +23618,31 @@ _ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i:    ; preds = %if.end7.i
   %mul.i725.i = fmul float %div24.i, %div24.i
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i
 
-cond.false.i14.i:                                 ; preds = %if.end7.i
-  %22 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
-  %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> zeroinitializer
-  %24 = fdiv <2 x float> %10, %23
-  %25 = extractelement <2 x float> %24, i64 0
-  %cmp.i.i.i = fcmp olt float %25, -1.000000e+00
-  %26 = load float, ptr %this, align 4
-  %27 = extractelement <2 x float> %24, i64 1
-  %cmp.i.i16.i = fcmp olt float %27, -1.000000e+00
-  %28 = fcmp ogt <2 x float> %24, <float 1.000000e+00, float 1.000000e+00>
-  %29 = extractelement <2 x i1> %28, i64 0
-  %conv2.val.i.i.i = select i1 %29, float 1.000000e+00, float %25
+cond.false.i13.i:                                 ; preds = %if.end7.i
+  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i)
+  %22 = load float, ptr %this, align 4
+  %23 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
+  %24 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> zeroinitializer
+  %25 = fdiv <2 x float> %10, %24
+  %26 = extractelement <2 x float> %25, i64 0
+  %cmp.i.i.i = fcmp olt float %26, -1.000000e+00
+  %27 = fcmp ogt <2 x float> %25, <float 1.000000e+00, float 1.000000e+00>
+  %28 = extractelement <2 x i1> %27, i64 0
+  %conv2.val.i.i.i = select i1 %28, float 1.000000e+00, float %26
   %retval.0.i.i.i = select i1 %cmp.i.i.i, float -1.000000e+00, float %conv2.val.i.i.i
-  %div.i = fdiv float %retval.0.i.i.i, %26
+  %div.i = fdiv float %retval.0.i.i.i, %22
   %mul.i7.i = fmul float %div.i, %div.i
-  %30 = extractelement <2 x i1> %28, i64 1
-  %conv2.val.i.i18.i = select i1 %30, float 1.000000e+00, float %27
+  %29 = extractelement <2 x float> %25, i64 1
+  %cmp.i.i16.i = fcmp olt float %29, -1.000000e+00
+  %30 = extractelement <2 x i1> %27, i64 1
+  %conv2.val.i.i18.i = select i1 %30, float 1.000000e+00, float %29
   %retval.0.i.i19.i = select i1 %cmp.i.i16.i, float -1.000000e+00, float %conv2.val.i.i18.i
   br label %_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i
 
-_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i:           ; preds = %cond.false.i14.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i
-  %mul.i726.i = phi float [ %mul.i7.i, %cond.false.i14.i ], [ %mul.i725.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
-  %31 = phi float [ %26, %cond.false.i14.i ], [ %21, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
-  %cond.i20.i = phi float [ %retval.0.i.i19.i, %cond.false.i14.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+_ZN4pbrt6SinPhiENS_7Vector3IfEE.exit.i:           ; preds = %cond.false.i13.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i
+  %mul.i726.i = phi float [ %mul.i7.i, %cond.false.i13.i ], [ %mul.i725.i, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+  %31 = phi float [ %22, %cond.false.i13.i ], [ %21, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
+  %cond.i20.i = phi float [ %retval.0.i.i19.i, %cond.false.i13.i ], [ 0.000000e+00, %_ZN4pbrt6CosPhiENS_7Vector3IfEE.exit.thread.i ]
   %32 = load float, ptr %alpha_y.i, align 4
   %div13.i = fdiv float %cond.i20.i, %32
   %mul.i21.i = fmul float %div13.i, %div13.i
@@ -34961,8 +34961,8 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit.loopexit:    ; preds = %for.cond.i, %for.bo
 _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit.loopexit, %for.body.i.preheader
   %cmp.lcssa.i = phi i1 [ true, %for.body.i.preheader ], [ %cmp.i12.le, %_ZNK4pbrt15SampledSpectrumcvbEv.exit.loopexit ]
   %or.cond.not = and i1 %cmp.lcssa.i, %18
-  %cmp22 = fcmp une float %sqrt.i.i.i, 0.000000e+00
-  %or.cond.not66 = and i1 %cmp22, %or.cond.not
+  %cmp22 = fcmp une float %.sroa.speculated.i.i.i, 0.000000e+00
+  %or.cond.not66 = select i1 %or.cond.not, i1 %cmp22, i1 false
   br i1 %or.cond.not66, label %invoke.cont26, label %if.then23
 
 if.then23:                                        ; preds = %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit, %_ZNK4pbrt15SampledSpectrumcvbEv.exit

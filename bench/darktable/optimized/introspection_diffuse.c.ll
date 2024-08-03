@@ -2171,7 +2171,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %1229 = extractelement <4 x float> %1228, i64 2
   %1230 = fdiv reassoc nsz arcp contract afn <4 x float> %1221, %1225
   %1231 = extractelement <4 x float> %1230, i64 2
-  %1232 = fcmp reassoc nsz arcp contract afn une <4 x float> %1225, zeroinitializer
+  %1232 = fcmp reassoc nsz arcp contract afn une <4 x float> %1224, zeroinitializer
   %1233 = extractelement <4 x i1> %1232, i64 2
   %1234 = select i1 %1233, float %1229, float 1.000000e+00
   %1235 = select reassoc nsz arcp contract afn i1 %1233, float %1231, float 0.000000e+00
@@ -2240,7 +2240,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %1298 = fmul reassoc nsz arcp contract afn <2 x float> %1296, %1296
   %1299 = fadd reassoc nsz arcp contract afn <2 x float> %1298, %1297
   %1300 = call reassoc nsz arcp contract afn <2 x float> @llvm.sqrt.v2f32(<2 x float> %1299)
-  %1301 = fcmp reassoc nsz arcp contract afn une <2 x float> %1300, zeroinitializer
+  %1301 = fcmp reassoc nsz arcp contract afn une <2 x float> %1299, zeroinitializer
   %1302 = fdiv reassoc nsz arcp contract afn <2 x float> %1292, %1300
   %1303 = select <2 x i1> %1301, <2 x float> %1302, <2 x float> <float 1.000000e+00, float 1.000000e+00>
   %1304 = fdiv reassoc nsz arcp contract afn <2 x float> %1296, %1300
@@ -2281,7 +2281,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %1339 = fmul reassoc nsz arcp contract afn <2 x float> %1337, %1337
   %1340 = fadd reassoc nsz arcp contract afn <2 x float> %1339, %1338
   %1341 = call reassoc nsz arcp contract afn <2 x float> @llvm.sqrt.v2f32(<2 x float> %1340)
-  %1342 = fcmp reassoc nsz arcp contract afn une <2 x float> %1341, zeroinitializer
+  %1342 = fcmp reassoc nsz arcp contract afn une <2 x float> %1340, zeroinitializer
   %1343 = fdiv reassoc nsz arcp contract afn <2 x float> %1333, %1341
   %1344 = select <2 x i1> %1342, <2 x float> %1343, <2 x float> <float 1.000000e+00, float 1.000000e+00>
   %1345 = fdiv reassoc nsz arcp contract afn <2 x float> %1337, %1341

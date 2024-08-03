@@ -5369,11 +5369,11 @@ _ZN3vcg3tri9AllocatorI6CMeshOE17CompactFaceVectorERS2_.exit: ; preds = %34, %37
   %58 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i, i64 44
   %59 = load float, ptr %58, align 4
   %60 = call float @llvm.fmuladd.f32(float %59, float %59, float %57)
-  %sqrt.i.i.i = call float @llvm.sqrt.f32(float %60)
-  %61 = fcmp ogt float %sqrt.i.i.i, 0.000000e+00
+  %61 = fcmp ogt float %60, 0.000000e+00
   br i1 %61, label %62, label %_ZN3vcg6Point3IfE9NormalizeEv.exit.i.i
 
 62:                                               ; preds = %51
+  %sqrt.i.i.i = call float @llvm.sqrt.f32(float %60)
   %63 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
   %64 = shufflevector <2 x float> %63, <2 x float> poison, <2 x i32> zeroinitializer
   %65 = fdiv <2 x float> %53, %64
@@ -6117,11 +6117,11 @@ _ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityGrayERS2_ff.exit: ; preds = %_Z
   %401 = getelementptr inbounds i8, ptr %395, i64 8
   %402 = load float, ptr %401, align 4
   %403 = call float @llvm.fmuladd.f32(float %402, float %402, float %400)
-  %sqrt.i = call float @llvm.sqrt.f32(float %403)
-  %404 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %404 = fcmp ogt float %403, 0.000000e+00
   br i1 %404, label %405, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
 405:                                              ; preds = %375
+  %sqrt.i = call float @llvm.sqrt.f32(float %403)
   %406 = insertelement <2 x float> poison, float %sqrt.i, i64 0
   %407 = shufflevector <2 x float> %406, <2 x float> poison, <2 x i32> zeroinitializer
   %408 = fdiv <2 x float> %396, %407
@@ -6302,11 +6302,11 @@ _ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityGrayERS2_ff.exit: ; preds = %
   %491 = getelementptr inbounds i8, ptr %485, i64 8
   %492 = load float, ptr %491, align 4
   %493 = call float @llvm.fmuladd.f32(float %492, float %492, float %490)
-  %sqrt.i111 = call float @llvm.sqrt.f32(float %493)
-  %494 = fcmp ogt float %sqrt.i111, 0.000000e+00
+  %494 = fcmp ogt float %493, 0.000000e+00
   br i1 %494, label %495, label %_ZN3vcg6Point3IfE9NormalizeEv.exit112
 
 495:                                              ; preds = %472
+  %sqrt.i111 = call float @llvm.sqrt.f32(float %493)
   %496 = insertelement <2 x float> poison, float %sqrt.i111, i64 0
   %497 = shufflevector <2 x float> %496, <2 x float> poison, <2 x i32> zeroinitializer
   %498 = fdiv <2 x float> %486, %497
@@ -7847,11 +7847,11 @@ define void @_ZN22AmbientOcclusionPlugin23generateFaceOcclusionSWER9MeshModelRSt
   %24 = getelementptr inbounds i8, ptr %0, i64 112
   %25 = load float, ptr %24, align 8
   %26 = call float @llvm.fmuladd.f32(float %25, float %25, float %23)
-  %sqrt.i = call float @llvm.sqrt.f32(float %26)
-  %27 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %27 = fcmp ogt float %26, 0.000000e+00
   br i1 %27, label %28, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
 28:                                               ; preds = %3
+  %sqrt.i = call float @llvm.sqrt.f32(float %26)
   %29 = insertelement <2 x float> poison, float %sqrt.i, i64 0
   %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
   %31 = fdiv <2 x float> %19, %30
@@ -8035,11 +8035,11 @@ define void @_ZN22AmbientOcclusionPlugin19generateOcclusionSWER9MeshModel(ptr no
   %23 = getelementptr inbounds i8, ptr %0, i64 112
   %24 = load float, ptr %23, align 8
   %25 = call float @llvm.fmuladd.f32(float %24, float %24, float %22)
-  %sqrt.i = call float @llvm.sqrt.f32(float %25)
-  %26 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %26 = fcmp ogt float %25, 0.000000e+00
   br i1 %26, label %27, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
 27:                                               ; preds = %2
+  %sqrt.i = call float @llvm.sqrt.f32(float %25)
   %28 = insertelement <2 x float> poison, float %sqrt.i, i64 0
   %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
   %30 = fdiv <2 x float> %18, %29
@@ -13042,11 +13042,11 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE16PerVertexPerFaceERS2_.exit: ; preds = %53, %
   %71 = getelementptr inbounds i8, ptr %.sroa.03.010.i, i64 32
   %72 = load float, ptr %71, align 4
   %73 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %70)
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
-  %74 = fcmp ogt float %sqrt.i.i, 0.000000e+00
+  %74 = fcmp ogt float %73, 0.000000e+00
   br i1 %74, label %75, label %_ZN3vcg6Point3IfE9NormalizeEv.exit.i
 
 75:                                               ; preds = %64
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
   %76 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
   %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> zeroinitializer
   %78 = fdiv <2 x float> %66, %77

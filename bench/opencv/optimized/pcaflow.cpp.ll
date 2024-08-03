@@ -4545,13 +4545,13 @@ _ZN2cvmLERNS_3MatERKd.exit119:                    ; preds = %237
   br i1 %249, label %250, label %254
 
 250:                                              ; preds = %247
-  %251 = fcmp ogt double %sqrt, 0.000000e+00
+  %251 = fcmp ogt double %248, 0.000000e+00
   %252 = uitofp i1 %251 to double
   %253 = call noundef double @llvm.fabs.f64(double %sqrt)
   br label %_ZN2cv7optflow12_GLOBAL__N_18symOrthoEddRdS2_S2_.exit
 
 254:                                              ; preds = %247
-  %255 = fcmp oeq double %sqrt, 0.000000e+00
+  %255 = fcmp oeq double %248, 0.000000e+00
   br i1 %255, label %256, label %262
 
 256:                                              ; preds = %254
@@ -4585,7 +4585,7 @@ _ZN2cvmLERNS_3MatERKd.exit119:                    ; preds = %237
 
 276:                                              ; preds = %262
   %277 = fdiv double %218, %sqrt
-  %278 = fcmp ogt double %sqrt, 0.000000e+00
+  %278 = fcmp ogt double %248, 0.000000e+00
   %279 = uitofp i1 %278 to double
   %280 = call double @llvm.fmuladd.f64(double %277, double %277, double 1.000000e+00)
   %sqrt42.i = call double @llvm.sqrt.f64(double %280)

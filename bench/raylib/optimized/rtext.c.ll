@@ -6534,7 +6534,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %813, %824, %stbtt_F
   %2194 = extractelement <2 x float> %2193, i64 0
   %2195 = call float @llvm.fmuladd.f32(float %2187, float %2187, float %2194)
   %sqrt.i.i = call float @llvm.sqrt.f32(float %2195)
-  %2196 = fcmp oeq float %sqrt.i.i, 0.000000e+00
+  %2196 = fcmp oeq float %2195, 0.000000e+00
   %2197 = fdiv float 1.000000e+00, %sqrt.i.i
   %2198 = select i1 %2196, float 0.000000e+00, float %2197
   br label %2233

@@ -341,19 +341,25 @@ if.end23:                                         ; preds = %for.body
   %52 = extractelement <2 x float> %46, i64 0
   %53 = tail call float @llvm.fmuladd.f32(float %52, float %52, float %mul4.i.i.i)
   %54 = tail call noundef float @llvm.fmuladd.f32(float %50, float %50, float %53)
+  %or.cond.i = fcmp ule float %54, 0.000000e+00
+  br i1 %or.cond.i, label %for.body60.preheader, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.end23
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %54)
-  %or.cond.i = fcmp ule float %sqrt.i.i, 0.000000e+00
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %55 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> zeroinitializer
   %57 = fmul <2 x float> %46, %56
   %mul3.i.i = fmul float %50, %div.i.i
-  %ref.tmp47.sroa.0.0 = select i1 %or.cond.i, <2 x float> %46, <2 x float> %57
-  %ref.tmp47.sroa.6.0 = select i1 %or.cond.i, float %50, float %mul3.i.i
+  br label %for.body60.preheader
+
+for.body60.preheader:                             ; preds = %if.end.i.i, %if.end23
+  %ref.tmp47.sroa.0.0 = phi <2 x float> [ %46, %if.end23 ], [ %57, %if.end.i.i ]
+  %ref.tmp47.sroa.6.0 = phi float [ %50, %if.end23 ], [ %mul3.i.i, %if.end.i.i ]
   br label %for.body60
 
-for.body60:                                       ; preds = %if.end23, %for.body60
-  %indvars.iv = phi i64 [ 0, %if.end23 ], [ %indvars.iv.next, %for.body60 ]
+for.body60:                                       ; preds = %for.body60.preheader, %for.body60
+  %indvars.iv = phi i64 [ 0, %for.body60.preheader ], [ %indvars.iv.next, %for.body60 ]
   %58 = load ptr, ptr %mNormals, align 8
   %59 = load ptr, ptr %mIndices24, align 8
   %arrayidx64 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv

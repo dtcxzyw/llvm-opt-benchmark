@@ -469,11 +469,11 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %86 = call double @llvm.fmuladd.f64(double %85, double %85, double %84)
   %87 = load double, ptr %51, align 16
   %88 = call noundef double @llvm.fmuladd.f64(double %87, double %87, double %86)
-  %sqrt.i = call noundef double @llvm.sqrt.f64(double %88)
-  %89 = fcmp une double %sqrt.i, 0.000000e+00
+  %89 = fcmp une double %88, 0.000000e+00
   br i1 %89, label %90, label %96
 
 90:                                               ; preds = %81
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %88)
   %91 = fdiv double 1.000000e+00, %sqrt.i
   %92 = insertelement <2 x double> poison, double %91, i64 0
   %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> zeroinitializer

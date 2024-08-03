@@ -2214,18 +2214,24 @@ if.end57:                                         ; preds = %if.then54, %if.end4
   %57 = extractelement <2 x float> %53, i64 0
   %58 = call float @llvm.fmuladd.f32(float %57, float %57, float %mul4.i.i.i)
   %59 = call noundef float @llvm.fmuladd.f32(float %55, float %55, float %58)
+  %cmp.i = fcmp oeq float %59, 0.000000e+00
+  br i1 %cmp.i, label %_ZN10aiVector3tIfE9NormalizeEv.exit, label %_ZN10aiVector3tIfEdVEf.exit.i
+
+_ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %if.end57
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %59)
-  %cmp.i = fcmp oeq float %sqrt.i.i, 0.000000e+00
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %60 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %61 = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> zeroinitializer
   %62 = fmul <2 x float> %53, %61
   %mul3.i.i = fmul float %55, %div.i.i
-  %up.sroa.7.0 = select i1 %cmp.i, float %55, float %mul3.i.i
-  %up.sroa.0.0 = select i1 %cmp.i, <2 x float> %53, <2 x float> %62
+  br label %_ZN10aiVector3tIfE9NormalizeEv.exit
+
+_ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %if.end57, %_ZN10aiVector3tIfEdVEf.exit.i
+  %up.sroa.7.0 = phi float [ %55, %if.end57 ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %up.sroa.0.0 = phi <2 x float> [ %53, %if.end57 ], [ %62, %_ZN10aiVector3tIfEdVEf.exit.i ]
   br i1 %cmp, label %if.end115.critedge.critedge, label %if.then69
 
-if.then69:                                        ; preds = %if.end57
+if.then69:                                        ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit
   %call72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.31)
   %call76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.38)
   %call76.c = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.31)
@@ -2247,7 +2253,7 @@ if.then69:                                        ; preds = %if.end57
   %call114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.31)
   br label %if.end115
 
-if.end115.critedge.critedge:                      ; preds = %if.end57
+if.end115.critedge.critedge:                      ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit
   %call76.c.c = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.38)
   %call85.c = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.39)
   %call86.c = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call85.c, float noundef %add.i)

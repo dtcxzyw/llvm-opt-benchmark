@@ -94,7 +94,7 @@ define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr nocapture noun
   %18 = call double @llvm.fmuladd.f64(double %15, double %15, double %17)
   %sqrt.i = call double @llvm.sqrt.f64(double %18)
   store double %sqrt.i, ptr %2, align 8
-  %19 = fcmp oeq double %sqrt.i, 0.000000e+00
+  %19 = fcmp oeq double %18, 0.000000e+00
   br i1 %19, label %.thread26, label %21
 
 .thread26:                                        ; preds = %3
@@ -127,13 +127,13 @@ _cmsAtan2.exit.i:                                 ; preds = %.lr.ph.i.i, %24, %2
   store double %.09.i.i, ptr %31, align 8
   %32 = fmul double %15, %15
   %33 = call double @llvm.fmuladd.f64(double %13, double %13, double %32)
-  %sqrt27.i = call double @llvm.sqrt.f64(double %33)
   %34 = fcmp oeq double %11, 0.000000e+00
-  %35 = fcmp oeq double %sqrt27.i, 0.000000e+00
+  %35 = fcmp oeq double %33, 0.000000e+00
   %or.cond.i22.i = and i1 %34, %35
   br i1 %or.cond.i22.i, label %ToSpherical.exit, label %36
 
 36:                                               ; preds = %_cmsAtan2.exit.i
+  %sqrt27.i = call double @llvm.sqrt.f64(double %33)
   %37 = call double @atan2(double noundef %sqrt27.i, double noundef %11) #8
   %38 = fmul double %37, 1.800000e+02
   %39 = fdiv double %38, 0x400921FB54442D18
@@ -538,7 +538,7 @@ ClosestLineToLine.exit:                           ; preds = %155, %157, %160, %1
   %183 = extractelement <2 x double> %178, i64 1
   %184 = call double @llvm.fmuladd.f64(double %183, double %183, double %182)
   %sqrt.i = call double @llvm.sqrt.f64(double %184)
-  %185 = fcmp oeq double %sqrt.i, 0.000000e+00
+  %185 = fcmp oeq double %184, 0.000000e+00
   br i1 %185, label %ToSpherical.exit, label %186
 
 186:                                              ; preds = %ClosestLineToLine.exit
@@ -565,13 +565,13 @@ _cmsAtan2.exit.i:                                 ; preds = %.lr.ph.i.i, %189, %
   %.09.i.i = phi double [ 0.000000e+00, %186 ], [ %192, %189 ], [ %194, %.lr.ph.i.i ]
   %196 = fmul double %183, %183
   %197 = call double @llvm.fmuladd.f64(double %179, double %179, double %196)
-  %sqrt27.i = call double @llvm.sqrt.f64(double %197)
   %198 = fcmp oeq double %173, 0.000000e+00
-  %199 = fcmp oeq double %sqrt27.i, 0.000000e+00
+  %199 = fcmp oeq double %197, 0.000000e+00
   %or.cond.i22.i = and i1 %198, %199
   br i1 %or.cond.i22.i, label %ToSpherical.exit, label %200
 
 200:                                              ; preds = %_cmsAtan2.exit.i
+  %sqrt27.i = call double @llvm.sqrt.f64(double %197)
   %201 = call double @atan2(double noundef %sqrt27.i, double noundef %173) #8
   %202 = fmul double %201, 1.800000e+02
   %203 = fdiv double %202, 0x400921FB54442D18

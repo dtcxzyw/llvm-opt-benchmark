@@ -978,7 +978,7 @@ entry:
   %cmp = fcmp olt double %2, 0.000000e+00
   %sc2.0 = select i1 %cmp, double 0.000000e+00, double %2
   %sqrt = tail call double @llvm.sqrt.f64(double %sc2.0)
-  %cmp5 = fcmp oeq double %sqrt, 0.000000e+00
+  %cmp5 = fcmp oeq double %sc2.0, 0.000000e+00
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %entry

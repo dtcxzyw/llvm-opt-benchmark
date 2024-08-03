@@ -377,13 +377,13 @@ define internal { double, double } @_ZL16krovak_e_inverse5PJ_XYP8PJconsts(double
   %75 = fmul double %74, %74
   %76 = extractelement <2 x double> %73, i64 0
   %77 = tail call double @llvm.fmuladd.f64(double %76, double %76, double %75)
-  %sqrt = tail call double @llvm.sqrt.f64(double %77)
   %78 = tail call double @atan2(double noundef %74, double noundef %76) #8
   %79 = fdiv double %78, 0x3FEF5B8B0DDC7212
-  %80 = fcmp oeq double %sqrt, 0.000000e+00
+  %80 = fcmp oeq double %77, 0.000000e+00
   br i1 %80, label %93, label %81
 
 81:                                               ; preds = %72
+  %sqrt = tail call double @llvm.sqrt.f64(double %77)
   %82 = getelementptr inbounds i8, ptr %5, i64 24
   %83 = load double, ptr %82, align 8
   %84 = fdiv double %83, %sqrt

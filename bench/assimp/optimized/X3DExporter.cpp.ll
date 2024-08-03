@@ -2327,11 +2327,11 @@ if.then11:                                        ; preds = %if.end8
   %8 = call float @llvm.fmuladd.f32(float %7, float %7, float %6)
   %9 = load float, ptr %pRotation.i, align 16
   %10 = call float @llvm.fmuladd.f32(float %9, float %9, float %8)
-  %sqrt.i.i = call float @llvm.sqrt.f32(float %10)
-  %tobool.i.i = fcmp une float %sqrt.i.i, 0.000000e+00
+  %tobool.i.i = fcmp une float %10, 0.000000e+00
   br i1 %tobool.i.i, label %if.then.i.i, label %invoke.cont13
 
 if.then.i.i:                                      ; preds = %.noexc
+  %sqrt.i.i = call float @llvm.sqrt.f32(float %10)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %11 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> zeroinitializer
@@ -2366,8 +2366,7 @@ invoke.cont14:                                    ; preds = %invoke.cont13
   %mul4.i.i47 = fmul float %div6.i, %div6.i
   %20 = call float @llvm.fmuladd.f32(float %div.i, float %div.i, float %mul4.i.i47)
   %21 = call noundef float @llvm.fmuladd.f32(float %div8.i, float %div8.i, float %20)
-  %sqrt.i = call noundef float @llvm.sqrt.f32(float %21)
-  %cmp16 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %cmp16 = fcmp ogt float %21, 0.000000e+00
   br i1 %cmp16, label %if.then17, label %if.end23
 
 if.then17:                                        ; preds = %invoke.cont14
@@ -2712,8 +2711,7 @@ invoke.cont36:                                    ; preds = %invoke.cont26, %inv
   %45 = call float @llvm.fmuladd.f32(float %43, float %43, float %mul4.i.i78)
   %46 = load float, ptr %z.i43, align 8
   %47 = call noundef float @llvm.fmuladd.f32(float %46, float %46, float %45)
-  %sqrt.i80 = call noundef float @llvm.sqrt.f32(float %47)
-  %cmp38 = fcmp ogt float %sqrt.i80, 0.000000e+00
+  %cmp38 = fcmp ogt float %47, 0.000000e+00
   br i1 %cmp38, label %if.then39, label %if.then49
 
 if.then39:                                        ; preds = %invoke.cont36

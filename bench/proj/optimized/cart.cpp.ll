@@ -146,7 +146,7 @@ define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias n
   %26 = fmul double %25, %25
   %27 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %26)
   %sqrt70 = tail call double @llvm.sqrt.f64(double %27)
-  %28 = fcmp une double %sqrt70, 0.000000e+00
+  %28 = fcmp une double %27, 0.000000e+00
   %29 = fdiv double 1.000000e+00, %sqrt70
   %30 = insertelement <2 x double> poison, double %29, i64 0
   %31 = insertelement <2 x double> %30, double %25, i64 1
@@ -167,7 +167,7 @@ define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias n
   %46 = extractelement <2 x double> %43, i64 0
   %47 = tail call double @llvm.fmuladd.f64(double %46, double %46, double %45)
   %sqrt = tail call double @llvm.sqrt.f64(double %47)
-  %48 = fcmp une double %sqrt, 0.000000e+00
+  %48 = fcmp une double %47, 0.000000e+00
   %49 = fdiv double 1.000000e+00, %sqrt
   %50 = insertelement <2 x double> poison, double %49, i64 0
   %51 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> zeroinitializer

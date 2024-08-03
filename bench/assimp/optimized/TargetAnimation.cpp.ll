@@ -663,8 +663,7 @@ invoke.cont19:                                    ; preds = %for.cond
   %18 = extractelement <2 x float> %14, i64 0
   %19 = call float @llvm.fmuladd.f32(float %18, float %18, float %mul4.i.i)
   %20 = call noundef float @llvm.fmuladd.f32(float %sub5.i, float %sub5.i, float %19)
-  %sqrt.i = call noundef float @llvm.sqrt.f32(float %20)
-  %tobool = fcmp une float %sqrt.i, 0.000000e+00
+  %tobool = fcmp une float %20, 0.000000e+00
   br i1 %tobool, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont19
@@ -1115,9 +1114,6 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

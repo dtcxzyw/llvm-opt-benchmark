@@ -8208,11 +8208,11 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %241, %245, %237
   %333 = getelementptr inbounds i8, ptr %325, i64 32
   %334 = load float, ptr %333, align 4
   %335 = call float @llvm.fmuladd.f32(float %334, float %334, float %332)
-  %sqrt.i = call float @llvm.sqrt.f32(float %335)
-  %336 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %336 = fcmp ogt float %335, 0.000000e+00
   br i1 %336, label %337, label %343
 
 337:                                              ; preds = %318
+  %sqrt.i = call float @llvm.sqrt.f32(float %335)
   %338 = insertelement <2 x float> poison, float %sqrt.i, i64 0
   %339 = shufflevector <2 x float> %338, <2 x float> poison, <2 x i32> zeroinitializer
   %340 = fdiv <2 x float> %328, %339
@@ -8249,11 +8249,11 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %241, %245, %237
   %363 = getelementptr inbounds i8, ptr %355, i64 32
   %364 = load float, ptr %363, align 4
   %365 = call float @llvm.fmuladd.f32(float %364, float %364, float %362)
-  %sqrt.i332 = call float @llvm.sqrt.f32(float %365)
-  %366 = fcmp ogt float %sqrt.i332, 0.000000e+00
+  %366 = fcmp ogt float %365, 0.000000e+00
   br i1 %366, label %367, label %373
 
 367:                                              ; preds = %343
+  %sqrt.i332 = call float @llvm.sqrt.f32(float %365)
   %368 = insertelement <2 x float> poison, float %sqrt.i332, i64 0
   %369 = shufflevector <2 x float> %368, <2 x float> poison, <2 x i32> zeroinitializer
   %370 = fdiv <2 x float> %358, %369
@@ -8290,11 +8290,11 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %241, %245, %237
   %393 = getelementptr inbounds i8, ptr %385, i64 32
   %394 = load float, ptr %393, align 4
   %395 = call float @llvm.fmuladd.f32(float %394, float %394, float %392)
-  %sqrt.i334 = call float @llvm.sqrt.f32(float %395)
-  %396 = fcmp ogt float %sqrt.i334, 0.000000e+00
+  %396 = fcmp ogt float %395, 0.000000e+00
   br i1 %396, label %397, label %_ZN3vcg6Point3IfE9NormalizeEv.exit335
 
 397:                                              ; preds = %373
+  %sqrt.i334 = call float @llvm.sqrt.f32(float %395)
   %398 = insertelement <2 x float> poison, float %sqrt.i334, i64 0
   %399 = shufflevector <2 x float> %398, <2 x float> poison, <2 x i32> zeroinitializer
   %400 = fdiv <2 x float> %388, %399
@@ -8336,11 +8336,11 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit335:            ; preds = %397, %373
   %424 = getelementptr inbounds i8, ptr %417, i64 8
   %425 = load float, ptr %424, align 4
   %426 = call float @llvm.fmuladd.f32(float %425, float %425, float %423)
-  %sqrt.i336 = call float @llvm.sqrt.f32(float %426)
-  %427 = fcmp ogt float %sqrt.i336, 0.000000e+00
+  %427 = fcmp ogt float %426, 0.000000e+00
   br i1 %427, label %428, label %434
 
 428:                                              ; preds = %411
+  %sqrt.i336 = call float @llvm.sqrt.f32(float %426)
   %429 = insertelement <2 x float> poison, float %sqrt.i336, i64 0
   %430 = shufflevector <2 x float> %429, <2 x float> poison, <2 x i32> zeroinitializer
   %431 = fdiv <2 x float> %419, %430
@@ -8375,11 +8375,11 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit335:            ; preds = %397, %373
   %452 = getelementptr inbounds i8, ptr %445, i64 8
   %453 = load float, ptr %452, align 4
   %454 = call float @llvm.fmuladd.f32(float %453, float %453, float %451)
-  %sqrt.i338 = call float @llvm.sqrt.f32(float %454)
-  %455 = fcmp ogt float %sqrt.i338, 0.000000e+00
+  %455 = fcmp ogt float %454, 0.000000e+00
   br i1 %455, label %456, label %462
 
 456:                                              ; preds = %434
+  %sqrt.i338 = call float @llvm.sqrt.f32(float %454)
   %457 = insertelement <2 x float> poison, float %sqrt.i338, i64 0
   %458 = shufflevector <2 x float> %457, <2 x float> poison, <2 x i32> zeroinitializer
   %459 = fdiv <2 x float> %447, %458
@@ -8414,11 +8414,11 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit335:            ; preds = %397, %373
   %480 = getelementptr inbounds i8, ptr %473, i64 8
   %481 = load float, ptr %480, align 4
   %482 = call float @llvm.fmuladd.f32(float %481, float %481, float %479)
-  %sqrt.i340 = call float @llvm.sqrt.f32(float %482)
-  %483 = fcmp ogt float %sqrt.i340, 0.000000e+00
+  %483 = fcmp ogt float %482, 0.000000e+00
   br i1 %483, label %484, label %_ZN3vcg6Point3IfE9NormalizeEv.exit341
 
 484:                                              ; preds = %462
+  %sqrt.i340 = call float @llvm.sqrt.f32(float %482)
   %485 = insertelement <2 x float> poison, float %sqrt.i340, i64 0
   %486 = shufflevector <2 x float> %485, <2 x float> poison, <2 x i32> zeroinitializer
   %487 = fdiv <2 x float> %475, %486
@@ -9737,11 +9737,11 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   %102 = fmul float %97, %97
   %103 = tail call float @llvm.fmuladd.f32(float %96, float %96, float %102)
   %104 = tail call float @llvm.fmuladd.f32(float %100, float %100, float %103)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %104)
-  %105 = fcmp ogt float %sqrt.i, 0.000000e+00
+  %105 = fcmp ogt float %104, 0.000000e+00
   br i1 %105, label %106, label %113
 
 106:                                              ; preds = %89
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %104)
   %107 = insertelement <2 x float> poison, float %96, i64 0
   %108 = insertelement <2 x float> %107, float %97, i64 1
   %109 = insertelement <2 x float> poison, float %sqrt.i, i64 0

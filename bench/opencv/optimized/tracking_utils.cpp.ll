@@ -212,8 +212,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %99 = fsub double %95, %98
   %100 = fcmp ogt double %99, 0.000000e+00
   %.sroa.speculated155 = select i1 %100, double %99, double 0.000000e+00
-  %sqrt = tail call double @llvm.sqrt.f64(double %.sroa.speculated155)
-  %101 = fcmp oeq double %sqrt, 0.000000e+00
+  %101 = fcmp oeq double %.sroa.speculated155, 0.000000e+00
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %.loopexit
@@ -221,6 +220,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   br label %158
 
 104:                                              ; preds = %.loopexit
+  %sqrt = tail call double @llvm.sqrt.f64(double %.sroa.speculated155)
   %105 = uitofp i32 %.1128 to double
   %106 = fmul double %96, %89
   %107 = fdiv double %106, %91
@@ -292,8 +292,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %147 = extractelement <2 x i1> %144, i64 0
   %148 = extractelement <2 x double> %143, i64 0
   %.sroa.speculated = select i1 %147, double %148, double 0.000000e+00
-  %sqrt166 = call double @llvm.sqrt.f64(double %.sroa.speculated)
-  %149 = fcmp oeq double %sqrt166, 0.000000e+00
+  %149 = fcmp oeq double %.sroa.speculated, 0.000000e+00
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %111
@@ -301,6 +300,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   br label %158
 
 152:                                              ; preds = %111
+  %sqrt166 = call double @llvm.sqrt.f64(double %.sroa.speculated)
   %153 = fmul double %115, %119
   %154 = fdiv double %153, %134
   %155 = fsub double %133, %154

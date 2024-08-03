@@ -1563,12 +1563,12 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %shift628 = shufflevector <4 x float> %157, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %159 = fadd contract <4 x float> %shift628, %158
   %160 = extractelement <4 x float> %159, i64 0
-  %161 = tail call contract noundef float @llvm.sqrt.f32(float %160)
-  %162 = fcmp contract oeq float %161, 0.000000e+00
-  %163 = fsub contract float 1.000000e+00, %45
-  %164 = fdiv contract float 0x3FC45F3060000000, %163
-  %spec.select = select i1 %162, float 0.000000e+00, float %164
-  %165 = fdiv contract float 1.000000e+00, %161
+  %161 = fcmp contract oeq float %160, 0.000000e+00
+  %162 = fsub contract float 1.000000e+00, %45
+  %163 = fdiv contract float 0x3FC45F3060000000, %162
+  %spec.select = select i1 %161, float 0.000000e+00, float %163
+  %164 = tail call contract noundef float @llvm.sqrt.f32(float %160)
+  %165 = fdiv contract float 1.000000e+00, %164
   %166 = insertelement <4 x float> poison, float %165, i64 0
   %167 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> zeroinitializer
   %168 = fmul contract <4 x float> %156, %167
@@ -1667,7 +1667,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %storemerge619 = phi <4 x float> [ %222, %169 ], [ %152, %32 ]
   %storemerge618 = phi float [ %241, %169 ], [ %spec.select, %32 ]
   %storemerge617 = phi <4 x float> [ %235, %169 ], [ %168, %32 ]
-  %storemerge = phi float [ %231, %169 ], [ %161, %32 ]
+  %storemerge = phi float [ %231, %169 ], [ %164, %32 ]
   store <4 x float> %storemerge620, ptr %0, align 16
   store <4 x float> %storemerge619, ptr %7, align 16
   store <2 x float> zeroinitializer, ptr %8, align 16
@@ -2417,7 +2417,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %153 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %150, i64 0
   %154 = insertelement <4 x float> %153, float %151, i64 1
   %155 = insertelement <4 x float> %154, float %152, i64 2
-  %156 = fcmp contract oeq float %146, 0.000000e+00
+  %156 = fcmp contract oeq float %142, 0.000000e+00
   %storemerge = select i1 %156, <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, <4 x float> %155
   store <4 x float> %storemerge, ptr %28, align 16
   %.sroa.0726.0.copyload = load <4 x float>, ptr %69, align 16

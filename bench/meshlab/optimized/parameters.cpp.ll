@@ -1600,11 +1600,11 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
   %33 = fmul <2 x float> %32, %32
   %34 = extractelement <2 x float> %33, i64 1
   %35 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %34)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %35)
-  %36 = fcmp ugt float %sqrt.i, 0.000000e+00
+  %36 = fcmp une float %35, 0.000000e+00
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %8
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %35)
   %38 = fpext float %sqrt.i to double
   %39 = fcmp olt double %.02436, %38
   %.2 = select i1 %39, double %38, double %.02436

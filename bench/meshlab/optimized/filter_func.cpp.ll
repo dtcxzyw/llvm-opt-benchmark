@@ -19483,11 +19483,11 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
   %991 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 44
   %992 = load float, ptr %991, align 4
   %993 = call float @llvm.fmuladd.f32(float %992, float %992, float %990)
-  %sqrt.i.i = call float @llvm.sqrt.f32(float %993)
-  %994 = fcmp ogt float %sqrt.i.i, 0.000000e+00
+  %994 = fcmp ogt float %993, 0.000000e+00
   br i1 %994, label %995, label %_ZN3vcg6Point3IfE9NormalizeEv.exit.i
 
 995:                                              ; preds = %984
+  %sqrt.i.i = call float @llvm.sqrt.f32(float %993)
   %996 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
   %997 = shufflevector <2 x float> %996, <2 x float> poison, <2 x i32> zeroinitializer
   %998 = fdiv <2 x float> %986, %997
@@ -37561,11 +37561,11 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE16PerVertexPerFaceERS2_.exit: ; preds = %53, %
   %71 = getelementptr inbounds i8, ptr %.sroa.03.010.i, i64 32
   %72 = load float, ptr %71, align 4
   %73 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %70)
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
-  %74 = fcmp ogt float %sqrt.i.i, 0.000000e+00
+  %74 = fcmp ogt float %73, 0.000000e+00
   br i1 %74, label %75, label %_ZN3vcg6Point3IfE9NormalizeEv.exit.i
 
 75:                                               ; preds = %64
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %73)
   %76 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
   %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> zeroinitializer
   %78 = fdiv <2 x float> %66, %77

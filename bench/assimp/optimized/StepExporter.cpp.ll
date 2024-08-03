@@ -2232,8 +2232,7 @@ invoke.cont504:                                   ; preds = %lor.lhs.false.i.i24
   %106 = extractelement <2 x float> %102, i64 0
   %107 = call float @llvm.fmuladd.f32(float %106, float %106, float %mul4.i.i.i)
   %108 = call noundef float @llvm.fmuladd.f32(float %sub5.i, float %sub5.i, float %107)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %108)
-  %cmp.i256 = fcmp oeq float %sqrt.i.i, 0.000000e+00
+  %cmp.i256 = fcmp oeq float %108, 0.000000e+00
   br i1 %cmp.i256, label %_ZN10aiVector3tIfE9NormalizeEv.exit, label %_ZN10aiVector3tIfEdVEf.exit.i
 
 lpad488:                                          ; preds = %if.end.i.i.i.i.i.i.i
@@ -2287,6 +2286,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %_ZNSt6vectorI10aiVe
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit317
 
 _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %invoke.cont504
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %108)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %111 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %112 = shufflevector <2 x float> %111, <2 x float> poison, <2 x i32> zeroinitializer
@@ -2325,15 +2325,21 @@ invoke.cont542:                                   ; preds = %_ZN10aiVector3tIfE9
   %129 = extractelement <2 x float> %123, i64 0
   %130 = call float @llvm.fmuladd.f32(float %129, float %129, float %mul4.i.i.i267)
   %131 = call noundef float @llvm.fmuladd.f32(float %127, float %127, float %130)
-  %sqrt.i.i269 = call noundef float @llvm.sqrt.f32(float %131)
-  %cmp.i270 = fcmp oeq float %sqrt.i.i269, 0.000000e+00
-  %div.i.i272 = fdiv float 1.000000e+00, %sqrt.i.i269
+  %cmp.i269 = fcmp oeq float %131, 0.000000e+00
+  br i1 %cmp.i269, label %invoke.cont545, label %_ZN10aiVector3tIfEdVEf.exit.i270
+
+_ZN10aiVector3tIfEdVEf.exit.i270:                 ; preds = %invoke.cont542
+  %sqrt.i.i271 = call noundef float @llvm.sqrt.f32(float %131)
+  %div.i.i272 = fdiv float 1.000000e+00, %sqrt.i.i271
   %132 = insertelement <2 x float> poison, float %div.i.i272, i64 0
   %133 = shufflevector <2 x float> %132, <2 x float> poison, <2 x i32> zeroinitializer
   %134 = fmul <2 x float> %123, %133
   %mul3.i.i275 = fmul float %127, %div.i.i272
-  %dvX.sroa.7.0 = select i1 %cmp.i270, float %127, float %mul3.i.i275
-  %dvX.sroa.0.0 = select i1 %cmp.i270, <2 x float> %123, <2 x float> %134
+  br label %invoke.cont545
+
+invoke.cont545:                                   ; preds = %_ZN10aiVector3tIfEdVEf.exit.i270, %invoke.cont542
+  %dvX.sroa.7.0 = phi float [ %127, %invoke.cont542 ], [ %mul3.i.i275, %_ZN10aiVector3tIfEdVEf.exit.i270 ]
+  %dvX.sroa.0.0 = phi <2 x float> [ %123, %invoke.cont542 ], [ %134, %_ZN10aiVector3tIfEdVEf.exit.i270 ]
   %135 = load ptr, ptr %mColors.i, align 8
   %cmp2.not.i = icmp ne ptr %135, null
   %136 = load i32, ptr %mNumVertices.i, align 4
@@ -2341,7 +2347,7 @@ invoke.cont542:                                   ; preds = %_ZN10aiVector3tIfE9
   %137 = select i1 %cmp2.not.i, i1 %cmp3.i, i1 false
   br i1 %137, label %if.then549, label %if.end578
 
-if.then549:                                       ; preds = %invoke.cont542
+if.then549:                                       ; preds = %invoke.cont545
   %mIndices554 = getelementptr inbounds i8, ptr %arrayidx480, i64 8
   %138 = load ptr, ptr %mIndices554, align 8
   %139 = load i32, ptr %138, align 4
@@ -2374,9 +2380,9 @@ if.then549:                                       ; preds = %invoke.cont542
   %div3.i = fdiv float %add6.i294, 3.000000e+00
   br label %if.end578
 
-if.end578:                                        ; preds = %if.then549, %invoke.cont542
-  %fColor.sroa.23.3 = phi float [ %div3.i, %if.then549 ], [ %fColor.sroa.23.1633, %invoke.cont542 ]
-  %152 = phi <2 x float> [ %151, %if.then549 ], [ %87, %invoke.cont542 ]
+if.end578:                                        ; preds = %if.then549, %invoke.cont545
+  %fColor.sroa.23.3 = phi float [ %div3.i, %if.then549 ], [ %fColor.sroa.23.1633, %invoke.cont545 ]
+  %152 = phi <2 x float> [ %151, %if.then549 ], [ %87, %invoke.cont545 ]
   %call582 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr43, ptr noundef nonnull @.str.15)
           to label %invoke.cont581 unwind label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -1413,11 +1413,11 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS
   %48 = fmul float %46, %46
   %49 = extractelement <2 x float> %44, i64 0
   %50 = tail call float @llvm.fmuladd.f32(float %49, float %49, float %48)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %50)
-  %51 = fcmp oeq float %sqrt.i, 0.000000e+00
+  %51 = fcmp oeq float %50, 0.000000e+00
   br i1 %51, label %_Z13dtNormalize2DPf.exit, label %52
 
 52:                                               ; preds = %24
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %50)
   %53 = fdiv float 1.000000e+00, %sqrt.i
   %54 = fmul float %49, %53
   store float %54, ptr %11, align 16

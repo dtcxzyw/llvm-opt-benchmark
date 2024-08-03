@@ -50905,13 +50905,13 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit362:    ; preds = %.lr.ph.i.i357, %_ZN
   br i1 %176, label %177, label %181
 
 177:                                              ; preds = %.loopexit
-  %178 = fcmp ogt double %sqrt397, 0.000000e+00
+  %178 = fcmp ogt double %171, 0.000000e+00
   %179 = select i1 %178, double 1.000000e+00, double %sqrt397
   %180 = tail call double @llvm.fabs.f64(double %sqrt397)
   br label %_ZN6casadi27casadi_dense_lsqr_sym_orthoIdEEvT_S1_PS1_S2_S2_.exit
 
 181:                                              ; preds = %.loopexit
-  %182 = fcmp oeq double %sqrt397, 0.000000e+00
+  %182 = fcmp oeq double %171, 0.000000e+00
   br i1 %182, label %183, label %187
 
 183:                                              ; preds = %181
@@ -50939,7 +50939,7 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit362:    ; preds = %.lr.ph.i.i357, %_ZN
 
 199:                                              ; preds = %187
   %200 = fdiv double %170, %sqrt397
-  %201 = fcmp ogt double %sqrt397, 0.000000e+00
+  %201 = fcmp ogt double %171, 0.000000e+00
   %202 = select i1 %201, double 1.000000e+00, double %sqrt397
   %203 = tail call double @llvm.fmuladd.f64(double %200, double %200, double 1.000000e+00)
   %sqrt39.i = tail call double @llvm.sqrt.f64(double %203)

@@ -2686,8 +2686,7 @@ _ZL11string2dvecPKcPd.exit.i:                     ; preds = %_ZL16process_pull_d
   %547 = call double @llvm.fmuladd.f64(double %544, double %544, double %546)
   %548 = load double, ptr %192, align 16
   %549 = call noundef double @llvm.fmuladd.f64(double %548, double %548, double %547)
-  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %549)
-  %550 = fcmp ogt double %sqrt.i.i, 0.000000e+00
+  %550 = fcmp ogt double %549, 0.000000e+00
   br i1 %550, label %551, label %555
 
 551:                                              ; preds = %543

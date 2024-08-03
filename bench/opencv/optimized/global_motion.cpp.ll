@@ -1082,7 +1082,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %._crit_edge
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #21
   %37 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #21
-  %38 = fcmp une float %sqrt, 0.000000e+00
+  %38 = fcmp une float %29, 0.000000e+00
   br i1 %38, label %39, label %58
 
 39:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
