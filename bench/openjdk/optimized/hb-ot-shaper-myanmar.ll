@@ -759,8 +759,8 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   %36 = getelementptr inbounds [61 x i8], ptr @_ZL37_myanmar_syllable_machine_trans_targs, i64 0, i64 %.0123
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
-  %39 = lshr i64 1152499292122906606, %.0123
-  %40 = and i64 %39, 1
+  %39 = shl nuw i64 1, %.0123
+  %40 = and i64 %39, 1152499292122906606
   %.not136 = icmp eq i64 %40, 0
   br i1 %.not136, label %41, label %111
 

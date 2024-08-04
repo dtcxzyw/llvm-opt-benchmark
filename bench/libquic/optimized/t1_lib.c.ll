@@ -926,8 +926,8 @@ if.end3:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end3, %for.inc
   %i.026 = phi i64 [ 0, %if.end3 ], [ %inc, %for.inc ]
-  %5 = lshr i64 2201, %i.026
-  %6 = and i64 %5, 1
+  %5 = shl nuw nsw i64 1, %i.026
+  %6 = and i64 %5, 2201
   %cmp9.not.not = icmp eq i64 %6, 0
   br i1 %cmp9.not.not, label %if.then10, label %for.inc
 
@@ -1156,8 +1156,8 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %i.029.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %0 = lshr i64 2201, %i.029.i
-  %1 = and i64 %0, 1
+  %0 = shl nuw nsw i64 1, %i.029.i
+  %1 = and i64 %0, 2201
   %cmp1.not.not.i = icmp eq i64 %1, 0
   br i1 %cmp1.not.not.i, label %if.then.i, label %for.inc.i
 

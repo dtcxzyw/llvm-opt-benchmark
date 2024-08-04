@@ -415,8 +415,8 @@ get_sgsap_msg_params.exit:                        ; preds = %7
 
 26:                                               ; preds = %23, %get_sgsap_msg_params.exit
   %27 = and i64 %20, 2305843009213693951
-  %28 = lshr i64 2835349532, %27
-  %29 = and i64 %28, 1
+  %28 = shl nuw i64 1, %27
+  %29 = and i64 %28, 2835349532
   %.not.not = icmp eq i64 %29, 0
   br i1 %.not.not, label %30, label %85
 
@@ -693,8 +693,8 @@ define internal i32 @dissect_sgsap(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.136, ptr noundef nonnull %15) #6
   %23 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
   %24 = and i64 %19, 2305843009213693951
-  %25 = lshr i64 2835349532, %24
-  %26 = and i64 %25, 1
+  %25 = shl nuw i64 1, %24
+  %26 = and i64 %25, 2835349532
   %.not = icmp eq i64 %26, 0
   br i1 %.not, label %34, label %30
 

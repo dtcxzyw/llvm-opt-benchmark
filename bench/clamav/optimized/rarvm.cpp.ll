@@ -219,8 +219,8 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %54 = getelementptr inbounds [16 x i8], ptr @_ZZN5RarVM21ExecuteStandardFilterE18VM_StandardFiltersE5Masks, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
-  %57 = lshr i64 52272, %53
-  %58 = and i64 %57, 1
+  %57 = shl nuw nsw i64 1, %53
+  %58 = and i64 %57, 52272
   %.not267.not = icmp eq i64 %58, 0
   br i1 %.not267.not, label %.preheader, label %.loopexit282
 

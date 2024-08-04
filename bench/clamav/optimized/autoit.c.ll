@@ -3292,8 +3292,8 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %.7.i = phi ptr [ %.0203548.i, %1338 ], [ %1347, %1343 ]
   %1350 = add nsw i32 %1122, -48
   %1351 = zext nneg i32 %1350 to i64
-  %1352 = lshr i64 147, %1351
-  %1353 = and i64 %1352, 1
+  %1352 = shl nuw nsw i64 1, %1351
+  %1353 = and i64 %1352, 147
   %.not301.not.i = icmp eq i64 %1353, 0
   br i1 %.not301.not.i, label %1354, label %1361
 

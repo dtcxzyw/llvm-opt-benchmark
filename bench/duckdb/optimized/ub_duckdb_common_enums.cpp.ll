@@ -3298,14 +3298,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %6 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %6, 0
+  %6 = shl nuw i16 1, %switch.maskindex
+  %7 = and i16 %6, -28609
+  %switch.lobit.not = icmp eq i16 %7, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i8], ptr @switch.table._ZN6duckdb24FlipComparisonExpressionENS_14ExpressionTypeE, i64 0, i64 %7
+  %8 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x i8], ptr @switch.table._ZN6duckdb24FlipComparisonExpressionENS_14ExpressionTypeE, i64 0, i64 %8
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 
@@ -3750,11 +3750,11 @@ define noundef zeroext i1 @_ZN6duckdb19PropagatesBuildSideENS_8JoinTypeE(i8 noun
 entry:
   %0 = icmp ult i8 %type, 11
   %switch.cast = zext nneg i8 %type to i11
-  %switch.downshift = lshr i11 -492, %switch.cast
-  %1 = and i11 %switch.downshift, 1
-  %switch.masked = icmp ne i11 %1, 0
-  %2 = select i1 %0, i1 %switch.masked, i1 false
-  ret i1 %2
+  %1 = shl nuw i11 1, %switch.cast
+  %2 = and i11 %1, -492
+  %switch.masked = icmp ne i11 %2, 0
+  %3 = select i1 %0, i1 %switch.masked, i1 false
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable

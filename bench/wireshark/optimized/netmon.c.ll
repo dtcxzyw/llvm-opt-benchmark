@@ -128,8 +128,8 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 38:                                               ; preds = %30
   %39 = zext nneg i16 %36 to i64
-  %40 = lshr i64 3104, %39
-  %41 = and i64 %40, 1
+  %40 = shl nuw nsw i64 1, %39
+  %41 = and i64 %40, 3104
   %.not313 = icmp eq i64 %41, 0
   br i1 %.not313, label %45, label %42
 
@@ -1456,8 +1456,8 @@ default.unreachable:                              ; preds = %108
   %130 = zext nneg i16 %105 to i64
   %131 = getelementptr [12 x i32], ptr @netmon_encap, i64 0, i64 %130
   %132 = load i32, ptr %131, align 4
-  %133 = lshr i64 3104, %130
-  %134 = and i64 %133, 1
+  %133 = shl nuw nsw i64 1, %130
+  %134 = and i64 %133, 3104
   %.not133 = icmp eq i64 %134, 0
   br i1 %.not133, label %142, label %135
 
@@ -1678,8 +1678,8 @@ declare void @atm_guess_traffic_type(ptr noundef, ptr noundef) local_unnamed_add
 define internal range(i32 -8, 1) i32 @netmon_dump_can_write_encap_1_x(i32 noundef %0) #8 {
   %2 = icmp ugt i32 %0, 13
   %3 = zext nneg i32 %0 to i64
-  %4 = lshr i64 8089, %3
-  %5 = and i64 %4, 1
+  %4 = shl nuw nsw i64 1, %3
+  %5 = and i64 %4, 8089
   %.not = icmp eq i64 %5, 0
   %spec.select = select i1 %.not, i32 0, i32 -8
   %.0 = select i1 %2, i32 -8, i32 %spec.select
@@ -1789,8 +1789,8 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
 
 39:                                               ; preds = %35
   %40 = zext nneg i32 %37 to i64
-  %41 = lshr i64 8089, %40
-  %42 = and i64 %41, 1
+  %41 = shl nuw nsw i64 1, %40
+  %42 = and i64 %41, 8089
   %.not101 = icmp eq i64 %42, 0
   br i1 %.not101, label %44, label %43
 
@@ -2211,8 +2211,8 @@ define internal range(i32 -8, 1) i32 @netmon_dump_can_write_encap_2_x(i32 nounde
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = lshr i64 8089, %6
-  %8 = and i64 %7, 1
+  %7 = shl nuw nsw i64 1, %6
+  %8 = and i64 %7, 8089
   %.not = icmp eq i64 %8, 0
   %spec.select = select i1 %.not, i32 0, i32 -8
   br label %9

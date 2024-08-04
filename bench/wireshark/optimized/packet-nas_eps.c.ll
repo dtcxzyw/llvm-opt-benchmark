@@ -7585,8 +7585,8 @@ define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef
   %45 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #10
   %46 = add i32 %.0, 1
   %47 = and i64 %40, 2305843009213693951
-  %48 = lshr i64 4295262496, %47
-  %49 = and i64 %48, 1
+  %48 = shl nuw i64 1, %47
+  %49 = and i64 %48, 4295262496
   %.not61 = icmp eq i64 %49, 0
   br i1 %.not61, label %58, label %52
 

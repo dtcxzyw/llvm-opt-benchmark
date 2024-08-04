@@ -607,8 +607,8 @@ r_mark_regions.exit:                              ; preds = %47, %50, %55, %62, 
   %88 = phi i32 [ %115, %81 ], [ %72, %.lr.ph ]
   %89 = phi i32 [ %116, %81 ], [ %72, %.lr.ph ]
   %90 = and i32 %87, 31
-  %91 = lshr i32 70566434, %90
-  %92 = and i32 %91, 1
+  %91 = shl nuw i32 1, %90
+  %92 = and i32 %91, 70566434
   %.not44.i = icmp eq i32 %92, 0
   br i1 %.not44.i, label %._crit_edge.loopexit, label %93
 
@@ -722,8 +722,8 @@ r_aditzak.exit:                                   ; preds = %95, %99, %103, %106
   %137 = phi i32 [ %182, %129 ], [ %120, %.lr.ph88 ]
   %138 = phi i32 [ %183, %129 ], [ %121, %.lr.ph88 ]
   %139 = and i32 %136, 31
-  %140 = lshr i32 71162402, %139
-  %141 = and i32 %140, 1
+  %140 = shl nuw i32 1, %139
+  %141 = and i32 %140, 71162402
   %.not68.i = icmp eq i32 %141, 0
   br i1 %.not68.i, label %r_izenak.exit.loopexit, label %142
 
@@ -858,8 +858,8 @@ r_izenak.exit:                                    ; preds = %r_izenak.exit.loope
 
 195:                                              ; preds = %189
   %196 = and i32 %194, 31
-  %197 = lshr i32 35362, %196
-  %198 = and i32 %197, 1
+  %197 = shl nuw i32 1, %196
+  %198 = and i32 %197, 35362
   %.not28.i = icmp eq i32 %198, 0
   br i1 %.not28.i, label %212, label %199
 

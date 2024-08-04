@@ -9116,8 +9116,8 @@ expand_cmp_i32.exit:                              ; preds = %for.body.i95
 
 if.else30:                                        ; preds = %land.lhs.true, %if.end.i, %if.end.i82, %if.else
   %idxprom = zext i32 %cond to i64
-  %6 = lshr i64 59627, %idxprom
-  %7 = and i64 %6, 1
+  %6 = shl nuw i64 1, %idxprom
+  %7 = and i64 %6, 59627
   %cmp31.not = icmp eq i64 %7, 0
   br i1 %cmp31.not, label %sw.epilog.thread, label %if.then33
 
@@ -9127,8 +9127,8 @@ if.then33:                                        ; preds = %if.else30
   %xor.i = xor i32 %cond, 9
   %cond.i106 = select i1 %tobool.not.i, i32 %cond, i32 %xor.i
   %idxprom35 = zext i32 %cond.i106 to i64
-  %8 = lshr i64 59627, %idxprom35
-  %9 = and i64 %8, 1
+  %8 = shl nuw i64 1, %idxprom35
+  %9 = and i64 %8, 59627
   %cmp37.not.not = icmp eq i64 %9, 0
   br i1 %cmp37.not.not, label %sw.epilog.thread, label %if.else40
 
@@ -9858,16 +9858,16 @@ for.end55:                                        ; preds = %for.body48
 
 if.else56:                                        ; preds = %land.lhs.true, %if.end.i, %if.end.i124, %if.else34
   %idxprom = zext i32 %cond to i64
-  %16 = lshr i64 60139, %idxprom
-  %17 = and i64 %16, 1
-  %cmp57.not.not = icmp eq i64 %17, 0
-  br i1 %cmp57.not.not, label %if.end68, label %if.then59
+  %16 = shl nuw i64 1, %idxprom
+  %17 = and i64 %16, 60139
+  %cmp57.not = icmp ne i64 %17, 0
+  br i1 %cmp57.not, label %if.then59, label %if.end68
 
 if.then59:                                        ; preds = %if.else56
   %xor.i = xor i32 %cond, 1
   %idxprom61 = zext i32 %xor.i to i64
-  %18 = lshr i64 60139, %idxprom61
-  %19 = and i64 %18, 1
+  %18 = shl nuw i64 1, %idxprom61
+  %19 = and i64 %18, 60139
   %cmp63.not.not = icmp eq i64 %19, 0
   br i1 %cmp63.not.not, label %if.end68, label %if.else66
 
@@ -9879,7 +9879,7 @@ if.end68:                                         ; preds = %if.then59, %if.else
   %idxprom61.pn = phi i64 [ %idxprom, %if.else56 ], [ %idxprom61, %if.then59 ]
   %fn.0.in = getelementptr [16 x ptr], ptr @tcg_gen_gvec_cmps.fns, i64 0, i64 %idxprom61.pn
   %fn.0 = load ptr, ptr %fn.0.in, align 8
-  %conv69 = trunc nuw nsw i64 %17 to i32
+  %conv69 = zext i1 %cmp57.not to i32
   %idxprom70 = zext i32 %vece to i64
   %arrayidx71 = getelementptr ptr, ptr %fn.0, i64 %idxprom70
   %20 = load ptr, ptr %arrayidx71, align 8

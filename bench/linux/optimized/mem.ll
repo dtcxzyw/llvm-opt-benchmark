@@ -158,8 +158,8 @@ define internal noalias noundef ptr @mem_devnode(ptr nocapture noundef readonly 
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 1048575
   %8 = zext nneg i32 %7 to i64
-  %9 = lshr i64 1111, %8
-  %10 = and i64 %9, 1
+  %9 = shl nuw i64 1, %8
+  %10 = and i64 %9, 1111
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %15
 

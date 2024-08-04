@@ -6670,8 +6670,8 @@ define internal fastcc void @rtl_reset_work(ptr noundef %0) unnamed_addr #0 alig
 73:                                               ; preds = %.preheader7
   %74 = load i32, ptr %34, align 8
   %75 = zext i32 %74 to i64
-  %76 = lshr i64 287, %75
-  %77 = and i64 %76, 1
+  %76 = shl nuw i64 1, %75
+  %77 = and i64 %76, 287
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %79, label %103
 
@@ -6701,8 +6701,8 @@ define internal fastcc void @rtl_reset_work(ptr noundef %0) unnamed_addr #0 alig
 91:                                               ; preds = %90, %89
   %92 = load i32, ptr %34, align 8
   %93 = zext i32 %92 to i64
-  %94 = lshr i64 287, %93
-  %95 = and i64 %94, 1
+  %94 = shl nuw i64 1, %93
+  %95 = and i64 %94, 287
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %97, label %100
 

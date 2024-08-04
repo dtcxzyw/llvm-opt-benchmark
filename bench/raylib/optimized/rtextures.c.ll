@@ -34434,13 +34434,13 @@ stbir__get_max_split.exit:                        ; preds = %.lr.ph.i, %10
   br i1 %.not339, label %54, label %33
 
 33:                                               ; preds = %30, %stbir__get_max_split.exit
-  %34 = lshr i64 131024, %18
-  %35 = and i64 %34, 1
+  %34 = shl nuw i64 1, %18
+  %35 = and i64 %34, 131024
   %36 = icmp ne i64 %35, 0
   %37 = icmp ult i32 %3, 11
   %or.cond = and i1 %37, %36
-  %38 = lshr i64 131024, %21
-  %39 = and i64 %38, 1
+  %38 = shl nuw i64 1, %21
+  %39 = and i64 %38, 131024
   %40 = icmp ne i64 %39, 0
   %or.cond3 = select i1 %or.cond, i1 %40, i1 false
   %41 = icmp ult i32 %4, 11

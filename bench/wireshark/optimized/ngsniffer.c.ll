@@ -2570,8 +2570,8 @@ define internal range(i32 -9, 1) i32 @ngsniffer_dump_can_write_encap(i32 noundef
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = lshr i64 257673, %6
-  %8 = and i64 %7, 1
+  %7 = shl nuw nsw i64 1, %6
+  %8 = and i64 %7, 257673
   %.not = icmp eq i64 %8, 0
   %spec.select = select i1 %.not, i32 0, i32 -8
   br label %9

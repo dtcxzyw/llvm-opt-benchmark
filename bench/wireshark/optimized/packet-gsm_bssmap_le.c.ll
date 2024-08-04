@@ -665,8 +665,8 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   %52 = load i32, ptr %5, align 4
   %53 = sext i32 %52 to i64
   %54 = and i64 %53, 2305843009213693951
-  %55 = lshr i64 13343, %54
-  %56 = and i64 %55, 1
+  %55 = shl nuw i64 1, %54
+  %56 = and i64 %55, 13343
   %.not59 = icmp eq i64 %56, 0
   br i1 %.not59, label %61, label %57
 

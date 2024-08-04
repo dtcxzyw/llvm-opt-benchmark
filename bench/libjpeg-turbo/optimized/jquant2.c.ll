@@ -587,8 +587,8 @@ find_biggest_color_pop.exit.i.i:                  ; preds = %29, %.lr.ph.i84.i.i
   %82 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = mul nsw i32 %78, %83
-  %85 = lshr i64 4292, %59
-  %86 = and i64 %85, 1
+  %85 = shl nuw i64 1, %59
+  %86 = and i64 %85, 4292
   %.not78.i.i = icmp eq i64 %86, 0
   br i1 %.not78.i.i, label %90, label %87
 

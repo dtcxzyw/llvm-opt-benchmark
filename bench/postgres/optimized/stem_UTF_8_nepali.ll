@@ -212,8 +212,8 @@ r_remove_category_1.exit:                         ; preds = %9, %12, %15, %19, %
 
 43:                                               ; preds = %36
   %44 = and i32 %42, 31
-  %45 = lshr i32 262, %44
-  %46 = and i32 %45, 1
+  %45 = shl nuw i32 1, %44
+  %46 = and i32 %45, 262
   %.not12.i = icmp eq i32 %46, 0
   br i1 %.not12.i, label %r_check_category_2.exit.thread, label %47
 
@@ -247,8 +247,8 @@ r_remove_category_1.exit:                         ; preds = %9, %12, %15, %19, %
 
 62:                                               ; preds = %55
   %63 = and i32 %61, 31
-  %64 = lshr i32 262, %63
-  %65 = and i32 %64, 1
+  %64 = shl nuw i32 1, %63
+  %65 = and i32 %64, 262
   %.not39.i = icmp eq i32 %65, 0
   br i1 %.not39.i, label %r_check_category_2.exit.thread, label %66
 

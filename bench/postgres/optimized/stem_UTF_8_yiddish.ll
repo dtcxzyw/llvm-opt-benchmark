@@ -1125,8 +1125,8 @@ define hidden range(i32 -2147483648, 2) i32 @yiddish_UTF_8_stem(ptr noundef %0) 
 
 390:                                              ; preds = %384
   %391 = and i32 %389, 31
-  %392 = lshr i32 285474816, %391
-  %393 = and i32 %392, 1
+  %392 = shl nuw i32 1, %391
+  %393 = and i32 %392, 285474816
   %.not448.i = icmp eq i32 %393, 0
   br i1 %.not448.i, label %410, label %394
 

@@ -887,8 +887,8 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
 
 227:                                              ; preds = %.thread22
   %228 = zext nneg i8 %225 to i64
-  %229 = lshr i64 100038, %228
-  %230 = and i64 %229, 1
+  %229 = shl nuw nsw i64 1, %228
+  %230 = and i64 %229, 100038
   %231 = icmp eq i64 %230, 0
   br i1 %231, label %232, label %246
 

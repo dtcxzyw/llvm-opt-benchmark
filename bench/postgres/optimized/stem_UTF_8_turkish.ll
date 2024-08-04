@@ -284,8 +284,8 @@ r_mark_yDU.exit.thread.i:                         ; preds = %r_mark_yDU.exit.i, 
 
 55:                                               ; preds = %49
   %56 = and i32 %54, 31
-  %57 = lshr i32 26658, %56
-  %58 = and i32 %57, 1
+  %57 = shl nuw i32 1, %56
+  %58 = and i32 %57, 26658
   %.not13.i300.i = icmp eq i32 %58, 0
   br i1 %.not13.i300.i, label %r_mark_ysA.exit.thread.i, label %59
 
@@ -2178,8 +2178,8 @@ define internal fastcc range(i32 0, 2) i32 @r_mark_ysA(ptr noundef %0) unnamed_a
 
 13:                                               ; preds = %7
   %14 = and i32 %12, 31
-  %15 = lshr i32 26658, %14
-  %16 = and i32 %15, 1
+  %15 = shl nuw i32 1, %14
+  %16 = and i32 %15, 26658
   %.not13 = icmp eq i32 %16, 0
   br i1 %.not13, label %21, label %17
 
@@ -3245,8 +3245,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_mark_possessives(ptr nou
 
 13:                                               ; preds = %6
   %14 = and i32 %12, 31
-  %15 = lshr i32 67133440, %14
-  %16 = and i32 %15, 1
+  %15 = shl nuw i32 1, %14
+  %16 = and i32 %15, 67133440
   %.not13 = icmp eq i32 %16, 0
   br i1 %.not13, label %47, label %17
 

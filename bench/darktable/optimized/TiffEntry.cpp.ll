@@ -510,8 +510,8 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry5isIntEv(ptr nocapture 
   %3 = load i32, ptr %2, align 4, !tbaa !26
   %4 = icmp ult i32 %3, 5
   %5 = trunc i32 %3 to i5
-  %6 = lshr i5 -6, %5
-  %7 = and i5 %6, 1
+  %6 = shl nuw i5 1, %5
+  %7 = and i5 %6, -6
   %8 = icmp ne i5 %7, 0
   %9 = select i1 %4, i1 %8, i1 false
   ret i1 %9
@@ -531,8 +531,8 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry7isFloatEv(ptr nocaptur
   %3 = load i32, ptr %2, align 4, !tbaa !26
   %4 = icmp ult i32 %3, 13
   %5 = trunc i32 %3 to i13
-  %6 = lshr i13 -200, %5
-  %7 = and i13 %6, 1
+  %6 = shl nuw i13 1, %5
+  %7 = and i13 %6, -200
   %8 = icmp ne i13 %7, 0
   %9 = select i1 %4, i1 %8, i1 false
   ret i1 %9

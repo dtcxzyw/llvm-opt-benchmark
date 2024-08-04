@@ -214,8 +214,8 @@ cond.end.i:                                       ; preds = %land.lhs.true15.i, 
   %arrayidx27.i = getelementptr inbounds [10 x i8], ptr @_ZL26_double_parser_trans_targs, i64 0, i64 %idxprom26.i
   %11 = load i8, ptr %arrayidx27.i, align 1
   %conv28.i = sext i8 %11 to i32
-  %12 = lshr i64 587, %idxprom26.i
-  %13 = and i64 %12, 1
+  %12 = shl nuw i64 1, %idxprom26.i
+  %13 = and i64 %12, 587
   %cmp32.not.i = icmp eq i64 %13, 0
   br i1 %cmp32.not.i, label %if.end34.i, label %_again.i
 

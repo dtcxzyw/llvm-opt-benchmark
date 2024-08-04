@@ -4042,8 +4042,8 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   %315 = sub nsw i64 4, %314
   %316 = getelementptr inbounds i8, ptr %.07989.i, i64 %315
   %317 = load i8, ptr %316, align 1
-  %318 = lshr i64 232, %311
-  %319 = and i64 %318, 1
+  %318 = shl nuw nsw i64 1, %311
+  %319 = and i64 %318, 232
   %320 = icmp ne i64 %319, 0
   %321 = add i8 %317, 1
   %322 = icmp ult i8 %321, 2

@@ -4237,14 +4237,14 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 55, %switch.maskindex
-  %6 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %6, 0
+  %6 = shl nuw nsw i8 1, %switch.maskindex
+  %7 = and i8 %6, 55
+  %switch.lobit.not = icmp eq i8 %7, 0
   br i1 %switch.lobit.not, label %sw.epilog, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5folly2io12_GLOBAL__N_115lz4ConvertLevelEi, i64 0, i64 %7
+  %8 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5folly2io12_GLOBAL__N_115lz4ConvertLevelEi, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 

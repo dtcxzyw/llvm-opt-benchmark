@@ -14885,81 +14885,81 @@ entry:
   br i1 %1, label %switch.hole_check, label %"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit"
 
 switch.hole_check:                                ; preds = %entry
-  %switch.shifted = lshr i8 57, %0
-  %2 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %2, 0
+  %2 = shl nuw nsw i8 1, %0
+  %3 = and i8 %2, 57
+  %switch.lobit.not = icmp eq i8 %3, 0
   br i1 %switch.lobit.not, label %if.end, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = shl nuw nsw i8 %0, 3
-  %switch.shiftamt = zext nneg i8 %3 to i48
+  %4 = shl nuw nsw i8 %0, 3
+  %switch.shiftamt = zext nneg i8 %4 to i48
   %switch.downshift = lshr i48 7726746894593, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   store i8 %switch.masked, ptr %current.i, align 8, !tbaa !184
   br label %"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit"
 
 "_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit": ; preds = %switch.lookup, %entry
-  %4 = phi i8 [ %0, %entry ], [ %switch.masked, %switch.lookup ]
-  %cmp.i = icmp eq i8 %4, 7
+  %5 = phi i8 [ %0, %entry ], [ %switch.masked, %switch.lookup ]
+  %cmp.i = icmp eq i8 %5, 7
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit"
   %next = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %next, align 8, !tbaa !37
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !22
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !22
   store ptr null, ptr %_M_refcount3.i.i, align 8, !tbaa !22
-  %cmp.not.i.i.i = icmp eq ptr %5, null
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
-  %7 = trunc i64 %6 to i32
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %7, 4294967297
+  %8 = trunc i64 %7 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !24
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !26
-  %vtable.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !4
+  %vtable.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !4
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %8 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
-  %vtable3.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !4
+  %9 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
+  %vtable3.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !4
   %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i, i64 24
-  %9 = load ptr, ptr %vfn4.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
+  %10 = load ptr, ptr %vfn4.i.i.i.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   br label %if.end
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %10 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
-  %tobool.i.not.i.i.i.i = icmp eq i8 %10, 0
+  %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
+  %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %7, -1
+  %add.i.i.i.i.i = add nsw i32 %8, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4, !tbaa !28
   br label %invoke.cont.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %12 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i ], [ %12, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %if.end, !prof !29
 
 if.then7.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   br label %if.end
 
 if.end:                                           ; preds = %switch.hole_check, %if.then7.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i.i.i, %if.then, %"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit"
-  %12 = load i8, ptr %current.i, align 8, !tbaa !184
-  %13 = and i8 %12, -2
-  %spec.select = icmp eq i8 %13, 6
+  %13 = load i8, ptr %current.i, align 8, !tbaa !184
+  %14 = and i8 %13, -2
+  %spec.select = icmp eq i8 %14, 6
   ret i1 %spec.select
 }
 

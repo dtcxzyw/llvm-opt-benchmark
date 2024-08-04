@@ -619,8 +619,8 @@ if.else5.i:                                       ; preds = %do.end.i
 
 riscv_validate_misa_info_idx.exit:                ; preds = %do.end.i
   %idxprom = zext nneg i32 %0 to i64
-  %1 = lshr i64 781314, %idxprom
-  %2 = and i64 %1, 1
+  %1 = shl nuw nsw i64 1, %idxprom
+  %2 = and i64 %1, 781314
   %cmp.not.not = icmp eq i64 %2, 0
   br i1 %cmp.not.not, label %do.end, label %if.else
 

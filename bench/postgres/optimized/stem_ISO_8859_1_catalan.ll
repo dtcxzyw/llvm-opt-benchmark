@@ -651,8 +651,8 @@ r_mark_regions.exit:                              ; preds = %1, %12, %17, %24, %
 
 43:                                               ; preds = %37
   %44 = and i32 %42, 31
-  %45 = lshr i32 1634850, %44
-  %46 = and i32 %45, 1
+  %45 = shl nuw i32 1, %44
+  %46 = and i32 %45, 1634850
   %.not21.i = icmp eq i32 %46, 0
   br i1 %.not21.i, label %56, label %47
 

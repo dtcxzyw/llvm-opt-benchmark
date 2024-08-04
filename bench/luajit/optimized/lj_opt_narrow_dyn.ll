@@ -777,9 +777,9 @@ land.lhs.true33:                                  ; preds = %if.else30
   %9 = load i8, ptr %t34, align 4
   %10 = and i8 %9, 31
   %and37 = zext nneg i8 %10 to i32
-  %shr38 = lshr i32 6315993, %and37
-  %and39 = and i32 %shr38, 1
-  %tobool40.not = icmp eq i32 %and39, 0
+  %11 = shl nuw i32 1, %and37
+  %12 = and i32 %11, 6315993
+  %tobool40.not = icmp eq i32 %12, 0
   br i1 %tobool40.not, label %if.then41, label %common.ret47
 
 if.then41:                                        ; preds = %land.lhs.true33

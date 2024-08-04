@@ -743,8 +743,8 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %36 = getelementptr inbounds [49 x i8], ptr @_ZL35_khmer_syllable_machine_trans_targs, i64 0, i64 %.0140
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
-  %39 = lshr i64 274836122274530, %.0140
-  %40 = and i64 %39, 1
+  %39 = shl nuw i64 1, %.0140
+  %40 = and i64 %39, 274836122274530
   %.not162 = icmp eq i64 %40, 0
   br i1 %.not162, label %41, label %130
 

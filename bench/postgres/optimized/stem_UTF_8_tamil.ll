@@ -428,8 +428,8 @@ define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) lo
 
 40:                                               ; preds = %34
   %41 = and i32 %39, 31
-  %42 = lshr i32 672, %41
-  %43 = and i32 %42, 1
+  %42 = shl nuw i32 1, %41
+  %43 = and i32 %42, 672
   %.not28.i = icmp eq i32 %43, 0
   br i1 %.not28.i, label %60, label %44
 
@@ -1477,8 +1477,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 149:                                              ; preds = %142
   %150 = and i32 %148, 31
-  %151 = lshr i32 4030464, %150
-  %152 = and i32 %151, 1
+  %151 = shl nuw i32 1, %150
+  %152 = and i32 %151, 4030464
   %.not326 = icmp eq i32 %152, 0
   br i1 %.not326, label %155, label %153
 
@@ -1838,8 +1838,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_tense_suffixes(pt
 
 66:                                               ; preds = %59
   %67 = and i32 %65, 31
-  %68 = lshr i32 1951712, %67
-  %69 = and i32 %68, 1
+  %68 = shl nuw i32 1, %67
+  %69 = and i32 %68, 1951712
   %.not367.i = icmp eq i32 %69, 0
   br i1 %.not367.i, label %72, label %70
 

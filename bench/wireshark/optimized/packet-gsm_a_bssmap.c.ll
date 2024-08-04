@@ -2179,8 +2179,8 @@ define internal noundef zeroext i16 @be_field_element_dissect(ptr noundef %0, pt
 
 31:                                               ; preds = %29
   %32 = zext nneg i32 %30 to i64
-  %33 = lshr i64 1654912, %32
-  %34 = and i64 %33, 1
+  %33 = shl nuw nsw i64 1, %32
+  %34 = and i64 %33, 1654912
   %.not63 = icmp eq i64 %34, 0
   br i1 %.not63, label %38, label %35
 

@@ -56074,8 +56074,8 @@ if.else:                                          ; preds = %while.body
   %conv22 = zext i32 %sub21 to i64
   %conv25 = zext i32 %10 to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %framesToRead.addr.0695, i64 %conv25)
-  %15 = lshr i64 1794, %idxprom.i
-  %16 = and i64 %15, 1
+  %15 = shl nuw i64 1, %idxprom.i
+  %16 = and i64 %15, 1794
   %cmp33.not = icmp eq i64 %16, 0
   br i1 %cmp33.not, label %for.cond.preheader, label %if.then35
 
@@ -57117,8 +57117,8 @@ if.else:                                          ; preds = %while.body
   %conv22 = zext i32 %sub21 to i64
   %conv25 = zext i32 %6 to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %framesToRead.addr.0680, i64 %conv25)
-  %11 = lshr i64 1794, %idxprom.i
-  %12 = and i64 %11, 1
+  %11 = shl nuw i64 1, %idxprom.i
+  %12 = and i64 %11, 1794
   %cmp33.not = icmp eq i64 %12, 0
   br i1 %cmp33.not, label %for.cond.preheader, label %if.then35
 
@@ -58177,8 +58177,8 @@ if.else:                                          ; preds = %while.body
   %conv22 = zext i32 %sub21 to i64
   %conv25 = zext i32 %6 to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %framesToRead.addr.0627, i64 %conv25)
-  %11 = lshr i64 1794, %idxprom.i
-  %12 = and i64 %11, 1
+  %11 = shl nuw i64 1, %idxprom.i
+  %12 = and i64 %11, 1794
   %cmp33.not = icmp eq i64 %12, 0
   br i1 %cmp33.not, label %for.cond.preheader, label %if.then35
 

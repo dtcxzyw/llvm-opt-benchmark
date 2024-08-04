@@ -189,8 +189,8 @@ define dso_local range(i32 -4, 2) i32 @nf_conntrack_tcp_packet(ptr noundef %0, p
   %61 = phi i8 [ %.pre, %._crit_edge ], [ %37, %50 ], [ %37, %44 ]
   %62 = and i8 %61, 55
   %63 = zext nneg i8 %62 to i64
-  %64 = lshr i64 71213151926419435, %63
-  %65 = and i64 %64, 1
+  %64 = shl nuw nsw i64 1, %63
+  %65 = and i64 %64, 70932772183081195
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %68, label %67
 

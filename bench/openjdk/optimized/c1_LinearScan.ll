@@ -518,8 +518,8 @@ define hidden void @_ZN10LinearScan17assign_spill_slotEP8Interval(ptr nocapture 
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i8, ptr %9, align 4
   %11 = zext nneg i8 %10 to i64
-  %12 = lshr i64 178304, %11
-  %13 = and i64 %12, 1
+  %12 = shl nuw i64 1, %11
+  %13 = and i64 %12, 178304
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %24, label %14
 
@@ -9272,8 +9272,8 @@ _ZN8Interval16split_from_startEi.exit:            ; preds = %93, %96
   %104 = getelementptr inbounds i8, ptr %.0, i64 4
   %105 = load i8, ptr %104, align 4
   %106 = zext nneg i8 %105 to i64
-  %107 = lshr i64 178304, %106
-  %108 = and i64 %107, 1
+  %107 = shl nuw i64 1, %106
+  %108 = and i64 %107, 178304
   %.not.i = icmp eq i64 %108, 0
   br i1 %.not.i, label %119, label %109
 
@@ -15296,8 +15296,8 @@ _ZN8Interval9add_rangeEii.exit:                   ; preds = %332, %361
   %368 = load ptr, ptr %0, align 8
   %369 = load i8, ptr %328, align 4
   %370 = zext nneg i8 %369 to i64
-  %371 = lshr i64 178304, %370
-  %372 = and i64 %371, 1
+  %371 = shl nuw i64 1, %370
+  %372 = and i64 %371, 178304
   %.not91 = icmp eq i64 %372, 0
   br i1 %.not91, label %383, label %373
 
@@ -19296,8 +19296,8 @@ _ZNK8Interval14previous_usageE15IntervalUseKindi.exit: ; preds = %11, %15, %2
   %32 = getelementptr inbounds i8, ptr %1, i64 4
   %33 = load i8, ptr %32, align 4
   %34 = zext nneg i8 %33 to i64
-  %35 = lshr i64 178304, %34
-  %36 = and i64 %35, 1
+  %35 = shl nuw i64 1, %34
+  %36 = and i64 %35, 178304
   %.not.i35 = icmp eq i64 %36, 0
   br i1 %.not.i35, label %47, label %37
 
@@ -19575,8 +19575,8 @@ _ZNK8Interval11first_usageE15IntervalUseKind.exit.thread: ; preds = %159, %_ZNK8
   %175 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 4
   %176 = load i8, ptr %175, align 4
   %177 = zext nneg i8 %176 to i64
-  %178 = lshr i64 178304, %177
-  %179 = and i64 %178, 1
+  %178 = shl nuw i64 1, %177
+  %179 = and i64 %178, 178304
   %.not.i44 = icmp eq i64 %179, 0
   br i1 %.not.i44, label %190, label %180
 
@@ -19816,8 +19816,8 @@ _ZN10LinearScan14is_block_beginEi.exit.thread:    ; preds = %_ZN10LinearScan14is
   %298 = getelementptr inbounds i8, ptr %289, i64 4
   %299 = load i8, ptr %298, align 4
   %300 = zext nneg i8 %299 to i64
-  %301 = lshr i64 178304, %300
-  %302 = and i64 %301, 1
+  %301 = shl nuw i64 1, %300
+  %302 = and i64 %301, 178304
   %.not.i55 = icmp eq i64 %302, 0
   br i1 %.not.i55, label %313, label %303
 
@@ -21944,8 +21944,8 @@ _ZNK8Interval11first_usageE15IntervalUseKind.exit117: ; preds = %.thread175, %22
   %235 = getelementptr inbounds i8, ptr %1, i64 4
   %236 = load i8, ptr %235, align 4
   %237 = zext nneg i8 %236 to i64
-  %238 = lshr i64 178304, %237
-  %239 = and i64 %238, 1
+  %238 = shl nuw i64 1, %237
+  %239 = and i64 %238, 178304
   %.not.i118 = icmp eq i64 %239, 0
   br i1 %.not.i118, label %250, label %240
 
@@ -22581,8 +22581,8 @@ _ZN16LinearScanWalker20split_stack_intervalEP8Interval.exit: ; preds = %_ZNK8Int
   %53 = getelementptr inbounds i8, ptr %3, i64 4
   %54 = load i8, ptr %53, align 4
   %55 = zext nneg i8 %54 to i64
-  %56 = lshr i64 178304, %55
-  %57 = and i64 %56, 1
+  %56 = shl nuw i64 1, %55
+  %57 = and i64 %56, 178304
   %.not.i = icmp eq i64 %57, 0
   br i1 %.not.i, label %68, label %58
 

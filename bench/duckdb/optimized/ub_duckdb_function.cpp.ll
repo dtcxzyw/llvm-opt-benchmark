@@ -4283,7 +4283,7 @@ lpad:                                             ; preds = %_ZNSt3mapIN6duckdb1
   br label %lpad.body
 
 lpad.body:                                        ; preds = %cleanup.action.i, %ehcleanup.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad ], [ %22, %ehcleanup.i ], [ %.pn52.i, %cleanup.action.i ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad ], [ %23, %ehcleanup.i ], [ %.pn52.i, %cleanup.action.i ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
   %call1.i.i.i20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call) #28
   resume { ptr, i32 } %eh.lpad-body
 
@@ -4307,20 +4307,20 @@ for.cond.7.i:                                     ; preds = %switch.hole_check, 
 
 switch.hole_check:                                ; preds = %invoke.cont9
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 495, %switch.maskindex
-  %8 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %8, 0
+  %8 = shl nuw nsw i16 1, %switch.maskindex
+  %9 = and i16 %8, 495
+  %switch.lobit.not = icmp eq i16 %9, 0
   br i1 %switch.lobit.not, label %for.cond.7.i, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN6duckdb8DBConfig22GetCompressionFunctionENS_15CompressionTypeENS_12PhysicalTypeE, i64 0, i64 %9
+  %10 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN6duckdb8DBConfig22GetCompressionFunctionENS_15CompressionTypeENS_12PhysicalTypeE, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %reltable.shift = shl nuw nsw i64 %9, 2
+  %reltable.shift = shl nuw nsw i64 %10, 2
   %reltable.intrinsic = tail call ptr @llvm.load.relative.i64(ptr nonnull @reltable._ZN6duckdb8DBConfig22GetCompressionFunctionENS_15CompressionTypeENS_12PhysicalTypeE, i64 %reltable.shift)
   %supports_type.i = getelementptr inbounds i8, ptr %reltable.intrinsic, i64 16
-  %10 = load ptr, ptr %supports_type.i, align 8, !tbaa !117
-  %call.i25 = invoke noundef zeroext i1 %10(i8 noundef zeroext %data_type)
+  %11 = load ptr, ptr %supports_type.i, align 8, !tbaa !117
+  %call.i25 = invoke noundef zeroext i1 %11(i8 noundef zeroext %data_type)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %switch.lookup
@@ -4334,17 +4334,17 @@ if.end.i:                                         ; preds = %call.i.noexc
 .noexc:                                           ; preds = %if.end.i
   %functions.i = getelementptr inbounds i8, ptr %call10, i64 40
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call10, i64 56
-  %11 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !108
+  %12 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !108
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call10, i64 48
-  %cmp.not9.i.i.i.i.i = icmp eq ptr %11, null
+  %cmp.not9.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not9.i.i.i.i.i, label %if.then.i.i23, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %.noexc, %while.body.i.i.i.i.i
-  %__x.addr.011.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %11, %.noexc ]
+  %__x.addr.011.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %12, %.noexc ]
   %__y.addr.010.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %.noexc ]
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 32
-  %12 = load i8, ptr %_M_storage.i.i.i.i.i.i.i, align 1, !tbaa !112
-  %cmp.i.i.i.i.i.i = icmp ult i8 %12, %type
+  %13 = load i8, ptr %_M_storage.i.i.i.i.i.i.i, align 1, !tbaa !112
+  %cmp.i.i.i.i.i.i = icmp ult i8 %13, %type
   %__y.addr.1.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.010.i.i.i.i.i, ptr %__x.addr.011.i.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i
@@ -4358,8 +4358,8 @@ _ZNSt3mapIN6duckdb15CompressionTypeES_INS0_12PhysicalTypeENS0_19CompressionFunct
 
 lor.rhs.i.i:                                      ; preds = %_ZNSt3mapIN6duckdb15CompressionTypeES_INS0_12PhysicalTypeENS0_19CompressionFunctionESt4lessIS2_ESaISt4pairIKS2_S3_EEES4_IS1_ESaIS6_IKS1_SA_EEE11lower_boundERSC_.exit.i.i
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
-  %13 = load i8, ptr %_M_storage.i.i.i.i, align 1, !tbaa !112
-  %cmp.i17.i.i = icmp ugt i8 %13, %type
+  %14 = load i8, ptr %_M_storage.i.i.i.i, align 1, !tbaa !112
+  %cmp.i17.i.i = icmp ugt i8 %14, %type
   br i1 %cmp.i17.i.i, label %if.then.i.i23, label %_ZNSt3mapIN6duckdb15CompressionTypeES_INS0_12PhysicalTypeENS0_19CompressionFunctionESt4lessIS2_ESaISt4pairIKS2_S3_EEES4_IS1_ESaIS6_IKS1_SA_EEEixERSC_.exit.i
 
 if.then.i.i23:                                    ; preds = %lor.rhs.i.i, %_ZNSt3mapIN6duckdb15CompressionTypeES_INS0_12PhysicalTypeENS0_19CompressionFunctionESt4lessIS2_ESaISt4pairIKS2_S3_EEES4_IS1_ESaIS6_IKS1_SA_EEE11lower_boundERSC_.exit.i.i, %.noexc
@@ -4387,17 +4387,17 @@ _ZNSt3mapIN6duckdb15CompressionTypeES_INS0_12PhysicalTypeENS0_19CompressionFunct
 
 call.i.i.noexc:                                   ; preds = %_ZNSt3mapIN6duckdb15CompressionTypeES_INS0_12PhysicalTypeENS0_19CompressionFunctionESt4lessIS2_ESaISt4pairIKS2_S3_EEES4_IS1_ESaIS6_IKS1_SA_EEEixERSC_.exit.i
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %ref.tmp.i) #28
-  %14 = load i8, ptr %type.addr.i, align 1, !tbaa !112
-  %15 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !108
-  %cmp.not9.i.i.i.i29.i = icmp eq ptr %15, null
+  %15 = load i8, ptr %type.addr.i, align 1, !tbaa !112
+  %16 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !108
+  %cmp.not9.i.i.i.i29.i = icmp eq ptr %16, null
   br i1 %cmp.not9.i.i.i.i29.i, label %_ZN6duckdbL23FindCompressionFunctionERNS_22CompressionFunctionSetENS_15CompressionTypeENS_12PhysicalTypeE.exit.i, label %while.body.i.i.i.i30.i
 
 while.body.i.i.i.i30.i:                           ; preds = %call.i.i.noexc, %while.body.i.i.i.i30.i
-  %__x.addr.011.i.i.i.i31.i = phi ptr [ %__x.addr.1.i.i.i.i38.i, %while.body.i.i.i.i30.i ], [ %15, %call.i.i.noexc ]
+  %__x.addr.011.i.i.i.i31.i = phi ptr [ %__x.addr.1.i.i.i.i38.i, %while.body.i.i.i.i30.i ], [ %16, %call.i.i.noexc ]
   %__y.addr.010.i.i.i.i32.i = phi ptr [ %__y.addr.1.i.i.i.i35.i, %while.body.i.i.i.i30.i ], [ %add.ptr.i.i.i.i.i, %call.i.i.noexc ]
   %_M_storage.i.i.i.i.i.i33.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i31.i, i64 32
-  %16 = load i8, ptr %_M_storage.i.i.i.i.i.i33.i, align 1, !tbaa !112
-  %cmp.i.i.i.i.i34.i = icmp ult i8 %16, %14
+  %17 = load i8, ptr %_M_storage.i.i.i.i.i.i33.i, align 1, !tbaa !112
+  %cmp.i.i.i.i.i34.i = icmp ult i8 %17, %15
   %__y.addr.1.i.i.i.i35.i = select i1 %cmp.i.i.i.i.i34.i, ptr %__y.addr.010.i.i.i.i32.i, ptr %__x.addr.011.i.i.i.i31.i
   %__x.addr.1.in.v.i.i.i.i36.i = select i1 %cmp.i.i.i.i.i34.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i37.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i31.i, i64 %__x.addr.1.in.v.i.i.i.i36.i
@@ -4411,23 +4411,23 @@ _ZNSt8_Rb_treeIN6duckdb15CompressionTypeESt4pairIKS1_St3mapINS0_12PhysicalTypeEN
 
 _ZNSt3mapIN6duckdb15CompressionTypeES_INS0_12PhysicalTypeENS0_19CompressionFunctionESt4lessIS2_ESaISt4pairIKS2_S3_EEES4_IS1_ESaIS6_IKS1_SA_EEE4findERSC_.exit.i.i: ; preds = %_ZNSt8_Rb_treeIN6duckdb15CompressionTypeESt4pairIKS1_St3mapINS0_12PhysicalTypeENS0_19CompressionFunctionESt4lessIS5_ESaIS2_IKS5_S6_EEEESt10_Select1stISD_ES7_IS1_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i.i
   %_M_storage.i.i.i14.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i35.i, i64 32
-  %17 = load i8, ptr %_M_storage.i.i.i14.i.i.i.i, align 1, !tbaa !112
-  %cmp.i15.i.i.i.i = icmp ugt i8 %17, %14
+  %18 = load i8, ptr %_M_storage.i.i.i14.i.i.i.i, align 1, !tbaa !112
+  %cmp.i15.i.i.i.i = icmp ugt i8 %18, %15
   br i1 %cmp.i15.i.i.i.i, label %_ZN6duckdbL23FindCompressionFunctionERNS_22CompressionFunctionSetENS_15CompressionTypeENS_12PhysicalTypeE.exit.i, label %if.then.i40.i
 
 if.then.i40.i:                                    ; preds = %_ZNSt3mapIN6duckdb15CompressionTypeES_INS0_12PhysicalTypeENS0_19CompressionFunctionESt4lessIS2_ESaISt4pairIKS2_S3_EEES4_IS1_ESaIS6_IKS1_SA_EEE4findERSC_.exit.i.i
   %_M_parent.i.i.i.i22.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i35.i, i64 56
-  %18 = load ptr, ptr %_M_parent.i.i.i.i22.i.i, align 8, !tbaa !108
+  %19 = load ptr, ptr %_M_parent.i.i.i.i22.i.i, align 8, !tbaa !108
   %add.ptr.i.i.i23.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i35.i, i64 48
-  %cmp.not9.i.i.i24.i.i = icmp eq ptr %18, null
+  %cmp.not9.i.i.i24.i.i = icmp eq ptr %19, null
   br i1 %cmp.not9.i.i.i24.i.i, label %_ZN6duckdbL23FindCompressionFunctionERNS_22CompressionFunctionSetENS_15CompressionTypeENS_12PhysicalTypeE.exit.i, label %while.body.i.i.i26.i.i
 
 while.body.i.i.i26.i.i:                           ; preds = %if.then.i40.i, %while.body.i.i.i26.i.i
-  %__x.addr.011.i.i.i27.i.i = phi ptr [ %__x.addr.1.i.i.i34.i.i, %while.body.i.i.i26.i.i ], [ %18, %if.then.i40.i ]
+  %__x.addr.011.i.i.i27.i.i = phi ptr [ %__x.addr.1.i.i.i34.i.i, %while.body.i.i.i26.i.i ], [ %19, %if.then.i40.i ]
   %__y.addr.010.i.i.i28.i.i = phi ptr [ %__y.addr.1.i.i.i31.i.i, %while.body.i.i.i26.i.i ], [ %add.ptr.i.i.i23.i.i, %if.then.i40.i ]
   %_M_storage.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i27.i.i, i64 32
-  %19 = load i8, ptr %_M_storage.i.i.i.i.i29.i.i, align 1, !tbaa !115
-  %cmp.i.i.i.i30.i.i = icmp ult i8 %19, %data_type
+  %20 = load i8, ptr %_M_storage.i.i.i.i.i29.i.i, align 1, !tbaa !115
+  %cmp.i.i.i.i30.i.i = icmp ult i8 %20, %data_type
   %__y.addr.1.i.i.i31.i.i = select i1 %cmp.i.i.i.i30.i.i, ptr %__y.addr.010.i.i.i28.i.i, ptr %__x.addr.011.i.i.i27.i.i
   %__x.addr.1.in.v.i.i.i32.i.i = select i1 %cmp.i.i.i.i30.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i33.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i27.i.i, i64 %__x.addr.1.in.v.i.i.i32.i.i
@@ -4441,8 +4441,8 @@ _ZNSt8_Rb_treeIN6duckdb12PhysicalTypeESt4pairIKS1_NS0_19CompressionFunctionEESt1
 
 _ZNSt3mapIN6duckdb12PhysicalTypeENS0_19CompressionFunctionESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit.i.i: ; preds = %_ZNSt8_Rb_treeIN6duckdb12PhysicalTypeESt4pairIKS1_NS0_19CompressionFunctionEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i.i
   %_M_storage.i.i.i14.i.i38.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i31.i.i, i64 32
-  %20 = load i8, ptr %_M_storage.i.i.i14.i.i38.i.i, align 1, !tbaa !115
-  %cmp.i15.i.i39.i.i = icmp ugt i8 %20, %data_type
+  %21 = load i8, ptr %_M_storage.i.i.i14.i.i38.i.i, align 1, !tbaa !115
+  %cmp.i15.i.i39.i.i = icmp ugt i8 %21, %data_type
   %second14.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i31.i.i, i64 40
   %spec.select.i.i = select i1 %cmp.i15.i.i39.i.i, ptr null, ptr %second14.i.i
   br label %_ZN6duckdbL23FindCompressionFunctionERNS_22CompressionFunctionSetENS_15CompressionTypeENS_12PhysicalTypeE.exit.i
@@ -4461,7 +4461,7 @@ invoke.cont14.i:                                  ; preds = %invoke.cont.i
           to label %unreachable.i unwind label %lpad13.i
 
 ehcleanup.thread.i:                               ; preds = %for.cond.7.i
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i) #28
@@ -4469,30 +4469,30 @@ ehcleanup.thread.i:                               ; preds = %for.cond.7.i
 
 lpad13.i:                                         ; preds = %invoke.cont14.i, %invoke.cont.i
   %cleanup.isactive.0.i = phi i1 [ false, %invoke.cont14.i ], [ true, %invoke.cont.i ]
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %ref.tmp11.i, align 8, !tbaa !12
-  %24 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 16
-  %cmp.i.i.i.i24 = icmp eq ptr %23, %24
+  %24 = load ptr, ptr %ref.tmp11.i, align 8, !tbaa !12
+  %25 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 16
+  %cmp.i.i.i.i24 = icmp eq ptr %24, %25
   br i1 %cmp.i.i.i.i24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %ehcleanup.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %lpad13.i
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
-  %25 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
-  %cmp3.i.i.i.i = icmp ult i64 %25, 16
+  %26 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
+  %cmp3.i.i.i.i = icmp ult i64 %26, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i) #28
   br i1 %cleanup.isactive.0.i, label %cleanup.action.i, label %lpad.body
 
 ehcleanup.i:                                      ; preds = %lpad13.i
-  call void @_ZdlPv(ptr noundef %23) #30
+  call void @_ZdlPv(ptr noundef %24) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11.i) #28
   br i1 %cleanup.isactive.0.i, label %cleanup.action.i, label %lpad.body
 
 cleanup.action.i:                                 ; preds = %ehcleanup.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %ehcleanup.thread.i
-  %.pn52.i = phi { ptr, i32 } [ %21, %ehcleanup.thread.i ], [ %22, %ehcleanup.i ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
+  %.pn52.i = phi { ptr, i32 } [ %22, %ehcleanup.thread.i ], [ %23, %ehcleanup.i ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
   call void @__cxa_free_exception(ptr %exception.i) #28
   br label %lpad.body
 

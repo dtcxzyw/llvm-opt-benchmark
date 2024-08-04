@@ -377,8 +377,8 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef %0) l
 
 139:                                              ; preds = %133
   %140 = and i32 %138, 31
-  %141 = lshr i32 68514004, %140
-  %142 = and i32 %141, 1
+  %141 = shl nuw i32 1, %140
+  %142 = and i32 %141, 68514004
   %.not104.i = icmp eq i32 %142, 0
   br i1 %.not104.i, label %.thread115.i, label %143
 
@@ -497,8 +497,8 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef %0) l
 
 198:                                              ; preds = %191
   %199 = and i32 %197, 31
-  %200 = lshr i32 815616, %199
-  %201 = and i32 %200, 1
+  %200 = shl nuw i32 1, %199
+  %201 = and i32 %200, 815616
   %.not71.i = icmp eq i32 %201, 0
   br i1 %.not71.i, label %r_Step_2.exit, label %202
 
@@ -620,8 +620,8 @@ r_Step_2.exit:                                    ; preds = %207, %208, %211, %2
 
 257:                                              ; preds = %250
   %258 = and i32 %256, 31
-  %259 = lshr i32 528928, %258
-  %260 = and i32 %259, 1
+  %259 = shl nuw i32 1, %258
+  %260 = and i32 %259, 528928
   %.not31.i = icmp eq i32 %260, 0
   br i1 %.not31.i, label %276, label %261
 
@@ -682,8 +682,8 @@ r_Step_2.exit:                                    ; preds = %207, %208, %211, %2
 
 286:                                              ; preds = %280
   %287 = and i32 %285, 31
-  %288 = lshr i32 3961384, %287
-  %289 = and i32 %288, 1
+  %288 = shl nuw i32 1, %287
+  %289 = and i32 %288, 3961384
   %.not45.i = icmp eq i32 %289, 0
   br i1 %.not45.i, label %309, label %290
 

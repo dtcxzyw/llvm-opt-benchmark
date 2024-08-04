@@ -1282,8 +1282,8 @@ r_Suffix_Verb_Step2c.exit:                        ; preds = %275, %472, %470, %r
 
 485:                                              ; preds = %479
   %486 = and i32 %484, 31
-  %487 = lshr i32 188, %486
-  %488 = and i32 %487, 1
+  %487 = shl nuw i32 1, %486
+  %488 = and i32 %487, 188
   %.not36.i = icmp eq i32 %488, 0
   br i1 %.not36.i, label %521, label %489
 
@@ -1573,8 +1573,8 @@ r_Prefix_Step3a_Noun.exit:                        ; preds = %604, %597, %590, %5
 
 627:                                              ; preds = %621
   %628 = and i32 %626, 31
-  %629 = lshr i32 124, %628
-  %630 = and i32 %629, 1
+  %629 = shl nuw i32 1, %628
+  %630 = and i32 %629, 124
   %.not69.i = icmp eq i32 %630, 0
   br i1 %.not69.i, label %637, label %631
 
@@ -1614,8 +1614,8 @@ r_Prefix_Step3a_Noun.exit:                        ; preds = %604, %597, %590, %5
 
 647:                                              ; preds = %642
   %648 = and i32 %646, 31
-  %649 = lshr i32 124, %648
-  %650 = and i32 %649, 1
+  %649 = shl nuw i32 1, %648
+  %650 = and i32 %649, 124
   %.not74.i = icmp eq i32 %650, 0
   br i1 %.not74.i, label %664, label %651
 

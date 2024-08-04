@@ -332,8 +332,8 @@ define dso_local void @sk_stream_wait_close(ptr noundef %0, i64 noundef %1) #0 a
 29:                                               ; preds = %25
   %30 = load volatile i8, ptr %15, align 2
   %31 = zext nneg i8 %30 to i32
-  %32 = lshr i32 -2577, %31
-  %33 = and i32 %32, 1
+  %32 = shl nuw i32 1, %31
+  %33 = and i32 %32, -2577
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %.thread
 

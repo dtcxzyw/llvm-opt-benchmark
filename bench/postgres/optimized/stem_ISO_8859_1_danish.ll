@@ -133,8 +133,8 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
 
 45:                                               ; preds = %38
   %46 = and i32 %44, 31
-  %47 = lshr i32 1851440, %46
-  %48 = and i32 %47, 1
+  %47 = shl nuw i32 1, %46
+  %48 = and i32 %47, 1851440
   %.not37.i = icmp eq i32 %48, 0
   br i1 %.not37.i, label %.sink.split, label %49
 
@@ -277,8 +277,8 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
 
 113:                                              ; preds = %107
   %114 = and i32 %112, 31
-  %115 = lshr i32 1572992, %114
-  %116 = and i32 %115, 1
+  %115 = shl nuw i32 1, %114
+  %116 = and i32 %115, 1572992
   %.not62.i = icmp eq i32 %116, 0
   br i1 %.not62.i, label %r_other_suffix.exit.sink.split, label %117
 

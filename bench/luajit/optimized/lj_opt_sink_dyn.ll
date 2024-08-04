@@ -748,15 +748,15 @@ for.body104.i:                                    ; preds = %for.end.i, %for.inc
   store i16 255, ptr %prev110.i, align 2
   %133 = and i8 %131, 31
   %and114.i = zext nneg i8 %133 to i32
-  %shr.i = lshr i32 6315993, %and114.i
-  %and115.i = and i32 %shr.i, 1
-  %tobool116.not.i = icmp eq i32 %and115.i, 0
+  %134 = shl nuw i32 1, %and114.i
+  %135 = and i32 %134, 6315993
+  %tobool116.not.i = icmp eq i32 %135, 0
   br i1 %tobool116.not.i, label %for.inc125.i, label %land.lhs.true117.i
 
 land.lhs.true117.i:                               ; preds = %for.body104.i
   %o118.i = getelementptr inbounds i8, ptr %ir.151.i, i64 5
-  %134 = load i8, ptr %o118.i, align 1
-  %cmp120.not.i = icmp eq i8 %134, 27
+  %136 = load i8, ptr %o118.i, align 1
+  %cmp120.not.i = icmp eq i8 %136, 27
   %spec.select.idx.i = select i1 %cmp120.not.i, i64 0, i64 8
   %spec.select.i = getelementptr inbounds i8, ptr %ir.151.i, i64 %spec.select.idx.i
   br label %for.inc125.i

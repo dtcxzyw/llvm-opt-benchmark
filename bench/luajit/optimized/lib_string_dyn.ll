@@ -1287,8 +1287,8 @@ if.then8.i115:                                    ; preds = %while.body.i109
 if.then.i.i:                                      ; preds = %if.then8.i115
   %and1.i.i = and i32 %conv10.i, 31
   %idxprom.i.i = zext nneg i32 %and1.i.i to i64
-  %34 = lshr i64 4267110245, %idxprom.i.i
-  %35 = and i64 %34, 1
+  %34 = shl nuw nsw i64 1, %idxprom.i.i
+  %35 = and i64 %34, 4267110245
   %tobool.not.not.i.i = icmp eq i64 %35, 0
   br i1 %tobool.not.not.i.i, label %if.then2.i.i, label %if.end.i.i
 
@@ -1384,8 +1384,8 @@ if.then8.i154:                                    ; preds = %while.body.i131
 if.then.i.i164:                                   ; preds = %if.then8.i154
   %and1.i.i165 = and i32 %conv10.i155, 31
   %idxprom.i.i166 = zext nneg i32 %and1.i.i165 to i64
-  %42 = lshr i64 4267110245, %idxprom.i.i166
-  %43 = and i64 %42, 1
+  %42 = shl nuw nsw i64 1, %idxprom.i.i166
+  %43 = and i64 %42, 4267110245
   %tobool.not.not.i.i167 = icmp eq i64 %43, 0
   br i1 %tobool.not.not.i.i167, label %if.then2.i.i170, label %if.end.i.i168
 
@@ -1768,8 +1768,8 @@ sw.bb1:                                           ; preds = %entry
 if.then.i:                                        ; preds = %sw.bb1
   %and1.i = and i32 %conv2, 31
   %idxprom.i = zext nneg i32 %and1.i to i64
-  %2 = lshr i64 4267110245, %idxprom.i
-  %3 = and i64 %2, 1
+  %2 = shl nuw nsw i64 1, %idxprom.i
+  %3 = and i64 %2, 4267110245
   %tobool.not.not.i = icmp eq i64 %3, 0
   br i1 %tobool.not.not.i, label %if.then2.i, label %if.end.i
 
@@ -1847,8 +1847,8 @@ if.then8.i:                                       ; preds = %while.body.i
 if.then.i.i:                                      ; preds = %if.then8.i
   %and1.i.i = and i32 %conv10.i, 31
   %idxprom.i.i = zext nneg i32 %and1.i.i to i64
-  %9 = lshr i64 4267110245, %idxprom.i.i
-  %10 = and i64 %9, 1
+  %9 = shl nuw nsw i64 1, %idxprom.i.i
+  %10 = and i64 %9, 4267110245
   %tobool.not.not.i.i = icmp eq i64 %10, 0
   br i1 %tobool.not.not.i.i, label %if.then2.i.i, label %if.end.i.i
 

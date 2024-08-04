@@ -2161,8 +2161,8 @@ define internal fastcc i32 @security_sid_to_context_core(i32 noundef %0, ptr nou
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr [28 x ptr], ptr @initial_sid_to_string, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = lshr i64 134209617, %16
-  %20 = and i64 %19, 1
+  %19 = shl nuw nsw i64 1, %16
+  %20 = and i64 %19, 134209617
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %67
 
@@ -2296,8 +2296,8 @@ define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 nou
 
 .preheader:                                       ; preds = %13, %16
   %19 = phi i64 [ %17, %16 ], [ 1, %13 ]
-  %20 = lshr i64 134209617, %19
-  %21 = and i64 %20, 1
+  %20 = shl nuw i64 1, %19
+  %21 = and i64 %20, 134209617
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %16
 

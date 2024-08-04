@@ -136,8 +136,8 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
 
 52:                                               ; preds = %50
   %53 = zext nneg i32 %49 to i64
-  %54 = lshr i64 230122, %53
-  %55 = and i64 %54, 1
+  %54 = shl nuw nsw i64 1, %53
+  %55 = and i64 %54, 230122
   %.not55 = icmp eq i64 %55, 0
   br i1 %.not55, label %58, label %56
 
@@ -172,8 +172,8 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
 
 67:                                               ; preds = %65
   %68 = zext nneg i32 %49 to i64
-  %69 = lshr i64 66764010, %68
-  %70 = and i64 %69, 1
+  %69 = shl nuw nsw i64 1, %68
+  %70 = and i64 %69, 66764010
   %.not53 = icmp eq i64 %70, 0
   br i1 %.not53, label %73, label %71
 
@@ -671,8 +671,8 @@ define internal range(i32 -9, 1) i32 @snoop_dump_can_write_encap(i32 noundef %0)
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = lshr i64 8089, %6
-  %8 = and i64 %7, 1
+  %7 = shl nuw nsw i64 1, %6
+  %8 = and i64 %7, 8089
   %.not = icmp eq i64 %8, 0
   %spec.select = select i1 %.not, i32 0, i32 -8
   br label %9

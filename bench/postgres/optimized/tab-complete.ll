@@ -12510,8 +12510,8 @@ define internal ptr @create_command_generator(ptr noundef %0, i32 noundef %1) #0
   %19 = add i32 %.pre12.i, -1
   %20 = sext i32 %19 to i64
   %21 = and i64 %20, 1152921504606846975
-  %22 = lshr i64 2251215416852079, %21
-  %23 = and i64 %22, 1
+  %22 = shl nuw i64 1, %21
+  %23 = and i64 %22, 2251215416852079
   %.not8.i.not = icmp eq i64 %23, 0
   br i1 %.not8.i.not, label %26, label %24
 
@@ -12634,8 +12634,8 @@ define internal ptr @drop_command_generator(ptr noundef %0, i32 noundef %1) #0 {
   %19 = add i32 %.pre12.i, -1
   %20 = sext i32 %19 to i64
   %21 = and i64 %20, 1152921504606846975
-  %22 = lshr i64 2144288181583471, %21
-  %23 = and i64 %22, 1
+  %22 = shl nuw i64 1, %21
+  %23 = and i64 %22, 2144288181583471
   %.not8.i.not = icmp eq i64 %23, 0
   br i1 %.not8.i.not, label %26, label %24
 
@@ -12705,8 +12705,8 @@ define internal ptr @alter_command_generator(ptr noundef %0, i32 noundef %1) #0 
   %19 = add i32 %.pre12.i, -1
   %20 = sext i32 %19 to i64
   %21 = and i64 %20, 1152921504606846975
-  %22 = lshr i64 2139924490878702, %21
-  %23 = and i64 %22, 1
+  %22 = shl nuw i64 1, %21
+  %23 = and i64 %22, 2139924490878702
   %.not8.i.not = icmp eq i64 %23, 0
   br i1 %.not8.i.not, label %26, label %24
 

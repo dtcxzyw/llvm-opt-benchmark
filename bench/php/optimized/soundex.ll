@@ -101,8 +101,8 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %.not160, label %48, label %42
 
 42:                                               ; preds = %37
-  %43 = lshr i64 22036881, %38
-  %44 = and i64 %43, 1
+  %43 = shl nuw i64 1, %38
+  %44 = and i64 %43, 22036881
   %.not161.not = icmp eq i64 %44, 0
   br i1 %.not161.not, label %45, label %48
 

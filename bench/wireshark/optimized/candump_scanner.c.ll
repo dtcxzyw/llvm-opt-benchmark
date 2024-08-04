@@ -207,8 +207,8 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   %88 = load i8, ptr %87, align 1
   %89 = sext i32 %.1 to i64
   %90 = and i64 %89, 9223372036854775807
-  %91 = lshr i64 397295623, %90
-  %92 = and i64 %91, 1
+  %91 = shl nuw i64 1, %90
+  %92 = and i64 %91, 397295623
   %.not174.not = icmp eq i64 %92, 0
   br i1 %.not174.not, label %93, label %94
 
@@ -236,8 +236,8 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   %105 = getelementptr [38 x i16], ptr @yy_def, i64 0, i64 %104
   %106 = load i16, ptr %105, align 2
   %107 = and i64 %104, 9223372036854775807
-  %108 = lshr i64 61117888, %107
-  %109 = and i64 %108, 1
+  %108 = shl nuw i64 1, %107
+  %109 = and i64 %108, 61117888
   %.not181 = icmp eq i64 %109, 0
   br i1 %.not181, label %113, label %110
 
@@ -266,8 +266,8 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   %124 = sext i16 %123 to i32
   %125 = getelementptr i8, ptr %.1160, i64 1
   %126 = and i64 %.lcssa, 9223372036854775807
-  %127 = lshr i64 17585743593472, %126
-  %128 = and i64 %127, 1
+  %127 = shl nuw i64 1, %126
+  %128 = and i64 %127, 17585743593472
   %.not176.not = icmp eq i64 %128, 0
   br i1 %.not176.not, label %84, label %.outer.sink.split, !llvm.loop !6
 
@@ -607,8 +607,8 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   %329 = phi i8 [ %327, %324 ], [ 1, %.lr.ph32.i ]
   %330 = sext i32 %.02130.i to i64
   %331 = and i64 %330, 9223372036854775807
-  %332 = lshr i64 397295623, %331
-  %333 = and i64 %332, 1
+  %332 = shl nuw i64 1, %331
+  %333 = and i64 %332, 397295623
   %.not24.not.i = icmp eq i64 %333, 0
   br i1 %.not24.not.i, label %334, label %335
 
@@ -636,8 +636,8 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   %346 = getelementptr [38 x i16], ptr @yy_def, i64 0, i64 %345
   %347 = load i16, ptr %346, align 2
   %348 = and i64 %345, 9223372036854775807
-  %349 = lshr i64 61117888, %348
-  %350 = and i64 %349, 1
+  %349 = shl nuw i64 1, %348
+  %350 = and i64 %349, 61117888
   %.not26.i183 = icmp eq i64 %350, 0
   br i1 %.not26.i183, label %354, label %351
 
@@ -672,8 +672,8 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %314
   %.021.lcssa.i = phi i32 [ %321, %314 ], [ %365, %._crit_edge.i ]
   %367 = sext i32 %.021.lcssa.i to i64
   %368 = and i64 %367, 9223372036854775807
-  %369 = lshr i64 397295623, %368
-  %370 = and i64 %369, 1
+  %369 = shl nuw i64 1, %368
+  %370 = and i64 %369, 397295623
   %.not.not.i = icmp eq i64 %370, 0
   br i1 %.not.not.i, label %371, label %372
 
@@ -710,8 +710,8 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %314
 yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i184, %372
   %.lcssa.i187 = phi i64 [ %376, %372 ], [ %387, %.lr.ph.i184 ]
   %390 = and i64 %.lcssa.i187, 9223372036854775807
-  %391 = lshr i64 17585743593472, %390
-  %392 = and i64 %391, 1
+  %391 = shl nuw i64 1, %390
+  %392 = and i64 %391, 17585743593472
   %.not18.i = icmp ne i64 %392, 0
   %.not180330 = icmp eq i64 %390, 0
   %.not180 = or i1 %.not18.i, %.not180330
@@ -1061,8 +1061,8 @@ yy_get_next_buffer.exit.thread:                   ; preds = %411, %yy_get_next_b
   %574 = phi i8 [ %572, %569 ], [ 1, %.lr.ph32.i193 ]
   %575 = sext i32 %.02130.i194 to i64
   %576 = and i64 %575, 9223372036854775807
-  %577 = lshr i64 397295623, %576
-  %578 = and i64 %577, 1
+  %577 = shl nuw i64 1, %576
+  %578 = and i64 %577, 397295623
   %.not24.not.i197 = icmp eq i64 %578, 0
   br i1 %.not24.not.i197, label %579, label %580
 
@@ -1090,8 +1090,8 @@ yy_get_next_buffer.exit.thread:                   ; preds = %411, %yy_get_next_b
   %591 = getelementptr [38 x i16], ptr @yy_def, i64 0, i64 %590
   %592 = load i16, ptr %591, align 2
   %593 = and i64 %590, 9223372036854775807
-  %594 = lshr i64 61117888, %593
-  %595 = and i64 %594, 1
+  %594 = shl nuw i64 1, %593
+  %595 = and i64 %594, 61117888
   %.not26.i201 = icmp eq i64 %595, 0
   br i1 %.not26.i201, label %599, label %596
 
@@ -1153,8 +1153,8 @@ yy_get_next_buffer.exit.thread225:                ; preds = %411, %yy_get_next_b
   %623 = phi i8 [ %621, %618 ], [ 1, %.lr.ph32.i209 ]
   %624 = sext i32 %.02130.i210 to i64
   %625 = and i64 %624, 9223372036854775807
-  %626 = lshr i64 397295623, %625
-  %627 = and i64 %626, 1
+  %626 = shl nuw i64 1, %625
+  %627 = and i64 %626, 397295623
   %.not24.not.i213 = icmp eq i64 %627, 0
   br i1 %.not24.not.i213, label %628, label %629
 
@@ -1182,8 +1182,8 @@ yy_get_next_buffer.exit.thread225:                ; preds = %411, %yy_get_next_b
   %640 = getelementptr [38 x i16], ptr @yy_def, i64 0, i64 %639
   %641 = load i16, ptr %640, align 2
   %642 = and i64 %639, 9223372036854775807
-  %643 = lshr i64 61117888, %642
-  %644 = and i64 %643, 1
+  %643 = shl nuw i64 1, %642
+  %644 = and i64 %643, 61117888
   %.not26.i217 = icmp eq i64 %644, 0
   br i1 %.not26.i217, label %648, label %645
 

@@ -221,8 +221,8 @@ GUC_yyensure_buffer_stack.exit:                   ; preds = %21, %22, %30
   %57 = load i8, ptr %56, align 1
   %58 = sext i32 %.1 to i64
   %59 = and i64 %58, 9223372036854775807
-  %60 = lshr i64 1101676544007, %59
-  %61 = and i64 %60, 1
+  %60 = shl nuw i64 1, %59
+  %61 = and i64 %60, 1101676544007
   %.not50.not = icmp eq i64 %61, 0
   br i1 %.not50.not, label %62, label %63
 
@@ -250,8 +250,8 @@ GUC_yyensure_buffer_stack.exit:                   ; preds = %21, %22, %30
   %74 = getelementptr [48 x i16], ptr @yy_def, i64 0, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = and i64 %73, 9223372036854775807
-  %77 = lshr i64 241224598912, %76
-  %78 = and i64 %77, 1
+  %77 = shl nuw i64 1, %76
+  %78 = and i64 %77, 241224598912
   %.not55 = icmp eq i64 %78, 0
   br i1 %.not55, label %82, label %79
 
@@ -429,8 +429,8 @@ yy_get_next_buffer.exit.thread:                   ; preds = %yy_get_next_buffer.
   %156 = phi i8 [ %154, %151 ], [ 1, %.lr.ph26.i ]
   %157 = sext i32 %.01623.i to i64
   %158 = and i64 %157, 9223372036854775807
-  %159 = lshr i64 1101676544007, %158
-  %160 = and i64 %159, 1
+  %159 = shl nuw i64 1, %158
+  %160 = and i64 %159, 1101676544007
   %.not18.not.i = icmp eq i64 %160, 0
   br i1 %.not18.not.i, label %161, label %162
 
@@ -458,8 +458,8 @@ yy_get_next_buffer.exit.thread:                   ; preds = %yy_get_next_buffer.
   %173 = getelementptr [48 x i16], ptr @yy_def, i64 0, i64 %172
   %174 = load i16, ptr %173, align 2
   %175 = and i64 %172, 9223372036854775807
-  %176 = lshr i64 241224598912, %175
-  %177 = and i64 %176, 1
+  %176 = shl nuw i64 1, %175
+  %177 = and i64 %176, 241224598912
   %.not20.i = icmp eq i64 %177, 0
   br i1 %.not20.i, label %181, label %178
 
@@ -494,8 +494,8 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %141
   %.016.lcssa.i = phi i32 [ %148, %141 ], [ %192, %._crit_edge.i ]
   %194 = sext i32 %.016.lcssa.i to i64
   %195 = and i64 %194, 9223372036854775807
-  %196 = lshr i64 1101676544007, %195
-  %197 = and i64 %196, 1
+  %196 = shl nuw i64 1, %195
+  %197 = and i64 %196, 1101676544007
   %.not.not.i = icmp eq i64 %197, 0
   br i1 %.not.not.i, label %198, label %199
 
@@ -979,8 +979,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread100_crit_edge: ; preds = %
   %432 = phi i8 [ %430, %427 ], [ 1, %.lr.ph26.i67 ]
   %433 = sext i32 %.01623.i69 to i64
   %434 = and i64 %433, 9223372036854775807
-  %435 = lshr i64 1101676544007, %434
-  %436 = and i64 %435, 1
+  %435 = shl nuw i64 1, %434
+  %436 = and i64 %435, 1101676544007
   %.not18.not.i71 = icmp eq i64 %436, 0
   br i1 %.not18.not.i71, label %437, label %438
 
@@ -1008,8 +1008,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread100_crit_edge: ; preds = %
   %449 = getelementptr [48 x i16], ptr @yy_def, i64 0, i64 %448
   %450 = load i16, ptr %449, align 2
   %451 = and i64 %448, 9223372036854775807
-  %452 = lshr i64 241224598912, %451
-  %453 = and i64 %452, 1
+  %452 = shl nuw i64 1, %451
+  %453 = and i64 %452, 241224598912
   %.not20.i75 = icmp eq i64 %453, 0
   br i1 %.not20.i75, label %457, label %454
 
@@ -1074,8 +1074,8 @@ yy_get_next_buffer.exit.thread100:                ; preds = %239, %yy_get_next_b
   %481 = phi i8 [ %479, %476 ], [ 1, %.lr.ph26.i84 ]
   %482 = sext i32 %.01623.i86 to i64
   %483 = and i64 %482, 9223372036854775807
-  %484 = lshr i64 1101676544007, %483
-  %485 = and i64 %484, 1
+  %484 = shl nuw i64 1, %483
+  %485 = and i64 %484, 1101676544007
   %.not18.not.i88 = icmp eq i64 %485, 0
   br i1 %.not18.not.i88, label %486, label %487
 
@@ -1103,8 +1103,8 @@ yy_get_next_buffer.exit.thread100:                ; preds = %239, %yy_get_next_b
   %498 = getelementptr [48 x i16], ptr @yy_def, i64 0, i64 %497
   %499 = load i16, ptr %498, align 2
   %500 = and i64 %497, 9223372036854775807
-  %501 = lshr i64 241224598912, %500
-  %502 = and i64 %501, 1
+  %501 = shl nuw i64 1, %500
+  %502 = and i64 %501, 241224598912
   %.not20.i92 = icmp eq i64 %502, 0
   br i1 %.not20.i92, label %506, label %503
 

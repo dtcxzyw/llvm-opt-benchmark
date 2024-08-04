@@ -4168,23 +4168,23 @@ if.then.i70:                                      ; preds = %switch.hole_check10
 
 switch.hole_check:                                ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i
   %switch.maskindex = trunc nuw nsw i32 %9 to i8
-  %switch.shifted = lshr i8 -107, %switch.maskindex
-  %20 = and i8 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i8 %20, 0
+  %20 = shl nuw i8 1, %switch.maskindex
+  %21 = and i8 %20, -107
+  %switch.lobit.not = icmp eq i8 %21, 0
   br i1 %switch.lobit.not, label %if.then.i51, label %sw.epilog.i.sink.split
 
 switch.hole_check99:                              ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i54
   %switch.maskindex101 = trunc nuw nsw i32 %13 to i8
-  %switch.shifted102 = lshr i8 -107, %switch.maskindex101
-  %21 = and i8 %switch.shifted102, 1
-  %switch.lobit103.not = icmp eq i8 %21, 0
+  %22 = shl nuw i8 1, %switch.maskindex101
+  %23 = and i8 %22, -107
+  %switch.lobit103.not = icmp eq i8 %23, 0
   br i1 %switch.lobit103.not, label %if.then.i60, label %sw.epilog.i.sink.split
 
 switch.hole_check106:                             ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i64
   %switch.maskindex108 = trunc nuw nsw i32 %17 to i8
-  %switch.shifted109 = lshr i8 -107, %switch.maskindex108
-  %22 = and i8 %switch.shifted109, 1
-  %switch.lobit110.not = icmp eq i8 %22, 0
+  %24 = shl nuw i8 1, %switch.maskindex108
+  %25 = and i8 %24, -107
+  %switch.lobit110.not = icmp eq i8 %25, 0
   br i1 %switch.lobit110.not, label %if.then.i70, label %sw.epilog.i.sink.split
 
 sw.epilog.i.sink.split:                           ; preds = %switch.hole_check106, %switch.hole_check99, %switch.hole_check, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i64, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i54, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i
@@ -4204,23 +4204,23 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   br i1 %cmp24.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end26.i
 
 if.end26.i:                                       ; preds = %sw.epilog.i
-  %23 = load i8, ptr %begin.addr.0.i, align 1, !tbaa !25
-  %cmp28.i = icmp eq i8 %23, 35
+  %26 = load i8, ptr %begin.addr.0.i, align 1, !tbaa !25
+  %cmp28.i = icmp eq i8 %26, 35
   br i1 %cmp28.i, label %if.then29.i, label %if.end34.i
 
 if.then29.i:                                      ; preds = %if.end26.i
-  %24 = load i32, ptr %arg_type_.i, align 8, !tbaa !122
-  %25 = add i32 %24, -1
-  %26 = icmp ult i32 %25, 11
-  br i1 %26, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit, label %if.then.i.i73
+  %27 = load i32, ptr %arg_type_.i, align 8, !tbaa !122
+  %28 = add i32 %27, -1
+  %29 = icmp ult i32 %28, 11
+  br i1 %29, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit, label %if.then.i.i73
 
 if.then.i.i73:                                    ; preds = %if.then29.i
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.21) #35
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit: ; preds = %if.then29.i
-  %27 = load ptr, ptr %checker, align 8, !tbaa !127
-  %alt.i.i = getelementptr inbounds i8, ptr %27, i64 9
+  %30 = load ptr, ptr %checker, align 8, !tbaa !127
+  %alt.i.i = getelementptr inbounds i8, ptr %30, i64 9
   %bf.load.i.i75 = load i16, ptr %alt.i.i, align 1
   %bf.set.i.i76 = or i16 %bf.load.i.i75, 128
   store i16 %bf.set.i.i76, ptr %alt.i.i, align 1
@@ -4233,27 +4233,27 @@ if.end34.ithread-pre-split:                       ; preds = %_ZN3fmt2v96detail13
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.end34.ithread-pre-split, %if.end26.i
-  %28 = phi i8 [ %.pr, %if.end34.ithread-pre-split ], [ %23, %if.end26.i ]
+  %31 = phi i8 [ %.pr, %if.end34.ithread-pre-split ], [ %26, %if.end26.i ]
   %begin.addr.1.i = phi ptr [ %incdec.ptr30.i, %if.end34.ithread-pre-split ], [ %begin.addr.0.i, %if.end26.i ]
-  %cmp36.i = icmp eq i8 %28, 48
+  %cmp36.i = icmp eq i8 %31, 48
   br i1 %cmp36.i, label %if.then37.i, label %if.end42.i
 
 if.then37.i:                                      ; preds = %if.end34.i
-  %29 = load i32, ptr %arg_type_.i, align 8, !tbaa !122
-  %30 = add i32 %29, -1
-  %31 = icmp ult i32 %30, 11
-  br i1 %31, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i79, label %if.then.i.i78
+  %32 = load i32, ptr %arg_type_.i, align 8, !tbaa !122
+  %33 = add i32 %32, -1
+  %34 = icmp ult i32 %33, 11
+  br i1 %34, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i79, label %if.then.i.i78
 
 if.then.i.i78:                                    ; preds = %if.then37.i
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.21) #35
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i79: ; preds = %if.then37.i
-  %32 = load ptr, ptr %checker, align 8, !tbaa !127
-  %align.i.i = getelementptr inbounds i8, ptr %32, i64 9
+  %35 = load ptr, ptr %checker, align 8, !tbaa !127
+  %align.i.i = getelementptr inbounds i8, ptr %35, i64 9
   %bf.load.i.i80 = load i16, ptr %align.i.i, align 1
-  %33 = and i16 %bf.load.i.i80, 15
-  %cmp.i.i = icmp eq i16 %33, 0
+  %36 = and i16 %bf.load.i.i80, 15
+  %cmp.i.i = icmp eq i16 %36, 0
   br i1 %cmp.i.i, label %if.then.i2.i, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit
 
 if.then.i2.i:                                     ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i79
@@ -4262,7 +4262,7 @@ if.then.i2.i:                                     ; preds = %_ZN3fmt2v96detail13
   br label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit: ; preds = %if.then.i2.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i79
-  %fill.i.i = getelementptr inbounds i8, ptr %32, i64 11
+  %fill.i.i = getelementptr inbounds i8, ptr %35, i64 11
   store i8 48, ptr %fill.i.i, align 1, !tbaa !25
   %incdec.ptr38.i = getelementptr inbounds i8, ptr %begin.addr.1.i, i64 1
   %cmp39.i = icmp eq ptr %incdec.ptr38.i, %add.ptr.i.i
@@ -4275,8 +4275,8 @@ if.end42.i:                                       ; preds = %_ZN3fmt2v96detail13
   br i1 %cmp44.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end42.i
-  %34 = load i8, ptr %call43.i, align 1, !tbaa !25
-  %cmp48.i = icmp eq i8 %34, 46
+  %37 = load i8, ptr %call43.i, align 1, !tbaa !25
+  %cmp48.i = icmp eq i8 %37, 46
   br i1 %cmp48.i, label %if.then49.i, label %if.end54.i
 
 if.then49.i:                                      ; preds = %if.end46.i
@@ -4289,24 +4289,24 @@ if.end54.ithread-pre-split:                       ; preds = %if.then49.i
   br label %if.end54.i
 
 if.end54.i:                                       ; preds = %if.end54.ithread-pre-split, %if.end46.i
-  %35 = phi i8 [ %.pr91, %if.end54.ithread-pre-split ], [ %34, %if.end46.i ]
+  %38 = phi i8 [ %.pr91, %if.end54.ithread-pre-split ], [ %37, %if.end46.i ]
   %begin.addr.3.i = phi ptr [ %call50.i, %if.end54.ithread-pre-split ], [ %call43.i, %if.end46.i ]
-  %cmp56.i = icmp eq i8 %35, 76
+  %cmp56.i = icmp eq i8 %38, 76
   br i1 %cmp56.i, label %if.then57.i, label %land.lhs.true61.i
 
 if.then57.i:                                      ; preds = %if.end54.i
-  %36 = load i32, ptr %arg_type_.i, align 8, !tbaa !122
-  %37 = add i32 %36, -1
-  %38 = icmp ult i32 %37, 11
-  br i1 %38, label %if.end59.i, label %if.then.i.i83
+  %39 = load i32, ptr %arg_type_.i, align 8, !tbaa !122
+  %40 = add i32 %39, -1
+  %41 = icmp ult i32 %40, 11
+  br i1 %41, label %if.end59.i, label %if.then.i.i83
 
 if.then.i.i83:                                    ; preds = %if.then57.i
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.21) #35
   unreachable
 
 if.end59.i:                                       ; preds = %if.then57.i
-  %39 = load ptr, ptr %checker, align 8, !tbaa !127
-  %localized.i.i = getelementptr inbounds i8, ptr %39, i64 9
+  %42 = load ptr, ptr %checker, align 8, !tbaa !127
+  %localized.i.i = getelementptr inbounds i8, ptr %42, i64 9
   %bf.load.i.i85 = load i16, ptr %localized.i.i, align 1
   %bf.set.i.i86 = or i16 %bf.load.i.i85, 256
   store i16 %bf.set.i.i86, ptr %localized.i.i, align 1
@@ -4319,19 +4319,19 @@ if.end59.i.land.lhs.true61.i_crit_edge:           ; preds = %if.end59.i
   br label %land.lhs.true61.i
 
 land.lhs.true61.i:                                ; preds = %if.end59.i.land.lhs.true61.i_crit_edge, %if.end54.i
-  %40 = phi i8 [ %.pre, %if.end59.i.land.lhs.true61.i_crit_edge ], [ %35, %if.end54.i ]
+  %43 = phi i8 [ %.pre, %if.end59.i.land.lhs.true61.i_crit_edge ], [ %38, %if.end54.i ]
   %begin.addr.4.i94 = phi ptr [ %incdec.ptr58.i, %if.end59.i.land.lhs.true61.i_crit_edge ], [ %begin.addr.3.i, %if.end54.i ]
-  %cmp63.not.i = icmp eq i8 %40, 125
+  %cmp63.not.i = icmp eq i8 %43, 125
   br i1 %cmp63.not.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.then64.i
 
 if.then64.i:                                      ; preds = %land.lhs.true61.i
-  %call67.i = call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %40)
+  %call67.i = call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %43)
   %cmp68.i = icmp eq i8 %call67.i, 0
   br i1 %cmp68.i, label %if.then69.i, label %if.then64.split.i
 
 if.then64.split.i:                                ; preds = %if.then64.i
   %incdec.ptr66.i = getelementptr inbounds i8, ptr %begin.addr.4.i94, i64 1
-  %41 = load ptr, ptr %checker, align 8, !tbaa !127
+  %44 = load ptr, ptr %checker, align 8, !tbaa !127
   br label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split
 
 if.then69.i:                                      ; preds = %if.then64.i
@@ -4339,7 +4339,7 @@ if.then69.i:                                      ; preds = %if.then64.i
   unreachable
 
 _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split: ; preds = %if.then64.split.i, %if.then.i
-  %this.sink = phi ptr [ %41, %if.then64.split.i ], [ %this, %if.then.i ]
+  %this.sink = phi ptr [ %44, %if.then64.split.i ], [ %this, %if.then.i ]
   %call6.i.sink = phi i8 [ %call67.i, %if.then64.split.i ], [ %call6.i, %if.then.i ]
   %retval.0.i.ph = phi ptr [ %incdec.ptr66.i, %if.then64.split.i ], [ %arrayidx.i, %if.then.i ]
   %type2.i = getelementptr inbounds i8, ptr %this.sink, i64 8
@@ -4349,8 +4349,8 @@ _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_
 _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit: ; preds = %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split, %land.lhs.true61.i, %if.end59.i, %if.then49.i, %if.end42.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit, %sw.epilog.i, %if.end12.i
   %retval.0.i = phi ptr [ %add.ptr.i.i, %if.end12.i ], [ %add.ptr.i.i, %sw.epilog.i ], [ %add.ptr.i.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit ], [ %add.ptr.i.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit ], [ %add.ptr.i.i, %if.end42.i ], [ %add.ptr.i.i, %if.then49.i ], [ %begin.addr.4.i94, %land.lhs.true61.i ], [ %add.ptr.i.i, %if.end59.i ], [ %retval.0.i.ph, %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split ]
   %type37 = getelementptr inbounds i8, ptr %this, i64 8
-  %42 = load i8, ptr %type37, align 8, !tbaa !128
-  switch i8 %42, label %if.then.i90 [
+  %45 = load i8, ptr %type37, align 8, !tbaa !128
+  switch i8 %45, label %if.then.i90 [
     i8 18, label %_ZN3fmt2v96detail22check_string_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit
     i8 16, label %_ZN3fmt2v96detail22check_string_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit
     i8 0, label %_ZN3fmt2v96detail22check_string_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit

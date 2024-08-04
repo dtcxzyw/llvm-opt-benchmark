@@ -1034,8 +1034,8 @@ define dso_local void @drm_dp_dump_sideband_msg_req_body(ptr noundef %0, i32 nou
 
 9:                                                ; preds = %7
   %10 = zext nneg i8 %4 to i64
-  %11 = lshr i64 71775848476246008, %10
-  %12 = and i64 %11, 1
+  %11 = shl nuw nsw i64 1, %10
+  %12 = and i64 %11, 71775848476246008
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %17
 
@@ -3832,8 +3832,8 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
 
 387:                                              ; preds = %383
   %388 = zext nneg i8 %71 to i64
-  %389 = lshr i64 71775848476246008, %388
-  %390 = and i64 %389, 1
+  %389 = shl nuw nsw i64 1, %388
+  %390 = and i64 %389, 71775848476246008
   %391 = icmp eq i64 %390, 0
   br i1 %391, label %392, label %395
 
@@ -3872,8 +3872,8 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
 
 411:                                              ; preds = %406
   %412 = zext nneg i8 %408 to i64
-  %413 = lshr i64 71775848476246008, %412
-  %414 = and i64 %413, 1
+  %413 = shl nuw nsw i64 1, %412
+  %414 = and i64 %413, 71775848476246008
   %415 = icmp eq i64 %414, 0
   br i1 %415, label %416, label %419
 
@@ -4113,8 +4113,8 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(
 
 557:                                              ; preds = %553
   %558 = zext nneg i8 %472 to i64
-  %559 = lshr i64 71775848476246008, %558
-  %560 = and i64 %559, 1
+  %559 = shl nuw nsw i64 1, %558
+  %560 = and i64 %559, 71775848476246008
   %561 = icmp eq i64 %560, 0
   br i1 %561, label %562, label %565
 

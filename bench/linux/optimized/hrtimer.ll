@@ -1601,8 +1601,8 @@ define dso_local void @hrtimer_init(ptr noundef %0, i32 noundef %1, i32 noundef 
   %32 = getelementptr [16 x i32], ptr @hrtimer_clock_to_base_table, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i64 %31, 4611686018427387903
-  %35 = lshr i64 63356, %34
-  %36 = and i64 %35, 1
+  %35 = shl nuw i64 1, %34
+  %36 = and i64 %35, 63356
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %39, label %38
 
@@ -2401,8 +2401,8 @@ define dso_local void @hrtimer_init_sleeper(ptr noundef %0, i32 noundef %1, i32 
   %32 = getelementptr [16 x i32], ptr @hrtimer_clock_to_base_table, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i64 %31, 4611686018427387903
-  %35 = lshr i64 63356, %34
-  %36 = and i64 %35, 1
+  %35 = shl nuw i64 1, %34
+  %36 = and i64 %35, 63356
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %39, label %38
 

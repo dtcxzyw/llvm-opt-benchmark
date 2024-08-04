@@ -1259,8 +1259,8 @@ define internal i32 @dissect_vrt(ptr noundef %0, ptr nocapture noundef readonly 
 
 171:                                              ; preds = %167
   %172 = and i64 %indvars.iv.i, 2305843009213693951
-  %173 = lshr i64 4269278461, %172
-  %174 = and i64 %173, 1
+  %173 = shl nuw i64 1, %172
+  %174 = and i64 %173, 4269278461
   %.not33.i.not = icmp eq i64 %174, 0
   br i1 %.not33.i.not, label %175, label %179
 

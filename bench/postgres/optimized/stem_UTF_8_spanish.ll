@@ -383,8 +383,8 @@ r_mark_regions.exit:                              ; preds = %47, %50, %55, %62, 
 
 81:                                               ; preds = %75
   %82 = and i32 %80, 31
-  %83 = lshr i32 557090, %82
-  %84 = and i32 %83, 1
+  %83 = shl nuw i32 1, %82
+  %84 = and i32 %83, 557090
   %.not73.i65 = icmp eq i32 %84, 0
   br i1 %.not73.i65, label %131, label %85
 
@@ -513,8 +513,8 @@ r_mark_regions.exit:                              ; preds = %47, %50, %55, %62, 
 
 142:                                              ; preds = %135
   %143 = and i32 %141, 31
-  %144 = lshr i32 835634, %143
-  %145 = and i32 %144, 1
+  %144 = shl nuw i32 1, %143
+  %145 = and i32 %144, 835634
   %.not247.i = icmp eq i32 %145, 0
   br i1 %.not247.i, label %r_standard_suffix.exit, label %146
 
@@ -646,8 +646,8 @@ r_mark_regions.exit:                              ; preds = %47, %50, %55, %62, 
 
 194:                                              ; preds = %188
   %195 = and i32 %193, 31
-  %196 = lshr i32 4718616, %195
-  %197 = and i32 %196, 1
+  %196 = shl nuw i32 1, %195
+  %197 = and i32 %196, 4718616
   %.not265.i = icmp eq i32 %197, 0
   br i1 %.not265.i, label %r_y_verb_suffix.exit, label %198
 
@@ -770,8 +770,8 @@ r_mark_regions.exit:                              ; preds = %47, %50, %55, %62, 
 
 249:                                              ; preds = %243
   %250 = and i32 %248, 31
-  %251 = lshr i32 4198408, %250
-  %252 = and i32 %251, 1
+  %251 = shl nuw i32 1, %250
+  %252 = and i32 %251, 4198408
   %.not255.i = icmp eq i32 %252, 0
   br i1 %.not255.i, label %r_y_verb_suffix.exit, label %253
 
@@ -1051,8 +1051,8 @@ r_y_verb_suffix.exit:                             ; preds = %159, %162, %198, %2
 
 375:                                              ; preds = %369
   %376 = and i32 %374, 31
-  %377 = lshr i32 67641858, %376
-  %378 = and i32 %377, 1
+  %377 = shl nuw i32 1, %376
+  %378 = and i32 %377, 67641858
   %.not46.i = icmp eq i32 %378, 0
   br i1 %.not46.i, label %.thread51.i, label %379
 

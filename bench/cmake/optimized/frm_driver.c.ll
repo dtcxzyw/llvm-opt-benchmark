@@ -2214,8 +2214,8 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
   br i1 %.not47, label %.thread51, label %100
 
 100:                                              ; preds = %97
-  %101 = lshr i64 452, %95
-  %102 = and i64 %101, 1
+  %101 = shl nuw nsw i64 1, %95
+  %102 = and i64 %101, 452
   %.not48.not = icmp eq i64 %102, 0
   br i1 %.not48.not, label %103, label %107
 

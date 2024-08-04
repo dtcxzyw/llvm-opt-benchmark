@@ -2037,8 +2037,8 @@ entry:
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
   %out.06.i = phi i64 [ 0, %entry ], [ %out.1.i, %for.inc.i ]
-  %0 = lshr i64 4013, %indvars.iv.i
-  %1 = and i64 %0, 1
+  %0 = shl nuw i64 1, %indvars.iv.i
+  %1 = and i64 %0, 4013
   %tobool8.not.i.not = icmp eq i64 %1, 0
   br i1 %tobool8.not.i.not, label %if.then.i, label %for.inc.i
 

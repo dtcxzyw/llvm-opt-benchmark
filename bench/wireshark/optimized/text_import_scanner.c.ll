@@ -210,8 +210,8 @@ text_import_ensure_buffer_stack.exit:             ; preds = %30, %33, %42
   %97 = load i8, ptr %96, align 1
   %98 = sext i32 %.1 to i64
   %99 = and i64 %98, 9223372036854775807
-  %100 = lshr i64 439821854048263, %99
-  %101 = and i64 %100, 1
+  %100 = shl nuw i64 1, %99
+  %101 = and i64 %100, 439821854048263
   %.not202.not = icmp eq i64 %101, 0
   br i1 %.not202.not, label %102, label %103
 
@@ -239,8 +239,8 @@ text_import_ensure_buffer_stack.exit:             ; preds = %30, %33, %42
   %114 = getelementptr [54 x i16], ptr @yy_def, i64 0, i64 %113
   %115 = load i16, ptr %114, align 2
   %116 = and i64 %113, 9223372036854775807
-  %117 = lshr i64 171550687500944, %116
-  %118 = and i64 %117, 1
+  %117 = shl nuw i64 1, %116
+  %118 = and i64 %117, 171550687500944
   %.not220 = icmp eq i64 %118, 0
   br i1 %.not220, label %122, label %119
 
@@ -732,8 +732,8 @@ text_import_ensure_buffer_stack.exit:             ; preds = %30, %33, %42
   %408 = phi i8 [ %406, %403 ], [ 1, %.lr.ph35.i ]
   %409 = sext i32 %.02433.i to i64
   %410 = and i64 %409, 9223372036854775807
-  %411 = lshr i64 439821854048263, %410
-  %412 = and i64 %411, 1
+  %411 = shl nuw i64 1, %410
+  %412 = and i64 %411, 439821854048263
   %.not27.not.i = icmp eq i64 %412, 0
   br i1 %.not27.not.i, label %413, label %414
 
@@ -761,8 +761,8 @@ text_import_ensure_buffer_stack.exit:             ; preds = %30, %33, %42
   %425 = getelementptr [54 x i16], ptr @yy_def, i64 0, i64 %424
   %426 = load i16, ptr %425, align 2
   %427 = and i64 %424, 9223372036854775807
-  %428 = lshr i64 171550687500944, %427
-  %429 = and i64 %428, 1
+  %428 = shl nuw i64 1, %427
+  %429 = and i64 %428, 171550687500944
   %.not29.i = icmp eq i64 %429, 0
   br i1 %.not29.i, label %433, label %430
 
@@ -797,8 +797,8 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %388
   %.024.lcssa.i = phi i32 [ %400, %388 ], [ %444, %._crit_edge.i ]
   %446 = sext i32 %.024.lcssa.i to i64
   %447 = and i64 %446, 9223372036854775807
-  %448 = lshr i64 439821854048263, %447
-  %449 = and i64 %448, 1
+  %448 = shl nuw i64 1, %447
+  %449 = and i64 %448, 439821854048263
   %.not.not.i = icmp eq i64 %449, 0
   br i1 %.not.not.i, label %450, label %451
 
@@ -1294,8 +1294,8 @@ yy_get_next_buffer.exit.thread:                   ; preds = %489, %yy_get_next_b
   %708 = phi i8 [ %706, %703 ], [ 1, %.lr.ph35.i232 ]
   %709 = sext i32 %.02433.i233 to i64
   %710 = and i64 %709, 9223372036854775807
-  %711 = lshr i64 439821854048263, %710
-  %712 = and i64 %711, 1
+  %711 = shl nuw i64 1, %710
+  %712 = and i64 %711, 439821854048263
   %.not27.not.i236 = icmp eq i64 %712, 0
   br i1 %.not27.not.i236, label %713, label %714
 
@@ -1323,8 +1323,8 @@ yy_get_next_buffer.exit.thread:                   ; preds = %489, %yy_get_next_b
   %725 = getelementptr [54 x i16], ptr @yy_def, i64 0, i64 %724
   %726 = load i16, ptr %725, align 2
   %727 = and i64 %724, 9223372036854775807
-  %728 = lshr i64 171550687500944, %727
-  %729 = and i64 %728, 1
+  %728 = shl nuw i64 1, %727
+  %729 = and i64 %728, 171550687500944
   %.not29.i240 = icmp eq i64 %729, 0
   br i1 %.not29.i240, label %733, label %730
 
@@ -1393,8 +1393,8 @@ yy_get_next_buffer.exit.thread264:                ; preds = %489, %yy_get_next_b
   %764 = phi i8 [ %762, %759 ], [ 1, %.lr.ph35.i248 ]
   %765 = sext i32 %.02433.i249 to i64
   %766 = and i64 %765, 9223372036854775807
-  %767 = lshr i64 439821854048263, %766
-  %768 = and i64 %767, 1
+  %767 = shl nuw i64 1, %766
+  %768 = and i64 %767, 439821854048263
   %.not27.not.i252 = icmp eq i64 %768, 0
   br i1 %.not27.not.i252, label %769, label %770
 
@@ -1422,8 +1422,8 @@ yy_get_next_buffer.exit.thread264:                ; preds = %489, %yy_get_next_b
   %781 = getelementptr [54 x i16], ptr @yy_def, i64 0, i64 %780
   %782 = load i16, ptr %781, align 2
   %783 = and i64 %780, 9223372036854775807
-  %784 = lshr i64 171550687500944, %783
-  %785 = and i64 %784, 1
+  %784 = shl nuw i64 1, %783
+  %785 = and i64 %784, 171550687500944
   %.not29.i256 = icmp eq i64 %785, 0
   br i1 %.not29.i256, label %789, label %786
 

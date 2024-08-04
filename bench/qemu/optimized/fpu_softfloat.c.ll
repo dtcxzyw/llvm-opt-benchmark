@@ -32104,8 +32104,8 @@ if.then47.i.i36:                                  ; preds = %lor.lhs.false.i.i30
 if.else49.i.i32:                                  ; preds = %lor.lhs.false.i.i30
   %shl.i31.i.i33 = shl nuw nsw i64 %and.i10.i.i, 11
   store i64 %shl.i31.i.i33, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i17, align 8
-  %18 = lshr i64 6975, %indvars.iv
-  %19 = and i64 %18, 1
+  %18 = shl nuw nsw i64 1, %indvars.iv
+  %19 = and i64 %18, 6974
   %tobool.not.i32.i.i34.not = icmp eq i64 %19, 0
   %conv53.i.i35 = select i1 %tobool.not.i32.i.i34.not, i8 4, i8 5
   store i8 %conv53.i.i35, ptr %tp, align 8

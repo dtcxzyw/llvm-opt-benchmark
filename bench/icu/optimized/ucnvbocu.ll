@@ -212,8 +212,8 @@ _ZL20decodeBocu1TrailByteii.exit:                 ; preds = %if.then79
   %arrayidx.i = getelementptr inbounds [33 x i8], ptr @_ZL16bocu1ByteToTrail, i64 0, i64 %idxprom.i
   %16 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %16 to i32
-  %17 = lshr i64 4496359297, %idxprom.i
-  %18 = and i64 %17, 1
+  %17 = shl nuw nsw i64 1, %idxprom.i
+  %18 = and i64 %17, 4496359297
   %cmp92.not = icmp eq i64 %18, 0
   br i1 %cmp92.not, label %lor.lhs.false, label %if.then96
 
@@ -697,8 +697,8 @@ _ZL20decodeBocu1TrailByteii.exit:                 ; preds = %if.then88
   %arrayidx.i = getelementptr inbounds [33 x i8], ptr @_ZL16bocu1ByteToTrail, i64 0, i64 %idxprom.i
   %17 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %17 to i32
-  %18 = lshr i64 4496359297, %idxprom.i
-  %19 = and i64 %18, 1
+  %18 = shl nuw nsw i64 1, %idxprom.i
+  %19 = and i64 %18, 4496359297
   %cmp102.not = icmp eq i64 %19, 0
   br i1 %cmp102.not, label %lor.lhs.false, label %if.then106
 

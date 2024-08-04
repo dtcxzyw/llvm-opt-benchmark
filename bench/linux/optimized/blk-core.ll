@@ -3126,8 +3126,8 @@ define dso_local ptr @blk_op_str(i32 noundef %0) #4 align 16 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = lshr i64 17179820368, %4
-  %6 = and i64 %5, 1
+  %5 = shl nuw nsw i64 1, %4
+  %6 = and i64 %5, 17179820368
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %11
 

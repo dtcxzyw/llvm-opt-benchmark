@@ -276,8 +276,8 @@ r_mark_regions.exit:                              ; preds = %24, %32, %39, %44, 
 
 67:                                               ; preds = %60
   %68 = and i32 %66, 31
-  %69 = lshr i32 25166336, %68
-  %70 = and i32 %69, 1
+  %69 = shl nuw i32 1, %68
+  %70 = and i32 %69, 25166336
   %.not41.i = icmp eq i32 %70, 0
   br i1 %.not41.i, label %89, label %71
 
@@ -393,8 +393,8 @@ r_reflexive.exit:                                 ; preds = %.r_reflexive.exit_c
 
 117:                                              ; preds = %111
   %118 = and i32 %116, 31
-  %119 = lshr i32 2271009, %118
-  %120 = and i32 %119, 1
+  %119 = shl nuw i32 1, %118
+  %120 = and i32 %119, 2271009
   %.not17.i.i = icmp eq i32 %120, 0
   br i1 %.not17.i.i, label %158, label %121
 
@@ -435,8 +435,8 @@ r_adjective.exit.i:                               ; preds = %123
 
 136:                                              ; preds = %129
   %137 = and i32 %135, 31
-  %138 = lshr i32 671113216, %137
-  %139 = and i32 %138, 1
+  %138 = shl nuw i32 1, %137
+  %139 = and i32 %138, 671113216
   %.not56.i = icmp eq i32 %139, 0
   br i1 %.not56.i, label %r_perfective_gerund.exit, label %140
 
@@ -503,8 +503,8 @@ r_adjective.exit.i:                               ; preds = %123
 
 169:                                              ; preds = %162
   %170 = and i32 %168, 31
-  %171 = lshr i32 51443235, %170
-  %172 = and i32 %171, 1
+  %171 = shl nuw i32 1, %170
+  %172 = and i32 %171, 51443235
   %.not41.i146 = icmp eq i32 %172, 0
   br i1 %.not41.i146, label %191, label %173
 
@@ -648,8 +648,8 @@ r_perfective_gerund.exit:                         ; preds = %144, %146, %140, %1
 
 236:                                              ; preds = %229
   %237 = and i32 %235, 31
-  %238 = lshr i32 151011360, %237
-  %239 = and i32 %238, 1
+  %238 = shl nuw i32 1, %237
+  %239 = and i32 %238, 151011360
   %.not54.i = icmp eq i32 %239, 0
   br i1 %.not54.i, label %279, label %240
 
@@ -769,8 +769,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_noun(ptr noundef %0) unn
 
 14:                                               ; preds = %7
   %15 = and i32 %13, 31
-  %16 = lshr i32 60991267, %15
-  %17 = and i32 %16, 1
+  %16 = shl nuw i32 1, %15
+  %17 = and i32 %16, 60991267
   %.not17 = icmp eq i32 %17, 0
   br i1 %.not17, label %25, label %18
 

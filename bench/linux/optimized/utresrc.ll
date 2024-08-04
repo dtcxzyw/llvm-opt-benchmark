@@ -167,16 +167,16 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_validate_resource(ptr 
 9:                                                ; preds = %3
   %10 = lshr i8 %4, 3
   %11 = zext nneg i8 %10 to i64
-  %12 = lshr i64 604175, %11
-  %13 = and i64 %12, 1
+  %12 = shl nuw nsw i64 1, %11
+  %13 = and i64 %12, 14351
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %23, label %61
 
 .thread:                                          ; preds = %7
   %15 = add i8 %4, -112
   %16 = zext nneg i8 %15 to i64
-  %17 = lshr i64 604175, %16
-  %18 = and i64 %17, 1
+  %17 = shl nuw nsw i64 1, %16
+  %18 = and i64 %17, 604175
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %61
 
@@ -377,16 +377,16 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(p
 19:                                               ; preds = %.preheader
   %20 = lshr i8 %15, 3
   %21 = zext nneg i8 %20 to i64
-  %22 = lshr i64 604175, %21
-  %23 = and i64 %22, 1
+  %22 = shl nuw nsw i64 1, %21
+  %23 = and i64 %22, 14351
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %33, label %.thread4
 
 .thread:                                          ; preds = %17
   %25 = add i8 %15, -112
   %26 = zext nneg i8 %25 to i64
-  %27 = lshr i64 604175, %26
-  %28 = and i64 %27, 1
+  %27 = shl nuw nsw i64 1, %26
+  %28 = and i64 %27, 604175
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %.thread4
 

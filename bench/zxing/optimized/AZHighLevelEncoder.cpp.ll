@@ -2443,8 +2443,8 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
 
 .preheader:                                       ; preds = %225, %244
   %234 = phi i64 [ %245, %244 ], [ 0, %225 ]
-  %235 = lshr i64 2147483586, %234
-  %236 = and i64 %235, 1
+  %235 = shl nuw i64 1, %234
+  %236 = and i64 %235, 2147483586
   %237 = icmp eq i64 %236, 0
   br i1 %237, label %244, label %238
 

@@ -19962,8 +19962,8 @@ define linkonce_odr void @_ZN5draco31MeshEdgebreakerTraversalEncoder22EncodeTrav
 
 44:                                               ; preds = %.lr.ph.split
   %45 = load ptr, ptr %32, align 8
-  %46 = lshr i64 171, %39
-  %47 = and i64 %46, 1
+  %46 = shl nuw i64 1, %39
+  %47 = and i64 %46, 171
   %.not = icmp eq i64 %47, 0
   br i1 %.not, label %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit, label %.lr.ph.i.i
 

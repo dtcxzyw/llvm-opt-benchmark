@@ -359,8 +359,8 @@ _ZNK2cv11_InputArray6getMatEi.exit60:             ; preds = %63, %66
 113:                                              ; preds = %104
   %114 = getelementptr inbounds [33 x ptr], ptr @_ZN2cvL19transposeInplaceTabE, i64 0, i64 %112
   %115 = load ptr, ptr %114, align 8
-  %116 = lshr i64 4278120097, %112
-  %117 = and i64 %116, 1
+  %116 = shl nuw nsw i64 1, %112
+  %117 = and i64 %116, 4278120097
   %.not40.not = icmp eq i64 %117, 0
   br i1 %.not40.not, label %126, label %118
 
@@ -430,8 +430,8 @@ _ZNK2cv11_InputArray6getMatEi.exit60:             ; preds = %63, %66
           to label %159 unwind label %90
 
 138:                                              ; preds = %104
-  %139 = lshr i64 4278120097, %112
-  %140 = and i64 %139, 1
+  %139 = shl nuw nsw i64 1, %112
+  %140 = and i64 %139, 4278120097
   %.not37.not = icmp eq i64 %140, 0
   br i1 %.not37.not, label %149, label %141
 

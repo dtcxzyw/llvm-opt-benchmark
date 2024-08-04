@@ -22794,15 +22794,15 @@ if.end9:                                          ; preds = %land.lhs.true.if.en
   %10 = load i8, ptr %type17, align 8
   %11 = icmp ugt i8 %10, 20
   %switch.cast = zext nneg i8 %10 to i21
-  %switch.downshift = lshr i21 1047935, %switch.cast
-  %12 = and i21 %switch.downshift, 1
-  %switch.masked = icmp ne i21 %12, 0
+  %12 = shl nuw i21 1, %switch.cast
+  %13 = and i21 %12, 1047935
+  %switch.masked = icmp ne i21 %13, 0
   %conv5.i63 = select i1 %11, i1 true, i1 %switch.masked
-  %13 = load ptr, ptr %nfa_impl, align 8
-  %nPositions = getelementptr inbounds i8, ptr %13, i64 20
-  %14 = load i32, ptr %nPositions, align 4
-  %cmp = icmp ugt i32 %14, 32
-  %call24 = tail call noundef zeroext i1 @_ZN3ue219has_bounded_repeatsERK3NFA(ptr noundef nonnull align 64 dereferenceable(64) %13)
+  %14 = load ptr, ptr %nfa_impl, align 8
+  %nPositions = getelementptr inbounds i8, ptr %14, i64 20
+  %15 = load i32, ptr %nPositions, align 4
+  %cmp = icmp ugt i32 %15, 32
+  %call24 = tail call noundef zeroext i1 @_ZN3ue219has_bounded_repeatsERK3NFA(ptr noundef nonnull align 64 dereferenceable(64) %14)
   br i1 %conv5.i63, label %if.else39, label %if.then27
 
 if.then27:                                        ; preds = %if.end9
@@ -22814,11 +22814,11 @@ if.then29:                                        ; preds = %if.then27
   br i1 %brmerge, label %if.then32, label %if.else
 
 if.then32:                                        ; preds = %if.then29
-  %15 = load i64, ptr %dfa_impl, align 8
+  %16 = load i64, ptr %dfa_impl, align 8
   br label %return
 
 if.else:                                          ; preds = %if.then29
-  %16 = load i64, ptr %nfa_impl, align 8
+  %17 = load i64, ptr %nfa_impl, align 8
   br label %return
 
 if.else33:                                        ; preds = %if.then27
@@ -22826,11 +22826,11 @@ if.else33:                                        ; preds = %if.then27
   br i1 %brmerge58.demorgan, label %if.then37, label %if.else38
 
 if.then37:                                        ; preds = %if.else33
-  %17 = load i64, ptr %nfa_impl, align 8
+  %18 = load i64, ptr %nfa_impl, align 8
   br label %return
 
 if.else38:                                        ; preds = %if.else33
-  %18 = load i64, ptr %dfa_impl, align 8
+  %19 = load i64, ptr %dfa_impl, align 8
   br label %return
 
 if.else39:                                        ; preds = %if.end9
@@ -22841,15 +22841,15 @@ if.else39:                                        ; preds = %if.end9
   br i1 %brmerge62, label %if.else48, label %if.then47
 
 if.then47:                                        ; preds = %if.else39
-  %19 = load i64, ptr %nfa_impl, align 8
+  %20 = load i64, ptr %nfa_impl, align 8
   br label %return
 
 if.else48:                                        ; preds = %if.else39
-  %20 = load i64, ptr %dfa_impl, align 8
+  %21 = load i64, ptr %dfa_impl, align 8
   br label %return
 
 return:                                           ; preds = %if.else48, %if.then47, %if.else38, %if.then37, %if.else, %if.then32, %if.then8, %if.then
-  %.sink = phi i64 [ %15, %if.then32 ], [ %16, %if.else ], [ %17, %if.then37 ], [ %18, %if.else38 ], [ %19, %if.then47 ], [ %20, %if.else48 ], [ %6, %if.then8 ], [ %3, %if.then ]
+  %.sink = phi i64 [ %16, %if.then32 ], [ %17, %if.else ], [ %18, %if.then37 ], [ %19, %if.else38 ], [ %20, %if.then47 ], [ %21, %if.else48 ], [ %6, %if.then8 ], [ %3, %if.then ]
   %dfa_impl.sink80 = phi ptr [ %dfa_impl, %if.then32 ], [ %nfa_impl, %if.else ], [ %nfa_impl, %if.then37 ], [ %dfa_impl, %if.else38 ], [ %nfa_impl, %if.then47 ], [ %dfa_impl, %if.else48 ], [ %dfa_impl, %if.then8 ], [ %nfa_impl, %if.then ]
   store i64 %.sink, ptr %agg.result, align 8
   store ptr null, ptr %dfa_impl.sink80, align 8

@@ -1807,8 +1807,8 @@ if.else.i:                                        ; preds = %for.body
 _ZL23isTashkeelOnTatweelCharDs.exit:              ; preds = %switch.early.test.i
   %2 = and i16 %0, 15
   %idxprom.i = zext nneg i16 %2 to i64
-  %3 = lshr i64 43650, %idxprom.i
-  %4 = and i64 %3, 1
+  %3 = shl nuw nsw i64 1, %idxprom.i
+  %4 = and i64 %3, 43650
   %cmp3.not = icmp eq i64 %4, 0
   br i1 %cmp3.not, label %switch.early.test.i22, label %for.inc.sink.split
 
@@ -1925,8 +1925,8 @@ _ZL20isSeenTailFamilyCharDs.exit.us.us:           ; preds = %land.lhs.true42.us.
   %conv.i.us.us = zext i16 %4 to i64
   %sub.i.us.us = add nuw nsw i64 %conv.i.us.us, 4294902095
   %idxprom.i.us.us = and i64 %sub.i.us.us, 4294967295
-  %6 = lshr i64 3276, %idxprom.i.us.us
-  %7 = and i64 %6, 1
+  %6 = shl nuw nsw i64 1, %idxprom.i.us.us
+  %7 = and i64 %6, 3276
   %tobool47.not.not.us.us = icmp eq i64 %7, 0
   br i1 %tobool47.not.not.us.us, label %if.then48.us.us, label %if.else51.us.us
 
@@ -1997,8 +1997,8 @@ _ZL20isSeenTailFamilyCharDs.exit.us:              ; preds = %land.lhs.true42.us
   %conv.i.us = zext i16 %16 to i64
   %sub.i.us = add nuw nsw i64 %conv.i.us, 4294902095
   %idxprom.i.us = and i64 %sub.i.us, 4294967295
-  %18 = lshr i64 3276, %idxprom.i.us
-  %19 = and i64 %18, 1
+  %18 = shl nuw nsw i64 1, %idxprom.i.us
+  %19 = and i64 %18, 3276
   %tobool47.not.not.us = icmp eq i64 %19, 0
   br i1 %tobool47.not.not.us, label %if.end70.us.sink.split, label %if.else51.us
 
@@ -2555,8 +2555,8 @@ _ZL20isSeenTailFamilyCharDs.exit.us.us.i:         ; preds = %for.body.us5.us.i
   %conv.i.us.us.i = zext i16 %25 to i64
   %sub.i.us.us.i = add nuw nsw i64 %conv.i.us.us.i, 4294902095
   %idxprom.i.us.us.i = and i64 %sub.i.us.us.i, 4294967295
-  %27 = lshr i64 3276, %idxprom.i.us.us.i
-  %28 = and i64 %27, 1
+  %27 = shl nuw nsw i64 1, %idxprom.i.us.us.i
+  %28 = and i64 %27, 3276
   %tobool1.not.not.us.us.i = icmp eq i64 %28, 0
   br i1 %tobool1.not.not.us.us.i, label %if.then.us.us.i, label %for.inc.us18.us.i
 
@@ -2595,8 +2595,8 @@ _ZL20isSeenTailFamilyCharDs.exit.us.i:            ; preds = %for.body.us5.i
   %conv.i.us.i = zext i16 %30 to i64
   %sub.i.us.i = add nuw nsw i64 %conv.i.us.i, 4294902095
   %idxprom.i.us.i = and i64 %sub.i.us.i, 4294967295
-  %32 = lshr i64 3276, %idxprom.i.us.i
-  %33 = and i64 %32, 1
+  %32 = shl nuw nsw i64 1, %idxprom.i.us.i
+  %33 = and i64 %32, 3276
   %tobool1.not.not.us.i = icmp eq i64 %33, 0
   br i1 %tobool1.not.not.us.i, label %if.then.us.i, label %if.else12.us7.i
 
@@ -2662,8 +2662,8 @@ _ZL20isSeenTailFamilyCharDs.exit.us26.i:          ; preds = %for.body.us21.i
   %conv.i.us27.i = zext i16 %39 to i64
   %sub.i.us28.i = add nuw nsw i64 %conv.i.us27.i, 4294902095
   %idxprom.i.us29.i = and i64 %sub.i.us28.i, 4294967295
-  %41 = lshr i64 3276, %idxprom.i.us29.i
-  %42 = and i64 %41, 1
+  %41 = shl nuw nsw i64 1, %idxprom.i.us29.i
+  %42 = and i64 %41, 3276
   %tobool1.not.not.us30.i = icmp eq i64 %42, 0
   br i1 %tobool1.not.not.us30.i, label %if.then.us31.i, label %for.inc.us53.i
 
@@ -2730,8 +2730,8 @@ _ZL20isSeenTailFamilyCharDs.exit.i:               ; preds = %for.body.i
   %conv.i.i = zext i16 %47 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 4294902095
   %idxprom.i.i = and i64 %sub.i.i, 4294967295
-  %49 = lshr i64 3276, %idxprom.i.i
-  %50 = and i64 %49, 1
+  %49 = shl nuw nsw i64 1, %idxprom.i.i
+  %50 = and i64 %49, 3276
   %tobool1.not.not.i = icmp eq i64 %50, 0
   br i1 %tobool1.not.not.i, label %if.then.i, label %if.else41.i
 

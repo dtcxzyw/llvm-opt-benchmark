@@ -279,8 +279,8 @@ define internal fastcc noundef ptr @BF_crypt(ptr nocapture noundef readonly %0, 
   %20 = zext nneg i8 %17 to i64
   %21 = add nuw nsw i64 %20, 4294967199
   %22 = and i64 %21, 4294967295
-  %23 = lshr i64 41943036, %22
-  %24 = and i64 %23, 1
+  %23 = shl nuw nsw i64 1, %22
+  %24 = and i64 %23, 41943036
   %.not1867.not = icmp eq i64 %24, 0
   br i1 %.not1867.not, label %25, label %42
 

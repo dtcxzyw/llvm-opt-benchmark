@@ -32,10 +32,10 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   store i32 -2, ptr @syncrep_yychar, align 4
   br label %5
 
-3:                                                ; preds = %143, %67
-  %.1149 = phi ptr [ %123, %143 ], [ %70, %67 ]
-  %.1143 = phi ptr [ %122, %143 ], [ %.2144, %67 ]
-  %.1.in = phi i8 [ %.in, %143 ], [ %69, %67 ]
+3:                                                ; preds = %142, %67
+  %.1149 = phi ptr [ %122, %142 ], [ %70, %67 ]
+  %.1143 = phi ptr [ %121, %142 ], [ %.2144, %67 ]
+  %.1.in = phi i8 [ %.in, %142 ], [ %69, %67 ]
   %.1 = sext i8 %.1.in to i32
   %4 = getelementptr i8, ptr %.1143, i64 1
   br label %5
@@ -60,7 +60,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   %12 = sub i64 %10, %11
   %13 = add i64 %12, 1
   %14 = icmp sgt i64 %.0137, 9999
-  br i1 %14, label %147, label %15
+  br i1 %14, label %146, label %15
 
 15:                                               ; preds = %9
   %16 = shl i64 %.0137, 1
@@ -69,7 +69,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   %18 = add i64 %17, 7
   %19 = call ptr @palloc(i64 noundef %18) #7
   %.not176 = icmp eq ptr %19, null
-  br i1 %.not176, label %147, label %20
+  br i1 %.not176, label %146, label %20
 
 20:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0139, i64 %13, i1 false)
@@ -108,8 +108,8 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   %36 = getelementptr [24 x i8], ptr @yypact, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
-  %39 = lshr i64 13390146, %35
-  %40 = and i64 %39, 1
+  %39 = shl nuw i64 1, %35
+  %40 = and i64 %39, 13390146
   %.not179 = icmp eq i64 %40, 0
   br i1 %.not179, label %41, label %72
 
@@ -175,149 +175,148 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   br label %3
 
 72:                                               ; preds = %60, %62, %34
-  %73 = lshr i64 3386937, %35
-  %74 = and i64 %73, 1
-  %.not182 = icmp eq i64 %74, 0
-  br i1 %.not182, label %75, label %144
+  %73 = and i64 %39, 3386937
+  %.not182 = icmp eq i64 %73, 0
+  br i1 %.not182, label %74, label %143
 
-75:                                               ; preds = %72
-  %76 = getelementptr [24 x i8], ptr @yydefact, i64 0, i64 %35
-  %77 = load i8, ptr %76, align 1
-  %78 = sext i8 %77 to i64
-  %79 = getelementptr [11 x i8], ptr @yyr2, i64 0, i64 %78
-  %80 = load i8, ptr %79, align 1
-  %81 = sext i8 %80 to i64
-  %82 = sub nsw i64 1, %81
-  %83 = getelementptr %union.YYSTYPE, ptr %.2150, i64 %82
-  %.sroa.036.0.copyload = load ptr, ptr %83, align 8
-  switch i8 %77, label %119 [
-    i8 2, label %84
-    i8 3, label %86
-    i8 4, label %89
-    i8 5, label %95
-    i8 6, label %101
-    i8 7, label %107
-    i8 8, label %110
-    i8 9, label %115
-    i8 10, label %117
+74:                                               ; preds = %72
+  %75 = getelementptr [24 x i8], ptr @yydefact, i64 0, i64 %35
+  %76 = load i8, ptr %75, align 1
+  %77 = sext i8 %76 to i64
+  %78 = getelementptr [11 x i8], ptr @yyr2, i64 0, i64 %77
+  %79 = load i8, ptr %78, align 1
+  %80 = sext i8 %79 to i64
+  %81 = sub nsw i64 1, %80
+  %82 = getelementptr %union.YYSTYPE, ptr %.2150, i64 %81
+  %.sroa.036.0.copyload = load ptr, ptr %82, align 8
+  switch i8 %76, label %118 [
+    i8 2, label %83
+    i8 3, label %85
+    i8 4, label %88
+    i8 5, label %94
+    i8 6, label %100
+    i8 7, label %106
+    i8 8, label %109
+    i8 9, label %114
+    i8 10, label %116
   ]
 
-84:                                               ; preds = %75
-  %85 = load ptr, ptr %.2150, align 8
-  store ptr %85, ptr @syncrep_parse_result, align 8
-  br label %119
+83:                                               ; preds = %74
+  %84 = load ptr, ptr %.2150, align 8
+  store ptr %84, ptr @syncrep_parse_result, align 8
+  br label %118
 
-86:                                               ; preds = %75
-  %87 = load ptr, ptr %.2150, align 8
-  %88 = call fastcc ptr @create_syncrep_config(ptr noundef nonnull @.str, ptr noundef %87, i8 noundef zeroext 0)
-  br label %119
+85:                                               ; preds = %74
+  %86 = load ptr, ptr %.2150, align 8
+  %87 = call fastcc ptr @create_syncrep_config(ptr noundef nonnull @.str, ptr noundef %86, i8 noundef zeroext 0)
+  br label %118
 
-89:                                               ; preds = %75
-  %90 = getelementptr i8, ptr %.2150, i64 -24
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr i8, ptr %.2150, i64 -8
-  %93 = load ptr, ptr %92, align 8
-  %94 = call fastcc ptr @create_syncrep_config(ptr noundef %91, ptr noundef %93, i8 noundef zeroext 0)
-  br label %119
+88:                                               ; preds = %74
+  %89 = getelementptr i8, ptr %.2150, i64 -24
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr i8, ptr %.2150, i64 -8
+  %92 = load ptr, ptr %91, align 8
+  %93 = call fastcc ptr @create_syncrep_config(ptr noundef %90, ptr noundef %92, i8 noundef zeroext 0)
+  br label %118
 
-95:                                               ; preds = %75
-  %96 = getelementptr i8, ptr %.2150, i64 -24
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr i8, ptr %.2150, i64 -8
-  %99 = load ptr, ptr %98, align 8
-  %100 = call fastcc ptr @create_syncrep_config(ptr noundef %97, ptr noundef %99, i8 noundef zeroext 1)
-  br label %119
+94:                                               ; preds = %74
+  %95 = getelementptr i8, ptr %.2150, i64 -24
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr i8, ptr %.2150, i64 -8
+  %98 = load ptr, ptr %97, align 8
+  %99 = call fastcc ptr @create_syncrep_config(ptr noundef %96, ptr noundef %98, i8 noundef zeroext 1)
+  br label %118
 
-101:                                              ; preds = %75
-  %102 = getelementptr i8, ptr %.2150, i64 -24
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr i8, ptr %.2150, i64 -8
-  %105 = load ptr, ptr %104, align 8
-  %106 = call fastcc ptr @create_syncrep_config(ptr noundef %103, ptr noundef %105, i8 noundef zeroext 0)
-  br label %119
+100:                                              ; preds = %74
+  %101 = getelementptr i8, ptr %.2150, i64 -24
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr i8, ptr %.2150, i64 -8
+  %104 = load ptr, ptr %103, align 8
+  %105 = call fastcc ptr @create_syncrep_config(ptr noundef %102, ptr noundef %104, i8 noundef zeroext 0)
+  br label %118
 
-107:                                              ; preds = %75
-  %108 = load ptr, ptr %.2150, align 8
-  %109 = call ptr @list_make1_impl(i32 noundef 1, ptr %108) #7
-  br label %119
+106:                                              ; preds = %74
+  %107 = load ptr, ptr %.2150, align 8
+  %108 = call ptr @list_make1_impl(i32 noundef 1, ptr %107) #7
+  br label %118
 
-110:                                              ; preds = %75
-  %111 = getelementptr i8, ptr %.2150, i64 -16
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %.2150, align 8
-  %114 = call ptr @lappend(ptr noundef %112, ptr noundef %113) #7
-  br label %119
+109:                                              ; preds = %74
+  %110 = getelementptr i8, ptr %.2150, i64 -16
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %.2150, align 8
+  %113 = call ptr @lappend(ptr noundef %111, ptr noundef %112) #7
+  br label %118
 
-115:                                              ; preds = %75
-  %116 = load ptr, ptr %.2150, align 8
-  br label %119
+114:                                              ; preds = %74
+  %115 = load ptr, ptr %.2150, align 8
+  br label %118
 
-117:                                              ; preds = %75
-  %118 = load ptr, ptr %.2150, align 8
-  br label %119
+116:                                              ; preds = %74
+  %117 = load ptr, ptr %.2150, align 8
+  br label %118
 
-119:                                              ; preds = %75, %117, %115, %110, %107, %101, %95, %89, %86, %84
-  %.sroa.036.0 = phi ptr [ %.sroa.036.0.copyload, %75 ], [ %118, %117 ], [ %116, %115 ], [ %114, %110 ], [ %109, %107 ], [ %106, %101 ], [ %100, %95 ], [ %94, %89 ], [ %88, %86 ], [ %.sroa.036.0.copyload, %84 ]
-  %120 = sub nsw i64 0, %81
-  %121 = getelementptr %union.YYSTYPE, ptr %.2150, i64 %120
-  %122 = getelementptr i8, ptr %.2144, i64 %120
-  %123 = getelementptr i8, ptr %121, i64 8
-  store ptr %.sroa.036.0, ptr %123, align 8
-  %124 = getelementptr [11 x i8], ptr @yyr1, i64 0, i64 %78
-  %125 = load i8, ptr %124, align 1
-  %126 = sext i8 %125 to i64
-  %127 = add nsw i64 %126, -11
-  %128 = getelementptr [5 x i8], ptr @yypgoto, i64 0, i64 %127
-  %129 = load i8, ptr %128, align 1
-  %130 = sext i8 %129 to i32
-  %131 = load i8, ptr %122, align 1
-  %132 = sext i8 %131 to i32
-  %133 = add nsw i32 %132, %130
-  %or.cond5 = icmp ult i32 %133, 23
-  br i1 %or.cond5, label %134, label %141
+118:                                              ; preds = %74, %116, %114, %109, %106, %100, %94, %88, %85, %83
+  %.sroa.036.0 = phi ptr [ %.sroa.036.0.copyload, %74 ], [ %117, %116 ], [ %115, %114 ], [ %113, %109 ], [ %108, %106 ], [ %105, %100 ], [ %99, %94 ], [ %93, %88 ], [ %87, %85 ], [ %.sroa.036.0.copyload, %83 ]
+  %119 = sub nsw i64 0, %80
+  %120 = getelementptr %union.YYSTYPE, ptr %.2150, i64 %119
+  %121 = getelementptr i8, ptr %.2144, i64 %119
+  %122 = getelementptr i8, ptr %120, i64 8
+  store ptr %.sroa.036.0, ptr %122, align 8
+  %123 = getelementptr [11 x i8], ptr @yyr1, i64 0, i64 %77
+  %124 = load i8, ptr %123, align 1
+  %125 = sext i8 %124 to i64
+  %126 = add nsw i64 %125, -11
+  %127 = getelementptr [5 x i8], ptr @yypgoto, i64 0, i64 %126
+  %128 = load i8, ptr %127, align 1
+  %129 = sext i8 %128 to i32
+  %130 = load i8, ptr %121, align 1
+  %131 = sext i8 %130 to i32
+  %132 = add nsw i32 %131, %129
+  %or.cond5 = icmp ult i32 %132, 23
+  br i1 %or.cond5, label %133, label %140
 
-134:                                              ; preds = %119
-  %135 = zext nneg i32 %133 to i64
-  %136 = getelementptr [23 x i8], ptr @yycheck, i64 0, i64 %135
-  %137 = load i8, ptr %136, align 1
-  %138 = icmp eq i8 %137, %131
-  br i1 %138, label %139, label %141
+133:                                              ; preds = %118
+  %134 = zext nneg i32 %132 to i64
+  %135 = getelementptr [23 x i8], ptr @yycheck, i64 0, i64 %134
+  %136 = load i8, ptr %135, align 1
+  %137 = icmp eq i8 %136, %130
+  br i1 %137, label %138, label %140
 
-139:                                              ; preds = %134
-  %140 = getelementptr [23 x i8], ptr @yytable, i64 0, i64 %135
-  br label %143
+138:                                              ; preds = %133
+  %139 = getelementptr [23 x i8], ptr @yytable, i64 0, i64 %134
+  br label %142
 
-141:                                              ; preds = %134, %119
-  %142 = getelementptr [5 x i8], ptr @yydefgoto, i64 0, i64 %127
-  br label %143
+140:                                              ; preds = %133, %118
+  %141 = getelementptr [5 x i8], ptr @yydefgoto, i64 0, i64 %126
+  br label %142
 
-143:                                              ; preds = %141, %139
-  %.in.in = phi ptr [ %140, %139 ], [ %142, %141 ]
+142:                                              ; preds = %140, %138
+  %.in.in = phi ptr [ %139, %138 ], [ %141, %140 ]
   %.in = load i8, ptr %.in.in, align 1
   br label %3
 
-144:                                              ; preds = %72
-  %145 = load i32, ptr @syncrep_yynerrs, align 4
-  %146 = add i32 %145, 1
-  store i32 %146, ptr @syncrep_yynerrs, align 4
+143:                                              ; preds = %72
+  %144 = load i32, ptr @syncrep_yynerrs, align 4
+  %145 = add i32 %144, 1
+  store i32 %145, ptr @syncrep_yynerrs, align 4
   call void @syncrep_yyerror(ptr noundef nonnull @.str.1) #7
   br label %.loopexit
 
-147:                                              ; preds = %15, %9
+146:                                              ; preds = %15, %9
   call void @syncrep_yyerror(ptr noundef nonnull @.str.4) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %32, %52, %144, %147
-  %.0158 = phi i32 [ 2, %147 ], [ 1, %144 ], [ 1, %52 ], [ 1, %26 ], [ 0, %32 ]
-  %.3 = phi ptr [ %.0139, %147 ], [ %.1140, %144 ], [ %.1140, %52 ], [ %19, %26 ], [ %.1140, %32 ]
+.loopexit:                                        ; preds = %26, %32, %52, %143, %146
+  %.0158 = phi i32 [ 2, %146 ], [ 1, %143 ], [ 1, %52 ], [ 1, %26 ], [ 0, %32 ]
+  %.3 = phi ptr [ %.0139, %146 ], [ %.1140, %143 ], [ %.1140, %52 ], [ %19, %26 ], [ %.1140, %32 ]
   %.not188 = icmp eq ptr %.3, %1
-  br i1 %.not188, label %149, label %148
+  br i1 %.not188, label %148, label %147
 
-148:                                              ; preds = %.loopexit
+147:                                              ; preds = %.loopexit
   call void @pfree(ptr noundef %.3) #7
-  br label %149
+  br label %148
 
-149:                                              ; preds = %148, %.loopexit
+148:                                              ; preds = %147, %.loopexit
   ret i32 %.0158
 }
 

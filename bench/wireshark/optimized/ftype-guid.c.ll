@@ -40,8 +40,8 @@ define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writ
 
 9:                                                ; preds = %24, %.preheader.i
   %.03038.i = phi i64 [ 0, %.preheader.i ], [ %25, %24 ]
-  %10 = lshr i64 68710817535, %.03038.i
-  %11 = and i64 %10, 1
+  %10 = shl nuw nsw i64 1, %.03038.i
+  %11 = and i64 %10, 68710817535
   %.not34.i = icmp eq i64 %11, 0
   br i1 %.not34.i, label %19, label %12
 

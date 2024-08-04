@@ -6505,8 +6505,8 @@ if.else:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.else
   %idxprom = zext nneg i32 %shr to i64
-  %2 = lshr i64 4260395008, %idxprom
-  %3 = and i64 %2, 1
+  %2 = shl nuw nsw i64 1, %idxprom
+  %3 = and i64 %2, 4260395008
   %tobool8.not.not = icmp eq i64 %3, 0
   br i1 %tobool8.not.not, label %if.else11, label %if.then9
 
@@ -6598,8 +6598,8 @@ if.else16:                                        ; preds = %if.else
 
 if.then19:                                        ; preds = %if.else16
   %idxprom20 = zext nneg i32 %shr to i64
-  %17 = lshr i64 2113600878, %idxprom20
-  %18 = and i64 %17, 1
+  %17 = shl nuw nsw i64 1, %idxprom20
+  %18 = and i64 %17, 2113600878
   %tobool24.not.not = icmp eq i64 %18, 0
   br i1 %tobool24.not.not, label %if.else27, label %if.then25
 

@@ -186,8 +186,8 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 53:                                               ; preds = %51
   %54 = zext nneg i32 %.0118 to i64
   %55 = getelementptr [12 x i32], ptr @netxray_open.netxray_encap, i64 0, i64 %54
-  %56 = lshr i64 2529, %54
-  %57 = and i64 %56, 1
+  %56 = shl nuw nsw i64 1, %54
+  %57 = and i64 %56, 2529
   %.not141 = icmp eq i64 %57, 0
   br i1 %.not141, label %61, label %58
 

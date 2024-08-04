@@ -3016,8 +3016,8 @@ for.cond4.preheader:                              ; preds = %for.cond4.preheader
 
 for.body5:                                        ; preds = %for.cond4.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond4.preheader ], [ %indvars.iv.next, %for.inc ]
-  %4 = lshr i64 134030132, %indvars.iv
-  %5 = and i64 %4, 1
+  %4 = shl nuw nsw i64 1, %indvars.iv
+  %5 = and i64 %4, 134030132
   %cmp6.not.not = icmp eq i64 %5, 0
   br i1 %cmp6.not.not, label %land.lhs.true, label %for.inc
 

@@ -54,11 +54,11 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
   %20 = getelementptr inbounds i8, ptr %0, i64 160
   br label %23
 
-21:                                               ; preds = %237, %106
-  %.1277 = phi ptr [ %217, %237 ], [ %107, %106 ]
-  %.1267 = phi ptr [ %216, %237 ], [ %.2268, %106 ]
-  %.1254 = phi i32 [ %238, %237 ], [ %102, %106 ]
-  %.1 = phi i32 [ %.8, %237 ], [ -2, %106 ]
+21:                                               ; preds = %236, %106
+  %.1277 = phi ptr [ %216, %236 ], [ %107, %106 ]
+  %.1267 = phi ptr [ %215, %236 ], [ %.2268, %106 ]
+  %.1254 = phi i32 [ %237, %236 ], [ %102, %106 ]
+  %.1 = phi i32 [ %.8, %236 ], [ -2, %106 ]
   %22 = getelementptr inbounds i8, ptr %.1267, i64 1
   br label %23
 
@@ -83,7 +83,7 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
   %30 = sub i64 %28, %29
   %31 = add nsw i64 %30, 1
   %32 = icmp sgt i64 %.0260, 9999
-  br i1 %32, label %259, label %33
+  br i1 %32, label %258, label %33
 
 33:                                               ; preds = %27
   %34 = shl nsw i64 %.0260, 1
@@ -92,7 +92,7 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
   %36 = add nsw i64 %35, 15
   %37 = call noalias ptr @malloc(i64 noundef %36) #11
   %.not312 = icmp eq ptr %37, null
-  br i1 %.not312, label %259, label %38
+  br i1 %.not312, label %258, label %38
 
 38:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr align 1 %.0262, i64 %31, i1 false)
@@ -129,8 +129,8 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
   %52 = getelementptr inbounds [40 x i8], ptr @yypact, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
-  %55 = lshr i64 771450936318, %51
-  %56 = and i64 %55, 1
+  %55 = shl nuw i64 1, %51
+  %56 = and i64 %55, 771450936318
   %.not315 = icmp eq i64 %56, 0
   br i1 %.not315, label %57, label %108
 
@@ -231,7 +231,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
 
 104:                                              ; preds = %99
   %105 = sub nsw i32 0, %102
-  br label %114
+  br label %113
 
 106:                                              ; preds = %99
   %107 = getelementptr inbounds i8, ptr %.2278, i64 16
@@ -243,365 +243,364 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   %109 = getelementptr inbounds [40 x i8], ptr @yydefact, i64 0, i64 %51
   %110 = load i8, ptr %109, align 1
   %111 = sext i8 %110 to i32
-  %112 = lshr i64 328041767937, %51
-  %113 = and i64 %112, 1
-  %.not318 = icmp eq i64 %113, 0
-  br i1 %.not318, label %114, label %239
+  %112 = and i64 %55, 328041767937
+  %.not318 = icmp eq i64 %112, 0
+  br i1 %.not318, label %113, label %238
 
-114:                                              ; preds = %108, %104
+113:                                              ; preds = %108, %104
   %.0284 = phi i32 [ %111, %108 ], [ %105, %104 ]
   %.8 = phi i32 [ %.4, %108 ], [ %.6, %104 ]
-  %115 = sext i32 %.0284 to i64
-  %116 = getelementptr inbounds [30 x i8], ptr @yyr2, i64 0, i64 %115
-  %117 = load i8, ptr %116, align 1
-  %118 = sext i8 %117 to i64
-  %119 = sub nsw i64 1, %118
-  %120 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %.2278, i64 %119
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false)
-  switch i32 %.0284, label %213 [
-    i32 2, label %121
-    i32 3, label %131
-    i32 4, label %139
+  %114 = sext i32 %.0284 to i64
+  %115 = getelementptr inbounds [30 x i8], ptr @yyr2, i64 0, i64 %114
+  %116 = load i8, ptr %115, align 1
+  %117 = sext i8 %116 to i64
+  %118 = sub nsw i64 1, %117
+  %119 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %.2278, i64 %118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %119, i64 16, i1 false)
+  switch i32 %.0284, label %212 [
+    i32 2, label %120
+    i32 3, label %130
+    i32 4, label %138
     i32 6, label %.loopexit.sink.split
-    i32 7, label %150
-    i32 9, label %157
-    i32 10, label %165
-    i32 11, label %176
-    i32 12, label %184
+    i32 7, label %149
+    i32 9, label %156
+    i32 10, label %164
+    i32 11, label %175
+    i32 12, label %183
     i32 14, label %.loopexit.sink.split
-    i32 15, label %195
-    i32 17, label %201
-    i32 18, label %206
+    i32 15, label %194
+    i32 17, label %200
+    i32 18, label %205
   ]
 
-121:                                              ; preds = %114
-  %122 = getelementptr inbounds i8, ptr %.2278, i64 -16
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %.2278, i64 -8
-  %125 = load i32, ptr %124, align 8
-  store ptr %123, ptr %5, align 8
-  store i32 %125, ptr %13, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 96
-  %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %122, align 8
-  %129 = load i32, ptr %124, align 8
-  store ptr %128, ptr %127, align 8
-  %130 = getelementptr inbounds i8, ptr %127, i64 8
-  store i32 %129, ptr %130, align 8
+120:                                              ; preds = %113
+  %121 = getelementptr inbounds i8, ptr %.2278, i64 -16
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds i8, ptr %.2278, i64 -8
+  %124 = load i32, ptr %123, align 8
+  store ptr %122, ptr %5, align 8
+  store i32 %124, ptr %13, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 96
+  %126 = load ptr, ptr %125, align 8
+  %127 = load ptr, ptr %121, align 8
+  %128 = load i32, ptr %123, align 8
+  store ptr %127, ptr %126, align 8
+  %129 = getelementptr inbounds i8, ptr %126, i64 8
+  store i32 %128, ptr %129, align 8
   br label %php_json_yyerror.exit336
 
-131:                                              ; preds = %114
-  %132 = load i32, ptr %16, align 4
-  %.not325 = icmp eq i32 %132, 0
+130:                                              ; preds = %113
+  %131 = load i32, ptr %16, align 4
+  %.not325 = icmp eq i32 %131, 0
   %.pre566 = load i32, ptr %14, align 8
-  %.not326 = icmp slt i32 %.pre566, %132
+  %.not326 = icmp slt i32 %.pre566, %131
   %or.cond = select i1 %.not325, i1 true, i1 %.not326
-  br i1 %or.cond, label %133, label %.loopexit.sink.split
+  br i1 %or.cond, label %132, label %.loopexit.sink.split
 
-133:                                              ; preds = %131
-  %134 = add nsw i32 %.pre566, 1
-  store i32 %134, ptr %14, align 8
-  %135 = load ptr, ptr %20, align 8
-  %.not327 = icmp eq ptr %135, null
-  br i1 %.not327, label %213, label %136
+132:                                              ; preds = %130
+  %133 = add nsw i32 %.pre566, 1
+  store i32 %133, ptr %14, align 8
+  %134 = load ptr, ptr %20, align 8
+  %.not327 = icmp eq ptr %134, null
+  br i1 %.not327, label %212, label %135
 
-136:                                              ; preds = %133
-  %137 = call i32 %135(ptr noundef nonnull %0) #12
-  %138 = icmp eq i32 %137, -1
-  br i1 %138, label %.loopexit, label %213
+135:                                              ; preds = %132
+  %136 = call i32 %134(ptr noundef nonnull %0) #12
+  %137 = icmp eq i32 %136, -1
+  br i1 %137, label %.loopexit, label %212
 
-139:                                              ; preds = %114
-  %140 = getelementptr inbounds i8, ptr %.2278, i64 -16
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %.2278, i64 -8
-  %143 = load i32, ptr %142, align 8
-  store ptr %141, ptr %5, align 8
-  store i32 %143, ptr %13, align 8
-  %144 = load i32, ptr %14, align 8
-  %145 = add nsw i32 %144, -1
-  store i32 %145, ptr %14, align 8
-  %146 = load ptr, ptr %19, align 8
-  %.not324 = icmp eq ptr %146, null
-  br i1 %.not324, label %213, label %147
+138:                                              ; preds = %113
+  %139 = getelementptr inbounds i8, ptr %.2278, i64 -16
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %.2278, i64 -8
+  %142 = load i32, ptr %141, align 8
+  store ptr %140, ptr %5, align 8
+  store i32 %142, ptr %13, align 8
+  %143 = load i32, ptr %14, align 8
+  %144 = add nsw i32 %143, -1
+  store i32 %144, ptr %14, align 8
+  %145 = load ptr, ptr %19, align 8
+  %.not324 = icmp eq ptr %145, null
+  br i1 %.not324, label %212, label %146
 
-147:                                              ; preds = %139
-  %148 = call i32 %146(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
-  %149 = icmp eq i32 %148, -1
-  br i1 %149, label %.loopexit, label %213
+146:                                              ; preds = %138
+  %147 = call i32 %145(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
+  %148 = icmp eq i32 %147, -1
+  br i1 %148, label %.loopexit, label %212
 
-150:                                              ; preds = %114
-  %151 = load i32, ptr %18, align 8
-  %152 = and i32 %151, 1
-  %.not323 = icmp ne i32 %152, 0
+149:                                              ; preds = %113
+  %150 = load i32, ptr %18, align 8
+  %151 = and i32 %150, 1
+  %.not323 = icmp ne i32 %151, 0
   %.pre565 = load ptr, ptr %8, align 8
-  %153 = icmp eq ptr %.pre565, @php_json_parser_object_create
-  %or.cond655 = select i1 %.not323, i1 %153, i1 false
-  br i1 %or.cond655, label %154, label %155
+  %152 = icmp eq ptr %.pre565, @php_json_parser_object_create
+  %or.cond655 = select i1 %.not323, i1 %152, i1 false
+  br i1 %or.cond655, label %153, label %154
 
-154:                                              ; preds = %150
+153:                                              ; preds = %149
   store ptr @zend_empty_array, ptr %5, align 8
   store i32 7, ptr %13, align 8
-  br label %213
+  br label %212
 
-155:                                              ; preds = %150
-  %156 = call i32 %.pre565(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
-  br label %213
+154:                                              ; preds = %149
+  %155 = call i32 %.pre565(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
+  br label %212
 
-157:                                              ; preds = %114
-  %158 = load ptr, ptr %8, align 8
-  %159 = call i32 %158(ptr noundef %0, ptr noundef nonnull %5) #12
-  %160 = load ptr, ptr %9, align 8
-  %161 = getelementptr inbounds i8, ptr %.2278, i64 -32
-  %162 = load ptr, ptr %161, align 8
-  %163 = call i32 %160(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %162, ptr noundef nonnull %.2278) #12
-  %164 = icmp eq i32 %163, -1
-  br i1 %164, label %.loopexit, label %213
+156:                                              ; preds = %113
+  %157 = load ptr, ptr %8, align 8
+  %158 = call i32 %157(ptr noundef %0, ptr noundef nonnull %5) #12
+  %159 = load ptr, ptr %9, align 8
+  %160 = getelementptr inbounds i8, ptr %.2278, i64 -32
+  %161 = load ptr, ptr %160, align 8
+  %162 = call i32 %159(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %161, ptr noundef nonnull %.2278) #12
+  %163 = icmp eq i32 %162, -1
+  br i1 %163, label %.loopexit, label %212
 
-165:                                              ; preds = %114
-  %166 = load ptr, ptr %9, align 8
-  %167 = getelementptr inbounds i8, ptr %.2278, i64 -64
-  %168 = getelementptr inbounds i8, ptr %.2278, i64 -32
-  %169 = load ptr, ptr %168, align 8
-  %170 = call i32 %166(ptr noundef %0, ptr noundef nonnull %167, ptr noundef %169, ptr noundef nonnull %.2278) #12
-  %171 = icmp eq i32 %170, -1
-  br i1 %171, label %.loopexit, label %172
+164:                                              ; preds = %113
+  %165 = load ptr, ptr %9, align 8
+  %166 = getelementptr inbounds i8, ptr %.2278, i64 -64
+  %167 = getelementptr inbounds i8, ptr %.2278, i64 -32
+  %168 = load ptr, ptr %167, align 8
+  %169 = call i32 %165(ptr noundef %0, ptr noundef nonnull %166, ptr noundef %168, ptr noundef nonnull %.2278) #12
+  %170 = icmp eq i32 %169, -1
+  br i1 %170, label %.loopexit, label %171
 
-172:                                              ; preds = %165
-  %173 = load ptr, ptr %167, align 8
-  %174 = getelementptr inbounds i8, ptr %.2278, i64 -56
-  %175 = load i32, ptr %174, align 8
-  store ptr %173, ptr %5, align 8
-  store i32 %175, ptr %13, align 8
-  br label %213
+171:                                              ; preds = %164
+  %172 = load ptr, ptr %166, align 8
+  %173 = getelementptr inbounds i8, ptr %.2278, i64 -56
+  %174 = load i32, ptr %173, align 8
+  store ptr %172, ptr %5, align 8
+  store i32 %174, ptr %13, align 8
+  br label %212
 
-176:                                              ; preds = %114
-  %177 = load i32, ptr %16, align 4
-  %.not320 = icmp eq i32 %177, 0
+175:                                              ; preds = %113
+  %176 = load i32, ptr %16, align 4
+  %.not320 = icmp eq i32 %176, 0
   %.pre = load i32, ptr %14, align 8
-  %.not321 = icmp slt i32 %.pre, %177
+  %.not321 = icmp slt i32 %.pre, %176
   %or.cond656 = select i1 %.not320, i1 true, i1 %.not321
-  br i1 %or.cond656, label %178, label %.loopexit.sink.split
+  br i1 %or.cond656, label %177, label %.loopexit.sink.split
 
-178:                                              ; preds = %176
-  %179 = add nsw i32 %.pre, 1
-  store i32 %179, ptr %14, align 8
-  %180 = load ptr, ptr %17, align 8
-  %.not322 = icmp eq ptr %180, null
-  br i1 %.not322, label %213, label %181
+177:                                              ; preds = %175
+  %178 = add nsw i32 %.pre, 1
+  store i32 %178, ptr %14, align 8
+  %179 = load ptr, ptr %17, align 8
+  %.not322 = icmp eq ptr %179, null
+  br i1 %.not322, label %212, label %180
 
-181:                                              ; preds = %178
-  %182 = call i32 %180(ptr noundef nonnull %0) #12
-  %183 = icmp eq i32 %182, -1
-  br i1 %183, label %.loopexit, label %213
+180:                                              ; preds = %177
+  %181 = call i32 %179(ptr noundef nonnull %0) #12
+  %182 = icmp eq i32 %181, -1
+  br i1 %182, label %.loopexit, label %212
 
-184:                                              ; preds = %114
-  %185 = getelementptr inbounds i8, ptr %.2278, i64 -16
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %.2278, i64 -8
-  %188 = load i32, ptr %187, align 8
-  store ptr %186, ptr %5, align 8
-  store i32 %188, ptr %13, align 8
-  %189 = load i32, ptr %14, align 8
-  %190 = add nsw i32 %189, -1
-  store i32 %190, ptr %14, align 8
-  %191 = load ptr, ptr %15, align 8
-  %.not319 = icmp eq ptr %191, null
-  br i1 %.not319, label %213, label %192
+183:                                              ; preds = %113
+  %184 = getelementptr inbounds i8, ptr %.2278, i64 -16
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds i8, ptr %.2278, i64 -8
+  %187 = load i32, ptr %186, align 8
+  store ptr %185, ptr %5, align 8
+  store i32 %187, ptr %13, align 8
+  %188 = load i32, ptr %14, align 8
+  %189 = add nsw i32 %188, -1
+  store i32 %189, ptr %14, align 8
+  %190 = load ptr, ptr %15, align 8
+  %.not319 = icmp eq ptr %190, null
+  br i1 %.not319, label %212, label %191
 
-192:                                              ; preds = %184
-  %193 = call i32 %191(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
-  %194 = icmp eq i32 %193, -1
-  br i1 %194, label %.loopexit, label %213
+191:                                              ; preds = %183
+  %192 = call i32 %190(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
+  %193 = icmp eq i32 %192, -1
+  br i1 %193, label %.loopexit, label %212
 
-195:                                              ; preds = %114
-  %196 = load ptr, ptr %6, align 8
-  %197 = icmp eq ptr %196, @php_json_parser_array_create
-  br i1 %197, label %198, label %199
+194:                                              ; preds = %113
+  %195 = load ptr, ptr %6, align 8
+  %196 = icmp eq ptr %195, @php_json_parser_array_create
+  br i1 %196, label %197, label %198
 
-198:                                              ; preds = %195
+197:                                              ; preds = %194
   store ptr @zend_empty_array, ptr %5, align 8
   store i32 7, ptr %13, align 8
-  br label %213
+  br label %212
 
-199:                                              ; preds = %195
-  %200 = call i32 %196(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
-  br label %213
+198:                                              ; preds = %194
+  %199 = call i32 %195(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
+  br label %212
 
-201:                                              ; preds = %114
-  %202 = load ptr, ptr %6, align 8
-  %203 = call i32 %202(ptr noundef %0, ptr noundef nonnull %5) #12
-  %204 = load ptr, ptr %7, align 8
-  %205 = call i32 %204(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %.2278) #12
-  br label %213
+200:                                              ; preds = %113
+  %201 = load ptr, ptr %6, align 8
+  %202 = call i32 %201(ptr noundef %0, ptr noundef nonnull %5) #12
+  %203 = load ptr, ptr %7, align 8
+  %204 = call i32 %203(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %.2278) #12
+  br label %212
 
-206:                                              ; preds = %114
-  %207 = load ptr, ptr %7, align 8
-  %208 = getelementptr inbounds i8, ptr %.2278, i64 -32
-  %209 = call i32 %207(ptr noundef %0, ptr noundef nonnull %208, ptr noundef nonnull %.2278) #12
-  %210 = load ptr, ptr %208, align 8
-  %211 = getelementptr inbounds i8, ptr %.2278, i64 -24
-  %212 = load i32, ptr %211, align 8
-  store ptr %210, ptr %5, align 8
-  store i32 %212, ptr %13, align 8
-  br label %213
+205:                                              ; preds = %113
+  %206 = load ptr, ptr %7, align 8
+  %207 = getelementptr inbounds i8, ptr %.2278, i64 -32
+  %208 = call i32 %206(ptr noundef %0, ptr noundef nonnull %207, ptr noundef nonnull %.2278) #12
+  %209 = load ptr, ptr %207, align 8
+  %210 = getelementptr inbounds i8, ptr %.2278, i64 -24
+  %211 = load i32, ptr %210, align 8
+  store ptr %209, ptr %5, align 8
+  store i32 %211, ptr %13, align 8
+  br label %212
 
-213:                                              ; preds = %114, %198, %199, %184, %192, %178, %181, %157, %154, %155, %139, %147, %133, %136, %206, %201, %172
-  %214 = sub nsw i64 0, %118
-  %215 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %.2278, i64 %214
-  %216 = getelementptr inbounds i8, ptr %.2268, i64 %214
-  %217 = getelementptr inbounds i8, ptr %215, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %218 = getelementptr inbounds [30 x i8], ptr @yyr1, i64 0, i64 %115
-  %219 = load i8, ptr %218, align 1
-  %220 = sext i8 %219 to i64
-  %221 = add nsw i64 %220, -18
-  %222 = getelementptr inbounds [14 x i8], ptr @yypgoto, i64 0, i64 %221
-  %223 = load i8, ptr %222, align 1
-  %224 = sext i8 %223 to i32
-  %225 = load i8, ptr %216, align 1
-  %226 = sext i8 %225 to i32
-  %227 = add nsw i32 %226, %224
-  %or.cond5 = icmp ult i32 %227, 27
-  br i1 %or.cond5, label %228, label %235
+212:                                              ; preds = %113, %197, %198, %183, %191, %177, %180, %156, %153, %154, %138, %146, %132, %135, %205, %200, %171
+  %213 = sub nsw i64 0, %117
+  %214 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %.2278, i64 %213
+  %215 = getelementptr inbounds i8, ptr %.2268, i64 %213
+  %216 = getelementptr inbounds i8, ptr %214, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  %217 = getelementptr inbounds [30 x i8], ptr @yyr1, i64 0, i64 %114
+  %218 = load i8, ptr %217, align 1
+  %219 = sext i8 %218 to i64
+  %220 = add nsw i64 %219, -18
+  %221 = getelementptr inbounds [14 x i8], ptr @yypgoto, i64 0, i64 %220
+  %222 = load i8, ptr %221, align 1
+  %223 = sext i8 %222 to i32
+  %224 = load i8, ptr %215, align 1
+  %225 = sext i8 %224 to i32
+  %226 = add nsw i32 %225, %223
+  %or.cond5 = icmp ult i32 %226, 27
+  br i1 %or.cond5, label %227, label %234
 
-228:                                              ; preds = %213
-  %229 = zext nneg i32 %227 to i64
-  %230 = getelementptr inbounds [27 x i8], ptr @yycheck, i64 0, i64 %229
-  %231 = load i8, ptr %230, align 1
-  %232 = icmp eq i8 %231, %225
-  br i1 %232, label %233, label %235
+227:                                              ; preds = %212
+  %228 = zext nneg i32 %226 to i64
+  %229 = getelementptr inbounds [27 x i8], ptr @yycheck, i64 0, i64 %228
+  %230 = load i8, ptr %229, align 1
+  %231 = icmp eq i8 %230, %224
+  br i1 %231, label %232, label %234
 
-233:                                              ; preds = %228
-  %234 = getelementptr inbounds [27 x i8], ptr @yytable, i64 0, i64 %229
-  br label %237
+232:                                              ; preds = %227
+  %233 = getelementptr inbounds [27 x i8], ptr @yytable, i64 0, i64 %228
+  br label %236
 
-235:                                              ; preds = %228, %213
-  %236 = getelementptr inbounds [14 x i8], ptr @yydefgoto, i64 0, i64 %221
-  br label %237
+234:                                              ; preds = %227, %212
+  %235 = getelementptr inbounds [14 x i8], ptr @yydefgoto, i64 0, i64 %220
+  br label %236
 
-237:                                              ; preds = %235, %233
-  %.in.in = phi ptr [ %234, %233 ], [ %236, %235 ]
+236:                                              ; preds = %234, %232
+  %.in.in = phi ptr [ %233, %232 ], [ %235, %234 ]
   %.in = load i8, ptr %.in.in, align 1
-  %238 = sext i8 %.in to i32
+  %237 = sext i8 %.in to i32
   br label %21
 
-239:                                              ; preds = %108
-  %240 = getelementptr inbounds i8, ptr %0, i64 84
-  %241 = load i32, ptr %240, align 4
-  %.not.i334 = icmp eq i32 %241, 0
-  br i1 %.not.i334, label %242, label %php_json_yyerror.exit
+238:                                              ; preds = %108
+  %239 = getelementptr inbounds i8, ptr %0, i64 84
+  %240 = load i32, ptr %239, align 4
+  %.not.i334 = icmp eq i32 %240, 0
+  br i1 %.not.i334, label %241, label %php_json_yyerror.exit
 
-242:                                              ; preds = %239
-  store i32 4, ptr %240, align 4
+241:                                              ; preds = %238
+  store i32 4, ptr %239, align 4
   br label %php_json_yyerror.exit
 
-.loopexit.sink.split:                             ; preds = %114, %176, %114, %131
-  %.sink = phi i32 [ 1, %131 ], [ 2, %114 ], [ 1, %176 ], [ 2, %114 ]
-  %243 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %.sink, ptr %243, align 4
+.loopexit.sink.split:                             ; preds = %113, %175, %113, %130
+  %.sink = phi i32 [ 1, %130 ], [ 2, %113 ], [ 1, %175 ], [ 2, %113 ]
+  %242 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 %.sink, ptr %242, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %192, %181, %165, %157, %147, %136, %.loopexit.sink.split
-  %244 = sub nsw i64 0, %118
-  %245 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %.2278, i64 %244
-  %246 = getelementptr inbounds i8, ptr %.2268, i64 %244
-  %247 = load i8, ptr %246, align 1
-  %248 = sext i8 %247 to i32
+.loopexit:                                        ; preds = %191, %180, %164, %156, %146, %135, %.loopexit.sink.split
+  %243 = sub nsw i64 0, %117
+  %244 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %.2278, i64 %243
+  %245 = getelementptr inbounds i8, ptr %.2268, i64 %243
+  %246 = load i8, ptr %245, align 1
+  %247 = sext i8 %246 to i32
   br label %php_json_yyerror.exit
 
-php_json_yyerror.exit:                            ; preds = %83, %242, %239, %.loopexit
-  %.4280 = phi ptr [ %245, %.loopexit ], [ %.2278, %239 ], [ %.2278, %242 ], [ %.2278, %83 ]
-  %.4270 = phi ptr [ %246, %.loopexit ], [ %.2268, %239 ], [ %.2268, %242 ], [ %.2268, %83 ]
-  %.2255 = phi i32 [ %248, %.loopexit ], [ %.0253, %239 ], [ %.0253, %242 ], [ %.0253, %83 ]
-  %.7 = phi i32 [ %.8, %.loopexit ], [ %.4, %239 ], [ %.4, %242 ], [ 257, %83 ]
-  %249 = icmp eq ptr %.4270, %.1263
-  br i1 %249, label %php_json_yyerror.exit336, label %.lr.ph
+php_json_yyerror.exit:                            ; preds = %83, %241, %238, %.loopexit
+  %.4280 = phi ptr [ %244, %.loopexit ], [ %.2278, %238 ], [ %.2278, %241 ], [ %.2278, %83 ]
+  %.4270 = phi ptr [ %245, %.loopexit ], [ %.2268, %238 ], [ %.2268, %241 ], [ %.2268, %83 ]
+  %.2255 = phi i32 [ %247, %.loopexit ], [ %.0253, %238 ], [ %.0253, %241 ], [ %.0253, %83 ]
+  %.7 = phi i32 [ %.8, %.loopexit ], [ %.4, %238 ], [ %.4, %241 ], [ 257, %83 ]
+  %248 = icmp eq ptr %.4270, %.1263
+  br i1 %248, label %php_json_yyerror.exit336, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_json_yyerror.exit, %.lr.ph
-  %.3256466 = phi i32 [ %257, %.lr.ph ], [ %.2255, %php_json_yyerror.exit ]
-  %.5271465 = phi ptr [ %255, %.lr.ph ], [ %.4270, %php_json_yyerror.exit ]
-  %.5281464 = phi ptr [ %254, %.lr.ph ], [ %.4280, %php_json_yyerror.exit ]
-  %250 = sext i32 %.3256466 to i64
-  %251 = getelementptr inbounds [40 x i8], ptr @yystos, i64 0, i64 %250
-  %252 = load i8, ptr %251, align 1
-  %253 = sext i8 %252 to i32
-  call fastcc void @yydestruct(i32 noundef %253, ptr noundef %.5281464)
-  %254 = getelementptr inbounds i8, ptr %.5281464, i64 -16
-  %255 = getelementptr inbounds i8, ptr %.5271465, i64 -1
-  %256 = load i8, ptr %255, align 1
-  %257 = sext i8 %256 to i32
-  %258 = icmp eq ptr %255, %.1263
-  br i1 %258, label %php_json_yyerror.exit336, label %.lr.ph
+  %.3256466 = phi i32 [ %256, %.lr.ph ], [ %.2255, %php_json_yyerror.exit ]
+  %.5271465 = phi ptr [ %254, %.lr.ph ], [ %.4270, %php_json_yyerror.exit ]
+  %.5281464 = phi ptr [ %253, %.lr.ph ], [ %.4280, %php_json_yyerror.exit ]
+  %249 = sext i32 %.3256466 to i64
+  %250 = getelementptr inbounds [40 x i8], ptr @yystos, i64 0, i64 %249
+  %251 = load i8, ptr %250, align 1
+  %252 = sext i8 %251 to i32
+  call fastcc void @yydestruct(i32 noundef %252, ptr noundef %.5281464)
+  %253 = getelementptr inbounds i8, ptr %.5281464, i64 -16
+  %254 = getelementptr inbounds i8, ptr %.5271465, i64 -1
+  %255 = load i8, ptr %254, align 1
+  %256 = sext i8 %255 to i32
+  %257 = icmp eq ptr %254, %.1263
+  br i1 %257, label %php_json_yyerror.exit336, label %.lr.ph
 
-259:                                              ; preds = %33, %27
-  %260 = getelementptr inbounds i8, ptr %0, i64 84
-  %261 = load i32, ptr %260, align 4
-  %.not.i335 = icmp eq i32 %261, 0
-  br i1 %.not.i335, label %262, label %php_json_yyerror.exit336
+258:                                              ; preds = %33, %27
+  %259 = getelementptr inbounds i8, ptr %0, i64 84
+  %260 = load i32, ptr %259, align 4
+  %.not.i335 = icmp eq i32 %260, 0
+  br i1 %.not.i335, label %261, label %php_json_yyerror.exit336
 
-262:                                              ; preds = %259
-  store i32 4, ptr %260, align 4
+261:                                              ; preds = %258
+  store i32 4, ptr %259, align 4
   br label %php_json_yyerror.exit336
 
-php_json_yyerror.exit336:                         ; preds = %44, %48, %.lr.ph, %php_json_yyerror.exit, %262, %259, %121
-  %.5292 = phi i64 [ %118, %121 ], [ 0, %259 ], [ 0, %262 ], [ 0, %php_json_yyerror.exit ], [ 0, %.lr.ph ], [ 0, %48 ], [ 0, %44 ]
-  %.0285 = phi i32 [ 0, %121 ], [ 2, %259 ], [ 2, %262 ], [ 1, %php_json_yyerror.exit ], [ 1, %.lr.ph ], [ 1, %44 ], [ 0, %48 ]
-  %.6282 = phi ptr [ %.2278, %121 ], [ %.0276, %259 ], [ %.0276, %262 ], [ %.4280, %php_json_yyerror.exit ], [ %254, %.lr.ph ], [ %47, %44 ], [ %.2278, %48 ]
-  %.6272 = phi ptr [ %.2268, %121 ], [ %.0266, %259 ], [ %.0266, %262 ], [ %.4270, %php_json_yyerror.exit ], [ %255, %.lr.ph ], [ %45, %44 ], [ %.2268, %48 ]
-  %.3265 = phi ptr [ %.1263, %121 ], [ %.0262, %259 ], [ %.0262, %262 ], [ %.1263, %php_json_yyerror.exit ], [ %.1263, %.lr.ph ], [ %37, %44 ], [ %.1263, %48 ]
-  %.9 = phi i32 [ %.8, %121 ], [ %.0, %259 ], [ %.0, %262 ], [ %.7, %php_json_yyerror.exit ], [ %.7, %.lr.ph ], [ %.0, %48 ], [ %.0, %44 ]
+php_json_yyerror.exit336:                         ; preds = %44, %48, %.lr.ph, %php_json_yyerror.exit, %261, %258, %120
+  %.5292 = phi i64 [ %117, %120 ], [ 0, %258 ], [ 0, %261 ], [ 0, %php_json_yyerror.exit ], [ 0, %.lr.ph ], [ 0, %48 ], [ 0, %44 ]
+  %.0285 = phi i32 [ 0, %120 ], [ 2, %258 ], [ 2, %261 ], [ 1, %php_json_yyerror.exit ], [ 1, %.lr.ph ], [ 1, %44 ], [ 0, %48 ]
+  %.6282 = phi ptr [ %.2278, %120 ], [ %.0276, %258 ], [ %.0276, %261 ], [ %.4280, %php_json_yyerror.exit ], [ %253, %.lr.ph ], [ %47, %44 ], [ %.2278, %48 ]
+  %.6272 = phi ptr [ %.2268, %120 ], [ %.0266, %258 ], [ %.0266, %261 ], [ %.4270, %php_json_yyerror.exit ], [ %254, %.lr.ph ], [ %45, %44 ], [ %.2268, %48 ]
+  %.3265 = phi ptr [ %.1263, %120 ], [ %.0262, %258 ], [ %.0262, %261 ], [ %.1263, %php_json_yyerror.exit ], [ %.1263, %.lr.ph ], [ %37, %44 ], [ %.1263, %48 ]
+  %.9 = phi i32 [ %.8, %120 ], [ %.0, %258 ], [ %.0, %261 ], [ %.7, %php_json_yyerror.exit ], [ %.7, %.lr.ph ], [ %.0, %48 ], [ %.0, %44 ]
   %.not331 = icmp eq i32 %.9, -2
-  br i1 %.not331, label %270, label %263
+  br i1 %.not331, label %269, label %262
 
-263:                                              ; preds = %php_json_yyerror.exit336
+262:                                              ; preds = %php_json_yyerror.exit336
   %or.cond11 = icmp ult i32 %.9, 267
-  br i1 %or.cond11, label %.thread, label %268
+  br i1 %or.cond11, label %.thread, label %267
 
-.thread:                                          ; preds = %263
-  %264 = zext nneg i32 %.9 to i64
-  %265 = getelementptr inbounds [267 x i8], ptr @yytranslate, i64 0, i64 %264
-  %266 = load i8, ptr %265, align 1
-  %267 = sext i8 %266 to i32
-  br label %268
+.thread:                                          ; preds = %262
+  %263 = zext nneg i32 %.9 to i64
+  %264 = getelementptr inbounds [267 x i8], ptr @yytranslate, i64 0, i64 %263
+  %265 = load i8, ptr %264, align 1
+  %266 = sext i8 %265 to i32
+  br label %267
 
-268:                                              ; preds = %263, %.thread
-  %269 = phi i32 [ %267, %.thread ], [ 2, %263 ]
-  call fastcc void @yydestruct(i32 noundef %269, ptr noundef nonnull %2)
-  br label %270
+267:                                              ; preds = %262, %.thread
+  %268 = phi i32 [ %266, %.thread ], [ 2, %262 ]
+  call fastcc void @yydestruct(i32 noundef %268, ptr noundef nonnull %2)
+  br label %269
 
-270:                                              ; preds = %268, %php_json_yyerror.exit336
-  %271 = sub nsw i64 0, %.5292
-  %272 = getelementptr inbounds i8, ptr %.6272, i64 %271
-  %.not332468 = icmp eq ptr %272, %.3265
+269:                                              ; preds = %267, %php_json_yyerror.exit336
+  %270 = sub nsw i64 0, %.5292
+  %271 = getelementptr inbounds i8, ptr %.6272, i64 %270
+  %.not332468 = icmp eq ptr %271, %.3265
   br i1 %.not332468, label %._crit_edge, label %.lr.ph471.preheader
 
-.lr.ph471.preheader:                              ; preds = %270
-  %273 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %.6282, i64 %271
+.lr.ph471.preheader:                              ; preds = %269
+  %272 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %.6282, i64 %270
   br label %.lr.ph471
 
 .lr.ph471:                                        ; preds = %.lr.ph471.preheader, %.lr.ph471
-  %.7273470 = phi ptr [ %280, %.lr.ph471 ], [ %272, %.lr.ph471.preheader ]
-  %.7283469 = phi ptr [ %279, %.lr.ph471 ], [ %273, %.lr.ph471.preheader ]
-  %274 = load i8, ptr %.7273470, align 1
-  %275 = sext i8 %274 to i64
-  %276 = getelementptr inbounds [40 x i8], ptr @yystos, i64 0, i64 %275
-  %277 = load i8, ptr %276, align 1
-  %278 = sext i8 %277 to i32
-  call fastcc void @yydestruct(i32 noundef %278, ptr noundef %.7283469)
-  %279 = getelementptr inbounds i8, ptr %.7283469, i64 -16
-  %280 = getelementptr inbounds i8, ptr %.7273470, i64 -1
-  %.not332 = icmp eq ptr %280, %.3265
+  %.7273470 = phi ptr [ %279, %.lr.ph471 ], [ %271, %.lr.ph471.preheader ]
+  %.7283469 = phi ptr [ %278, %.lr.ph471 ], [ %272, %.lr.ph471.preheader ]
+  %273 = load i8, ptr %.7273470, align 1
+  %274 = sext i8 %273 to i64
+  %275 = getelementptr inbounds [40 x i8], ptr @yystos, i64 0, i64 %274
+  %276 = load i8, ptr %275, align 1
+  %277 = sext i8 %276 to i32
+  call fastcc void @yydestruct(i32 noundef %277, ptr noundef %.7283469)
+  %278 = getelementptr inbounds i8, ptr %.7283469, i64 -16
+  %279 = getelementptr inbounds i8, ptr %.7273470, i64 -1
+  %.not332 = icmp eq ptr %279, %.3265
   br i1 %.not332, label %._crit_edge, label %.lr.ph471
 
-._crit_edge:                                      ; preds = %.lr.ph471, %270
+._crit_edge:                                      ; preds = %.lr.ph471, %269
   %.not333 = icmp eq ptr %.3265, %3
-  br i1 %.not333, label %282, label %281
+  br i1 %.not333, label %281, label %280
 
-281:                                              ; preds = %._crit_edge
+280:                                              ; preds = %._crit_edge
   call void @free(ptr noundef %.3265) #12
-  br label %282
+  br label %281
 
-282:                                              ; preds = %281, %._crit_edge
+281:                                              ; preds = %280, %._crit_edge
   ret i32 %.0285
 }
 

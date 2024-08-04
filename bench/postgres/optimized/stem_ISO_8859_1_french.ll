@@ -462,8 +462,8 @@ define hidden range(i32 -2147483648, 2) i32 @french_ISO_8859_1_stem(ptr noundef 
 
 123:                                              ; preds = %117
   %124 = and i32 %122, 31
-  %125 = lshr i32 331776, %124
-  %126 = and i32 %125, 1
+  %125 = shl nuw i32 1, %124
+  %126 = and i32 %125, 331776
   %.not68.i = icmp eq i32 %126, 0
   br i1 %.not68.i, label %129, label %127
 
@@ -791,8 +791,8 @@ r_mark_regions.exit:                              ; preds = %142, %145, %150, %1
 
 256:                                              ; preds = %250
   %257 = and i32 %255, 31
-  %258 = lshr i32 4198408, %257
-  %259 = and i32 %258, 1
+  %258 = shl nuw i32 1, %257
+  %259 = and i32 %258, 4198408
   %.not403.i = icmp eq i32 %259, 0
   br i1 %.not403.i, label %.sink.split.i, label %260
 
@@ -1044,8 +1044,8 @@ r_standard_suffix.exit.thread172:                 ; preds = %340, %337, %333, %3
 
 360:                                              ; preds = %353
   %361 = and i32 %359, 31
-  %362 = lshr i32 68944418, %361
-  %363 = and i32 %362, 1
+  %362 = shl nuw i32 1, %361
+  %363 = and i32 %362, 68944418
   %.not45.i = icmp eq i32 %363, 0
   br i1 %.not45.i, label %r_i_verb_suffix.exit.thread181, label %364
 
@@ -1276,8 +1276,8 @@ r_verb_suffix.exit.thread187:                     ; preds = %r_i_verb_suffix.exi
 
 462:                                              ; preds = %455
   %463 = and i32 %461, 31
-  %464 = lshr i32 278560, %463
-  %465 = and i32 %464, 1
+  %464 = shl nuw i32 1, %463
+  %465 = and i32 %464, 278560
   %.not104.i = icmp eq i32 %465, 0
   br i1 %.not104.i, label %.sink.split.i142, label %466
 
@@ -1358,8 +1358,8 @@ r_residual_suffix.exit:                           ; preds = %422, %.sink.split.i
 
 498:                                              ; preds = %491
   %499 = and i32 %497, 31
-  %500 = lshr i32 1069056, %499
-  %501 = and i32 %500, 1
+  %500 = shl nuw i32 1, %499
+  %501 = and i32 %500, 1069056
   %.not25.i = icmp eq i32 %501, 0
   br i1 %.not25.i, label %510, label %502
 
@@ -1458,8 +1458,8 @@ r_residual_suffix.exit:                           ; preds = %422, %.sink.split.i
 
 541:                                              ; preds = %535
   %542 = and i32 %540, 31
-  %543 = lshr i32 35652352, %542
-  %544 = and i32 %543, 1
+  %543 = shl nuw i32 1, %542
+  %544 = and i32 %543, 35652352
   %.not47.i164 = icmp eq i32 %544, 0
   br i1 %.not47.i164, label %.thread53.i, label %545
 

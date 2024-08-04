@@ -158,8 +158,8 @@ yy_find_shift_action.exit:                        ; preds = %19, %.sink.split.i
   %33 = zext i8 %.0.i to i64
   %34 = add nuw nsw i64 %33, 4294967112
   %35 = and i64 %34, 4294967295
-  %36 = lshr i64 1513209479091453953, %35
-  %37 = and i64 %36, 1
+  %36 = shl nuw i64 1, %35
+  %37 = and i64 %36, 1513209479091453953
   %.not = icmp eq i64 %37, 0
   br i1 %.not, label %._crit_edge, label %38
 

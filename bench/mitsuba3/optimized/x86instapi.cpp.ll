@@ -574,8 +574,8 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds [32 x i64], ptr @_ZN6asmjit9_abi_1_103x86L21_x86OpFlagFromRegTypeE, i64 0, i64 %93
   %95 = load i64, ptr %94, align 8, !tbaa !29
-  %96 = lshr i64 4261515015, %93
-  %97 = and i64 %96, 1
+  %96 = shl nuw nsw i64 1, %93
+  %97 = and i64 %96, 4261515015
   %98 = icmp eq i64 %97, 0
   br i1 %98, label %99, label %.loopexit28, !prof !3
 

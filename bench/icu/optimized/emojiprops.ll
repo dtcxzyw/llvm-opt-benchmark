@@ -345,8 +345,8 @@ if.end.i:                                         ; preds = %entry
   %idxprom.i = zext nneg i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds [15 x i8], ptr @_ZZNK6icu_7510EmojiProps21hasBinaryPropertyImplEi9UPropertyE8bitFlags, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %3 = lshr i64 15968, %idxprom.i
-  %4 = and i64 %3, 1
+  %3 = shl nuw nsw i64 1, %idxprom.i
+  %4 = and i64 %3, 15968
   %cmp3.not.i = icmp eq i64 %4, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %land.end
 
@@ -424,8 +424,8 @@ if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %sub to i64
   %arrayidx = getelementptr inbounds [15 x i8], ptr @_ZZNK6icu_7510EmojiProps21hasBinaryPropertyImplEi9UPropertyE8bitFlags, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
-  %2 = lshr i64 15968, %idxprom
-  %3 = and i64 %2, 1
+  %2 = shl nuw nsw i64 1, %idxprom
+  %3 = and i64 %2, 15968
   %cmp3.not = icmp eq i64 %3, 0
   br i1 %cmp3.not, label %if.end5, label %return
 

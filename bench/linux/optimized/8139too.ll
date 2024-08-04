@@ -725,8 +725,8 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly %1) #
   %336 = getelementptr i8, ptr %195, i64 2888
   %337 = load i32, ptr %336, align 8
   %338 = zext nneg i32 %337 to i64
-  %339 = lshr i64 752, %338
-  %340 = and i64 %339, 1
+  %339 = shl nuw i64 1, %338
+  %340 = and i64 %339, 752
   %341 = icmp eq i64 %340, 0
   br i1 %341, label %342, label %355
 
@@ -1298,8 +1298,8 @@ define internal i32 @mdio_read(ptr nocapture noundef readonly %0, i32 noundef %1
 
 9:                                                ; preds = %5
   %10 = sext i32 %2 to i64
-  %11 = lshr i64 140, %10
-  %12 = and i64 %11, 1
+  %11 = shl nuw nsw i64 1, %10
+  %12 = and i64 %11, 140
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %20
 
@@ -1342,8 +1342,8 @@ define internal void @mdio_write(ptr nocapture noundef readonly %0, i32 noundef 
 
 16:                                               ; preds = %14
   %17 = sext i32 %2 to i64
-  %18 = lshr i64 140, %17
-  %19 = and i64 %18, 1
+  %18 = shl nuw nsw i64 1, %17
+  %19 = and i64 %18, 140
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %21, label %27
 
@@ -1622,8 +1622,8 @@ define internal noundef i32 @rtl8139_close(ptr noundef %0) #2 align 16 {
   %37 = getelementptr i8, ptr %0, i64 2888
   %38 = load i32, ptr %37, align 8
   %39 = zext nneg i32 %38 to i64
-  %40 = lshr i64 752, %39
-  %41 = and i64 %40, 1
+  %40 = shl nuw i64 1, %39
+  %41 = and i64 %40, 752
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %45
 
@@ -2274,8 +2274,8 @@ define internal fastcc void @rtl8139_hw_start(ptr noundef %0) unnamed_addr #2 al
   %4 = getelementptr i8, ptr %0, i64 2888
   %5 = load i32, ptr %4, align 8
   %6 = zext nneg i32 %5 to i64
-  %7 = lshr i64 752, %6
-  %8 = and i64 %7, 1
+  %7 = shl nuw i64 1, %6
+  %8 = and i64 %7, 752
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %12
 

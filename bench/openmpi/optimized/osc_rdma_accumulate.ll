@@ -4351,8 +4351,8 @@ ompi_osc_rdma_gacc_amo.exit.thread:               ; preds = %62
   %96 = zext i32 %95 to i64
   %97 = getelementptr inbounds [15 x i32], ptr @ompi_osc_rdma_op_mapping, i64 0, i64 %96
   %98 = load i32, ptr %97, align 4
-  %99 = lshr i64 22545, %96
-  %100 = and i64 %99, 1
+  %99 = shl nuw i64 1, %96
+  %100 = and i64 %99, 22545
   %.not31.i.us.i = icmp eq i64 %100, 0
   br i1 %.not31.i.us.i, label %101, label %ompi_osc_rdma_fetch_and_op_atomic.exit.us.i
 
@@ -4453,8 +4453,8 @@ ompi_osc_rdma_fetch_and_op_atomic.exit.us.i:      ; preds = %120, %osc_rdma_acce
 141:                                              ; preds = %139
   %142 = load i32, ptr %75, align 8
   %143 = zext nneg i32 %142 to i64
-  %144 = lshr i64 22545, %143
-  %145 = and i64 %144, 1
+  %144 = shl nuw i64 1, %143
+  %145 = and i64 %144, 22545
   %.not29.i.us.i = icmp eq i64 %145, 0
   br i1 %.not29.i.us.i, label %146, label %ompi_osc_rdma_acc_single_atomic.exit.us.i
 

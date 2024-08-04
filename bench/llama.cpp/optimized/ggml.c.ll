@@ -32276,8 +32276,8 @@ for.cond182.for.end211_crit_edge.split.us.us.us.us.i: ; preds = %for.cond197.for
 if.else222.i:                                     ; preds = %if.then106.i
   %from_float.i = getelementptr inbounds [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i.i373.i, i32 5
   %64 = load ptr, ptr %from_float.i, align 8
-  %65 = lshr i64 458801, %idxprom.i.i373.i
-  %66 = and i64 %65, 1
+  %65 = shl nuw i64 1, %idxprom.i.i373.i
+  %66 = and i64 %65, 458801
   %tobool.not.not.i = icmp eq i64 %66, 0
   br i1 %tobool.not.not.i, label %if.then226.i, label %do.body306.i
 
@@ -33273,8 +33273,8 @@ for.cond130.for.end148_crit_edge.us.us.i161:      ; preds = %for.body133.us.us.i
 if.else.i:                                        ; preds = %if.then106.i131
   %from_float.i132 = getelementptr inbounds [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i.i334.i, i32 5
   %142 = load ptr, ptr %from_float.i132, align 8
-  %143 = lshr i64 458801, %idxprom.i.i334.i
-  %144 = and i64 %143, 1
+  %143 = shl nuw i64 1, %idxprom.i.i334.i
+  %144 = and i64 %143, 458801
   %tobool.not.not.i133 = icmp eq i64 %144, 0
   br i1 %tobool.not.not.i133, label %if.then161.i, label %do.body223.i
 
@@ -35045,8 +35045,8 @@ for.body.lr.ph.i180:                              ; preds = %do.end121.i
   %conv181.i = trunc i64 %151 to i32
   %cmp4.i.i = icmp sgt i32 %conv181.i, 0
   %wide.trip.count.i.i182 = and i64 %151, 2147483647
-  %201 = lshr i64 458801, %idxprom62.i
-  %202 = and i64 %201, 1
+  %201 = shl nuw i64 1, %idxprom62.i
+  %202 = and i64 %201, 458801
   %cmp183.not.not.i = icmp eq i64 %202, 0
   %mul187.i = mul i64 %173, %151
   %203 = sext i32 %mul.i177 to i64

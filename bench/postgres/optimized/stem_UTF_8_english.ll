@@ -192,8 +192,8 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef %0) 
 
 14:                                               ; preds = %8
   %15 = and i32 %13, 31
-  %16 = lshr i32 42750482, %15
-  %17 = and i32 %16, 1
+  %16 = shl nuw i32 1, %15
+  %17 = and i32 %16, 42750482
   %.not62.i = icmp eq i32 %17, 0
   br i1 %.not62.i, label %r_exception1.exit, label %18
 
@@ -442,8 +442,8 @@ r_exception1.exit:                                ; preds = %20, %18, %14, %8, %
 
 133:                                              ; preds = %127
   %134 = and i32 %132, 31
-  %135 = lshr i32 2375680, %134
-  %136 = and i32 %135, 1
+  %135 = shl nuw i32 1, %134
+  %136 = and i32 %135, 2375680
   %.not41.i = icmp eq i32 %136, 0
   br i1 %.not41.i, label %139, label %137
 
@@ -675,8 +675,8 @@ r_exception2.exit.thread:                         ; preds = %234, %224, %228, %r
 
 246:                                              ; preds = %240
   %247 = and i32 %245, 31
-  %248 = lshr i32 33554576, %247
-  %249 = and i32 %248, 1
+  %248 = shl nuw i32 1, %247
+  %249 = and i32 %248, 33554576
   %.not99.i = icmp eq i32 %249, 0
   br i1 %.not99.i, label %310, label %250
 
@@ -741,8 +741,8 @@ r_exception2.exit.thread:                         ; preds = %234, %224, %228, %r
 
 279:                                              ; preds = %273
   %280 = and i32 %278, 31
-  %281 = lshr i32 68514004, %280
-  %282 = and i32 %281, 1
+  %281 = shl nuw i32 1, %280
+  %282 = and i32 %281, 68514004
   %.not104.i = icmp eq i32 %282, 0
   br i1 %.not104.i, label %.thread115.i, label %283
 
@@ -954,8 +954,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_2(ptr noundef %0) u
 
 14:                                               ; preds = %8
   %15 = and i32 %13, 31
-  %16 = lshr i32 815616, %15
-  %17 = and i32 %16, 1
+  %16 = shl nuw i32 1, %15
+  %17 = and i32 %16, 815616
   %.not87 = icmp eq i32 %17, 0
   br i1 %.not87, label %82, label %18
 
@@ -1122,8 +1122,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_3(ptr noundef %0) u
 
 15:                                               ; preds = %8
   %16 = and i32 %14, 31
-  %17 = lshr i32 528928, %16
-  %18 = and i32 %17, 1
+  %17 = shl nuw i32 1, %16
+  %18 = and i32 %17, 528928
   %.not47 = icmp eq i32 %18, 0
   br i1 %.not47, label %47, label %19
 
@@ -1220,8 +1220,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_4(ptr noundef %0) u
 
 14:                                               ; preds = %8
   %15 = and i32 %13, 31
-  %16 = lshr i32 1864232, %15
-  %17 = and i32 %16, 1
+  %16 = shl nuw i32 1, %15
+  %17 = and i32 %16, 1864232
   %.not45 = icmp eq i32 %17, 0
   br i1 %.not45, label %40, label %18
 

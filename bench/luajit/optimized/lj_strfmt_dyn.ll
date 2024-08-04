@@ -171,8 +171,8 @@ if.end102:                                        ; preds = %if.end98, %if.end73
 
 if.then109:                                       ; preds = %if.end102
   %idxprom = zext nneg i32 %sub104 to i64
-  %14 = lshr i64 29905079884578702, %idxprom
-  %15 = and i64 %14, 1
+  %14 = shl nuw nsw i64 1, %idxprom
+  %15 = and i64 %14, 29905079884578702
   %tobool112.not.not = icmp eq i64 %15, 0
   br i1 %tobool112.not.not, label %if.then113, label %if.end120
 
@@ -1473,8 +1473,8 @@ if.end102.i:                                      ; preds = %if.end98.i, %if.end
 
 if.then109.i:                                     ; preds = %if.end102.i
   %idxprom.i = zext nneg i32 %sub104.i to i64
-  %15 = lshr i64 29905079884578702, %idxprom.i
-  %16 = and i64 %15, 1
+  %15 = shl nuw nsw i64 1, %idxprom.i
+  %16 = and i64 %15, 29905079884578702
   %tobool112.not.not.i = icmp eq i64 %16, 0
   br i1 %tobool112.not.not.i, label %lj_strfmt_parse.exit, label %lj_strfmt_parse.exit.thread146
 

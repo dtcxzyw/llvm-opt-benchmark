@@ -283,8 +283,8 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   %122 = load i32, ptr %97, align 8
   %123 = add i32 %122, %115
   store i32 %123, ptr %97, align 8
-  %124 = lshr i64 851967, %113
-  %125 = and i64 %124, 1
+  %124 = shl nuw nsw i64 1, %113
+  %125 = and i64 %124, 851967
   %.not253 = icmp eq i64 %125, 0
   br i1 %.not253, label %129, label %126
 
@@ -1065,8 +1065,8 @@ define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed
   %49 = zext nneg i32 %46 to i64
   %50 = getelementptr inbounds [512 x i32], ptr %48, i64 0, i64 %49
   store i32 %47, ptr %50, align 4
-  %51 = lshr i64 1072889856, %35
-  %52 = and i64 %51, 1
+  %51 = shl nuw i64 1, %35
+  %52 = and i64 %51, 1072889856
   %.not.i = icmp eq i64 %52, 0
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -1414,8 +1414,8 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %120 = zext nneg i32 %117 to i64
   %121 = getelementptr inbounds [512 x i32], ptr %119, i64 0, i64 %120
   store i32 %118, ptr %121, align 4
-  %122 = lshr i64 1072889856, %96
-  %123 = and i64 %122, 1
+  %122 = shl nuw i64 1, %96
+  %123 = and i64 %122, 1072889856
   %.not.i = icmp eq i64 %123, 0
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -1978,8 +1978,8 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   %122 = zext nneg i32 %119 to i64
   %123 = getelementptr inbounds [512 x i32], ptr %121, i64 0, i64 %122
   store i32 %120, ptr %123, align 4
-  %124 = lshr i64 1072889856, %98
-  %125 = and i64 %124, 1
+  %124 = shl nuw i64 1, %98
+  %125 = and i64 %124, 1072889856
   %.not.i = icmp eq i64 %125, 0
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -6545,8 +6545,8 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
   %55 = zext nneg i32 %52 to i64
   %56 = getelementptr inbounds [512 x i32], ptr %54, i64 0, i64 %55
   store i32 %53, ptr %56, align 4
-  %57 = lshr i64 1072889856, %41
-  %58 = and i64 %57, 1
+  %57 = shl nuw i64 1, %41
+  %58 = and i64 %57, 1072889856
   %.not.i = icmp eq i64 %58, 0
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -8931,8 +8931,8 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
   %51 = zext nneg i32 %48 to i64
   %52 = getelementptr inbounds [512 x i32], ptr %50, i64 0, i64 %51
   store i32 %49, ptr %52, align 4
-  %53 = lshr i64 1072889856, %37
-  %54 = and i64 %53, 1
+  %53 = shl nuw i64 1, %37
+  %54 = and i64 %53, 1072889856
   %.not.i = icmp eq i64 %54, 0
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -9137,8 +9137,8 @@ define internal fastcc ptr @zend_mm_alloc_small_slow(ptr noundef %0, i32 noundef
   %17 = zext nneg i32 %14 to i64
   %18 = getelementptr inbounds [512 x i32], ptr %16, i64 0, i64 %17
   store i32 %15, ptr %18, align 4
-  %19 = lshr i64 1072889856, %3
-  %20 = and i64 %19, 1
+  %19 = shl nuw i64 1, %3
+  %20 = and i64 %19, 1072889856
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %.loopexit, label %.preheader
 

@@ -7637,8 +7637,8 @@ my_try_val_to_str_idx.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
 
 59:                                               ; preds = %56
   %60 = and i64 %.04851, 2305843009213693951
-  %61 = lshr i64 4611897124668312576, %60
-  %62 = and i64 %61, 1
+  %61 = shl nuw i64 1, %60
+  %62 = and i64 %61, 4611897124668312576
   %.not = icmp eq i64 %62, 0
   br i1 %.not, label %65, label %63
 
@@ -12010,8 +12010,8 @@ switch.lookup:                                    ; preds = %61
 
 91:                                               ; preds = %88
   %92 = and i64 %.08184, 2305843009213693951
-  %93 = lshr i64 171799085056, %92
-  %94 = and i64 %93, 1
+  %93 = shl nuw i64 1, %92
+  %94 = and i64 %93, 171799085056
   %.not = icmp eq i64 %94, 0
   br i1 %.not, label %97, label %95
 

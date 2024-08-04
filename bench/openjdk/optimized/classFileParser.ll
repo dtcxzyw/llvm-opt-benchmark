@@ -5102,8 +5102,8 @@ _ZN15MetadataFactory9new_arrayIP5ArrayIhEEEPS1_IT_EP15ClassLoaderDataiS4_P10Java
   %201 = zext i8 %200 to i64
   %202 = select i1 %153, i64 20, i64 0
   %203 = add nuw nsw i64 %202, %201
-  %204 = lshr i64 1082348519439, %203
-  %205 = and i64 %204, 1
+  %204 = shl nuw i64 1, %203
+  %205 = and i64 %204, 1082348519439
   %.not.not.i = icmp eq i64 %205, 0
   br i1 %.not.not.i, label %206, label %_ZN15ClassFileParser20FieldAllocationCount6updateEb9BasicType.exit
 
@@ -5371,8 +5371,8 @@ _ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exi
   %337 = sext i8 %336 to i32
   %338 = call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %337) #23
   %339 = zext i8 %338 to i64
-  %340 = lshr i64 1082348519439, %339
-  %341 = and i64 %340, 1
+  %340 = shl nuw i64 1, %339
+  %341 = and i64 %340, 1082348519439
   %.not.not.i168 = icmp eq i64 %341, 0
   br i1 %.not.not.i168, label %342, label %_ZN15ClassFileParser20FieldAllocationCount6updateEb9BasicType.exit169
 

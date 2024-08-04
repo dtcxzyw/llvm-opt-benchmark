@@ -390,8 +390,8 @@ if.else18:                                        ; preds = %if.else
 
 if.end25:                                         ; preds = %if.else18
   %idxprom = zext nneg i32 %.fr to i64
-  %3 = lshr i64 706998271, %idxprom
-  %4 = and i64 %3, 1
+  %3 = shl nuw nsw i64 1, %idxprom
+  %4 = and i64 %3, 706998271
   %cmp26.not = icmp eq i64 %4, 0
   br i1 %cmp26.not, label %if.end44, label %land.lhs.true28
 
@@ -633,8 +633,8 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %idxprom = zext nneg i32 %0 to i64
-  %1 = lshr i64 706998271, %idxprom
-  %2 = and i64 %1, 1
+  %1 = shl nuw nsw i64 1, %idxprom
+  %2 = and i64 %1, 706998271
   %cmp5.not = icmp eq i64 %2, 0
   br i1 %cmp5.not, label %if.end8, label %return
 

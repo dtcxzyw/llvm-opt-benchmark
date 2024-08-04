@@ -1792,8 +1792,8 @@ define ptr @wtap_strerror(i32 noundef %0) local_unnamed_addr #12 {
 7:                                                ; preds = %3
   %8 = xor i32 %0, -1
   %9 = zext nneg i32 %8 to i64
-  %10 = lshr i64 4588576, %9
-  %11 = and i64 %10, 1
+  %10 = shl nuw nsw i64 1, %9
+  %11 = and i64 %10, 4588576
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %12, label %17
 

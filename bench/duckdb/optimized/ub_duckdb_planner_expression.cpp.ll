@@ -11437,16 +11437,16 @@ if.then54:                                        ; preds = %if.end51
 
 switch.lookup:                                    ; preds = %if.then47
   %switch.cast = zext nneg i8 %1 to i33
-  %switch.downshift = lshr i33 -4293001216, %switch.cast
-  %6 = and i33 %switch.downshift, 1
-  %switch.masked = icmp ne i33 %6, 0
+  %6 = shl nuw i33 1, %switch.cast
+  %7 = and i33 %6, -4293001216
+  %switch.masked = icmp ne i33 %7, 0
   br label %return
 
 switch.lookup78:                                  ; preds = %if.then54
   %switch.cast79 = zext nneg i8 %0 to i35
-  %switch.downshift81 = lshr i35 -12882837504, %switch.cast79
-  %7 = and i35 %switch.downshift81, 1
-  %switch.masked82 = icmp ne i35 %7, 0
+  %8 = shl nuw i35 1, %switch.cast79
+  %9 = and i35 %8, -12882837504
+  %switch.masked82 = icmp ne i35 %9, 0
   br label %return
 
 return:                                           ; preds = %switch.lookup78, %switch.lookup, %if.then54, %if.end51, %if.then47, %if.then42, %if.then42, %if.then42, %cleanup, %lor.lhs.false, %entry

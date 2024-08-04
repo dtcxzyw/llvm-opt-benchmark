@@ -251,8 +251,8 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %idxprom.i = sext i8 %4 to i64
   %arrayidx.i = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %7 = lshr i64 515, %idxprom.i
-  %8 = and i64 %7, 1
+  %7 = shl nuw i64 1, %idxprom.i
+  %8 = and i64 %7, 515
   %cmp4.not.i = icmp eq i64 %8, 0
   br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %if.then9.sink.split
 
@@ -721,8 +721,8 @@ _ZL26getAlgorithmicTypeFromNamePKc.exit:          ; preds = %if.else.i
   %arrayidx11.i = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %idxprom10.i
   %18 = load ptr, ptr %arrayidx11.i, align 8
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %strippedName.i)
-  %19 = lshr i64 515, %idxprom10.i
-  %20 = and i64 %19, 1
+  %19 = shl nuw i64 1, %idxprom10.i
+  %20 = and i64 %19, 515
   %cmp95.not = icmp eq i64 %20, 0
   br i1 %cmp95.not, label %return, label %lor.lhs.false.i
 
@@ -1304,8 +1304,8 @@ if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %type to i64
   %arrayidx = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %1 = lshr i64 515, %idxprom
-  %2 = and i64 %1, 1
+  %1 = shl nuw nsw i64 1, %idxprom
+  %2 = and i64 %1, 515
   %cmp2.not = icmp eq i64 %2, 0
   br i1 %cmp2.not, label %lor.lhs.false3, label %if.then4
 

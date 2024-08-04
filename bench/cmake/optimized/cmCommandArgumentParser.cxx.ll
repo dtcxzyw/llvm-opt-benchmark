@@ -60,11 +60,11 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   store i8 0, ptr %3, align 16
   br label %9
 
-7:                                                ; preds = %160, %48
-  %.1174.idx = phi i64 [ %.0173.add, %160 ], [ %.0173.idx274, %48 ]
-  %.1171 = phi i32 [ %162, %160 ], [ %43, %48 ]
-  %.1165 = phi ptr [ %140, %160 ], [ %49, %48 ]
-  %.1 = phi i32 [ %.7, %160 ], [ -2, %48 ]
+7:                                                ; preds = %159, %48
+  %.1174.idx = phi i64 [ %.0173.add, %159 ], [ %.0173.idx274, %48 ]
+  %.1171 = phi i32 [ %161, %159 ], [ %43, %48 ]
+  %.1165 = phi ptr [ %139, %159 ], [ %49, %48 ]
+  %.1 = phi i32 [ %.7, %159 ], [ -2, %48 ]
   %.1174.add = add nsw i64 %.1174.idx, 1
   %.0173.ptr = getelementptr inbounds i8, ptr %3, i64 %.1174.add
   %8 = trunc nsw i32 %.1171 to i8
@@ -85,8 +85,8 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   %13 = getelementptr inbounds [33 x i8], ptr @_ZL6yypact, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
-  %16 = lshr i64 8559237104, %12
-  %17 = and i64 %16, 1
+  %16 = shl nuw i64 1, %12
+  %17 = and i64 %16, 8559237104
   %.not198 = icmp eq i64 %17, 0
   br i1 %.not198, label %18, label %51
 
@@ -137,14 +137,14 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   %41 = getelementptr inbounds [41 x i8], ptr @_ZL7yytable, i64 0, i64 %36
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i32
-  %44 = lshr i64 1060924030976, %36
-  %45 = and i64 %44, 1
+  %44 = shl nuw nsw i64 1, %36
+  %45 = and i64 %44, 1060924030976
   %.not200 = icmp eq i64 %45, 0
   br i1 %.not200, label %48, label %46
 
 46:                                               ; preds = %40
   %47 = sub nsw i32 0, %43
-  br label %57
+  br label %56
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds i8, ptr %.0164276, i64 8
@@ -157,277 +157,276 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   %52 = getelementptr inbounds [33 x i8], ptr @_ZL8yydefact, i64 0, i64 %12
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
-  %55 = lshr i64 26216448, %12
-  %56 = and i64 %55, 1
-  %.not202 = icmp eq i64 %56, 0
-  br i1 %.not202, label %57, label %163
+  %55 = and i64 %16, 26216448
+  %.not202 = icmp eq i64 %55, 0
+  br i1 %.not202, label %56, label %162
 
-57:                                               ; preds = %51, %46
+56:                                               ; preds = %51, %46
   %.0163 = phi i32 [ %54, %51 ], [ %47, %46 ]
   %.7 = phi i32 [ %.3, %51 ], [ %.5, %46 ]
-  %58 = sext i32 %.0163 to i64
-  %59 = getelementptr inbounds [25 x i8], ptr @_ZL4yyr2, i64 0, i64 %58
-  %60 = load i8, ptr %59, align 1
-  %61 = sext i8 %60 to i64
-  %62 = sub nsw i64 1, %61
-  %63 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.0164276, i64 %62
-  %.sroa.0.0.copyload = load ptr, ptr %63, align 8
-  switch i32 %.0163, label %137 [
-    i32 2, label %64
-    i32 3, label %67
-    i32 4, label %69
-    i32 5, label %75
-    i32 6, label %76
-    i32 7, label %82
-    i32 8, label %84
-    i32 9, label %86
-    i32 10, label %88
-    i32 11, label %90
-    i32 12, label %92
-    i32 13, label %94
-    i32 14, label %96
-    i32 15, label %98
-    i32 16, label %105
-    i32 17, label %112
-    i32 18, label %117
-    i32 19, label %121
-    i32 20, label %123
-    i32 21, label %126
-    i32 22, label %127
-    i32 23, label %133
-    i32 24, label %135
+  %57 = sext i32 %.0163 to i64
+  %58 = getelementptr inbounds [25 x i8], ptr @_ZL4yyr2, i64 0, i64 %57
+  %59 = load i8, ptr %58, align 1
+  %60 = sext i8 %59 to i64
+  %61 = sub nsw i64 1, %60
+  %62 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.0164276, i64 %61
+  %.sroa.0.0.copyload = load ptr, ptr %62, align 8
+  switch i32 %.0163, label %136 [
+    i32 2, label %63
+    i32 3, label %66
+    i32 4, label %68
+    i32 5, label %74
+    i32 6, label %75
+    i32 7, label %81
+    i32 8, label %83
+    i32 9, label %85
+    i32 10, label %87
+    i32 11, label %89
+    i32 12, label %91
+    i32 13, label %93
+    i32 14, label %95
+    i32 15, label %97
+    i32 16, label %104
+    i32 17, label %111
+    i32 18, label %116
+    i32 19, label %120
+    i32 20, label %122
+    i32 21, label %125
+    i32 22, label %126
+    i32 23, label %132
+    i32 24, label %134
   ]
 
-64:                                               ; preds = %57
-  %65 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %66 = load ptr, ptr %.0164276, align 8
-  call void @_ZN29cmCommandArgumentParserHelper9SetResultEPKc(ptr noundef nonnull align 8 dereferenceable(168) %65, ptr noundef %66)
-  br label %137
+63:                                               ; preds = %56
+  %64 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  %65 = load ptr, ptr %.0164276, align 8
+  call void @_ZN29cmCommandArgumentParserHelper9SetResultEPKc(ptr noundef nonnull align 8 dereferenceable(168) %64, ptr noundef %65)
+  br label %136
 
-67:                                               ; preds = %57
-  %68 = load ptr, ptr %.0164276, align 8
-  br label %137
+66:                                               ; preds = %56
+  %67 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-69:                                               ; preds = %57
-  %70 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %71 = getelementptr inbounds i8, ptr %.0164276, i64 -8
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %.0164276, align 8
-  %74 = call noundef ptr @_ZN29cmCommandArgumentParserHelper13CombineUnionsEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %70, ptr noundef %72, ptr noundef %73)
-  br label %137
+68:                                               ; preds = %56
+  %69 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  %70 = getelementptr inbounds i8, ptr %.0164276, i64 -8
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %.0164276, align 8
+  %73 = call noundef ptr @_ZN29cmCommandArgumentParserHelper13CombineUnionsEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %69, ptr noundef %71, ptr noundef %72)
+  br label %136
 
-75:                                               ; preds = %57
-  br label %137
+74:                                               ; preds = %56
+  br label %136
 
-76:                                               ; preds = %57
-  %77 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %78 = getelementptr inbounds i8, ptr %.0164276, i64 -8
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %.0164276, align 8
-  %81 = call noundef ptr @_ZN29cmCommandArgumentParserHelper13CombineUnionsEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %77, ptr noundef %79, ptr noundef %80)
-  br label %137
+75:                                               ; preds = %56
+  %76 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  %77 = getelementptr inbounds i8, ptr %.0164276, i64 -8
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %.0164276, align 8
+  %80 = call noundef ptr @_ZN29cmCommandArgumentParserHelper13CombineUnionsEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %76, ptr noundef %78, ptr noundef %79)
+  br label %136
 
-82:                                               ; preds = %57
-  %83 = load ptr, ptr %.0164276, align 8
-  br label %137
+81:                                               ; preds = %56
+  %82 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-84:                                               ; preds = %57
-  %85 = load ptr, ptr %.0164276, align 8
-  br label %137
+83:                                               ; preds = %56
+  %84 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-86:                                               ; preds = %57
-  %87 = load ptr, ptr %.0164276, align 8
-  br label %137
+85:                                               ; preds = %56
+  %86 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-88:                                               ; preds = %57
-  %89 = load ptr, ptr %.0164276, align 8
-  br label %137
+87:                                               ; preds = %56
+  %88 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-90:                                               ; preds = %57
-  %91 = load ptr, ptr %.0164276, align 8
-  br label %137
+89:                                               ; preds = %56
+  %90 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-92:                                               ; preds = %57
-  %93 = load ptr, ptr %.0164276, align 8
-  br label %137
+91:                                               ; preds = %56
+  %92 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-94:                                               ; preds = %57
-  %95 = load ptr, ptr %.0164276, align 8
-  br label %137
+93:                                               ; preds = %56
+  %94 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-96:                                               ; preds = %57
-  %97 = load ptr, ptr %.0164276, align 8
-  br label %137
+95:                                               ; preds = %56
+  %96 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-98:                                               ; preds = %57
-  %99 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %100 = getelementptr inbounds i8, ptr %.0164276, i64 -16
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %.0164276, i64 -8
-  %103 = load ptr, ptr %102, align 8
-  %104 = call noundef ptr @_ZN29cmCommandArgumentParserHelper21ExpandSpecialVariableEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %99, ptr noundef %101, ptr noundef %103)
-  br label %137
+97:                                               ; preds = %56
+  %98 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  %99 = getelementptr inbounds i8, ptr %.0164276, i64 -16
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %.0164276, i64 -8
+  %102 = load ptr, ptr %101, align 8
+  %103 = call noundef ptr @_ZN29cmCommandArgumentParserHelper21ExpandSpecialVariableEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %98, ptr noundef %100, ptr noundef %102)
+  br label %136
 
-105:                                              ; preds = %57
-  %106 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %107 = getelementptr inbounds i8, ptr %.0164276, i64 -16
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %.0164276, i64 -8
-  %110 = load ptr, ptr %109, align 8
-  %111 = call noundef ptr @_ZN29cmCommandArgumentParserHelper21ExpandSpecialVariableEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %106, ptr noundef %108, ptr noundef %110)
-  br label %137
+104:                                              ; preds = %56
+  %105 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  %106 = getelementptr inbounds i8, ptr %.0164276, i64 -16
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %.0164276, i64 -8
+  %109 = load ptr, ptr %108, align 8
+  %110 = call noundef ptr @_ZN29cmCommandArgumentParserHelper21ExpandSpecialVariableEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %105, ptr noundef %107, ptr noundef %109)
+  br label %136
 
-112:                                              ; preds = %57
-  %113 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %114 = getelementptr inbounds i8, ptr %.0164276, i64 -8
-  %115 = load ptr, ptr %114, align 8
-  %116 = call noundef ptr @_ZN29cmCommandArgumentParserHelper14ExpandVariableEPKc(ptr noundef nonnull align 8 dereferenceable(168) %113, ptr noundef %115)
-  br label %137
+111:                                              ; preds = %56
+  %112 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  %113 = getelementptr inbounds i8, ptr %.0164276, i64 -8
+  %114 = load ptr, ptr %113, align 8
+  %115 = call noundef ptr @_ZN29cmCommandArgumentParserHelper14ExpandVariableEPKc(ptr noundef nonnull align 8 dereferenceable(168) %112, ptr noundef %114)
+  br label %136
 
-117:                                              ; preds = %57
-  %118 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %119 = load ptr, ptr %.0164276, align 8
-  %120 = call noundef ptr @_ZN29cmCommandArgumentParserHelper19ExpandVariableForAtEPKc(ptr noundef nonnull align 8 dereferenceable(168) %118, ptr noundef %119)
-  br label %137
+116:                                              ; preds = %56
+  %117 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  %118 = load ptr, ptr %.0164276, align 8
+  %119 = call noundef ptr @_ZN29cmCommandArgumentParserHelper19ExpandVariableForAtEPKc(ptr noundef nonnull align 8 dereferenceable(168) %117, ptr noundef %118)
+  br label %136
 
-121:                                              ; preds = %57
-  %122 = load ptr, ptr %.0164276, align 8
-  br label %137
+120:                                              ; preds = %56
+  %121 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-123:                                              ; preds = %57
-  %124 = getelementptr inbounds i8, ptr %.0164276, i64 -8
-  %125 = load ptr, ptr %124, align 8
-  br label %137
+122:                                              ; preds = %56
+  %123 = getelementptr inbounds i8, ptr %.0164276, i64 -8
+  %124 = load ptr, ptr %123, align 8
+  br label %136
 
-126:                                              ; preds = %57
-  br label %137
+125:                                              ; preds = %56
+  br label %136
 
-127:                                              ; preds = %57
-  %128 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %129 = getelementptr inbounds i8, ptr %.0164276, i64 -8
-  %130 = load ptr, ptr %129, align 8
-  %131 = load ptr, ptr %.0164276, align 8
-  %132 = call noundef ptr @_ZN29cmCommandArgumentParserHelper13CombineUnionsEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %128, ptr noundef %130, ptr noundef %131)
-  br label %137
+126:                                              ; preds = %56
+  %127 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  %128 = getelementptr inbounds i8, ptr %.0164276, i64 -8
+  %129 = load ptr, ptr %128, align 8
+  %130 = load ptr, ptr %.0164276, align 8
+  %131 = call noundef ptr @_ZN29cmCommandArgumentParserHelper13CombineUnionsEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %127, ptr noundef %129, ptr noundef %130)
+  br label %136
 
-133:                                              ; preds = %57
-  %134 = load ptr, ptr %.0164276, align 8
-  br label %137
+132:                                              ; preds = %56
+  %133 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-135:                                              ; preds = %57
-  %136 = load ptr, ptr %.0164276, align 8
-  br label %137
+134:                                              ; preds = %56
+  %135 = load ptr, ptr %.0164276, align 8
+  br label %136
 
-137:                                              ; preds = %57, %135, %133, %127, %126, %123, %121, %117, %112, %105, %98, %96, %94, %92, %90, %88, %86, %84, %82, %76, %75, %69, %67, %64
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %57 ], [ %136, %135 ], [ %134, %133 ], [ %132, %127 ], [ null, %126 ], [ %125, %123 ], [ %122, %121 ], [ %120, %117 ], [ %116, %112 ], [ %111, %105 ], [ %104, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %76 ], [ null, %75 ], [ %74, %69 ], [ %68, %67 ], [ null, %64 ]
-  %138 = sub nsw i64 0, %61
-  %139 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.0164276, i64 %138
-  %.0173.add = sub i64 %.0173.idx274, %61
+136:                                              ; preds = %56, %134, %132, %126, %125, %122, %120, %116, %111, %104, %97, %95, %93, %91, %89, %87, %85, %83, %81, %75, %74, %68, %66, %63
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %56 ], [ %135, %134 ], [ %133, %132 ], [ %131, %126 ], [ null, %125 ], [ %124, %122 ], [ %121, %120 ], [ %119, %116 ], [ %115, %111 ], [ %110, %104 ], [ %103, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %75 ], [ null, %74 ], [ %73, %68 ], [ %67, %66 ], [ null, %63 ]
+  %137 = sub nsw i64 0, %60
+  %138 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.0164276, i64 %137
+  %.0173.add = sub i64 %.0173.idx274, %60
   %.ptr196 = getelementptr inbounds i8, ptr %3, i64 %.0173.add
-  %140 = getelementptr inbounds i8, ptr %139, i64 8
-  store ptr %.sroa.0.0, ptr %140, align 8
-  %141 = getelementptr inbounds [25 x i8], ptr @_ZL4yyr1, i64 0, i64 %58
-  %142 = load i8, ptr %141, align 1
-  %143 = sext i8 %142 to i64
-  %144 = add nsw i64 %143, -15
-  %145 = getelementptr inbounds [10 x i8], ptr @_ZL7yypgoto, i64 0, i64 %144
-  %146 = load i8, ptr %145, align 1
-  %147 = sext i8 %146 to i32
-  %148 = load i8, ptr %.ptr196, align 1
-  %149 = sext i8 %148 to i32
-  %150 = add nsw i32 %149, %147
-  %or.cond5 = icmp ult i32 %150, 41
-  br i1 %or.cond5, label %151, label %158
+  %139 = getelementptr inbounds i8, ptr %138, i64 8
+  store ptr %.sroa.0.0, ptr %139, align 8
+  %140 = getelementptr inbounds [25 x i8], ptr @_ZL4yyr1, i64 0, i64 %57
+  %141 = load i8, ptr %140, align 1
+  %142 = sext i8 %141 to i64
+  %143 = add nsw i64 %142, -15
+  %144 = getelementptr inbounds [10 x i8], ptr @_ZL7yypgoto, i64 0, i64 %143
+  %145 = load i8, ptr %144, align 1
+  %146 = sext i8 %145 to i32
+  %147 = load i8, ptr %.ptr196, align 1
+  %148 = sext i8 %147 to i32
+  %149 = add nsw i32 %148, %146
+  %or.cond5 = icmp ult i32 %149, 41
+  br i1 %or.cond5, label %150, label %157
 
-151:                                              ; preds = %137
-  %152 = zext nneg i32 %150 to i64
-  %153 = getelementptr inbounds [41 x i8], ptr @_ZL7yycheck, i64 0, i64 %152
-  %154 = load i8, ptr %153, align 1
-  %155 = icmp eq i8 %154, %148
-  br i1 %155, label %156, label %158
+150:                                              ; preds = %136
+  %151 = zext nneg i32 %149 to i64
+  %152 = getelementptr inbounds [41 x i8], ptr @_ZL7yycheck, i64 0, i64 %151
+  %153 = load i8, ptr %152, align 1
+  %154 = icmp eq i8 %153, %147
+  br i1 %154, label %155, label %157
 
-156:                                              ; preds = %151
-  %157 = getelementptr inbounds [41 x i8], ptr @_ZL7yytable, i64 0, i64 %152
-  br label %160
+155:                                              ; preds = %150
+  %156 = getelementptr inbounds [41 x i8], ptr @_ZL7yytable, i64 0, i64 %151
+  br label %159
 
-158:                                              ; preds = %151, %137
-  %159 = getelementptr inbounds [10 x i8], ptr @_ZL9yydefgoto, i64 0, i64 %144
-  br label %160
+157:                                              ; preds = %150, %136
+  %158 = getelementptr inbounds [10 x i8], ptr @_ZL9yydefgoto, i64 0, i64 %143
+  br label %159
 
-160:                                              ; preds = %158, %156
-  %.in = phi ptr [ %157, %156 ], [ %159, %158 ]
-  %161 = load i8, ptr %.in, align 1
-  %162 = sext i8 %161 to i32
+159:                                              ; preds = %157, %155
+  %.in = phi ptr [ %156, %155 ], [ %158, %157 ]
+  %160 = load i8, ptr %.in, align 1
+  %161 = sext i8 %160 to i32
   br label %7
 
-163:                                              ; preds = %51
+162:                                              ; preds = %51
   %.0173.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.0173.idx274
-  %164 = icmp eq i32 %.3, -2
-  br i1 %164, label %171, label %165
+  %163 = icmp eq i32 %.3, -2
+  br i1 %163, label %170, label %164
 
-165:                                              ; preds = %163
+164:                                              ; preds = %162
   %or.cond7 = icmp ult i32 %.3, 270
-  br i1 %or.cond7, label %166, label %171
+  br i1 %or.cond7, label %165, label %170
 
-166:                                              ; preds = %165
-  %167 = zext nneg i32 %.3 to i64
-  %168 = getelementptr inbounds [270 x i8], ptr @_ZL11yytranslate, i64 0, i64 %167
-  %169 = load i8, ptr %168, align 1
-  %170 = sext i8 %169 to i32
-  br label %171
+165:                                              ; preds = %164
+  %166 = zext nneg i32 %.3 to i64
+  %167 = getelementptr inbounds [270 x i8], ptr @_ZL11yytranslate, i64 0, i64 %166
+  %168 = load i8, ptr %167, align 1
+  %169 = sext i8 %168 to i32
+  br label %170
 
-171:                                              ; preds = %163, %165, %166
-  %172 = phi i32 [ -2, %163 ], [ %170, %166 ], [ 2, %165 ]
-  %173 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %5, ptr nonnull %.0173.ptr.le, i32 %172)
-  switch i32 %173, label %182 [
-    i32 0, label %174
-    i32 -1, label %175
+170:                                              ; preds = %162, %164, %165
+  %171 = phi i32 [ -2, %162 ], [ %169, %165 ], [ 2, %164 ]
+  %172 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %5, ptr nonnull %.0173.ptr.le, i32 %171)
+  switch i32 %172, label %181 [
+    i32 0, label %173
+    i32 -1, label %174
   ]
 
-174:                                              ; preds = %171
-  br label %182
+173:                                              ; preds = %170
+  br label %181
 
-175:                                              ; preds = %171
-  %176 = load i64, ptr %6, align 8
-  %177 = call noalias ptr @malloc(i64 noundef %176) #8
-  %.not205 = icmp eq ptr %177, null
-  br i1 %.not205, label %181, label %178
+174:                                              ; preds = %170
+  %175 = load i64, ptr %6, align 8
+  %176 = call noalias ptr @malloc(i64 noundef %175) #8
+  %.not205 = icmp eq ptr %176, null
+  br i1 %.not205, label %180, label %177
 
-178:                                              ; preds = %175
-  %179 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %177, ptr nonnull %.0173.ptr.le, i32 %172)
-  %180 = icmp eq i32 %179, -2
-  br label %182
+177:                                              ; preds = %174
+  %178 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %176, ptr nonnull %.0173.ptr.le, i32 %171)
+  %179 = icmp eq i32 %178, -2
+  br label %181
 
-181:                                              ; preds = %175
+180:                                              ; preds = %174
   store i64 128, ptr %6, align 8
-  br label %182
+  br label %181
 
-182:                                              ; preds = %171, %181, %178, %174
-  %.2222 = phi ptr [ %5, %171 ], [ %5, %181 ], [ %177, %178 ], [ %5, %174 ]
-  %.0153 = phi ptr [ @.str, %171 ], [ @.str, %181 ], [ %177, %178 ], [ %5, %174 ]
-  %.0 = phi i1 [ true, %171 ], [ true, %181 ], [ %180, %178 ], [ false, %174 ]
-  %183 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  call void @_ZN29cmCommandArgumentParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(168) %183, ptr noundef nonnull %.0153)
+181:                                              ; preds = %170, %180, %177, %173
+  %.2222 = phi ptr [ %5, %170 ], [ %5, %180 ], [ %176, %177 ], [ %5, %173 ]
+  %.0153 = phi ptr [ @.str, %170 ], [ @.str, %180 ], [ %176, %177 ], [ %5, %173 ]
+  %.0 = phi i1 [ true, %170 ], [ true, %180 ], [ %179, %177 ], [ false, %173 ]
+  %182 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  call void @_ZN29cmCommandArgumentParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(168) %182, ptr noundef nonnull %.0153)
   br i1 %.0, label %.loopexit, label %.thread240
 
-.loopexit:                                        ; preds = %7, %182
-  %.0220 = phi ptr [ %.2222, %182 ], [ %5, %7 ]
-  %184 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  call void @_ZN29cmCommandArgumentParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(168) %184, ptr noundef nonnull @.str.3)
+.loopexit:                                        ; preds = %7, %181
+  %.0220 = phi ptr [ %.2222, %181 ], [ %5, %7 ]
+  %183 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
+  call void @_ZN29cmCommandArgumentParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(168) %183, ptr noundef nonnull @.str.3)
   br label %.thread240
 
-.thread240:                                       ; preds = %182, %.loopexit
-  %.0162238 = phi i32 [ 2, %.loopexit ], [ 1, %182 ]
-  %.4224232 = phi ptr [ %.0220, %.loopexit ], [ %.2222, %182 ]
+.thread240:                                       ; preds = %181, %.loopexit
+  %.0162238 = phi i32 [ 2, %.loopexit ], [ 1, %181 ]
+  %.4224232 = phi ptr [ %.0220, %.loopexit ], [ %.2222, %181 ]
   %.not210 = icmp eq ptr %.4224232, %5
-  br i1 %.not210, label %.thread240.thread, label %185
+  br i1 %.not210, label %.thread240.thread, label %184
 
-185:                                              ; preds = %.thread240
+184:                                              ; preds = %.thread240
   call void @free(ptr noundef %.4224232) #9
   br label %.thread240.thread
 
-.thread240.thread:                                ; preds = %9, %24, %185, %.thread240
-  %.0162238288 = phi i32 [ %.0162238, %185 ], [ %.0162238, %.thread240 ], [ 1, %24 ], [ 0, %9 ]
+.thread240.thread:                                ; preds = %9, %24, %184, %.thread240
+  %.0162238288 = phi i32 [ %.0162238, %184 ], [ %.0162238, %.thread240 ], [ 1, %24 ], [ 0, %9 ]
   ret i32 %.0162238288
 }
 
@@ -456,8 +455,8 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %.val.val.i = load i8, ptr %.0.val1, align 1
   %5 = sext i8 %.val.val.i to i64
-  %6 = lshr i64 8559237104, %5
-  %7 = and i64 %6, 1
+  %6 = shl nuw i64 1, %5
+  %7 = and i64 %6, 8559237104
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.loopexit.i.i.thread
 

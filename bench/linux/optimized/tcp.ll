@@ -6182,8 +6182,8 @@ define dso_local void @tcp_shutdown(ptr noundef %0, i32 noundef %1) #0 align 16 
   %17 = and i8 %16, 15
   %18 = zext nneg i8 %17 to i32
   tail call void @tcp_set_state(ptr noundef %0, i32 noundef %18)
-  %19 = lshr i64 65269, %14
-  %20 = and i64 %19, 1
+  %19 = shl nuw i64 1, %14
+  %20 = and i64 %19, 65269
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %23
 
@@ -6548,8 +6548,8 @@ define dso_local void @__tcp_close(ptr noundef %0, i64 noundef %1) local_unnamed
   %160 = and i8 %159, 15
   %161 = zext nneg i8 %160 to i32
   tail call void @tcp_set_state(ptr noundef %0, i32 noundef %161)
-  %162 = lshr i64 65269, %157
-  %163 = and i64 %162, 1
+  %162 = shl nuw i64 1, %157
+  %163 = and i64 %162, 65269
   %164 = icmp eq i64 %163, 0
   br i1 %164, label %165, label %166
 

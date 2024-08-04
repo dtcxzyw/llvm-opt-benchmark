@@ -1190,8 +1190,8 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc456, %263
   %285 = zext nneg i32 %76 to i64
   %286 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv3hal6resizeEiPKhmiiPhmiiddiE12areafast_tab, i64 0, i64 %285
   %287 = load ptr, ptr %286, align 8
-  %288 = lshr i64 146, %285
-  %289 = and i64 %288, 1
+  %288 = shl nuw nsw i64 1, %285
+  %289 = and i64 %288, 146
   %.not431.not = icmp eq i64 %289, 0
   br i1 %.not431.not, label %.preheader525, label %303
 
@@ -1339,8 +1339,8 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc456, %263
   %333 = zext nneg i32 %76 to i64
   %334 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv3hal6resizeEiPKhmiiPhmiiddiE8area_tab, i64 0, i64 %333
   %335 = load ptr, ptr %334, align 8
-  %336 = lshr i64 109, %333
-  %337 = and i64 %336, 1
+  %336 = shl nuw nsw i64 1, %333
+  %337 = and i64 %336, 109
   %338 = icmp ne i64 %337, 0
   %339 = icmp ult i32 %78, 4
   %or.cond21 = and i1 %339, %338

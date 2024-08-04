@@ -4086,8 +4086,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 27:                                               ; preds = %6
   %28 = trunc nuw nsw i32 %22 to i8
-  %29 = lshr i8 39, %28
-  %30 = and i8 %29, 1
+  %29 = shl nuw nsw i8 1, %28
+  %30 = and i8 %29, 39
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %24, label %32
 

@@ -527,8 +527,8 @@ if.end.i:                                         ; preds = %sw.bb48
   %conv.i = zext nneg i32 %value to i64
   %arrayidx.i = getelementptr [23 x ptr], ptr @feature_name.name, i64 0, i64 %conv.i
   %24 = load ptr, ptr %arrayidx.i, align 8
-  %25 = lshr i64 63712, %conv.i
-  %26 = and i64 %25, 1
+  %25 = shl nuw nsw i64 1, %conv.i
+  %26 = and i64 %25, 63712
   %tobool.not.not.i = icmp eq i64 %26, 0
   %..str.41.i = select i1 %tobool.not.not.i, ptr %24, ptr @.str.41
   br label %feature_name.exit
@@ -683,8 +683,8 @@ if.end.i153:                                      ; preds = %sw.bb85
   %conv.i154 = zext nneg i32 %value to i64
   %arrayidx.i155 = getelementptr [23 x ptr], ptr @feature_name.name, i64 0, i64 %conv.i154
   %49 = load ptr, ptr %arrayidx.i155, align 8
-  %50 = lshr i64 63712, %conv.i154
-  %51 = and i64 %50, 1
+  %50 = shl nuw nsw i64 1, %conv.i154
+  %51 = and i64 %50, 63712
   %tobool.not.not.i156 = icmp eq i64 %51, 0
   %..str.41.i157 = select i1 %tobool.not.not.i156, ptr %49, ptr @.str.41
   br label %feature_name.exit159

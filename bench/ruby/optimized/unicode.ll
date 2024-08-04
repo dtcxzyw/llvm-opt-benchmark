@@ -1795,8 +1795,8 @@ onigenc_unicode_CaseUnfold_12_lookup.exit:        ; preds = %code2_equal.exit.i
 311:                                              ; preds = %273
   %312 = add nuw nsw i32 %309, 7
   %313 = zext nneg i32 %312 to i64
-  %314 = lshr i64 106102737862656, %313
-  %315 = and i64 %314, 1
+  %314 = shl nuw nsw i64 1, %313
+  %315 = and i64 %314, 106102737862656
   %.not.i = icmp eq i64 %315, 0
   br i1 %.not.i, label %.thread, label %316
 
@@ -2236,8 +2236,8 @@ onigenc_unicode_CaseFold_11_lookup.exit306.thread: ; preds = %529, %498, %524, %
 589:                                              ; preds = %551
   %590 = add nuw nsw i32 %587, 7
   %591 = zext nneg i32 %590 to i64
-  %592 = lshr i64 106102737862656, %591
-  %593 = and i64 %592, 1
+  %592 = shl nuw nsw i64 1, %591
+  %593 = and i64 %592, 106102737862656
   %.not.i311 = icmp eq i64 %593, 0
   br i1 %.not.i311, label %.thread, label %594
 

@@ -699,8 +699,8 @@ define internal i32 @dissect_ansi_683(ptr noundef %0, ptr noundef %1, ptr nounde
   %27 = load i32, ptr %6, align 4
   %28 = sext i32 %27 to i64
   %29 = and i64 %28, 2305843009213693951
-  %30 = lshr i64 16842784, %29
-  %31 = and i64 %30, 1
+  %30 = shl nuw i64 1, %29
+  %31 = and i64 %30, 16842784
   %.not.not.i = icmp eq i64 %31, 0
   br i1 %.not.not.i, label %32, label %dissect_ansi_683_for_message.exit
 

@@ -933,8 +933,8 @@ warn_always_zero_bit.exit55.i.i:                  ; preds = %if.then3.i54.i.i, %
   %and.i3.i.i.i = and i32 %shr.i2.i.i.i, 3
   %or.i.i.i = or disjoint i32 %sizehi.0.i.i.i, %and.i3.i.i.i
   %idxprom.i.i = zext nneg i32 %or.i.i.i to i64
-  %17 = lshr i64 65488, %idxprom.i.i
-  %18 = and i64 %17, 1
+  %17 = shl nuw nsw i64 1, %idxprom.i.i
+  %18 = and i64 %17, 65488
   %cmp.not.i.i = icmp eq i64 %18, 0
   br i1 %cmp.not.i.i, label %if.else.i.i, label %do.body.i.i20
 
@@ -1280,8 +1280,8 @@ warn_always_zero_bit.exit49.i.i:                  ; preds = %if.then3.i48.i.i, %
   %shr.i.i.i59 = lshr i32 %conv.i.i, 16
   %and.i50.i.i = and i32 %shr.i.i.i59, 15
   %idxprom.i.i60 = zext nneg i32 %and.i50.i.i to i64
-  %52 = lshr i64 65488, %idxprom.i.i60
-  %53 = and i64 %52, 1
+  %52 = shl nuw nsw i64 1, %idxprom.i.i60
+  %53 = and i64 %52, 65488
   %cmp.not.i.i61 = icmp eq i64 %53, 0
   br i1 %cmp.not.i.i61, label %if.else.i.i87, label %do.body.i.i62
 

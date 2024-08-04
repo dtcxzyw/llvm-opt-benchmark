@@ -6768,8 +6768,8 @@ if.end87:                                         ; preds = %invoke.cont83
   store i32 %inc.i17, ptr @_ZZL8rand_negvE3neg, align 4
   %rem.i18 = and i32 %13, 7
   %idxprom.i19 = zext nneg i32 %rem.i18 to i64
-  %14 = lshr i64 39, %idxprom.i19
-  %15 = and i64 %14, 1
+  %14 = shl nuw nsw i64 1, %idxprom.i19
+  %15 = and i64 %14, 39
   %tobool89.not.not = icmp eq i64 %15, 0
   br i1 %tobool89.not.not, label %land.lhs.true, label %if.end97
 

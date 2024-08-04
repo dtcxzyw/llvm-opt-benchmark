@@ -15,8 +15,8 @@ define dso_local noundef range(i32 0, 12325) i32 @acpi_ex_get_protocol_buffer_le
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = lshr i64 683, %5
-  %7 = and i64 %6, 1
+  %6 = shl nuw nsw i64 1, %5
+  %7 = and i64 %6, 683
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %10, label %9
 

@@ -559,8 +559,8 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 172:                                              ; preds = %162
   %173 = zext nneg i8 %169 to i64
-  %174 = lshr i64 3346401, %173
-  %175 = and i64 %174, 1
+  %174 = shl nuw nsw i64 1, %173
+  %175 = and i64 %174, 3346401
   %176 = icmp eq i64 %175, 0
   br i1 %176, label %177, label %195
 
@@ -1474,10 +1474,10 @@ define dso_local i32 @nla_policy_len(ptr nocapture noundef readonly %0, i32 noun
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %2, %39
-  %4 = phi i32 [ %40, %39 ], [ 0, %2 ]
-  %5 = phi i32 [ %41, %39 ], [ 0, %2 ]
-  %6 = phi ptr [ %42, %39 ], [ %0, %2 ]
+.preheader:                                       ; preds = %2, %38
+  %4 = phi i32 [ %39, %38 ], [ 0, %2 ]
+  %5 = phi i32 [ %40, %38 ], [ 0, %2 ]
+  %6 = phi ptr [ %41, %38 ], [ %0, %2 ]
   %7 = getelementptr inbounds i8, ptr %6, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, 0
@@ -1488,13 +1488,13 @@ define dso_local i32 @nla_policy_len(ptr nocapture noundef readonly %0, i32 noun
   %12 = add nuw nsw i32 %11, 7
   %13 = and i32 %12, 131068
   %14 = add i32 %13, %4
-  br label %39
+  br label %38
 
 15:                                               ; preds = %.preheader
   %16 = load i8, ptr %6, align 8
   %17 = zext i8 %16 to i64
-  %18 = lshr i64 3346401, %17
-  %19 = and i64 %18, 1
+  %18 = shl nuw i64 1, %17
+  %19 = and i64 %18, 3346401
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %21, label %28
 
@@ -1505,33 +1505,32 @@ define dso_local i32 @nla_policy_len(ptr nocapture noundef readonly %0, i32 noun
   %25 = add nuw nsw i32 %24, 7
   %26 = and i32 %25, 508
   %27 = add i32 %26, %4
-  br label %39
+  br label %38
 
 28:                                               ; preds = %15
-  %29 = lshr i64 3346017, %17
-  %30 = and i64 %29, 1
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %39
+  %29 = and i64 %18, 3346017
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %38
 
-32:                                               ; preds = %28
-  %33 = getelementptr [22 x i8], ptr @nla_attr_minlen, i64 0, i64 %17
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = add nuw nsw i32 %35, 7
-  %37 = and i32 %36, 508
-  %38 = add i32 %37, %4
-  br label %39
+31:                                               ; preds = %28
+  %32 = getelementptr [22 x i8], ptr @nla_attr_minlen, i64 0, i64 %17
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %35 = add nuw nsw i32 %34, 7
+  %36 = and i32 %35, 508
+  %37 = add i32 %36, %4
+  br label %38
 
-39:                                               ; preds = %32, %28, %21, %10
-  %40 = phi i32 [ %14, %10 ], [ %27, %21 ], [ %38, %32 ], [ %4, %28 ]
-  %41 = add nuw nsw i32 %5, 1
-  %42 = getelementptr i8, ptr %6, i64 16
-  %43 = icmp eq i32 %41, %1
-  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !27
+38:                                               ; preds = %31, %28, %21, %10
+  %39 = phi i32 [ %14, %10 ], [ %27, %21 ], [ %37, %31 ], [ %4, %28 ]
+  %40 = add nuw nsw i32 %5, 1
+  %41 = getelementptr i8, ptr %6, i64 16
+  %42 = icmp eq i32 %40, %1
+  br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !27
 
-.loopexit:                                        ; preds = %39, %2
-  %44 = phi i32 [ 0, %2 ], [ %40, %39 ]
-  ret i32 %44
+.loopexit:                                        ; preds = %38, %2
+  %43 = phi i32 [ 0, %2 ], [ %39, %38 ]
+  ret i32 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

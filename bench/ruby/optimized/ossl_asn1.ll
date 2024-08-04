@@ -3373,8 +3373,8 @@ decode_time.exit.i:                               ; preds = %270
   br i1 %or.cond3.i, label %288, label %._crit_edge.i
 
 288:                                              ; preds = %281
-  %289 = lshr i64 536931200, %287
-  %290 = and i64 %289, 1
+  %289 = shl nuw nsw i64 1, %287
+  %290 = and i64 %289, 536931200
   %.not.not.i = icmp eq i64 %290, 0
   br i1 %.not.not.i, label %291, label %._crit_edge.i
 

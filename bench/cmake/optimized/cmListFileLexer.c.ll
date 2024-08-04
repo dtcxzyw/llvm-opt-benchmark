@@ -356,8 +356,8 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
 
 159:                                              ; preds = %154
   %160 = zext nneg i16 %.0268.in to i64
-  %161 = lshr i64 32765945, %160
-  %162 = and i64 %161, 1
+  %161 = shl nuw i64 1, %160
+  %162 = and i64 %161, 32765945
   %.not284.not = icmp eq i64 %162, 0
   br i1 %.not284.not, label %.preheader, label %.loopexit442.preheader
 

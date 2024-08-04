@@ -626,8 +626,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %393 = getelementptr inbounds i8, ptr %380, i64 280
   %394 = getelementptr inbounds [4 x i32], ptr %393, i64 0, i64 %392
   %395 = load i32, ptr %394, align 4, !tbaa !85
-  %396 = lshr i64 85, %385
-  %397 = and i64 %396, 1
+  %396 = shl nuw nsw i64 1, %385
+  %397 = and i64 %396, 5
   %398 = icmp eq i64 %397, 0
   %399 = ptrtoint ptr %353 to i64
   %400 = sub i64 %399, %71
@@ -738,8 +738,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %473 = getelementptr inbounds [4 x i32], ptr %472, i64 0, i64 %471
   %474 = load i32, ptr %473, align 4, !tbaa !85
   %475 = and i32 %474, %67
-  %476 = lshr i64 85, %466
-  %477 = and i64 %476, 1
+  %476 = shl nuw nsw i64 1, %466
+  %477 = and i64 %476, 5
   %478 = icmp eq i64 %477, 0
   %479 = ptrtoint ptr %434 to i64
   %480 = sub i64 %479, %71

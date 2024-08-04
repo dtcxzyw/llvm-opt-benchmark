@@ -3084,8 +3084,8 @@ define internal i32 @dissect_obex_application_parameter_bt_map(ptr noundef %0, p
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %.lr.ph
-  %26 = lshr i64 33554864, %23
-  %27 = and i64 %26, 1
+  %26 = shl nuw nsw i64 1, %23
+  %27 = and i64 %26, 33554864
   %.not.not = icmp eq i64 %27, 0
   br i1 %.not.not, label %28, label %35
 
@@ -3508,8 +3508,8 @@ define internal i32 @dissect_obex_application_parameter_bt_ctn(ptr noundef %0, p
 
 24:                                               ; preds = %.lr.ph
   %25 = zext nneg i8 %7 to i64
-  %26 = lshr i64 19504, %25
-  %27 = and i64 %26, 1
+  %26 = shl nuw nsw i64 1, %25
+  %27 = and i64 %26, 19504
   %.not.not = icmp eq i64 %27, 0
   br i1 %.not.not, label %28, label %.thread
 
@@ -3537,8 +3537,8 @@ define internal i32 @dissect_obex_application_parameter_bt_ctn(ptr noundef %0, p
 
 41:                                               ; preds = %37
   %42 = zext nneg i32 %38 to i64
-  %43 = lshr i64 19504, %42
-  %44 = and i64 %43, 1
+  %43 = shl nuw i64 1, %42
+  %44 = and i64 %43, 19504
   %.not128.not = icmp eq i64 %44, 0
   br i1 %.not128.not, label %45, label %.thread
 

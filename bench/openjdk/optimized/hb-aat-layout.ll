@@ -14481,8 +14481,8 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit58:       ; preds = %_ZN11hb_buffer_t14m
   %61 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %59, i64 %60
   %62 = zext nneg i32 %.sroa.speculated75 to i64
   %63 = mul nuw nsw i64 %62, 20
-  %64 = lshr i64 197, %33
-  %65 = and i64 %64, 1
+  %64 = shl nuw nsw i64 1, %33
+  %65 = and i64 %64, 196
   %.not.i59.not = icmp eq i64 %65, 0
   br i1 %.not.i59.not, label %66, label %_ZL9hb_memcpyPvPKvm.exit
 
@@ -20953,8 +20953,8 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit58:       ; preds = %_ZN11hb_buffer_t14m
   %61 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %59, i64 %60
   %62 = zext nneg i32 %.sroa.speculated75 to i64
   %63 = mul nuw nsw i64 %62, 20
-  %64 = lshr i64 197, %33
-  %65 = and i64 %64, 1
+  %64 = shl nuw nsw i64 1, %33
+  %65 = and i64 %64, 196
   %.not.i59.not = icmp eq i64 %65, 0
   br i1 %.not.i59.not, label %66, label %_ZL9hb_memcpyPvPKvm.exit
 

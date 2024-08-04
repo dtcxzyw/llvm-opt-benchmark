@@ -1804,8 +1804,8 @@ define internal i64 @selinux_transaction_write(ptr noundef %0, ptr noundef %1, i
 
 10:                                               ; preds = %4
   %11 = getelementptr [15 x ptr], ptr @write_op, i64 0, i64 %8
-  %12 = lshr i64 15391, %8
-  %13 = and i64 %12, 1
+  %12 = shl nuw nsw i64 1, %8
+  %13 = and i64 %12, 15391
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %25
 

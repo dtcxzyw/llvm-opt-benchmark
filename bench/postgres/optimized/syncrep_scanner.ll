@@ -227,8 +227,8 @@ syncrep_yyensure_buffer_stack.exit:               ; preds = %22, %23, %31
   %76 = getelementptr [35 x i16], ptr @yy_def, i64 0, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = and i64 %75, 9223372036854775807
-  %79 = lshr i64 2076672024, %78
-  %80 = and i64 %79, 1
+  %79 = shl nuw i64 1, %78
+  %80 = and i64 %79, 2076672024
   %.not53 = icmp eq i64 %80, 0
   br i1 %.not53, label %84, label %81
 
@@ -257,8 +257,8 @@ syncrep_yyensure_buffer_stack.exit:               ; preds = %22, %23, %31
   %95 = sext i16 %94 to i32
   %96 = getelementptr i8, ptr %.139, i64 1
   %97 = and i64 %.lcssa, 9223372036854775807
-  %98 = lshr i64 -32985348833280, %97
-  %99 = and i64 %98, 1
+  %98 = shl nuw i64 1, %97
+  %99 = and i64 %98, -32985348833280
   %.not50.not = icmp eq i64 %99, 0
   br i1 %.not50.not, label %56, label %100, !llvm.loop !7
 
@@ -499,8 +499,8 @@ syncrep_yyensure_buffer_stack.exit:               ; preds = %22, %23, %31
   %203 = getelementptr [35 x i16], ptr @yy_def, i64 0, i64 %202
   %204 = load i16, ptr %203, align 2
   %205 = and i64 %202, 9223372036854775807
-  %206 = lshr i64 2076672024, %205
-  %207 = and i64 %206, 1
+  %206 = shl nuw i64 1, %205
+  %207 = and i64 %206, 2076672024
   %.not20.i = icmp eq i64 %207, 0
   br i1 %.not20.i, label %211, label %208
 
@@ -572,8 +572,8 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %173
 yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i57, %228
   %.lcssa.i59 = phi i64 [ %232, %228 ], [ %243, %.lr.ph.i57 ]
   %246 = and i64 %.lcssa.i59, 9223372036854775807
-  %247 = lshr i64 -32985348833280, %246
-  %248 = and i64 %247, 1
+  %247 = shl nuw i64 1, %246
+  %248 = and i64 %247, -32985348833280
   %.not15.i = icmp ne i64 %248, 0
   %.not52140 = icmp eq i64 %246, 0
   %.not52 = or i1 %.not15.i, %.not52140
@@ -1061,8 +1061,8 @@ yy_get_next_buffer.exit.thread:                   ; preds = %yy_get_next_buffer.
   %483 = getelementptr [35 x i16], ptr @yy_def, i64 0, i64 %482
   %484 = load i16, ptr %483, align 2
   %485 = and i64 %482, 9223372036854775807
-  %486 = lshr i64 2076672024, %485
-  %487 = and i64 %486, 1
+  %486 = shl nuw i64 1, %485
+  %487 = and i64 %486, 2076672024
   %.not20.i74 = icmp eq i64 %487, 0
   br i1 %.not20.i74, label %491, label %488
 
@@ -1158,8 +1158,8 @@ yy_get_next_buffer.exit.thread98:                 ; preds = %269, %yy_get_next_b
   %532 = getelementptr [35 x i16], ptr @yy_def, i64 0, i64 %531
   %533 = load i16, ptr %532, align 2
   %534 = and i64 %531, 9223372036854775807
-  %535 = lshr i64 2076672024, %534
-  %536 = and i64 %535, 1
+  %535 = shl nuw i64 1, %534
+  %536 = and i64 %535, 2076672024
   %.not20.i90 = icmp eq i64 %536, 0
   br i1 %.not20.i90, label %540, label %537
 

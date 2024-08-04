@@ -633,8 +633,8 @@ define internal i32 @p4_hw_config(ptr noundef %0) #5 align 16 {
   br i1 %96, label %111, label %97
 
 97:                                               ; preds = %95
-  %98 = lshr i64 70367662075646, %89
-  %99 = and i64 %98, 1
+  %98 = shl nuw i64 1, %89
+  %99 = and i64 %98, 70367662075646
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %101, label %111
 

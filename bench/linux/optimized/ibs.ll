@@ -1325,8 +1325,8 @@ define internal fastcc range(i32 0, 2) i32 @perf_ibs_handle_irq(ptr noundef %0, 
   br label %.thread12
 
 314:                                              ; preds = %297
-  %315 = lshr i64 99, %298
-  %316 = and i64 %315, 1
+  %315 = shl nuw nsw i64 1, %298
+  %316 = and i64 %315, 99
   %317 = icmp eq i64 %316, 0
   br i1 %317, label %.thread13, label %325
 

@@ -26956,8 +26956,8 @@ land.lhs.true.i.i:                                ; preds = %sw.bb1
   %3 = load i32, ptr %add.ptr.i.i, align 4
   %and.i.i = and i32 %3, 63
   %idxprom1.i.i = zext nneg i32 %and.i.i to i64
-  %4 = lshr i64 266027925503, %idxprom1.i.i
-  %5 = and i64 %4, 1
+  %4 = shl nuw i64 1, %idxprom1.i.i
+  %5 = and i64 %4, 266027925503
   %tobool.not.not.i.i = icmp eq i64 %5, 0
   br i1 %tobool.not.not.i.i, label %invertjump.exit, label %if.else.i.i
 
@@ -27255,8 +27255,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %sw.bb4.i.i
   %12 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %and.i.i.i.i = and i32 %12, 63
   %idxprom1.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
-  %13 = lshr i64 266027925503, %idxprom1.i.i.i.i
-  %14 = and i64 %13, 1
+  %13 = shl nuw i64 1, %idxprom1.i.i.i.i
+  %14 = and i64 %13, 266027925503
   %tobool.not.not.i.i.i.i = icmp eq i64 %14, 0
   br i1 %tobool.not.not.i.i.i.i, label %invertjump.exit.i.i, label %if.else.i.i.i.i
 
@@ -27378,8 +27378,8 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %31 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %and.i.i.i.i.i = and i32 %31, 63
   %idxprom1.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i to i64
-  %32 = lshr i64 266027925503, %idxprom1.i.i.i.i.i
-  %33 = and i64 %32, 1
+  %32 = shl nuw i64 1, %idxprom1.i.i.i.i.i
+  %33 = and i64 %32, 266027925503
   %tobool.not.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %tobool.not.not.i.i.i.i.i, label %getjumpcontrol.exit.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -27446,8 +27446,8 @@ land.lhs.true.i.i.i65.i.i:                        ; preds = %for.body.i36.i.i
   %38 = load i32, ptr %add.ptr.i.i.i66.i.i, align 4
   %and.i.i.i67.i.i = and i32 %38, 63
   %idxprom1.i.i.i68.i.i = zext nneg i32 %and.i.i.i67.i.i to i64
-  %39 = lshr i64 266027925503, %idxprom1.i.i.i68.i.i
-  %40 = and i64 %39, 1
+  %39 = shl nuw i64 1, %idxprom1.i.i.i68.i.i
+  %40 = and i64 %39, 266027925503
   %tobool.not.not.i.i.i69.i.i = icmp eq i64 %40, 0
   br i1 %tobool.not.not.i.i.i69.i.i, label %getjumpcontrol.exit.i.i44.i.i, label %if.else.i.i.i42.i.i
 
@@ -29272,8 +29272,8 @@ land.lhs.true.i.i:                                ; preds = %for.body.i
   %11 = load i32, ptr %add.ptr.i.i, align 4
   %and.i.i38 = and i32 %11, 63
   %idxprom1.i.i = zext nneg i32 %and.i.i38 to i64
-  %12 = lshr i64 266027925503, %idxprom1.i.i
-  %13 = and i64 %12, 1
+  %12 = shl nuw i64 1, %idxprom1.i.i
+  %13 = and i64 %12, 266027925503
   %tobool.not.not.i.i = icmp eq i64 %13, 0
   br i1 %tobool.not.not.i.i, label %getjumpcontrol.exit.i, label %if.else.i.i
 
@@ -29320,8 +29320,8 @@ land.lhs.true.i.i62:                              ; preds = %for.body.i43
   %17 = load i32, ptr %add.ptr.i.i63, align 4
   %and.i.i64 = and i32 %17, 63
   %idxprom1.i.i65 = zext nneg i32 %and.i.i64 to i64
-  %18 = lshr i64 266027925503, %idxprom1.i.i65
-  %19 = and i64 %18, 1
+  %18 = shl nuw i64 1, %idxprom1.i.i65
+  %19 = and i64 %18, 266027925503
   %tobool.not.not.i.i66 = icmp eq i64 %19, 0
   br i1 %tobool.not.not.i.i66, label %getjumpcontrol.exit.i50, label %if.else.i.i48
 
@@ -29706,8 +29706,8 @@ land.lhs.true.i.i:                                ; preds = %while.body
   %2 = load i32, ptr %add.ptr.i.i, align 4
   %and.i.i = and i32 %2, 63
   %idxprom1.i.i = zext nneg i32 %and.i.i to i64
-  %3 = lshr i64 266027925503, %idxprom1.i.i
-  %4 = and i64 %3, 1
+  %3 = shl nuw i64 1, %idxprom1.i.i
+  %4 = and i64 %3, 266027925503
   %tobool.not.not.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.not.i.i, label %getjumpcontrol.exit.i, label %if.else.i.i
 

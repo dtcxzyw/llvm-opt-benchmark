@@ -88,8 +88,8 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_ISO_8859_1_stem(ptr noundef %
 
 16:                                               ; preds = %10
   %17 = and i32 %15, 31
-  %18 = lshr i32 340306450, %17
-  %19 = and i32 %18, 1
+  %18 = shl nuw i32 1, %17
+  %19 = and i32 %18, 340306450
   %.not105.i = icmp eq i32 %19, 0
   br i1 %.not105.i, label %.thread117.i, label %20
 
@@ -349,8 +349,8 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
 
 132:                                              ; preds = %125
   %133 = and i32 %131, 31
-  %134 = lshr i32 540704, %133
-  %135 = and i32 %134, 1
+  %134 = shl nuw i32 1, %133
+  %135 = and i32 %134, 540704
   %.not250.i = icmp eq i32 %135, 0
   br i1 %.not250.i, label %155, label %136
 
@@ -479,8 +479,8 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
 
 192:                                              ; preds = %186
   %193 = and i32 %191, 31
-  %194 = lshr i32 264336, %193
-  %195 = and i32 %194, 1
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, 264336
   %.not261.i = icmp eq i32 %195, 0
   br i1 %.not261.i, label %256, label %196
 
@@ -652,8 +652,8 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
 
 270:                                              ; preds = %264
   %271 = and i32 %269, 31
-  %272 = lshr i32 2129954, %271
-  %273 = and i32 %272, 1
+  %272 = shl nuw i32 1, %271
+  %273 = and i32 %272, 2129954
   %.not276.i = icmp eq i32 %273, 0
   br i1 %.not276.i, label %286, label %274
 
@@ -846,8 +846,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_en_ending(ptr noundef %0
 
 30:                                               ; preds = %24
   %31 = and i32 %29, 31
-  %32 = lshr i32 1050640, %31
-  %33 = and i32 %32, 1
+  %32 = shl nuw i32 1, %31
+  %33 = and i32 %32, 1050640
   %.not26.i = icmp eq i32 %33, 0
   br i1 %.not26.i, label %r_undouble.exit, label %34
 
@@ -959,8 +959,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_e_ending(ptr noundef %0)
 
 41:                                               ; preds = %35
   %42 = and i32 %40, 31
-  %43 = lshr i32 1050640, %42
-  %44 = and i32 %43, 1
+  %43 = shl nuw i32 1, %42
+  %44 = and i32 %43, 1050640
   %.not26.i = icmp eq i32 %44, 0
   br i1 %.not26.i, label %r_undouble.exit, label %45
 
@@ -1019,8 +1019,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_undouble(ptr noundef %0)
 
 15:                                               ; preds = %9
   %16 = and i32 %14, 31
-  %17 = lshr i32 1050640, %16
-  %18 = and i32 %17, 1
+  %17 = shl nuw i32 1, %16
+  %18 = and i32 %17, 1050640
   %.not26 = icmp eq i32 %18, 0
   br i1 %.not26, label %31, label %19
 

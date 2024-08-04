@@ -104113,11 +104113,11 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb31ComparisonExpressionTypeMatc
 entry:
   %0 = icmp ult i8 %type, 31
   %switch.cast = zext nneg i8 %type to i31
-  %switch.downshift = lshr i31 -100663296, %switch.cast
-  %1 = and i31 %switch.downshift, 1
-  %switch.masked = icmp ne i31 %1, 0
-  %2 = select i1 %0, i1 %switch.masked, i1 false
-  ret i1 %2
+  %1 = shl nuw i31 1, %switch.cast
+  %2 = and i31 %1, -100663296
+  %switch.masked = icmp ne i31 %2, 0
+  %3 = select i1 %0, i1 %switch.masked, i1 false
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

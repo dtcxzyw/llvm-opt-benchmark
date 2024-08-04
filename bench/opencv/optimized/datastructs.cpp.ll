@@ -1440,8 +1440,8 @@ define i32 @cvSeqElemIdx(ptr noundef readonly %0, ptr noundef %1, ptr noundef wr
 37:                                               ; preds = %35
   %38 = add nsw i32 %20, -1
   %39 = sext i32 %38 to i64
-  %40 = lshr i64 2147516555, %39
-  %41 = and i64 %40, 1
+  %40 = shl nuw nsw i64 1, %39
+  %41 = and i64 %40, 2147516555
   %.not39 = icmp eq i64 %41, 0
   %.pre46 = load ptr, ptr %33, align 8
   br i1 %.not39, label %50, label %42
@@ -3164,8 +3164,8 @@ define i32 @cvGetSeqReaderPos(ptr noundef readonly %0) local_unnamed_addr #0 per
 21:                                               ; preds = %15
   %22 = add nsw i32 %19, -1
   %23 = sext i32 %22 to i64
-  %24 = lshr i64 2147516555, %23
-  %25 = and i64 %24, 1
+  %24 = shl nuw nsw i64 1, %23
+  %25 = and i64 %24, 2147516555
   %.not24 = icmp eq i64 %25, 0
   br i1 %.not24, label %37, label %26
 
@@ -6853,8 +6853,8 @@ common.resume:                                    ; preds = %51, %53, %43, %45, 
 187:                                              ; preds = %182
   %188 = add nsw i32 %185, -1
   %189 = sext i32 %188 to i64
-  %190 = lshr i64 2147516555, %189
-  %191 = and i64 %190, 1
+  %190 = shl nuw nsw i64 1, %189
+  %191 = and i64 %190, 2147516555
   %.not24.i = icmp eq i64 %191, 0
   %.pre1390 = load ptr, ptr %106, align 8
   br i1 %.not24.i, label %201, label %192
@@ -6930,8 +6930,8 @@ cvGetSeqReaderPos.exit:                           ; preds = %192, %201
 224:                                              ; preds = %219
   %225 = add nsw i32 %222, -1
   %226 = sext i32 %225 to i64
-  %227 = lshr i64 2147516555, %226
-  %228 = and i64 %227, 1
+  %227 = shl nuw nsw i64 1, %226
+  %228 = and i64 %227, 2147516555
   %.not24.i330 = icmp eq i64 %228, 0
   %.pre1393 = load ptr, ptr %65, align 8
   br i1 %.not24.i330, label %238, label %229
@@ -8744,8 +8744,8 @@ _Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit573:          ; preds = %823, %825, %829, %8
 1094:                                             ; preds = %1089
   %1095 = add nsw i32 %1092, -1
   %1096 = sext i32 %1095 to i64
-  %1097 = lshr i64 2147516555, %1096
-  %1098 = and i64 %1097, 1
+  %1097 = shl nuw nsw i64 1, %1096
+  %1098 = and i64 %1097, 2147516555
   %.not24.i610 = icmp eq i64 %1098, 0
   %.pre1411 = load ptr, ptr %65, align 8
   br i1 %.not24.i610, label %1108, label %1099
@@ -8830,8 +8830,8 @@ cvGetSeqReaderPos.exit612:                        ; preds = %1099, %1108
 1138:                                             ; preds = %1133
   %1139 = add nsw i32 %1136, -1
   %1140 = sext i32 %1139 to i64
-  %1141 = lshr i64 2147516555, %1140
-  %1142 = and i64 %1141, 1
+  %1141 = shl nuw nsw i64 1, %1140
+  %1142 = and i64 %1141, 2147516555
   %.not24.i617 = icmp eq i64 %1142, 0
   br i1 %.not24.i617, label %1153, label %1143
 
@@ -8903,8 +8903,8 @@ cvGetSeqReaderPos.exit619:                        ; preds = %1143, %1153
 1175:                                             ; preds = %1172
   %1176 = add nsw i32 %1173, -1
   %1177 = sext i32 %1176 to i64
-  %1178 = lshr i64 2147516555, %1177
-  %1179 = and i64 %1178, 1
+  %1178 = shl nuw nsw i64 1, %1177
+  %1179 = and i64 %1178, 2147516555
   %.not24.i624 = icmp eq i64 %1179, 0
   br i1 %.not24.i624, label %1189, label %1180
 
@@ -9141,8 +9141,8 @@ cvGetSeqReaderPos.exit626:                        ; preds = %1180, %1189
 1291:                                             ; preds = %1286
   %1292 = add nsw i32 %1289, -1
   %1293 = sext i32 %1292 to i64
-  %1294 = lshr i64 2147516555, %1293
-  %1295 = and i64 %1294, 1
+  %1294 = shl nuw nsw i64 1, %1293
+  %1295 = and i64 %1294, 2147516555
   %.not24.i664 = icmp eq i64 %1295, 0
   %.pre1415 = load ptr, ptr %106, align 8
   br i1 %.not24.i664, label %1305, label %1296
@@ -9217,8 +9217,8 @@ cvGetSeqReaderPos.exit666:                        ; preds = %1296, %1305
 1330:                                             ; preds = %1325
   %1331 = add nsw i32 %1328, -1
   %1332 = sext i32 %1331 to i64
-  %1333 = lshr i64 2147516555, %1332
-  %1334 = and i64 %1333, 1
+  %1333 = shl nuw nsw i64 1, %1332
+  %1334 = and i64 %1333, 2147516555
   %.not24.i671 = icmp eq i64 %1334, 0
   br i1 %.not24.i671, label %1345, label %1335
 
@@ -9289,8 +9289,8 @@ cvGetSeqReaderPos.exit673:                        ; preds = %1335, %1345
 1366:                                             ; preds = %1363
   %1367 = add nsw i32 %1364, -1
   %1368 = sext i32 %1367 to i64
-  %1369 = lshr i64 2147516555, %1368
-  %1370 = and i64 %1369, 1
+  %1369 = shl nuw nsw i64 1, %1368
+  %1370 = and i64 %1369, 2147516555
   %.not24.i678 = icmp eq i64 %1370, 0
   br i1 %.not24.i678, label %1380, label %1371
 

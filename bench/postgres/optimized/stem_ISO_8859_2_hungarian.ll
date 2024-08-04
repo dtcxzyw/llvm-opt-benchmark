@@ -253,8 +253,8 @@ define hidden range(i32 -2147483648, 2) i32 @hungarian_ISO_8859_2_stem(ptr nound
 
 23:                                               ; preds = %17
   %24 = and i32 %22, 31
-  %25 = lshr i32 101187584, %24
-  %26 = and i32 %25, 1
+  %25 = shl nuw i32 1, %24
+  %26 = and i32 %25, 101187584
   %.not33.i = icmp eq i32 %26, 0
   br i1 %.not33.i, label %29, label %27
 
@@ -351,8 +351,8 @@ r_mark_regions.exit:                              ; preds = %31, %33, %.sink.spl
 
 64:                                               ; preds = %58
   %65 = and i32 %63, 31
-  %66 = lshr i32 106790108, %65
-  %67 = and i32 %66, 1
+  %66 = shl nuw i32 1, %65
+  %67 = and i32 %66, 106790108
   %.not14.i.i = icmp eq i32 %67, 0
   br i1 %.not14.i.i, label %85, label %68
 
@@ -614,8 +614,8 @@ r_case.exit.thread:                               ; preds = %97, %94, %103, %105
 
 183:                                              ; preds = %177
   %184 = and i32 %182, 31
-  %185 = lshr i32 106790108, %184
-  %186 = and i32 %185, 1
+  %185 = shl nuw i32 1, %184
+  %186 = and i32 %185, 106790108
   %.not14.i.i112 = icmp eq i32 %186, 0
   br i1 %.not14.i.i112, label %204, label %187
 
@@ -767,8 +767,8 @@ r_sing_owner.exit:                                ; preds = %234, %235, %238, %2
 
 253:                                              ; preds = %246
   %254 = and i32 %252, 31
-  %255 = lshr i32 10768, %254
-  %256 = and i32 %255, 1
+  %255 = shl nuw i32 1, %254
+  %256 = and i32 %255, 10768
   %.not32.i126 = icmp eq i32 %256, 0
   br i1 %.not32.i126, label %272, label %257
 

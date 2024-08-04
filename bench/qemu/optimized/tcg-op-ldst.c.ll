@@ -1952,8 +1952,8 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %idxprom = zext nneg i32 %and1 to i64
   %arrayidx = getelementptr [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %7 = lshr i64 1966111, %idxprom
-  %8 = and i64 %7, 1
+  %7 = shl nuw nsw i64 1, %idxprom
+  %8 = and i64 %7, 1966111
   %cmp = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %cmp)
   %conv = trunc i64 %idx to i32
@@ -2119,15 +2119,13 @@ sw.bb10.i.i:                                      ; preds = %do.body.i.i.i, %get
   %or.i.i = or i32 %memop, 224
   %spec.select.i.i = select i1 %cmp.i.i, i32 %or.i.i, i32 %memop
   %and3.i = and i32 %spec.select.i.i, 19
-  %idxprom.i = zext nneg i32 %and3.i to i64
-  %7 = lshr i64 14811104, %idxprom.i
-  %8 = and i64 %7, 1
-  %tobool4.not.not.i = icmp eq i64 %8, 0
-  br i1 %tobool4.not.not.i, label %if.then5.i, label %if.end9.i
+  %.not.i = icmp eq i32 %and3.i, 16
+  br i1 %.not.i, label %if.end9.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %sw.bb10.i.i
+  %idxprom.i = zext nneg i32 %and3.i to i64
   %arrayidx.i = getelementptr [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %idxprom.i
-  %9 = load ptr, ptr %arrayidx.i, align 8
+  %7 = load ptr, ptr %arrayidx.i, align 8
   %conv.i = trunc i64 %idx to i32
   %and13.i.i = shl i32 %spec.select.i.i, 4
   %shl.i.i = and i32 %and13.i.i, -208
@@ -2137,30 +2135,30 @@ if.then5.i:                                       ; preds = %sw.bb10.i.i
 
 if.then.i.i:                                      ; preds = %if.then5.i
   %call.i.i = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %10 = load ptr, ptr %0, align 8
+  %8 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %11 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i.i, ptr noundef %11) #5
+  %9 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i.i, ptr noundef %9) #5
   br label %maybe_extend_addr64.exit.i
 
 if.end.i.i:                                       ; preds = %if.then5.i
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %addr to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %12 = inttoptr i64 %sub.ptr.sub.i.i.i.i to ptr
+  %10 = inttoptr i64 %sub.ptr.sub.i.i.i.i to ptr
   br label %maybe_extend_addr64.exit.i
 
 maybe_extend_addr64.exit.i:                       ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %12, %if.end.i.i ]
-  %13 = load ptr, ptr @tcg_env, align 8
+  %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %10, %if.end.i.i ]
+  %11 = load ptr, ptr @tcg_env, align 8
   %call8.i = tail call ptr @tcg_constant_i32(i32 noundef %or.i29.i) #5
-  tail call void %9(ptr noundef %retv, ptr noundef %13, ptr noundef %retval.0.i.i, ptr noundef %cmpv, ptr noundef %newv, ptr noundef %call8.i) #5
-  %14 = load ptr, ptr %0, align 8
-  %addr_type.i31.i = getelementptr inbounds i8, ptr %14, i64 60
-  %15 = load i32, ptr %addr_type.i31.i, align 4
-  %cmp.i32.i = icmp eq i32 %15, 0
+  tail call void %7(ptr noundef %retv, ptr noundef %11, ptr noundef %retval.0.i.i, ptr noundef %cmpv, ptr noundef %newv, ptr noundef %call8.i) #5
+  %12 = load ptr, ptr %0, align 8
+  %addr_type.i31.i = getelementptr inbounds i8, ptr %12, i64 60
+  %13 = load i32, ptr %addr_type.i31.i, align 4
+  %cmp.i32.i = icmp eq i32 %13, 0
   br i1 %cmp.i32.i, label %if.then.i34.i, label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
 if.then.i34.i:                                    ; preds = %maybe_extend_addr64.exit.i
@@ -2168,9 +2166,9 @@ if.then.i34.i:                                    ; preds = %maybe_extend_addr64
   br label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
 if.end9.i:                                        ; preds = %sw.bb10.i.i
-  %16 = load ptr, ptr @tcg_env, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %17
+  %14 = load ptr, ptr @tcg_env, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %15
   tail call void @tcg_gen_call1(ptr noundef nonnull @helper_info_exit_atomic, ptr noundef null, ptr noundef %add.ptr.i.i.i.i) #5
   tail call void @tcg_gen_movi_i64(ptr noundef %retv, i64 noundef 0) #5
   br label %tcg_gen_atomic_cmpxchg_i64_int.exit

@@ -405,8 +405,8 @@ opal_util_keyval_yy_create_buffer.exit:           ; preds = %40
 
 161:                                              ; preds = %155
   %162 = zext nneg i32 %.063 to i64
-  %163 = lshr i64 7204721, %162
-  %164 = and i64 %163, 1
+  %163 = shl nuw i64 1, %162
+  %164 = and i64 %163, 7204721
   %.not89.not = icmp eq i64 %164, 0
   br i1 %.not89.not, label %.preheader, label %.loopexit141.preheader
 

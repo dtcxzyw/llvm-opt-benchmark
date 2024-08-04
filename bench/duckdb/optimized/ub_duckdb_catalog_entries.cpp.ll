@@ -5376,14 +5376,14 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
-  %switch.shifted = lshr i32 2130706669, %switch.maskindex
-  %6 = and i32 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i32 %6, 0
+  %6 = shl nuw nsw i32 1, %switch.maskindex
+  %7 = and i32 %6, 2130706669
+  %switch.lobit.not = icmp eq i32 %7, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [31 x i64], ptr @switch.table._ZN6duckdb15DuckSchemaEntry13GetCatalogSetENS_11CatalogTypeE, i64 0, i64 %7
+  %8 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [31 x i64], ptr @switch.table._ZN6duckdb15DuckSchemaEntry13GetCatalogSetENS_11CatalogTypeE, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %types = getelementptr inbounds i8, ptr %this, i64 %switch.load
   ret ptr %types

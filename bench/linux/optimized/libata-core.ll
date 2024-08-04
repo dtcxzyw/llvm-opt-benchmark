@@ -5636,8 +5636,8 @@ define dso_local noundef i32 @ata_build_rw_tf(ptr noundef %0, i64 noundef %1, i3
   %193 = or disjoint i64 %161, %192
   %194 = or disjoint i64 %193, %163
   %195 = or disjoint i64 %194, %164
-  %196 = lshr i64 7401712, %195
-  %197 = and i64 %196, 1
+  %196 = shl nuw nsw i64 1, %195
+  %197 = and i64 %196, 7401712
   %198 = icmp eq i64 %197, 0
   br i1 %198, label %199, label %.thread
 
@@ -5725,8 +5725,8 @@ define dso_local noundef i32 @ata_build_rw_tf(ptr noundef %0, i64 noundef %1, i3
   %255 = or disjoint i64 %224, %254
   %256 = or disjoint i64 %255, %226
   %257 = or disjoint i64 %256, %227
-  %258 = lshr i64 7401712, %257
-  %259 = and i64 %258, 1
+  %258 = shl nuw nsw i64 1, %257
+  %259 = and i64 %258, 7401712
   %260 = icmp eq i64 %259, 0
   br i1 %260, label %261, label %.thread
 

@@ -768,8 +768,8 @@ switch.early.test.i:                              ; preds = %69
 
 150:                                              ; preds = %147
   %151 = zext nneg i8 %148 to i64
-  %152 = lshr i64 273, %151
-  %153 = and i64 %152, 1
+  %152 = shl nuw nsw i64 1, %151
+  %153 = and i64 %152, 273
   %.not.i.i = icmp eq i64 %153, 0
   br i1 %.not.i.i, label %154, label %handle_tetra.exit.i
 

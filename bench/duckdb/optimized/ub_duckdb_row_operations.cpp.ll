@@ -25088,14 +25088,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EbEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EbEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -25218,14 +25218,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EaEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EaEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -25348,14 +25348,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EsEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EsEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -25478,14 +25478,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EiEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EiEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -25608,14 +25608,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1ElEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1ElEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -25738,14 +25738,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1ENS_9hugeint_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1ENS_9hugeint_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -25868,14 +25868,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EhEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EhEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -25998,14 +25998,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EtEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EtEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -26128,14 +26128,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EjEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EjEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -26258,14 +26258,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EmEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EmEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -26388,14 +26388,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EfEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EfEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -26518,14 +26518,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EdEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1EdEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -26648,14 +26648,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1ENS_10interval_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1ENS_10interval_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -26778,14 +26778,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1ENS_8string_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb1ENS_8string_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -27243,14 +27243,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher20GetListMatchFunctionILb1EEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher20GetListMatchFunctionILb1EEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -58627,14 +58627,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EbEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EbEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -58757,14 +58757,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EaEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EaEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -58887,14 +58887,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EsEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EsEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -59017,14 +59017,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EiEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EiEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -59147,14 +59147,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0ElEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0ElEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -59277,14 +59277,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0ENS_9hugeint_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0ENS_9hugeint_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -59407,14 +59407,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EhEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EhEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -59537,14 +59537,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EtEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EtEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -59667,14 +59667,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EjEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EjEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -59797,14 +59797,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EmEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EmEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -59927,14 +59927,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EfEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EfEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -60057,14 +60057,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EdEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0EdEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -60187,14 +60187,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0ENS_10interval_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0ENS_10interval_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -60317,14 +60317,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0ENS_8string_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher16GetMatchFunctionILb0ENS_8string_tEEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void
@@ -60782,14 +60782,14 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -28609, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw i16 1, %switch.maskindex
+  %14 = and i16 %13, -28609
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %sw.default, label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher20GetListMatchFunctionILb0EEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6duckdb10RowMatcher20GetListMatchFunctionILb0EEENS_13MatchFunctionENS_14ExpressionTypeE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %agg.result, align 8, !tbaa !254
   ret void

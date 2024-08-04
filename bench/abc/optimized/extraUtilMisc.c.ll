@@ -2763,120 +2763,118 @@ Extra_ArrayAlloc.exit:                            ; preds = %55, %91, %Extra_Arr
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define zeroext i16 @Extra_TruthPerm4One(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
-  %4 = lshr i64 32907, %3
-  %5 = and i64 %4, 1
+  %4 = shl nuw i64 1, %3
+  %5 = and i64 %4, 32907
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = trunc i32 %0 to i16
-  br label %29
+  br label %28
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds [16 x i16], ptr @Extra_TruthPerm4One.Cases, i64 0, i64 %3
   %10 = load i16, ptr %9, align 2
-  %11 = lshr i64 276, %3
-  %12 = and i64 %11, 1
-  %.not25 = icmp eq i64 %12, 0
-  br i1 %.not25, label %.preheader28, label %29
+  %11 = and i64 %4, 276
+  %.not25 = icmp eq i64 %11, 0
+  br i1 %.not25, label %.preheader28, label %28
 
-.preheader28:                                     ; preds = %8, %25
-  %.032 = phi i32 [ %.1, %25 ], [ 0, %8 ]
-  %.02231 = phi i32 [ %26, %25 ], [ 0, %8 ]
-  %13 = shl nuw nsw i32 1, %.02231
-  %14 = and i32 %13, %0
-  %.not26 = icmp eq i32 %14, 0
-  br i1 %.not26, label %25, label %.preheader
+.preheader28:                                     ; preds = %8, %24
+  %.032 = phi i32 [ %.1, %24 ], [ 0, %8 ]
+  %.02231 = phi i32 [ %25, %24 ], [ 0, %8 ]
+  %12 = shl nuw nsw i32 1, %.02231
+  %13 = and i32 %12, %0
+  %.not26 = icmp eq i32 %13, 0
+  br i1 %.not26, label %24, label %.preheader
 
 .preheader:                                       ; preds = %.preheader28, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader28 ]
   %.01930 = phi i32 [ %.120, %.preheader ], [ 0, %.preheader28 ]
-  %15 = getelementptr inbounds [16 x [4 x i32]], ptr @Extra_TruthPerm4One.Perms, i64 0, i64 %3, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4
-  %17 = shl nuw i32 1, %16
-  %18 = and i32 %17, %.02231
-  %.not27 = icmp eq i32 %18, 0
-  %19 = trunc nuw nsw i64 %indvars.iv to i32
-  %20 = shl nuw nsw i32 1, %19
-  %21 = select i1 %.not27, i32 0, i32 %20
-  %.120 = or i32 %21, %.01930
+  %14 = getelementptr inbounds [16 x [4 x i32]], ptr @Extra_TruthPerm4One.Perms, i64 0, i64 %3, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4
+  %16 = shl nuw i32 1, %15
+  %17 = and i32 %16, %.02231
+  %.not27 = icmp eq i32 %17, 0
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
+  %19 = shl nuw nsw i32 1, %18
+  %20 = select i1 %.not27, i32 0, i32 %19
+  %.120 = or i32 %20, %.01930
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %22, label %.preheader, !llvm.loop !37
+  br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !37
 
-22:                                               ; preds = %.preheader
-  %23 = shl nuw i32 1, %.120
-  %24 = or i32 %23, %.032
-  br label %25
+21:                                               ; preds = %.preheader
+  %22 = shl nuw i32 1, %.120
+  %23 = or i32 %22, %.032
+  br label %24
 
-25:                                               ; preds = %.preheader28, %22
-  %.1 = phi i32 [ %24, %22 ], [ %.032, %.preheader28 ]
-  %26 = add nuw nsw i32 %.02231, 1
-  %exitcond34.not = icmp eq i32 %26, 16
-  br i1 %exitcond34.not, label %27, label %.preheader28, !llvm.loop !38
+24:                                               ; preds = %.preheader28, %21
+  %.1 = phi i32 [ %23, %21 ], [ %.032, %.preheader28 ]
+  %25 = add nuw nsw i32 %.02231, 1
+  %exitcond34.not = icmp eq i32 %25, 16
+  br i1 %exitcond34.not, label %26, label %.preheader28, !llvm.loop !38
 
-27:                                               ; preds = %25
-  %28 = trunc i32 %.1 to i16
-  br label %29
+26:                                               ; preds = %24
+  %27 = trunc i32 %.1 to i16
+  br label %28
 
-29:                                               ; preds = %8, %27, %6
-  %.023 = phi i16 [ %7, %6 ], [ %28, %27 ], [ %10, %8 ]
+28:                                               ; preds = %8, %26, %6
+  %.023 = phi i16 [ %7, %6 ], [ %27, %26 ], [ %10, %8 ]
   ret i16 %.023
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define i32 @Extra_TruthPerm5One(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
-  %4 = lshr i64 2147516555, %3
-  %5 = and i64 %4, 1
+  %4 = shl nuw i64 1, %3
+  %5 = and i64 %4, 2147516555
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds [32 x i32], ptr @Extra_TruthPerm5One.Cases, i64 0, i64 %3
   %8 = load i32, ptr %7, align 4
-  %9 = lshr i64 65812, %3
-  %10 = and i64 %9, 1
-  %.not25 = icmp eq i64 %10, 0
+  %9 = and i64 %4, 65812
+  %.not25 = icmp eq i64 %9, 0
   br i1 %.not25, label %.preheader28, label %.loopexit
 
-.preheader28:                                     ; preds = %6, %23
-  %.032 = phi i32 [ %.1, %23 ], [ 0, %6 ]
-  %.02231 = phi i32 [ %24, %23 ], [ 0, %6 ]
-  %11 = shl nuw i32 1, %.02231
-  %12 = and i32 %11, %0
-  %.not26 = icmp eq i32 %12, 0
-  br i1 %.not26, label %23, label %.preheader
+.preheader28:                                     ; preds = %6, %22
+  %.032 = phi i32 [ %.1, %22 ], [ 0, %6 ]
+  %.02231 = phi i32 [ %23, %22 ], [ 0, %6 ]
+  %10 = shl nuw i32 1, %.02231
+  %11 = and i32 %10, %0
+  %.not26 = icmp eq i32 %11, 0
+  br i1 %.not26, label %22, label %.preheader
 
 .preheader:                                       ; preds = %.preheader28, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader28 ]
   %.01930 = phi i32 [ %.120, %.preheader ], [ 0, %.preheader28 ]
-  %13 = getelementptr inbounds [32 x [5 x i32]], ptr @Extra_TruthPerm5One.Perms, i64 0, i64 %3, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4
-  %15 = shl nuw i32 1, %14
-  %16 = and i32 %15, %.02231
-  %.not27 = icmp eq i32 %16, 0
-  %17 = trunc nuw nsw i64 %indvars.iv to i32
-  %18 = shl nuw nsw i32 1, %17
-  %19 = select i1 %.not27, i32 0, i32 %18
-  %.120 = or i32 %19, %.01930
+  %12 = getelementptr inbounds [32 x [5 x i32]], ptr @Extra_TruthPerm5One.Perms, i64 0, i64 %3, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 4
+  %14 = shl nuw i32 1, %13
+  %15 = and i32 %14, %.02231
+  %.not27 = icmp eq i32 %15, 0
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
+  %17 = shl nuw nsw i32 1, %16
+  %18 = select i1 %.not27, i32 0, i32 %17
+  %.120 = or i32 %18, %.01930
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %20, label %.preheader, !llvm.loop !39
+  br i1 %exitcond.not, label %19, label %.preheader, !llvm.loop !39
 
-20:                                               ; preds = %.preheader
-  %21 = shl nuw i32 1, %.120
-  %22 = or i32 %21, %.032
-  br label %23
+19:                                               ; preds = %.preheader
+  %20 = shl nuw i32 1, %.120
+  %21 = or i32 %20, %.032
+  br label %22
 
-23:                                               ; preds = %.preheader28, %20
-  %.1 = phi i32 [ %22, %20 ], [ %.032, %.preheader28 ]
-  %24 = add nuw nsw i32 %.02231, 1
-  %exitcond34.not = icmp eq i32 %24, 32
+22:                                               ; preds = %.preheader28, %19
+  %.1 = phi i32 [ %21, %19 ], [ %.032, %.preheader28 ]
+  %23 = add nuw nsw i32 %.02231, 1
+  %exitcond34.not = icmp eq i32 %23, 32
   br i1 %exitcond34.not, label %.loopexit, label %.preheader28, !llvm.loop !40
 
-.loopexit:                                        ; preds = %23, %6, %2
-  %.023 = phi i32 [ %0, %2 ], [ %8, %6 ], [ %.1, %23 ]
+.loopexit:                                        ; preds = %22, %6, %2
+  %.023 = phi i32 [ %0, %2 ], [ %8, %6 ], [ %.1, %22 ]
   ret i32 %.023
 }
 
@@ -2885,8 +2883,8 @@ define void @Extra_TruthPerm6One(ptr nocapture noundef readonly %0, i32 noundef 
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [64 x i32], ptr @Extra_TruthPerm6One.Cases, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
-  %7 = lshr i64 -9223372034707259253, %4
-  %8 = and i64 %7, 1
+  %7 = shl nuw i64 1, %4
+  %8 = and i64 %7, -9223372034707259253
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %14, label %9
 
@@ -2900,128 +2898,127 @@ define void @Extra_TruthPerm6One(ptr nocapture noundef readonly %0, i32 noundef 
   br label %.loopexit
 
 14:                                               ; preds = %3
-  %15 = lshr i64 4295033108, %4
-  %16 = and i64 %15, 1
-  %.not49 = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
-  br i1 %.not49, label %22, label %18
+  %15 = and i64 %7, 4295033108
+  %.not49 = icmp eq i64 %15, 0
+  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  br i1 %.not49, label %21, label %17
 
-18:                                               ; preds = %14
-  %19 = icmp eq i32 %1, 32
-  br i1 %19, label %20, label %21
+17:                                               ; preds = %14
+  %18 = icmp eq i32 %1, 32
+  br i1 %18, label %19, label %20
 
-20:                                               ; preds = %18
+19:                                               ; preds = %17
   store i32 0, ptr %2, align 4
-  store i32 -1, ptr %17, align 4
+  store i32 -1, ptr %16, align 4
   br label %.loopexit
 
-21:                                               ; preds = %18
+20:                                               ; preds = %17
   store i32 %6, ptr %2, align 4
-  store i32 %6, ptr %17, align 4
+  store i32 %6, ptr %16, align 4
   br label %.loopexit
 
-22:                                               ; preds = %14
+21:                                               ; preds = %14
   store i32 0, ptr %2, align 4
-  store i32 0, ptr %17, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %24
+  store i32 0, ptr %16, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  br label %23
 
-24:                                               ; preds = %22, %69
-  %25 = phi i32 [ 0, %22 ], [ %70, %69 ]
-  %26 = phi i32 [ 0, %22 ], [ %71, %69 ]
-  %.04759 = phi i32 [ 0, %22 ], [ %72, %69 ]
-  %27 = icmp ult i32 %.04759, 32
-  br i1 %27, label %28, label %48
+23:                                               ; preds = %21, %68
+  %24 = phi i32 [ 0, %21 ], [ %69, %68 ]
+  %25 = phi i32 [ 0, %21 ], [ %70, %68 ]
+  %.04759 = phi i32 [ 0, %21 ], [ %71, %68 ]
+  %26 = icmp ult i32 %.04759, 32
+  br i1 %26, label %27, label %47
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr %0, align 4
-  %30 = shl nuw i32 1, %.04759
-  %31 = and i32 %29, %30
-  %.not52 = icmp eq i32 %31, 0
-  br i1 %.not52, label %69, label %.preheader
+27:                                               ; preds = %23
+  %28 = load i32, ptr %0, align 4
+  %29 = shl nuw i32 1, %.04759
+  %30 = and i32 %28, %29
+  %.not52 = icmp eq i32 %30, 0
+  br i1 %.not52, label %68, label %.preheader
 
-.preheader:                                       ; preds = %28, %.preheader
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.preheader ], [ 0, %28 ]
-  %.058 = phi i32 [ %.1, %.preheader ], [ 0, %28 ]
-  %32 = getelementptr inbounds [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %4, i64 %indvars.iv61
-  %33 = load i32, ptr %32, align 4
-  %34 = shl nuw i32 1, %33
-  %35 = and i32 %34, %.04759
-  %.not53 = icmp eq i32 %35, 0
-  %36 = trunc nuw nsw i64 %indvars.iv61 to i32
-  %37 = shl nuw nsw i32 1, %36
-  %38 = select i1 %.not53, i32 0, i32 %37
-  %.1 = or i32 %38, %.058
+.preheader:                                       ; preds = %27, %.preheader
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.preheader ], [ 0, %27 ]
+  %.058 = phi i32 [ %.1, %.preheader ], [ 0, %27 ]
+  %31 = getelementptr inbounds [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %4, i64 %indvars.iv61
+  %32 = load i32, ptr %31, align 4
+  %33 = shl nuw i32 1, %32
+  %34 = and i32 %33, %.04759
+  %.not53 = icmp eq i32 %34, 0
+  %35 = trunc nuw nsw i64 %indvars.iv61 to i32
+  %36 = shl nuw nsw i32 1, %35
+  %37 = select i1 %.not53, i32 0, i32 %36
+  %.1 = or i32 %37, %.058
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 6
-  br i1 %exitcond64.not, label %39, label %.preheader, !llvm.loop !41
+  br i1 %exitcond64.not, label %38, label %.preheader, !llvm.loop !41
 
-39:                                               ; preds = %.preheader
-  %40 = icmp slt i32 %.1, 32
-  br i1 %40, label %41, label %44
+38:                                               ; preds = %.preheader
+  %39 = icmp slt i32 %.1, 32
+  br i1 %39, label %40, label %43
 
-41:                                               ; preds = %39
-  %42 = shl nuw i32 1, %.1
-  %43 = or i32 %25, %42
-  store i32 %43, ptr %2, align 4
-  br label %69
+40:                                               ; preds = %38
+  %41 = shl nuw i32 1, %.1
+  %42 = or i32 %24, %41
+  store i32 %42, ptr %2, align 4
+  br label %68
 
-44:                                               ; preds = %39
-  %45 = add nsw i32 %.1, -32
-  %46 = shl nuw i32 1, %45
-  %47 = or i32 %26, %46
-  store i32 %47, ptr %17, align 4
-  br label %69
+43:                                               ; preds = %38
+  %44 = add nsw i32 %.1, -32
+  %45 = shl nuw i32 1, %44
+  %46 = or i32 %25, %45
+  store i32 %46, ptr %16, align 4
+  br label %68
 
-48:                                               ; preds = %24
-  %49 = load i32, ptr %23, align 4
-  %50 = add nsw i32 %.04759, -32
-  %51 = shl nuw i32 1, %50
-  %52 = and i32 %49, %51
-  %.not50 = icmp eq i32 %52, 0
-  br i1 %.not50, label %69, label %.preheader54
+47:                                               ; preds = %23
+  %48 = load i32, ptr %22, align 4
+  %49 = add nsw i32 %.04759, -32
+  %50 = shl nuw i32 1, %49
+  %51 = and i32 %48, %50
+  %.not50 = icmp eq i32 %51, 0
+  br i1 %.not50, label %68, label %.preheader54
 
-.preheader54:                                     ; preds = %48, %.preheader54
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader54 ], [ 0, %48 ]
-  %.256 = phi i32 [ %.3, %.preheader54 ], [ 0, %48 ]
-  %53 = getelementptr inbounds [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %4, i64 %indvars.iv
-  %54 = load i32, ptr %53, align 4
-  %55 = shl nuw i32 1, %54
-  %56 = and i32 %55, %.04759
-  %.not51 = icmp eq i32 %56, 0
-  %57 = trunc nuw nsw i64 %indvars.iv to i32
-  %58 = shl nuw nsw i32 1, %57
-  %59 = select i1 %.not51, i32 0, i32 %58
-  %.3 = or i32 %59, %.256
+.preheader54:                                     ; preds = %47, %.preheader54
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader54 ], [ 0, %47 ]
+  %.256 = phi i32 [ %.3, %.preheader54 ], [ 0, %47 ]
+  %52 = getelementptr inbounds [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %4, i64 %indvars.iv
+  %53 = load i32, ptr %52, align 4
+  %54 = shl nuw i32 1, %53
+  %55 = and i32 %54, %.04759
+  %.not51 = icmp eq i32 %55, 0
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
+  %57 = shl nuw nsw i32 1, %56
+  %58 = select i1 %.not51, i32 0, i32 %57
+  %.3 = or i32 %58, %.256
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %60, label %.preheader54, !llvm.loop !42
+  br i1 %exitcond.not, label %59, label %.preheader54, !llvm.loop !42
 
-60:                                               ; preds = %.preheader54
-  %61 = icmp slt i32 %.3, 32
-  br i1 %61, label %62, label %65
+59:                                               ; preds = %.preheader54
+  %60 = icmp slt i32 %.3, 32
+  br i1 %60, label %61, label %64
 
-62:                                               ; preds = %60
-  %63 = shl nuw i32 1, %.3
-  %64 = or i32 %25, %63
-  store i32 %64, ptr %2, align 4
-  br label %69
+61:                                               ; preds = %59
+  %62 = shl nuw i32 1, %.3
+  %63 = or i32 %24, %62
+  store i32 %63, ptr %2, align 4
+  br label %68
 
-65:                                               ; preds = %60
-  %66 = add nsw i32 %.3, -32
-  %67 = shl nuw i32 1, %66
-  %68 = or i32 %26, %67
-  store i32 %68, ptr %17, align 4
-  br label %69
+64:                                               ; preds = %59
+  %65 = add nsw i32 %.3, -32
+  %66 = shl nuw i32 1, %65
+  %67 = or i32 %25, %66
+  store i32 %67, ptr %16, align 4
+  br label %68
 
-69:                                               ; preds = %41, %44, %28, %62, %65, %48
-  %70 = phi i32 [ %43, %41 ], [ %25, %44 ], [ %25, %28 ], [ %64, %62 ], [ %25, %65 ], [ %25, %48 ]
-  %71 = phi i32 [ %26, %41 ], [ %47, %44 ], [ %26, %28 ], [ %26, %62 ], [ %68, %65 ], [ %26, %48 ]
-  %72 = add nuw nsw i32 %.04759, 1
-  %exitcond65.not = icmp eq i32 %72, 64
-  br i1 %exitcond65.not, label %.loopexit, label %24, !llvm.loop !43
+68:                                               ; preds = %40, %43, %27, %61, %64, %47
+  %69 = phi i32 [ %42, %40 ], [ %24, %43 ], [ %24, %27 ], [ %63, %61 ], [ %24, %64 ], [ %24, %47 ]
+  %70 = phi i32 [ %25, %40 ], [ %46, %43 ], [ %25, %27 ], [ %25, %61 ], [ %67, %64 ], [ %25, %47 ]
+  %71 = add nuw nsw i32 %.04759, 1
+  %exitcond65.not = icmp eq i32 %71, 64
+  br i1 %exitcond65.not, label %.loopexit, label %23, !llvm.loop !43
 
-.loopexit:                                        ; preds = %69, %20, %21, %9
+.loopexit:                                        ; preds = %68, %19, %20, %9
   ret void
 }
 
@@ -3354,63 +3351,62 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
 
 13:                                               ; preds = %Extra_ArrayAlloc.exit.preheader, %Extra_TruthPerm4One.exit
   %indvars.iv = phi i64 [ 0, %Extra_ArrayAlloc.exit.preheader ], [ %indvars.iv.next, %Extra_TruthPerm4One.exit ]
-  %14 = lshr i64 32907, %indvars.iv
-  %15 = and i64 %14, 1
+  %14 = shl nuw nsw i64 1, %indvars.iv
+  %15 = and i64 %14, 32907
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %16, label %Extra_TruthPerm4One.exit
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds [16 x i16], ptr @Extra_TruthPerm4One.Cases, i64 0, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2
-  %19 = lshr i64 276, %indvars.iv
-  %20 = and i64 %19, 1
-  %.not25.i = icmp eq i64 %20, 0
+  %19 = and i64 %14, 276
+  %.not25.i = icmp eq i64 %19, 0
   br i1 %.not25.i, label %.preheader28.i, label %Extra_TruthPerm4One.exit
 
-.preheader28.i:                                   ; preds = %16, %33
-  %.032.i = phi i32 [ %.1.i, %33 ], [ 0, %16 ]
-  %.02231.i = phi i32 [ %34, %33 ], [ 0, %16 ]
-  %21 = shl nuw nsw i32 1, %.02231.i
-  %22 = and i32 %21, %11
-  %.not26.i = icmp eq i32 %22, 0
-  br i1 %.not26.i, label %33, label %.preheader.i
+.preheader28.i:                                   ; preds = %16, %32
+  %.032.i = phi i32 [ %.1.i, %32 ], [ 0, %16 ]
+  %.02231.i = phi i32 [ %33, %32 ], [ 0, %16 ]
+  %20 = shl nuw nsw i32 1, %.02231.i
+  %21 = and i32 %20, %11
+  %.not26.i = icmp eq i32 %21, 0
+  br i1 %.not26.i, label %32, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader28.i, %.preheader.i
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.preheader.i ], [ 0, %.preheader28.i ]
   %.01930.i = phi i32 [ %.120.i, %.preheader.i ], [ 0, %.preheader28.i ]
-  %23 = getelementptr inbounds [16 x [4 x i32]], ptr @Extra_TruthPerm4One.Perms, i64 0, i64 %indvars.iv, i64 %indvars.iv.i12
-  %24 = load i32, ptr %23, align 4
-  %25 = shl nuw i32 1, %24
-  %26 = and i32 %25, %.02231.i
-  %.not27.i = icmp eq i32 %26, 0
-  %27 = trunc nuw nsw i64 %indvars.iv.i12 to i32
-  %28 = shl nuw nsw i32 1, %27
-  %29 = select i1 %.not27.i, i32 0, i32 %28
-  %.120.i = or i32 %29, %.01930.i
+  %22 = getelementptr inbounds [16 x [4 x i32]], ptr @Extra_TruthPerm4One.Perms, i64 0, i64 %indvars.iv, i64 %indvars.iv.i12
+  %23 = load i32, ptr %22, align 4
+  %24 = shl nuw i32 1, %23
+  %25 = and i32 %24, %.02231.i
+  %.not27.i = icmp eq i32 %25, 0
+  %26 = trunc nuw nsw i64 %indvars.iv.i12 to i32
+  %27 = shl nuw nsw i32 1, %26
+  %28 = select i1 %.not27.i, i32 0, i32 %27
+  %.120.i = or i32 %28, %.01930.i
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, 4
-  br i1 %exitcond.not.i14, label %30, label %.preheader.i, !llvm.loop !37
+  br i1 %exitcond.not.i14, label %29, label %.preheader.i, !llvm.loop !37
 
-30:                                               ; preds = %.preheader.i
-  %31 = shl nuw i32 1, %.120.i
-  %32 = or i32 %31, %.032.i
-  br label %33
+29:                                               ; preds = %.preheader.i
+  %30 = shl nuw i32 1, %.120.i
+  %31 = or i32 %30, %.032.i
+  br label %32
 
-33:                                               ; preds = %30, %.preheader28.i
-  %.1.i = phi i32 [ %32, %30 ], [ %.032.i, %.preheader28.i ]
-  %34 = add nuw nsw i32 %.02231.i, 1
-  %exitcond34.not.i = icmp eq i32 %34, 16
-  br i1 %exitcond34.not.i, label %35, label %.preheader28.i, !llvm.loop !38
+32:                                               ; preds = %29, %.preheader28.i
+  %.1.i = phi i32 [ %31, %29 ], [ %.032.i, %.preheader28.i ]
+  %33 = add nuw nsw i32 %.02231.i, 1
+  %exitcond34.not.i = icmp eq i32 %33, 16
+  br i1 %exitcond34.not.i, label %34, label %.preheader28.i, !llvm.loop !38
 
-35:                                               ; preds = %33
-  %36 = trunc i32 %.1.i to i16
+34:                                               ; preds = %32
+  %35 = trunc i32 %.1.i to i16
   br label %Extra_TruthPerm4One.exit
 
-Extra_TruthPerm4One.exit:                         ; preds = %13, %16, %35
-  %.023.i = phi i16 [ %36, %35 ], [ %18, %16 ], [ %12, %13 ]
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i16, ptr %37, i64 %indvars.iv
-  store i16 %.023.i, ptr %38, align 2
+Extra_TruthPerm4One.exit:                         ; preds = %13, %16, %34
+  %.023.i = phi i16 [ %35, %34 ], [ %18, %16 ], [ %12, %13 ]
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds i16, ptr %36, i64 %indvars.iv
+  store i16 %.023.i, ptr %37, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %Extra_ArrayAlloc.exit, label %13, !llvm.loop !53
@@ -3418,9 +3414,9 @@ Extra_TruthPerm4One.exit:                         ; preds = %13, %16, %35
 Extra_ArrayAlloc.exit:                            ; preds = %Extra_TruthPerm4One.exit
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, 256
-  br i1 %exitcond21.not, label %39, label %Extra_ArrayAlloc.exit.preheader, !llvm.loop !54
+  br i1 %exitcond21.not, label %38, label %Extra_ArrayAlloc.exit.preheader, !llvm.loop !54
 
-39:                                               ; preds = %Extra_ArrayAlloc.exit
+38:                                               ; preds = %Extra_ArrayAlloc.exit
   ret ptr %1
 }
 
@@ -3452,59 +3448,58 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
 
 12:                                               ; preds = %Extra_ArrayAlloc.exit.preheader, %Extra_TruthPerm5One.exit
   %indvars.iv = phi i64 [ 0, %Extra_ArrayAlloc.exit.preheader ], [ %indvars.iv.next, %Extra_TruthPerm5One.exit ]
-  %13 = lshr i64 2147516555, %indvars.iv
-  %14 = and i64 %13, 1
+  %13 = shl nuw nsw i64 1, %indvars.iv
+  %14 = and i64 %13, 2147516555
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %15, label %Extra_TruthPerm5One.exit
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds [32 x i32], ptr @Extra_TruthPerm5One.Cases, i64 0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
-  %18 = lshr i64 65812, %indvars.iv
-  %19 = and i64 %18, 1
-  %.not25.i = icmp eq i64 %19, 0
+  %18 = and i64 %13, 65812
+  %.not25.i = icmp eq i64 %18, 0
   br i1 %.not25.i, label %.preheader28.i, label %Extra_TruthPerm5One.exit
 
-.preheader28.i:                                   ; preds = %15, %32
-  %.032.i = phi i32 [ %.1.i, %32 ], [ 0, %15 ]
-  %.02231.i = phi i32 [ %33, %32 ], [ 0, %15 ]
-  %20 = shl nuw i32 1, %.02231.i
-  %21 = and i32 %20, %11
-  %.not26.i = icmp eq i32 %21, 0
-  br i1 %.not26.i, label %32, label %.preheader.i
+.preheader28.i:                                   ; preds = %15, %31
+  %.032.i = phi i32 [ %.1.i, %31 ], [ 0, %15 ]
+  %.02231.i = phi i32 [ %32, %31 ], [ 0, %15 ]
+  %19 = shl nuw i32 1, %.02231.i
+  %20 = and i32 %19, %11
+  %.not26.i = icmp eq i32 %20, 0
+  br i1 %.not26.i, label %31, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader28.i, %.preheader.i
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %.preheader.i ], [ 0, %.preheader28.i ]
   %.01930.i = phi i32 [ %.120.i, %.preheader.i ], [ 0, %.preheader28.i ]
-  %22 = getelementptr inbounds [32 x [5 x i32]], ptr @Extra_TruthPerm5One.Perms, i64 0, i64 %indvars.iv, i64 %indvars.iv.i14
-  %23 = load i32, ptr %22, align 4
-  %24 = shl nuw i32 1, %23
-  %25 = and i32 %24, %.02231.i
-  %.not27.i = icmp eq i32 %25, 0
-  %26 = trunc nuw nsw i64 %indvars.iv.i14 to i32
-  %27 = shl nuw nsw i32 1, %26
-  %28 = select i1 %.not27.i, i32 0, i32 %27
-  %.120.i = or i32 %28, %.01930.i
+  %21 = getelementptr inbounds [32 x [5 x i32]], ptr @Extra_TruthPerm5One.Perms, i64 0, i64 %indvars.iv, i64 %indvars.iv.i14
+  %22 = load i32, ptr %21, align 4
+  %23 = shl nuw i32 1, %22
+  %24 = and i32 %23, %.02231.i
+  %.not27.i = icmp eq i32 %24, 0
+  %25 = trunc nuw nsw i64 %indvars.iv.i14 to i32
+  %26 = shl nuw nsw i32 1, %25
+  %27 = select i1 %.not27.i, i32 0, i32 %26
+  %.120.i = or i32 %27, %.01930.i
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 5
-  br i1 %exitcond.not.i16, label %29, label %.preheader.i, !llvm.loop !39
+  br i1 %exitcond.not.i16, label %28, label %.preheader.i, !llvm.loop !39
 
-29:                                               ; preds = %.preheader.i
-  %30 = shl nuw i32 1, %.120.i
-  %31 = or i32 %30, %.032.i
-  br label %32
+28:                                               ; preds = %.preheader.i
+  %29 = shl nuw i32 1, %.120.i
+  %30 = or i32 %29, %.032.i
+  br label %31
 
-32:                                               ; preds = %29, %.preheader28.i
-  %.1.i = phi i32 [ %31, %29 ], [ %.032.i, %.preheader28.i ]
-  %33 = add nuw nsw i32 %.02231.i, 1
-  %exitcond34.not.i = icmp eq i32 %33, 32
+31:                                               ; preds = %28, %.preheader28.i
+  %.1.i = phi i32 [ %30, %28 ], [ %.032.i, %.preheader28.i ]
+  %32 = add nuw nsw i32 %.02231.i, 1
+  %exitcond34.not.i = icmp eq i32 %32, 32
   br i1 %exitcond34.not.i, label %Extra_TruthPerm5One.exit, label %.preheader28.i, !llvm.loop !40
 
-Extra_TruthPerm5One.exit:                         ; preds = %32, %12, %15
-  %.023.i = phi i32 [ %11, %12 ], [ %17, %15 ], [ %.1.i, %32 ]
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
-  store i32 %.023.i, ptr %35, align 4
+Extra_TruthPerm5One.exit:                         ; preds = %31, %12, %15
+  %.023.i = phi i32 [ %11, %12 ], [ %17, %15 ], [ %.1.i, %31 ]
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  store i32 %.023.i, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %Extra_ArrayAlloc.exit, label %12, !llvm.loop !55
@@ -3512,9 +3507,9 @@ Extra_TruthPerm5One.exit:                         ; preds = %32, %12, %15
 Extra_ArrayAlloc.exit:                            ; preds = %Extra_TruthPerm5One.exit
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 256
-  br i1 %exitcond23.not, label %36, label %Extra_ArrayAlloc.exit.preheader, !llvm.loop !56
+  br i1 %exitcond23.not, label %35, label %Extra_ArrayAlloc.exit.preheader, !llvm.loop !56
 
-36:                                               ; preds = %Extra_ArrayAlloc.exit
+35:                                               ; preds = %Extra_ArrayAlloc.exit
   ret ptr %1
 }
 
@@ -3747,8 +3742,8 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds [64 x i32], ptr @Extra_TruthPerm6One.Cases, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = lshr i64 -9223372034707259253, %indvars.iv
-  %20 = and i64 %19, 1
+  %19 = shl nuw i64 1, %indvars.iv
+  %20 = and i64 %19, -9223372034707259253
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %23, label %21
 
@@ -3759,125 +3754,124 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   br label %Extra_TruthPerm6One.exit
 
 23:                                               ; preds = %14
-  %24 = lshr i64 4295033108, %indvars.iv
-  %25 = and i64 %24, 1
-  %.not49.i = icmp eq i64 %25, 0
-  %26 = getelementptr inbounds i8, ptr %16, i64 4
-  br i1 %.not49.i, label %31, label %27
+  %24 = and i64 %19, 4295033108
+  %.not49.i = icmp eq i64 %24, 0
+  %25 = getelementptr inbounds i8, ptr %16, i64 4
+  br i1 %.not49.i, label %30, label %26
 
-27:                                               ; preds = %23
-  %28 = icmp eq i64 %indvars.iv, 32
-  br i1 %28, label %29, label %30
+26:                                               ; preds = %23
+  %27 = icmp eq i64 %indvars.iv, 32
+  br i1 %27, label %28, label %29
 
-29:                                               ; preds = %27
+28:                                               ; preds = %26
   store i32 0, ptr %16, align 4
-  store i32 -1, ptr %26, align 4
+  store i32 -1, ptr %25, align 4
   br label %Extra_TruthPerm6One.exit
 
-30:                                               ; preds = %27
+29:                                               ; preds = %26
   store i32 %18, ptr %16, align 4
-  store i32 %18, ptr %26, align 4
+  store i32 %18, ptr %25, align 4
   br label %Extra_TruthPerm6One.exit
 
-31:                                               ; preds = %23
+30:                                               ; preds = %23
   store i32 0, ptr %16, align 4
-  store i32 0, ptr %26, align 4
-  br label %32
+  store i32 0, ptr %25, align 4
+  br label %31
 
-32:                                               ; preds = %75, %31
-  %33 = phi i32 [ 0, %31 ], [ %76, %75 ]
-  %34 = phi i32 [ 0, %31 ], [ %77, %75 ]
-  %.04759.i = phi i32 [ 0, %31 ], [ %78, %75 ]
-  %35 = icmp ult i32 %.04759.i, 32
-  br i1 %35, label %36, label %55
+31:                                               ; preds = %74, %30
+  %32 = phi i32 [ 0, %30 ], [ %75, %74 ]
+  %33 = phi i32 [ 0, %30 ], [ %76, %74 ]
+  %.04759.i = phi i32 [ 0, %30 ], [ %77, %74 ]
+  %34 = icmp ult i32 %.04759.i, 32
+  br i1 %34, label %35, label %54
 
-36:                                               ; preds = %32
-  %37 = shl nuw i32 1, %.04759.i
-  %38 = and i32 %37, %13
-  %.not52.i = icmp eq i32 %38, 0
-  br i1 %.not52.i, label %75, label %.preheader.i
+35:                                               ; preds = %31
+  %36 = shl nuw i32 1, %.04759.i
+  %37 = and i32 %36, %13
+  %.not52.i = icmp eq i32 %37, 0
+  br i1 %.not52.i, label %74, label %.preheader.i
 
-.preheader.i:                                     ; preds = %36, %.preheader.i
-  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.preheader.i ], [ 0, %36 ]
-  %.058.i = phi i32 [ %.1.i, %.preheader.i ], [ 0, %36 ]
-  %39 = getelementptr inbounds [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %indvars.iv, i64 %indvars.iv61.i
-  %40 = load i32, ptr %39, align 4
-  %41 = shl nuw i32 1, %40
-  %42 = and i32 %41, %.04759.i
-  %.not53.i = icmp eq i32 %42, 0
-  %43 = trunc nuw nsw i64 %indvars.iv61.i to i32
-  %44 = shl nuw nsw i32 1, %43
-  %45 = select i1 %.not53.i, i32 0, i32 %44
-  %.1.i = or i32 %45, %.058.i
+.preheader.i:                                     ; preds = %35, %.preheader.i
+  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.preheader.i ], [ 0, %35 ]
+  %.058.i = phi i32 [ %.1.i, %.preheader.i ], [ 0, %35 ]
+  %38 = getelementptr inbounds [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %indvars.iv, i64 %indvars.iv61.i
+  %39 = load i32, ptr %38, align 4
+  %40 = shl nuw i32 1, %39
+  %41 = and i32 %40, %.04759.i
+  %.not53.i = icmp eq i32 %41, 0
+  %42 = trunc nuw nsw i64 %indvars.iv61.i to i32
+  %43 = shl nuw nsw i32 1, %42
+  %44 = select i1 %.not53.i, i32 0, i32 %43
+  %.1.i = or i32 %44, %.058.i
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, 6
-  br i1 %exitcond64.not.i, label %46, label %.preheader.i, !llvm.loop !41
+  br i1 %exitcond64.not.i, label %45, label %.preheader.i, !llvm.loop !41
 
-46:                                               ; preds = %.preheader.i
-  %47 = icmp slt i32 %.1.i, 32
-  br i1 %47, label %48, label %51
+45:                                               ; preds = %.preheader.i
+  %46 = icmp slt i32 %.1.i, 32
+  br i1 %46, label %47, label %50
 
-48:                                               ; preds = %46
-  %49 = shl nuw i32 1, %.1.i
-  %50 = or i32 %49, %33
-  store i32 %50, ptr %16, align 4
-  br label %75
+47:                                               ; preds = %45
+  %48 = shl nuw i32 1, %.1.i
+  %49 = or i32 %48, %32
+  store i32 %49, ptr %16, align 4
+  br label %74
 
-51:                                               ; preds = %46
-  %52 = add nsw i32 %.1.i, -32
-  %53 = shl nuw i32 1, %52
-  %54 = or i32 %53, %34
-  store i32 %54, ptr %26, align 4
-  br label %75
+50:                                               ; preds = %45
+  %51 = add nsw i32 %.1.i, -32
+  %52 = shl nuw i32 1, %51
+  %53 = or i32 %52, %33
+  store i32 %53, ptr %25, align 4
+  br label %74
 
-55:                                               ; preds = %32
-  %56 = add nsw i32 %.04759.i, -32
-  %57 = shl nuw i32 1, %56
-  %58 = and i32 %57, %12
-  %.not50.i = icmp eq i32 %58, 0
-  br i1 %.not50.i, label %75, label %.preheader54.i
+54:                                               ; preds = %31
+  %55 = add nsw i32 %.04759.i, -32
+  %56 = shl nuw i32 1, %55
+  %57 = and i32 %56, %12
+  %.not50.i = icmp eq i32 %57, 0
+  br i1 %.not50.i, label %74, label %.preheader54.i
 
-.preheader54.i:                                   ; preds = %55, %.preheader54.i
-  %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %.preheader54.i ], [ 0, %55 ]
-  %.256.i = phi i32 [ %.3.i, %.preheader54.i ], [ 0, %55 ]
-  %59 = getelementptr inbounds [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %indvars.iv, i64 %indvars.iv.i13
-  %60 = load i32, ptr %59, align 4
-  %61 = shl nuw i32 1, %60
-  %62 = and i32 %61, %.04759.i
-  %.not51.i = icmp eq i32 %62, 0
-  %63 = trunc nuw nsw i64 %indvars.iv.i13 to i32
-  %64 = shl nuw nsw i32 1, %63
-  %65 = select i1 %.not51.i, i32 0, i32 %64
-  %.3.i = or i32 %65, %.256.i
+.preheader54.i:                                   ; preds = %54, %.preheader54.i
+  %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %.preheader54.i ], [ 0, %54 ]
+  %.256.i = phi i32 [ %.3.i, %.preheader54.i ], [ 0, %54 ]
+  %58 = getelementptr inbounds [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %indvars.iv, i64 %indvars.iv.i13
+  %59 = load i32, ptr %58, align 4
+  %60 = shl nuw i32 1, %59
+  %61 = and i32 %60, %.04759.i
+  %.not51.i = icmp eq i32 %61, 0
+  %62 = trunc nuw nsw i64 %indvars.iv.i13 to i32
+  %63 = shl nuw nsw i32 1, %62
+  %64 = select i1 %.not51.i, i32 0, i32 %63
+  %.3.i = or i32 %64, %.256.i
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 6
-  br i1 %exitcond.not.i15, label %66, label %.preheader54.i, !llvm.loop !42
+  br i1 %exitcond.not.i15, label %65, label %.preheader54.i, !llvm.loop !42
 
-66:                                               ; preds = %.preheader54.i
-  %67 = icmp slt i32 %.3.i, 32
-  br i1 %67, label %68, label %71
+65:                                               ; preds = %.preheader54.i
+  %66 = icmp slt i32 %.3.i, 32
+  br i1 %66, label %67, label %70
 
-68:                                               ; preds = %66
-  %69 = shl nuw i32 1, %.3.i
-  %70 = or i32 %69, %33
-  store i32 %70, ptr %16, align 4
-  br label %75
+67:                                               ; preds = %65
+  %68 = shl nuw i32 1, %.3.i
+  %69 = or i32 %68, %32
+  store i32 %69, ptr %16, align 4
+  br label %74
 
-71:                                               ; preds = %66
-  %72 = add nsw i32 %.3.i, -32
-  %73 = shl nuw i32 1, %72
-  %74 = or i32 %73, %34
-  store i32 %74, ptr %26, align 4
-  br label %75
+70:                                               ; preds = %65
+  %71 = add nsw i32 %.3.i, -32
+  %72 = shl nuw i32 1, %71
+  %73 = or i32 %72, %33
+  store i32 %73, ptr %25, align 4
+  br label %74
 
-75:                                               ; preds = %71, %68, %55, %51, %48, %36
-  %76 = phi i32 [ %50, %48 ], [ %33, %51 ], [ %33, %36 ], [ %70, %68 ], [ %33, %71 ], [ %33, %55 ]
-  %77 = phi i32 [ %34, %48 ], [ %54, %51 ], [ %34, %36 ], [ %34, %68 ], [ %74, %71 ], [ %34, %55 ]
-  %78 = add nuw nsw i32 %.04759.i, 1
-  %exitcond65.not.i = icmp eq i32 %78, 64
-  br i1 %exitcond65.not.i, label %Extra_TruthPerm6One.exit, label %32, !llvm.loop !43
+74:                                               ; preds = %70, %67, %54, %50, %47, %35
+  %75 = phi i32 [ %49, %47 ], [ %32, %50 ], [ %32, %35 ], [ %69, %67 ], [ %32, %70 ], [ %32, %54 ]
+  %76 = phi i32 [ %33, %47 ], [ %53, %50 ], [ %33, %35 ], [ %33, %67 ], [ %73, %70 ], [ %33, %54 ]
+  %77 = add nuw nsw i32 %.04759.i, 1
+  %exitcond65.not.i = icmp eq i32 %77, 64
+  br i1 %exitcond65.not.i, label %Extra_TruthPerm6One.exit, label %31, !llvm.loop !43
 
-Extra_TruthPerm6One.exit:                         ; preds = %75, %21, %29, %30
+Extra_TruthPerm6One.exit:                         ; preds = %74, %21, %28, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %Extra_ArrayAlloc.exit, label %14, !llvm.loop !58
@@ -3885,9 +3879,9 @@ Extra_TruthPerm6One.exit:                         ; preds = %75, %21, %29, %30
 Extra_ArrayAlloc.exit:                            ; preds = %Extra_TruthPerm6One.exit
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 256
-  br i1 %exitcond24.not, label %79, label %Extra_ArrayAlloc.exit.preheader, !llvm.loop !59
+  br i1 %exitcond24.not, label %78, label %Extra_ArrayAlloc.exit.preheader, !llvm.loop !59
 
-79:                                               ; preds = %Extra_ArrayAlloc.exit
+78:                                               ; preds = %Extra_ArrayAlloc.exit
   ret ptr %1
 }
 

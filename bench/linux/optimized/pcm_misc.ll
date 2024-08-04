@@ -48,8 +48,8 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_signed(i32 noundef %0)
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = lshr i64 263884971687936, %4
-  %6 = and i64 %5, 1
+  %5 = shl nuw nsw i64 1, %4
+  %6 = and i64 %5, 263884971687936
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %12
 
@@ -71,16 +71,16 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_unsigned(i32 noundef %
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = lshr i64 263884971687936, %4
+  %5 = shl nuw nsw i64 1, %4
   %.fr2 = freeze i64 %5
-  %6 = and i64 %.fr2, 1
+  %6 = and i64 %.fr2, 263884971687936
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = lshr i64 8739796604171058, %4
-  %10 = trunc i64 %9 to i32
-  %11 = and i32 %10, 1
+  %9 = and i64 %.fr2, 8739796604171058
+  %10 = icmp ne i64 %9, 0
+  %11 = zext i1 %10 to i32
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %1
@@ -95,8 +95,8 @@ define dso_local range(i32 0, 2) i32 @snd_pcm_format_linear(i32 noundef %0) #0 a
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = lshr i64 263884971687936, %4
-  %6 = and i64 %5, 1
+  %5 = shl nuw nsw i64 1, %4
+  %6 = and i64 %5, 263884971687936
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %12
 
@@ -118,8 +118,8 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_little_endian(i32 noun
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = lshr i64 263884970655747, %4
-  %6 = and i64 %5, 1
+  %5 = shl nuw nsw i64 1, %4
+  %6 = and i64 %5, 263884970655747
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %12
 
@@ -141,16 +141,16 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_big_endian(i32 noundef
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = lshr i64 263884970655747, %4
+  %5 = shl nuw nsw i64 1, %4
   %.fr2 = freeze i64 %5
-  %6 = and i64 %.fr2, 1
+  %6 = and i64 %.fr2, 263884970655747
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = lshr i64 6767126648629928, %4
-  %10 = trunc i64 %9 to i32
-  %11 = and i32 %10, 1
+  %9 = and i64 %.fr2, 6767126648629928
+  %10 = icmp ne i64 %9, 0
+  %11 = zext i1 %10 to i32
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %1
@@ -184,8 +184,8 @@ define dso_local range(i32 -22, 256) i32 @snd_pcm_format_physical_width(i32 noun
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = lshr i64 3783262208, %4
-  %6 = and i64 %5, 1
+  %5 = shl nuw nsw i64 1, %4
+  %6 = and i64 %5, 3783262208
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %12
 
@@ -207,8 +207,8 @@ define dso_local range(i64 -22, 2305843009213693952) i64 @snd_pcm_format_size(i3
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = lshr i64 3783262208, %5
-  %7 = and i64 %6, 1
+  %6 = shl nuw nsw i64 1, %5
+  %7 = and i64 %6, 3783262208
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %.thread
 

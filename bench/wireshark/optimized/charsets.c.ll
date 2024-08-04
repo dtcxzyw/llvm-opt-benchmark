@@ -1203,8 +1203,8 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 
 25:                                               ; preds = %21, %21
   %26 = zext nneg i32 %22 to i64
-  %27 = lshr i64 4609, %26
-  %28 = and i64 %27, 1
+  %27 = shl nuw nsw i64 1, %26
+  %28 = and i64 %27, 4609
   %.not45.not = icmp eq i64 %28, 0
   br i1 %.not45.not, label %29, label %._crit_edge51
 
@@ -1214,8 +1214,8 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 
 31:                                               ; preds = %21
   %.pre = zext nneg i32 %22 to i64
-  %.pre53 = lshr i64 4609, %.pre
-  %.pre55 = and i64 %.pre53, 1
+  %.pre53 = shl nuw nsw i64 1, %.pre
+  %.pre55 = and i64 %.pre53, 4609
   %.not46.not = icmp eq i64 %.pre55, 0
   br i1 %.not46.not, label %32, label %._crit_edge51
 

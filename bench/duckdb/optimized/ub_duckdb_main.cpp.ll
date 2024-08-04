@@ -90310,9 +90310,9 @@ define noundef zeroext i1 @_ZN6duckdb13QueryProfiler25OperatorRequiresProfilingE
 entry:
   %0 = icmp ult i8 %op_type, 64
   %switch.cast = zext nneg i8 %op_type to i64
-  %switch.downshift = lshr i64 -9223370250800382978, %switch.cast
-  %1 = and i64 %switch.downshift, 1
-  %switch.masked = icmp ne i64 %1, 0
+  %1 = shl nuw i64 1, %switch.cast
+  %2 = and i64 %1, -9223370250800382978
+  %switch.masked = icmp ne i64 %2, 0
   %retval.0 = select i1 %0, i1 %switch.masked, i1 false
   ret i1 %retval.0
 }

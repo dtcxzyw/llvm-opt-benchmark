@@ -1575,8 +1575,8 @@ r_steps3.exit:                                    ; preds = %202, %213, %214, %2
 
 240:                                              ; preds = %233
   %241 = and i32 %239, 31
-  %242 = lshr i32 -2145255424, %241
-  %243 = and i32 %242, 1
+  %242 = shl nuw i32 1, %241
+  %243 = and i32 %242, -2145255424
   %.not29.i = icmp eq i32 %243, 0
   br i1 %.not29.i, label %253, label %244
 
@@ -2196,8 +2196,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps9(ptr noundef %0) u
 
 15:                                               ; preds = %8
   %16 = and i32 %14, 31
-  %17 = lshr i32 -1610481664, %16
-  %18 = and i32 %17, 1
+  %17 = shl nuw i32 1, %16
+  %18 = and i32 %17, -1610481664
   %.not50 = icmp eq i32 %18, 0
   br i1 %.not50, label %54, label %19
 

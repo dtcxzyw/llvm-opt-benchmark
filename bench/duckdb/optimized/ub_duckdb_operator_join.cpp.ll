@@ -5452,34 +5452,34 @@ ehcleanup26:                                      ; preds = %lpad22, %lpad20
 
 switch.hole_check:                                ; preds = %land.lhs.true
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 395, %switch.maskindex
-  %25 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %25, 0
+  %25 = shl nuw nsw i16 1, %switch.maskindex
+  %26 = and i16 %25, 395
+  %switch.lobit.not = icmp eq i16 %26, 0
   br i1 %switch.lobit.not, label %if.end, label %cleanup
 
 cleanup:                                          ; preds = %switch.hole_check, %_ZNSt12__shared_ptrIN6duckdb19PartitionMergeEventELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %retval.0 = phi i8 [ 0, %_ZNSt12__shared_ptrIN6duckdb19PartitionMergeEventELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 1, %switch.hole_check ]
-  %26 = load ptr, ptr %partitions_stats, align 8, !tbaa !248
+  %27 = load ptr, ptr %partitions_stats, align 8, !tbaa !248
   %_M_finish.i = getelementptr inbounds i8, ptr %partitions_stats, i64 8
-  %27 = load ptr, ptr %_M_finish.i, align 8, !tbaa !249
-  %cmp.not3.i.i.i.i = icmp eq ptr %26, %27
+  %28 = load ptr, ptr %_M_finish.i, align 8, !tbaa !249
+  %cmp.not3.i.i.i.i = icmp eq ptr %27, %28
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i ], [ %26, %cleanup ]
-  %28 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !23
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %28, null
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i ], [ %27, %cleanup ]
+  %29 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !23
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN6duckdb14BaseStatisticsEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6duckdb14BaseStatisticsEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
-  call void @_ZN6duckdb14BaseStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %28) #26
-  call void @_ZdlPv(ptr noundef nonnull %28) #25
+  call void @_ZN6duckdb14BaseStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %29) #26
+  call void @_ZdlPv(ptr noundef nonnull %29) #25
   br label %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN6duckdb14BaseStatisticsEEclEPS1_.exit.i.i.i.i.i.i, %for.body.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !23
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %27
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %28
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !250
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i
@@ -5487,12 +5487,12 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup
-  %29 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %26, %cleanup ]
-  %tobool.not.i.i.i = icmp eq ptr %29, null
+  %30 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %27, %cleanup ]
+  %tobool.not.i.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit, label %if.then.i.i.i62
 
 if.then.i.i.i62:                                  ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %29) #25
+  call void @_ZdlPv(ptr noundef nonnull %30) #25
   br label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit: ; preds = %if.then.i.i.i62, %invoke.cont.i
@@ -5666,9 +5666,9 @@ entry:
   %0 = load i8, ptr %join_type, align 1, !tbaa !217
   %1 = icmp ult i8 %0, 11
   %switch.cast = zext nneg i8 %0 to i11
-  %switch.downshift = lshr i11 -468, %switch.cast
-  %2 = and i11 %switch.downshift, 1
-  %switch.masked = icmp ne i11 %2, 0
+  %2 = shl nuw i11 1, %switch.cast
+  %3 = and i11 %2, -468
+  %switch.masked = icmp ne i11 %3, 0
   %retval.0 = select i1 %1, i1 %switch.masked, i1 false
   ret i1 %retval.0
 }
@@ -6467,9 +6467,9 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 switch.hole_check:                                ; preds = %if.then
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 395, %switch.maskindex
-  %8 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %8, 0
+  %8 = shl nuw nsw i16 1, %switch.maskindex
+  %9 = and i16 %8, 395
+  %switch.lobit.not = icmp eq i16 %9, 0
   br i1 %switch.lobit.not, label %if.then6, label %cleanup
 
 cleanup:                                          ; preds = %switch.hole_check, %if.end.i.i, %if.then.i, %if.end, %if.then6
@@ -12660,9 +12660,9 @@ cleanup76:                                        ; preds = %cleanup76.loopexit,
 
 switch.hole_check:                                ; preds = %if.then
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 395, %switch.maskindex
-  %45 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %45, 0
+  %45 = shl nuw nsw i16 1, %switch.maskindex
+  %46 = and i16 %45, 395
+  %switch.lobit.not = icmp eq i16 %46, 0
   br i1 %switch.lobit.not, label %if.then6, label %cleanup79
 
 cleanup79:                                        ; preds = %switch.hole_check, %cleanup76, %if.then6
@@ -20711,9 +20711,9 @@ if.end71:                                         ; preds = %_ZNSt10unique_ptrIN
 
 switch.hole_check:                                ; preds = %land.lhs.true13
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 395, %switch.maskindex
-  %33 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %33, 0
+  %33 = shl nuw nsw i16 1, %switch.maskindex
+  %34 = and i16 %33, 395
+  %switch.lobit.not = icmp eq i16 %34, 0
   br i1 %switch.lobit.not, label %if.end16, label %cleanup
 
 cleanup:                                          ; preds = %switch.hole_check, %if.end71, %if.then43, %_ZNSt10unique_ptrIN6duckdb13JoinHashTable13ScanStructureESt14default_deleteIS2_EED2Ev.exit, %if.then25, %if.then18
@@ -25348,9 +25348,9 @@ _ZN6duckdb17PhysicalRangeJoin17GlobalSortedTable8FinalizeERNS_8PipelineERNS_5Eve
 
 switch.hole_check:                                ; preds = %land.lhs.true16
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 395, %switch.maskindex
-  %18 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %18, 0
+  %18 = shl nuw nsw i16 1, %switch.maskindex
+  %19 = and i16 %18, 395
+  %switch.lobit.not = icmp eq i16 %19, 0
   br i1 %switch.lobit.not, label %if.end19, label %cleanup
 
 cleanup:                                          ; preds = %switch.hole_check, %_ZN6duckdb17PhysicalRangeJoin17GlobalSortedTable8FinalizeERNS_8PipelineERNS_5EventE.exit
@@ -35508,9 +35508,9 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %if.then
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 395, %switch.maskindex
-  %22 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %22, 0
+  %22 = shl nuw nsw i16 1, %switch.maskindex
+  %23 = and i16 %22, 395
+  %switch.lobit.not = icmp eq i16 %23, 0
   br i1 %switch.lobit.not, label %if.then5, label %cleanup
 
 cleanup:                                          ; preds = %switch.hole_check, %sw.bb8, %sw.bb, %if.then5
@@ -42841,9 +42841,9 @@ if.then.i:                                        ; preds = %if.end10
 
 switch.hole_check:                                ; preds = %land.lhs.true
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 395, %switch.maskindex
-  %12 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %12, 0
+  %12 = shl nuw nsw i16 1, %switch.maskindex
+  %13 = and i16 %12, 395
+  %switch.lobit.not = icmp eq i16 %13, 0
   br i1 %switch.lobit.not, label %if.end10, label %cleanup
 
 cleanup:                                          ; preds = %switch.hole_check, %if.then.i, %if.end10
@@ -46180,9 +46180,9 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 
 switch.hole_check:                                ; preds = %if.then
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 395, %switch.maskindex
-  %10 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %10, 0
+  %10 = shl nuw nsw i16 1, %switch.maskindex
+  %11 = and i16 %10, 395
+  %switch.lobit.not = icmp eq i16 %11, 0
   br i1 %switch.lobit.not, label %if.then5, label %cleanup
 
 cleanup:                                          ; preds = %switch.hole_check, %sw.bb9, %sw.bb, %if.then5

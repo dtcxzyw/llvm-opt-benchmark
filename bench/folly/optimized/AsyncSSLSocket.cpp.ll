@@ -1152,14 +1152,14 @@ land.rhs:                                         ; preds = %entry
 
 switch.lookup:                                    ; preds = %land.rhs
   %switch.cast = trunc nuw nsw i32 %0 to i6
-  %switch.downshift = lshr i6 -9, %switch.cast
-  %2 = and i6 %switch.downshift, 1
-  %switch.masked = icmp ne i6 %2, 0
+  %2 = shl nuw i6 1, %switch.cast
+  %3 = and i6 %2, -9
+  %switch.masked = icmp ne i6 %3, 0
   br label %land.end
 
 land.end:                                         ; preds = %switch.lookup, %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %switch.masked, %switch.lookup ], [ false, %land.rhs ]
-  ret i1 %3
+  %4 = phi i1 [ false, %entry ], [ %switch.masked, %switch.lookup ], [ false, %land.rhs ]
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable

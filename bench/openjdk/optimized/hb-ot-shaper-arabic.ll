@@ -427,8 +427,8 @@ _ZNK11hb_ot_map_t10get_1_maskEj.exit31.us:        ; preds = %_ZNK11hb_ot_map_t10
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us ], [ 0, %_ZNK11hb_ot_map_t10get_1_maskEj.exit31.us.preheader ]
   %32 = and i8 %31, 1
   %.not20.us = icmp ne i8 %32, 0
-  %33 = lshr i64 44, %indvars.iv57
-  %34 = and i64 %33, 1
+  %33 = shl nuw nsw i64 1, %indvars.iv57
+  %34 = and i64 %33, 44
   %35 = icmp ne i64 %34, 0
   %36 = select i1 %.not20.us, i1 %35, i1 false
   %37 = zext i1 %36 to i8
@@ -489,8 +489,8 @@ _ZNK11hb_ot_map_t10get_1_maskEj.exit31:           ; preds = %54, %_ZNK11hb_vecto
   br i1 %.not20, label %_ZNK11hb_ot_map_t14needs_fallbackEj.exit, label %61
 
 61:                                               ; preds = %_ZNK11hb_ot_map_t10get_1_maskEj.exit31
-  %62 = lshr i64 44, %indvars.iv
-  %63 = and i64 %62, 1
+  %62 = shl nuw nsw i64 1, %indvars.iv
+  %63 = and i64 %62, 44
   %.not62 = icmp eq i64 %63, 0
   br i1 %.not62, label %.lr.ph.i.i.i.i.i.i34, label %_ZNK11hb_ot_map_t14needs_fallbackEj.exit
 
@@ -1045,43 +1045,42 @@ define internal void @_ZL23collect_features_arabicP21hb_ot_shape_planner_t(ptr n
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.thread ]
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1098015074
-  %6 = lshr i64 44, %indvars.iv
+  %6 = shl nuw nsw i64 1, %indvars.iv
   %.fr25 = freeze i64 %6
-  %7 = trunc i64 %.fr25 to i32
-  %8 = shl i32 %7, 1
-  %9 = and i32 %8, 2
-  %10 = xor i32 %9, 10
+  %7 = and i64 %.fr25, 44
+  %.not = icmp eq i64 %7, 0
+  %8 = and i1 %5, %.not
   %.in = getelementptr inbounds [8 x i32], ptr @_ZL15arabic_features, i64 0, i64 %indvars.iv
-  %11 = load i32, ptr %.in, align 4
-  %12 = select i1 %5, i32 %10, i32 8
-  tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %11, i32 noundef %12, i32 noundef 1)
+  %9 = load i32, ptr %.in, align 4
+  %10 = select i1 %8, i32 10, i32 8
+  tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %9, i32 noundef %10, i32 noundef 1)
   tail call void @_ZN19hb_ot_map_builder_t9add_pauseEjPFbPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tE(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 0, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %13, label %.thread, !llvm.loop !18
+  br i1 %exitcond.not, label %11, label %.thread, !llvm.loop !18
 
-13:                                               ; preds = %.thread
+11:                                               ; preds = %.thread
   tail call void @_ZN19hb_ot_map_builder_t9add_pauseEjPFbPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tE(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 0, ptr noundef nonnull @_ZL21deallocate_buffer_varPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t)
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1919707495, i32 noundef 11, i32 noundef 1)
-  %14 = load i32, ptr %3, align 4
-  %15 = icmp eq i32 %14, 1098015074
-  br i1 %15, label %16, label %17
+  %12 = load i32, ptr %3, align 4
+  %13 = icmp eq i32 %12, 1098015074
+  br i1 %13, label %14, label %15
 
-16:                                               ; preds = %13
+14:                                               ; preds = %11
   tail call void @_ZN19hb_ot_map_builder_t9add_pauseEjPFbPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tE(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 0, ptr noundef nonnull @_ZL21arabic_fallback_shapePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t)
-  br label %17
+  br label %15
 
-17:                                               ; preds = %16, %13
+15:                                               ; preds = %14, %11
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1667329140, i32 noundef 9, i32 noundef 1)
-  %18 = tail call noundef zeroext i1 @_ZN19hb_ot_map_builder_t11has_featureEj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1919118452)
-  br i1 %18, label %20, label %19
+  %16 = tail call noundef zeroext i1 @_ZN19hb_ot_map_builder_t11has_featureEj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1919118452)
+  br i1 %16, label %18, label %17
 
-19:                                               ; preds = %17
+17:                                               ; preds = %15
   tail call void @_ZN19hb_ot_map_builder_t9add_pauseEjPFbPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tE(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 0, ptr noundef null)
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1919118452, i32 noundef 9, i32 noundef 1)
-  br label %20
+  br label %18
 
-20:                                               ; preds = %19, %17
+18:                                               ; preds = %17, %15
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1818847073, i32 noundef 9, i32 noundef 1)
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1668049255, i32 noundef 9, i32 noundef 1)
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1836279156, i32 noundef 9, i32 noundef 1)

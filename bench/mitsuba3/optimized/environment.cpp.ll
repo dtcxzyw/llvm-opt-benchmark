@@ -26,8 +26,8 @@ define dso_local noundef i32 @_ZNK6asmjit9_abi_1_1011Environment14stackAlignment
 
 13:                                               ; preds = %5
   %14 = zext nneg i8 %8 to i16
-  %15 = lshr i16 2045, %14
-  %16 = and i16 %15, 1
+  %15 = shl nuw nsw i16 1, %14
+  %16 = and i16 %15, 2045
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %10, label %22
 

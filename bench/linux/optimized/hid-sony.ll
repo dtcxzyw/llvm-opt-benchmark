@@ -906,8 +906,8 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
   %60 = zext nneg i32 %51 to i64
   %61 = getelementptr [21 x i32], ptr @ps3remote_keymap_joypad_buttons, i64 0, i64 %60
   %62 = load i32, ptr %61, align 4
-  %63 = lshr i64 786433, %60
-  %64 = and i64 %63, 1
+  %63 = shl nuw nsw i64 1, %60
+  %64 = and i64 %63, 786433
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %73, label %265
 
@@ -978,8 +978,8 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
 
 104:                                              ; preds = %101
   %105 = zext nneg i32 %102 to i64
-  %106 = lshr i64 5147, %105
-  %107 = and i64 %106, 1
+  %106 = shl nuw nsw i64 1, %105
+  %107 = and i64 %106, 5147
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %109, label %265
 

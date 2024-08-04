@@ -2062,8 +2062,8 @@ define internal range(i32 0, 256) i32 @pirq_finali_get(ptr nocapture readnone %0
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @pirq_finali_set(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = sext i32 %3 to i64
-  %6 = lshr i64 8455, %5
-  %7 = and i64 %6, 1
+  %6 = shl nuw i64 1, %5
+  %7 = and i64 %6, 8455
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %33
 
@@ -2215,8 +2215,8 @@ define internal noundef range(i32 0, 2) i32 @pirq_ali_set(ptr noundef %0, ptr no
   br label %11
 
 11:                                               ; preds = %10, %4
-  %12 = lshr i64 8453, %6
-  %13 = and i64 %12, 1
+  %12 = shl nuw i64 1, %6
+  %13 = and i64 %12, 8453
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %33
 

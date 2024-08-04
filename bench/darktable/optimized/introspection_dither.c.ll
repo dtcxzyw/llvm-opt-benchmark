@@ -665,8 +665,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %374, label %375, label %387
 
 375:                                              ; preds = %365
-  %376 = lshr i8 103, %373
-  %377 = and i8 %376, 1
+  %376 = shl nuw nsw i8 1, %373
+  %377 = and i8 %376, 103
   %378 = icmp eq i8 %377, 0
   br i1 %378, label %387, label %379
 

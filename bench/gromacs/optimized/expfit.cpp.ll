@@ -1919,9 +1919,9 @@ _Z15effnDescriptioni.exit:                        ; preds = %23
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %33, double noundef %35)
   %37 = icmp ugt i32 %1, 1
   %spec.select = select i1 %37, ptr @.str.53, ptr @.str.54
-  %38 = lshr i64 1912, %29
+  %38 = shl nuw nsw i64 1, %29
   %.fr164 = freeze i64 %38
-  %39 = and i64 %.fr164, 1
+  %39 = and i64 %.fr164, 1912
   %.not165 = icmp eq i64 %39, 0
   %spec.select163 = select i1 %.not165, ptr @.str.54, ptr @.str.55
   br label %_Z11effnNparamsi.exit121.thread

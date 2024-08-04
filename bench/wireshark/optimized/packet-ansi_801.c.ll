@@ -803,8 +803,8 @@ for_request.exit.i:                               ; preds = %.lr.ph.i, %for_requ
   %151 = load i32, ptr %7, align 4
   %152 = sext i32 %151 to i64
   %153 = and i64 %152, 2305843009213693951
-  %154 = lshr i64 10588, %153
-  %155 = and i64 %154, 1
+  %154 = shl nuw i64 1, %153
+  %155 = and i64 %154, 10588
   %.not.not.i.i = icmp eq i64 %155, 0
   br i1 %.not.not.i.i, label %156, label %160
 
@@ -973,8 +973,8 @@ proto_item_set_hidden.exit.i16:                   ; preds = %184, %181, %176
   %247 = load i32, ptr %6, align 4
   %248 = sext i32 %247 to i64
   %249 = and i64 %248, 2305843009213693951
-  %250 = lshr i64 12467, %249
-  %251 = and i64 %250, 1
+  %250 = shl nuw i64 1, %249
+  %251 = and i64 %250, 12467
   %.not.not.i.us.i = icmp eq i64 %251, 0
   br i1 %.not.not.i.us.i, label %256, label %252
 
@@ -1066,8 +1066,8 @@ rev_request.exit.i:                               ; preds = %.lr.ph.i38, %rev_re
   %300 = load i32, ptr %5, align 4
   %301 = sext i32 %300 to i64
   %302 = and i64 %301, 2305843009213693951
-  %303 = lshr i64 284, %302
-  %304 = and i64 %303, 1
+  %303 = shl nuw i64 1, %302
+  %304 = and i64 %303, 284
   %.not.not.i81.i = icmp eq i64 %304, 0
   br i1 %.not.not.i81.i, label %305, label %309
 

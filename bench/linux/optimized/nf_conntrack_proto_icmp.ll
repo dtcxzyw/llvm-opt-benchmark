@@ -103,8 +103,8 @@ define dso_local noundef zeroext i1 @nf_conntrack_invert_icmp_tuple(ptr nocaptur
 
 6:                                                ; preds = %2
   %7 = zext nneg i8 %4 to i64
-  %8 = lshr i64 7934, %7
-  %9 = and i64 %8, 1
+  %8 = shl nuw nsw i64 1, %7
+  %9 = and i64 %8, 7934
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %24
 
@@ -146,8 +146,8 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmp_packet(ptr noun
 
 12:                                               ; preds = %8
   %13 = zext nneg i8 %10 to i64
-  %14 = lshr i64 89855, %13
-  %15 = and i64 %14, 1
+  %14 = shl nuw nsw i64 1, %13
+  %15 = and i64 %14, 89855
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %22
 
@@ -480,8 +480,8 @@ define internal noundef range(i32 -22, 1) i32 @icmp_nlattr_to_tuple(ptr nocaptur
 
 15:                                               ; preds = %10
   %16 = zext nneg i8 %12 to i64
-  %17 = lshr i64 7934, %16
-  %18 = and i64 %17, 1
+  %17 = shl nuw nsw i64 1, %16
+  %18 = and i64 %17, 7934
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %42
 

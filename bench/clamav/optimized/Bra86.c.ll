@@ -66,8 +66,8 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   %38 = sub nsw i64 4, %37
   %39 = getelementptr inbounds i8, ptr %.08193, i64 %38
   %40 = load i8, ptr %39, align 1
-  %41 = lshr i64 232, %34
-  %42 = and i64 %41, 1
+  %41 = shl nuw nsw i64 1, %34
+  %42 = and i64 %41, 232
   %43 = icmp ne i64 %42, 0
   %44 = add i8 %40, 1
   %45 = icmp ult i8 %44, 2

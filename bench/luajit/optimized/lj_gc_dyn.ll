@@ -2997,14 +2997,14 @@ if.end15:                                         ; preds = %if.then8, %if.then1
   %8 = load i8, ptr %t, align 4
   %9 = and i8 %8, 31
   %and17 = zext nneg i8 %9 to i32
-  %shr = lshr i32 6315993, %and17
-  %and18 = and i32 %shr, 1
-  %tobool19.not = icmp eq i32 %and18, 0
+  %10 = shl nuw i32 1, %and17
+  %11 = and i32 %10, 6315993
+  %tobool19.not = icmp eq i32 %11, 0
   br i1 %tobool19.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end15
-  %10 = load i8, ptr %o, align 1
-  %cmp22.not = icmp ne i8 %10, 27
+  %12 = load i8, ptr %o, align 1
+  %cmp22.not = icmp ne i8 %12, 27
   %inc = zext i1 %cmp22.not to i32
   %spec.select = add nuw nsw i32 %ref.045, %inc
   br label %for.inc
@@ -3017,103 +3017,103 @@ for.inc:                                          ; preds = %land.lhs.true, %if.
 
 for.end:                                          ; preds = %for.inc, %if.end
   %link = getelementptr inbounds i8, ptr %T, i64 106
-  %11 = load i16, ptr %link, align 2
-  %tobool27.not = icmp eq i16 %11, 0
+  %13 = load i16, ptr %link, align 2
+  %tobool27.not = icmp eq i16 %13, 0
   br i1 %tobool27.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %for.end
   %trace.i = getelementptr inbounds i8, ptr %g, i64 1112
-  %12 = load ptr, ptr %trace.i, align 8
-  %idxprom.i = zext i16 %11 to i64
-  %arrayidx.i = getelementptr inbounds %struct.GCRef, ptr %12, i64 %idxprom.i
-  %13 = load i64, ptr %arrayidx.i, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %marked.i = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load i8, ptr %marked.i, align 8
-  %16 = and i8 %15, 3
-  %tobool.not.i = icmp eq i8 %16, 0
+  %14 = load ptr, ptr %trace.i, align 8
+  %idxprom.i = zext i16 %13 to i64
+  %arrayidx.i = getelementptr inbounds %struct.GCRef, ptr %14, i64 %idxprom.i
+  %15 = load i64, ptr %arrayidx.i, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %marked.i = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load i8, ptr %marked.i, align 8
+  %18 = and i8 %17, 3
+  %tobool.not.i = icmp eq i8 %18, 0
   br i1 %tobool.not.i, label %if.end31, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then28
-  %and3.i = and i8 %15, -4
+  %and3.i = and i8 %17, -4
   store i8 %and3.i, ptr %marked.i, align 8
   %gray.i = getelementptr inbounds i8, ptr %g, i64 56
-  %17 = load i64, ptr %gray.i, align 8
-  %gclist.i = getelementptr inbounds i8, ptr %14, i64 24
-  store i64 %17, ptr %gclist.i, align 8
-  store i64 %13, ptr %gray.i, align 8
+  %19 = load i64, ptr %gray.i, align 8
+  %gclist.i = getelementptr inbounds i8, ptr %16, i64 24
+  store i64 %19, ptr %gclist.i, align 8
+  store i64 %15, ptr %gray.i, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then.i, %if.then28, %for.end
   %nextroot = getelementptr inbounds i8, ptr %T, i64 110
-  %18 = load i16, ptr %nextroot, align 2
-  %tobool32.not = icmp eq i16 %18, 0
+  %20 = load i16, ptr %nextroot, align 2
+  %tobool32.not = icmp eq i16 %20, 0
   br i1 %tobool32.not, label %if.end36, label %if.then33
 
 if.then33:                                        ; preds = %if.end31
   %trace.i24 = getelementptr inbounds i8, ptr %g, i64 1112
-  %19 = load ptr, ptr %trace.i24, align 8
-  %idxprom.i25 = zext i16 %18 to i64
-  %arrayidx.i26 = getelementptr inbounds %struct.GCRef, ptr %19, i64 %idxprom.i25
-  %20 = load i64, ptr %arrayidx.i26, align 8
-  %21 = inttoptr i64 %20 to ptr
-  %marked.i27 = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load i8, ptr %marked.i27, align 8
-  %23 = and i8 %22, 3
-  %tobool.not.i28 = icmp eq i8 %23, 0
+  %21 = load ptr, ptr %trace.i24, align 8
+  %idxprom.i25 = zext i16 %20 to i64
+  %arrayidx.i26 = getelementptr inbounds %struct.GCRef, ptr %21, i64 %idxprom.i25
+  %22 = load i64, ptr %arrayidx.i26, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %marked.i27 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = load i8, ptr %marked.i27, align 8
+  %25 = and i8 %24, 3
+  %tobool.not.i28 = icmp eq i8 %25, 0
   br i1 %tobool.not.i28, label %if.end36, label %if.then.i29
 
 if.then.i29:                                      ; preds = %if.then33
-  %and3.i30 = and i8 %22, -4
+  %and3.i30 = and i8 %24, -4
   store i8 %and3.i30, ptr %marked.i27, align 8
   %gray.i31 = getelementptr inbounds i8, ptr %g, i64 56
-  %24 = load i64, ptr %gray.i31, align 8
-  %gclist.i32 = getelementptr inbounds i8, ptr %21, i64 24
-  store i64 %24, ptr %gclist.i32, align 8
-  store i64 %20, ptr %gray.i31, align 8
+  %26 = load i64, ptr %gray.i31, align 8
+  %gclist.i32 = getelementptr inbounds i8, ptr %23, i64 24
+  store i64 %26, ptr %gclist.i32, align 8
+  store i64 %22, ptr %gray.i31, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then.i29, %if.then33, %if.end31
   %nextside = getelementptr inbounds i8, ptr %T, i64 112
-  %25 = load i16, ptr %nextside, align 8
-  %tobool37.not = icmp eq i16 %25, 0
+  %27 = load i16, ptr %nextside, align 8
+  %tobool37.not = icmp eq i16 %27, 0
   br i1 %tobool37.not, label %if.end41, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
   %trace.i34 = getelementptr inbounds i8, ptr %g, i64 1112
-  %26 = load ptr, ptr %trace.i34, align 8
-  %idxprom.i35 = zext i16 %25 to i64
-  %arrayidx.i36 = getelementptr inbounds %struct.GCRef, ptr %26, i64 %idxprom.i35
-  %27 = load i64, ptr %arrayidx.i36, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %marked.i37 = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load i8, ptr %marked.i37, align 8
-  %30 = and i8 %29, 3
-  %tobool.not.i38 = icmp eq i8 %30, 0
+  %28 = load ptr, ptr %trace.i34, align 8
+  %idxprom.i35 = zext i16 %27 to i64
+  %arrayidx.i36 = getelementptr inbounds %struct.GCRef, ptr %28, i64 %idxprom.i35
+  %29 = load i64, ptr %arrayidx.i36, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %marked.i37 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load i8, ptr %marked.i37, align 8
+  %32 = and i8 %31, 3
+  %tobool.not.i38 = icmp eq i8 %32, 0
   br i1 %tobool.not.i38, label %if.end41, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.then38
-  %and3.i40 = and i8 %29, -4
+  %and3.i40 = and i8 %31, -4
   store i8 %and3.i40, ptr %marked.i37, align 8
   %gray.i41 = getelementptr inbounds i8, ptr %g, i64 56
-  %31 = load i64, ptr %gray.i41, align 8
-  %gclist.i42 = getelementptr inbounds i8, ptr %28, i64 24
-  store i64 %31, ptr %gclist.i42, align 8
-  store i64 %27, ptr %gray.i41, align 8
+  %33 = load i64, ptr %gray.i41, align 8
+  %gclist.i42 = getelementptr inbounds i8, ptr %30, i64 24
+  store i64 %33, ptr %gclist.i42, align 8
+  store i64 %29, ptr %gray.i41, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then.i39, %if.then38, %if.end36
   %startpt = getelementptr inbounds i8, ptr %T, i64 64
-  %32 = load i64, ptr %startpt, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %marked43 = getelementptr inbounds i8, ptr %33, i64 8
-  %34 = load i8, ptr %marked43, align 8
-  %35 = and i8 %34, 3
-  %tobool46.not = icmp eq i8 %35, 0
+  %34 = load i64, ptr %startpt, align 8
+  %35 = inttoptr i64 %34 to ptr
+  %marked43 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = load i8, ptr %marked43, align 8
+  %37 = and i8 %36, 3
+  %tobool46.not = icmp eq i8 %37, 0
   br i1 %tobool46.not, label %if.end50, label %if.then47
 
 if.then47:                                        ; preds = %if.end41
-  tail call fastcc void @gc_mark(ptr noundef %g, ptr noundef nonnull %33)
+  tail call fastcc void @gc_mark(ptr noundef %g, ptr noundef nonnull %35)
   br label %if.end50
 
 if.end50:                                         ; preds = %entry, %if.then47, %if.end41

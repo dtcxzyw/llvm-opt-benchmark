@@ -1310,9 +1310,9 @@ if.end10:                                         ; preds = %for.cond.i.i.i.i, %
 
 switch.hole_check:                                ; preds = %entry
   %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 29183, %switch.maskindex
-  %13 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %13, 0
+  %13 = shl nuw nsw i16 1, %switch.maskindex
+  %14 = and i16 %13, 29183
+  %switch.lobit.not = icmp eq i16 %14, 0
   br i1 %switch.lobit.not, label %if.end, label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %switch.hole_check, %if.end10, %if.end15.i.i

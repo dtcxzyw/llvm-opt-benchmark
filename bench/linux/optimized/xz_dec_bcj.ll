@@ -263,8 +263,8 @@ define internal fastcc void @bcj_apply(ptr nocapture noundef %0, ptr nocapture n
 
 33:                                               ; preds = %27
   %34 = zext nneg i32 %31 to i64
-  %35 = lshr i64 232, %34
-  %36 = and i64 %35, 1
+  %35 = shl nuw nsw i64 1, %34
+  %36 = and i64 %35, 232
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %38, label %48
 

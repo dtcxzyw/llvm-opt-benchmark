@@ -9625,8 +9625,8 @@ invoke.cont168:                                   ; preds = %if.end165
 if.then171:                                       ; preds = %invoke.cont168
   %arrayidx173 = getelementptr inbounds [36 x i32], ptr @_ZN6icu_75L15gFieldRangeBiasE, i64 0, i64 %idxprom
   %39 = load i32, ptr %arrayidx173, align 4
-  %40 = lshr i64 100663500, %idxprom
-  %41 = and i64 %40, 1
+  %40 = shl nuw i64 1, %idxprom
+  %41 = and i64 %40, 100663500
   %cmp174.not = icmp eq i64 %41, 0
   br i1 %cmp174.not, label %if.end192, label %land.lhs.true175
 
@@ -11591,8 +11591,8 @@ invoke.cont1340:                                  ; preds = %if.then1335
 if.then1343:                                      ; preds = %invoke.cont1340
   %arrayidx1346 = getelementptr inbounds [36 x i32], ptr @_ZN6icu_75L15gFieldRangeBiasE, i64 0, i64 %idxprom
   %303 = load i32, ptr %arrayidx1346, align 4
-  %304 = lshr i64 100663500, %idxprom
-  %305 = and i64 %304, 1
+  %304 = shl nuw i64 1, %idxprom
+  %305 = and i64 %304, 100663500
   %cmp1347.not = icmp eq i64 %305, 0
   br i1 %cmp1347.not, label %if.end1365, label %land.lhs.true1348
 

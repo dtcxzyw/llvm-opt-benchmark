@@ -183,8 +183,8 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
   %67 = getelementptr inbounds [60 x i8], ptr @yytable, i64 0, i64 %62
   %68 = load i8, ptr %67, align 1
   %69 = sext i8 %68 to i32
-  %70 = lshr i64 432415932981317632, %62
-  %71 = and i64 %70, 1
+  %70 = shl nuw nsw i64 1, %62
+  %71 = and i64 %70, 432415932981317632
   %.not213 = icmp eq i64 %71, 0
   br i1 %.not213, label %74, label %72
 

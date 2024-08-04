@@ -1266,12 +1266,12 @@ if.then20:                                        ; preds = %do.end15
   %8 = add nsw i64 %idxprom, -21
   %cmp37 = icmp ult i64 %8, -20
   %conv39 = zext i8 %6 to i32
-  %9 = lshr i64 3271754499, %idxprom32
-  %10 = and i64 %9, 1
+  %9 = shl nuw nsw i64 1, %idxprom32
+  %10 = and i64 %9, 3271754499
   %cmp40 = icmp ne i64 %10, 0
   %or.cond = select i1 %cmp37, i1 true, i1 %cmp40
-  %11 = lshr i64 3221487617, %idxprom34
-  %12 = and i64 %11, 1
+  %11 = shl nuw nsw i64 1, %idxprom34
+  %12 = and i64 %11, 3221487617
   %cmp44 = icmp ne i64 %12, 0
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp44
   br i1 %or.cond1, label %return, label %if.end47

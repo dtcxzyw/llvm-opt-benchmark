@@ -386,8 +386,8 @@ define hidden range(i32 -2147483648, 2) i32 @lithuanian_UTF_8_stem(ptr noundef %
 
 47:                                               ; preds = %40
   %48 = and i32 %46, 31
-  %49 = lshr i32 2621472, %48
-  %50 = and i32 %49, 1
+  %49 = shl nuw i32 1, %48
+  %50 = and i32 %49, 2621472
   %.not47.i = icmp eq i32 %50, 0
   br i1 %.not47.i, label %r_fix_conflicts.exit, label %51
 

@@ -1991,8 +1991,8 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZN2cv6theRNGEv.exi
 
 _ZNK2cv3Mat8elemSizeEv.exit24:                    ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %_ZN2cv6theRNGEv.exit
   %41 = phi i64 [ 0, %_ZN2cv6theRNGEv.exit ], [ %27, %_ZNK2cv3Mat8elemSizeEv.exit ]
-  %42 = lshr i64 4278120097, %41
-  %43 = and i64 %42, 1
+  %42 = shl nuw nsw i64 1, %41
+  %43 = and i64 %42, 4278120097
   %.not15.not = icmp eq i64 %43, 0
   br i1 %.not15.not, label %52, label %44
 

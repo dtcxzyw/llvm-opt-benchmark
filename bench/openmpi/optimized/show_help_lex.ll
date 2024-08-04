@@ -263,8 +263,8 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   %.050217 = phi i8 [ %.151, %98 ], [ %79, %74 ]
   %91 = getelementptr inbounds [30 x i16], ptr @yy_def, i64 0, i64 %90
   %92 = load i16, ptr %91, align 2
-  %93 = lshr i64 1791834, %90
-  %94 = and i64 %93, 1
+  %93 = shl nuw i64 1, %90
+  %94 = and i64 %93, 1791834
   %.not83 = icmp eq i64 %94, 0
   br i1 %.not83, label %98, label %95
 
@@ -296,8 +296,8 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   store i32 %109, ptr %75, align 4
   %111 = getelementptr inbounds i8, ptr %.157, i64 1
   %112 = zext nneg i16 %108 to i64
-  %113 = lshr i64 6596736, %112
-  %114 = and i64 %113, 1
+  %113 = shl nuw i64 1, %112
+  %114 = and i64 %113, 6596736
   %.not77.not = icmp eq i64 %114, 0
   br i1 %.not77.not, label %74, label %.preheader.preheader, !llvm.loop !6
 
@@ -620,8 +620,8 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   %.021.i = phi i8 [ %.1.i, %299 ], [ %280, %279 ]
   %292 = getelementptr inbounds [30 x i16], ptr @yy_def, i64 0, i64 %291
   %293 = load i16, ptr %292, align 2
-  %294 = lshr i64 1791834, %291
-  %295 = and i64 %294, 1
+  %294 = shl nuw i64 1, %291
+  %295 = and i64 %294, 1791834
   %.not19.i = icmp eq i64 %295, 0
   br i1 %.not19.i, label %299, label %296
 
@@ -688,8 +688,8 @@ yy_get_previous_state.exit:                       ; preds = %258, %._crit_edge26
 
 ._crit_edge.i89:                                  ; preds = %.lr.ph.i87, %yy_get_previous_state.exit
   %.lcssa.i90 = phi i64 [ %318, %yy_get_previous_state.exit ], [ %329, %.lr.ph.i87 ]
-  %332 = lshr i64 133412421632, %.lcssa.i90
-  %333 = and i64 %332, 1
+  %332 = shl nuw i64 1, %.lcssa.i90
+  %333 = and i64 %332, 133412421632
   %.not15.i = icmp eq i64 %333, 0
   br i1 %.not15.i, label %yy_try_NUL_trans.exit, label %yy_try_NUL_trans.exit.thread
 
@@ -1108,8 +1108,8 @@ yy_get_next_buffer.exit.thread:                   ; preds = %353, %yy_get_next_b
   %.021.i102 = phi i8 [ %.1.i104, %555 ], [ %536, %535 ]
   %548 = getelementptr inbounds [30 x i16], ptr @yy_def, i64 0, i64 %547
   %549 = load i16, ptr %548, align 2
-  %550 = lshr i64 1791834, %547
-  %551 = and i64 %550, 1
+  %550 = shl nuw i64 1, %547
+  %551 = and i64 %550, 1791834
   %.not19.i103 = icmp eq i64 %551, 0
   br i1 %.not19.i103, label %555, label %552
 
@@ -1206,8 +1206,8 @@ yy_get_next_buffer.exit.thread131:                ; preds = %353, %yy_get_next_b
   %.021.i118 = phi i8 [ %.1.i120, %606 ], [ %587, %586 ]
   %599 = getelementptr inbounds [30 x i16], ptr @yy_def, i64 0, i64 %598
   %600 = load i16, ptr %599, align 2
-  %601 = lshr i64 1791834, %598
-  %602 = and i64 %601, 1
+  %601 = shl nuw i64 1, %598
+  %602 = and i64 %601, 1791834
   %.not19.i119 = icmp eq i64 %602, 0
   br i1 %.not19.i119, label %606, label %603
 

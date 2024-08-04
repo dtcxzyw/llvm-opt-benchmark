@@ -343,8 +343,8 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   call void @llvm.assume(i1 %154)
   %155 = add nsw i32 %133, -65
   %156 = zext nneg i32 %155 to i64
-  %157 = lshr i64 66043630, %156
-  %158 = and i64 %157, 1
+  %157 = shl nuw i64 1, %156
+  %158 = and i64 %157, 66043630
   %.not3801.not.i = icmp eq i64 %158, 0
   br i1 %.not3801.not.i, label %159, label %.thread.i
 
@@ -598,8 +598,8 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   call void @llvm.assume(i1 %277)
   %278 = add nsw i32 %270, -65
   %279 = zext nneg i32 %278 to i64
-  %280 = lshr i64 50331375, %279
-  %281 = and i64 %280, 1
+  %280 = shl nuw i64 1, %279
+  %281 = and i64 %280, 50331375
   %.not3924.not.i = icmp eq i64 %281, 0
   br i1 %.not3924.not.i, label %282, label %.thread3947.i
 
@@ -917,8 +917,8 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   call void @llvm.assume(i1 %465)
   %466 = add nsw i32 %458, -65
   %467 = zext nneg i32 %466 to i64
-  %468 = lshr i64 50331375, %467
-  %469 = and i64 %468, 1
+  %468 = shl nuw i64 1, %467
+  %469 = and i64 %468, 50331375
   %.not3915.not.i = icmp eq i64 %469, 0
   br i1 %.not3915.not.i, label %470, label %.thread3951.i
 
@@ -1092,8 +1092,8 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   call void @llvm.assume(i1 %567)
   %568 = add nsw i32 %560, -65
   %569 = zext nneg i32 %568 to i64
-  %570 = lshr i64 67108725, %569
-  %571 = and i64 %570, 1
+  %570 = shl nuw i64 1, %569
+  %571 = and i64 %570, 67108725
   %.not3908.not.i = icmp eq i64 %571, 0
   br i1 %.not3908.not.i, label %.thread3961.i, label %.thread3954.i
 
@@ -1295,8 +1295,8 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   call void @llvm.assume(i1 %684)
   %685 = add nsw i32 %550, -65
   %686 = zext nneg i32 %685 to i64
-  %687 = lshr i64 16777488, %686
-  %688 = and i64 %687, 1
+  %687 = shl nuw i64 1, %686
+  %688 = and i64 %687, 16777488
   %689 = icmp ne i64 %688, 0
   %690 = icmp ne i32 %sext3818.i, 1191182336
   %or.cond5.i = and i1 %690, %689
@@ -1451,8 +1451,8 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   call void @llvm.assume(i1 %778)
   %779 = add nsw i32 %771, -65
   %780 = zext nneg i32 %779 to i64
-  %781 = lshr i64 66043630, %780
-  %782 = and i64 %781, 1
+  %781 = shl nuw i64 1, %780
+  %782 = and i64 %781, 66043630
   %.not3886.not.i = icmp eq i64 %782, 0
   br i1 %.not3886.not.i, label %783, label %.thread3961.i
 
@@ -1471,8 +1471,8 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   call void @llvm.assume(i1 %790)
   %791 = add nsw i32 %222, -65
   %792 = zext nneg i32 %791 to i64
-  %793 = lshr i64 66289595, %792
-  %794 = and i64 %793, 1
+  %793 = shl nuw i64 1, %792
+  %794 = and i64 %793, 66289595
   %.not3888.not.i = icmp eq i64 %794, 0
   br i1 %.not3888.not.i, label %.thread3961.i, label %.thread3964.i
 
@@ -2341,8 +2341,8 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   call void @llvm.assume(i1 %1296)
   %1297 = add nsw i32 %1289, -65
   %1298 = zext nneg i32 %1297 to i64
-  %1299 = lshr i64 66043630, %1298
-  %1300 = and i64 %1299, 1
+  %1299 = shl nuw i64 1, %1298
+  %1300 = and i64 %1299, 66043630
   %.not3839.not.i = icmp eq i64 %1300, 0
   br i1 %.not3839.not.i, label %1301, label %.thread3961.i
 
@@ -2564,8 +2564,8 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   call void @llvm.assume(i1 %1428)
   %1429 = add nsw i32 %1421, -65
   %1430 = zext nneg i32 %1429 to i64
-  %1431 = lshr i64 66043630, %1430
-  %1432 = and i64 %1431, 1
+  %1431 = shl nuw i64 1, %1430
+  %1432 = and i64 %1431, 66043630
   %.not3827.not.i = icmp eq i64 %1432, 0
   br i1 %.not3827.not.i, label %1433, label %.thread3961.i
 

@@ -211,8 +211,8 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   %41 = getelementptr inbounds [10 x i8], ptr @_ZL26_double_parser_trans_targs, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i32
-  %44 = lshr i64 587, %40
-  %45 = and i64 %44, 1
+  %44 = shl nuw i64 1, %40
+  %45 = and i64 %44, 587
   %.not89.i = icmp eq i64 %45, 0
   br i1 %.not89.i, label %46, label %67
 

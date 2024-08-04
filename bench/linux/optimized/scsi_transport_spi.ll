@@ -1305,8 +1305,8 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
 
 119:                                              ; preds = %117
   %120 = zext nneg i8 %2 to i64
-  %121 = lshr i64 3145730, %120
-  %122 = and i64 %121, 1
+  %121 = shl nuw nsw i64 1, %120
+  %122 = and i64 %121, 3145730
   %123 = icmp eq i64 %122, 0
   br i1 %123, label %124, label %128
 

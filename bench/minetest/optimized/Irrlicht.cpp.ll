@@ -318,9 +318,9 @@ define noundef zeroext i1 @isDriverSupported(i32 noundef %driver) local_unnamed_
 entry:
   %0 = icmp ult i32 %driver, 6
   %switch.cast = trunc i32 %driver to i6
-  %switch.downshift = lshr i6 -29, %switch.cast
-  %1 = and i6 %switch.downshift, 1
-  %switch.masked = icmp ne i6 %1, 0
+  %1 = shl nuw i6 1, %switch.cast
+  %2 = and i6 %1, -29
+  %switch.masked = icmp ne i6 %2, 0
   %retval.0 = select i1 %0, i1 %switch.masked, i1 false
   ret i1 %retval.0
 }

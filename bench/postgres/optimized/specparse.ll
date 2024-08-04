@@ -31,10 +31,10 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   store i32 -2, ptr @spec_yychar, align 4
   br label %5
 
-3:                                                ; preds = %312, %75
-  %.1255 = phi ptr [ %292, %312 ], [ %76, %75 ]
-  %.1244 = phi ptr [ %291, %312 ], [ %.2245, %75 ]
-  %.1 = phi i32 [ %313, %312 ], [ %70, %75 ]
+3:                                                ; preds = %311, %75
+  %.1255 = phi ptr [ %291, %311 ], [ %76, %75 ]
+  %.1244 = phi ptr [ %290, %311 ], [ %.2245, %75 ]
+  %.1 = phi i32 [ %312, %311 ], [ %70, %75 ]
   %4 = getelementptr i8, ptr %.1244, i64 1
   br label %5
 
@@ -58,7 +58,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %12 = sub i64 %10, %11
   %13 = add i64 %12, 1
   %14 = icmp sgt i64 %.0238, 9999
-  br i1 %14, label %317, label %15
+  br i1 %14, label %316, label %15
 
 15:                                               ; preds = %9
   %16 = shl i64 %.0238, 1
@@ -67,7 +67,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %18 = add i64 %17, 15
   %19 = call noalias ptr @malloc(i64 noundef %18) #6
   %.not277 = icmp eq ptr %19, null
-  br i1 %.not277, label %317, label %20
+  br i1 %.not277, label %316, label %20
 
 20:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0240, i64 %13, i1 false)
@@ -106,8 +106,8 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %36 = getelementptr [43 x i8], ptr @yypact, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
-  %39 = lshr i64 7377303999305, %35
-  %40 = and i64 %39, 1
+  %39 = shl nuw i64 1, %35
+  %40 = and i64 %39, 7377303999305
   %.not280 = icmp eq i64 %40, 0
   br i1 %.not280, label %41, label %77
 
@@ -167,14 +167,14 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %68 = getelementptr [42 x i8], ptr @yytable, i64 0, i64 %63
   %69 = load i8, ptr %68, align 1
   %70 = sext i8 %69 to i32
-  %71 = lshr i64 2195533594624, %63
-  %72 = and i64 %71, 1
+  %71 = shl nuw nsw i64 1, %63
+  %72 = and i64 %71, 2195533594624
   %.not282 = icmp eq i64 %72, 0
   br i1 %.not282, label %75, label %73
 
 73:                                               ; preds = %67
   %74 = sub nsw i32 0, %70
-  br label %83
+  br label %82
 
 75:                                               ; preds = %67
   %76 = getelementptr i8, ptr %.2256, i64 16
@@ -186,437 +186,436 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %78 = getelementptr [43 x i8], ptr @yydefact, i64 0, i64 %35
   %79 = load i8, ptr %78, align 1
   %80 = sext i8 %79 to i32
-  %81 = lshr i64 1410125546674, %35
-  %82 = and i64 %81, 1
-  %.not284 = icmp eq i64 %82, 0
-  br i1 %.not284, label %83, label %314
+  %81 = and i64 %39, 1410125546674
+  %.not284 = icmp eq i64 %81, 0
+  br i1 %.not284, label %82, label %313
 
-83:                                               ; preds = %77, %73
+82:                                               ; preds = %77, %73
   %.0253 = phi i32 [ %80, %77 ], [ %74, %73 ]
-  %84 = sext i32 %.0253 to i64
-  %85 = getelementptr [30 x i8], ptr @yyr2, i64 0, i64 %84
-  %86 = load i8, ptr %85, align 1
-  %87 = sext i8 %86 to i64
-  %88 = sub nsw i64 1, %87
-  %89 = getelementptr %union.YYSTYPE, ptr %.2256, i64 %88
-  %.sroa.0.0.copyload = load ptr, ptr %89, align 8
-  %.sroa.74.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 8
+  %83 = sext i32 %.0253 to i64
+  %84 = getelementptr [30 x i8], ptr @yyr2, i64 0, i64 %83
+  %85 = load i8, ptr %84, align 1
+  %86 = sext i8 %85 to i64
+  %87 = sub nsw i64 1, %86
+  %88 = getelementptr %union.YYSTYPE, ptr %.2256, i64 %87
+  %.sroa.0.0.copyload = load ptr, ptr %88, align 8
+  %.sroa.74.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 8
   %.sroa.74.0.copyload = load i32, ptr %.sroa.74.0..sroa_idx, align 8
-  %.sroa.87.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 12
+  %.sroa.87.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 12
   %.sroa.87.0.copyload = load i32, ptr %.sroa.87.0..sroa_idx, align 4
-  switch i32 %.0253, label %288 [
-    i32 2, label %90
-    i32 3, label %104
-    i32 4, label %105
-    i32 5, label %120
-    i32 6, label %121
-    i32 7, label %123
-    i32 8, label %125
-    i32 9, label %126
-    i32 10, label %128
-    i32 11, label %143
-    i32 12, label %146
-    i32 13, label %161
-    i32 14, label %176
-    i32 15, label %179
-    i32 16, label %187
-    i32 17, label %188
-    i32 18, label %189
-    i32 19, label %204
-    i32 20, label %207
-    i32 21, label %213
-    i32 22, label %228
-    i32 23, label %231
-    i32 24, label %237
-    i32 25, label %248
-    i32 26, label %263
-    i32 27, label %266
-    i32 28, label %273
-    i32 29, label %282
+  switch i32 %.0253, label %287 [
+    i32 2, label %89
+    i32 3, label %103
+    i32 4, label %104
+    i32 5, label %119
+    i32 6, label %120
+    i32 7, label %122
+    i32 8, label %124
+    i32 9, label %125
+    i32 10, label %127
+    i32 11, label %142
+    i32 12, label %145
+    i32 13, label %160
+    i32 14, label %175
+    i32 15, label %178
+    i32 16, label %186
+    i32 17, label %187
+    i32 18, label %188
+    i32 19, label %203
+    i32 20, label %206
+    i32 21, label %212
+    i32 22, label %227
+    i32 23, label %230
+    i32 24, label %236
+    i32 25, label %247
+    i32 26, label %262
+    i32 27, label %265
+    i32 28, label %272
+    i32 29, label %281
   ]
 
-90:                                               ; preds = %83
-  %91 = getelementptr i8, ptr %.2256, i64 -48
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr @parseresult, align 8
-  %93 = getelementptr i8, ptr %.2256, i64 -40
-  %94 = load i32, ptr %93, align 8
-  store i32 %94, ptr getelementptr inbounds (i8, ptr @parseresult, i64 8), align 8
-  %95 = getelementptr i8, ptr %.2256, i64 -32
-  %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr getelementptr inbounds (i8, ptr @parseresult, i64 16), align 8
-  %97 = getelementptr i8, ptr %.2256, i64 -16
-  %98 = load ptr, ptr %97, align 8
-  store ptr %98, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
-  %99 = getelementptr i8, ptr %.2256, i64 -8
-  %100 = load i32, ptr %99, align 8
-  store i32 %100, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
-  %101 = load ptr, ptr %.2256, align 8
-  store ptr %101, ptr getelementptr inbounds (i8, ptr @parseresult, i64 40), align 8
-  %102 = getelementptr inbounds i8, ptr %.2256, i64 8
-  %103 = load i32, ptr %102, align 8
-  store i32 %103, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
-  br label %288
+89:                                               ; preds = %82
+  %90 = getelementptr i8, ptr %.2256, i64 -48
+  %91 = load ptr, ptr %90, align 8
+  store ptr %91, ptr @parseresult, align 8
+  %92 = getelementptr i8, ptr %.2256, i64 -40
+  %93 = load i32, ptr %92, align 8
+  store i32 %93, ptr getelementptr inbounds (i8, ptr @parseresult, i64 8), align 8
+  %94 = getelementptr i8, ptr %.2256, i64 -32
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr getelementptr inbounds (i8, ptr @parseresult, i64 16), align 8
+  %96 = getelementptr i8, ptr %.2256, i64 -16
+  %97 = load ptr, ptr %96, align 8
+  store ptr %97, ptr getelementptr inbounds (i8, ptr @parseresult, i64 24), align 8
+  %98 = getelementptr i8, ptr %.2256, i64 -8
+  %99 = load i32, ptr %98, align 8
+  store i32 %99, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
+  %100 = load ptr, ptr %.2256, align 8
+  store ptr %100, ptr getelementptr inbounds (i8, ptr @parseresult, i64 40), align 8
+  %101 = getelementptr inbounds i8, ptr %.2256, i64 8
+  %102 = load i32, ptr %101, align 8
+  store i32 %102, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
+  br label %287
 
-104:                                              ; preds = %83
-  br label %288
+103:                                              ; preds = %82
+  br label %287
 
-105:                                              ; preds = %83
-  %106 = getelementptr i8, ptr %.2256, i64 -16
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr i8, ptr %.2256, i64 -8
-  %109 = load i32, ptr %108, align 8
-  %110 = add i32 %109, 1
-  %111 = sext i32 %110 to i64
-  %112 = shl nsw i64 %111, 3
-  %113 = call ptr @pg_realloc(ptr noundef %107, i64 noundef %112) #7
-  %114 = load ptr, ptr %.2256, align 8
-  %115 = load i32, ptr %108, align 8
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr ptr, ptr %113, i64 %116
-  store ptr %114, ptr %117, align 8
-  %118 = load i32, ptr %108, align 8
-  %119 = add i32 %118, 1
-  br label %288
+104:                                              ; preds = %82
+  %105 = getelementptr i8, ptr %.2256, i64 -16
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr i8, ptr %.2256, i64 -8
+  %108 = load i32, ptr %107, align 8
+  %109 = add i32 %108, 1
+  %110 = sext i32 %109 to i64
+  %111 = shl nsw i64 %110, 3
+  %112 = call ptr @pg_realloc(ptr noundef %106, i64 noundef %111) #7
+  %113 = load ptr, ptr %.2256, align 8
+  %114 = load i32, ptr %107, align 8
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr ptr, ptr %112, i64 %115
+  store ptr %113, ptr %116, align 8
+  %117 = load i32, ptr %107, align 8
+  %118 = add i32 %117, 1
+  br label %287
 
-120:                                              ; preds = %83
-  br label %288
+119:                                              ; preds = %82
+  br label %287
 
-121:                                              ; preds = %83
-  %122 = load ptr, ptr %.2256, align 8
-  br label %288
+120:                                              ; preds = %82
+  %121 = load ptr, ptr %.2256, align 8
+  br label %287
 
-123:                                              ; preds = %83
-  %124 = load ptr, ptr %.2256, align 8
-  br label %288
+122:                                              ; preds = %82
+  %123 = load ptr, ptr %.2256, align 8
+  br label %287
 
-125:                                              ; preds = %83
-  br label %288
+124:                                              ; preds = %82
+  br label %287
 
-126:                                              ; preds = %83
-  %127 = load ptr, ptr %.2256, align 8
-  br label %288
+125:                                              ; preds = %82
+  %126 = load ptr, ptr %.2256, align 8
+  br label %287
 
-128:                                              ; preds = %83
-  %129 = getelementptr i8, ptr %.2256, i64 -16
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr i8, ptr %.2256, i64 -8
-  %132 = load i32, ptr %131, align 8
-  %133 = add i32 %132, 1
-  %134 = sext i32 %133 to i64
-  %135 = shl nsw i64 %134, 3
-  %136 = call ptr @pg_realloc(ptr noundef %130, i64 noundef %135) #7
-  %137 = load ptr, ptr %.2256, align 8
-  %138 = load i32, ptr %131, align 8
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr ptr, ptr %136, i64 %139
-  store ptr %137, ptr %140, align 8
-  %141 = load i32, ptr %131, align 8
-  %142 = add i32 %141, 1
-  br label %288
+127:                                              ; preds = %82
+  %128 = getelementptr i8, ptr %.2256, i64 -16
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr i8, ptr %.2256, i64 -8
+  %131 = load i32, ptr %130, align 8
+  %132 = add i32 %131, 1
+  %133 = sext i32 %132 to i64
+  %134 = shl nsw i64 %133, 3
+  %135 = call ptr @pg_realloc(ptr noundef %129, i64 noundef %134) #7
+  %136 = load ptr, ptr %.2256, align 8
+  %137 = load i32, ptr %130, align 8
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr ptr, ptr %135, i64 %138
+  store ptr %136, ptr %139, align 8
+  %140 = load i32, ptr %130, align 8
+  %141 = add i32 %140, 1
+  br label %287
 
-143:                                              ; preds = %83
-  %144 = call ptr @pg_malloc(i64 noundef 8) #7
-  %145 = load ptr, ptr %.2256, align 8
-  store ptr %145, ptr %144, align 8
-  br label %288
+142:                                              ; preds = %82
+  %143 = call ptr @pg_malloc(i64 noundef 8) #7
+  %144 = load ptr, ptr %.2256, align 8
+  store ptr %144, ptr %143, align 8
+  br label %287
 
-146:                                              ; preds = %83
-  %147 = call ptr @pg_malloc(i64 noundef 40) #7
-  %148 = getelementptr i8, ptr %.2256, i64 -48
-  %149 = load ptr, ptr %148, align 8
-  store ptr %149, ptr %147, align 8
-  %150 = getelementptr i8, ptr %.2256, i64 -32
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %147, i64 8
-  store ptr %151, ptr %152, align 8
-  %153 = getelementptr i8, ptr %.2256, i64 -16
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %147, i64 24
-  store ptr %154, ptr %155, align 8
-  %156 = getelementptr i8, ptr %.2256, i64 -8
-  %157 = load i32, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %147, i64 32
-  store i32 %157, ptr %158, align 8
-  %159 = load ptr, ptr %.2256, align 8
-  %160 = getelementptr inbounds i8, ptr %147, i64 16
-  store ptr %159, ptr %160, align 8
-  br label %288
+145:                                              ; preds = %82
+  %146 = call ptr @pg_malloc(i64 noundef 40) #7
+  %147 = getelementptr i8, ptr %.2256, i64 -48
+  %148 = load ptr, ptr %147, align 8
+  store ptr %148, ptr %146, align 8
+  %149 = getelementptr i8, ptr %.2256, i64 -32
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %146, i64 8
+  store ptr %150, ptr %151, align 8
+  %152 = getelementptr i8, ptr %.2256, i64 -16
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds i8, ptr %146, i64 24
+  store ptr %153, ptr %154, align 8
+  %155 = getelementptr i8, ptr %.2256, i64 -8
+  %156 = load i32, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %146, i64 32
+  store i32 %156, ptr %157, align 8
+  %158 = load ptr, ptr %.2256, align 8
+  %159 = getelementptr inbounds i8, ptr %146, i64 16
+  store ptr %158, ptr %159, align 8
+  br label %287
 
-161:                                              ; preds = %83
-  %162 = getelementptr i8, ptr %.2256, i64 -16
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr i8, ptr %.2256, i64 -8
-  %165 = load i32, ptr %164, align 8
-  %166 = add i32 %165, 1
-  %167 = sext i32 %166 to i64
-  %168 = shl nsw i64 %167, 3
-  %169 = call ptr @pg_realloc(ptr noundef %163, i64 noundef %168) #7
-  %170 = load ptr, ptr %.2256, align 8
-  %171 = load i32, ptr %164, align 8
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr ptr, ptr %169, i64 %172
-  store ptr %170, ptr %173, align 8
-  %174 = load i32, ptr %164, align 8
-  %175 = add i32 %174, 1
-  br label %288
+160:                                              ; preds = %82
+  %161 = getelementptr i8, ptr %.2256, i64 -16
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr i8, ptr %.2256, i64 -8
+  %164 = load i32, ptr %163, align 8
+  %165 = add i32 %164, 1
+  %166 = sext i32 %165 to i64
+  %167 = shl nsw i64 %166, 3
+  %168 = call ptr @pg_realloc(ptr noundef %162, i64 noundef %167) #7
+  %169 = load ptr, ptr %.2256, align 8
+  %170 = load i32, ptr %163, align 8
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr ptr, ptr %168, i64 %171
+  store ptr %169, ptr %172, align 8
+  %173 = load i32, ptr %163, align 8
+  %174 = add i32 %173, 1
+  br label %287
 
-176:                                              ; preds = %83
-  %177 = call ptr @pg_malloc(i64 noundef 8) #7
-  %178 = load ptr, ptr %.2256, align 8
-  store ptr %178, ptr %177, align 8
-  br label %288
+175:                                              ; preds = %82
+  %176 = call ptr @pg_malloc(i64 noundef 8) #7
+  %177 = load ptr, ptr %.2256, align 8
+  store ptr %177, ptr %176, align 8
+  br label %287
 
-179:                                              ; preds = %83
-  %180 = call ptr @pg_malloc(i64 noundef 24) #7
-  %181 = getelementptr i8, ptr %.2256, i64 -16
-  %182 = load ptr, ptr %181, align 8
-  store ptr %182, ptr %180, align 8
-  %183 = load ptr, ptr %.2256, align 8
-  %184 = getelementptr inbounds i8, ptr %180, i64 8
-  store ptr %183, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %180, i64 16
-  store i32 -1, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %180, i64 20
-  store i8 0, ptr %186, align 4
-  br label %288
+178:                                              ; preds = %82
+  %179 = call ptr @pg_malloc(i64 noundef 24) #7
+  %180 = getelementptr i8, ptr %.2256, i64 -16
+  %181 = load ptr, ptr %180, align 8
+  store ptr %181, ptr %179, align 8
+  %182 = load ptr, ptr %.2256, align 8
+  %183 = getelementptr inbounds i8, ptr %179, i64 8
+  store ptr %182, ptr %183, align 8
+  %184 = getelementptr inbounds i8, ptr %179, i64 16
+  store i32 -1, ptr %184, align 8
+  %185 = getelementptr inbounds i8, ptr %179, i64 20
+  store i8 0, ptr %185, align 4
+  br label %287
 
-187:                                              ; preds = %83
+186:                                              ; preds = %82
   %.sroa.0.0.copyload80 = load ptr, ptr %.2256, align 8
   %.sroa.74.0..sroa_idx82 = getelementptr inbounds i8, ptr %.2256, i64 8
   %.sroa.74.0.copyload83 = load i32, ptr %.sroa.74.0..sroa_idx82, align 8
   %.sroa.87.0..sroa_idx86 = getelementptr inbounds i8, ptr %.2256, i64 12
   %.sroa.87.0.copyload87 = load i32, ptr %.sroa.87.0..sroa_idx86, align 4
-  br label %288
+  br label %287
 
-188:                                              ; preds = %83
-  br label %288
+187:                                              ; preds = %82
+  br label %287
 
-189:                                              ; preds = %83
-  %190 = getelementptr i8, ptr %.2256, i64 -16
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr i8, ptr %.2256, i64 -8
-  %193 = load i32, ptr %192, align 8
-  %194 = add i32 %193, 1
-  %195 = sext i32 %194 to i64
-  %196 = shl nsw i64 %195, 3
-  %197 = call ptr @pg_realloc(ptr noundef %191, i64 noundef %196) #7
-  %198 = load ptr, ptr %.2256, align 8
-  %199 = load i32, ptr %192, align 8
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr ptr, ptr %197, i64 %200
-  store ptr %198, ptr %201, align 8
-  %202 = load i32, ptr %192, align 8
-  %203 = add i32 %202, 1
-  br label %288
+188:                                              ; preds = %82
+  %189 = getelementptr i8, ptr %.2256, i64 -16
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr i8, ptr %.2256, i64 -8
+  %192 = load i32, ptr %191, align 8
+  %193 = add i32 %192, 1
+  %194 = sext i32 %193 to i64
+  %195 = shl nsw i64 %194, 3
+  %196 = call ptr @pg_realloc(ptr noundef %190, i64 noundef %195) #7
+  %197 = load ptr, ptr %.2256, align 8
+  %198 = load i32, ptr %191, align 8
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr ptr, ptr %196, i64 %199
+  store ptr %197, ptr %200, align 8
+  %201 = load i32, ptr %191, align 8
+  %202 = add i32 %201, 1
+  br label %287
 
-204:                                              ; preds = %83
-  %205 = call ptr @pg_malloc(i64 noundef 8) #7
-  %206 = load ptr, ptr %.2256, align 8
-  store ptr %206, ptr %205, align 8
-  br label %288
+203:                                              ; preds = %82
+  %204 = call ptr @pg_malloc(i64 noundef 8) #7
+  %205 = load ptr, ptr %.2256, align 8
+  store ptr %205, ptr %204, align 8
+  br label %287
 
-207:                                              ; preds = %83
-  %208 = call ptr @pg_malloc(i64 noundef 16) #7
-  %209 = getelementptr inbounds i8, ptr %.2256, i64 8
-  %210 = load i32, ptr %209, align 8
-  store i32 %210, ptr %208, align 8
-  %211 = load ptr, ptr %.2256, align 8
-  %212 = getelementptr inbounds i8, ptr %208, i64 8
-  store ptr %211, ptr %212, align 8
-  br label %288
+206:                                              ; preds = %82
+  %207 = call ptr @pg_malloc(i64 noundef 16) #7
+  %208 = getelementptr inbounds i8, ptr %.2256, i64 8
+  %209 = load i32, ptr %208, align 8
+  store i32 %209, ptr %207, align 8
+  %210 = load ptr, ptr %.2256, align 8
+  %211 = getelementptr inbounds i8, ptr %207, i64 8
+  store ptr %210, ptr %211, align 8
+  br label %287
 
-213:                                              ; preds = %83
-  %214 = getelementptr i8, ptr %.2256, i64 -16
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr i8, ptr %.2256, i64 -8
-  %217 = load i32, ptr %216, align 8
-  %218 = add i32 %217, 1
-  %219 = sext i32 %218 to i64
-  %220 = shl nsw i64 %219, 3
-  %221 = call ptr @pg_realloc(ptr noundef %215, i64 noundef %220) #7
-  %222 = load ptr, ptr %.2256, align 8
-  %223 = load i32, ptr %216, align 8
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr ptr, ptr %221, i64 %224
-  store ptr %222, ptr %225, align 8
-  %226 = load i32, ptr %216, align 8
-  %227 = add i32 %226, 1
-  br label %288
+212:                                              ; preds = %82
+  %213 = getelementptr i8, ptr %.2256, i64 -16
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr i8, ptr %.2256, i64 -8
+  %216 = load i32, ptr %215, align 8
+  %217 = add i32 %216, 1
+  %218 = sext i32 %217 to i64
+  %219 = shl nsw i64 %218, 3
+  %220 = call ptr @pg_realloc(ptr noundef %214, i64 noundef %219) #7
+  %221 = load ptr, ptr %.2256, align 8
+  %222 = load i32, ptr %215, align 8
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr ptr, ptr %220, i64 %223
+  store ptr %221, ptr %224, align 8
+  %225 = load i32, ptr %215, align 8
+  %226 = add i32 %225, 1
+  br label %287
 
-228:                                              ; preds = %83
-  %229 = call ptr @pg_malloc(i64 noundef 8) #7
-  %230 = load ptr, ptr %.2256, align 8
-  store ptr %230, ptr %229, align 8
-  br label %288
+227:                                              ; preds = %82
+  %228 = call ptr @pg_malloc(i64 noundef 8) #7
+  %229 = load ptr, ptr %.2256, align 8
+  store ptr %229, ptr %228, align 8
+  br label %287
 
-231:                                              ; preds = %83
-  %232 = call ptr @pg_malloc(i64 noundef 32) #7
-  %233 = load ptr, ptr %.2256, align 8
-  store ptr %233, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %232, i64 8
-  store ptr null, ptr %234, align 8
-  %235 = getelementptr inbounds i8, ptr %232, i64 16
-  store i32 0, ptr %235, align 8
-  %236 = getelementptr inbounds i8, ptr %232, i64 24
-  store ptr null, ptr %236, align 8
-  br label %288
+230:                                              ; preds = %82
+  %231 = call ptr @pg_malloc(i64 noundef 32) #7
+  %232 = load ptr, ptr %.2256, align 8
+  store ptr %232, ptr %231, align 8
+  %233 = getelementptr inbounds i8, ptr %231, i64 8
+  store ptr null, ptr %233, align 8
+  %234 = getelementptr inbounds i8, ptr %231, i64 16
+  store i32 0, ptr %234, align 8
+  %235 = getelementptr inbounds i8, ptr %231, i64 24
+  store ptr null, ptr %235, align 8
+  br label %287
 
-237:                                              ; preds = %83
-  %238 = call ptr @pg_malloc(i64 noundef 32) #7
-  %239 = getelementptr i8, ptr %.2256, i64 -48
-  %240 = load ptr, ptr %239, align 8
-  store ptr %240, ptr %238, align 8
-  %241 = getelementptr i8, ptr %.2256, i64 -16
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %238, i64 8
-  store ptr %242, ptr %243, align 8
-  %244 = getelementptr i8, ptr %.2256, i64 -8
-  %245 = load i32, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %238, i64 16
-  store i32 %245, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %238, i64 24
-  store ptr null, ptr %247, align 8
-  br label %288
+236:                                              ; preds = %82
+  %237 = call ptr @pg_malloc(i64 noundef 32) #7
+  %238 = getelementptr i8, ptr %.2256, i64 -48
+  %239 = load ptr, ptr %238, align 8
+  store ptr %239, ptr %237, align 8
+  %240 = getelementptr i8, ptr %.2256, i64 -16
+  %241 = load ptr, ptr %240, align 8
+  %242 = getelementptr inbounds i8, ptr %237, i64 8
+  store ptr %241, ptr %242, align 8
+  %243 = getelementptr i8, ptr %.2256, i64 -8
+  %244 = load i32, ptr %243, align 8
+  %245 = getelementptr inbounds i8, ptr %237, i64 16
+  store i32 %244, ptr %245, align 8
+  %246 = getelementptr inbounds i8, ptr %237, i64 24
+  store ptr null, ptr %246, align 8
+  br label %287
 
-248:                                              ; preds = %83
-  %249 = getelementptr i8, ptr %.2256, i64 -32
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr i8, ptr %.2256, i64 -24
-  %252 = load i32, ptr %251, align 8
-  %253 = add i32 %252, 1
-  %254 = sext i32 %253 to i64
-  %255 = shl nsw i64 %254, 3
-  %256 = call ptr @pg_realloc(ptr noundef %250, i64 noundef %255) #7
-  %257 = load ptr, ptr %.2256, align 8
-  %258 = load i32, ptr %251, align 8
-  %259 = sext i32 %258 to i64
-  %260 = getelementptr ptr, ptr %256, i64 %259
-  store ptr %257, ptr %260, align 8
-  %261 = load i32, ptr %251, align 8
-  %262 = add i32 %261, 1
-  br label %288
+247:                                              ; preds = %82
+  %248 = getelementptr i8, ptr %.2256, i64 -32
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr i8, ptr %.2256, i64 -24
+  %251 = load i32, ptr %250, align 8
+  %252 = add i32 %251, 1
+  %253 = sext i32 %252 to i64
+  %254 = shl nsw i64 %253, 3
+  %255 = call ptr @pg_realloc(ptr noundef %249, i64 noundef %254) #7
+  %256 = load ptr, ptr %.2256, align 8
+  %257 = load i32, ptr %250, align 8
+  %258 = sext i32 %257 to i64
+  %259 = getelementptr ptr, ptr %255, i64 %258
+  store ptr %256, ptr %259, align 8
+  %260 = load i32, ptr %250, align 8
+  %261 = add i32 %260, 1
+  br label %287
 
-263:                                              ; preds = %83
-  %264 = call ptr @pg_malloc(i64 noundef 8) #7
-  %265 = load ptr, ptr %.2256, align 8
-  store ptr %265, ptr %264, align 8
-  br label %288
+262:                                              ; preds = %82
+  %263 = call ptr @pg_malloc(i64 noundef 8) #7
+  %264 = load ptr, ptr %.2256, align 8
+  store ptr %264, ptr %263, align 8
+  br label %287
 
-266:                                              ; preds = %83
-  %267 = call ptr @pg_malloc(i64 noundef 32) #7
-  %268 = load ptr, ptr %.2256, align 8
-  store ptr %268, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %267, i64 8
-  store i32 1, ptr %269, align 8
-  %270 = getelementptr inbounds i8, ptr %267, i64 12
-  store i32 -1, ptr %270, align 4
-  %271 = getelementptr inbounds i8, ptr %267, i64 16
-  store ptr null, ptr %271, align 8
-  %272 = getelementptr inbounds i8, ptr %267, i64 24
-  store i32 -1, ptr %272, align 8
-  br label %288
+265:                                              ; preds = %82
+  %266 = call ptr @pg_malloc(i64 noundef 32) #7
+  %267 = load ptr, ptr %.2256, align 8
+  store ptr %267, ptr %266, align 8
+  %268 = getelementptr inbounds i8, ptr %266, i64 8
+  store i32 1, ptr %268, align 8
+  %269 = getelementptr inbounds i8, ptr %266, i64 12
+  store i32 -1, ptr %269, align 4
+  %270 = getelementptr inbounds i8, ptr %266, i64 16
+  store ptr null, ptr %270, align 8
+  %271 = getelementptr inbounds i8, ptr %266, i64 24
+  store i32 -1, ptr %271, align 8
+  br label %287
 
-273:                                              ; preds = %83
-  %274 = call ptr @pg_malloc(i64 noundef 32) #7
-  %275 = getelementptr i8, ptr %.2256, i64 -32
-  %276 = load ptr, ptr %275, align 8
-  store ptr %276, ptr %274, align 8
-  %277 = getelementptr inbounds i8, ptr %274, i64 8
-  store i32 2, ptr %277, align 8
-  %278 = load i32, ptr %.2256, align 8
-  %279 = getelementptr inbounds i8, ptr %274, i64 12
-  store i32 %278, ptr %279, align 4
-  %280 = getelementptr inbounds i8, ptr %274, i64 16
-  store ptr null, ptr %280, align 8
-  %281 = getelementptr inbounds i8, ptr %274, i64 24
-  store i32 -1, ptr %281, align 8
-  br label %288
+272:                                              ; preds = %82
+  %273 = call ptr @pg_malloc(i64 noundef 32) #7
+  %274 = getelementptr i8, ptr %.2256, i64 -32
+  %275 = load ptr, ptr %274, align 8
+  store ptr %275, ptr %273, align 8
+  %276 = getelementptr inbounds i8, ptr %273, i64 8
+  store i32 2, ptr %276, align 8
+  %277 = load i32, ptr %.2256, align 8
+  %278 = getelementptr inbounds i8, ptr %273, i64 12
+  store i32 %277, ptr %278, align 4
+  %279 = getelementptr inbounds i8, ptr %273, i64 16
+  store ptr null, ptr %279, align 8
+  %280 = getelementptr inbounds i8, ptr %273, i64 24
+  store i32 -1, ptr %280, align 8
+  br label %287
 
-282:                                              ; preds = %83
-  %283 = call ptr @pg_malloc(i64 noundef 32) #7
-  store ptr null, ptr %283, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 8
-  store i32 0, ptr %284, align 8
-  %285 = getelementptr inbounds i8, ptr %283, i64 12
-  store i32 -1, ptr %285, align 4
-  %286 = getelementptr inbounds i8, ptr %283, i64 16
-  store ptr null, ptr %286, align 8
-  %287 = getelementptr inbounds i8, ptr %283, i64 24
-  store i32 -1, ptr %287, align 8
-  br label %288
+281:                                              ; preds = %82
+  %282 = call ptr @pg_malloc(i64 noundef 32) #7
+  store ptr null, ptr %282, align 8
+  %283 = getelementptr inbounds i8, ptr %282, i64 8
+  store i32 0, ptr %283, align 8
+  %284 = getelementptr inbounds i8, ptr %282, i64 12
+  store i32 -1, ptr %284, align 4
+  %285 = getelementptr inbounds i8, ptr %282, i64 16
+  store ptr null, ptr %285, align 8
+  %286 = getelementptr inbounds i8, ptr %282, i64 24
+  store i32 -1, ptr %286, align 8
+  br label %287
 
-288:                                              ; preds = %83, %282, %273, %266, %263, %248, %237, %231, %228, %213, %207, %204, %189, %188, %187, %179, %176, %161, %146, %143, %128, %126, %125, %123, %121, %120, %105, %104, %90
-  %.sroa.87.0 = phi i32 [ %.sroa.87.0.copyload, %83 ], [ %.sroa.87.0.copyload, %282 ], [ %.sroa.87.0.copyload, %273 ], [ %.sroa.87.0.copyload, %266 ], [ %.sroa.87.0.copyload, %263 ], [ %.sroa.87.0.copyload, %248 ], [ %.sroa.87.0.copyload, %237 ], [ %.sroa.87.0.copyload, %231 ], [ %.sroa.87.0.copyload, %228 ], [ %.sroa.87.0.copyload, %213 ], [ %.sroa.87.0.copyload, %207 ], [ %.sroa.87.0.copyload, %204 ], [ %.sroa.87.0.copyload, %189 ], [ %.sroa.87.0.copyload, %188 ], [ %.sroa.87.0.copyload87, %187 ], [ %.sroa.87.0.copyload, %179 ], [ %.sroa.87.0.copyload, %176 ], [ %.sroa.87.0.copyload, %161 ], [ %.sroa.87.0.copyload, %146 ], [ %.sroa.87.0.copyload, %143 ], [ %.sroa.87.0.copyload, %128 ], [ %.sroa.87.0.copyload, %126 ], [ %.sroa.87.0.copyload, %125 ], [ %.sroa.87.0.copyload, %123 ], [ %.sroa.87.0.copyload, %121 ], [ %.sroa.87.0.copyload, %120 ], [ %.sroa.87.0.copyload, %105 ], [ %.sroa.87.0.copyload, %104 ], [ %.sroa.87.0.copyload, %90 ]
-  %.sroa.74.0 = phi i32 [ %.sroa.74.0.copyload, %83 ], [ %.sroa.74.0.copyload, %282 ], [ %.sroa.74.0.copyload, %273 ], [ %.sroa.74.0.copyload, %266 ], [ 1, %263 ], [ %262, %248 ], [ %.sroa.74.0.copyload, %237 ], [ %.sroa.74.0.copyload, %231 ], [ 1, %228 ], [ %227, %213 ], [ %.sroa.74.0.copyload, %207 ], [ 1, %204 ], [ %203, %189 ], [ 0, %188 ], [ %.sroa.74.0.copyload83, %187 ], [ %.sroa.74.0.copyload, %179 ], [ 1, %176 ], [ %175, %161 ], [ %.sroa.74.0.copyload, %146 ], [ 1, %143 ], [ %142, %128 ], [ %.sroa.74.0.copyload, %126 ], [ %.sroa.74.0.copyload, %125 ], [ %.sroa.74.0.copyload, %123 ], [ %.sroa.74.0.copyload, %121 ], [ %.sroa.74.0.copyload, %120 ], [ %119, %105 ], [ 0, %104 ], [ %.sroa.74.0.copyload, %90 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %83 ], [ %283, %282 ], [ %274, %273 ], [ %267, %266 ], [ %264, %263 ], [ %256, %248 ], [ %238, %237 ], [ %232, %231 ], [ %229, %228 ], [ %221, %213 ], [ %208, %207 ], [ %205, %204 ], [ %197, %189 ], [ null, %188 ], [ %.sroa.0.0.copyload80, %187 ], [ %180, %179 ], [ %177, %176 ], [ %169, %161 ], [ %147, %146 ], [ %144, %143 ], [ %136, %128 ], [ %127, %126 ], [ null, %125 ], [ %124, %123 ], [ %122, %121 ], [ null, %120 ], [ %113, %105 ], [ null, %104 ], [ %.sroa.0.0.copyload, %90 ]
-  %289 = sub nsw i64 0, %87
-  %290 = getelementptr %union.YYSTYPE, ptr %.2256, i64 %289
-  %291 = getelementptr i8, ptr %.2245, i64 %289
-  %292 = getelementptr i8, ptr %290, i64 16
-  store ptr %.sroa.0.0, ptr %292, align 8
-  %.sroa.74.0..sroa_idx84 = getelementptr i8, ptr %290, i64 24
+287:                                              ; preds = %82, %281, %272, %265, %262, %247, %236, %230, %227, %212, %206, %203, %188, %187, %186, %178, %175, %160, %145, %142, %127, %125, %124, %122, %120, %119, %104, %103, %89
+  %.sroa.87.0 = phi i32 [ %.sroa.87.0.copyload, %82 ], [ %.sroa.87.0.copyload, %281 ], [ %.sroa.87.0.copyload, %272 ], [ %.sroa.87.0.copyload, %265 ], [ %.sroa.87.0.copyload, %262 ], [ %.sroa.87.0.copyload, %247 ], [ %.sroa.87.0.copyload, %236 ], [ %.sroa.87.0.copyload, %230 ], [ %.sroa.87.0.copyload, %227 ], [ %.sroa.87.0.copyload, %212 ], [ %.sroa.87.0.copyload, %206 ], [ %.sroa.87.0.copyload, %203 ], [ %.sroa.87.0.copyload, %188 ], [ %.sroa.87.0.copyload, %187 ], [ %.sroa.87.0.copyload87, %186 ], [ %.sroa.87.0.copyload, %178 ], [ %.sroa.87.0.copyload, %175 ], [ %.sroa.87.0.copyload, %160 ], [ %.sroa.87.0.copyload, %145 ], [ %.sroa.87.0.copyload, %142 ], [ %.sroa.87.0.copyload, %127 ], [ %.sroa.87.0.copyload, %125 ], [ %.sroa.87.0.copyload, %124 ], [ %.sroa.87.0.copyload, %122 ], [ %.sroa.87.0.copyload, %120 ], [ %.sroa.87.0.copyload, %119 ], [ %.sroa.87.0.copyload, %104 ], [ %.sroa.87.0.copyload, %103 ], [ %.sroa.87.0.copyload, %89 ]
+  %.sroa.74.0 = phi i32 [ %.sroa.74.0.copyload, %82 ], [ %.sroa.74.0.copyload, %281 ], [ %.sroa.74.0.copyload, %272 ], [ %.sroa.74.0.copyload, %265 ], [ 1, %262 ], [ %261, %247 ], [ %.sroa.74.0.copyload, %236 ], [ %.sroa.74.0.copyload, %230 ], [ 1, %227 ], [ %226, %212 ], [ %.sroa.74.0.copyload, %206 ], [ 1, %203 ], [ %202, %188 ], [ 0, %187 ], [ %.sroa.74.0.copyload83, %186 ], [ %.sroa.74.0.copyload, %178 ], [ 1, %175 ], [ %174, %160 ], [ %.sroa.74.0.copyload, %145 ], [ 1, %142 ], [ %141, %127 ], [ %.sroa.74.0.copyload, %125 ], [ %.sroa.74.0.copyload, %124 ], [ %.sroa.74.0.copyload, %122 ], [ %.sroa.74.0.copyload, %120 ], [ %.sroa.74.0.copyload, %119 ], [ %118, %104 ], [ 0, %103 ], [ %.sroa.74.0.copyload, %89 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %82 ], [ %282, %281 ], [ %273, %272 ], [ %266, %265 ], [ %263, %262 ], [ %255, %247 ], [ %237, %236 ], [ %231, %230 ], [ %228, %227 ], [ %220, %212 ], [ %207, %206 ], [ %204, %203 ], [ %196, %188 ], [ null, %187 ], [ %.sroa.0.0.copyload80, %186 ], [ %179, %178 ], [ %176, %175 ], [ %168, %160 ], [ %146, %145 ], [ %143, %142 ], [ %135, %127 ], [ %126, %125 ], [ null, %124 ], [ %123, %122 ], [ %121, %120 ], [ null, %119 ], [ %112, %104 ], [ null, %103 ], [ %.sroa.0.0.copyload, %89 ]
+  %288 = sub nsw i64 0, %86
+  %289 = getelementptr %union.YYSTYPE, ptr %.2256, i64 %288
+  %290 = getelementptr i8, ptr %.2245, i64 %288
+  %291 = getelementptr i8, ptr %289, i64 16
+  store ptr %.sroa.0.0, ptr %291, align 8
+  %.sroa.74.0..sroa_idx84 = getelementptr i8, ptr %289, i64 24
   store i32 %.sroa.74.0, ptr %.sroa.74.0..sroa_idx84, align 8
-  %.sroa.87.0..sroa_idx88 = getelementptr i8, ptr %290, i64 28
+  %.sroa.87.0..sroa_idx88 = getelementptr i8, ptr %289, i64 28
   store i32 %.sroa.87.0, ptr %.sroa.87.0..sroa_idx88, align 4
-  %293 = getelementptr [30 x i8], ptr @yyr1, i64 0, i64 %84
-  %294 = load i8, ptr %293, align 1
-  %295 = sext i8 %294 to i64
-  %296 = add nsw i64 %295, -17
-  %297 = getelementptr [17 x i8], ptr @yypgoto, i64 0, i64 %296
-  %298 = load i8, ptr %297, align 1
-  %299 = sext i8 %298 to i32
-  %300 = load i8, ptr %291, align 1
-  %301 = sext i8 %300 to i32
-  %302 = add nsw i32 %301, %299
-  %or.cond5 = icmp ult i32 %302, 42
-  br i1 %or.cond5, label %303, label %310
+  %292 = getelementptr [30 x i8], ptr @yyr1, i64 0, i64 %83
+  %293 = load i8, ptr %292, align 1
+  %294 = sext i8 %293 to i64
+  %295 = add nsw i64 %294, -17
+  %296 = getelementptr [17 x i8], ptr @yypgoto, i64 0, i64 %295
+  %297 = load i8, ptr %296, align 1
+  %298 = sext i8 %297 to i32
+  %299 = load i8, ptr %290, align 1
+  %300 = sext i8 %299 to i32
+  %301 = add nsw i32 %300, %298
+  %or.cond5 = icmp ult i32 %301, 42
+  br i1 %or.cond5, label %302, label %309
 
-303:                                              ; preds = %288
-  %304 = zext nneg i32 %302 to i64
-  %305 = getelementptr [42 x i8], ptr @yycheck, i64 0, i64 %304
-  %306 = load i8, ptr %305, align 1
-  %307 = icmp eq i8 %306, %300
-  br i1 %307, label %308, label %310
+302:                                              ; preds = %287
+  %303 = zext nneg i32 %301 to i64
+  %304 = getelementptr [42 x i8], ptr @yycheck, i64 0, i64 %303
+  %305 = load i8, ptr %304, align 1
+  %306 = icmp eq i8 %305, %299
+  br i1 %306, label %307, label %309
 
-308:                                              ; preds = %303
-  %309 = getelementptr [42 x i8], ptr @yytable, i64 0, i64 %304
-  br label %312
+307:                                              ; preds = %302
+  %308 = getelementptr [42 x i8], ptr @yytable, i64 0, i64 %303
+  br label %311
 
-310:                                              ; preds = %303, %288
-  %311 = getelementptr [17 x i8], ptr @yydefgoto, i64 0, i64 %296
-  br label %312
+309:                                              ; preds = %302, %287
+  %310 = getelementptr [17 x i8], ptr @yydefgoto, i64 0, i64 %295
+  br label %311
 
-312:                                              ; preds = %310, %308
-  %.in.in = phi ptr [ %309, %308 ], [ %311, %310 ]
+311:                                              ; preds = %309, %307
+  %.in.in = phi ptr [ %308, %307 ], [ %310, %309 ]
   %.in = load i8, ptr %.in.in, align 1
-  %313 = sext i8 %.in to i32
+  %312 = sext i8 %.in to i32
   br label %3
 
-314:                                              ; preds = %77
-  %315 = load i32, ptr @spec_yynerrs, align 4
-  %316 = add i32 %315, 1
-  store i32 %316, ptr @spec_yynerrs, align 4
+313:                                              ; preds = %77
+  %314 = load i32, ptr @spec_yynerrs, align 4
+  %315 = add i32 %314, 1
+  store i32 %315, ptr @spec_yynerrs, align 4
   call void @spec_yyerror(ptr noundef nonnull @.str) #7
   br label %.loopexit
 
-317:                                              ; preds = %15, %9
+316:                                              ; preds = %15, %9
   call void @spec_yyerror(ptr noundef nonnull @.str.3) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %52, %314, %317
-  %.0252 = phi i32 [ 2, %317 ], [ 1, %314 ], [ 1, %52 ], [ 0, %32 ]
-  %.3 = phi ptr [ %.0240, %317 ], [ %.1241, %314 ], [ %.1241, %52 ], [ %.1241, %32 ]
+.loopexit:                                        ; preds = %32, %52, %313, %316
+  %.0252 = phi i32 [ 2, %316 ], [ 1, %313 ], [ 1, %52 ], [ 0, %32 ]
+  %.3 = phi ptr [ %.0240, %316 ], [ %.1241, %313 ], [ %.1241, %52 ], [ %.1241, %32 ]
   %.not290 = icmp eq ptr %.3, %1
-  br i1 %.not290, label %318, label %.loopexit.thread
+  br i1 %.not290, label %317, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %26, %.loopexit
   %.3327 = phi ptr [ %.3, %.loopexit ], [ %19, %26 ]
   %.0252325 = phi i32 [ %.0252, %.loopexit ], [ 1, %26 ]
   call void @free(ptr noundef %.3327) #7
-  br label %318
+  br label %317
 
-318:                                              ; preds = %.loopexit.thread, %.loopexit
+317:                                              ; preds = %.loopexit.thread, %.loopexit
   %.0252326 = phi i32 [ %.0252325, %.loopexit.thread ], [ %.0252, %.loopexit ]
   ret i32 %.0252326
 }

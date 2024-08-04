@@ -8692,8 +8692,8 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
   %42 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %35, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #12
   %43 = add nuw nsw i32 %.sink1, 2
   %44 = and i64 %37, 2305843009213693951
-  %45 = lshr i64 35184372088992, %44
-  %46 = and i64 %45, 1
+  %45 = shl nuw i64 1, %44
+  %46 = and i64 %45, 35184372088992
   %.not.i = icmp eq i64 %46, 0
   br i1 %.not.i, label %55, label %49
 

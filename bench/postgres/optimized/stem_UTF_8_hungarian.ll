@@ -253,8 +253,8 @@ define hidden range(i32 -2147483648, 2) i32 @hungarian_UTF_8_stem(ptr noundef %0
 
 22:                                               ; preds = %17
   %23 = and i32 %21, 31
-  %24 = lshr i32 101187584, %23
-  %25 = and i32 %24, 1
+  %24 = shl nuw i32 1, %23
+  %25 = and i32 %24, 101187584
   %.not37.i = icmp eq i32 %25, 0
   br i1 %.not37.i, label %28, label %26
 
@@ -355,8 +355,8 @@ r_mark_regions.exit:                              ; preds = %33, %35, %.sink.spl
 
 66:                                               ; preds = %60
   %67 = and i32 %65, 31
-  %68 = lshr i32 106790108, %67
-  %69 = and i32 %68, 1
+  %68 = shl nuw i32 1, %67
+  %69 = and i32 %68, 106790108
   %.not14.i.i = icmp eq i32 %69, 0
   br i1 %.not14.i.i, label %91, label %70
 
@@ -623,8 +623,8 @@ r_case.exit.thread:                               ; preds = %104, %100, %109, %1
 
 190:                                              ; preds = %184
   %191 = and i32 %189, 31
-  %192 = lshr i32 106790108, %191
-  %193 = and i32 %192, 1
+  %192 = shl nuw i32 1, %191
+  %193 = and i32 %192, 106790108
   %.not14.i.i114 = icmp eq i32 %193, 0
   br i1 %.not14.i.i114, label %215, label %194
 
@@ -780,8 +780,8 @@ r_sing_owner.exit:                                ; preds = %245, %246, %249, %2
 
 264:                                              ; preds = %257
   %265 = and i32 %263, 31
-  %266 = lshr i32 10768, %265
-  %267 = and i32 %266, 1
+  %266 = shl nuw i32 1, %265
+  %267 = and i32 %266, 10768
   %.not32.i = icmp eq i32 %267, 0
   br i1 %.not32.i, label %283, label %268
 

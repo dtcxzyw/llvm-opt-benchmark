@@ -1671,8 +1671,8 @@ land.rhs:                                         ; preds = %if.then, %for.inc
   br i1 %cmp.i, label %if.then16, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %2 = lshr i64 63104, %indvars.iv
-  %3 = and i64 %2, 1
+  %2 = shl nuw nsw i64 1, %indvars.iv
+  %3 = and i64 %2, 63104
   %cmp5.not.not = icmp eq i64 %3, 0
   br i1 %cmp5.not.not, label %if.then6, label %for.inc
 

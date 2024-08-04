@@ -355,8 +355,8 @@ r_deriv.exit:                                     ; preds = %92, %95, %98, %101,
 
 123:                                              ; preds = %116
   %124 = and i32 %122, 31
-  %125 = lshr i32 282896, %124
-  %126 = and i32 %125, 1
+  %125 = shl nuw i32 1, %124
+  %126 = and i32 %125, 282896
   %.not31.i = icmp eq i32 %126, 0
   br i1 %.not31.i, label %141, label %127
 

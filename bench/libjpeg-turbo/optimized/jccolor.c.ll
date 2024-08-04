@@ -98,12 +98,12 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
 43:                                               ; preds = %.sink.split, %35, %32, %29, %23, %20
   %44 = getelementptr inbounds i8, ptr %0, i64 80
   %45 = load i32, ptr %44, align 8
-  switch i32 %45, label %232 [
+  switch i32 %45, label %227 [
     i32 1, label %46
     i32 2, label %87
-    i32 3, label %132
-    i32 4, label %171
-    i32 5, label %201
+    i32 3, label %127
+    i32 4, label %166
+    i32 5, label %196
   ]
 
 46:                                               ; preds = %43
@@ -153,7 +153,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr @grayscale_convert, ptr %69, align 8
-  br label %246
+  br label %241
 
 70:                                               ; preds = %66
   %71 = add i32 %67, -6
@@ -168,13 +168,13 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
 74:                                               ; preds = %72
   %75 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr @jsimd_rgb_gray_convert, ptr %75, align 8
-  br label %246
+  br label %241
 
 76:                                               ; preds = %72
   store ptr @rgb_ycc_start, ptr %16, align 8
   %77 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr @rgb_gray_convert, ptr %77, align 8
-  br label %246
+  br label %241
 
 78:                                               ; preds = %70
   %79 = icmp eq i32 %67, 3
@@ -183,7 +183,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
 80:                                               ; preds = %78
   %81 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr @grayscale_convert, ptr %81, align 8
-  br label %246
+  br label %241
 
 82:                                               ; preds = %78
   %83 = load ptr, ptr %0, align 8
@@ -192,7 +192,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   %85 = load ptr, ptr %0, align 8
   %86 = load ptr, ptr %85, align 8
   tail call void %86(ptr noundef nonnull %0) #4
-  br label %246
+  br label %241
 
 87:                                               ; preds = %43
   %88 = getelementptr inbounds i8, ptr %0, i64 432
@@ -207,8 +207,8 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   %94 = icmp eq i32 %93, 2
   %95 = add i32 %93, -6
   %or.cond173 = icmp ult i32 %95, 10
-  %or.cond176 = or i1 %94, %or.cond173
-  br i1 %or.cond176, label %101, label %96
+  %or.cond178 = or i1 %94, %or.cond173
+  br i1 %or.cond178, label %101, label %96
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr %0, align 8
@@ -236,277 +236,268 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
 
 109:                                              ; preds = %104, %101
   %110 = load i32, ptr %18, align 4
-  %111 = zext i32 %110 to i64
-  %112 = lshr i64 4292, %111
-  %113 = and i64 %112, 1
+  %111 = zext nneg i32 %110 to i64
+  %112 = shl nuw i64 1, %111
+  %113 = and i64 %112, 4292
   %.not163 = icmp eq i64 %113, 0
-  br i1 %.not163, label %122, label %114
+  %114 = and i64 %112, 324
+  %.not166 = icmp eq i64 %114, 0
+  %or.cond177 = or i1 %.not163, %.not166
+  br i1 %or.cond177, label %117, label %115
 
-114:                                              ; preds = %109
-  %115 = lshr i64 13252, %111
-  %116 = and i64 %115, 1
-  %.not164 = icmp eq i64 %116, 0
-  br i1 %.not164, label %122, label %117
+115:                                              ; preds = %109
+  %116 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @null_convert, ptr %116, align 8
+  br label %241
 
-117:                                              ; preds = %114
-  %118 = lshr i64 324, %111
-  %119 = and i64 %118, 1
-  %.not166 = icmp eq i64 %119, 0
-  br i1 %.not166, label %122, label %120
+117:                                              ; preds = %109
+  %118 = icmp eq i32 %110, 2
+  %119 = add i32 %110, -6
+  %or.cond174 = icmp ult i32 %119, 10
+  %or.cond179 = or i1 %118, %or.cond174
+  br i1 %or.cond179, label %120, label %122
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @null_convert, ptr %121, align 8
-  br label %246
+  store ptr @rgb_rgb_convert, ptr %121, align 8
+  br label %241
 
-122:                                              ; preds = %117, %114, %109
-  %123 = icmp eq i32 %110, 2
-  %124 = add i32 %110, -6
-  %or.cond174 = icmp ult i32 %124, 10
-  %or.cond177 = or i1 %123, %or.cond174
-  br i1 %or.cond177, label %125, label %127
+122:                                              ; preds = %117
+  %123 = load ptr, ptr %0, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 40
+  store i32 27, ptr %124, align 8
+  %125 = load ptr, ptr %0, align 8
+  %126 = load ptr, ptr %125, align 8
+  tail call void %126(ptr noundef nonnull %0) #4
+  br label %241
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @rgb_rgb_convert, ptr %126, align 8
-  br label %246
+127:                                              ; preds = %43
+  %128 = getelementptr inbounds i8, ptr %0, i64 432
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 32
+  %131 = load i32, ptr %130, align 8
+  %.not157 = icmp eq i32 %131, 0
+  br i1 %.not157, label %139, label %132
 
-127:                                              ; preds = %122
-  %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 40
-  store i32 27, ptr %129, align 8
-  %130 = load ptr, ptr %0, align 8
-  %131 = load ptr, ptr %130, align 8
-  tail call void %131(ptr noundef nonnull %0) #4
-  br label %246
+132:                                              ; preds = %127
+  %133 = load i32, ptr %18, align 4
+  %.not158 = icmp eq i32 %133, 3
+  br i1 %.not158, label %139, label %134
 
-132:                                              ; preds = %43
-  %133 = getelementptr inbounds i8, ptr %0, i64 432
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 32
-  %136 = load i32, ptr %135, align 8
-  %.not157 = icmp eq i32 %136, 0
-  br i1 %.not157, label %144, label %137
+134:                                              ; preds = %132
+  %135 = load ptr, ptr %0, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 40
+  store i32 27, ptr %136, align 8
+  %137 = load ptr, ptr %0, align 8
+  %138 = load ptr, ptr %137, align 8
+  tail call void %138(ptr noundef nonnull %0) #4
+  br label %139
 
-137:                                              ; preds = %132
-  %138 = load i32, ptr %18, align 4
-  %.not158 = icmp eq i32 %138, 3
-  br i1 %.not158, label %144, label %139
+139:                                              ; preds = %134, %132, %127
+  %140 = getelementptr inbounds i8, ptr %0, i64 76
+  %141 = load i32, ptr %140, align 4
+  %.not159 = icmp eq i32 %141, 3
+  br i1 %.not159, label %147, label %142
 
-139:                                              ; preds = %137
-  %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 40
-  store i32 27, ptr %141, align 8
-  %142 = load ptr, ptr %0, align 8
-  %143 = load ptr, ptr %142, align 8
-  tail call void %143(ptr noundef nonnull %0) #4
-  br label %144
+142:                                              ; preds = %139
+  %143 = load ptr, ptr %0, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 40
+  store i32 10, ptr %144, align 8
+  %145 = load ptr, ptr %0, align 8
+  %146 = load ptr, ptr %145, align 8
+  tail call void %146(ptr noundef nonnull %0) #4
+  br label %147
 
-144:                                              ; preds = %139, %137, %132
-  %145 = getelementptr inbounds i8, ptr %0, i64 76
-  %146 = load i32, ptr %145, align 4
-  %.not159 = icmp eq i32 %146, 3
-  br i1 %.not159, label %152, label %147
+147:                                              ; preds = %142, %139
+  %148 = load i32, ptr %18, align 4
+  %149 = icmp eq i32 %148, 2
+  %150 = add i32 %148, -6
+  %or.cond175 = icmp ult i32 %150, 10
+  %or.cond180 = or i1 %149, %or.cond175
+  br i1 %or.cond180, label %151, label %157
 
-147:                                              ; preds = %144
-  %148 = load ptr, ptr %0, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 40
-  store i32 10, ptr %149, align 8
-  %150 = load ptr, ptr %0, align 8
-  %151 = load ptr, ptr %150, align 8
-  tail call void %151(ptr noundef nonnull %0) #4
-  br label %152
+151:                                              ; preds = %147
+  %152 = tail call i32 @jsimd_can_rgb_ycc() #4
+  %.not160 = icmp eq i32 %152, 0
+  br i1 %.not160, label %155, label %153
 
-152:                                              ; preds = %147, %144
-  %153 = load i32, ptr %18, align 4
-  %154 = icmp eq i32 %153, 2
-  %155 = add i32 %153, -6
-  %or.cond175 = icmp ult i32 %155, 10
-  %or.cond178 = or i1 %154, %or.cond175
-  br i1 %or.cond178, label %156, label %162
+153:                                              ; preds = %151
+  %154 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @jsimd_rgb_ycc_convert, ptr %154, align 8
+  br label %241
 
-156:                                              ; preds = %152
-  %157 = tail call i32 @jsimd_can_rgb_ycc() #4
-  %.not160 = icmp eq i32 %157, 0
-  br i1 %.not160, label %160, label %158
-
-158:                                              ; preds = %156
-  %159 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @jsimd_rgb_ycc_convert, ptr %159, align 8
-  br label %246
-
-160:                                              ; preds = %156
+155:                                              ; preds = %151
   store ptr @rgb_ycc_start, ptr %16, align 8
-  %161 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @rgb_ycc_convert, ptr %161, align 8
-  br label %246
+  %156 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @rgb_ycc_convert, ptr %156, align 8
+  br label %241
 
-162:                                              ; preds = %152
-  %163 = icmp eq i32 %153, 3
-  br i1 %163, label %164, label %166
+157:                                              ; preds = %147
+  %158 = icmp eq i32 %148, 3
+  br i1 %158, label %159, label %161
 
-164:                                              ; preds = %162
-  %165 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @null_convert, ptr %165, align 8
-  br label %246
+159:                                              ; preds = %157
+  %160 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @null_convert, ptr %160, align 8
+  br label %241
 
-166:                                              ; preds = %162
-  %167 = load ptr, ptr %0, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 40
-  store i32 27, ptr %168, align 8
-  %169 = load ptr, ptr %0, align 8
-  %170 = load ptr, ptr %169, align 8
-  tail call void %170(ptr noundef nonnull %0) #4
-  br label %246
+161:                                              ; preds = %157
+  %162 = load ptr, ptr %0, align 8
+  %163 = getelementptr inbounds i8, ptr %162, i64 40
+  store i32 27, ptr %163, align 8
+  %164 = load ptr, ptr %0, align 8
+  %165 = load ptr, ptr %164, align 8
+  tail call void %165(ptr noundef nonnull %0) #4
+  br label %241
 
-171:                                              ; preds = %43
-  %172 = getelementptr inbounds i8, ptr %0, i64 432
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 32
-  %175 = load i32, ptr %174, align 8
-  %.not154 = icmp eq i32 %175, 0
-  br i1 %.not154, label %183, label %176
+166:                                              ; preds = %43
+  %167 = getelementptr inbounds i8, ptr %0, i64 432
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 32
+  %170 = load i32, ptr %169, align 8
+  %.not154 = icmp eq i32 %170, 0
+  br i1 %.not154, label %178, label %171
 
-176:                                              ; preds = %171
-  %177 = load i32, ptr %18, align 4
-  %.not155 = icmp eq i32 %177, 4
-  br i1 %.not155, label %183, label %178
+171:                                              ; preds = %166
+  %172 = load i32, ptr %18, align 4
+  %.not155 = icmp eq i32 %172, 4
+  br i1 %.not155, label %178, label %173
 
-178:                                              ; preds = %176
-  %179 = load ptr, ptr %0, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 40
-  store i32 27, ptr %180, align 8
-  %181 = load ptr, ptr %0, align 8
-  %182 = load ptr, ptr %181, align 8
-  tail call void %182(ptr noundef nonnull %0) #4
-  br label %183
+173:                                              ; preds = %171
+  %174 = load ptr, ptr %0, align 8
+  %175 = getelementptr inbounds i8, ptr %174, i64 40
+  store i32 27, ptr %175, align 8
+  %176 = load ptr, ptr %0, align 8
+  %177 = load ptr, ptr %176, align 8
+  tail call void %177(ptr noundef nonnull %0) #4
+  br label %178
 
-183:                                              ; preds = %178, %176, %171
-  %184 = getelementptr inbounds i8, ptr %0, i64 76
-  %185 = load i32, ptr %184, align 4
-  %.not156 = icmp eq i32 %185, 4
-  br i1 %.not156, label %191, label %186
+178:                                              ; preds = %173, %171, %166
+  %179 = getelementptr inbounds i8, ptr %0, i64 76
+  %180 = load i32, ptr %179, align 4
+  %.not156 = icmp eq i32 %180, 4
+  br i1 %.not156, label %186, label %181
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %0, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 40
-  store i32 10, ptr %188, align 8
-  %189 = load ptr, ptr %0, align 8
-  %190 = load ptr, ptr %189, align 8
-  tail call void %190(ptr noundef nonnull %0) #4
-  br label %191
+181:                                              ; preds = %178
+  %182 = load ptr, ptr %0, align 8
+  %183 = getelementptr inbounds i8, ptr %182, i64 40
+  store i32 10, ptr %183, align 8
+  %184 = load ptr, ptr %0, align 8
+  %185 = load ptr, ptr %184, align 8
+  tail call void %185(ptr noundef nonnull %0) #4
+  br label %186
 
-191:                                              ; preds = %186, %183
-  %192 = load i32, ptr %18, align 4
-  %193 = icmp eq i32 %192, 4
-  br i1 %193, label %194, label %196
+186:                                              ; preds = %181, %178
+  %187 = load i32, ptr %18, align 4
+  %188 = icmp eq i32 %187, 4
+  br i1 %188, label %189, label %191
 
-194:                                              ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @null_convert, ptr %195, align 8
-  br label %246
+189:                                              ; preds = %186
+  %190 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @null_convert, ptr %190, align 8
+  br label %241
 
-196:                                              ; preds = %191
-  %197 = load ptr, ptr %0, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 40
-  store i32 27, ptr %198, align 8
-  %199 = load ptr, ptr %0, align 8
-  %200 = load ptr, ptr %199, align 8
-  tail call void %200(ptr noundef nonnull %0) #4
-  br label %246
+191:                                              ; preds = %186
+  %192 = load ptr, ptr %0, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 40
+  store i32 27, ptr %193, align 8
+  %194 = load ptr, ptr %0, align 8
+  %195 = load ptr, ptr %194, align 8
+  tail call void %195(ptr noundef nonnull %0) #4
+  br label %241
 
-201:                                              ; preds = %43
-  %202 = getelementptr inbounds i8, ptr %0, i64 432
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 32
-  %205 = load i32, ptr %204, align 8
-  %.not151 = icmp eq i32 %205, 0
-  br i1 %.not151, label %213, label %206
+196:                                              ; preds = %43
+  %197 = getelementptr inbounds i8, ptr %0, i64 432
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 32
+  %200 = load i32, ptr %199, align 8
+  %.not151 = icmp eq i32 %200, 0
+  br i1 %.not151, label %208, label %201
 
-206:                                              ; preds = %201
-  %207 = load i32, ptr %18, align 4
-  %.not152 = icmp eq i32 %207, 5
-  br i1 %.not152, label %213, label %208
+201:                                              ; preds = %196
+  %202 = load i32, ptr %18, align 4
+  %.not152 = icmp eq i32 %202, 5
+  br i1 %.not152, label %208, label %203
 
-208:                                              ; preds = %206
-  %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 40
-  store i32 27, ptr %210, align 8
-  %211 = load ptr, ptr %0, align 8
-  %212 = load ptr, ptr %211, align 8
-  tail call void %212(ptr noundef nonnull %0) #4
-  br label %213
+203:                                              ; preds = %201
+  %204 = load ptr, ptr %0, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 40
+  store i32 27, ptr %205, align 8
+  %206 = load ptr, ptr %0, align 8
+  %207 = load ptr, ptr %206, align 8
+  tail call void %207(ptr noundef nonnull %0) #4
+  br label %208
 
-213:                                              ; preds = %208, %206, %201
-  %214 = getelementptr inbounds i8, ptr %0, i64 76
-  %215 = load i32, ptr %214, align 4
-  %.not153 = icmp eq i32 %215, 4
-  br i1 %.not153, label %221, label %216
+208:                                              ; preds = %203, %201, %196
+  %209 = getelementptr inbounds i8, ptr %0, i64 76
+  %210 = load i32, ptr %209, align 4
+  %.not153 = icmp eq i32 %210, 4
+  br i1 %.not153, label %216, label %211
 
-216:                                              ; preds = %213
-  %217 = load ptr, ptr %0, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 40
-  store i32 10, ptr %218, align 8
-  %219 = load ptr, ptr %0, align 8
-  %220 = load ptr, ptr %219, align 8
-  tail call void %220(ptr noundef nonnull %0) #4
-  br label %221
+211:                                              ; preds = %208
+  %212 = load ptr, ptr %0, align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 40
+  store i32 10, ptr %213, align 8
+  %214 = load ptr, ptr %0, align 8
+  %215 = load ptr, ptr %214, align 8
+  tail call void %215(ptr noundef nonnull %0) #4
+  br label %216
 
-221:                                              ; preds = %216, %213
-  %222 = load i32, ptr %18, align 4
-  switch i32 %222, label %227 [
-    i32 4, label %223
-    i32 5, label %225
+216:                                              ; preds = %211, %208
+  %217 = load i32, ptr %18, align 4
+  switch i32 %217, label %222 [
+    i32 4, label %218
+    i32 5, label %220
   ]
 
-223:                                              ; preds = %221
+218:                                              ; preds = %216
   store ptr @rgb_ycc_start, ptr %16, align 8
-  %224 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @cmyk_ycck_convert, ptr %224, align 8
-  br label %246
+  %219 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @cmyk_ycck_convert, ptr %219, align 8
+  br label %241
 
-225:                                              ; preds = %221
-  %226 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @null_convert, ptr %226, align 8
-  br label %246
+220:                                              ; preds = %216
+  %221 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @null_convert, ptr %221, align 8
+  br label %241
 
-227:                                              ; preds = %221
-  %228 = load ptr, ptr %0, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 40
-  store i32 27, ptr %229, align 8
-  %230 = load ptr, ptr %0, align 8
-  %231 = load ptr, ptr %230, align 8
-  tail call void %231(ptr noundef nonnull %0) #4
-  br label %246
+222:                                              ; preds = %216
+  %223 = load ptr, ptr %0, align 8
+  %224 = getelementptr inbounds i8, ptr %223, i64 40
+  store i32 27, ptr %224, align 8
+  %225 = load ptr, ptr %0, align 8
+  %226 = load ptr, ptr %225, align 8
+  tail call void %226(ptr noundef nonnull %0) #4
+  br label %241
 
-232:                                              ; preds = %43
-  %233 = load i32, ptr %18, align 4
-  %.not171 = icmp eq i32 %45, %233
-  br i1 %.not171, label %234, label %239
+227:                                              ; preds = %43
+  %228 = load i32, ptr %18, align 4
+  %.not171 = icmp eq i32 %45, %228
+  br i1 %.not171, label %229, label %234
 
-234:                                              ; preds = %232
-  %235 = getelementptr inbounds i8, ptr %0, i64 76
-  %236 = load i32, ptr %235, align 4
-  %237 = getelementptr inbounds i8, ptr %0, i64 56
-  %238 = load i32, ptr %237, align 8
-  %.not172 = icmp eq i32 %236, %238
-  br i1 %.not172, label %244, label %239
+229:                                              ; preds = %227
+  %230 = getelementptr inbounds i8, ptr %0, i64 76
+  %231 = load i32, ptr %230, align 4
+  %232 = getelementptr inbounds i8, ptr %0, i64 56
+  %233 = load i32, ptr %232, align 8
+  %.not172 = icmp eq i32 %231, %233
+  br i1 %.not172, label %239, label %234
 
-239:                                              ; preds = %234, %232
-  %240 = load ptr, ptr %0, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 40
-  store i32 27, ptr %241, align 8
-  %242 = load ptr, ptr %0, align 8
-  %243 = load ptr, ptr %242, align 8
-  tail call void %243(ptr noundef nonnull %0) #4
-  br label %244
+234:                                              ; preds = %229, %227
+  %235 = load ptr, ptr %0, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 40
+  store i32 27, ptr %236, align 8
+  %237 = load ptr, ptr %0, align 8
+  %238 = load ptr, ptr %237, align 8
+  tail call void %238(ptr noundef nonnull %0) #4
+  br label %239
 
-244:                                              ; preds = %239, %234
-  %245 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @null_convert, ptr %245, align 8
-  br label %246
+239:                                              ; preds = %234, %229
+  %240 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @null_convert, ptr %240, align 8
+  br label %241
 
-246:                                              ; preds = %223, %227, %225, %194, %196, %160, %158, %166, %164, %120, %127, %125, %68, %80, %82, %74, %76, %244
+241:                                              ; preds = %218, %222, %220, %189, %191, %155, %153, %161, %159, %115, %122, %120, %68, %80, %82, %74, %76, %239
   ret void
 }
 

@@ -562,8 +562,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %129, %._crit_edge
   %170 = select i1 %166, i64 -1, i64 %169
   %171 = getelementptr inbounds [20 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %170
   %172 = load i32, ptr %171, align 4
-  %173 = lshr i64 1019351, %170
-  %174 = and i64 %173, 1
+  %173 = shl nuw i64 1, %170
+  %174 = and i64 %173, 1019351
   %175 = icmp ne i64 %174, 0
   br label %.outer.split.us
 

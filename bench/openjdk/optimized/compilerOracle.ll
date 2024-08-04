@@ -754,8 +754,8 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle19option_matches_t
   %3 = sext i32 %0 to i64
   %4 = add nsw i64 %3, -2
   %5 = icmp ult i64 %4, 37
-  %6 = lshr i64 274894688256, %3
-  %7 = and i64 %6, 1
+  %6 = shl nuw i64 1, %3
+  %7 = and i64 %6, 274894688256
   %8 = icmp ne i64 %7, 0
   %spec.select = select i1 %5, i1 %8, i1 false
   ret i1 %spec.select
@@ -772,8 +772,8 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle19option_matches_t
   %3 = sext i32 %0 to i64
   %4 = add nsw i64 %3, -2
   %5 = icmp ult i64 %4, 37
-  %6 = lshr i64 272982069244, %3
-  %7 = and i64 %6, 1
+  %6 = shl nuw i64 1, %3
+  %7 = and i64 %6, 272982069244
   %8 = icmp ne i64 %7, 0
   %spec.select = select i1 %5, i1 %8, i1 false
   ret i1 %spec.select
@@ -1986,8 +1986,8 @@ _ZL17match_option_namePKcPiPci.exit48:            ; preds = %.preheader.i43
 256:                                              ; preds = %_ZL17match_option_namePKcPiPci.exit48
   %sext67 = shl i64 %indvars.iv.i44, 32
   %257 = ashr exact i64 %sext67, 32
-  %258 = lshr i64 272982069244, %257
-  %259 = and i64 %258, 1
+  %258 = shl nuw i64 1, %257
+  %259 = and i64 %258, 272982069244
   %.not68 = icmp eq i64 %259, 0
   br i1 %.not68, label %261, label %260
 
@@ -2068,8 +2068,8 @@ _ZL10skip_commaRPc.exit49:                        ; preds = %279, %285
   br i1 %298, label %299, label %310
 
 299:                                              ; preds = %290
-  %300 = lshr i64 272982069244, %280
-  %301 = and i64 %300, 1
+  %300 = shl nuw i64 1, %280
+  %301 = and i64 %300, 272982069244
   %.not70 = icmp eq i64 %301, 0
   br i1 %.not70, label %303, label %302
 

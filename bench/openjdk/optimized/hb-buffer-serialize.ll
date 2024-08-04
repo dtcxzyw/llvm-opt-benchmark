@@ -1276,8 +1276,8 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   %105 = getelementptr inbounds [63 x i8], ptr @_ZL36_deserialize_text_glyphs_trans_targs, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = sext i8 %106 to i32
-  %108 = lshr i64 4611748140952590530, %104
-  %109 = and i64 %108, 1
+  %108 = shl nuw i64 1, %104
+  %109 = and i64 %108, 4611748140952590530
   %.not224.i = icmp eq i64 %109, 0
   br i1 %.not224.i, label %110, label %224
 
@@ -2901,8 +2901,8 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
   %82 = getelementptr inbounds [15 x i8], ptr @_ZL37_deserialize_text_unicode_trans_targs, i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i32
-  %85 = lshr i64 18699, %81
-  %86 = and i64 %85, 1
+  %85 = shl nuw i64 1, %81
+  %86 = and i64 %85, 18699
   %.not119.i = icmp eq i64 %86, 0
   br i1 %.not119.i, label %87, label %127
 
