@@ -234,7 +234,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.139 = private unnamed_addr constant [52 x i8] c"Signal %d could not be sent to job %s (returned %s)\00", align 1
 @sigpipe_error_count = internal unnamed_addr global i32 0, align 4
 @.str.140 = private unnamed_addr constant [32 x i8] c"%s: SIGPIPE detected - aborting\00", align 1
-@str = private unnamed_addr constant [8 x i8] c"/\00\00\00\00\00\00\00", align 1
+@str = private unnamed_addr constant [7 x i8] c"/\00\00\00\00\00\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {

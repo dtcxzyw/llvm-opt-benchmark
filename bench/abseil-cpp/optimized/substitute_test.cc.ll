@@ -474,7 +474,7 @@ $_ZZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traits
 @.str.183 = private unnamed_addr constant [2 x i8] c":\00", align 1
 @.str.184 = private unnamed_addr constant [112 x i8] c"Test can not provide both TearDownTestSuite and TearDownTestCase, please make sure there is only one present at\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_substitute_test.cc, ptr null }]
-@str = private unnamed_addr constant [17 x i8] c"print me too\00\00\00\00\00", align 1
+@str = private unnamed_addr constant [16 x i8] c"print me too\00\00\00\00", align 1
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

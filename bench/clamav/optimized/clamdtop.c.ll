@@ -221,8 +221,8 @@ target triple = "x86_64-pc-linux-gnu"
 @str.6 = private unnamed_addr constant [66 x i8] c"    --defaultcolors        -d         Use default terminal colors\00", align 1
 @str.7 = private unnamed_addr constant [86 x i8] c"    host[:port]                       Connect to clamd on host at port (default 3310)\00", align 1
 @str.8 = private unnamed_addr constant [75 x i8] c"    /path/to/clamd.sock               Connect to clamd over a local socket\00", align 1
-@str.9 = private unnamed_addr constant [7 x i8] c"N/A\00\00\00\00", align 1
-@str.10 = private unnamed_addr constant [15 x i8] c"N/A\00\00\00\00\00\00\00\00\00\00\00\00", align 1
+@str.9 = private unnamed_addr constant [6 x i8] c"N/A\00\00\00", align 1
+@str.10 = private unnamed_addr constant [14 x i8] c"N/A\00\00\00\00\00\00\00\00\00\00\00", align 1
 @switch.table.exit_program = private unnamed_addr constant [5 x ptr] [ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37], align 8
 
 ; Function Attrs: nounwind uwtable

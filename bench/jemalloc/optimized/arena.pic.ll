@@ -100,7 +100,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @background_thread_info = external local_unnamed_addr global ptr, align 8
 @max_background_threads = external local_unnamed_addr global i64, align 8
 @background_thread_enabled_state = external local_unnamed_addr global %struct.atomic_b_t, align 1
-@str = private unnamed_addr constant [33 x i8] c"auto_oversize\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
+@str = private unnamed_addr constant [32 x i8] c"auto_oversize\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @arena_basic_stats_merge(ptr nocapture noundef readnone %tsdn, ptr noundef %arena, ptr nocapture noundef %nthreads, ptr nocapture noundef writeonly %dss, ptr nocapture noundef writeonly %dirty_decay_ms, ptr nocapture noundef writeonly %muzzy_decay_ms, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy) local_unnamed_addr #0 {

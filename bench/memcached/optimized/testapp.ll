@@ -386,7 +386,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.shutdown_memcached_server = private unnamed_addr constant [49 x i8] c"enum test_return shutdown_memcached_server(void)\00", align 1
 @.str.306 = private unnamed_addr constant [11 x i8] c"shutdown\0D\0A\00", align 1
 @__PRETTY_FUNCTION__.stop_memcached_server = private unnamed_addr constant [45 x i8] c"enum test_return stop_memcached_server(void)\00", align 1
-@str = private unnamed_addr constant [25 x i8] c"/tmp/test_file.XXXXXXX\00\00\00", align 1
+@str = private unnamed_addr constant [24 x i8] c"/tmp/test_file.XXXXXXX\00\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cache_create_test() #0 {

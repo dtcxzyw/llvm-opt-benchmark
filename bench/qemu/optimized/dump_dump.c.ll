@@ -117,7 +117,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.write_elf_sections = private unnamed_addr constant [19 x i8] c"write_elf_sections\00", align 1
 @.str.64 = private unnamed_addr constant [48 x i8] c"dump: failed to write architecture section data\00", align 1
 @.str.65 = private unnamed_addr constant [40 x i8] c"dump: failed to write string table data\00", align 1
-@str.1 = private unnamed_addr constant [66 x i8] c"Unknown\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
+@str.1 = private unnamed_addr constant [65 x i8] c"Unknown\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i16 @cpu_to_dump16(ptr nocapture noundef readonly %s, i16 noundef zeroext %val) local_unnamed_addr #0 {

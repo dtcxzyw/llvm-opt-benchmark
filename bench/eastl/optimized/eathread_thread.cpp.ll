@@ -36,7 +36,7 @@ $__clang_call_terminate = comdat any
 @_ZN2EA6Thread6Thread17sDefaultProcessorE = dso_local global %"class.EA::Thread::AtomicInt" zeroinitializer, align 4
 @_ZN2EA6Thread6Thread21sDefaultProcessorMaskE = dso_local global %"class.EA::Thread::AtomicInt.0" zeroinitializer, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_eathread_thread.cpp, ptr null }]
-@str = private unnamed_addr constant [65 x i8] c"external\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
+@str = private unnamed_addr constant [64 x i8] c"external\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
 
 @_ZN19EAThreadDynamicDataC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN19EAThreadDynamicDataC2Ev
 @_ZN19EAThreadDynamicDataD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN19EAThreadDynamicDataD2Ev

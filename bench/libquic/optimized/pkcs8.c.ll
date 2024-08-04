@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/pkcs8/pkcs8.c\00", align 1
 @kBuiltinPBE = internal unnamed_addr constant [4 x %struct.pbe_suite] [%struct.pbe_suite { i32 149, ptr @EVP_rc2_40_cbc, ptr @EVP_sha1, ptr @pkcs12_pbe_keyivgen, i32 1 }, %struct.pbe_suite { i32 144, ptr @EVP_rc4, ptr @EVP_sha1, ptr @pkcs12_pbe_keyivgen, i32 1 }, %struct.pbe_suite { i32 146, ptr @EVP_des_ede3_cbc, ptr @EVP_sha1, ptr @pkcs12_pbe_keyivgen, i32 1 }, %struct.pbe_suite { i32 161, ptr null, ptr null, ptr @PKCS5_v2_PBE_keyivgen, i32 0 }], align 16
 @.str.2 = private unnamed_addr constant [6 x i8] c"TYPE=\00", align 1
-@str = private unnamed_addr constant [81 x i8] c"NULL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
+@str = private unnamed_addr constant [80 x i8] c"NULL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @PKCS8_decrypt(ptr nocapture noundef readonly %pkcs8, ptr noundef %pass, i32 noundef %pass_len) local_unnamed_addr #0 {

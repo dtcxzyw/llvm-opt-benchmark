@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.74 = private unnamed_addr constant [25 x i8] c"stream(%s@%u): %s ERROR\0A\00", align 1
 @.str.75 = private unnamed_addr constant [13 x i8] c"stream: OK%c\00", align 1
 @.str.76 = private unnamed_addr constant [19 x i8] c"stream(%s@%u): OK\0A\00", align 1
-@str = private unnamed_addr constant [33 x i8] c"instream(local)\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
+@str = private unnamed_addr constant [32 x i8] c"instream(local)\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @msg_callback(i32 noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {

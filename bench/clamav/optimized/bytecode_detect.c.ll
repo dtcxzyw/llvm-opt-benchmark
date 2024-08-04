@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [22 x i8] c"OS LLVM category: %d\0A\00", align 1
 @.str.20 = private unnamed_addr constant [22 x i8] c"Has JIT compiled: %d\0A\00", align 1
 @.str.21 = private unnamed_addr constant [56 x i8] c"------------------------------------------------------\0A\00", align 1
-@str = private unnamed_addr constant [65 x i8] c"Linux\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
+@str = private unnamed_addr constant [64 x i8] c"Linux\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define void @cli_detect_environment(ptr noundef %0) local_unnamed_addr #0 {
