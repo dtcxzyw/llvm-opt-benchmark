@@ -1719,7 +1719,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtVarsAreSymmetric(ptr noundef r
 
 14:                                               ; preds = %12
   %15 = icmp sgt i32 %10, 0
-  br i1 %15, label %.lr.ph.i, label %Abc_TtCofactor1p.exit.thread
+  br i1 %15, label %.lr.ph.i, label %Abc_TtEqual.exit
 
 .lr.ph.i:                                         ; preds = %14
   %16 = shl nuw nsw i32 1, %2
@@ -1749,7 +1749,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtVarsAreSymmetric(ptr noundef r
   %31 = add nsw i32 %2, -6
   %32 = shl nuw i32 1, %31
   %33 = icmp sgt i32 %10, 0
-  br i1 %33, label %.preheader.lr.ph.i, label %Abc_TtCofactor1p.exit.thread
+  br i1 %33, label %.preheader.lr.ph.i, label %Abc_TtEqual.exit
 
 .preheader.lr.ph.i:                               ; preds = %28
   %.not.i = icmp eq i32 %31, 31
@@ -1860,7 +1860,7 @@ Abc_TtCofactor0p.exit.thread.thread:              ; preds = %Abc_TtCofactor0p.ex
   %76 = icmp ult ptr %74, %61
   br i1 %76, label %.preheader.us.i22, label %Abc_TtCofactor1p.exit.thread, !llvm.loop !28
 
-Abc_TtCofactor1p.exit.thread:                     ; preds = %._crit_edge.us.i26, %53, %.preheader.lr.ph.i, %28, %14, %.preheader.lr.ph.i17, %Abc_TtCofactor0p.exit.thread.thread, %46
+Abc_TtCofactor1p.exit.thread:                     ; preds = %._crit_edge.us.i26, %53, %.preheader.lr.ph.i, %.preheader.lr.ph.i17, %Abc_TtCofactor0p.exit.thread.thread, %46
   %77 = icmp slt i32 %3, 6
   br i1 %77, label %78, label %91
 
@@ -2056,8 +2056,8 @@ Abc_TtCofactor0.exit:                             ; preds = %._crit_edge.us.i49,
   %.not.i58 = icmp eq i64 %169, %171
   br i1 %.not.i58, label %167, label %Abc_TtEqual.exit
 
-Abc_TtEqual.exit:                                 ; preds = %167, %.lr.ph.i56, %91, %78, %Abc_TtCofactor1.exit.thread.thread, %138, %Abc_TtCofactor0.exit
-  %.07.i = phi i32 [ 1, %Abc_TtCofactor0.exit ], [ 1, %138 ], [ 1, %Abc_TtCofactor1.exit.thread.thread ], [ 1, %78 ], [ 1, %91 ], [ 0, %.lr.ph.i56 ], [ 1, %167 ]
+Abc_TtEqual.exit:                                 ; preds = %167, %.lr.ph.i56, %14, %28, %91, %78, %Abc_TtCofactor1.exit.thread.thread, %138, %Abc_TtCofactor0.exit
+  %.07.i = phi i32 [ 1, %Abc_TtCofactor0.exit ], [ 1, %138 ], [ 1, %Abc_TtCofactor1.exit.thread.thread ], [ 1, %78 ], [ 1, %91 ], [ 1, %28 ], [ 1, %14 ], [ 0, %.lr.ph.i56 ], [ 1, %167 ]
   ret i32 %.07.i
 }
 

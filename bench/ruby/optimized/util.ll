@@ -1408,9 +1408,9 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 .thread.thread.i.i:                               ; preds = %._crit_edge.i
   %361 = shl nuw i32 1, %358
   %362 = add i32 %361, -1
-  %363 = sext i32 %362 to i64
-  %364 = shl nsw i64 %363, 2
-  %365 = add nsw i64 %364, 39
+  %363 = zext nneg i32 %362 to i64
+  %364 = shl nuw nsw i64 %363, 2
+  %365 = add nuw nsw i64 %364, 39
   br label %.loopexit.i.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.thread879
@@ -1444,9 +1444,9 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 .thread.i.i:                                      ; preds = %369
   %382 = shl nuw i32 1, %.023.lcssa53.i
   %383 = add i32 %382, -1
-  %384 = sext i32 %383 to i64
-  %385 = shl nsw i64 %384, 2
-  %386 = add nsw i64 %385, 39
+  %384 = zext nneg i32 %383 to i64
+  %385 = shl nuw nsw i64 %384, 2
+  %386 = add nuw nsw i64 %385, 39
   %387 = lshr i64 %386, 3
   %388 = load ptr, ptr @pmem_next, align 8
   br label %389
@@ -1573,9 +1573,9 @@ Bfree.exit809:                                    ; preds = %Bfree.exit809.backe
 .thread.thread.i:                                 ; preds = %Bfree.exit809
   %447 = shl nuw i32 1, %445
   %448 = add i32 %447, -1
-  %449 = sext i32 %448 to i64
-  %450 = shl nsw i64 %449, 2
-  %451 = add nsw i64 %450, 39
+  %449 = zext nneg i32 %448 to i64
+  %450 = shl nuw nsw i64 %449, 2
+  %451 = add nuw nsw i64 %450, 39
   br label %.loopexit.i
 
 452:                                              ; preds = %Bfree.exit809
@@ -1608,9 +1608,9 @@ Bfree.exit809:                                    ; preds = %Bfree.exit809.backe
 .thread.i:                                        ; preds = %456
   %469 = shl nuw i32 1, %445
   %470 = add i32 %469, -1
-  %471 = sext i32 %470 to i64
-  %472 = shl nsw i64 %471, 2
-  %473 = add nsw i64 %472, 39
+  %471 = zext nneg i32 %470 to i64
+  %472 = shl nuw nsw i64 %471, 2
+  %473 = add nuw nsw i64 %472, 39
   %474 = lshr i64 %473, 3
   %475 = load ptr, ptr @pmem_next, align 8
   br label %476
@@ -3420,9 +3420,9 @@ define internal fastcc ptr @mult(ptr noundef readonly %0, ptr noundef readonly %
 .thread.thread.i:                                 ; preds = %2
   %20 = shl nuw i32 1, %.058
   %21 = add i32 %20, -1
-  %22 = sext i32 %21 to i64
-  %23 = shl nsw i64 %22, 2
-  %24 = add nsw i64 %23, 39
+  %22 = zext nneg i32 %21 to i64
+  %23 = shl nuw nsw i64 %22, 2
+  %24 = add nuw nsw i64 %23, 39
   br label %.loopexit.i
 
 25:                                               ; preds = %2
@@ -3455,9 +3455,9 @@ define internal fastcc ptr @mult(ptr noundef readonly %0, ptr noundef readonly %
 .thread.i:                                        ; preds = %29
   %42 = shl nuw i32 1, %.058
   %43 = add i32 %42, -1
-  %44 = sext i32 %43 to i64
-  %45 = shl nsw i64 %44, 2
-  %46 = add nsw i64 %45, 39
+  %44 = zext nneg i32 %43 to i64
+  %45 = shl nuw nsw i64 %44, 2
+  %46 = add nuw nsw i64 %45, 39
   %47 = lshr i64 %46, 3
   %48 = load ptr, ptr @pmem_next, align 8
   br label %49
@@ -3631,9 +3631,9 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef %1) unnamed_addr 
 .thread.thread.i:                                 ; preds = %._crit_edge
   %17 = shl nuw i32 1, %.044.lcssa
   %18 = add i32 %17, -1
-  %19 = sext i32 %18 to i64
-  %20 = shl nsw i64 %19, 2
-  %21 = add nsw i64 %20, 39
+  %19 = zext nneg i32 %18 to i64
+  %20 = shl nuw nsw i64 %19, 2
+  %21 = add nuw nsw i64 %20, 39
   br label %.loopexit.i
 
 22:                                               ; preds = %._crit_edge
@@ -3666,9 +3666,9 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef %1) unnamed_addr 
 .thread.i:                                        ; preds = %26
   %39 = shl nuw i32 1, %.044.lcssa
   %40 = add i32 %39, -1
-  %41 = sext i32 %40 to i64
-  %42 = shl nsw i64 %41, 2
-  %43 = add nsw i64 %42, 39
+  %41 = zext nneg i32 %40 to i64
+  %42 = shl nuw nsw i64 %41, 2
+  %43 = add nuw nsw i64 %42, 39
   %44 = lshr i64 %43, 3
   %45 = load ptr, ptr @pmem_next, align 8
   br label %46
@@ -3949,9 +3949,9 @@ Balloc.exit:                                      ; preds = %33, %54
 .thread.thread.i:                                 ; preds = %60
   %65 = shl nuw i32 1, %63
   %66 = add i32 %65, -1
-  %67 = sext i32 %66 to i64
-  %68 = shl nsw i64 %67, 2
-  %69 = add nsw i64 %68, 39
+  %67 = zext nneg i32 %66 to i64
+  %68 = shl nuw nsw i64 %67, 2
+  %69 = add nuw nsw i64 %68, 39
   br label %.loopexit.i57
 
 70:                                               ; preds = %60
@@ -3984,9 +3984,9 @@ Balloc.exit:                                      ; preds = %33, %54
 .thread.i62:                                      ; preds = %74
   %87 = shl nuw i32 1, %63
   %88 = add i32 %87, -1
-  %89 = sext i32 %88 to i64
-  %90 = shl nsw i64 %89, 2
-  %91 = add nsw i64 %90, 39
+  %89 = zext nneg i32 %88 to i64
+  %90 = shl nuw nsw i64 %89, 2
+  %91 = add nuw nsw i64 %90, 39
   %92 = lshr i64 %91, 3
   %93 = load ptr, ptr @pmem_next, align 8
   br label %94
@@ -5182,9 +5182,9 @@ cmp.exit665.thread733:                            ; preds = %489, %237, %cmp.exi
 .thread.thread.i:                                 ; preds = %503
   %507 = shl nuw i32 1, %505
   %508 = add i32 %507, -1
-  %509 = sext i32 %508 to i64
-  %510 = shl nsw i64 %509, 2
-  %511 = add nsw i64 %510, 39
+  %509 = zext nneg i32 %508 to i64
+  %510 = shl nuw nsw i64 %509, 2
+  %511 = add nuw nsw i64 %510, 39
   br label %.loopexit.i
 
 512:                                              ; preds = %503
@@ -5217,9 +5217,9 @@ cmp.exit665.thread733:                            ; preds = %489, %237, %cmp.exi
 .thread.i:                                        ; preds = %516
   %529 = shl nuw i32 1, %505
   %530 = add i32 %529, -1
-  %531 = sext i32 %530 to i64
-  %532 = shl nsw i64 %531, 2
-  %533 = add nsw i64 %532, 39
+  %531 = zext nneg i32 %530 to i64
+  %532 = shl nuw nsw i64 %531, 2
+  %533 = add nuw nsw i64 %532, 39
   %534 = lshr i64 %533, 3
   %535 = load ptr, ptr @pmem_next, align 8
   br label %536
@@ -5978,9 +5978,9 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
 .thread.thread.i:                                 ; preds = %22
   %27 = shl nuw i32 1, %25
   %28 = add i32 %27, -1
-  %29 = sext i32 %28 to i64
-  %30 = shl nsw i64 %29, 2
-  %31 = add nsw i64 %30, 39
+  %29 = zext nneg i32 %28 to i64
+  %30 = shl nuw nsw i64 %29, 2
+  %31 = add nuw nsw i64 %30, 39
   br label %.loopexit.i
 
 32:                                               ; preds = %22
@@ -6013,9 +6013,9 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
 .thread.i:                                        ; preds = %36
   %49 = shl nuw i32 1, %25
   %50 = add i32 %49, -1
-  %51 = sext i32 %50 to i64
-  %52 = shl nsw i64 %51, 2
-  %53 = add nsw i64 %52, 39
+  %51 = zext nneg i32 %50 to i64
+  %52 = shl nuw nsw i64 %51, 2
+  %53 = add nuw nsw i64 %52, 39
   %54 = lshr i64 %53, 3
   %55 = load ptr, ptr @pmem_next, align 8
   br label %56

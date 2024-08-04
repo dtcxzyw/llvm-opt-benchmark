@@ -2666,7 +2666,7 @@ define ptr @Abc_TtMin(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nounde
 Vec_WrdGrow.exit:                                 ; preds = %6, %20
   %22 = tail call ptr @Abc_TtMin_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %43
+  br i1 %23, label %24, label %42
 
 24:                                               ; preds = %Vec_WrdGrow.exit
   %25 = load i32, ptr %3, align 8
@@ -2677,73 +2677,73 @@ Vec_WrdGrow.exit:                                 ; preds = %6, %20
   %27 = getelementptr inbounds i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not9.i.i = icmp eq ptr %28, null
-  %29 = sext i32 %10 to i64
-  %30 = shl nsw i64 %29, 3
+  %29 = zext nneg i32 %10 to i64
+  %30 = shl nuw nsw i64 %29, 3
   br i1 %.not9.i.i, label %33, label %31
 
 31:                                               ; preds = %26
   %32 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %30) #22
-  br label %35
+  br label %Vec_WrdGrow.exit.i.thread
 
 33:                                               ; preds = %26
   %34 = tail call noalias ptr @malloc(i64 noundef %30) #21
-  br label %35
+  br label %Vec_WrdGrow.exit.i.thread
 
-35:                                               ; preds = %33, %31
-  %36 = phi ptr [ %32, %31 ], [ %34, %33 ]
-  store ptr %36, ptr %27, align 8
+Vec_WrdGrow.exit.i.thread:                        ; preds = %31, %33
+  %35 = phi ptr [ %32, %31 ], [ %34, %33 ]
+  store ptr %35, ptr %27, align 8
   store i32 %10, ptr %3, align 8
-  br label %Vec_WrdGrow.exit.i
+  br label %.lr.ph.i
 
-Vec_WrdGrow.exit.i:                               ; preds = %35, %24
-  %37 = icmp sgt i32 %10, 0
-  br i1 %37, label %.lr.ph.i, label %Vec_WrdFill.exit
+Vec_WrdGrow.exit.i:                               ; preds = %24
+  %36 = icmp sgt i32 %10, 0
+  br i1 %36, label %.lr.ph.i, label %Vec_WrdFill.exit
 
-.lr.ph.i:                                         ; preds = %Vec_WrdGrow.exit.i
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
+.lr.ph.i:                                         ; preds = %Vec_WrdGrow.exit.i.thread, %Vec_WrdGrow.exit.i
+  %37 = getelementptr inbounds i8, ptr %3, i64 8
   %wide.trip.count.i = zext nneg i32 %10 to i64
-  br label %39
+  br label %38
 
-39:                                               ; preds = %39, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
-  %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds i64, ptr %40, i64 %indvars.iv.i
-  store i64 0, ptr %41, align 8
+38:                                               ; preds = %38, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
+  %39 = load ptr, ptr %37, align 8
+  %40 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv.i
+  store i64 0, ptr %40, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_WrdFill.exit, label %39, !llvm.loop !48
+  br i1 %exitcond.not.i, label %Vec_WrdFill.exit, label %38, !llvm.loop !48
 
-Vec_WrdFill.exit:                                 ; preds = %39, %Vec_WrdGrow.exit.i
+Vec_WrdFill.exit:                                 ; preds = %38, %Vec_WrdGrow.exit.i
   store i32 %10, ptr %11, align 4
-  %42 = getelementptr i8, ptr %3, i64 8
-  br label %49
+  %41 = getelementptr i8, ptr %3, i64 8
+  br label %48
 
-43:                                               ; preds = %Vec_WrdGrow.exit
-  %44 = getelementptr i8, ptr %3, i64 8
-  %.val24 = load ptr, ptr %44, align 8
-  %45 = icmp sgt i32 %10, 0
-  br i1 %45, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
+42:                                               ; preds = %Vec_WrdGrow.exit
+  %43 = getelementptr i8, ptr %3, i64 8
+  %.val24 = load ptr, ptr %43, align 8
+  %44 = icmp sgt i32 %10, 0
+  br i1 %44, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
 
-.lr.ph18.preheader.i:                             ; preds = %43
+.lr.ph18.preheader.i:                             ; preds = %42
   %wide.trip.count24.i = zext nneg i32 %10 to i64
   br label %.lr.ph18.i
 
 .lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %.lr.ph18.preheader.i ], [ %indvars.iv.next22.i, %.lr.ph18.i ]
-  %46 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv21.i
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i64, ptr %.val24, i64 %indvars.iv21.i
-  store i64 %47, ptr %48, align 8
+  %45 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv21.i
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds i64, ptr %.val24, i64 %indvars.iv21.i
+  store i64 %46, ptr %47, align 8
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count24.i
   br i1 %exitcond25.not.i, label %Abc_TtCopy.exit, label %.lr.ph18.i, !llvm.loop !24
 
-Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i, %43
+Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i, %42
   store i32 %10, ptr %11, align 4
-  br label %49
+  br label %48
 
-49:                                               ; preds = %Abc_TtCopy.exit, %Vec_WrdFill.exit
-  %.0.in = phi ptr [ %42, %Vec_WrdFill.exit ], [ %44, %Abc_TtCopy.exit ]
+48:                                               ; preds = %Abc_TtCopy.exit, %Vec_WrdFill.exit
+  %.0.in = phi ptr [ %41, %Vec_WrdFill.exit ], [ %43, %Abc_TtCopy.exit ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }
@@ -5710,6 +5710,11 @@ define i32 @Gia_ManBuildMuxes6_rec(ptr noundef %0, i64 noundef %1, i32 noundef %
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %.preheader._crit_edge
 
+.preheader._crit_edge:                            ; preds = %.preheader
+  %.pre = shl nuw nsw i32 1, %6
+  %.pre31 = zext nneg i32 %.pre to i64
+  br label %split
+
 10:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -5722,12 +5727,12 @@ define i32 @Gia_ManBuildMuxes6_rec(ptr noundef %0, i64 noundef %1, i32 noundef %
   %17 = xor i64 %13, %1
   %18 = and i64 %16, %17
   %.not29 = icmp eq i64 %18, 0
-  br i1 %.not29, label %.preheader, label %.preheader._crit_edge, !llvm.loop !70
+  br i1 %.not29, label %.preheader, label %split, !llvm.loop !70
 
-.preheader._crit_edge:                            ; preds = %10, %.preheader
-  %.pre-phi32 = phi i64 [ 4294967295, %.preheader ], [ %12, %10 ]
-  %.0.in.lcssa = phi i32 [ %smin, %.preheader ], [ %8, %10 ]
-  %.0.lcssa = phi i32 [ %6, %.preheader ], [ %indvars, %10 ]
+split:                                            ; preds = %10, %.preheader._crit_edge
+  %.pre-phi32 = phi i64 [ %.pre31, %.preheader._crit_edge ], [ %12, %10 ]
+  %.0.in.lcssa = phi i32 [ %smin, %.preheader._crit_edge ], [ %8, %10 ]
+  %.0.lcssa = phi i32 [ %6, %.preheader._crit_edge ], [ %indvars, %10 ]
   %19 = sext i32 %.0.lcssa to i64
   %20 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
@@ -5744,14 +5749,14 @@ define i32 @Gia_ManBuildMuxes6_rec(ptr noundef %0, i64 noundef %1, i32 noundef %
   %.not28 = icmp eq ptr %3, null
   br i1 %.not28, label %36, label %32
 
-32:                                               ; preds = %.preheader._crit_edge
+32:                                               ; preds = %split
   %33 = getelementptr inbounds i32, ptr %3, i64 %19
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 1
   br label %36
 
-36:                                               ; preds = %.preheader._crit_edge, %32
-  %37 = phi i32 [ %35, %32 ], [ %.0.in.lcssa, %.preheader._crit_edge ]
+36:                                               ; preds = %split, %32
+  %37 = phi i32 [ %35, %32 ], [ %.0.in.lcssa, %split ]
   %38 = shl nsw i32 %37, 1
   %39 = or disjoint i32 %38, 1
   %40 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %39, i32 noundef %25)

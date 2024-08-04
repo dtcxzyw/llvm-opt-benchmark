@@ -28856,7 +28856,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %118, %ZSTD_count.ex
 
 123:                                              ; preds = %ZSTD_count.exit.thread.us
   %124 = and i32 %.0338357.us, %11
-  %125 = zext i32 %124 to i64
+  %125 = zext nneg i32 %124 to i64
   %126 = getelementptr inbounds i32, ptr %7, i64 %125
   %127 = add i32 %.0331356.us, -1
   %.0338.us = load i32, ptr %126, align 4
@@ -28943,7 +28943,7 @@ ZSTD_count.exit.thread.us384:                     ; preds = %154, %ZSTD_count.ex
 
 158:                                              ; preds = %ZSTD_count.exit.thread.us384
   %159 = and i32 %.0338357.us364, %11
-  %160 = zext i32 %159 to i64
+  %160 = zext nneg i32 %159 to i64
   %161 = getelementptr inbounds i32, ptr %7, i64 %160
   %162 = add i32 %.0331356.us365, -1
   %.0338.us387 = load i32, ptr %161, align 4
@@ -29017,7 +29017,7 @@ ZSTD_count.exit.thread:                           ; preds = %167, %184, %ZSTD_co
 
 188:                                              ; preds = %ZSTD_count.exit.thread
   %189 = and i32 %.0338357, %11
-  %190 = zext i32 %189 to i64
+  %190 = zext nneg i32 %189 to i64
   %191 = getelementptr inbounds i32, ptr %7, i64 %190
   %192 = add i32 %.0331356, -1
   %.0338 = load i32, ptr %191, align 4
@@ -29259,7 +29259,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %116, %ZSTD_count.ex
 
 121:                                              ; preds = %ZSTD_count.exit.thread.us
   %122 = and i32 %.0338357.us, %11
-  %123 = zext i32 %122 to i64
+  %123 = zext nneg i32 %122 to i64
   %124 = getelementptr inbounds i32, ptr %7, i64 %123
   %125 = add i32 %.0331356.us, -1
   %.0338.us = load i32, ptr %124, align 4
@@ -29346,7 +29346,7 @@ ZSTD_count.exit.thread.us384:                     ; preds = %152, %ZSTD_count.ex
 
 156:                                              ; preds = %ZSTD_count.exit.thread.us384
   %157 = and i32 %.0338357.us364, %11
-  %158 = zext i32 %157 to i64
+  %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds i32, ptr %7, i64 %158
   %160 = add i32 %.0331356.us365, -1
   %.0338.us387 = load i32, ptr %159, align 4
@@ -29420,7 +29420,7 @@ ZSTD_count.exit.thread:                           ; preds = %165, %182, %ZSTD_co
 
 186:                                              ; preds = %ZSTD_count.exit.thread
   %187 = and i32 %.0338357, %11
-  %188 = zext i32 %187 to i64
+  %188 = zext nneg i32 %187 to i64
   %189 = getelementptr inbounds i32, ptr %7, i64 %188
   %190 = add i32 %.0331356, -1
   %.0338 = load i32, ptr %189, align 4
@@ -29662,7 +29662,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %116, %ZSTD_count.ex
 
 121:                                              ; preds = %ZSTD_count.exit.thread.us
   %122 = and i32 %.0338357.us, %11
-  %123 = zext i32 %122 to i64
+  %123 = zext nneg i32 %122 to i64
   %124 = getelementptr inbounds i32, ptr %7, i64 %123
   %125 = add i32 %.0331356.us, -1
   %.0338.us = load i32, ptr %124, align 4
@@ -29749,7 +29749,7 @@ ZSTD_count.exit.thread.us384:                     ; preds = %152, %ZSTD_count.ex
 
 156:                                              ; preds = %ZSTD_count.exit.thread.us384
   %157 = and i32 %.0338357.us364, %11
-  %158 = zext i32 %157 to i64
+  %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds i32, ptr %7, i64 %158
   %160 = add i32 %.0331356.us365, -1
   %.0338.us387 = load i32, ptr %159, align 4
@@ -29823,7 +29823,7 @@ ZSTD_count.exit.thread:                           ; preds = %165, %182, %ZSTD_co
 
 186:                                              ; preds = %ZSTD_count.exit.thread
   %187 = and i32 %.0338357, %11
-  %188 = zext i32 %187 to i64
+  %188 = zext nneg i32 %187 to i64
   %189 = getelementptr inbounds i32, ptr %7, i64 %188
   %190 = add i32 %.0331356, -1
   %.0338 = load i32, ptr %189, align 4
@@ -34637,7 +34637,7 @@ ZSTD_count.exit.thread:                           ; preds = %129, %87, %137, %ZS
 
 142:                                              ; preds = %ZSTD_count.exit.thread
   %143 = and i32 %.0338360, %11
-  %144 = zext i32 %143 to i64
+  %144 = zext nneg i32 %143 to i64
   %145 = getelementptr inbounds i32, ptr %7, i64 %144
   %146 = add i32 %.0331359, -1
   %.0338 = load i32, ptr %145, align 4
@@ -34913,7 +34913,7 @@ ZSTD_count.exit.thread:                           ; preds = %127, %85, %135, %ZS
 
 140:                                              ; preds = %ZSTD_count.exit.thread
   %141 = and i32 %.0338360, %11
-  %142 = zext i32 %141 to i64
+  %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds i32, ptr %7, i64 %142
   %144 = add i32 %.0331359, -1
   %.0338 = load i32, ptr %143, align 4
@@ -35189,7 +35189,7 @@ ZSTD_count.exit.thread:                           ; preds = %127, %85, %135, %ZS
 
 140:                                              ; preds = %ZSTD_count.exit.thread
   %141 = and i32 %.0338360, %11
-  %142 = zext i32 %141 to i64
+  %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds i32, ptr %7, i64 %142
   %144 = add i32 %.0331359, -1
   %.0338 = load i32, ptr %143, align 4
@@ -40218,7 +40218,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %124, %ZSTD_count.ex
 
 129:                                              ; preds = %ZSTD_count.exit.thread.us
   %130 = and i32 %.0338365.us, %11
-  %131 = zext i32 %130 to i64
+  %131 = zext nneg i32 %130 to i64
   %132 = getelementptr inbounds i32, ptr %7, i64 %131
   %133 = add i32 %.0331364.us, -1
   %.0338.us = load i32, ptr %132, align 4
@@ -40313,7 +40313,7 @@ ZSTD_count.exit.thread:                           ; preds = %139, %163, %ZSTD_co
 
 167:                                              ; preds = %ZSTD_count.exit.thread
   %168 = and i32 %.0338365, %11
-  %169 = zext i32 %168 to i64
+  %169 = zext nneg i32 %168 to i64
   %170 = getelementptr inbounds i32, ptr %7, i64 %169
   %171 = add i32 %.0331364, -1
   %.0338 = load i32, ptr %170, align 4
@@ -40397,7 +40397,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %167, %163, %ZSTD_co
 
 220:                                              ; preds = %.thread
   %221 = and i32 %.1339381, %180
-  %222 = zext i32 %221 to i64
+  %222 = zext nneg i32 %221 to i64
   %223 = getelementptr inbounds i32, ptr %176, i64 %222
   %224 = add i32 %.1332380, -1
   %.1339 = load i32, ptr %223, align 4
@@ -40645,7 +40645,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %122, %ZSTD_count.ex
 
 127:                                              ; preds = %ZSTD_count.exit.thread.us
   %128 = and i32 %.0338365.us, %11
-  %129 = zext i32 %128 to i64
+  %129 = zext nneg i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %7, i64 %129
   %131 = add i32 %.0331364.us, -1
   %.0338.us = load i32, ptr %130, align 4
@@ -40740,7 +40740,7 @@ ZSTD_count.exit.thread:                           ; preds = %137, %161, %ZSTD_co
 
 165:                                              ; preds = %ZSTD_count.exit.thread
   %166 = and i32 %.0338365, %11
-  %167 = zext i32 %166 to i64
+  %167 = zext nneg i32 %166 to i64
   %168 = getelementptr inbounds i32, ptr %7, i64 %167
   %169 = add i32 %.0331364, -1
   %.0338 = load i32, ptr %168, align 4
@@ -40824,7 +40824,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
 
 218:                                              ; preds = %.thread
   %219 = and i32 %.1339381, %178
-  %220 = zext i32 %219 to i64
+  %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds i32, ptr %174, i64 %220
   %222 = add i32 %.1332380, -1
   %.1339 = load i32, ptr %221, align 4
@@ -41072,7 +41072,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %122, %ZSTD_count.ex
 
 127:                                              ; preds = %ZSTD_count.exit.thread.us
   %128 = and i32 %.0338365.us, %11
-  %129 = zext i32 %128 to i64
+  %129 = zext nneg i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %7, i64 %129
   %131 = add i32 %.0331364.us, -1
   %.0338.us = load i32, ptr %130, align 4
@@ -41167,7 +41167,7 @@ ZSTD_count.exit.thread:                           ; preds = %137, %161, %ZSTD_co
 
 165:                                              ; preds = %ZSTD_count.exit.thread
   %166 = and i32 %.0338365, %11
-  %167 = zext i32 %166 to i64
+  %167 = zext nneg i32 %166 to i64
   %168 = getelementptr inbounds i32, ptr %7, i64 %167
   %169 = add i32 %.0331364, -1
   %.0338 = load i32, ptr %168, align 4
@@ -41251,7 +41251,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
 
 218:                                              ; preds = %.thread
   %219 = and i32 %.1339381, %178
-  %220 = zext i32 %219 to i64
+  %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds i32, ptr %174, i64 %220
   %222 = add i32 %.1332380, -1
   %.1339 = load i32, ptr %221, align 4
@@ -47426,7 +47426,7 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
 
 142:                                              ; preds = %ZSTD_count.exit.thread
   %143 = and i32 %.0338376, %11
-  %144 = zext i32 %143 to i64
+  %144 = zext nneg i32 %143 to i64
   %145 = getelementptr inbounds i32, ptr %7, i64 %144
   %146 = add i32 %.0331375, -1
   %.0338 = load i32, ptr %145, align 4
@@ -47864,7 +47864,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
 
 140:                                              ; preds = %ZSTD_count.exit.thread
   %141 = and i32 %.0338376, %11
-  %142 = zext i32 %141 to i64
+  %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds i32, ptr %7, i64 %142
   %144 = add i32 %.0331375, -1
   %.0338 = load i32, ptr %143, align 4
@@ -48302,7 +48302,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
 
 140:                                              ; preds = %ZSTD_count.exit.thread
   %141 = and i32 %.0338376, %11
-  %142 = zext i32 %141 to i64
+  %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds i32, ptr %7, i64 %142
   %144 = add i32 %.0331375, -1
   %.0338 = load i32, ptr %143, align 4

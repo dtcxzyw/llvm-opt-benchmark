@@ -6237,7 +6237,7 @@ _ZN6Gluco24HeapINS_6Solver10VarOrderLtEE9removeMinEv.exit.backedge: ; preds = %6
   %88 = phi i32 [ %127, %117 ], [ 1, %.lr.ph.i.preheader.i ]
   %89 = phi i32 [ %126, %117 ], [ 0, %.lr.ph.i.preheader.i ]
   %.018.i.i = phi i32 [ %113, %117 ], [ 0, %.lr.ph.i.preheader.i ]
-  %90 = add i32 %89, 2
+  %90 = add nsw i32 %89, 2
   %91 = icmp slt i32 %90, %87
   %.pre.pre.i.i = load ptr, ptr %52, align 8
   br i1 %91, label %92, label %._crit_edge29.i.i
@@ -9635,7 +9635,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   %86 = phi i32 [ %125, %115 ], [ %83, %.lr.ph.i.preheader ]
   %87 = phi i32 [ %124, %115 ], [ %84, %.lr.ph.i.preheader ]
   %.018.i = phi i32 [ %111, %115 ], [ %82, %.lr.ph.i.preheader ]
-  %88 = add i32 %87, 2
+  %88 = add nsw i32 %87, 2
   %89 = icmp slt i32 %88, %85
   %.pre.pre.i = load ptr, ptr %3, align 8
   br i1 %89, label %90, label %._crit_edge29.i
@@ -16671,7 +16671,7 @@ define linkonce_odr void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKey
   %18 = phi i32 [ %10, %.lr.ph ], [ %81, %71 ]
   %19 = phi i32 [ %9, %.lr.ph ], [ %80, %71 ]
   %.024 = phi i32 [ %1, %.lr.ph ], [ %52, %71 ]
-  %20 = add i32 %19, 2
+  %20 = add nsw i32 %19, 2
   %21 = icmp slt i32 %20, %17
   %.pre.pre = load ptr, ptr %3, align 8
   br i1 %21, label %22, label %._crit_edge33

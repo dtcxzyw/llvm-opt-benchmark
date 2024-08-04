@@ -1041,15 +1041,17 @@ define i64 @Sfm_ComputeInterpolant(ptr nocapture noundef %0) local_unnamed_addr 
   store i32 %22, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %0, i64 6624
   %25 = icmp sgt i32 %12, 0
-  %26 = zext nneg i32 %12 to i64
-  %27 = shl nuw nsw i64 %26, 3
   br i1 %25, label %.lr.ph.preheader.i, label %Abc_TtClear.exit
 
 .lr.ph.preheader.i:                               ; preds = %1
+  %26 = zext nneg i32 %12 to i64
+  %27 = shl nuw nsw i64 %26, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, i8 0, i64 %27, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %1, %.lr.ph.preheader.i
+  %.pre-phi179 = phi i64 [ %27, %.lr.ph.preheader.i ], [ 17179869184, %1 ]
+  %.pre-phi = phi i64 [ %26, %.lr.ph.preheader.i ], [ 2147483648, %1 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 7672
   %29 = getelementptr inbounds i8, ptr %2, i64 8
   %30 = getelementptr inbounds i8, ptr %0, i64 360
@@ -1392,7 +1394,7 @@ Vec_IntPush.exit124:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %25, label %.lr.ph.preheader.i125, label %Abc_TtFill.exit
 
 .lr.ph.preheader.i125:                            ; preds = %205
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %33, i8 -1, i64 %27, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %33, i8 -1, i64 %.pre-phi179, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %205, %.lr.ph.preheader.i125
@@ -1603,7 +1605,7 @@ Vec_IntFind.exit:                                 ; preds = %293, %297, %Vec_Int
   %307 = and i64 %303, %306
   store i64 %307, ptr %302, align 8
   %indvars.iv.next.i144 = add nuw nsw i64 %indvars.iv.i143, 1
-  %exitcond.not.i145 = icmp eq i64 %indvars.iv.next.i144, %26
+  %exitcond.not.i145 = icmp eq i64 %indvars.iv.next.i144, %.pre-phi
   br i1 %exitcond.not.i145, label %Abc_TtAndSharp.exit, label %.lr.ph.i142, !llvm.loop !20
 
 .lr.ph22.i:                                       ; preds = %.preheader.i, %.lr.ph22.i
@@ -1615,7 +1617,7 @@ Vec_IntFind.exit:                                 ; preds = %293, %297, %Vec_Int
   %312 = and i64 %311, %309
   store i64 %312, ptr %308, align 8
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %26
+  %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %.pre-phi
   br i1 %exitcond29.not.i, label %Abc_TtAndSharp.exit, label %.lr.ph22.i, !llvm.loop !21
 
 Abc_TtAndSharp.exit:                              ; preds = %.lr.ph22.i, %.lr.ph.i142, %.preheader.i, %.preheader18.i, %.lr.ph162
@@ -1635,7 +1637,7 @@ Abc_TtAndSharp.exit:                              ; preds = %.lr.ph22.i, %.lr.ph
   %317 = or i64 %316, %314
   store i64 %317, ptr %313, align 8
   %indvars.iv.next.i150 = add nuw nsw i64 %indvars.iv.i149, 1
-  %exitcond.not.i151 = icmp eq i64 %indvars.iv.next.i150, %26
+  %exitcond.not.i151 = icmp eq i64 %indvars.iv.next.i150, %.pre-phi
   br i1 %exitcond.not.i151, label %Abc_TtOr.exit, label %.lr.ph.i148, !llvm.loop !23
 
 Abc_TtOr.exit:                                    ; preds = %.lr.ph.i148, %._crit_edge
@@ -2351,7 +2353,12 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
   %indvars = trunc i64 %indvars.iv.next to i32
   %12 = trunc nuw i64 %indvars.iv to i32
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %tailrecurse
+  br i1 %13, label %14, label %.preheader.tailrecurse_crit_edge
+
+.preheader.tailrecurse_crit_edge:                 ; preds = %.preheader
+  %.pre = shl nuw nsw i32 1, %8
+  %.pre58 = zext nneg i32 %.pre to i64
+  br label %tailrecurse
 
 14:                                               ; preds = %.preheader
   %15 = shl nuw i32 1, %indvars
@@ -2372,9 +2379,9 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
   %.not = icmp eq i64 %26, 0
   br i1 %.not, label %.preheader, label %tailrecurse, !llvm.loop !29
 
-tailrecurse:                                      ; preds = %14, %23, %.preheader
-  %.pre-phi59 = phi i64 [ 4294967295, %.preheader ], [ %16, %23 ], [ %16, %14 ]
-  %.0.lcssa = phi i32 [ %8, %.preheader ], [ %indvars, %23 ], [ %indvars, %14 ]
+tailrecurse:                                      ; preds = %14, %23, %.preheader.tailrecurse_crit_edge
+  %.pre-phi59 = phi i64 [ %.pre58, %.preheader.tailrecurse_crit_edge ], [ %16, %23 ], [ %16, %14 ]
+  %.0.lcssa = phi i32 [ %8, %.preheader.tailrecurse_crit_edge ], [ %indvars, %23 ], [ %indvars, %14 ]
   %27 = sext i32 %.0.lcssa to i64
   %28 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8

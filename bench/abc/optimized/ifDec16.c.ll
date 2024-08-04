@@ -2492,15 +2492,16 @@ define void @If_CluSemiCanonicizeVerify(ptr noundef %0, ptr noundef %1, i32 noun
   %10 = shl nuw i32 1, %9
   %11 = select i1 %8, i32 1, i32 %10
   %12 = icmp slt i32 %11, 1
-  %.pre = zext i32 %11 to i64
   br i1 %12, label %If_CluCopy.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %5
-  %13 = shl nuw nsw i64 %.pre, 3
+  %wide.trip.count.i = zext nneg i32 %11 to i64
+  %13 = shl nuw nsw i64 %wide.trip.count.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %13, i1 false)
   br label %If_CluCopy.exit
 
 If_CluCopy.exit:                                  ; preds = %5, %.lr.ph.preheader.i
+  %.pre-phi = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i ], [ 2147483648, %5 ]
   %14 = icmp sgt i32 %2, 1
   br i1 %14, label %.lr.ph.us.preheader, label %If_CluCopy.exit78
 
@@ -2608,7 +2609,7 @@ If_CluCopy.exit:                                  ; preds = %5, %.lr.ph.preheade
   %62 = getelementptr inbounds i64, ptr %.155100.us, i64 %53
   store i64 %61, ptr %62, align 8
   %indvars.iv.next165.i.us = add nuw nsw i64 %indvars.iv164.i.us, 2
-  %63 = icmp ult i64 %indvars.iv.next165.i.us, %.pre
+  %63 = icmp ult i64 %indvars.iv.next165.i.us, %.pre-phi
   br i1 %63, label %.lr.ph.i71.us, label %If_CluSwapAdjacent.exit.us, !llvm.loop !50
 
 64:                                               ; preds = %21
@@ -2640,7 +2641,7 @@ If_CluCopy.exit:                                  ; preds = %5, %.lr.ph.preheade
   %84 = getelementptr inbounds i64, ptr %.155100.us, i64 %indvars.iv167.i.us
   store i64 %83, ptr %84, align 8
   %indvars.iv.next168.i.us = add nuw nsw i64 %indvars.iv167.i.us, 1
-  %exitcond171.not.i.us = icmp eq i64 %indvars.iv.next168.i.us, %.pre
+  %exitcond171.not.i.us = icmp eq i64 %indvars.iv.next168.i.us, %.pre-phi
   br i1 %exitcond171.not.i.us, label %If_CluSwapAdjacent.exit.us, label %74, !llvm.loop !51
 
 If_CluSwapAdjacent.exit.us:                       ; preds = %.lr.ph.us.preheader.i.us, %.lr.ph.i71.us, %74, %64, %.preheader.i.us, %.preheader87.lr.ph.i.us, %25, %.lr.ph.us
@@ -2667,8 +2668,8 @@ If_CluSwapAdjacent.exit.us:                       ; preds = %.lr.ph.us.preheader
   br i1 %brmerge, label %If_CluCopy.exit78, label %.lr.ph.preheader.i72
 
 .lr.ph.preheader.i72:                             ; preds = %.split.us
-  %87 = shl nuw nsw i64 %.pre, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.256.us, ptr noundef nonnull align 8 dereferenceable(1) %.251.us, i64 %87, i1 false)
+  %87 = shl nuw nsw i64 %.pre-phi, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.256.us, ptr align 8 %.251.us, i64 %87, i1 false)
   br label %If_CluCopy.exit78
 
 If_CluCopy.exit78:                                ; preds = %If_CluCopy.exit, %.lr.ph.preheader.i72, %.split.us
@@ -2712,7 +2713,7 @@ If_CluCopy.exit78:                                ; preds = %If_CluCopy.exit, %.
   %107 = or i64 %104, %106
   store i64 %107, ptr %101, align 8
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %.pre
+  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %.pre-phi
   br i1 %exitcond54.not.i, label %If_CluChangePhase.exit, label %100, !llvm.loop !39
 
 108:                                              ; preds = %93
@@ -2767,7 +2768,7 @@ If_CluChangePhase.exit:                           ; preds = %._crit_edge.us.i85,
 
 125:                                              ; preds = %.lr.ph.i89
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i90, 1
-  %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %.pre
+  %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %.pre-phi
   br i1 %exitcond.not.i93, label %If_CluEqual.exit.thread, label %.lr.ph.i89, !llvm.loop !60
 
 .lr.ph.i89:                                       ; preds = %._crit_edge, %125

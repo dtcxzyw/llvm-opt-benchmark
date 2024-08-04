@@ -4034,17 +4034,13 @@ Abc_SopGetVarNum.exit:                            ; preds = %6
   %13 = trunc i64 %12 to i32
   %14 = add i32 %13, -2
   %15 = icmp slt i32 %14, 7
-  %16 = add i32 %13, -8
-  %17 = shl nuw i32 1, %16
   br i1 %15, label %.lr.ph.preheader, label %Abc_SopGetVarNum.exit.thread
 
 Abc_SopGetVarNum.exit.thread:                     ; preds = %Abc_SopGetVarNum.exit
+  %16 = add i32 %13, -8
+  %17 = shl nuw i32 1, %16
   %.not139 = icmp eq i32 %16, 31
-  br i1 %.not139, label %Abc_SopGetVarNum.exit.thread..preheader81_crit_edge, label %.lr.ph.preheader
-
-Abc_SopGetVarNum.exit.thread..preheader81_crit_edge: ; preds = %Abc_SopGetVarNum.exit.thread
-  %.pre = zext i32 %17 to i64
-  br label %.preheader81
+  br i1 %.not139, label %.preheader81, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6, %Abc_SopGetVarNum.exit, %Abc_SopGetVarNum.exit.thread
   %18 = phi i32 [ %17, %Abc_SopGetVarNum.exit.thread ], [ 1, %Abc_SopGetVarNum.exit ], [ 1, %6 ]
@@ -4054,11 +4050,11 @@ Abc_SopGetVarNum.exit.thread..preheader81_crit_edge: ; preds = %Abc_SopGetVarNum
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, i8 0, i64 %20, i1 false)
   br label %.preheader81
 
-.preheader81:                                     ; preds = %Abc_SopGetVarNum.exit.thread..preheader81_crit_edge, %.lr.ph.preheader
-  %21 = phi i1 [ false, %Abc_SopGetVarNum.exit.thread..preheader81_crit_edge ], [ true, %.lr.ph.preheader ]
-  %.06.i68133 = phi i32 [ %14, %Abc_SopGetVarNum.exit.thread..preheader81_crit_edge ], [ %.06.i68134, %.lr.ph.preheader ]
-  %.pre-phi131 = phi i64 [ 17179869184, %Abc_SopGetVarNum.exit.thread..preheader81_crit_edge ], [ %20, %.lr.ph.preheader ]
-  %.pre-phi = phi i64 [ %.pre, %Abc_SopGetVarNum.exit.thread..preheader81_crit_edge ], [ %19, %.lr.ph.preheader ]
+.preheader81:                                     ; preds = %Abc_SopGetVarNum.exit.thread, %.lr.ph.preheader
+  %21 = phi i1 [ true, %.lr.ph.preheader ], [ false, %Abc_SopGetVarNum.exit.thread ]
+  %.06.i68133 = phi i32 [ %.06.i68134, %.lr.ph.preheader ], [ %14, %Abc_SopGetVarNum.exit.thread ]
+  %.pre-phi131 = phi i64 [ %20, %.lr.ph.preheader ], [ 17179869184, %Abc_SopGetVarNum.exit.thread ]
+  %.pre-phi = phi i64 [ %19, %.lr.ph.preheader ], [ 2147483648, %Abc_SopGetVarNum.exit.thread ]
   %22 = icmp sgt i32 %.06.i68133, 0
   %wide.trip.count118 = zext nneg i32 %.06.i68133 to i64
   br label %23
