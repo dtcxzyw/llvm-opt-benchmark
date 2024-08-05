@@ -7550,7 +7550,7 @@ for.inc13:                                        ; preds = %for.body6, %if.then
   br i1 %exitcond35.not, label %for.end15, label %for.body6, !llvm.loop !18
 
 for.end15:                                        ; preds = %for.inc13, %for.end.thread, %for.end
-  tail call void @llvm.stackrestore.p0(ptr %6)
+  call void @llvm.stackrestore.p0(ptr %6)
   br label %if.end21
 
 do.end:                                           ; preds = %malloc_mutex_lock.exit

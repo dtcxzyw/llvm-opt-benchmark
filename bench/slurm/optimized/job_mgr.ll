@@ -40074,7 +40074,7 @@ define dso_local void @update_job_limit_set_tres(ptr noundef %0) local_unnamed_a
 
 ._crit_edge:                                      ; preds = %22, %7
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %12, ptr nonnull align 16 %11, i64 %4, i1 false)
-  tail call void @llvm.stackrestore.p0(ptr %10)
+  call void @llvm.stackrestore.p0(ptr %10)
   br label %27
 
 27:                                               ; preds = %._crit_edge, %1

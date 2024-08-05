@@ -349,7 +349,7 @@ define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unname
 .loopexit33:                                      ; preds = %23, %.loopexit
   %.132 = phi ptr [ %.1.ph, %.loopexit ], [ null, %23 ]
   %33 = tail call i32 @close(i32 noundef %2) #18
-  tail call void @llvm.stackrestore.p0(ptr %4)
+  call void @llvm.stackrestore.p0(ptr %4)
   br label %34
 
 34:                                               ; preds = %.loopexit33, %1

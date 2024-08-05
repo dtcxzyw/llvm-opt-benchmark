@@ -685,7 +685,7 @@ malloc_mutex_lock.exit194:                        ; preds = %if.end.i186, %if.th
   br label %tcache_bin_flush_impl.exit
 
 tcache_bin_flush_impl.exit:                       ; preds = %malloc_mutex_lock.exit194, %for.end128.i
-  tail call void @llvm.stackrestore.p0(ptr %savedstack)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %bin.val.i = load ptr, ptr %cache_bin, align 8
   %bin.val7.i = load i16, ptr %0, align 4
   %48 = ptrtoint ptr %bin.val.i to i64
@@ -969,7 +969,7 @@ if.else146.i:                                     ; preds = %entry, %for.end128.
   br label %tcache_bin_flush_impl.exit
 
 tcache_bin_flush_impl.exit:                       ; preds = %if.else146.i, %for.end128.i
-  tail call void @llvm.stackrestore.p0(ptr %savedstack)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %bin.val.i = load ptr, ptr %cache_bin, align 8
   %bin.val7.i = load i16, ptr %0, align 4
   %34 = ptrtoint ptr %bin.val.i to i64
@@ -1532,7 +1532,7 @@ if.else146.i:                                     ; preds = %if.then130.i
   br label %tcache_bin_flush_impl.exit
 
 tcache_bin_flush_impl.exit:                       ; preds = %malloc_mutex_lock.exit225, %if.else146.i, %for.end128.i
-  tail call void @llvm.stackrestore.p0(ptr %savedstack)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %bin.val.i.i235 = load i16, ptr %1, align 2
   %bin.val2.i.i236 = load ptr, ptr %cache_bin, align 8
   %bin.val3.i.i237 = load i16, ptr %0, align 4

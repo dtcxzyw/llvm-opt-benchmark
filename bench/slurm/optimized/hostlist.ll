@@ -4696,7 +4696,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   %61 = load i64, ptr %15, align 8
   %62 = add i64 %61, -1
   store i64 %62, ptr %15, align 8
-  tail call void @llvm.stackrestore.p0(ptr %34)
+  call void @llvm.stackrestore.p0(ptr %34)
   br label %66
 
 63:                                               ; preds = %30
@@ -4833,7 +4833,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   %62 = load i64, ptr %19, align 8
   %63 = add i64 %62, 1
   store i64 %63, ptr %19, align 8
-  tail call void @llvm.stackrestore.p0(ptr %36)
+  call void @llvm.stackrestore.p0(ptr %36)
   br label %67
 
 64:                                               ; preds = %32
@@ -5031,7 +5031,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %40 = and i64 %indvars.iv.next, 4294967295
   %41 = getelementptr inbounds [80 x i8], ptr %3, i64 0, i64 %40
   store i8 0, ptr %41, align 1
-  tail call void @llvm.stackrestore.p0(ptr %21)
+  call void @llvm.stackrestore.p0(ptr %21)
   br label %51
 
 ._crit_edge:                                      ; preds = %15
@@ -5741,7 +5741,7 @@ hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
 
 ._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %.preheader.us
   %.4.lcssa.us = phi i32 [ %60, %.preheader.us ], [ %64, %._crit_edge.us.loopexit ]
-  tail call void @llvm.stackrestore.p0(ptr %47)
+  call void @llvm.stackrestore.p0(ptr %47)
   br label %65
 
 65:                                               ; preds = %._crit_edge.us, %39
@@ -5804,7 +5804,7 @@ hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
   br i1 %or.cond85, label %92, label %.loopexit
 
 .thread:                                          ; preds = %hostlist_parse_int_to_array.exit.us, %59
-  tail call void @llvm.stackrestore.p0(ptr %47)
+  call void @llvm.stackrestore.p0(ptr %47)
   br label %.loopexit
 
 92:                                               ; preds = %83
@@ -6347,7 +6347,7 @@ hostlist_parse_int_to_array.exit._crit_edge:      ; preds = %hostlist_parse_int_
   %85 = and i64 %indvars.iv.next, 4294967295
   %86 = getelementptr inbounds [80 x i8], ptr %3, i64 0, i64 %85
   store i8 0, ptr %86, align 1
-  tail call void @llvm.stackrestore.p0(ptr %65)
+  call void @llvm.stackrestore.p0(ptr %65)
   br label %97
 
 ._crit_edge:                                      ; preds = %58
@@ -8162,7 +8162,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
 33:                                               ; preds = %hostlist_parse_int_to_array.exit
   %34 = getelementptr inbounds i8, ptr %2, i64 %wide.trip.count
   store i8 0, ptr %34, align 1
-  tail call void @llvm.stackrestore.p0(ptr %17)
+  call void @llvm.stackrestore.p0(ptr %17)
   br label %40
 
 ._crit_edge:                                      ; preds = %12
@@ -8246,7 +8246,7 @@ hostlist_parse_int_to_array.exit76:               ; preds = %.lr.ph.i72
   %76 = and i64 %indvars.iv.next86, 4294967295
   %77 = getelementptr inbounds i8, ptr %2, i64 %76
   store i8 0, ptr %77, align 1
-  tail call void @llvm.stackrestore.p0(ptr %55)
+  call void @llvm.stackrestore.p0(ptr %55)
   br label %85
 
 ._crit_edge94:                                    ; preds = %51

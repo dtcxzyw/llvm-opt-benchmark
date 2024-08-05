@@ -443,7 +443,7 @@ if.then25:                                        ; preds = %if.then11
   br label %do.end69
 
 do.end69:                                         ; preds = %if.then11, %if.then25
-  tail call void @llvm.stackrestore.p0(ptr %7)
+  call void @llvm.stackrestore.p0(ptr %7)
   br label %if.end70
 
 if.end70:                                         ; preds = %entry, %lor.lhs.false4, %land.lhs.true, %do.end69
@@ -12615,7 +12615,7 @@ for.body:                                         ; preds = %do.end49, %for.body
   br i1 %exitcond.not, label %do.end77, label %for.body, !llvm.loop !112
 
 do.end77:                                         ; preds = %for.body, %cond.end
-  tail call void @llvm.stackrestore.p0(ptr %2)
+  call void @llvm.stackrestore.p0(ptr %2)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.else6, %entry, %if.then5, %do.end77
@@ -12969,7 +12969,7 @@ for.end:                                          ; preds = %if.then34, %for.end
   br label %do.end50
 
 do.end50:                                         ; preds = %cond.end, %for.end
-  tail call void @llvm.stackrestore.p0(ptr %10)
+  call void @llvm.stackrestore.p0(ptr %10)
   br label %if.end55
 
 if.end55:                                         ; preds = %if.else, %entry, %sp_count_bits.exit, %if.then5, %if.then17, %do.end50

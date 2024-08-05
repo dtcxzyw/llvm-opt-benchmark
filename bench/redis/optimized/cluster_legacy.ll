@@ -622,7 +622,7 @@ if.end:                                           ; preds = %entry
   store i32 %call, ptr %tcp_port, align 8
   %narrow = icmp ugt i32 %call, 65535
   %cond = sext i1 %narrow to i32
-  tail call void @llvm.stackrestore.p0(ptr %2)
+  call void @llvm.stackrestore.p0(ptr %2)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -670,7 +670,7 @@ if.end:                                           ; preds = %entry
   store i32 %call, ptr %tls_port, align 4
   %narrow = icmp ugt i32 %call, 65535
   %cond = sext i1 %narrow to i32
-  tail call void @llvm.stackrestore.p0(ptr %2)
+  call void @llvm.stackrestore.p0(ptr %2)
   br label %return
 
 return:                                           ; preds = %entry, %if.end

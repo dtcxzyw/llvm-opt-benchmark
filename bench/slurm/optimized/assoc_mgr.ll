@@ -788,7 +788,7 @@ _get_old_tres_pos.exit.thread:                    ; preds = %61, %51, %.lr.ph207
 
 ._crit_edge238:                                   ; preds = %.backedge, %._crit_edge218
   tail call void @list_iterator_destroy(ptr noundef %147) #20
-  tail call void @llvm.stackrestore.p0(ptr %82)
+  call void @llvm.stackrestore.p0(ptr %82)
   br label %246
 
 246:                                              ; preds = %._crit_edge238, %78, %77, %75
