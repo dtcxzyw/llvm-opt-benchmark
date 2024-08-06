@@ -83145,33 +83145,31 @@ _ZNK2OT6Layout9GPOS_impl6Anchor10get_anchorEPNS_21hb_ot_apply_context_tEjPfS5_.e
 540:                                              ; preds = %_ZNK2OT6Layout9GPOS_impl6Anchor10get_anchorEPNS_21hb_ot_apply_context_tEjPfS5_.exit256, %521, %497, %475, %453
   %541 = load float, ptr %3, align 4
   %542 = load float, ptr %5, align 4
-  %543 = fsub float %541, %542
-  %544 = fadd float %543, 5.000000e-01
-  %545 = call noundef float @llvm.floor.f32(float %544)
-  %546 = fptosi float %545 to i32
-  %547 = load float, ptr %4, align 4
-  %548 = load float, ptr %6, align 4
-  %549 = fsub float %547, %548
-  %550 = fadd float %549, 5.000000e-01
-  %551 = call noundef float @llvm.floor.f32(float %550)
-  %552 = fptosi float %551 to i32
+  %543 = load float, ptr %4, align 4
+  %544 = load float, ptr %6, align 4
+  %545 = insertelement <2 x float> poison, float %541, i64 0
+  %546 = insertelement <2 x float> %545, float %543, i64 1
+  %547 = insertelement <2 x float> poison, float %542, i64 0
+  %548 = insertelement <2 x float> %547, float %544, i64 1
+  %549 = fsub <2 x float> %546, %548
+  %550 = fadd <2 x float> %549, <float 5.000000e-01, float 5.000000e-01>
+  %551 = call <2 x float> @llvm.floor.v2f32(<2 x float> %550)
+  %552 = fptosi <2 x float> %551 to <2 x i32>
   %553 = getelementptr inbounds i8, ptr %1, i64 308
   %554 = load i32, ptr %553, align 4
   %555 = and i32 %554, 1
   %.not216 = icmp eq i32 %555, 0
-  br i1 %.not216, label %556, label %559
+  br i1 %.not216, label %556, label %558
 
 556:                                              ; preds = %540
-  %557 = sub nsw i32 0, %546
-  %558 = sub nsw i32 0, %552
-  br label %559
+  %557 = sub nsw <2 x i32> zeroinitializer, %552
+  br label %558
 
-559:                                              ; preds = %556, %540
+558:                                              ; preds = %556, %540
   %.pre-phi = phi i64 [ %411, %556 ], [ %363, %540 ]
   %.0193 = phi i32 [ %343, %556 ], [ %342, %540 ]
   %.0192 = phi i32 [ %342, %556 ], [ %343, %540 ]
-  %.0191 = phi i32 [ %557, %556 ], [ %546, %540 ]
-  %.0190 = phi i32 [ %558, %556 ], [ %552, %540 ]
+  %559 = phi <2 x i32> [ %557, %556 ], [ %552, %540 ]
   %560 = load i32, ptr %451, align 8
   call fastcc void @_ZN2OT6Layout9GPOS_implL28reverse_cursive_minor_offsetEP19hb_glyph_position_tj14hb_direction_tj(ptr noundef %450, i32 noundef %.0193, i32 noundef %560, i32 noundef %.0192)
   %561 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %450, i64 %.pre-phi
@@ -83189,51 +83187,53 @@ _ZNK2OT6Layout9GPOS_impl6Anchor10get_anchorEPNS_21hb_ot_apply_context_tEjPfS5_.e
   %570 = and i32 %569, -2
   %571 = icmp eq i32 %570, 4
   %. = select i1 %571, i64 12, i64 8
-  %.0190..0191 = select i1 %571, i32 %.0190, i32 %.0191
-  %572 = getelementptr inbounds i8, ptr %561, i64 %.
-  store i32 %.0190..0191, ptr %572, align 4
-  %573 = zext i32 %.0192 to i64
-  %574 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %450, i64 %573
-  %575 = getelementptr inbounds i8, ptr %574, i64 16
-  %576 = load i16, ptr %575, align 4
-  %577 = sext i16 %576 to i32
-  %578 = load i16, ptr %562, align 4
+  %572 = extractelement <2 x i32> %559, i64 0
+  %573 = extractelement <2 x i32> %559, i64 1
+  %.0190..0191 = select i1 %571, i32 %573, i32 %572
+  %574 = getelementptr inbounds i8, ptr %561, i64 %.
+  store i32 %.0190..0191, ptr %574, align 4
+  %575 = zext i32 %.0192 to i64
+  %576 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %450, i64 %575
+  %577 = getelementptr inbounds i8, ptr %576, i64 16
+  %578 = load i16, ptr %577, align 4
   %579 = sext i16 %578 to i32
-  %580 = sub nsw i32 0, %579
-  %581 = icmp eq i32 %577, %580
-  br i1 %581, label %.sink.split, label %586
+  %580 = load i16, ptr %562, align 4
+  %581 = sext i16 %580 to i32
+  %582 = sub nsw i32 0, %581
+  %583 = icmp eq i32 %579, %582
+  br i1 %583, label %.sink.split, label %588
 
-.sink.split:                                      ; preds = %559
-  store i16 0, ptr %575, align 4
-  %582 = load i32, ptr %451, align 8
-  %583 = and i32 %582, -2
-  %584 = icmp eq i32 %583, 4
-  %.324 = select i1 %584, i64 12, i64 8
-  %585 = getelementptr inbounds i8, ptr %574, i64 %.324
-  store i32 0, ptr %585, align 4
-  br label %586
+.sink.split:                                      ; preds = %558
+  store i16 0, ptr %577, align 4
+  %584 = load i32, ptr %451, align 8
+  %585 = and i32 %584, -2
+  %586 = icmp eq i32 %585, 4
+  %.324 = select i1 %586, i64 12, i64 8
+  %587 = getelementptr inbounds i8, ptr %576, i64 %.324
+  store i32 0, ptr %587, align 4
+  br label %588
 
-586:                                              ; preds = %.sink.split, %559
-  %587 = load ptr, ptr %7, align 8
-  %588 = getelementptr inbounds i8, ptr %587, i64 192
-  %589 = load ptr, ptr %588, align 8
-  %.not310 = icmp eq ptr %589, null
-  br i1 %.not310, label %594, label %590
+588:                                              ; preds = %.sink.split, %558
+  %589 = load ptr, ptr %7, align 8
+  %590 = getelementptr inbounds i8, ptr %589, i64 192
+  %591 = load ptr, ptr %590, align 8
+  %.not310 = icmp eq ptr %591, null
+  br i1 %.not310, label %596, label %592
 
-590:                                              ; preds = %586
-  %591 = getelementptr inbounds i8, ptr %1, i64 144
-  %592 = load ptr, ptr %591, align 8
-  %593 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %587, ptr noundef %592, ptr noundef nonnull @.str.60, i32 noundef %342, i32 noundef %343)
-  br label %594
+592:                                              ; preds = %588
+  %593 = getelementptr inbounds i8, ptr %1, i64 144
+  %594 = load ptr, ptr %593, align 8
+  %595 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %589, ptr noundef %594, ptr noundef nonnull @.str.60, i32 noundef %342, i32 noundef %343)
+  br label %596
 
-594:                                              ; preds = %590, %586
-  %595 = load i32, ptr %23, align 4
-  %596 = add i32 %595, 1
-  store i32 %596, ptr %23, align 4
+596:                                              ; preds = %592, %588
+  %597 = load i32, ptr %23, align 4
+  %598 = add i32 %597, 1
+  store i32 %598, ptr %23, align 4
   br label %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit
 
-_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %315, %337, %197, %219, %47, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout9GPOS_impl6AnchorEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread269, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %.thread291, %312, %._crit_edge.i243, %.loopexit, %194, %._crit_edge.i, %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit, %594
-  %.0199 = phi i1 [ true, %594 ], [ false, %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit ], [ false, %._crit_edge.i ], [ false, %194 ], [ false, %.loopexit ], [ false, %._crit_edge.i243 ], [ false, %312 ], [ false, %.thread291 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout9GPOS_impl6AnchorEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread269 ], [ false, %47 ], [ false, %219 ], [ false, %197 ], [ false, %337 ], [ false, %315 ]
+_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %315, %337, %197, %219, %47, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout9GPOS_impl6AnchorEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread269, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %.thread291, %312, %._crit_edge.i243, %.loopexit, %194, %._crit_edge.i, %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit, %596
+  %.0199 = phi i1 [ true, %596 ], [ false, %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit ], [ false, %._crit_edge.i ], [ false, %194 ], [ false, %.loopexit ], [ false, %._crit_edge.i243 ], [ false, %312 ], [ false, %.thread291 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout9GPOS_impl6AnchorEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread269 ], [ false, %47 ], [ false, %219 ], [ false, %197 ], [ false, %337 ], [ false, %315 ]
   ret i1 %.0199
 }
 
@@ -88590,6 +88590,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x float> @llvm.floor.v2f32(<2 x float>) #21
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
