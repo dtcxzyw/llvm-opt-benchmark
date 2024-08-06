@@ -1101,13 +1101,13 @@ define hidden noundef i32 @_Z19RGBE_ReadPixels_RLEP8_IO_FILEPfii(ptr nocapture n
   %8 = alloca [2 x i8], align 1
   %9 = add i32 %2, -32768
   %or.cond = icmp ult i32 %9, -32760
-  br i1 %or.cond, label %22, label %.preheader114
+  br i1 %or.cond, label %22, label %.preheader113
 
-.preheader114:                                    ; preds = %4
+.preheader113:                                    ; preds = %4
   %10 = icmp sgt i32 %3, 0
-  br i1 %10, label %.lr.ph174, label %._crit_edge175
+  br i1 %10, label %.lr.ph173, label %._crit_edge174
 
-.lr.ph174:                                        ; preds = %.preheader114
+.lr.ph173:                                        ; preds = %.preheader113
   %11 = getelementptr inbounds i8, ptr %7, i64 1
   %12 = getelementptr inbounds i8, ptr %7, i64 2
   %13 = getelementptr inbounds i8, ptr %7, i64 3
@@ -1179,16 +1179,16 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit:            ; preds = %_ZL10rgbe2floatPfS_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %189
 
-52:                                               ; preds = %.lr.ph174, %._crit_edge
-  %.082173 = phi ptr [ null, %.lr.ph174 ], [ %.183234, %._crit_edge ]
-  %.084172 = phi i32 [ %3, %.lr.ph174 ], [ %187, %._crit_edge ]
-  %.085171 = phi ptr [ %1, %.lr.ph174 ], [ %186, %._crit_edge ]
+52:                                               ; preds = %.lr.ph173, %._crit_edge
+  %.082172 = phi ptr [ null, %.lr.ph173 ], [ %.183233, %._crit_edge ]
+  %.084171 = phi i32 [ %3, %.lr.ph173 ], [ %187, %._crit_edge ]
+  %.085170 = phi ptr [ %1, %.lr.ph173 ], [ %186, %._crit_edge ]
   %53 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %52
-  tail call void @free(ptr noundef %.082173) #14
+  tail call void @free(ptr noundef %.082172) #14
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
@@ -1206,8 +1206,8 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit:            ; preds = %_ZL10rgbe2floatPfS_
   br i1 %.not, label %108, label %63
 
 63:                                               ; preds = %61, %56
-  %.lcssa202 = phi i8 [ 2, %61 ], [ %59, %56 ]
-  %64 = getelementptr inbounds i8, ptr %.085171, i64 8
+  %.lcssa201 = phi i8 [ 2, %61 ], [ %59, %56 ]
+  %64 = getelementptr inbounds i8, ptr %.085170, i64 8
   %65 = load i8, ptr %13, align 1
   %.not.i = icmp eq i8 %65, 0
   br i1 %.not.i, label %_ZL10rgbe2floatPfS_S_Ph.exit, label %66
@@ -1221,7 +1221,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit:            ; preds = %_ZL10rgbe2floatPfS_
   %72 = fmul float %71, %70
   %73 = load i8, ptr %12, align 1
   %74 = insertelement <2 x i8> poison, i8 %73, i64 0
-  %75 = insertelement <2 x i8> %74, i8 %.lcssa202, i64 1
+  %75 = insertelement <2 x i8> %74, i8 %.lcssa201, i64 1
   %76 = uitofp <2 x i8> %75 to <2 x float>
   %77 = insertelement <2 x float> poison, float %70, i64 0
   %78 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1231,24 +1231,24 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit:            ; preds = %_ZL10rgbe2floatPfS_
 _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %63, %66
   %.sink = phi float [ %72, %66 ], [ 0.000000e+00, %63 ]
   %80 = phi <2 x float> [ %79, %66 ], [ zeroinitializer, %63 ]
-  store <2 x float> %80, ptr %.085171, align 4
+  store <2 x float> %80, ptr %.085170, align 4
   store float %.sink, ptr %64, align 4
-  tail call void @free(ptr noundef %.082173) #14
-  %81 = mul nuw nsw i32 %.084172, %2
+  tail call void @free(ptr noundef %.082172) #14
+  %81 = mul nuw nsw i32 %.084171, %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %82 = icmp sgt i32 %81, 1
-  br i1 %82, label %.lr.ph.i100, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108
+  br i1 %82, label %.lr.ph.i99, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107
 
-.lr.ph.i100:                                      ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit
+.lr.ph.i99:                                       ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit
   %83 = getelementptr inbounds i8, ptr %5, i64 3
   %84 = getelementptr inbounds i8, ptr %5, i64 1
   br label %85
 
-85:                                               ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i104, %.lr.ph.i100
-  %.in.i101.in = phi i32 [ %81, %.lr.ph.i100 ], [ %.in.i101, %_ZL10rgbe2floatPfS_S_Ph.exit.i104 ]
-  %.085.pn = phi ptr [ %.085171, %.lr.ph.i100 ], [ %.068.i102, %_ZL10rgbe2floatPfS_S_Ph.exit.i104 ]
-  %.068.i102 = getelementptr inbounds i8, ptr %.085.pn, i64 12
-  %.in.i101 = add nsw i32 %.in.i101.in, -1
+85:                                               ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i103, %.lr.ph.i99
+  %.in.i100.in = phi i32 [ %81, %.lr.ph.i99 ], [ %.in.i100, %_ZL10rgbe2floatPfS_S_Ph.exit.i103 ]
+  %.085.pn = phi ptr [ %.085170, %.lr.ph.i99 ], [ %.068.i101, %_ZL10rgbe2floatPfS_S_Ph.exit.i103 ]
+  %.068.i101 = getelementptr inbounds i8, ptr %.085.pn, i64 12
+  %.in.i100 = add nsw i32 %.in.i100.in, -1
   %86 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %88, label %89
@@ -1260,8 +1260,8 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %63, %66
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %.085.pn, i64 20
   %91 = load i8, ptr %83, align 1
-  %.not.i.i103 = icmp eq i8 %91, 0
-  br i1 %.not.i.i103, label %_ZL10rgbe2floatPfS_S_Ph.exit.i104, label %92
+  %.not.i.i102 = icmp eq i8 %91, 0
+  br i1 %.not.i.i102, label %_ZL10rgbe2floatPfS_S_Ph.exit.i103, label %92
 
 92:                                               ; preds = %89
   %93 = zext i8 %91 to i32
@@ -1276,18 +1276,18 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %63, %66
   %102 = insertelement <2 x float> poison, float %96, i64 0
   %103 = shufflevector <2 x float> %102, <2 x float> poison, <2 x i32> zeroinitializer
   %104 = fmul <2 x float> %103, %101
-  br label %_ZL10rgbe2floatPfS_S_Ph.exit.i104
+  br label %_ZL10rgbe2floatPfS_S_Ph.exit.i103
 
-_ZL10rgbe2floatPfS_S_Ph.exit.i104:                ; preds = %92, %89
-  %.sink.i107 = phi float [ %99, %92 ], [ 0.000000e+00, %89 ]
+_ZL10rgbe2floatPfS_S_Ph.exit.i103:                ; preds = %92, %89
+  %.sink.i106 = phi float [ %99, %92 ], [ 0.000000e+00, %89 ]
   %105 = phi <2 x float> [ %104, %92 ], [ zeroinitializer, %89 ]
   %106 = shufflevector <2 x float> %105, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %106, ptr %.068.i102, align 4
-  store float %.sink.i107, ptr %90, align 4
-  %107 = icmp ugt i32 %.in.i101, 1
-  br i1 %107, label %85, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108, !llvm.loop !14
+  store <2 x float> %106, ptr %.068.i101, align 4
+  store float %.sink.i106, ptr %90, align 4
+  %107 = icmp ugt i32 %.in.i100, 1
+  br i1 %107, label %85, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107, !llvm.loop !14
 
-_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108:         ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i104, %_ZL10rgbe2floatPfS_S_Ph.exit
+_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i103, %_ZL10rgbe2floatPfS_S_Ph.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %189
 
@@ -1297,57 +1297,57 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108:         ; preds = %_ZL10rgbe2floatPfS_
   %111 = load i8, ptr %13, align 1
   %112 = zext i8 %111 to i32
   %113 = or disjoint i32 %110, %112
-  %.not93 = icmp eq i32 %113, %2
-  br i1 %.not93, label %115, label %114
+  %.not92 = icmp eq i32 %113, %2
+  br i1 %.not92, label %115, label %114
 
 114:                                              ; preds = %108
-  tail call void @free(ptr noundef %.082173) #14
+  tail call void @free(ptr noundef %.082172) #14
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.14)
   unreachable
 
 115:                                              ; preds = %108
-  %116 = icmp eq ptr %.082173, null
-  br i1 %116, label %117, label %.preheader113.preheader
+  %116 = icmp eq ptr %.082172, null
+  br i1 %116, label %117, label %.preheader112.preheader
 
 117:                                              ; preds = %115
   %118 = tail call noalias ptr @malloc(i64 noundef %15) #17
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %120, label %.preheader113.preheader
+  br i1 %119, label %120, label %.preheader112.preheader
 
-.preheader113.preheader:                          ; preds = %115, %117
-  %.183234 = phi ptr [ %118, %117 ], [ %.082173, %115 ]
-  br label %.preheader113
+.preheader112.preheader:                          ; preds = %115, %117
+  %.183233 = phi ptr [ %118, %117 ], [ %.082172, %115 ]
+  br label %.preheader112
 
 120:                                              ; preds = %117
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 3, ptr noundef nonnull @.str.15)
   unreachable
 
-.loopexit111:                                     ; preds = %.loopexit, %.preheader113
-  %.181.lcssa = phi ptr [ %.080165, %.preheader113 ], [ %.3, %.loopexit ]
+.loopexit110:                                     ; preds = %.loopexit, %.preheader112
+  %.181.lcssa = phi ptr [ %.080164, %.preheader112 ], [ %.3, %.loopexit ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.lr.ph169, label %.preheader113, !llvm.loop !22
+  br i1 %exitcond.not, label %.lr.ph168, label %.preheader112, !llvm.loop !22
 
-.preheader113:                                    ; preds = %.preheader113.preheader, %.loopexit111
-  %indvars.iv = phi i64 [ 0, %.preheader113.preheader ], [ %indvars.iv.next, %.loopexit111 ]
-  %.080165 = phi ptr [ %.183234, %.preheader113.preheader ], [ %.181.lcssa, %.loopexit111 ]
+.preheader112:                                    ; preds = %.preheader112.preheader, %.loopexit110
+  %indvars.iv = phi i64 [ 0, %.preheader112.preheader ], [ %indvars.iv.next, %.loopexit110 ]
+  %.080164 = phi ptr [ %.183233, %.preheader112.preheader ], [ %.181.lcssa, %.loopexit110 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %121 = mul nuw nsw i64 %indvars.iv.next, %19
-  %122 = getelementptr inbounds i8, ptr %.183234, i64 %121
-  %123 = icmp ult ptr %.080165, %122
-  br i1 %123, label %.lr.ph163, label %.loopexit111
+  %122 = getelementptr inbounds i8, ptr %.183233, i64 %121
+  %123 = icmp ult ptr %.080164, %122
+  br i1 %123, label %.lr.ph162, label %.loopexit110
 
-.lr.ph163:                                        ; preds = %.preheader113
+.lr.ph162:                                        ; preds = %.preheader112
   %124 = ptrtoint ptr %122 to i64
   br label %125
 
-125:                                              ; preds = %.lr.ph163, %.loopexit
-  %.181162 = phi ptr [ %.080165, %.lr.ph163 ], [ %.3, %.loopexit ]
+125:                                              ; preds = %.lr.ph162, %.loopexit
+  %.181161 = phi ptr [ %.080164, %.lr.ph162 ], [ %.3, %.loopexit ]
   %126 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 2, i64 noundef 1, ptr noundef %0)
   %127 = icmp eq i64 %126, 0
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %125
-  tail call void @free(ptr noundef nonnull %.183234) #14
+  tail call void @free(ptr noundef nonnull %.183233) #14
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
@@ -1355,7 +1355,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108:         ; preds = %_ZL10rgbe2floatPfS_
   %130 = load i8, ptr %8, align 1
   %131 = zext i8 %130 to i32
   %132 = icmp ugt i8 %130, -128
-  %133 = ptrtoint ptr %.181162 to i64
+  %133 = ptrtoint ptr %.181161 to i64
   %134 = sub i64 %124, %133
   br i1 %132, label %135, label %143
 
@@ -1370,37 +1370,37 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108:         ; preds = %_ZL10rgbe2floatPfS_
   br label %.lr.ph
 
 139:                                              ; preds = %135
-  tail call void @free(ptr noundef nonnull %.183234) #14
+  tail call void @free(ptr noundef nonnull %.183233) #14
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.16)
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0161 = phi i32 [ %140, %.lr.ph ], [ %136, %.lr.ph.preheader ]
-  %.2160 = phi ptr [ %141, %.lr.ph ], [ %.181162, %.lr.ph.preheader ]
-  %140 = add nsw i32 %.0161, -1
-  %141 = getelementptr inbounds i8, ptr %.2160, i64 1
-  store i8 %.pre, ptr %.2160, align 1
-  %142 = icmp sgt i32 %.0161, 1
+  %.0160 = phi i32 [ %140, %.lr.ph ], [ %136, %.lr.ph.preheader ]
+  %.2159 = phi ptr [ %141, %.lr.ph ], [ %.181161, %.lr.ph.preheader ]
+  %140 = add nsw i32 %.0160, -1
+  %141 = getelementptr inbounds i8, ptr %.2159, i64 1
+  store i8 %.pre, ptr %.2159, align 1
+  %142 = icmp sgt i32 %.0160, 1
   br i1 %142, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 143:                                              ; preds = %129
   %144 = icmp eq i8 %130, 0
   %145 = zext i8 %130 to i64
   %146 = icmp slt i64 %134, %145
-  %or.cond99 = or i1 %144, %146
-  br i1 %or.cond99, label %147, label %148
+  %or.cond98 = or i1 %144, %146
+  br i1 %or.cond98, label %147, label %148
 
 147:                                              ; preds = %143
-  tail call void @free(ptr noundef nonnull %.183234) #14
+  tail call void @free(ptr noundef nonnull %.183233) #14
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.16)
   unreachable
 
 148:                                              ; preds = %143
   %149 = load i8, ptr %16, align 1
-  %150 = getelementptr inbounds i8, ptr %.181162, i64 1
-  store i8 %149, ptr %.181162, align 1
-  %.not94 = icmp eq i8 %130, 1
-  br i1 %.not94, label %.loopexit, label %151
+  %150 = getelementptr inbounds i8, ptr %.181161, i64 1
+  store i8 %149, ptr %.181161, align 1
+  %.not93 = icmp eq i8 %130, 1
+  br i1 %.not93, label %.loopexit, label %151
 
 151:                                              ; preds = %148
   %152 = add nsw i32 %131, -1
@@ -1410,7 +1410,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108:         ; preds = %_ZL10rgbe2floatPfS_
   br i1 %155, label %156, label %157
 
 156:                                              ; preds = %151
-  tail call void @free(ptr noundef nonnull %.183234) #14
+  tail call void @free(ptr noundef nonnull %.183233) #14
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
@@ -1421,31 +1421,31 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108:         ; preds = %_ZL10rgbe2floatPfS_
 .loopexit:                                        ; preds = %.lr.ph, %148, %157
   %.3 = phi ptr [ %158, %157 ], [ %150, %148 ], [ %141, %.lr.ph ]
   %159 = icmp ult ptr %.3, %122
-  br i1 %159, label %125, label %.loopexit111, !llvm.loop !24
+  br i1 %159, label %125, label %.loopexit110, !llvm.loop !24
 
-.lr.ph169:                                        ; preds = %.loopexit111, %_ZL10rgbe2floatPfS_S_Ph.exit110
-  %indvars.iv224 = phi i64 [ %indvars.iv.next225, %_ZL10rgbe2floatPfS_S_Ph.exit110 ], [ 0, %.loopexit111 ]
-  %.186167 = phi ptr [ %186, %_ZL10rgbe2floatPfS_S_Ph.exit110 ], [ %.085171, %.loopexit111 ]
-  %160 = getelementptr inbounds i8, ptr %.183234, i64 %indvars.iv224
+.lr.ph168:                                        ; preds = %.loopexit110, %_ZL10rgbe2floatPfS_S_Ph.exit109
+  %indvars.iv223 = phi i64 [ %indvars.iv.next224, %_ZL10rgbe2floatPfS_S_Ph.exit109 ], [ 0, %.loopexit110 ]
+  %.186166 = phi ptr [ %186, %_ZL10rgbe2floatPfS_S_Ph.exit109 ], [ %.085170, %.loopexit110 ]
+  %160 = getelementptr inbounds i8, ptr %.183233, i64 %indvars.iv223
   %161 = load i8, ptr %160, align 1
   store i8 %161, ptr %7, align 1
-  %162 = add nuw nsw i64 %indvars.iv224, %19
-  %163 = getelementptr inbounds i8, ptr %.183234, i64 %162
+  %162 = add nuw nsw i64 %indvars.iv223, %19
+  %163 = getelementptr inbounds i8, ptr %.183233, i64 %162
   %164 = load i8, ptr %163, align 1
   store i8 %164, ptr %11, align 1
-  %165 = add nuw nsw i64 %indvars.iv224, %20
-  %166 = getelementptr inbounds i8, ptr %.183234, i64 %165
+  %165 = add nuw nsw i64 %indvars.iv223, %20
+  %166 = getelementptr inbounds i8, ptr %.183233, i64 %165
   %167 = load i8, ptr %166, align 1
   store i8 %167, ptr %12, align 1
-  %168 = add nuw nsw i64 %indvars.iv224, %21
-  %169 = getelementptr inbounds i8, ptr %.183234, i64 %168
+  %168 = add nuw nsw i64 %indvars.iv223, %21
+  %169 = getelementptr inbounds i8, ptr %.183233, i64 %168
   %170 = load i8, ptr %169, align 1
   store i8 %170, ptr %13, align 1
-  %171 = getelementptr inbounds i8, ptr %.186167, i64 8
-  %.not.i109 = icmp eq i8 %170, 0
-  br i1 %.not.i109, label %_ZL10rgbe2floatPfS_S_Ph.exit110, label %172
+  %171 = getelementptr inbounds i8, ptr %.186166, i64 8
+  %.not.i108 = icmp eq i8 %170, 0
+  br i1 %.not.i108, label %_ZL10rgbe2floatPfS_S_Ph.exit109, label %172
 
-172:                                              ; preds = %.lr.ph169
+172:                                              ; preds = %.lr.ph168
   %173 = zext i8 %170 to i32
   %174 = add nsw i32 %173, -136
   %175 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %174) #14
@@ -1458,29 +1458,29 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108:         ; preds = %_ZL10rgbe2floatPfS_
   %182 = insertelement <2 x float> poison, float %176, i64 0
   %183 = shufflevector <2 x float> %182, <2 x float> poison, <2 x i32> zeroinitializer
   %184 = fmul <2 x float> %183, %181
-  br label %_ZL10rgbe2floatPfS_S_Ph.exit110
+  br label %_ZL10rgbe2floatPfS_S_Ph.exit109
 
-_ZL10rgbe2floatPfS_S_Ph.exit110:                  ; preds = %.lr.ph169, %172
-  %.sink230 = phi float [ %178, %172 ], [ 0.000000e+00, %.lr.ph169 ]
-  %185 = phi <2 x float> [ %184, %172 ], [ zeroinitializer, %.lr.ph169 ]
-  store <2 x float> %185, ptr %.186167, align 4
-  store float %.sink230, ptr %171, align 4
-  %186 = getelementptr inbounds i8, ptr %.186167, i64 12
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %exitcond227.not = icmp eq i64 %indvars.iv.next225, %19
-  br i1 %exitcond227.not, label %._crit_edge, label %.lr.ph169, !llvm.loop !25
+_ZL10rgbe2floatPfS_S_Ph.exit109:                  ; preds = %.lr.ph168, %172
+  %.sink229 = phi float [ %178, %172 ], [ 0.000000e+00, %.lr.ph168 ]
+  %185 = phi <2 x float> [ %184, %172 ], [ zeroinitializer, %.lr.ph168 ]
+  store <2 x float> %185, ptr %.186166, align 4
+  store float %.sink229, ptr %171, align 4
+  %186 = getelementptr inbounds i8, ptr %.186166, i64 12
+  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
+  %exitcond226.not = icmp eq i64 %indvars.iv.next224, %19
+  br i1 %exitcond226.not, label %._crit_edge, label %.lr.ph168, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit110
-  %187 = add nsw i32 %.084172, -1
-  %188 = icmp sgt i32 %.084172, 1
-  br i1 %188, label %52, label %._crit_edge175, !llvm.loop !26
+._crit_edge:                                      ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit109
+  %187 = add nsw i32 %.084171, -1
+  %188 = icmp sgt i32 %.084171, 1
+  br i1 %188, label %52, label %._crit_edge174, !llvm.loop !26
 
-._crit_edge175:                                   ; preds = %._crit_edge, %.preheader114
-  %.082.lcssa = phi ptr [ null, %.preheader114 ], [ %.183234, %._crit_edge ]
+._crit_edge174:                                   ; preds = %._crit_edge, %.preheader113
+  %.082.lcssa = phi ptr [ null, %.preheader113 ], [ %.183233, %._crit_edge ]
   tail call void @free(ptr noundef %.082.lcssa) #14
   br label %189
 
-189:                                              ; preds = %._crit_edge175, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit108, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit
+189:                                              ; preds = %._crit_edge174, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit
   ret i32 0
 }
 

@@ -1656,13 +1656,9 @@ define internal noundef i32 @_ZL10luauF_byteP9lua_StateP10lua_TValueS2_iS2_i(ptr
   %37 = icmp slt i32 %3, 0
   %38 = select i1 %37, i32 1, i32 %3
   %39 = icmp eq i32 %36, %38
-  br i1 %39, label %.preheader, label %.loopexit
+  br i1 %39, label %.lr.ph.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %34
-  %.not3839 = icmp slt i32 %35, 0
-  br i1 %.not3839, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph.preheader:                                 ; preds = %34
   %invariant.gep = getelementptr i8, ptr %17, i64 23
   %40 = zext nneg i32 %19 to i64
   %wide.trip.count = zext nneg i32 %36 to i64
@@ -1682,8 +1678,8 @@ define internal noundef i32 @_ZL10luauF_byteP9lua_StateP10lua_TValueS2_iS2_i(ptr
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %6, %8, %12, %34, %31, %28
-  %.0 = phi i32 [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %12 ], [ -1, %8 ], [ -1, %6 ], [ 0, %.preheader ], [ %36, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %6, %8, %12, %34, %31, %28
+  %.0 = phi i32 [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %12 ], [ -1, %8 ], [ -1, %6 ], [ %36, %.lr.ph ]
   ret i32 %.0
 }
 

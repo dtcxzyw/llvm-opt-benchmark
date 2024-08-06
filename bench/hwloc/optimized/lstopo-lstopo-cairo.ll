@@ -1204,7 +1204,7 @@ condstore.split:                                  ; preds = %165
   %171 = icmp slt i32 %170, 0
   %172 = tail call i32 @llvm.smax.i32(i32 %170, i32 0)
   %173 = sub nsw i32 %167, %166
-  %.not98 = icmp sge i32 %172, %173
+  %.not98 = icmp sge i32 %170, %173
   %simplifycfg.merge = tail call i32 @llvm.smin.i32(i32 %172, i32 %173)
   %174 = or i1 %171, %.not98
   br i1 %174, label %.sink.split, label %175
@@ -1228,7 +1228,7 @@ condstore.split109:                               ; preds = %175
   %182 = icmp slt i32 %181, 0
   %183 = tail call i32 @llvm.smax.i32(i32 %181, i32 0)
   %184 = sub nsw i32 %177, %179
-  %.not100 = icmp sge i32 %183, %184
+  %.not100 = icmp sge i32 %181, %184
   %simplifycfg.merge110 = tail call i32 @llvm.smin.i32(i32 %183, i32 %184)
   %185 = or i1 %182, %.not100
   br i1 %185, label %.sink.split111, label %186

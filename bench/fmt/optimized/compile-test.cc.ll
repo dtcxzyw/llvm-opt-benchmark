@@ -31203,17 +31203,13 @@ if.end:                                           ; preds = %_ZNSt20back_insert_
 
 if.then8:                                         ; preds = %if.end
   %sub11 = sub nsw i32 %width.0, %sub.i.i
-  %cmp2.i.i.i.not = icmp eq i32 %sub11, 0
-  br i1 %cmp2.i.i.i.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit, label %for.body.lr.ph.i.i.i
-
-for.body.lr.ph.i.i.i:                             ; preds = %if.then8
   %size_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 16
   %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 24
   %ptr_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i, %for.body.lr.ph.i.i.i
-  %__n.addr.03.i.i.i = phi i32 [ %sub11, %for.body.lr.ph.i.i.i ], [ %dec.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i ]
+for.body.i.i.i:                                   ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i, %if.then8
+  %__n.addr.03.i.i.i = phi i32 [ %sub11, %if.then8 ], [ %dec.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i ]
   %8 = load i64, ptr %size_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %8, 1
   %9 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
@@ -31239,7 +31235,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
   %cmp.i.i.i9 = icmp sgt i32 %__n.addr.03.i.i.i, 1
   br i1 %cmp.i.i.i9, label %for.body.i.i.i, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit, !llvm.loop !490
 
-_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i, %if.then8
+_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %out_10, align 8
   br label %if.end17
 
