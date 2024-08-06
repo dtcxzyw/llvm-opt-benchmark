@@ -4593,7 +4593,7 @@ _ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit:     ; preds = %.lr.ph.i.i.i, %_ZSt
   br i1 %102, label %103, label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit48
 
 103:                                              ; preds = %98
-  %.029.lcssa.i.i.i36.add = add nuw nsw i64 %.029.lcssa.i.i.i36.idx, 1
+  %.029.lcssa.i.i.i36.add = add nsw i64 %.029.lcssa.i.i.i36.idx, 1
   br label %104
 
 104:                                              ; preds = %103, %._crit_edge.i.i.i34

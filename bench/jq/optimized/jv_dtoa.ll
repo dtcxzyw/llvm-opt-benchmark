@@ -1154,9 +1154,9 @@ Bfree.exit614:                                    ; preds = %296, %297
   %.028.lcssa55.i = phi i32 [ %.028.lcssa54.i, %._crit_edge.thread.i ], [ %450, %._crit_edge.i ]
   %459 = shl nuw i32 1, %.028.lcssa55.i
   %460 = add nsw i32 %459, -1
-  %461 = sext i32 %460 to i64
-  %462 = shl nsw i64 %461, 2
-  %463 = add nsw i64 %462, 32
+  %461 = zext nneg i32 %460 to i64
+  %462 = shl nuw nsw i64 %461, 2
+  %463 = add nuw nsw i64 %462, 32
   %464 = tail call ptr @jv_mem_alloc(i64 noundef %463) #11
   %465 = getelementptr inbounds i8, ptr %464, i64 8
   store i32 %.028.lcssa55.i, ptr %465, align 8
@@ -1264,9 +1264,9 @@ Bfree.exit661:                                    ; preds = %Bfree.exit661.backe
 516:                                              ; preds = %510, %Bfree.exit661
   %517 = shl nuw i32 1, %508
   %518 = add nsw i32 %517, -1
-  %519 = sext i32 %518 to i64
-  %520 = shl nsw i64 %519, 2
-  %521 = add nsw i64 %520, 32
+  %519 = zext nneg i32 %518 to i64
+  %520 = shl nuw nsw i64 %519, 2
+  %521 = add nuw nsw i64 %520, 32
   %522 = tail call ptr @jv_mem_alloc(i64 noundef %521) #11
   %523 = getelementptr inbounds i8, ptr %522, i64 8
   store i32 %508, ptr %523, align 8
@@ -3051,9 +3051,9 @@ define internal fastcc ptr @mult(ptr nocapture noundef %0, ptr noundef readonly 
 27:                                               ; preds = %21, %3
   %28 = shl nuw i32 1, %.059
   %29 = add nsw i32 %28, -1
-  %30 = sext i32 %29 to i64
-  %31 = shl nsw i64 %30, 2
-  %32 = add nsw i64 %31, 32
+  %30 = zext nneg i32 %29 to i64
+  %31 = shl nuw nsw i64 %30, 2
+  %32 = add nuw nsw i64 %31, 32
   %33 = tail call ptr @jv_mem_alloc(i64 noundef %32) #11
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   store i32 %.059, ptr %34, align 8
@@ -3207,9 +3207,9 @@ define internal fastcc ptr @lshift(ptr nocapture noundef %0, ptr noundef %1, i32
 21:                                               ; preds = %15, %._crit_edge
   %22 = shl nuw i32 1, %.046.lcssa
   %23 = add nsw i32 %22, -1
-  %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 2
-  %26 = add nsw i64 %25, 32
+  %24 = zext nneg i32 %23 to i64
+  %25 = shl nuw nsw i64 %24, 2
+  %26 = add nuw nsw i64 %25, 32
   %27 = tail call ptr @jv_mem_alloc(i64 noundef %26) #11
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 %.046.lcssa, ptr %28, align 8
@@ -3403,9 +3403,9 @@ Balloc.exit:                                      ; preds = %22, %24
 42:                                               ; preds = %36, %31
   %43 = shl nuw i32 1, %34
   %44 = add nsw i32 %43, -1
-  %45 = sext i32 %44 to i64
-  %46 = shl nsw i64 %45, 2
-  %47 = add nsw i64 %46, 32
+  %45 = zext nneg i32 %44 to i64
+  %46 = shl nuw nsw i64 %45, 2
+  %47 = add nuw nsw i64 %46, 32
   %48 = tail call ptr @jv_mem_alloc(i64 noundef %47) #11
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   store i32 %34, ptr %49, align 8
@@ -3882,9 +3882,9 @@ default.unreachable:                              ; preds = %137
   %.08.lcssa14.i = phi i32 [ %.08.lcssa13.i, %._crit_edge.thread.i ], [ %147, %._crit_edge.i618 ]
   %156 = shl nuw i32 1, %.08.lcssa14.i
   %157 = add nsw i32 %156, -1
-  %158 = sext i32 %157 to i64
-  %159 = shl nsw i64 %158, 2
-  %160 = add nsw i64 %159, 32
+  %158 = zext nneg i32 %157 to i64
+  %159 = shl nuw nsw i64 %158, 2
+  %160 = add nuw nsw i64 %159, 32
   %161 = tail call ptr @jv_mem_alloc(i64 noundef %160) #11
   %162 = getelementptr inbounds i8, ptr %161, i64 8
   store i32 %.08.lcssa14.i, ptr %162, align 8
@@ -4706,9 +4706,9 @@ cmp.exit637.thread720:                            ; preds = %498, %cmp.exit637, 
 521:                                              ; preds = %515, %511
   %522 = shl nuw i32 1, %513
   %523 = add nsw i32 %522, -1
-  %524 = sext i32 %523 to i64
-  %525 = shl nsw i64 %524, 2
-  %526 = add nsw i64 %525, 32
+  %524 = zext nneg i32 %523 to i64
+  %525 = shl nuw nsw i64 %524, 2
+  %526 = add nuw nsw i64 %525, 32
   %527 = tail call ptr @jv_mem_alloc(i64 noundef %526) #11
   %528 = getelementptr inbounds i8, ptr %527, i64 8
   store i32 %513, ptr %528, align 8
@@ -5314,9 +5314,9 @@ define internal fastcc ptr @multadd(ptr nocapture noundef %0, ptr noundef %1, i3
 34:                                               ; preds = %28, %23
   %35 = shl nuw i32 1, %26
   %36 = add nsw i32 %35, -1
-  %37 = sext i32 %36 to i64
-  %38 = shl nsw i64 %37, 2
-  %39 = add nsw i64 %38, 32
+  %37 = zext nneg i32 %36 to i64
+  %38 = shl nuw nsw i64 %37, 2
+  %39 = add nuw nsw i64 %38, 32
   %40 = tail call ptr @jv_mem_alloc(i64 noundef %39) #11
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   store i32 %26, ptr %41, align 8

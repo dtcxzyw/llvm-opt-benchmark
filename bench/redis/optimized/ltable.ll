@@ -242,7 +242,7 @@ for.body16.lr.ph:                                 ; preds = %for.end
   %node = getelementptr inbounds i8, ptr %t, i64 40
   %41 = load ptr, ptr %node, align 8, !tbaa !13
   %42 = sext i32 %indvars.iv89 to i64
-  %43 = sext i32 %shl to i64
+  %43 = zext nneg i32 %shl to i64
   br label %for.body16
 
 for.cond12:                                       ; preds = %for.body16

@@ -1688,7 +1688,7 @@ if.then.i71.i:                                    ; preds = %if.end20.i.i
 
 RingBufferWriteTail.exit.i:                       ; preds = %if.then.i71.i, %if.end20.i.i
   %167 = phi i32 [ %.pre, %if.then.i71.i ], [ %.pre267, %if.end20.i.i ]
-  %add.i.i182 = add i64 %cond.i, %conv22.i.i
+  %add.i.i182 = add nuw i64 %cond.i, %conv22.i.i
   %conv24.i.i = zext i32 %167 to i64
   %cmp25.i.not.i = icmp ugt i64 %add.i.i182, %conv24.i.i
   %168 = load ptr, ptr %buffer_.i34.i, align 8

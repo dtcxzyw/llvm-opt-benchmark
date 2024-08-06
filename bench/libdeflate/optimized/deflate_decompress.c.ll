@@ -2606,9 +2606,9 @@ for.end36.loopexit:                               ; preds = %for.body23
   %10 = zext i32 %max_codeword_len.addr.0.lcssa to i64
   br label %for.end36
 
-for.end36:                                        ; preds = %if.end, %for.end36.loopexit
-  %len.1.lcssa = phi i64 [ %10, %for.end36.loopexit ], [ 1, %if.end ]
-  %codespace_used.0.lcssa = phi i32 [ %9, %for.end36.loopexit ], [ 0, %if.end ]
+for.end36:                                        ; preds = %for.end36.loopexit, %if.end
+  %len.1.lcssa = phi i64 [ 1, %if.end ], [ %10, %for.end36.loopexit ]
+  %codespace_used.0.lcssa = phi i32 [ 0, %if.end ], [ %9, %for.end36.loopexit ]
   %arrayidx39 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %len.1.lcssa
   %11 = load i32, ptr %arrayidx39, align 4
   %add40 = add i32 %11, %codespace_used.0.lcssa
@@ -2824,7 +2824,7 @@ while.body174:                                    ; preds = %if.then165, %while.
   %subtable_bits.0157 = phi i32 [ %inc175, %while.body174 ], [ %.pre, %if.then165 ]
   %codespace_used.1156 = phi i32 [ %add180, %while.body174 ], [ %count.2, %if.then165 ]
   %inc175 = add i32 %subtable_bits.0157, 1
-  %shl176 = shl i32 %codespace_used.1156, 1
+  %shl176 = shl nuw i32 %codespace_used.1156, 1
   %add177.reass = add i32 %subtable_bits.0157, %invariant.op
   %idxprom178 = zext i32 %add177.reass to i64
   %arrayidx179 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %idxprom178
@@ -2843,7 +2843,7 @@ while.end181:                                     ; preds = %while.body174, %if.
   %25 = or i32 %shl184, %shl187
   %or188 = or i32 %25, %table_bits.addr.0
   %or189 = or i32 %or188, 49152
-  %idxprom190 = zext i32 %and162 to i64
+  %idxprom190 = zext nneg i32 %and162 to i64
   %arrayidx191 = getelementptr inbounds i32, ptr %decode_table, i64 %idxprom190
   store i32 %or189, ptr %arrayidx191, align 4
   br label %if.end192

@@ -3115,7 +3115,7 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE9removeMinEv.ex
   %103 = phi i32 [ 1, %.lr.ph.i.i ], [ %142, %132 ]
   %104 = phi i32 [ 0, %.lr.ph.i.i ], [ %141, %132 ]
   %.018.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %128, %132 ]
-  %105 = add i32 %104, 2
+  %105 = add nsw i32 %104, 2
   %106 = icmp slt i32 %105, %102
   %.pre.pre.i.i = load ptr, ptr %60, align 8
   br i1 %106, label %107, label %._crit_edge29.i.i
@@ -5281,7 +5281,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   %88 = phi i32 [ %83, %.lr.ph.i ], [ %127, %117 ]
   %89 = phi i32 [ %84, %.lr.ph.i ], [ %126, %117 ]
   %.018.i = phi i32 [ %85, %.lr.ph.i ], [ %113, %117 ]
-  %90 = add i32 %89, 2
+  %90 = add nsw i32 %89, 2
   %91 = icmp slt i32 %90, %87
   %.pre.pre.i = load ptr, ptr %0, align 8
   br i1 %91, label %92, label %._crit_edge29.i

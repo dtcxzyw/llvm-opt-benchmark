@@ -5473,7 +5473,7 @@ if.end6.i:                                        ; preds = %if.end3.i
   %shr.i.i.i = lshr i32 %shl.i.i, 1
   %shr1.i.i.i = lshr i32 %shl.i.i, 3
   %add.i.i.i = add nuw nsw i32 %shr1.i.i.i, 3
-  %add2.i.i.i = add nuw i32 %add.i.i.i, %shr.i.i.i
+  %add2.i.i.i = add nuw nsw i32 %add.i.i.i, %shr.i.i.i
   %cmp.i.i = icmp ugt i32 %9, 255
   br i1 %cmp.i.i, label %FSE_buildDTable.exit.thread.i, label %if.end.i.i
 
@@ -7016,7 +7016,7 @@ entry:
   %shr.i = lshr i32 %shl, 1
   %shr1.i = lshr i32 %shl, 3
   %add.i = add nuw nsw i32 %shr1.i, 3
-  %add2.i = add nuw i32 %add.i, %shr.i
+  %add2.i = add nuw nsw i32 %add.i, %shr.i
   %cmp = icmp ugt i32 %maxSymbolValue, 255
   %cmp5 = icmp ugt i32 %tableLog, 12
   %or.cond = or i1 %cmp, %cmp5

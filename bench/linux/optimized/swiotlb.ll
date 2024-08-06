@@ -2283,7 +2283,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #0
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i64 -2147221503, 2147745793) i64 @swiotlb_max_mapping_size(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local range(i64 -2147219456, 2147745793) i64 @swiotlb_max_mapping_size(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

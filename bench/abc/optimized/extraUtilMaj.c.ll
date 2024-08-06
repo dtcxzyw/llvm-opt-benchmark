@@ -550,7 +550,7 @@ define i32 @Gem_GroupsDerive(ptr noundef readonly %0, i32 noundef %1, ptr nounde
   br i1 %48, label %49, label %61
 
 49:                                               ; preds = %.lr.ph.split
-  br i1 %15, label %.lr.ph.i.i, label %Abc_TtCofactor1p.exit.thread.i
+  br i1 %15, label %.lr.ph.i.i, label %Abc_TtVarsAreSymmetric.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %49
   %50 = shl nuw nsw i32 1, %indvars30
@@ -618,7 +618,7 @@ Abc_TtCofactor0p.exit.thread.i:                   ; preds = %._crit_edge.us.i.i,
   br i1 %48, label %78, label %Abc_TtCofactor0p.exit.thread.thread.i
 
 78:                                               ; preds = %Abc_TtCofactor0p.exit.thread.i
-  br i1 %15, label %.lr.ph.i27.i, label %Abc_TtCofactor1p.exit.thread.i
+  br i1 %15, label %.lr.ph.i27.i, label %Abc_TtVarsAreSymmetric.exit.thread
 
 .lr.ph.i27.i:                                     ; preds = %78
   %79 = shl nuw nsw i32 1, %indvars30
@@ -689,7 +689,7 @@ Abc_TtCofactor0p.exit.thread.thread.i:            ; preds = %Abc_TtCofactor0p.ex
   %109 = zext nneg i32 %108 to i64
   br label %.preheader.us.preheader.i30.i
 
-Abc_TtCofactor1p.exit.thread.i:                   ; preds = %._crit_edge.us.i26.i, %83, %78, %49
+Abc_TtCofactor1p.exit.thread.i:                   ; preds = %._crit_edge.us.i26.i, %83
   %110 = icmp ult i64 %indvars.iv, 5
   br i1 %110, label %111, label %122
 
@@ -835,8 +835,8 @@ Abc_TtCofactor0.exit.i:                           ; preds = %._crit_edge.us.i49.
   %167 = or i32 %.024, %166
   br label %Abc_TtVarsAreSymmetric.exit.thread
 
-Abc_TtVarsAreSymmetric.exit.thread:               ; preds = %160, %Abc_TtCofactor0p.exit.thread.thread.i, %61, %122, %111, %Abc_TtCofactor1.exit.thread.thread.i.loopexit, %Abc_TtCofactor0.exit.i, %165
-  %168 = phi i32 [ %167, %165 ], [ %.024, %Abc_TtCofactor0.exit.i ], [ %.024, %Abc_TtCofactor1.exit.thread.thread.i.loopexit ], [ %.024, %111 ], [ %.024, %122 ], [ %.024, %61 ], [ %.024, %Abc_TtCofactor0p.exit.thread.thread.i ], [ %.024, %160 ]
+Abc_TtVarsAreSymmetric.exit.thread:               ; preds = %160, %78, %Abc_TtCofactor0p.exit.thread.thread.i, %49, %61, %122, %111, %Abc_TtCofactor1.exit.thread.thread.i.loopexit, %Abc_TtCofactor0.exit.i, %165
+  %168 = phi i32 [ %167, %165 ], [ %.024, %Abc_TtCofactor0.exit.i ], [ %.024, %Abc_TtCofactor1.exit.thread.thread.i.loopexit ], [ %.024, %111 ], [ %.024, %122 ], [ %.024, %61 ], [ %.024, %49 ], [ %.024, %Abc_TtCofactor0p.exit.thread.thread.i ], [ %.024, %78 ], [ %.024, %160 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 

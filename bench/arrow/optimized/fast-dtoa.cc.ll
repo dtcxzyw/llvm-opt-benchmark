@@ -659,7 +659,7 @@ if.end3.i46.i.i:                                  ; preds = %if.end55.i.i
   br i1 %cmp5.i48.i.i, label %land.lhs.true.i80.i.i, label %if.end10.i49.i.i
 
 land.lhs.true.i80.i.i:                            ; preds = %if.end3.i46.i.i
-  %mul.i81.i.i = shl i64 %and50.i.i, 1
+  %mul.i81.i.i = shl nuw i64 %and50.i.i, 1
   %sub6.i82.i.i = sub i64 %shl.i8.i, %mul.i81.i.i
   %mul7.i.i11.i = mul i64 %w_error.0115.i.i, 20
   %cmp8.not.i83.i.i = icmp ult i64 %sub6.i82.i.i, %mul7.i.i11.i

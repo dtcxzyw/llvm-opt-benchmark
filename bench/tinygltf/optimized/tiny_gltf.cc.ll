@@ -79573,8 +79573,8 @@ _ZL10stbi__skipP13stbi__contexti.exit.i.backedge: ; preds = %._crit_edge.i124.i,
   br i1 %387, label %388, label %407
 
 388:                                              ; preds = %386
-  %389 = add nuw nsw i32 %.084.i.ph, 1
-  %390 = zext nneg i32 %.084.i.ph to i64
+  %389 = add nsw i32 %.084.i.ph, 1
+  %390 = sext i32 %.084.i.ph to i64
   %391 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %232, i64 0, i64 %390
   %392 = icmp sgt i32 %.084.i.ph, 8191
   br i1 %392, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split, label %393

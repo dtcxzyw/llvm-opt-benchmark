@@ -4882,7 +4882,7 @@ if.then72.us:                                     ; preds = %if.end69.us
 
 if.end82.us:                                      ; preds = %if.then72.us, %if.end69.us
   %block_len.1.us = phi i32 [ %15, %if.end69.us ], [ %sub7985, %if.then72.us ]
-  %add83.us = add i32 %block_len.1.us, 4
+  %add83.us = add nuw i32 %block_len.1.us, 4
   %conv84.us = zext i32 %add83.us to i64
   %add85.us = add nsw i64 %current_length.041.us, %conv84.us
   br label %for.inc.us
@@ -4920,7 +4920,7 @@ if.then72.us52:                                   ; preds = %for.body.us43
 
 if.end82.us55:                                    ; preds = %if.then72.us52, %for.body.us43
   %block_len.1.us56 = phi i32 [ %spec.select, %for.body.us43 ], [ %sub79, %if.then72.us52 ]
-  %add83.us57 = add i32 %block_len.1.us56, 4
+  %add83.us57 = add nuw i32 %block_len.1.us56, 4
   %conv84.us58 = zext i32 %add83.us57 to i64
   %add85.us59 = add nuw nsw i64 %current_length.041.us45, %conv84.us58
   %node52.0.in.us60 = getelementptr inbounds i8, ptr %node52.042.us44, i64 16
@@ -4944,7 +4944,7 @@ if.then72:                                        ; preds = %for.body
 
 if.end82:                                         ; preds = %if.then72, %for.body
   %block_len.1 = phi i32 [ %23, %for.body ], [ %sub79, %if.then72 ]
-  %add83 = add i32 %block_len.1, 4
+  %add83 = add nuw i32 %block_len.1, 4
   %conv84 = zext i32 %add83 to i64
   %add85 = add nuw nsw i64 %current_length.041, %conv84
   %node52.0.in = getelementptr inbounds i8, ptr %node52.042, i64 16

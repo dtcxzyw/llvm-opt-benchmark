@@ -365,7 +365,7 @@ while.end235:                                     ; preds = %if.end232, %while.b
 if.end250:                                        ; preds = %while.end235
   %conv252 = trunc i32 %curr.2.lcssa to i8
   %22 = load ptr, ptr %table, align 8
-  %idxprom253 = zext i32 %and209 to i64
+  %idxprom253 = zext nneg i32 %and209 to i64
   %arrayidx254 = getelementptr inbounds %struct.code, ptr %22, i64 %idxprom253
   store i8 %conv252, ptr %arrayidx254, align 2
   %23 = load ptr, ptr %table, align 8

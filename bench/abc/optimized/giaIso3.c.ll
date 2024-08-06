@@ -513,7 +513,7 @@ Gia_Iso3Save.exit.thread:                         ; preds = %Gia_Iso3Save.exit, 
 
 Vec_IntUniqueHashKey.exit.i:                      ; preds = %92
   %114 = and i32 %113, %84
-  %115 = sext i32 %114 to i64
+  %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds i32, ptr %87, i64 %115
   %117 = load i32, ptr %116, align 4
   %.not1.i.i = icmp eq i32 %117, -1

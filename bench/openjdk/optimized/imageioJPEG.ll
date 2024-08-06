@@ -5252,11 +5252,11 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   br label %365
 
 103:                                              ; preds = %91
-  %104 = ashr i32 %93, 1
   %.not424.not436.not = icmp eq i32 %81, 31
   br i1 %.not424.not436.not, label %.loopexit, label %.lr.ph438.preheader
 
 .lr.ph438.preheader:                              ; preds = %103
+  %104 = lshr i32 %93, 1
   %smax = call i32 @llvm.smax.i32(i32 %92, i32 1)
   %wide.trip.count479 = zext nneg i32 %smax to i64
   br label %.lr.ph438
@@ -5265,7 +5265,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   %indvars.iv476 = phi i64 [ 0, %.lr.ph438.preheader ], [ %indvars.iv.next477, %.lr.ph438 ]
   %105 = trunc i64 %indvars.iv476 to i32
   %106 = mul i32 %105, 255
-  %107 = add nsw i32 %106, %104
+  %107 = add i32 %106, %104
   %108 = sdiv i32 %107, %93
   %109 = trunc i32 %108 to i8
   %110 = load ptr, ptr %96, align 8

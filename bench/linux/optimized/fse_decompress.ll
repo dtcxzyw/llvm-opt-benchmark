@@ -37,7 +37,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %16 = zext nneg i32 %3 to i64
   %17 = shl nuw i64 1, %16
   %18 = add nuw i64 %17, 8
-  %19 = add i64 %18, %15
+  %19 = add nuw i64 %18, %15
   %20 = icmp ugt i64 %19, %5
   %21 = icmp ugt i32 %2, 255
   %22 = or i1 %21, %20
@@ -101,7 +101,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   br label %65
 
 60:                                               ; preds = %.loopexit12
-  %61 = zext i32 %13 to i64
+  %61 = zext nneg i32 %13 to i64
   %62 = zext nneg i32 %59 to i64
   %63 = zext nneg i32 %12 to i64
   %64 = shl nuw nsw i64 %62, 1
@@ -1419,7 +1419,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %39 = shl nuw i64 1, %38
   %40 = shl nsw i64 %33, 2
   %41 = add nuw i64 %39, 11
-  %42 = add i64 %41, %37
+  %42 = add nuw i64 %41, %37
   %43 = add i64 %42, %40
   %44 = and i64 %43, -4
   %45 = add i64 %44, 516
@@ -2303,7 +2303,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %34 = shl nuw i64 1, %33
   %35 = shl nsw i64 %28, 2
   %36 = add nuw i64 %34, 11
-  %37 = add i64 %36, %32
+  %37 = add nuw i64 %36, %32
   %38 = add i64 %37, %35
   %39 = and i64 %38, -4
   %40 = add i64 %39, 516

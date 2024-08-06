@@ -2073,7 +2073,7 @@ while.end:                                        ; preds = %while.cond
   %sub13 = sub i32 15, %table_bits.0
   %table_shift = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %sub13, ptr %table_shift, align 4
-  %add16 = add i32 %3, 2
+  %add16 = add nuw i32 %3, 2
   %add17 = add i32 %add16, %shl12
   %conv = zext i32 %add17 to i64
   %4 = shl nuw nsw i64 %conv, 2

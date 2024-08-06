@@ -98,7 +98,7 @@ define internal i32 @dissect_ayiya(ptr noundef %0, ptr noundef %1, ptr noundef %
   %11 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 20, i32 noundef 4) #2
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
   %13 = add nuw i32 %7, 8
-  %14 = add i32 %13, %10
+  %14 = add nuw i32 %13, %10
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.21) #2

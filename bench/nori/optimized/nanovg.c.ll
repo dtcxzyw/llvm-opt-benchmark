@@ -50799,8 +50799,8 @@ stbi__skip.exit.i.backedge:                       ; preds = %._crit_edge.i124.i,
   br i1 %497, label %498, label %516
 
 498:                                              ; preds = %496
-  %499 = add nuw nsw i32 %.084.i.ph, 1
-  %500 = zext nneg i32 %.084.i.ph to i64
+  %499 = add nsw i32 %.084.i.ph, 1
+  %500 = sext i32 %.084.i.ph to i64
   %501 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %368, i64 0, i64 %500
   %502 = icmp sgt i32 %.084.i.ph, 8191
   br i1 %502, label %stbi__process_gif_raster.exit.thread.sink.split, label %503

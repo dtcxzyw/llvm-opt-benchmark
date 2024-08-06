@@ -6008,7 +6008,7 @@ define dso_local i32 @block_truncate_page(ptr noundef %0, i64 noundef %1, ptr no
   %7 = zext nneg i8 %6 to i32
   %8 = shl nuw i32 1, %7
   %9 = add i32 %8, -1
-  %10 = zext i32 %9 to i64
+  %10 = zext nneg i32 %9 to i64
   %11 = and i64 %10, %1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %151, label %13

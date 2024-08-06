@@ -1135,7 +1135,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br i1 %.not, label %21, label %126
 
 21:                                               ; preds = %19
-  %22 = sub i32 1, %20
+  %22 = sub nsw i32 1, %20
   %.not192 = icmp slt i32 %22, %2
   br i1 %.not192, label %.lr.ph274.preheader, label %126
 

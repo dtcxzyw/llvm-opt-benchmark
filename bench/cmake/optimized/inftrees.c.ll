@@ -365,7 +365,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 153:                                              ; preds = %._crit_edge263
   %154 = trunc i32 %.2195.lcssa to i8
   %155 = load ptr, ptr %3, align 8
-  %156 = zext i32 %128 to i64
+  %156 = zext nneg i32 %128 to i64
   %157 = getelementptr inbounds %struct.code, ptr %155, i64 %156
   store i8 %154, ptr %157, align 2
   %158 = load ptr, ptr %3, align 8

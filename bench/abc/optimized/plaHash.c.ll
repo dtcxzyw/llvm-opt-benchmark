@@ -924,7 +924,7 @@ Vec_WecSizeSize.exit.thread:                      ; preds = %Vec_WecSizeSize.exi
   store i32 1, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %48, i64 16
   store ptr %0, ptr %55, align 8
-  br i1 %37, label %.lr.ph30.i, label %Pla_ManHashCubes2.exit
+  br i1 %37, label %.lr.ph30.i, label %.lr.ph177
 
 .lr.ph30.i:                                       ; preds = %Vec_WecSizeSize.exit.thread
   %56 = getelementptr i8, ptr %0, i64 112
@@ -978,7 +978,7 @@ Vec_WecSizeSize.exit.thread:                      ; preds = %Vec_WecSizeSize.exi
   %79 = and i32 %78, 67108863
   %80 = sub nsw i32 %70, %79
   %81 = and i32 %80, %50
-  %82 = sext i32 %81 to i64
+  %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %52, i64 %82
   %84 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %52, i64 %indvars.iv
   %85 = getelementptr inbounds i8, ptr %84, i64 8
@@ -1011,13 +1011,9 @@ Vec_WecSizeSize.exit.thread:                      ; preds = %Vec_WecSizeSize.exi
   %.promoted191 = phi i32 [ %97, %.critedge2.loopexit.i ], [ %.promoted, %58 ]
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %98 = icmp ult i64 %indvars.iv.next33.i, %57
-  br i1 %98, label %58, label %Pla_ManHashCubes2.exit, !llvm.loop !14
+  br i1 %98, label %58, label %.lr.ph177, !llvm.loop !14
 
-Pla_ManHashCubes2.exit:                           ; preds = %.critedge2.i, %Vec_WecSizeSize.exit.thread
-  %.not175 = icmp eq i32 %47, 31
-  br i1 %.not175, label %._crit_edge178, label %.lr.ph177
-
-.lr.ph177:                                        ; preds = %Pla_ManHashCubes2.exit
+.lr.ph177:                                        ; preds = %.critedge2.i, %Vec_WecSizeSize.exit.thread
   %99 = getelementptr i8, ptr %0, i64 112
   %100 = getelementptr i8, ptr %15, i64 8
   br label %101
@@ -1721,22 +1717,18 @@ Vec_IntEqual.exit.thread:                         ; preds = %278, %Vec_IntCopySk
   %401 = add nuw nsw i32 %.0176, 1
   %402 = load i32, ptr %48, align 8
   %.not.not = icmp slt i32 %.0176, %402
-  br i1 %.not.not, label %101, label %._crit_edge178.loopexit, !llvm.loop !19
+  br i1 %.not.not, label %101, label %._crit_edge178, !llvm.loop !19
 
-._crit_edge178.loopexit:                          ; preds = %._crit_edge
+._crit_edge178:                                   ; preds = %._crit_edge
   %.val6.i.pre = load i32, ptr %17, align 4
-  br label %._crit_edge178
-
-._crit_edge178:                                   ; preds = %._crit_edge178.loopexit, %Pla_ManHashCubes2.exit
-  %.val6.i = phi i32 [ %.val6.i.pre, %._crit_edge178.loopexit ], [ %.val67, %Pla_ManHashCubes2.exit ]
-  %403 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.val6.i)
-  %404 = icmp sgt i32 %.val6.i, 0
+  %403 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.val6.i.pre)
+  %404 = icmp sgt i32 %.val6.i.pre, 0
   br i1 %404, label %.lr.ph.i137, label %Vec_IntPrint.exit
 
 .lr.ph.i137:                                      ; preds = %._crit_edge178
   %405 = getelementptr i8, ptr %15, i64 8
   %.val7.i = load ptr, ptr %405, align 8
-  %406 = zext nneg i32 %.val6.i to i64
+  %406 = zext nneg i32 %.val6.i.pre to i64
   br label %407
 
 407:                                              ; preds = %407, %.lr.ph.i137

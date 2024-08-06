@@ -19934,8 +19934,8 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalERKNS_8Sparsity
   br i1 %.not.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.i
 
 _ZSt5equalIPKxS1_EbT_S2_T0_.exit.i:               ; preds = %23
-  %gepdiff.i = add nuw i64 %.idx.i, 8
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %8, i64 %gepdiff.i)
+  %gepdiff.i = add i64 %.idx.i, 8
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.ptr.i, ptr nonnull readonly %8, i64 %gepdiff.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 
@@ -20167,8 +20167,8 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_(ptr n
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKxS1_EbT_S2_T0_.exit:                 ; preds = %19
-  %gepdiff = add nuw i64 %.idx, 8
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.ptr, ptr noundef nonnull dereferenceable(1) %3, i64 %gepdiff)
+  %gepdiff = add i64 %.idx, 8
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.ptr, ptr nonnull %3, i64 %gepdiff)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not7.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit20
 
@@ -20888,8 +20888,8 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalExxRKSt6vectorI
   br i1 %.not.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.i
 
 _ZSt5equalIPKxS1_EbT_S2_T0_.exit.i:               ; preds = %128
-  %gepdiff.i = add nuw i64 %.idx.i, 8
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %spec.select.i, i64 %gepdiff.i)
+  %gepdiff.i = add i64 %.idx.i, 8
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.ptr.i, ptr nonnull readonly %spec.select.i, i64 %gepdiff.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 
@@ -30221,8 +30221,8 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal10is_reshapeERKS0_(ptr n
   br i1 %.not.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.i
 
 _ZSt5equalIPKxS1_EbT_S2_T0_.exit.i:               ; preds = %35
-  %gepdiff.i = add nuw i64 %.idx.i, 8
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %21, i64 %gepdiff.i)
+  %gepdiff.i = add i64 %.idx.i, 8
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %18, ptr nonnull readonly %21, i64 %gepdiff.i)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 

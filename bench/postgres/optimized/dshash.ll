@@ -407,7 +407,7 @@ find_in_bucket.exit.thread:                       ; preds = %53, %ensure_valid_b
   %59 = shl nuw i64 1, %58
   %60 = lshr i64 %59, 1
   %61 = lshr i64 %59, 2
-  %62 = add nuw i64 %60, %61
+  %62 = add nuw nsw i64 %60, %61
   %63 = icmp ugt i64 %56, %62
   br i1 %63, label %64, label %122
 

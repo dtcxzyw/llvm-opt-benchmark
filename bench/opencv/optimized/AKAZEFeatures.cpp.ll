@@ -5901,7 +5901,7 @@ define hidden void @_ZNK2cv36Upright_MLDB_Full_Descriptor_Invoker32Get_Upright_M
   br label %247
 
 235:                                              ; preds = %.split233.us
-  %236 = add i32 %.us-phi, 7
+  %236 = add nsw i32 %.us-phi, 7
   %237 = lshr i32 %236, 3
   %238 = icmp eq i32 %237, %3
   br i1 %238, label %246, label %239

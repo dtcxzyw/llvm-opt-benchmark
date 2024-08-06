@@ -53714,7 +53714,7 @@ if.end18.i:                                       ; preds = %if.end7.i138
 
 land.lhs.true.i.i143:                             ; preds = %if.end18.i
   %mul.i.i144 = mul i64 %error.addr.i.0, 20
-  %mul9.i.i145 = shl i64 %and78.i, 1
+  %mul9.i.i145 = shl nuw i64 %and78.i, 1
   %sub10.i.i146 = sub i64 %shl.i, %mul9.i.i145
   %cmp11.not.i.i147 = icmp ugt i64 %mul.i.i144, %sub10.i.i146
   br i1 %cmp11.not.i.i147, label %land.lhs.true13.i.i150, label %if.then53

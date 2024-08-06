@@ -152,13 +152,9 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %i
   %4 = add nuw nsw i32 %ndirect_msb.1359, 67108860
   %sub.i = shl nuw nsw i32 %4, %2
   %tobool.not.i = icmp eq i32 %3, 0
-  br i1 %tobool.not.i, label %BrotliInitDistanceParams.exit, label %if.then.i
+  br i1 %tobool.not.i, label %BrotliInitDistanceParams.exit, label %if.else.i.i
 
-if.then.i:                                        ; preds = %for.body4
-  %cmp.i.i = icmp ugt i32 %shl, 2147483643
-  br i1 %cmp.i.i, label %BrotliCalculateDistanceCodeLimit.exit.i, label %if.else.i.i
-
-if.else.i.i:                                      ; preds = %if.then.i
+if.else.i.i:                                      ; preds = %for.body4
   %sub3.i.i = sub nuw nsw i32 2147483644, %shl
   %shr.i.i = lshr i32 %sub3.i.i, %2
   %add5.i.i = add nuw i32 %shr.i.i, 4
@@ -199,9 +195,9 @@ if.end.i.i:                                       ; preds = %while.end.i.i
   %add37.i.i = add i32 %add36.i.i, %shl34.i.i
   br label %BrotliCalculateDistanceCodeLimit.exit.i
 
-BrotliCalculateDistanceCodeLimit.exit.i:          ; preds = %if.end.i.i, %while.end.i.i, %if.then.i
-  %retval.i.sroa.0.0.i = phi i32 [ %add31.i.i, %if.end.i.i ], [ -2147483636, %if.then.i ], [ %add.i, %while.end.i.i ]
-  %retval.i.sroa.4.0.i = phi i32 [ %add37.i.i, %if.end.i.i ], [ 2147483644, %if.then.i ], [ %shl, %while.end.i.i ]
+BrotliCalculateDistanceCodeLimit.exit.i:          ; preds = %if.end.i.i, %while.end.i.i
+  %retval.i.sroa.0.0.i = phi i32 [ %add31.i.i, %if.end.i.i ], [ %add.i, %while.end.i.i ]
+  %retval.i.sroa.4.0.i = phi i32 [ %add37.i.i, %if.end.i.i ], [ %shl, %while.end.i.i ]
   %add12.i.reass = add nuw i32 %shl, %invariant.op369
   br label %BrotliInitDistanceParams.exit
 

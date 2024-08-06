@@ -480,7 +480,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_open(ptr nocapture 
   %98 = add nsw i32 %.049.lcssa.i, -3
   %99 = shl nuw i32 1, %98
   %100 = sdiv i32 %97, %99
-  %101 = shl i32 %100, 5
+  %101 = shl nsw i32 %100, 5
   %102 = and i32 %101, 224
   br label %103
 

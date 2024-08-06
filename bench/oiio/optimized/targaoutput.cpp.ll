@@ -33670,7 +33670,7 @@ if.end18.i:                                       ; preds = %if.end7.i133
 
 land.lhs.true.i.i138:                             ; preds = %if.end18.i
   %mul.i.i139 = mul i64 %error.addr.i.0, 20
-  %mul9.i.i140 = shl i64 %and92.i, 1
+  %mul9.i.i140 = shl nuw i64 %and92.i, 1
   %sub10.i.i141 = sub i64 %shl.i, %mul9.i.i140
   %cmp11.not.i.i142 = icmp ugt i64 %mul.i.i139, %sub10.i.i141
   br i1 %cmp11.not.i.i142, label %land.lhs.true13.i.i145, label %if.then61

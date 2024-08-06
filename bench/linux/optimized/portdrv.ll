@@ -593,7 +593,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
   %171 = and i16 %170, 3840
   %172 = zext nneg i16 %171 to i32
   %173 = add nsw i32 %148, -1024
-  %174 = add i32 %173, %172
+  %174 = add nsw i32 %173, %172
   %175 = call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %160, ptr noundef nonnull @.str.7, ptr noundef %168, i32 noundef %174) #13
   %176 = getelementptr inbounds i8, ptr %155, i64 96
   store ptr %143, ptr %176, align 8

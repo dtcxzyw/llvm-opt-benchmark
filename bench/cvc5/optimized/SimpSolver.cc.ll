@@ -7411,7 +7411,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.i69 = phi i32 [ %add.i65, %while.body.lr.ph ], [ %add.i, %if.end ]
   %mul.i68 = phi i32 [ %mul.i64, %while.body.lr.ph ], [ %mul.i, %if.end ]
   %i.addr.067 = phi i32 [ %i, %while.body.lr.ph ], [ %cond, %if.end ]
-  %mul.i17 = add i32 %mul.i68, 2
+  %mul.i17 = add nsw i32 %mul.i68, 2
   %cmp8 = icmp slt i32 %mul.i17, %3
   %.pre.pre = load ptr, ptr %heap, align 8
   br i1 %cmp8, label %land.lhs.true, label %while.body.cond.false_crit_edge

@@ -156,7 +156,7 @@ _ZL9findindexP9lua_StateP5TableP10lua_TValue.exit: ; preds = %._ZL9findindexP9lu
   %78 = getelementptr inbounds i8, ptr %1, i64 32
   %79 = load ptr, ptr %78, align 8
   %80 = sext i32 %indvars.iv57 to i64
-  %81 = sext i32 %76 to i64
+  %81 = zext nneg i32 %76 to i64
   br label %84
 
 82:                                               ; preds = %84

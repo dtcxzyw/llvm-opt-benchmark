@@ -16167,14 +16167,14 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 0, -1) i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_18__invokeEPKvi"(ptr nocapture readnone %0, i32 noundef %val) #17 align 2 {
+define internal noundef range(i32 -2147483648, 2147483647) i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_18__invokeEPKvi"(ptr nocapture readnone %0, i32 noundef %val) #17 align 2 {
 entry:
   %add.i = shl nsw i32 %val, 1
   ret i32 %add.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 0, -1) i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_28__invokeEPKvi"(ptr nocapture readnone %ptr, i32 noundef %val) #17 align 2 {
+define internal noundef range(i32 -2147483648, 2147483647) i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_28__invokeEPKvi"(ptr nocapture readnone %ptr, i32 noundef %val) #17 align 2 {
 entry:
   %add.i = shl nsw i32 %val, 1
   ret i32 %add.i

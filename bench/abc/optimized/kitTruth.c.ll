@@ -4157,11 +4157,10 @@ select.unfold.i25:                                ; preds = %select.unfold.i25, 
 Kit_TruthCopy.exit28.critedge:                    ; preds = %6
   tail call void @Kit_TruthCofactor0(ptr noundef nonnull %spec.store.select, i32 noundef %1, i32 noundef %2)
   tail call void @Kit_TruthCofactor1(ptr noundef nonnull %spec.store.select, i32 noundef %1, i32 noundef %3)
-  %.pre = zext i32 %spec.select.i to i64
   br label %Kit_TruthCopy.exit28
 
 Kit_TruthCopy.exit28:                             ; preds = %select.unfold.i25, %Kit_TruthCopy.exit28.critedge
-  %.pre-phi = phi i64 [ %.pre, %Kit_TruthCopy.exit28.critedge ], [ %13, %select.unfold.i25 ]
+  %.pre-phi = phi i64 [ 2147483648, %Kit_TruthCopy.exit28.critedge ], [ %13, %select.unfold.i25 ]
   tail call void @Kit_TruthCofactor1(ptr noundef nonnull %spec.store.select1, i32 noundef %1, i32 noundef %2)
   tail call void @Kit_TruthCofactor0(ptr noundef nonnull %spec.store.select1, i32 noundef %1, i32 noundef %3)
   br label %select.unfold.i30
@@ -4231,11 +4230,10 @@ select.unfold.i25:                                ; preds = %select.unfold.i25, 
 Kit_TruthCopy.exit28.critedge:                    ; preds = %6
   tail call void @Kit_TruthCofactor0(ptr noundef nonnull %spec.store.select, i32 noundef %1, i32 noundef %2)
   tail call void @Kit_TruthCofactor0(ptr noundef nonnull %spec.store.select, i32 noundef %1, i32 noundef %3)
-  %.pre = zext i32 %spec.select.i to i64
   br label %Kit_TruthCopy.exit28
 
 Kit_TruthCopy.exit28:                             ; preds = %select.unfold.i25, %Kit_TruthCopy.exit28.critedge
-  %.pre-phi = phi i64 [ %.pre, %Kit_TruthCopy.exit28.critedge ], [ %13, %select.unfold.i25 ]
+  %.pre-phi = phi i64 [ 2147483648, %Kit_TruthCopy.exit28.critedge ], [ %13, %select.unfold.i25 ]
   tail call void @Kit_TruthCofactor1(ptr noundef nonnull %spec.store.select1, i32 noundef %1, i32 noundef %2)
   tail call void @Kit_TruthCofactor1(ptr noundef nonnull %spec.store.select1, i32 noundef %1, i32 noundef %3)
   br label %select.unfold.i30

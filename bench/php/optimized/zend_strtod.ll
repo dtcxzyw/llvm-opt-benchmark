@@ -1043,9 +1043,9 @@ Bfree.exit581:                                    ; preds = %266, %267
   %.025.lcssa52.i = phi i32 [ %.025.lcssa51.i, %._crit_edge.thread.i ], [ %420, %._crit_edge.i ]
   %429 = shl nuw i32 1, %.025.lcssa52.i
   %430 = add nsw i32 %429, -1
-  %431 = sext i32 %430 to i64
-  %432 = shl nsw i64 %431, 2
-  %433 = add nsw i64 %432, 32
+  %431 = zext nneg i32 %430 to i64
+  %432 = shl nuw nsw i64 %431, 2
+  %433 = add nuw nsw i64 %432, 32
   %434 = tail call noalias ptr @malloc(i64 noundef %433) #16
   %.not16.i.i = icmp eq ptr %434, null
   br i1 %.not16.i.i, label %435, label %436
@@ -1160,9 +1160,9 @@ Bfree.exit628:                                    ; preds = %Bfree.exit628.backe
 486:                                              ; preds = %480, %Bfree.exit628
   %487 = shl nuw i32 1, %478
   %488 = add nsw i32 %487, -1
-  %489 = sext i32 %488 to i64
-  %490 = shl nsw i64 %489, 2
-  %491 = add nsw i64 %490, 32
+  %489 = zext nneg i32 %488 to i64
+  %490 = shl nuw nsw i64 %489, 2
+  %491 = add nuw nsw i64 %490, 32
   %492 = tail call noalias ptr @malloc(i64 noundef %491) #16
   %.not16.i = icmp eq ptr %492, null
   br i1 %.not16.i, label %493, label %494
@@ -3029,9 +3029,9 @@ define internal fastcc ptr @mult(ptr noundef readonly %0, ptr noundef readonly %
 26:                                               ; preds = %20, %2
   %27 = shl nuw i32 1, %.058
   %28 = add nsw i32 %27, -1
-  %29 = sext i32 %28 to i64
-  %30 = shl nsw i64 %29, 2
-  %31 = add nsw i64 %30, 32
+  %29 = zext nneg i32 %28 to i64
+  %30 = shl nuw nsw i64 %29, 2
+  %31 = add nuw nsw i64 %30, 32
   %32 = tail call noalias ptr @malloc(i64 noundef %31) #16
   %.not16.i = icmp eq ptr %32, null
   br i1 %.not16.i, label %33, label %34
@@ -3193,9 +3193,9 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef %1) unnamed_addr 
 20:                                               ; preds = %14, %._crit_edge
   %21 = shl nuw i32 1, %.044.lcssa
   %22 = add nsw i32 %21, -1
-  %23 = sext i32 %22 to i64
-  %24 = shl nsw i64 %23, 2
-  %25 = add nsw i64 %24, 32
+  %23 = zext nneg i32 %22 to i64
+  %24 = shl nuw nsw i64 %23, 2
+  %25 = add nuw nsw i64 %24, 32
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #16
   %.not16.i = icmp eq ptr %26, null
   br i1 %.not16.i, label %27, label %28
@@ -3405,9 +3405,9 @@ Balloc.exit:                                      ; preds = %21, %26
 43:                                               ; preds = %37, %32
   %44 = shl nuw i32 1, %35
   %45 = add nsw i32 %44, -1
-  %46 = sext i32 %45 to i64
-  %47 = shl nsw i64 %46, 2
-  %48 = add nsw i64 %47, 32
+  %46 = zext nneg i32 %45 to i64
+  %47 = shl nuw nsw i64 %46, 2
+  %48 = add nuw nsw i64 %47, 32
   %49 = tail call noalias ptr @malloc(i64 noundef %48) #16
   %.not16.i58 = icmp eq ptr %49, null
   br i1 %.not16.i58, label %50, label %51
@@ -3959,9 +3959,9 @@ default.unreachable:                              ; preds = %156
   %.07.lcssa13.i = phi i32 [ %.07.lcssa12.i, %._crit_edge.thread.i ], [ %167, %._crit_edge.i579 ]
   %178 = shl nuw i32 1, %.07.lcssa13.i
   %179 = add nsw i32 %178, -1
-  %180 = sext i32 %179 to i64
-  %181 = shl nsw i64 %180, 2
-  %182 = add nsw i64 %181, 32
+  %180 = zext nneg i32 %179 to i64
+  %181 = shl nuw nsw i64 %180, 2
+  %182 = add nuw nsw i64 %181, 32
   %183 = tail call noalias ptr @malloc(i64 noundef %182) #16
   %.not16.i.i = icmp eq ptr %183, null
   br i1 %.not16.i.i, label %184, label %185
@@ -4806,9 +4806,9 @@ cmp.exit600.thread683:                            ; preds = %524, %cmp.exit600, 
 547:                                              ; preds = %541, %537
   %548 = shl nuw i32 1, %539
   %549 = add nsw i32 %548, -1
-  %550 = sext i32 %549 to i64
-  %551 = shl nsw i64 %550, 2
-  %552 = add nsw i64 %551, 32
+  %550 = zext nneg i32 %549 to i64
+  %551 = shl nuw nsw i64 %550, 2
+  %552 = add nuw nsw i64 %551, 32
   %553 = tail call noalias ptr @malloc(i64 noundef %552) #16
   %.not16.i = icmp eq ptr %553, null
   br i1 %.not16.i, label %554, label %555
@@ -5422,9 +5422,9 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
 33:                                               ; preds = %27, %22
   %34 = shl nuw i32 1, %25
   %35 = add nsw i32 %34, -1
-  %36 = sext i32 %35 to i64
-  %37 = shl nsw i64 %36, 2
-  %38 = add nsw i64 %37, 32
+  %36 = zext nneg i32 %35 to i64
+  %37 = shl nuw nsw i64 %36, 2
+  %38 = add nuw nsw i64 %37, 32
   %39 = tail call noalias ptr @malloc(i64 noundef %38) #16
   %.not16.i = icmp eq ptr %39, null
   br i1 %.not16.i, label %40, label %41

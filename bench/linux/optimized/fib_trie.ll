@@ -4149,7 +4149,7 @@ put_child.exit:                                   ; preds = %173, %178
   br i1 %183, label %184, label %191
 
 184:                                              ; preds = %179
-  %185 = shl i64 %105, 1
+  %185 = shl nuw i64 %105, 1
   %186 = or disjoint i64 %185, 1
   %187 = getelementptr inbounds i8, ptr %107, i64 8
   %188 = getelementptr i8, ptr %107, i64 16
@@ -4860,7 +4860,7 @@ put_child.exit50:                                 ; preds = %602, %603, %608
   store volatile ptr %80, ptr %610, align 8
   %611 = getelementptr i8, ptr %258, i64 24
   store volatile ptr %80, ptr %611, align 8
-  %612 = shl i64 %105, 1
+  %612 = shl nuw i64 %105, 1
   %613 = or disjoint i64 %612, 1
   %614 = getelementptr [0 x ptr], ptr %100, i64 0, i64 %613
   %615 = load ptr, ptr %614, align 8

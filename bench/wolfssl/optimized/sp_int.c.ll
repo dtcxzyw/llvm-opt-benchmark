@@ -831,7 +831,7 @@ while.body20.preheader:                           ; preds = %if.else
   %3 = tail call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
   %4 = trunc nuw nsw i64 %3 to i32
   %reass.sub = sub nsw i32 %mul, %4
-  %5 = add i32 %reass.sub, 64
+  %5 = add nsw i32 %reass.sub, 64
   br label %if.end23
 
 if.then11:                                        ; preds = %if.else

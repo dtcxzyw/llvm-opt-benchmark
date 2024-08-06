@@ -663,7 +663,7 @@ if.then31.i.thread.i:                             ; preds = %if.end
   %shr.i129.i = lshr i32 %shl.i.i, 1
   %shr34.i130.i = lshr i32 %shl.i.i, 3
   %add35.i131.i = add nuw nsw i32 %shr34.i130.i, 3
-  %add36.i132.i = add nuw i32 %add35.i131.i, %shr.i129.i
+  %add36.i132.i = add nuw nsw i32 %add35.i131.i, %shr.i129.i
   br label %for.cond64.i.preheader.i
 
 for.body.i.lr.ph.i:                               ; preds = %if.end
@@ -720,13 +720,13 @@ for.body43.i.preheader.i:                         ; preds = %for.end.i.i
 
 for.cond64.i.preheader.i.loopexit:                ; preds = %for.end56.i.i
   %shr.i.i = lshr i32 %shl.i.i, 1
-  %add36.i.i = add nuw i32 %add35.i.i, %shr.i.i
+  %add36.i.i = add nuw nsw i32 %add35.i.i, %shr.i.i
   br label %for.cond64.i.preheader.i
 
 for.cond64.i.preheader.i:                         ; preds = %for.cond64.i.preheader.i.loopexit, %if.then31.i.thread.i
   %conv37.i135.in.i = phi i32 [ %add36.i132.i, %if.then31.i.thread.i ], [ %add36.i.i, %for.cond64.i.preheader.i.loopexit ]
-  %conv33.i134.i = zext i32 %sub.i.i to i64
-  %conv37.i135.i = zext i32 %conv37.i135.in.i to i64
+  %conv33.i134.i = zext nneg i32 %sub.i.i to i64
+  %conv37.i135.i = zext nneg i32 %conv37.i135.in.i to i64
   %conv65.i.i = zext i32 %shl.i.i to i64
   %mul82.i.i = shl nuw nsw i64 %conv37.i135.i, 1
   br label %for.cond69.i.preheader.i
@@ -788,7 +788,7 @@ for.cond69.i.preheader.i:                         ; preds = %for.cond69.i.prehea
 for.body101.i.lr.ph.i:                            ; preds = %for.end.i.i
   %shr92.i.i = lshr i32 %shl.i.i, 1
   %add94.i.i = add nuw nsw i32 %shr34.i.i, 3
-  %add95.i.i = add nuw i32 %add94.i.i, %shr92.i.i
+  %add95.i.i = add nuw nsw i32 %add94.i.i, %shr92.i.i
   br label %for.body101.i.i
 
 for.body101.i.i:                                  ; preds = %for.end123.i.i, %for.body101.i.lr.ph.i
@@ -893,7 +893,7 @@ if.then31.i.thread:                               ; preds = %entry
   %shr.i129 = lshr i32 %shl.i, 1
   %shr34.i130 = lshr i32 %shl.i, 3
   %add35.i131 = add nuw nsw i32 %shr34.i130, 3
-  %add36.i132 = add nuw i32 %add35.i131, %shr.i129
+  %add36.i132 = add nuw nsw i32 %add35.i131, %shr.i129
   br label %for.cond64.i.preheader
 
 for.body.i.lr.ph:                                 ; preds = %entry
@@ -947,7 +947,7 @@ if.then31.i:                                      ; preds = %for.end.i
   %shr.i = lshr i32 %shl.i, 1
   %shr34.i = lshr i32 %shl.i, 3
   %add35.i = add nuw nsw i32 %shr34.i, 3
-  %add36.i = add nuw i32 %add35.i, %shr.i
+  %add36.i = add nuw nsw i32 %add35.i, %shr.i
   br i1 %cmp.i81.not, label %for.cond64.i.preheader, label %for.body43.i.preheader
 
 for.body43.i.preheader:                           ; preds = %if.then31.i
@@ -1023,7 +1023,7 @@ for.body101.i.lr.ph:                              ; preds = %if.else88.i
   %shr93.i = lshr i32 %shl.i, 3
   %shr92.i = lshr i32 %shl.i, 1
   %add94.i = add nuw nsw i32 %shr93.i, 3
-  %add95.i = add nuw i32 %add94.i, %shr92.i
+  %add95.i = add nuw nsw i32 %add94.i, %shr92.i
   %wide.trip.count109 = zext i32 %add.i to i64
   br label %for.body101.i
 

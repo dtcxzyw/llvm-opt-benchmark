@@ -965,7 +965,7 @@ define dso_local zeroext i16 @string_to_security_class(ptr noundef %0, ptr nound
 declare dso_local ptr @symtab_search(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @string_to_av_perm(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, -2147483647) i32 @string_to_av_perm(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = icmp eq i16 %1, 0
   br i1 %4, label %31, label %5
 

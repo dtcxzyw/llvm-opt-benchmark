@@ -2147,7 +2147,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %92 = shl nsw i32 %.0119177, 4
   %93 = zext nneg i8 %90 to i32
   %94 = or disjoint i32 %92, 10
-  %95 = add nuw nsw i32 %94, %93
+  %95 = add i32 %94, %93
   br label %103
 
 96:                                               ; preds = %89
@@ -2159,7 +2159,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %99 = shl nsw i32 %.0119177, 4
   %100 = zext nneg i8 %97 to i32
   %101 = or disjoint i32 %99, 10
-  %102 = add nuw nsw i32 %101, %100
+  %102 = add i32 %101, %100
   br label %103
 
 103:                                              ; preds = %91, %98, %85

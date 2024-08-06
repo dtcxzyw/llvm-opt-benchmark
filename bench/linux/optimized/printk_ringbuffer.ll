@@ -448,7 +448,7 @@ data_alloc.exit:                                  ; preds = %153, %._crit_edge.i
   %282 = shl nuw i64 1, %270
   %283 = add i64 %282, -1
   %284 = and i64 %283, %.pre
-  %285 = add i64 %284, %282
+  %285 = add nuw i64 %284, %282
   %286 = and i64 %283, %263
   %287 = sub i64 %285, %286
   %288 = trunc i64 %287 to i32
@@ -1213,7 +1213,7 @@ select.unfold:                                    ; preds = %53, %37
   %322 = shl nuw i64 1, %310
   %323 = add i64 %322, -1
   %324 = and i64 %323, %.pre34
-  %325 = add i64 %324, %322
+  %325 = add nuw i64 %324, %322
   %326 = and i64 %323, %304
   %327 = sub i64 %325, %326
   %328 = trunc i64 %327 to i32
@@ -1738,7 +1738,7 @@ define dso_local void @prb_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %25 = getelementptr inbounds i8, ptr %0, i64 80
   store volatile i64 0, ptr %25, align 8
   %26 = add i32 %7, -1
-  %27 = zext i32 %26 to i64
+  %27 = zext nneg i32 %26 to i64
   %28 = getelementptr %struct.prb_desc, ptr %3, i64 %27
   %29 = or disjoint i64 %16, -4611686018427387904
   store volatile i64 %29, ptr %28, align 8

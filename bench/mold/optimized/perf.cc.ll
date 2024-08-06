@@ -917,7 +917,7 @@ _ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_al
   br label %for.inc26
 
 for.inc23:                                        ; preds = %for.body13, %land.lhs.true
-  %cmp12 = icmp sgt i64 %j.089.in, 1
+  %cmp12 = icmp ugt i64 %j.089.in, 1
   br i1 %cmp12, label %for.body13, label %for.inc26, !llvm.loop !33
 
 for.inc26:                                        ; preds = %for.inc23, %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_.exit, %for.body7

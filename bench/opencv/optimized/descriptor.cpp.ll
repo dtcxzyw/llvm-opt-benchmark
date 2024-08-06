@@ -3962,7 +3962,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %56 = load i8, ptr %55, align 1
   %57 = icmp ugt i8 %54, %56
   %58 = zext i1 %57 to i32
-  %spec.select102.us = add nuw nsw i32 %.4124.us, %58
+  %spec.select102.us = add nsw i32 %.4124.us, %58
   %59 = shl nsw i32 %spec.select102.us, 1
   br label %60
 
@@ -3986,7 +3986,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %64 = load i8, ptr %63, align 1
   %65 = icmp ugt i8 %64, %72
   %66 = zext i1 %65 to i32
-  %spec.select103.us = add nuw nsw i32 %.6121.us, %66
+  %spec.select103.us = add nsw i32 %.6121.us, %66
   %67 = shl nsw i32 %spec.select103.us, 1
   %indvars.iv.next169 = add nsw i64 %indvars.iv168, 2
   %68 = icmp slt i64 %indvars.iv168, 0
@@ -4080,7 +4080,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %98 = load i8, ptr %97, align 1
   %99 = icmp ugt i8 %96, %98
   %100 = zext i1 %99 to i32
-  %spec.select104 = add nuw nsw i32 %.4124, %100
+  %spec.select104 = add nsw i32 %.4124, %100
   %101 = shl nsw i32 %spec.select104, 1
   br label %102
 
@@ -4247,7 +4247,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %56 = load i8, ptr %55, align 1
   %57 = icmp ugt i8 %54, %56
   %58 = zext i1 %57 to i32
-  %spec.select102.us = add nuw nsw i32 %.4124.us, %58
+  %spec.select102.us = add nsw i32 %.4124.us, %58
   %59 = shl nsw i32 %spec.select102.us, 1
   br label %60
 
@@ -4271,7 +4271,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %64 = load i8, ptr %63, align 1
   %65 = icmp ugt i8 %64, %72
   %66 = zext i1 %65 to i32
-  %spec.select103.us = add nuw nsw i32 %.6121.us, %66
+  %spec.select103.us = add nsw i32 %.6121.us, %66
   %67 = shl nsw i32 %spec.select103.us, 1
   %indvars.iv.next169 = add nsw i64 %indvars.iv168, 2
   %68 = icmp slt i64 %indvars.iv168, 0
@@ -4365,7 +4365,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %98 = load i8, ptr %97, align 1
   %99 = icmp ugt i8 %96, %98
   %100 = zext i1 %99 to i32
-  %spec.select104 = add nuw nsw i32 %.4124, %100
+  %spec.select104 = add nsw i32 %.4124, %100
   %101 = shl nsw i32 %spec.select104, 1
   br label %102
 

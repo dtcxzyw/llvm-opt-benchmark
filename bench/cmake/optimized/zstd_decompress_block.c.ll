@@ -595,7 +595,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %15 = lshr i32 %12, 1
   %16 = lshr i32 %12, 3
   %17 = add nuw nsw i32 %16, 3
-  %18 = add nuw i32 %17, %15
+  %18 = add nuw nsw i32 %17, %15
   br label %.preheader139.i
 
 .lr.ph.i:                                         ; preds = %9
@@ -652,13 +652,13 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
 
 .preheader139.i.loopexit:                         ; preds = %._crit_edge158.i
   %37 = lshr i32 %12, 1
-  %38 = add nuw i32 %36, %37
+  %38 = add nuw nsw i32 %36, %37
   br label %.preheader139.i
 
 .preheader139.i:                                  ; preds = %.preheader139.i.loopexit, %.thread.i
   %.in.i = phi i32 [ %18, %.thread.i ], [ %38, %.preheader139.i.loopexit ]
-  %39 = zext i32 %14 to i64
-  %40 = zext i32 %.in.i to i64
+  %39 = zext nneg i32 %14 to i64
+  %40 = zext nneg i32 %.in.i to i64
   %41 = zext i32 %12 to i64
   %42 = shl nuw nsw i64 %40, 1
   br label %.preheader.i
@@ -720,7 +720,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
 .lr.ph154.i:                                      ; preds = %._crit_edge.i
   %69 = lshr i32 %12, 1
   %70 = add nuw nsw i32 %35, 3
-  %71 = add nuw i32 %70, %69
+  %71 = add nuw nsw i32 %70, %69
   br label %72
 
 72:                                               ; preds = %._crit_edge149.i, %.lr.ph154.i

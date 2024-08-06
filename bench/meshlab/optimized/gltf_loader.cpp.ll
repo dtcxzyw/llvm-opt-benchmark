@@ -27398,8 +27398,8 @@ _ZL10stbi__skipP13stbi__contexti.exit.i.backedge: ; preds = %._crit_edge.i124.i,
   br i1 %491, label %492, label %511
 
 492:                                              ; preds = %490
-  %493 = add nuw nsw i32 %.084.i.ph, 1
-  %494 = zext nneg i32 %.084.i.ph to i64
+  %493 = add nsw i32 %.084.i.ph, 1
+  %494 = sext i32 %.084.i.ph to i64
   %495 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %362, i64 0, i64 %494
   %496 = icmp sgt i32 %.084.i.ph, 8191
   br i1 %496, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split, label %497

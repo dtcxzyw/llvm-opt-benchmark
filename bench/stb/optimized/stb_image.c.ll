@@ -29232,8 +29232,8 @@ if.end61:                                         ; preds = %if.then57
   br i1 %cmp62, label %if.then64, label %if.else95
 
 if.then64:                                        ; preds = %if.end61
-  %inc66 = add nuw nsw i32 %avail.0.ph, 1
-  %idxprom67 = zext nneg i32 %avail.0.ph to i64
+  %inc66 = add nsw i32 %avail.0.ph, 1
+  %idxprom67 = sext i32 %avail.0.ph to i64
   %arrayidx68 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %codes, i64 0, i64 %idxprom67
   %cmp69 = icmp sgt i32 %avail.0.ph, 8191
   br i1 %cmp69, label %if.then71, label %if.end75

@@ -3541,7 +3541,7 @@ switch.early.test:                                ; preds = %1046, %.loopexit816
   %.0526 = phi i32 [ %1076, %1075 ], [ %1080, %1079 ], [ %1072, %.preheader815 ]
   %1087 = add nuw nsw i32 %.0525, 1
   %1088 = shl nsw i32 %.17565, 4
-  %1089 = add nuw nsw i32 %.0526, %1088
+  %1089 = add nsw i32 %.0526, %1088
   br label %.preheader815, !llvm.loop !21
 
 1090:                                             ; preds = %1081

@@ -2351,7 +2351,7 @@ select.unfold.preheader:                          ; preds = %111
 148:                                              ; preds = %._crit_edge271
   %149 = trunc i32 %.2208.lcssa to i8
   %150 = load ptr, ptr %3, align 8
-  %151 = zext i32 %124 to i64
+  %151 = zext nneg i32 %124 to i64
   %152 = getelementptr inbounds %struct.code, ptr %150, i64 %151
   store i8 %149, ptr %152, align 2
   %153 = load ptr, ptr %3, align 8

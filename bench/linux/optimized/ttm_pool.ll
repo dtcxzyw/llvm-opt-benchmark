@@ -894,7 +894,7 @@ define dso_local void @ttm_pool_free(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ttm_pool_shrink() unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, -2147483647) i32 @ttm_pool_shrink() unnamed_addr #0 align 16 {
   tail call void @down_read(ptr noundef nonnull @pool_shrink_rwsem) #7
   tail call void @_raw_spin_lock(ptr noundef nonnull @shrinker_lock) #7
   %1 = load ptr, ptr @shrinker_list, align 8
@@ -1452,7 +1452,7 @@ define internal i64 @ttm_pool_shrinker_count(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 0, 4294967296) i64 @ttm_pool_shrinker_scan(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i64 0, 2147483649) i64 @ttm_pool_shrinker_scan(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %6, %2

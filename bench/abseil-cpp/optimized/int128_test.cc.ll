@@ -45493,7 +45493,7 @@ invoke.cont692:                                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i.i1334, align 8
   %coerce.sroa.0.0.insert.insert.i1358 = add i128 %shl.i, -1
   %283 = lshr i128 %coerce.sroa.0.0.insert.insert.i1358, 64
-  %.tr.i = trunc nuw i128 %283 to i64
+  %.tr.i = trunc nuw nsw i128 %283 to i64
   %retval.sroa.0.0.extract.trunc.i1359 = trunc i128 %coerce.sroa.0.0.insert.insert.i1358 to i64
   %coerce3.sroa.2.0.extract.shift.i1362 = and i64 %value596.sroa.10.0.copyload, %.tr.i
   %v.sroa.0.0.insert.ext.i8.i = and i64 %value596.sroa.0.0.copyload, %retval.sroa.0.0.extract.trunc.i1359
@@ -45506,8 +45506,8 @@ invoke.cont692:                                   ; preds = %_ZNKSt14default_del
   %retval.sroa.0.0.extract.trunc.i1376 = trunc i128 %rem.i1373.decomposed to i64
   store i64 %retval.sroa.0.0.extract.trunc.i1376, ptr %ref.tmp689, align 16
   store i64 %coerce3.sroa.2.0.extract.trunc.i1375, ptr %241, align 8
-  %coerce.sroa.2.0.insert.ext.i.i.i1385 = zext i64 %coerce3.sroa.2.0.extract.shift.i1362 to i128
-  %coerce.sroa.2.0.insert.shift.i.i.i1386 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i1385, 64
+  %coerce.sroa.2.0.insert.ext.i.i.i1385 = zext nneg i64 %coerce3.sroa.2.0.extract.shift.i1362 to i128
+  %coerce.sroa.2.0.insert.shift.i.i.i1386 = shl nuw nsw i128 %coerce.sroa.2.0.insert.ext.i.i.i1385, 64
   %coerce.sroa.0.0.insert.ext.i.i.i1387 = zext i64 %v.sroa.0.0.insert.ext.i8.i to i128
   %coerce.sroa.0.0.insert.insert.i.i.i1388 = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i1386, %coerce.sroa.0.0.insert.ext.i.i.i1387
   %cmp.i.i.i1393 = icmp eq i128 %coerce.sroa.0.0.insert.insert.i.i.i1388, %rem.i1373.decomposed

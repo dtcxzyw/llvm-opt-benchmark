@@ -363,7 +363,7 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
 152:                                              ; preds = %._crit_edge262
   %153 = trunc i32 %.2195.lcssa to i8
   %154 = load ptr, ptr %3, align 8
-  %155 = zext i32 %127 to i64
+  %155 = zext nneg i32 %127 to i64
   %156 = getelementptr inbounds %struct.code, ptr %154, i64 %155
   store i8 %153, ptr %156, align 2
   %157 = load ptr, ptr %3, align 8

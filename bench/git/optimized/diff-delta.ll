@@ -103,7 +103,7 @@ if.else:                                          ; preds = %for.end42
   store ptr %add.ptr26.pn102, ptr %entry1.0105, align 8
   %val53 = getelementptr inbounds i8, ptr %entry1.0105, i64 8
   store i32 %xor, ptr %val53, align 8
-  %idxprom54 = zext i32 %and to i64
+  %idxprom54 = zext nneg i32 %and to i64
   %arrayidx55 = getelementptr inbounds ptr, ptr %call, i64 %idxprom54
   %2 = load ptr, ptr %arrayidx55, align 8
   %next = getelementptr inbounds i8, ptr %entry1.0105, i64 16

@@ -28888,7 +28888,7 @@ if.end96.i.us:                                    ; preds = %if.then87.i.us, %if
 
 if.end100.i.us:                                   ; preds = %if.end96.i.us
   %and101.i.us = and i32 %matchIndex.i.0235.us, %sub.i
-  %idxprom.i.us = zext i32 %and101.i.us to i64
+  %idxprom.i.us = zext nneg i32 %and101.i.us to i64
   %arrayidx102.i.us = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.us
   %dec.i.us = add i32 %nbAttempts.i.0234.us, -1
   %matchIndex.i.0.us = load i32, ptr %arrayidx102.i.us, align 4
@@ -28975,7 +28975,7 @@ if.end96.i.us289:                                 ; preds = %if.then87.i.us283, 
 
 if.end100.i.us292:                                ; preds = %if.end96.i.us289
   %and101.i.us293 = and i32 %matchIndex.i.0235.us241, %sub.i
-  %idxprom.i.us294 = zext i32 %and101.i.us293 to i64
+  %idxprom.i.us294 = zext nneg i32 %and101.i.us293 to i64
   %arrayidx102.i.us295 = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.us294
   %dec.i.us296 = add i32 %nbAttempts.i.0234.us242, -1
   %matchIndex.i.0.us297 = load i32, ptr %arrayidx102.i.us295, align 4
@@ -29049,7 +29049,7 @@ if.end96.i:                                       ; preds = %if.then58.i, %if.th
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0235, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0234, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -29292,7 +29292,7 @@ if.end96.i.us:                                    ; preds = %if.then87.i.us, %if
 
 if.end100.i.us:                                   ; preds = %if.end96.i.us
   %and101.i.us = and i32 %matchIndex.i.0234.us, %sub.i
-  %idxprom.i.us = zext i32 %and101.i.us to i64
+  %idxprom.i.us = zext nneg i32 %and101.i.us to i64
   %arrayidx102.i.us = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.us
   %dec.i.us = add i32 %nbAttempts.i.0233.us, -1
   %matchIndex.i.0.us = load i32, ptr %arrayidx102.i.us, align 4
@@ -29379,7 +29379,7 @@ if.end96.i.us288:                                 ; preds = %if.then87.i.us282, 
 
 if.end100.i.us291:                                ; preds = %if.end96.i.us288
   %and101.i.us292 = and i32 %matchIndex.i.0234.us240, %sub.i
-  %idxprom.i.us293 = zext i32 %and101.i.us292 to i64
+  %idxprom.i.us293 = zext nneg i32 %and101.i.us292 to i64
   %arrayidx102.i.us294 = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.us293
   %dec.i.us295 = add i32 %nbAttempts.i.0233.us241, -1
   %matchIndex.i.0.us296 = load i32, ptr %arrayidx102.i.us294, align 4
@@ -29453,7 +29453,7 @@ if.end96.i:                                       ; preds = %if.then58.i, %if.th
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0234, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0233, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -29696,7 +29696,7 @@ if.end96.i.us:                                    ; preds = %if.then87.i.us, %if
 
 if.end100.i.us:                                   ; preds = %if.end96.i.us
   %and101.i.us = and i32 %matchIndex.i.0234.us, %sub.i
-  %idxprom.i.us = zext i32 %and101.i.us to i64
+  %idxprom.i.us = zext nneg i32 %and101.i.us to i64
   %arrayidx102.i.us = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.us
   %dec.i.us = add i32 %nbAttempts.i.0233.us, -1
   %matchIndex.i.0.us = load i32, ptr %arrayidx102.i.us, align 4
@@ -29783,7 +29783,7 @@ if.end96.i.us288:                                 ; preds = %if.then87.i.us282, 
 
 if.end100.i.us291:                                ; preds = %if.end96.i.us288
   %and101.i.us292 = and i32 %matchIndex.i.0234.us240, %sub.i
-  %idxprom.i.us293 = zext i32 %and101.i.us292 to i64
+  %idxprom.i.us293 = zext nneg i32 %and101.i.us292 to i64
   %arrayidx102.i.us294 = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.us293
   %dec.i.us295 = add i32 %nbAttempts.i.0233.us241, -1
   %matchIndex.i.0.us296 = load i32, ptr %arrayidx102.i.us294, align 4
@@ -29857,7 +29857,7 @@ if.end96.i:                                       ; preds = %if.then58.i, %if.th
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0234, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0233, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -34681,7 +34681,7 @@ if.end96.i:                                       ; preds = %if.else.i, %if.then
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0237, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0236, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -34958,7 +34958,7 @@ if.end96.i:                                       ; preds = %if.else.i, %if.then
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0236, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0235, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -35235,7 +35235,7 @@ if.end96.i:                                       ; preds = %if.else.i, %if.then
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0236, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0235, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -40274,7 +40274,7 @@ if.end96.i.us:                                    ; preds = %if.then87.i.us, %if
 
 if.end100.i.us:                                   ; preds = %if.end96.i.us
   %and101.i.us = and i32 %matchIndex.i.0245.us, %sub.i
-  %idxprom.i.us = zext i32 %and101.i.us to i64
+  %idxprom.i.us = zext nneg i32 %and101.i.us to i64
   %arrayidx102.i.us = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.us
   %dec.i.us = add i32 %nbAttempts.i.0244.us, -1
   %matchIndex.i.0.us = load i32, ptr %arrayidx102.i.us, align 4
@@ -40369,7 +40369,7 @@ if.end96.i:                                       ; preds = %if.then58.i, %if.th
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0245, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0244, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -40453,7 +40453,7 @@ if.end172.i:                                      ; preds = %for.body145.i, %if.
 
 if.end176.i:                                      ; preds = %if.end172.i
   %and177.i = and i32 %matchIndex.i.1262, %sub115.i
-  %idxprom178.i = zext i32 %and177.i to i64
+  %idxprom178.i = zext nneg i32 %and177.i to i64
   %arrayidx179.i = getelementptr inbounds i32, ptr %25, i64 %idxprom178.i
   %dec181.i = add i32 %nbAttempts.i.1261, -1
   %matchIndex.i.1 = load i32, ptr %arrayidx179.i, align 4
@@ -40702,7 +40702,7 @@ if.end96.i.us:                                    ; preds = %if.then87.i.us, %if
 
 if.end100.i.us:                                   ; preds = %if.end96.i.us
   %and101.i.us = and i32 %matchIndex.i.0244.us, %sub.i
-  %idxprom.i.us = zext i32 %and101.i.us to i64
+  %idxprom.i.us = zext nneg i32 %and101.i.us to i64
   %arrayidx102.i.us = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.us
   %dec.i.us = add i32 %nbAttempts.i.0243.us, -1
   %matchIndex.i.0.us = load i32, ptr %arrayidx102.i.us, align 4
@@ -40797,7 +40797,7 @@ if.end96.i:                                       ; preds = %if.then58.i, %if.th
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0244, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0243, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -40881,7 +40881,7 @@ if.end172.i:                                      ; preds = %for.body145.i, %if.
 
 if.end176.i:                                      ; preds = %if.end172.i
   %and177.i = and i32 %matchIndex.i.1261, %sub115.i
-  %idxprom178.i = zext i32 %and177.i to i64
+  %idxprom178.i = zext nneg i32 %and177.i to i64
   %arrayidx179.i = getelementptr inbounds i32, ptr %25, i64 %idxprom178.i
   %dec181.i = add i32 %nbAttempts.i.1260, -1
   %matchIndex.i.1 = load i32, ptr %arrayidx179.i, align 4
@@ -41130,7 +41130,7 @@ if.end96.i.us:                                    ; preds = %if.then87.i.us, %if
 
 if.end100.i.us:                                   ; preds = %if.end96.i.us
   %and101.i.us = and i32 %matchIndex.i.0244.us, %sub.i
-  %idxprom.i.us = zext i32 %and101.i.us to i64
+  %idxprom.i.us = zext nneg i32 %and101.i.us to i64
   %arrayidx102.i.us = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.us
   %dec.i.us = add i32 %nbAttempts.i.0243.us, -1
   %matchIndex.i.0.us = load i32, ptr %arrayidx102.i.us, align 4
@@ -41225,7 +41225,7 @@ if.end96.i:                                       ; preds = %if.then58.i, %if.th
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0244, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0243, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -41309,7 +41309,7 @@ if.end172.i:                                      ; preds = %for.body145.i, %if.
 
 if.end176.i:                                      ; preds = %if.end172.i
   %and177.i = and i32 %matchIndex.i.1261, %sub115.i
-  %idxprom178.i = zext i32 %and177.i to i64
+  %idxprom178.i = zext nneg i32 %and177.i to i64
   %arrayidx179.i = getelementptr inbounds i32, ptr %25, i64 %idxprom178.i
   %dec181.i = add i32 %nbAttempts.i.1260, -1
   %matchIndex.i.1 = load i32, ptr %arrayidx179.i, align 4
@@ -47494,7 +47494,7 @@ if.end96.i:                                       ; preds = %if.then58.i, %if.th
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0253, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0252, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -47933,7 +47933,7 @@ if.end96.i:                                       ; preds = %if.then58.i, %if.th
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0252, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0251, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4
@@ -48372,7 +48372,7 @@ if.end96.i:                                       ; preds = %if.then58.i, %if.th
 
 if.end100.i:                                      ; preds = %if.end96.i
   %and101.i = and i32 %matchIndex.i.0252, %sub.i
-  %idxprom.i = zext i32 %and101.i to i64
+  %idxprom.i = zext nneg i32 %and101.i to i64
   %arrayidx102.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %dec.i = add i32 %nbAttempts.i.0251, -1
   %matchIndex.i.0 = load i32, ptr %arrayidx102.i, align 4

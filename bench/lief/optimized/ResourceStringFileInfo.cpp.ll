@@ -32427,7 +32427,7 @@ _ZN3fmt2v96detail18gen_digits_handler8on_digitEcmmmb.exit151: ; preds = %_ZN3fmt
 
 230:                                              ; preds = %228
   %231 = mul i64 %.0108, 20
-  %232 = shl i64 %219, 1
+  %232 = shl nuw i64 %219, 1
   %233 = sub i64 %94, %232
   %.not23.i.i142 = icmp ugt i64 %231, %233
   br i1 %.not23.i.i142, label %234, label %_ZN3fmt2v96detail19get_round_directionEmmm.exit.thread280

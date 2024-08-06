@@ -31,7 +31,7 @@ entry:
   %sh_prom = zext nneg i32 %tableLog to i64
   %shl4 = shl nuw i64 1, %sh_prom
   %add5 = add nuw i64 %shl4, 8
-  %add6 = add i64 %add5, %mul
+  %add6 = add nuw i64 %add5, %mul
   %cmp = icmp ugt i64 %add6, %wkspSize
   %cmp8 = icmp ugt i32 %maxSymbolValue, 255
   %or.cond = or i1 %cmp8, %cmp
@@ -89,7 +89,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp47, label %for.body61.preheader, label %for.cond122.preheader.lr.ph
 
 for.body61.preheader:                             ; preds = %for.end
-  %conv51 = zext i32 %sub to i64
+  %conv51 = zext nneg i32 %sub to i64
   %shr52 = lshr i32 %shl, 3
   %add53 = add nuw nsw i32 %shr52, 3
   %add54 = add nuw nsw i32 %add53, %shr

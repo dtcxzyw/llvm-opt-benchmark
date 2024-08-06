@@ -1090,7 +1090,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %5, %11, %
   br i1 %.not185, label %._crit_edge190, label %.lr.ph189
 
 .lr.ph189:                                        ; preds = %89
-  %97 = add nuw nsw i32 %.093194, 1
+  %97 = add nsw i32 %.093194, 1
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i8, ptr %92, i64 32
   %100 = icmp slt i32 %.093194, 1

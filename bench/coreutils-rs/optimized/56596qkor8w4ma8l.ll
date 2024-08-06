@@ -617,7 +617,7 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit: ; preds = %2, %10
 
 65:                                               ; preds = %53
   %66 = shl nuw nsw i32 3, %59
-  %67 = add nuw i32 %66, 2097151
+  %67 = add nuw nsw i32 %66, 2097151
   %68 = and i32 %67, %55
   %69 = icmp ne i32 %68, 0
   %70 = zext i1 %69 to i32

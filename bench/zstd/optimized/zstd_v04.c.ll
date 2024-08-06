@@ -6217,7 +6217,7 @@ entry:
   %shr.i = lshr i32 %shl, 1
   %shr1.i = lshr i32 %shl, 3
   %add.i = add nuw nsw i32 %shr1.i, 3
-  %add2.i = add nuw i32 %add.i, %shr.i
+  %add2.i = add nuw nsw i32 %add.i, %shr.i
   %cmp = icmp ugt i32 %maxSymbolValue, 255
   br i1 %cmp, label %return, label %if.end
 

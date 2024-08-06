@@ -5004,7 +5004,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %add.i55.i.i = phi i32 [ %add.i.i.i, %if.end.i.i ], [ 1, %while.body.i.preheader.i ]
   %mul.i54.i.i = phi i32 [ %mul.i.i.i, %if.end.i.i ], [ 0, %while.body.i.preheader.i ]
   %i.addr.053.i.i = phi i32 [ %cond.i.i, %if.end.i.i ], [ 0, %while.body.i.preheader.i ]
-  %mul.i17.i.i = add i32 %mul.i54.i.i, 2
+  %mul.i17.i.i = add nsw i32 %mul.i54.i.i, 2
   %cmp8.i.i = icmp slt i32 %mul.i17.i.i, %39
   %.pre.pre.i.i = load ptr, ptr %heap.i238, align 8
   br i1 %cmp8.i.i, label %land.lhs.true.i.i, label %while.body.cond.false_crit_edge.i.i
@@ -8466,7 +8466,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %add.i55.i = phi i32 [ %add.i.i, %if.end.i ], [ %35, %while.body.i.preheader ]
   %mul.i54.i = phi i32 [ %mul.i.i25, %if.end.i ], [ %36, %while.body.i.preheader ]
   %i.addr.053.i = phi i32 [ %cond.i, %if.end.i ], [ %34, %while.body.i.preheader ]
-  %mul.i17.i = add i32 %mul.i54.i, 2
+  %mul.i17.i = add nsw i32 %mul.i54.i, 2
   %cmp8.i = icmp slt i32 %mul.i17.i, %37
   %.pre.pre.i = load ptr, ptr %heap, align 8
   br i1 %cmp8.i, label %land.lhs.true.i, label %while.body.cond.false_crit_edge.i

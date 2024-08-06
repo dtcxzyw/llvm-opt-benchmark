@@ -39,7 +39,7 @@ entry:
   %call = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %conv3) #3
   %1 = ptrtoint ptr %call to i64
   %sub7 = add i32 %shl, -1
-  %conv8 = zext i32 %sub7 to i64
+  %conv8 = zext nneg i32 %sub7 to i64
   %add5 = add nuw nsw i64 %conv8, 24
   %add9 = add i64 %add5, %1
   %not = xor i64 %conv8, -1

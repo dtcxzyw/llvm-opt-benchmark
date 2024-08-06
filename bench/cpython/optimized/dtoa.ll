@@ -780,9 +780,9 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 if.else.i.i:                                      ; preds = %for.end.i
   %shl.i.i = shl nuw i32 1, %inc.i
   %sub.i.i = add i32 %shl.i.i, -1
-  %conv.i.i = sext i32 %sub.i.i to i64
-  %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %sub6.i.i = add nsw i64 %mul.i.i, 39
+  %conv.i.i = zext nneg i32 %sub.i.i to i64
+  %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
+  %sub6.i.i = add nuw nsw i64 %mul.i.i, 39
   br label %if.else22.i.i
 
 land.lhs.true10.i.i:                              ; preds = %land.lhs.true.i.i
@@ -950,9 +950,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %for.cond454
   %shl.i331 = shl nuw i32 1, %72
   %sub.i332 = add i32 %shl.i331, -1
-  %conv.i333 = sext i32 %sub.i332 to i64
-  %mul.i = shl nsw i64 %conv.i333, 2
-  %sub6.i = add nsw i64 %mul.i, 39
+  %conv.i333 = zext nneg i32 %sub.i332 to i64
+  %mul.i = shl nuw nsw i64 %conv.i333, 2
+  %sub6.i = add nuw nsw i64 %mul.i, 39
   br label %if.else22.i
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true.i
@@ -2295,9 +2295,9 @@ if.then:                                          ; preds = %land.lhs.true
 if.else:                                          ; preds = %entry
   %shl = shl nuw i32 1, %k
   %sub = add i32 %shl, -1
-  %conv = sext i32 %sub to i64
-  %mul = shl nsw i64 %conv, 2
-  %sub6 = add nsw i64 %mul, 39
+  %conv = zext nneg i32 %sub to i64
+  %mul = shl nuw nsw i64 %conv, 2
+  %sub6 = add nuw nsw i64 %mul, 39
   br label %if.else22
 
 land.lhs.true10:                                  ; preds = %land.lhs.true
@@ -2701,9 +2701,9 @@ if.then.i63:                                      ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %if.end13
   %shl.i = shl nuw i32 1, %k.0
   %sub.i = add i32 %shl.i, -1
-  %conv.i = sext i32 %sub.i to i64
-  %mul.i = shl nsw i64 %conv.i, 2
-  %sub6.i = add nsw i64 %mul.i, 39
+  %conv.i = zext nneg i32 %sub.i to i64
+  %mul.i = shl nuw nsw i64 %conv.i, 2
+  %sub6.i = add nuw nsw i64 %mul.i, 39
   br label %if.else22.i49
 
 land.lhs.true10.i64:                              ; preds = %land.lhs.true.i
@@ -2940,9 +2940,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %for.end
   %shl.i = shl nuw i32 1, %k1.0.lcssa
   %sub.i = add i32 %shl.i, -1
-  %conv.i = sext i32 %sub.i to i64
-  %mul.i = shl nsw i64 %conv.i, 2
-  %sub6.i = add nsw i64 %mul.i, 39
+  %conv.i = zext nneg i32 %sub.i to i64
+  %mul.i = shl nuw nsw i64 %conv.i, 2
+  %sub6.i = add nuw nsw i64 %mul.i, 39
   br label %if.else22.i
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true.i
@@ -3228,9 +3228,9 @@ if.then.i52:                                      ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %if.end3
   %shl.i = shl nuw i32 1, %10
   %sub.i37 = add i32 %shl.i, -1
-  %conv.i = sext i32 %sub.i37 to i64
-  %mul.i = shl nsw i64 %conv.i, 2
-  %sub6.i = add nsw i64 %mul.i, 39
+  %conv.i = zext nneg i32 %sub.i37 to i64
+  %mul.i = shl nuw nsw i64 %conv.i, 2
+  %sub6.i = add nuw nsw i64 %mul.i, 39
   br label %if.else22.i38
 
 land.lhs.true10.i53:                              ; preds = %land.lhs.true.i
@@ -4673,9 +4673,9 @@ if.then.i.i463:                                   ; preds = %land.lhs.true.i.i
 if.else.i.i:                                      ; preds = %for.end.i
   %shl.i.i448 = shl nuw i32 1, %inc.i
   %sub.i.i = add i32 %shl.i.i448, -1
-  %conv.i.i = sext i32 %sub.i.i to i64
-  %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %sub6.i.i = add nsw i64 %mul.i.i, 39
+  %conv.i.i = zext nneg i32 %sub.i.i to i64
+  %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
+  %sub6.i.i = add nuw nsw i64 %mul.i.i, 39
   br label %if.else22.i.i449
 
 land.lhs.true10.i.i464:                           ; preds = %land.lhs.true.i.i
@@ -6310,9 +6310,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %if.then9
   %shl.i = shl nuw i32 1, %add10
   %sub.i = add i32 %shl.i, -1
-  %conv.i = sext i32 %sub.i to i64
-  %mul.i = shl nsw i64 %conv.i, 2
-  %sub6.i = add nsw i64 %mul.i, 39
+  %conv.i = zext nneg i32 %sub.i to i64
+  %mul.i = shl nuw nsw i64 %conv.i, 2
+  %sub6.i = add nuw nsw i64 %mul.i, 39
   br label %if.else22.i
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true.i

@@ -2785,8 +2785,8 @@ if.then51:                                        ; preds = %if.then43
   %cond59 = select i1 %tobool54.not, i32 0, i32 %shl56
   %and60 = shl i32 %62, 1
   %cond62 = and i32 %and60, 8
-  %add = add nuw i32 %cond59, %cond62
-  %add63 = add i32 %add, %cond
+  %add = add nuw nsw i32 %cond59, %cond62
+  %add63 = add nuw nsw i32 %add, %cond
   store i32 %add63, ptr %m, align 4
   %64 = load float, ptr %subw, align 4
   %arrayidx66 = getelementptr inbounds float, ptr %w, i64 %indvars.iv

@@ -384,10 +384,10 @@ if.then9.i:                                       ; preds = %if.end6.i, %if.end6
 
 if.end11.i:                                       ; preds = %if.end6.i.preheader, %if.end6.i
   %inc28.in.i54 = phi i32 [ %spec.store.select.i, %if.end6.i ], [ %and.i, %if.end6.i.preheader ]
-  %inc28.i = add nsw i32 %inc28.in.i54, 1
+  %inc28.i = add nuw nsw i32 %inc28.in.i54, 1
   %cmp12.not.i = icmp sgt i32 %shl.i, %inc28.i
   %spec.store.select.i = select i1 %cmp12.not.i, i32 %inc28.i, i32 0
-  %idxprom.i = sext i32 %spec.store.select.i to i64
+  %idxprom.i = zext nneg i32 %spec.store.select.i to i64
   %arrayidx.i = getelementptr inbounds [0 x %struct.spanhash], ptr %data.i, i64 0, i64 %idxprom.i
   %cnt1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %19 = load i32, ptr %cnt1.i, align 4

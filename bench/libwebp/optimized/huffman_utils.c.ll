@@ -434,7 +434,7 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph239.split.us
 .thread180.us:                                    ; preds = %NextTableBitSize.exit.us
   %127 = sext i32 %.1131235.us to i64
   %128 = getelementptr inbounds %struct.HuffmanCode, ptr %.1238.us, i64 %127
-  %129 = zext i32 %125 to i64
+  %129 = zext nneg i32 %125 to i64
   %130 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %129
   store i8 15, ptr %130, align 2
   %131 = ptrtoint ptr %128 to i64
@@ -548,7 +548,7 @@ GetNextKey.exit170.us:                            ; preds = %151
 
 .thread180:                                       ; preds = %._crit_edge.loopexit.i
   %173 = trunc i32 %.010.lcssa.ph.i to i8
-  %174 = zext i32 %160 to i64
+  %174 = zext nneg i32 %160 to i64
   %175 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %174
   store i8 %173, ptr %175, align 2
   %176 = ptrtoint ptr %162 to i64

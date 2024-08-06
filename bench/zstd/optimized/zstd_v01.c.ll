@@ -346,7 +346,7 @@ if.end6.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %shr.i.i.i.i.i.i.i = lshr i32 %shl.i.i.i.i.i.i, 1
   %shr1.i.i.i.i.i.i.i = lshr i32 %shl.i.i.i.i.i.i, 3
   %add.i.i.i.i.i.i.i = add nuw nsw i32 %shr1.i.i.i.i.i.i.i, 3
-  %add2.i.i.i.i.i.i.i = add nuw i32 %add.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i
+  %add2.i.i.i.i.i.i.i = add nuw nsw i32 %add.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i
   %cmp.i13.i.i.i.i.i = icmp ugt i32 %16, 255
   %cmp5.i.i.i.i.i.i = icmp ugt i32 %17, 12
   %or.cond181.i.i = select i1 %cmp.i13.i.i.i.i.i, i1 true, i1 %cmp5.i.i.i.i.i.i
@@ -4393,7 +4393,7 @@ entry:
   %shr.i = lshr i32 %shl, 1
   %shr1.i = lshr i32 %shl, 3
   %add.i = add nuw nsw i32 %shr1.i, 3
-  %add2.i = add nuw i32 %add.i, %shr.i
+  %add2.i = add nuw nsw i32 %add.i, %shr.i
   %cmp = icmp ugt i32 %maxSymbolValue, 255
   %cmp5 = icmp ugt i32 %tableLog, 12
   %or.cond = or i1 %cmp, %cmp5

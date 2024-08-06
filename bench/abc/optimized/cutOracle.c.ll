@@ -155,7 +155,7 @@ Vec_PtrFill.exit:                                 ; preds = %38, %Vec_PtrAlloc.e
   %64 = select i1 %61, i32 1, i32 %63
   %65 = getelementptr inbounds i8, ptr %calloc, i64 84
   store i32 %64, ptr %65, align 4
-  %66 = add i32 %64, %51
+  %66 = add nsw i32 %64, %51
   %67 = shl i32 %66, 2
   %68 = add i32 %67, 24
   store i32 %68, ptr %54, align 8

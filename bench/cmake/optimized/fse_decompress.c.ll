@@ -27,7 +27,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %16 = zext nneg i32 %3 to i64
   %17 = shl nuw i64 1, %16
   %18 = add nuw i64 %17, 8
-  %19 = add i64 %18, %15
+  %19 = add nuw i64 %18, %15
   %20 = icmp ugt i64 %19, %5
   %21 = icmp ugt i32 %2, 255
   %or.cond = or i1 %21, %20
@@ -85,7 +85,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   br i1 %39, label %.lr.ph158.preheader, label %.preheader136.lr.ph
 
 .lr.ph158.preheader:                              ; preds = %._crit_edge
-  %41 = zext i32 %13 to i64
+  %41 = zext nneg i32 %13 to i64
   %42 = lshr i32 %12, 3
   %43 = add nuw nsw i32 %42, 3
   %44 = add nuw nsw i32 %43, %40

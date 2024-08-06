@@ -11667,7 +11667,7 @@ _ZNSt3mapIiN5Yosys5RTLIL7SigSpecESt4lessIiESaISt4pairIKiS2_EEE11lower_boundERS6_
   %793 = getelementptr inbounds i8, ptr %.sroa.05.0.i608, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %794 = sext i32 %770 to i64
+  %794 = zext nneg i32 %770 to i64
   %795 = load ptr, ptr %., align 8
   %796 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %795, i64 %794
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %796, ptr noundef nonnull align 8 dereferenceable(16) %793, i64 16, i1 false)
@@ -11737,7 +11737,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit614:          ; preds = %.noexc612
   br i1 %814, label %816, label %824
 
 816:                                              ; preds = %815, %810
-  %817 = sext i32 %770 to i64
+  %817 = zext nneg i32 %770 to i64
   %818 = load ptr, ptr %., align 8
   %819 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %818, i64 %817
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %819, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
@@ -12717,7 +12717,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit702:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %1211 unwind label %.loopexit1542
 
 1211:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit702
-  %1212 = sext i32 %770 to i64
+  %1212 = zext nneg i32 %770 to i64
   %1213 = load ptr, ptr %19, align 8
   %1214 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %1213, i64 %1212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1214, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)
@@ -16163,7 +16163,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN5Yosys5RTLIL7SigSpecEESt10_Select1stIS5_ESt4lessIiES
   br i1 %.not1482, label %.thread1477, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1296
 
 .thread1477:                                      ; preds = %2435, %_ZNKSt8_Rb_treeIiSt4pairIKiN5Yosys5RTLIL7SigSpecEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i1010, %2444
-  %2446 = sext i32 %2438 to i64
+  %2446 = zext nneg i32 %2438 to i64
   %2447 = load ptr, ptr %21, align 8
   %2448 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %2447, i64 %2446
   invoke void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %127, ptr noundef nonnull align 8 dereferenceable(64) %2448)

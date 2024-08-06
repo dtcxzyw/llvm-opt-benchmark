@@ -1433,7 +1433,7 @@ define internal fastcc i64 @iomap_dio_bio_iter(ptr noundef %0, ptr noundef %1) u
   br i1 %152, label %156, label %153
 
 153:                                              ; preds = %148
-  %154 = zext i32 %151 to i64
+  %154 = zext nneg i32 %151 to i64
   %155 = sub i64 %29, %154
   tail call fastcc void @iomap_dio_zero(ptr noundef %0, ptr noundef %1, i64 noundef %155, i32 noundef %151)
   br label %156

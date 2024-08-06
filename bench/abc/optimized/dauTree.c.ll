@@ -4379,7 +4379,7 @@ Dss_ObjFindOrAdd.exit:                            ; preds = %181, %230, %204, %A
   %phi.call = phi ptr [ %195, %Dss_ObjHashLookup.exit.thread ], [ %208, %204 ], [ %212, %Abc_TtCopy.exit.i ], [ %212, %230 ], [ %174, %181 ]
   %250 = load i32, ptr %phi.call, align 4
   %251 = shl nsw i32 %250, 1
-  %252 = add nuw nsw i32 %251, %.2
+  %252 = add nsw i32 %251, %.2
   br label %253
 
 253:                                              ; preds = %Dss_ObjFindOrAdd.exit, %27
@@ -5211,7 +5211,7 @@ Dss_ObjFindOrAdd.exit:                            ; preds = %364, %369
   %.0.i = phi ptr [ %368, %364 ], [ %371, %369 ]
   %372 = load i32, ptr %.0.i, align 4
   %373 = shl nsw i32 %372, 1
-  %374 = add nuw nsw i32 %373, %.0148377
+  %374 = add nsw i32 %373, %.0148377
   ret i32 %374
 }
 

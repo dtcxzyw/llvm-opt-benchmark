@@ -5094,7 +5094,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_edp_backlight_init(ptr nound
   %140 = zext nneg i8 %137 to i32
   %141 = shl nuw i32 1, %140
   %142 = lshr i32 %141, 1
-  %143 = add nuw i32 %142, %79
+  %143 = add nuw nsw i32 %142, %79
   %144 = lshr i32 %143, %140
   br label %.preheader._crit_edge
 

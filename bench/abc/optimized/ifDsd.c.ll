@@ -9562,7 +9562,7 @@ Abc_TtStretch6.exit:                              ; preds = %._crit_edge.us.i, %
   %.3 = phi i32 [ 0, %113 ], [ %.5.lcssa482, %._crit_edge296 ], [ %.5.lcssa482, %277 ], [ %.2207, %.preheader ], [ 0, %196 ], [ %.2207, %.lr.ph351.preheader ], [ 0, %.preheader279 ], [ %3, %If_DsdManPushInv.exit264 ], [ %.5.lcssa482, %._crit_edge.us.i ]
   %295 = call i32 @If_DsdObjFindOrAdd(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, i32 noundef %.3, ptr noundef %5)
   %296 = shl nsw i32 %295, 1
-  %297 = add nuw nsw i32 %296, %.2226
+  %297 = add nsw i32 %296, %.2226
   ret i32 %297
 }
 

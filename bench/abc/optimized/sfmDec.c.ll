@@ -3221,7 +3221,7 @@ Vec_IntFind.exit:                                 ; preds = %142, %._crit_edge.l
 
 Abc_TtMux.exit:                                   ; preds = %.lr.ph.i99, %Vec_IntFind.exit
   %164 = phi i1 [ false, %Vec_IntFind.exit ], [ true, %.lr.ph.i99 ]
-  %165 = phi i32 [ %148, %Vec_IntFind.exit ], [ %151, %.lr.ph.i99 ]
+  %165 = phi i32 [ -2147483648, %Vec_IntFind.exit ], [ %151, %.lr.ph.i99 ]
   %166 = load ptr, ptr %0, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 16
   %168 = load i32, ptr %167, align 4

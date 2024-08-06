@@ -2541,7 +2541,7 @@ define dso_local ptr @radix_tree_delete(ptr noundef %0, i64 noundef %1) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @radix_tree_tagged(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
+define dso_local range(i32 0, -2147483647) i32 @radix_tree_tagged(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %1, 26

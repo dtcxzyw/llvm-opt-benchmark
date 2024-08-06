@@ -3526,7 +3526,7 @@ define internal fastcc void @__free_pages_memory(i64 noundef %0, i64 noundef %1)
   %11 = phi i32 [ %16, %10 ], [ %.ph, %.preheader8 ]
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw i64 1, %12
-  %14 = add i64 %13, %4
+  %14 = add nuw i64 %13, %4
   %15 = icmp ugt i64 %14, %1
   %16 = add i32 %11, -1
   br i1 %15, label %10, label %17, !llvm.loop !82

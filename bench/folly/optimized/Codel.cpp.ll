@@ -166,7 +166,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, -1) i64 @_ZNK5folly5Codel16getSloughTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(34) %this, i64 %delay.coerce) local_unnamed_addr #4 align 2 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK5folly5Codel16getSloughTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(34) %this, i64 %delay.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %mul.i = shl nsw i64 %delay.coerce, 1
   ret i64 %mul.i

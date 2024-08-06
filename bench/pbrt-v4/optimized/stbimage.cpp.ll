@@ -14599,8 +14599,8 @@ if.end52.i:                                       ; preds = %if.else46.i
   br i1 %cmp53.i, label %if.then54.i, label %if.else80.i
 
 if.then54.i:                                      ; preds = %if.end52.i
-  %inc56.i = add nuw nsw i32 %avail.0.i.ph, 1
-  %idxprom57.i = zext nneg i32 %avail.0.i.ph to i64
+  %inc56.i = add nsw i32 %avail.0.i.ph, 1
+  %idxprom57.i = sext i32 %avail.0.i.ph to i64
   %arrayidx58.i = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %codes.i, i64 0, i64 %idxprom57.i
   %cmp59.i = icmp sgt i32 %avail.0.i.ph, 8191
   br i1 %cmp59.i, label %return.sink.split, label %if.end64.i

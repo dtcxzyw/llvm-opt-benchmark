@@ -4842,7 +4842,7 @@ define dso_local i32 @jbd2_journal_wipe(ptr noundef %0, i32 noundef %1) #1 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 1, -2147483648) i32 @jbd2_journal_blocks_per_page(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local range(i32 1, 1073741825) i32 @jbd2_journal_blocks_per_page(ptr nocapture noundef readonly %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 20

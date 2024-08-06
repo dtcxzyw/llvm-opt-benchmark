@@ -30774,7 +30774,7 @@ if.then.i:                                        ; preds = %add_size_t.exit
   %shl.i = shl nuw i64 1, %conv.i
   %cmp2.i = icmp eq i64 %shl.i, %add.i
   %shl4.i = shl i64 2, %conv.i
-  %cond.i = select i1 %cmp2.i, i64 %shl.i, i64 %shl4.i
+  %spec.select = select i1 %cmp2.i, i64 %shl.i, i64 %shl4.i
   br label %if.end
 
 if.else.i:                                        ; preds = %add_size_t.exit
@@ -30803,19 +30803,19 @@ _mpd_get_transform_len.exit:                      ; preds = %if.then7.i
   %cmp = icmp eq i64 %cond18.i, -1
   br i1 %cmp, label %if.end53, label %if.end
 
-if.end:                                           ; preds = %if.else23.i, %if.else19.i, %if.then7.i, %if.then.i, %_mpd_get_transform_len.exit
-  %retval.0.i67 = phi i64 [ %cond18.i, %_mpd_get_transform_len.exit ], [ 12884901888, %if.else23.i ], [ 6442450944, %if.else19.i ], [ %add.i, %if.then7.i ], [ %cond.i, %if.then.i ]
-  %call2 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #28
+if.end:                                           ; preds = %if.then.i, %if.else23.i, %if.else19.i, %if.then7.i, %_mpd_get_transform_len.exit
+  %retval.0.i68 = phi i64 [ %cond18.i, %_mpd_get_transform_len.exit ], [ 12884901888, %if.else23.i ], [ 6442450944, %if.else19.i ], [ %add.i, %if.then7.i ], [ %spec.select, %if.then.i ]
+  %call2 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i68, i64 noundef 8) #28
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.end53, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #28
+  %call6 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i68, i64 noundef 8) #28
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %if.end53.sink.split, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %call10 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #28
+  %call10 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i68, i64 noundef 8) #28
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %if.end50, label %if.end13
 
@@ -30828,67 +30828,67 @@ if.end13:                                         ; preds = %if.end9
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.end13
-  %call18 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call2, i64 noundef %retval.0.i67, i32 noundef 0) #28
+  %call18 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call2, i64 noundef %retval.0.i68, i32 noundef 0) #28
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %if.end50, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then17
-  %call19 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call6, i64 noundef %retval.0.i67, i32 noundef 1) #28
+  %call19 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call6, i64 noundef %retval.0.i68, i32 noundef 1) #28
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.end50, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false
-  %call22 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call10, i64 noundef %retval.0.i67, i32 noundef 2) #28
+  %call22 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call10, i64 noundef %retval.0.i68, i32 noundef 2) #28
   %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %if.end50, label %if.end50.thread114
+  br i1 %tobool23.not, label %if.end50, label %if.end50.thread115
 
 if.else:                                          ; preds = %if.end13
-  %call26 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #28
+  %call26 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i68, i64 noundef 8) #28
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %if.end50, label %if.end29
 
 if.end29:                                         ; preds = %if.else
   %mul30 = shl i64 %vlen, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call26, ptr align 8 %v, i64 %mul30, i1 false)
-  %call31 = tail call i32 @fnt_convolute(ptr noundef nonnull %call2, ptr noundef nonnull %call26, i64 noundef %retval.0.i67, i32 noundef 0) #28
+  %call31 = tail call i32 @fnt_convolute(ptr noundef nonnull %call2, ptr noundef nonnull %call26, i64 noundef %retval.0.i68, i32 noundef 0) #28
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.end50.sink.split, label %if.end34
 
 if.end34:                                         ; preds = %if.end29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call26, ptr align 8 %v, i64 %mul30, i1 false)
   %add.ptr = getelementptr i64, ptr %call26, i64 %vlen
-  %cmp.i6194.not = icmp eq i64 %retval.0.i67, %vlen
-  br i1 %cmp.i6194.not, label %mpd_uint_zero.exit65, label %for.body.i62.preheader
+  %cmp.i6195.not = icmp eq i64 %retval.0.i68, %vlen
+  br i1 %cmp.i6195.not, label %mpd_uint_zero.exit65, label %for.body.i62.preheader
 
 for.body.i62.preheader:                           ; preds = %if.end34
-  %4 = sub i64 %retval.0.i67, %vlen
+  %4 = sub i64 %retval.0.i68, %vlen
   %5 = shl i64 %4, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %5, i1 false)
   br label %mpd_uint_zero.exit65
 
 mpd_uint_zero.exit65:                             ; preds = %for.body.i62.preheader, %if.end34
-  %call36 = tail call i32 @fnt_convolute(ptr noundef nonnull %call6, ptr noundef nonnull %call26, i64 noundef %retval.0.i67, i32 noundef 1) #28
+  %call36 = tail call i32 @fnt_convolute(ptr noundef nonnull %call6, ptr noundef nonnull %call26, i64 noundef %retval.0.i68, i32 noundef 1) #28
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.end50.sink.split, label %if.end39
 
 if.end39:                                         ; preds = %mpd_uint_zero.exit65
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call26, ptr align 8 %v, i64 %mul30, i1 false)
-  br i1 %cmp.i6194.not, label %mpd_uint_zero.exit, label %for.body.i.preheader
+  br i1 %cmp.i6195.not, label %mpd_uint_zero.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end39
-  %6 = sub i64 %retval.0.i67, %vlen
+  %6 = sub i64 %retval.0.i68, %vlen
   %7 = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %7, i1 false)
   br label %mpd_uint_zero.exit
 
 mpd_uint_zero.exit:                               ; preds = %for.body.i.preheader, %if.end39
-  %call43 = tail call i32 @fnt_convolute(ptr noundef nonnull %call10, ptr noundef nonnull %call26, i64 noundef %retval.0.i67, i32 noundef 2) #28
+  %call43 = tail call i32 @fnt_convolute(ptr noundef nonnull %call10, ptr noundef nonnull %call26, i64 noundef %retval.0.i68, i32 noundef 2) #28
   %tobool44.not = icmp eq i32 %call43, 0
   %8 = load ptr, ptr @mpd_free, align 8
   tail call void %8(ptr noundef nonnull %call26) #28
-  br i1 %tobool44.not, label %if.end50, label %if.end50.thread114
+  br i1 %tobool44.not, label %if.end50, label %if.end50.thread115
 
-if.end50.thread114:                               ; preds = %mpd_uint_zero.exit, %lor.lhs.false21
+if.end50.thread115:                               ; preds = %mpd_uint_zero.exit, %lor.lhs.false21
   %9 = load i64, ptr %rsize, align 8
   tail call void @crt3(ptr noundef nonnull %call2, ptr noundef nonnull %call6, ptr noundef nonnull %call10, i64 noundef %9) #28
   %10 = load ptr, ptr @mpd_free, align 8
@@ -30908,16 +30908,16 @@ if.end50:                                         ; preds = %if.end50.sink.split
   %tobool51.not = icmp eq ptr %call10, null
   br i1 %tobool51.not, label %if.end53, label %if.end53.sink.split
 
-if.end53.sink.split:                              ; preds = %if.end50, %if.end50.thread114, %if.end5
-  %call2.sink = phi ptr [ %call2, %if.end5 ], [ %call10, %if.end50.thread114 ], [ %call10, %if.end50 ]
-  %c1.18893.ph = phi ptr [ null, %if.end5 ], [ %call2, %if.end50.thread114 ], [ null, %if.end50 ]
+if.end53.sink.split:                              ; preds = %if.end50, %if.end50.thread115, %if.end5
+  %call2.sink = phi ptr [ %call2, %if.end5 ], [ %call10, %if.end50.thread115 ], [ %call10, %if.end50 ]
+  %c1.18994.ph = phi ptr [ null, %if.end5 ], [ %call2, %if.end50.thread115 ], [ null, %if.end50 ]
   %14 = load ptr, ptr @mpd_free, align 8
   tail call void %14(ptr noundef nonnull %call2.sink) #28
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end53.sink.split, %if.else23.i, %if.end, %_mpd_get_transform_len.exit, %if.end50
-  %c1.18893 = phi ptr [ null, %if.end50 ], [ null, %_mpd_get_transform_len.exit ], [ null, %if.end ], [ null, %if.else23.i ], [ %c1.18893.ph, %if.end53.sink.split ]
-  ret ptr %c1.18893
+  %c1.18994 = phi ptr [ null, %if.end50 ], [ null, %_mpd_get_transform_len.exit ], [ null, %if.end ], [ null, %if.else23.i ], [ %c1.18994.ph, %if.end53.sink.split ]
+  ret ptr %c1.18994
 }
 
 ; Function Attrs: nounwind uwtable

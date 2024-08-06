@@ -371,7 +371,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
 224:                                              ; preds = %.loopexit23
   %225 = trunc i32 %219 to i8
   %226 = load ptr, ptr %3, align 8
-  %227 = zext i32 %193 to i64
+  %227 = zext nneg i32 %193 to i64
   %228 = getelementptr %struct.code, ptr %226, i64 %227
   store i8 %225, ptr %228, align 2
   %229 = load ptr, ptr %3, align 8

@@ -1123,7 +1123,7 @@ for.body13.i:                                     ; preds = %if.end9.i, %for.bod
   br i1 %cmp12.not.i, label %for.end.loopexit.i, label %for.body13.i, !llvm.loop !14
 
 for.end.loopexit.i:                               ; preds = %for.body13.i
-  %5 = add nuw i32 %top.0.i, 1
+  %5 = add nuw nsw i32 %top.0.i, 1
   %6 = add i32 %i.021.i, 1
   %umax.i = tail call i32 @llvm.umax.i32(i32 %6, i32 %5)
   br label %for.end.i

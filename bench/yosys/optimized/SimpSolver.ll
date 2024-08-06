@@ -6911,7 +6911,7 @@ define linkonce_odr void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexD
   %20 = phi i32 [ %9, %.lr.ph ], [ %86, %76 ]
   %21 = phi i32 [ %8, %.lr.ph ], [ %85, %76 ]
   %.018 = phi i32 [ %1, %.lr.ph ], [ %60, %76 ]
-  %22 = add i32 %21, 2
+  %22 = add nsw i32 %21, 2
   %23 = icmp slt i32 %22, %19
   %.pre.pre = load ptr, ptr %0, align 8
   br i1 %23, label %24, label %._crit_edge26

@@ -2048,11 +2048,10 @@ select.unfold.i14:                                ; preds = %select.unfold.i14, 
 Extra_TruthCopy.exit17.critedge:                  ; preds = %4
   tail call void @Extra_TruthCofactor0(ptr noundef nonnull @Extra_TruthVarsSymm.uTemp0, i32 noundef %1, i32 noundef %2)
   tail call void @Extra_TruthCofactor1(ptr noundef nonnull @Extra_TruthVarsSymm.uTemp0, i32 noundef %1, i32 noundef %3)
-  %.pre = zext i32 %spec.select.i to i64
   br label %Extra_TruthCopy.exit17
 
 Extra_TruthCopy.exit17:                           ; preds = %select.unfold.i14, %Extra_TruthCopy.exit17.critedge
-  %.pre-phi = phi i64 [ %.pre, %Extra_TruthCopy.exit17.critedge ], [ %9, %select.unfold.i14 ]
+  %.pre-phi = phi i64 [ 2147483648, %Extra_TruthCopy.exit17.critedge ], [ %9, %select.unfold.i14 ]
   tail call void @Extra_TruthCofactor1(ptr noundef nonnull @Extra_TruthVarsSymm.uTemp1, i32 noundef %1, i32 noundef %2)
   tail call void @Extra_TruthCofactor0(ptr noundef nonnull @Extra_TruthVarsSymm.uTemp1, i32 noundef %1, i32 noundef %3)
   br label %select.unfold.i19
@@ -2118,11 +2117,10 @@ select.unfold.i14:                                ; preds = %select.unfold.i14, 
 Extra_TruthCopy.exit17.critedge:                  ; preds = %4
   tail call void @Extra_TruthCofactor0(ptr noundef nonnull @Extra_TruthVarsAntiSymm.uTemp0, i32 noundef %1, i32 noundef %2)
   tail call void @Extra_TruthCofactor0(ptr noundef nonnull @Extra_TruthVarsAntiSymm.uTemp0, i32 noundef %1, i32 noundef %3)
-  %.pre = zext i32 %spec.select.i to i64
   br label %Extra_TruthCopy.exit17
 
 Extra_TruthCopy.exit17:                           ; preds = %select.unfold.i14, %Extra_TruthCopy.exit17.critedge
-  %.pre-phi = phi i64 [ %.pre, %Extra_TruthCopy.exit17.critedge ], [ %9, %select.unfold.i14 ]
+  %.pre-phi = phi i64 [ 2147483648, %Extra_TruthCopy.exit17.critedge ], [ %9, %select.unfold.i14 ]
   tail call void @Extra_TruthCofactor1(ptr noundef nonnull @Extra_TruthVarsAntiSymm.uTemp1, i32 noundef %1, i32 noundef %2)
   tail call void @Extra_TruthCofactor1(ptr noundef nonnull @Extra_TruthVarsAntiSymm.uTemp1, i32 noundef %1, i32 noundef %3)
   br label %select.unfold.i19

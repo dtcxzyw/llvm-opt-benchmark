@@ -599,7 +599,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %20 = lshr i32 %15, 1
   %21 = lshr i32 %15, 3
   %22 = add nuw nsw i32 %21, 3
-  %23 = add nuw i32 %22, %20
+  %23 = add nuw nsw i32 %22, %20
   br label %.loopexit15
 
 24:                                               ; preds = %12
@@ -656,13 +656,13 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
 
 .loopexit15.loopexit:                             ; preds = %.loopexit14
   %58 = lshr i32 %15, 1
-  %59 = add nuw i32 %57, %58
+  %59 = add nuw nsw i32 %57, %58
   br label %.loopexit15
 
 .loopexit15:                                      ; preds = %.loopexit15.loopexit, %.thread12
   %.in = phi i32 [ %23, %.thread12 ], [ %59, %.loopexit15.loopexit ]
-  %60 = zext i32 %17 to i64
-  %61 = zext i32 %.in to i64
+  %60 = zext nneg i32 %17 to i64
+  %61 = zext nneg i32 %.in to i64
   %62 = zext i32 %15 to i64
   %63 = shl nuw nsw i64 %61, 1
   br label %.critedge
@@ -724,7 +724,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
 102:                                              ; preds = %52
   %103 = lshr i32 %15, 1
   %104 = add nuw nsw i32 %55, 3
-  %105 = add nuw i32 %104, %103
+  %105 = add nuw nsw i32 %104, %103
   br label %106
 
 106:                                              ; preds = %.loopexit16, %102
@@ -828,7 +828,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
   %15 = lshr i32 %10, 1
   %16 = lshr i32 %10, 3
   %17 = add nuw nsw i32 %16, 3
-  %18 = add nuw i32 %17, %15
+  %18 = add nuw nsw i32 %17, %15
   br label %.loopexit14
 
 19:                                               ; preds = %7
@@ -885,13 +885,13 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
 
 .loopexit14.loopexit:                             ; preds = %.loopexit13
   %53 = lshr i32 %10, 1
-  %54 = add nuw i32 %52, %53
+  %54 = add nuw nsw i32 %52, %53
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %.loopexit14.loopexit, %.thread12
   %.in = phi i32 [ %18, %.thread12 ], [ %54, %.loopexit14.loopexit ]
-  %55 = zext i32 %12 to i64
-  %56 = zext i32 %.in to i64
+  %55 = zext nneg i32 %12 to i64
+  %56 = zext nneg i32 %.in to i64
   %57 = zext i32 %10 to i64
   %58 = shl nuw nsw i64 %56, 1
   br label %.critedge
@@ -953,7 +953,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
 97:                                               ; preds = %47
   %98 = lshr i32 %10, 1
   %99 = add nuw nsw i32 %50, 3
-  %100 = add nuw i32 %99, %98
+  %100 = add nuw nsw i32 %99, %98
   br label %101
 
 101:                                              ; preds = %.loopexit15, %97
