@@ -1219,7 +1219,7 @@ _ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit: ; preds = %53
   %77 = and i64 %.0.i.masked.numleadingzeros, 1
   %78 = icmp eq i64 %77, 0
   %79 = and i64 %75, 16777215
-  %spec.select105 = select i1 %78, i64 11, i64 12
+  %spec.select105 = add nuw nsw i64 %77, 11
   %spec.select106 = select i1 %78, i64 %79, i64 %75
   %80 = lshr i64 %76, 1
   br label %._crit_edge.thread

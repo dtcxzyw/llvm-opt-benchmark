@@ -1072,7 +1072,7 @@ define internal fastcc void @rwsem_mark_wake(ptr noundef %0, i32 noundef %1, ptr
 
 30:                                               ; preds = %24
   %31 = and i64 %21, 4
-  %.neg = xor i64 %31, -252
+  %.neg = sub nuw nsw i64 -252, %31
   %32 = getelementptr inbounds i8, ptr %6, i64 40
   store i8 1, ptr %32, align 8
   br label %41

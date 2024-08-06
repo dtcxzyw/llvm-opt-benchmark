@@ -33785,7 +33785,7 @@ invoke.cont4:
   store i32 0, ptr %exp_.i72, align 8
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
-  %cond = select i1 %cmp.not, i32 1, i32 2
+  %cond = add nuw nsw i32 %and, 1
   %e = getelementptr inbounds i8, ptr %value, i64 16
   %4 = load i32, ptr %e, align 16
   %cmp5 = icmp sgt i32 %4, -1

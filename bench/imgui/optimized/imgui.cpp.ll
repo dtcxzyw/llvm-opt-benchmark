@@ -32773,15 +32773,13 @@ lor.lhs.false66.i:                                ; preds = %_ZN11ImGuiWindow5Ge
 
 if.end72.thread598.i:                             ; preds = %lor.lhs.false66.i
   %and69600.i = and i32 %416, 1
-  %tobool70.not601.i = icmp eq i32 %and69600.i, 0
-  %cond71602.i = select i1 %tobool70.not601.i, i32 6, i32 5
-  store i32 %cond71602.i, ptr %MouseCursor.i, align 8
+  %cond71601.i = sub nuw nsw i32 6, %and69600.i
+  store i32 %cond71601.i, ptr %MouseCursor.i, align 8
   br label %land.lhs.true.i678
 
 if.end72.i:                                       ; preds = %_ZN11ImGuiWindow5GetIDEi.exit.i
   %and69.i = and i32 %416, 1
-  %tobool70.not.i = icmp eq i32 %and69.i, 0
-  %cond71.i = select i1 %tobool70.not.i, i32 6, i32 5
+  %cond71.i = sub nuw nsw i32 6, %and69.i
   store i32 %cond71.i, ptr %MouseCursor.i, align 8
   br i1 %.pre593.i, label %land.lhs.true.i678, label %if.end138.i
 
@@ -32853,19 +32851,19 @@ lor.lhs.false140.i:                               ; preds = %if.end138.i
 
 if.then144.thread.i:                              ; preds = %lor.lhs.false140.i
   %461 = load ptr, ptr @GImGui, align 8
-  %Style.i605.i = getelementptr inbounds i8, ptr %461, i64 14576
-  %Colors.i606.i = getelementptr inbounds i8, ptr %461, i64 14804
+  %Style.i604.i = getelementptr inbounds i8, ptr %461, i64 14576
+  %Colors.i605.i = getelementptr inbounds i8, ptr %461, i64 14804
   br label %465
 
 lor.lhs.false142.i:                               ; preds = %lor.lhs.false140.i
   %.pre587.i = load i8, ptr %hovered.i, align 1
   %tobool143.i = trunc i8 %.pre587.i to i1
-  br i1 %tobool143.i, label %if.then144.thread612.i, label %for.inc.i
+  br i1 %tobool143.i, label %if.then144.thread611.i, label %for.inc.i
 
-if.then144.thread612.i:                           ; preds = %lor.lhs.false142.i
+if.then144.thread611.i:                           ; preds = %lor.lhs.false142.i
   %462 = load ptr, ptr @GImGui, align 8
-  %Style.i615.i = getelementptr inbounds i8, ptr %462, i64 14576
-  %Colors.i616.i = getelementptr inbounds i8, ptr %462, i64 14804
+  %Style.i614.i = getelementptr inbounds i8, ptr %462, i64 14576
+  %Colors.i615.i = getelementptr inbounds i8, ptr %462, i64 14804
   br label %465
 
 if.then144.i:                                     ; preds = %if.end138.i
@@ -32879,11 +32877,11 @@ if.then144.i:                                     ; preds = %if.end138.i
   %spec.select.i = select i1 %.pre591.i, i64 32, i64 %463
   br label %465
 
-465:                                              ; preds = %if.then144.i, %if.then144.thread612.i, %if.then144.thread.i
-  %Colors.i610.i = phi ptr [ %Colors.i616.i, %if.then144.thread612.i ], [ %Colors.i606.i, %if.then144.thread.i ], [ %Colors.i.i, %if.then144.i ]
-  %Style.i608.i = phi ptr [ %Style.i615.i, %if.then144.thread612.i ], [ %Style.i605.i, %if.then144.thread.i ], [ %Style.i.i, %if.then144.i ]
-  %466 = phi i64 [ 31, %if.then144.thread612.i ], [ 32, %if.then144.thread.i ], [ %spec.select.i, %if.then144.i ]
-  %arrayidx.i.i675 = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i610.i, i64 0, i64 %466
+465:                                              ; preds = %if.then144.i, %if.then144.thread611.i, %if.then144.thread.i
+  %Colors.i609.i = phi ptr [ %Colors.i615.i, %if.then144.thread611.i ], [ %Colors.i605.i, %if.then144.thread.i ], [ %Colors.i.i, %if.then144.i ]
+  %Style.i607.i = phi ptr [ %Style.i614.i, %if.then144.thread611.i ], [ %Style.i604.i, %if.then144.thread.i ], [ %Style.i.i, %if.then144.i ]
+  %466 = phi i64 [ 31, %if.then144.thread611.i ], [ 32, %if.then144.thread.i ], [ %spec.select.i, %if.then144.i ]
+  %arrayidx.i.i675 = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i609.i, i64 0, i64 %466
   %c.sroa.0.0.copyload.i.i = load float, ptr %arrayidx.i.i675, align 4
   %c.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i675, i64 4
   %c.sroa.2.0.copyload.i.i = load float, ptr %c.sroa.2.0.arrayidx.sroa_idx.i.i, align 4
@@ -32891,7 +32889,7 @@ if.then144.i:                                     ; preds = %if.end138.i
   %c.sroa.3.0.copyload.i.i = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i.i, align 4
   %c.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i675, i64 12
   %c.sroa.4.0.copyload.i.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i.i, align 4
-  %467 = load float, ptr %Style.i608.i, align 4
+  %467 = load float, ptr %Style.i607.i, align 4
   %mul1.i272.i = fmul float %c.sroa.4.0.copyload.i.i, %467
   %cmp.i.i.i.i676 = fcmp olt float %c.sroa.0.0.copyload.i.i, 0.000000e+00
   %cmp1.i.i.i.i = fcmp ogt float %c.sroa.0.0.copyload.i.i, 1.000000e+00
@@ -33115,13 +33113,13 @@ if.end198.thread.i:                               ; preds = %land.lhs.true195.i
   br label %lor.lhs.false200.i
 
 lor.lhs.false200.i:                               ; preds = %_ZN11ImGuiWindow5GetIDEi.exit307.i, %if.end198.thread.i
-  %.pre588.pre620.i = load i8, ptr %held188.i, align 1
-  %tobool201.i = trunc i8 %.pre588.pre620.i to i1
-  br i1 %tobool201.i, label %if.end206.thread622.i, label %if.end381.i
+  %.pre588.pre619.i = load i8, ptr %held188.i, align 1
+  %tobool201.i = trunc i8 %.pre588.pre619.i to i1
+  br i1 %tobool201.i, label %if.end206.thread621.i, label %if.end381.i
 
-if.end206.thread622.i:                            ; preds = %lor.lhs.false200.i
-  %cond204624.i = select i1 %491, i32 3, i32 4
-  store i32 %cond204624.i, ptr %MouseCursor205.i, align 8
+if.end206.thread621.i:                            ; preds = %lor.lhs.false200.i
+  %cond204623.i = select i1 %491, i32 3, i32 4
+  store i32 %cond204623.i, ptr %MouseCursor205.i, align 8
   br label %land.lhs.true208.i
 
 if.end206.i:                                      ; preds = %land.lhs.true195.i
@@ -33131,7 +33129,7 @@ if.end206.i:                                      ; preds = %land.lhs.true195.i
   store i32 %cond204.i, ptr %MouseCursor205.i, align 8
   br i1 %.pre.i652, label %land.lhs.true208.i, label %if.end381.i
 
-land.lhs.true208.i:                               ; preds = %if.end206.i, %if.end206.thread622.i
+land.lhs.true208.i:                               ; preds = %if.end206.i, %if.end206.thread621.i
   %519 = load i8, ptr %MouseDoubleClicked210.i, align 1
   %tobool212.i = trunc i8 %519 to i1
   br i1 %tobool212.i, label %if.then213.i, label %if.then229.i
@@ -33412,17 +33410,17 @@ land.lhs.true399.i:                               ; preds = %if.then397.i
   br i1 %tobool401.i, label %if.end411.sink.split.i, label %if.end411.i
 
 if.end411.sink.split.i:                           ; preds = %land.lhs.true399.i, %if.then397.i
-  %.sink630.i = phi i64 [ 11928, %land.lhs.true399.i ], [ 13912, %if.then397.i ]
-  %.sink629.i = phi i64 [ 11912, %land.lhs.true399.i ], [ 13896, %if.then397.i ]
+  %.sink629.i = phi i64 [ 11928, %land.lhs.true399.i ], [ 13912, %if.then397.i ]
+  %.sink628.i = phi i64 [ 11912, %land.lhs.true399.i ], [ 13896, %if.then397.i ]
   %.sink.i = phi i64 [ 11960, %land.lhs.true399.i ], [ 13944, %if.then397.i ]
-  %.sink626.i = phi i64 [ 11944, %land.lhs.true399.i ], [ 13928, %if.then397.i ]
-  %AnalogValue.i.i = getelementptr inbounds i8, ptr %579, i64 %.sink630.i
+  %.sink625.i = phi i64 [ 11944, %land.lhs.true399.i ], [ 13928, %if.then397.i ]
+  %AnalogValue.i.i = getelementptr inbounds i8, ptr %579, i64 %.sink629.i
   %586 = load float, ptr %AnalogValue.i.i, align 4
-  %AnalogValue2.i.i = getelementptr inbounds i8, ptr %579, i64 %.sink629.i
+  %AnalogValue2.i.i = getelementptr inbounds i8, ptr %579, i64 %.sink628.i
   %587 = load float, ptr %AnalogValue2.i.i, align 4
   %AnalogValue4.i.i = getelementptr inbounds i8, ptr %579, i64 %.sink.i
   %588 = load float, ptr %AnalogValue4.i.i, align 4
-  %AnalogValue6.i.i = getelementptr inbounds i8, ptr %579, i64 %.sink626.i
+  %AnalogValue6.i.i = getelementptr inbounds i8, ptr %579, i64 %.sink625.i
   %589 = load float, ptr %AnalogValue6.i.i, align 4
   %590 = insertelement <2 x float> poison, float %586, i64 0
   %591 = insertelement <2 x float> %590, float %588, i64 1

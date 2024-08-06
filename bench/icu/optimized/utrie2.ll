@@ -1127,7 +1127,7 @@ if.else26:                                        ; preds = %if.then23
   %and27 = and i32 %.us-phi162, 1024
   %cmp28 = icmp eq i32 %and27, 0
   %. = select i1 %cmp28, i32 2048, i32 1728
-  %minmaxop = select i1 %cmp28, i32 56320, i32 57344
+  %minmaxop = add nuw nsw i32 %and27, 56320
   %cond.cond36 = tail call i32 @llvm.smin.i32(i32 %minmaxop, i32 %limit)
   br label %if.end56
 

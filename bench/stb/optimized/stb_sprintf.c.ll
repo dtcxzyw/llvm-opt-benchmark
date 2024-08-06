@@ -378,8 +378,7 @@ sw.bb65:                                          ; preds = %for.cond49
 
 if.then68:                                        ; preds = %sw.bb65
   %and69 = and i32 %fl.0, 2048
-  %tobool70.not = icmp eq i32 %and69, 0
-  %. = select i1 %tobool70.not, i32 2048, i32 4096
+  %. = add nuw nsw i32 %and69, 2048
   br label %for.cond49.backedge
 
 sw.bb79:                                          ; preds = %for.cond49

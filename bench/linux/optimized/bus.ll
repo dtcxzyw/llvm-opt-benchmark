@@ -1547,18 +1547,18 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_ad
   %7 = tail call i32 @acpi_os_initialize1() #14
   %8 = tail call i32 @acpi_load_tables() #16
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %134
+  br i1 %9, label %10, label %133
 
 10:                                               ; preds = %0
   tail call void @acpi_ec_ecdt_probe() #14
   %11 = tail call i32 @acpi_enable_subsystem(i32 noundef 2) #16
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %134
+  br i1 %12, label %13, label %133
 
 13:                                               ; preds = %10
   %14 = tail call i32 @acpi_initialize_objects(i32 noundef 0) #16
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %134
+  br i1 %15, label %16, label %133
 
 16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
@@ -1663,12 +1663,12 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_ad
   store ptr null, ptr %3, align 8, !annotation !5
   %68 = load i8, ptr @osc_sb_native_usb4_support_confirmed, align 1, !range !14, !noundef !15
   %69 = icmp eq i8 %68, 0
-  br i1 %69, label %120, label %70
+  br i1 %69, label %119, label %70
 
 70:                                               ; preds = %62
   %71 = call i32 @acpi_get_handle(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull %3) #14
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %120
+  br i1 %72, label %73, label %119
 
 73:                                               ; preds = %70
   store i32 1, ptr %1, align 4
@@ -1679,7 +1679,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_ad
   %76 = load ptr, ptr %3, align 8
   %77 = call i32 @acpi_run_osc(ptr noundef %76, ptr noundef nonnull %2)
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %120
+  br i1 %78, label %79, label %119
 
 79:                                               ; preds = %73
   %80 = load i64, ptr %67, align 8
@@ -1688,7 +1688,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_ad
 
 82:                                               ; preds = %79
   %83 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22) #16
-  br label %117
+  br label %116
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds i8, ptr %2, i64 40
@@ -1701,7 +1701,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_ad
   %89 = load ptr, ptr %3, align 8
   %90 = call i32 @acpi_run_osc(ptr noundef %89, ptr noundef nonnull %2)
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %120
+  br i1 %91, label %92, label %119
 
 92:                                               ; preds = %84
   %93 = load i64, ptr %67, align 8
@@ -1710,7 +1710,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_ad
 
 95:                                               ; preds = %92
   %96 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22) #16
-  br label %117
+  br label %116
 
 97:                                               ; preds = %92
   %98 = load ptr, ptr %85, align 8
@@ -1724,61 +1724,60 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_bus_init() unnamed_ad
   %105 = icmp eq i32 %104, 0
   %106 = select i1 %105, i32 45, i32 43
   %107 = and i32 %103, 2
-  %108 = icmp eq i32 %107, 0
-  %109 = select i1 %108, i32 45, i32 43
-  %110 = and i32 %103, 4
-  %111 = icmp eq i32 %110, 0
-  %112 = select i1 %111, i32 45, i32 43
-  %113 = and i32 %103, 8
-  %114 = icmp eq i32 %113, 0
-  %115 = select i1 %114, i32 45, i32 43
-  %116 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.24, i32 noundef %106, i32 noundef %109, i32 noundef %112, i32 noundef %115) #16
-  br label %117
+  %108 = sub nuw nsw i32 45, %107
+  %109 = and i32 %103, 4
+  %110 = icmp eq i32 %109, 0
+  %111 = select i1 %110, i32 45, i32 43
+  %112 = and i32 %103, 8
+  %113 = icmp eq i32 %112, 0
+  %114 = select i1 %113, i32 45, i32 43
+  %115 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.24, i32 noundef %106, i32 noundef %108, i32 noundef %111, i32 noundef %114) #16
+  br label %116
 
-117:                                              ; preds = %97, %95, %82
-  %118 = getelementptr inbounds i8, ptr %2, i64 40
-  %119 = load ptr, ptr %118, align 8
-  call void @kfree(ptr noundef %119) #14
-  br label %120
+116:                                              ; preds = %97, %95, %82
+  %117 = getelementptr inbounds i8, ptr %2, i64 40
+  %118 = load ptr, ptr %117, align 8
+  call void @kfree(ptr noundef %118) #14
+  br label %119
 
-120:                                              ; preds = %117, %84, %73, %70, %62
+119:                                              ; preds = %116, %84, %73, %70, %62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #14
-  %121 = call i32 @acpi_install_table_handler(ptr noundef nonnull @acpi_bus_table_handler, ptr noundef null) #14
-  %122 = call i32 @acpi_sysfs_init() #14
+  %120 = call i32 @acpi_install_table_handler(ptr noundef nonnull @acpi_bus_table_handler, ptr noundef null) #14
+  %121 = call i32 @acpi_sysfs_init() #14
   call void @acpi_early_processor_control_setup() #14
   call void @acpi_ec_dsdt_probe() #14
-  %123 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #16
-  %124 = call i32 @acpi_sleep_init() #14
-  %125 = call fastcc i32 @acpi_bus_init_irq() #17, !range !13
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %137
+  %122 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #16
+  %123 = call i32 @acpi_sleep_init() #14
+  %124 = call fastcc i32 @acpi_bus_init_irq() #17, !range !13
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %126, label %136
 
-127:                                              ; preds = %120
-  %128 = call i32 @acpi_install_notify_handler(ptr noundef nonnull inttoptr (i64 -1 to ptr), i32 noundef 1, ptr noundef nonnull @acpi_bus_notify, ptr noundef null) #14
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %134
+126:                                              ; preds = %119
+  %127 = call i32 @acpi_install_notify_handler(ptr noundef nonnull inttoptr (i64 -1 to ptr), i32 noundef 1, ptr noundef nonnull @acpi_bus_notify, ptr noundef null) #14
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %133
 
-130:                                              ; preds = %127
-  %131 = call ptr @proc_mkdir(ptr noundef nonnull @.str.6, ptr noundef null) #14
-  store ptr %131, ptr @acpi_root_dir, align 8
-  %132 = call i32 @bus_register(ptr noundef nonnull @acpi_bus_type) #14
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %139, label %137
+129:                                              ; preds = %126
+  %130 = call ptr @proc_mkdir(ptr noundef nonnull @.str.6, ptr noundef null) #14
+  store ptr %130, ptr @acpi_root_dir, align 8
+  %131 = call i32 @bus_register(ptr noundef nonnull @acpi_bus_type) #14
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %138, label %136
 
-134:                                              ; preds = %127, %13, %10, %0
-  %135 = phi ptr [ @.str.16, %0 ], [ @.str.17, %10 ], [ @.str.18, %13 ], [ @.str.20, %127 ]
-  %136 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %135) #16
-  br label %137
+133:                                              ; preds = %126, %13, %10, %0
+  %134 = phi ptr [ @.str.16, %0 ], [ @.str.17, %10 ], [ @.str.18, %13 ], [ @.str.20, %126 ]
+  %135 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %134) #16
+  br label %136
 
-137:                                              ; preds = %134, %130, %120
-  %138 = call i32 @acpi_terminate() #16
-  br label %139
+136:                                              ; preds = %133, %129, %119
+  %137 = call i32 @acpi_terminate() #16
+  br label %138
 
-139:                                              ; preds = %137, %130
-  %140 = phi i32 [ -19, %137 ], [ 0, %130 ]
-  ret i32 %140
+138:                                              ; preds = %136, %129
+  %139 = phi i32 [ -19, %136 ], [ 0, %129 ]
+  ret i32 %139
 }
 
 ; Function Attrs: null_pointer_is_valid

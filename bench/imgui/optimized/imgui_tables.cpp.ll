@@ -6274,8 +6274,7 @@ if.then48:                                        ; preds = %if.else
   %RowBgColorCounter = getelementptr inbounds i8, ptr %table, i64 152
   %35 = load i32, ptr %RowBgColorCounter, align 8
   %and49 = and i32 %35, 1
-  %tobool50.not = icmp eq i32 %and49, 0
-  %cond = select i1 %tobool50.not, i32 45, i32 46
+  %cond = add nuw nsw i32 %and49, 45
   %call51 = tail call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond, float noundef 1.000000e+00)
   br label %if.end53
 

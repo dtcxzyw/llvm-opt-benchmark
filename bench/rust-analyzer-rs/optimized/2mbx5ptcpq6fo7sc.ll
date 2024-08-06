@@ -32568,8 +32568,7 @@ define hidden void @_ZN15ra_ap_rustc_abi6layout16LayoutCalculator15layout_of_uni
   %18 = getelementptr inbounds i8, ptr %2, i64 10
   %19 = load i8, ptr %18, align 2, !noundef !4
   %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
-  %spec.select839 = select i1 %.not, i8 5, i8 6
+  %spec.select839 = add nuw nsw i8 %20, 5
   %.not297 = icmp eq i64 %4, 0
   br i1 %.not297, label %26, label %21, !prof !9329
 

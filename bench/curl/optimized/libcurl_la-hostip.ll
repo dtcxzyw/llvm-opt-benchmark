@@ -1842,7 +1842,7 @@ entry:
   %bf.load = load i32, ptr %bits, align 8
   %bf.clear = and i32 %bf.load, 1
   %tobool.not = icmp eq i32 %bf.clear, 0
-  %. = select i1 %tobool.not, i32 6, i32 5
+  %. = sub nuw nsw i32 6, %bf.clear
   %.str.15..str.14 = select i1 %tobool.not, ptr @.str.15, ptr @.str.14
   %async = getelementptr inbounds i8, ptr %data, i64 3624
   %1 = load ptr, ptr %async, align 8

@@ -5346,7 +5346,7 @@ exponent.exit775:                                 ; preds = %389, %.lr.ph.prehea
   br i1 %.not646, label %420, label %421
 
 420:                                              ; preds = %419
-  %spec.select737 = select i1 %.not.i, i32 1, i32 2
+  %spec.select737 = add nuw nsw i32 %309, 1
   br label %429
 
 421:                                              ; preds = %419

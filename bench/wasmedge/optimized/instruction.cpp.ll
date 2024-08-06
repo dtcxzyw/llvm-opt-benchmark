@@ -6135,10 +6135,10 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = zext i32 %92 to i64
   call void @_ZNSt6vectorIN8WasmEdge3AST11Instruction15CatchDescriptorESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %95, i64 noundef %96)
-  %.not196 = icmp eq i32 %92, 0
-  br i1 %.not196, label %._crit_edge193, label %.lr.ph192
+  %.not195 = icmp eq i32 %92, 0
+  br i1 %.not195, label %._crit_edge192, label %.lr.ph191
 
-.lr.ph192:                                        ; preds = %93
+.lr.ph191:                                        ; preds = %93
   %97 = getelementptr inbounds i8, ptr %1, i64 168
   %98 = getelementptr inbounds i8, ptr %12, i64 4
   br label %105
@@ -6155,16 +6155,16 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %496
 
 104:                                              ; preds = %137
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %exitcond208.not = icmp eq i64 %indvars.iv.next205, %96
-  br i1 %exitcond208.not, label %._crit_edge193, label %105, !llvm.loop !40
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %exitcond207.not = icmp eq i64 %indvars.iv.next204, %96
+  br i1 %exitcond207.not, label %._crit_edge192, label %105, !llvm.loop !40
 
-105:                                              ; preds = %.lr.ph192, %104
-  %indvars.iv204 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next205, %104 ]
+105:                                              ; preds = %.lr.ph191, %104
+  %indvars.iv203 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next204, %104 ]
   %106 = load ptr, ptr %2, align 16
   %107 = getelementptr inbounds i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %"struct.WasmEdge::AST::Instruction::CatchDescriptor", ptr %108, i64 %indvars.iv204
+  %109 = getelementptr inbounds %"struct.WasmEdge::AST::Instruction::CatchDescriptor", ptr %108, i64 %indvars.iv203
   call void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.0") align 4 %12, ptr noundef nonnull align 8 dereferenceable(88) %97)
   %110 = load i8, ptr %12, align 4
   %111 = trunc i8 %110 to i1
@@ -6185,8 +6185,8 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   %121 = and i8 %119, -4
   %122 = or disjoint i8 %121, %.lobit
   store i8 %122, ptr %109, align 4
-  %.not84 = icmp eq i8 %.lobit, 0
-  br i1 %.not84, label %129, label %137
+  %.not83 = icmp eq i8 %.lobit, 0
+  br i1 %.not83, label %129, label %137
 
 123:                                              ; preds = %105
   %124 = load i32, ptr %98, align 4
@@ -6230,7 +6230,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   store i32 %143, ptr %144, align 4
   br label %496
 
-._crit_edge193:                                   ; preds = %104, %93
+._crit_edge192:                                   ; preds = %104, %93
   store i64 1, ptr %0, align 4
   br label %496
 
@@ -6283,12 +6283,12 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 161:                                              ; preds = %156
   %162 = add i32 %160, 1
   call void @_ZN8WasmEdge3AST11Instruction16setLabelListSizeEj(ptr noundef nonnull align 16 dereferenceable(25) %2, i32 noundef %162)
-  %.not195 = icmp eq i32 %160, 0
-  br i1 %.not195, label %._crit_edge189, label %.lr.ph188
+  %.not194 = icmp eq i32 %160, 0
+  br i1 %.not194, label %._crit_edge188, label %.lr.ph187
 
-.lr.ph188:                                        ; preds = %161
+.lr.ph187:                                        ; preds = %161
   %163 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count202 = zext i32 %160 to i64
+  %wide.trip.count201 = zext i32 %160 to i64
   br label %170
 
 164:                                              ; preds = %156
@@ -6303,14 +6303,14 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %496
 
 169:                                              ; preds = %170
-  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
-  %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
-  br i1 %exitcond203.not, label %._crit_edge189, label %170, !llvm.loop !47
+  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
+  %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
+  br i1 %exitcond202.not, label %._crit_edge188, label %170, !llvm.loop !47
 
-170:                                              ; preds = %.lr.ph188, %169
-  %indvars.iv199 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next200, %169 ]
+170:                                              ; preds = %.lr.ph187, %169
+  %indvars.iv198 = phi i64 [ 0, %.lr.ph187 ], [ %indvars.iv.next199, %169 ]
   %171 = load ptr, ptr %163, align 8
-  %172 = getelementptr inbounds %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %171, i64 %indvars.iv199
+  %172 = getelementptr inbounds %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %171, i64 %indvars.iv198
   call fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nonnull writable align 4 %22, ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %172)
   %173 = load i8, ptr %22, align 4
   %174 = trunc i8 %173 to i1
@@ -6324,8 +6324,8 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   store i32 %177, ptr %178, align 4
   br label %496
 
-._crit_edge189:                                   ; preds = %169, %161
-  %.pre-phi = phi i64 [ 0, %161 ], [ %wide.trip.count202, %169 ]
+._crit_edge188:                                   ; preds = %169, %161
+  %.pre-phi = phi i64 [ 0, %161 ], [ %wide.trip.count201, %169 ]
   %179 = getelementptr inbounds i8, ptr %2, i64 8
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %180, i64 %.pre-phi
@@ -6369,8 +6369,8 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 200:                                              ; preds = %190
   %201 = load i32, ptr %193, align 4
-  %.not83 = icmp eq i32 %201, 0
-  br i1 %.not83, label %202, label %206
+  %.not82 = icmp eq i32 %201, 0
+  br i1 %.not82, label %202, label %206
 
 202:                                              ; preds = %200
   %203 = load i64, ptr %191, align 8
@@ -6509,8 +6509,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   tail call void @_ZN8WasmEdge3AST11Instruction9setBrCastEj(ptr noundef nonnull align 16 dereferenceable(25) %2, i32 noundef %264)
   %265 = load i8, ptr %30, align 1
   %266 = and i8 %265, 1
-  %.not = icmp eq i8 %266, 0
-  %267 = select i1 %.not, i8 100, i8 99
+  %267 = sub nuw nsw i8 100, %266
   call void @_ZN8WasmEdge6Loader6Loader12loadHeapTypeENS_8TypeCodeENS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.120") align 4 %38, ptr noundef nonnull align 8 dereferenceable(360) %1, i8 noundef zeroext %267, i8 noundef zeroext 57)
   %268 = load i8, ptr %38, align 4
   %269 = trunc i8 %268 to i1
@@ -6523,8 +6522,8 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   %274 = load i64, ptr %270, align 4
   store i64 %274, ptr %273, align 4
   %275 = and i8 %265, 2
-  %.not82 = icmp eq i8 %275, 0
-  %276 = select i1 %.not82, i8 100, i8 99
+  %.not = icmp eq i8 %275, 0
+  %276 = select i1 %.not, i8 100, i8 99
   call void @_ZN8WasmEdge6Loader6Loader12loadHeapTypeENS_8TypeCodeENS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.120") align 4 %41, ptr noundef nonnull align 8 dereferenceable(360) %1, i8 noundef zeroext %276, i8 noundef zeroext 57)
   %277 = load i8, ptr %41, align 4
   %278 = trunc i8 %277 to i1
@@ -6581,8 +6580,8 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 303:                                              ; preds = %298
   call void @_ZN8WasmEdge3AST11Instruction18setValTypeListSizeEj(ptr noundef nonnull align 16 dereferenceable(25) %2, i32 noundef %302)
-  %.not194 = icmp eq i32 %302, 0
-  br i1 %.not194, label %._crit_edge, label %.lr.ph
+  %.not193 = icmp eq i32 %302, 0
+  br i1 %.not193, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %303
   %304 = getelementptr inbounds i8, ptr %47, i64 4
@@ -6614,8 +6613,8 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   %317 = load i64, ptr %304, align 4
   store i64 %317, ptr %316, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond198.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond198.not, label %._crit_edge, label %311, !llvm.loop !66
+  %exitcond197.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond197.not, label %._crit_edge, label %311, !llvm.loop !66
 
 318:                                              ; preds = %311
   %319 = load i32, ptr %304, align 4, !noalias !67
@@ -6857,8 +6856,8 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %496
 
 431:                                              ; preds = %420
-  %.sroa.0.0.insert.ext.i132 = zext i32 %425 to i128
-  store i128 %.sroa.0.0.insert.ext.i132, ptr %2, align 16
+  %.sroa.0.0.insert.ext.i131 = zext i32 %425 to i128
+  store i128 %.sroa.0.0.insert.ext.i131, ptr %2, align 16
   store i64 1, ptr %0, align 4
   br label %496
 
@@ -6884,8 +6883,8 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 
 443:                                              ; preds = %432
   %444 = load i64, ptr %436, align 8
-  %.sroa.0.0.insert.ext.i136 = zext i64 %444 to i128
-  store i128 %.sroa.0.0.insert.ext.i136, ptr %2, align 16
+  %.sroa.0.0.insert.ext.i135 = zext i64 %444 to i128
+  store i128 %.sroa.0.0.insert.ext.i135, ptr %2, align 16
   store i64 1, ptr %0, align 4
   br label %496
 
@@ -6922,8 +6921,8 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
   br label %459
 
 459:                                              ; preds = %456, %468
-  %.0184 = phi i32 [ 0, %456 ], [ %475, %468 ]
-  %.0181183 = phi i128 [ 0, %456 ], [ %474, %468 ]
+  %.0183 = phi i32 [ 0, %456 ], [ %475, %468 ]
+  %.0180182 = phi i128 [ 0, %456 ], [ %474, %468 ]
   call void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.0") align 4 %70, ptr noundef nonnull align 8 dereferenceable(88) %457)
   %460 = load i8, ptr %70, align 4
   %461 = trunc i8 %460 to i1
@@ -6944,11 +6943,11 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 468:                                              ; preds = %459
   %469 = load i8, ptr %458, align 4
   %470 = zext i8 %469 to i128
-  %471 = shl nuw nsw i32 %.0184, 3
+  %471 = shl nuw nsw i32 %.0183, 3
   %472 = zext nneg i32 %471 to i128
   %473 = shl nuw i128 %470, %472
-  %474 = or i128 %473, %.0181183
-  %475 = add nuw nsw i32 %.0184, 1
+  %474 = or i128 %473, %.0180182
+  %475 = add nuw nsw i32 %.0183, 1
   %exitcond.not = icmp eq i32 %475, 16
   br i1 %exitcond.not, label %476, label %459, !llvm.loop !88
 
@@ -7014,7 +7013,7 @@ define void @_ZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionE(
 495:                                              ; preds = %3
   unreachable
 
-496:                                              ; preds = %494, %493, %492, %491, %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.exit", %476, %462, %454, %450, %446, %445, %443, %437, %431, %426, %417, %411, %405, %400, %393, %387, %381, %377, %372, %368, %362, %361, %355, %345, %340, %338, %334, %330, %326, %321, %._crit_edge, %318, %306, %297, %296, %286, %290, %280, %256, %246, %241, %237, %233, %232, %227, %229, %218, %220, %213, %208, %196, %186, %182, %._crit_edge189, %175, %164, %153, %152, %149, %148, %147, %145, %._crit_edge193, %141, %133, %123, %99, %84, %78, %77
+496:                                              ; preds = %494, %493, %492, %491, %"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh.exit", %476, %462, %454, %450, %446, %445, %443, %437, %431, %426, %417, %411, %405, %400, %393, %387, %381, %377, %372, %368, %362, %361, %355, %345, %340, %338, %334, %330, %326, %321, %._crit_edge, %318, %306, %297, %296, %286, %290, %280, %256, %246, %241, %237, %233, %232, %227, %229, %218, %220, %213, %208, %196, %186, %182, %._crit_edge188, %175, %164, %153, %152, %149, %148, %147, %145, %._crit_edge192, %141, %133, %123, %99, %84, %78, %77
   ret void
 }
 

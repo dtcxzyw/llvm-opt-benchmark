@@ -1387,9 +1387,8 @@ invoke.cont:                                      ; preds = %while.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #15
   %and = and i64 %sub.ptr.sub, 1
-  %tobool7.not = icmp eq i64 %and, 0
   %5 = load ptr, ptr %mFileBuffer, align 8
-  %idx.ext = select i1 %tobool7.not, i64 2, i64 1
+  %idx.ext = sub nuw nsw i64 2, %and
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %idx.ext
   store ptr %add.ptr, ptr %mFileBuffer, align 8
   ret void

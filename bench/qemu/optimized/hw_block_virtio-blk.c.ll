@@ -430,7 +430,7 @@ if.then53:                                        ; preds = %if.end48
   %blk = getelementptr inbounds i8, ptr %4, i64 520
   %23 = load ptr, ptr %blk, align 8
   %call54 = call ptr @blk_get_stats(ptr noundef %23) #14
-  %cond = select i1 %tobool36.not, i32 1, i32 2
+  %cond = add nuw nsw i32 %and35, 1
   call void @block_acct_invalid(ptr noundef %call54, i32 noundef %cond) #14
   call void @g_free(ptr noundef nonnull %req) #14
   br label %return
@@ -441,7 +441,7 @@ if.end57:                                         ; preds = %if.end48
   %call59 = call ptr @blk_get_stats(ptr noundef %24) #14
   %acct = getelementptr inbounds i8, ptr %req, i64 216
   %25 = load i64, ptr %size51, align 8
-  %cond64 = select i1 %tobool36.not, i32 1, i32 2
+  %cond64 = add nuw nsw i32 %and35, 1
   call void @block_acct_start(ptr noundef %call59, ptr noundef nonnull %acct, i64 noundef %25, i32 noundef %cond64) #14
   %num_reqs = getelementptr inbounds i8, ptr %mrb, i64 256
   %26 = load i32, ptr %num_reqs, align 8

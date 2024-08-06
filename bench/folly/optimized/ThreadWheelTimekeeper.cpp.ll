@@ -2478,8 +2478,7 @@ if.end.lr.ph.i:                                   ; preds = %for.end22
 if.end.us.i:                                      ; preds = %if.end.lr.ph.i, %cleanup.us.i
   %4 = phi i32 [ %8, %cleanup.us.i ], [ %3, %if.end.lr.ph.i ]
   %and4.us.i = and i32 %4, 4
-  %cmp5.not.us.i = icmp eq i32 %and4.us.i, 0
-  %after.0.us.v.i = select i1 %cmp5.not.us.i, i32 4, i32 8
+  %after.0.us.v.i = add nuw nsw i32 %and4.us.i, 4
   %after.0.us.i = or i32 %after.0.us.v.i, %4
   %cmp12.not.us.i = icmp eq i32 %after.0.us.i, %4
   br i1 %cmp12.not.us.i, label %if.end16.us.i, label %seqcst_fail50.i.us.i

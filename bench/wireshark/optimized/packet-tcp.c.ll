@@ -13752,6 +13752,7 @@ define internal i32 @dissect_tcpopt_rvbd_probe(ptr noundef %0, ptr noundef %1, p
   %19 = and i8 %18, 1
   %.not.i = icmp eq i8 %19, 0
   %..i = select i1 %.not.i, i8 1, i8 4
+  %.7.i = sub nuw nsw i8 2, %19
   %20 = lshr i8 %18, %..i
   %21 = zext nneg i8 %20 to i32
   %22 = tail call ptr @val_to_str_const(i32 noundef %21, ptr noundef nonnull @rvbd_probe_type_vs, ptr noundef nonnull @.str.1025) #20
@@ -13768,7 +13769,7 @@ define internal i32 @dissect_tcpopt_rvbd_probe(ptr noundef %0, ptr noundef %1, p
   %28 = load i32, ptr @hf_tcp_option_rvbd_probe_version1, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #20
   %30 = icmp eq i8 %20, 2
-  br i1 %30, label %145, label %31
+  br i1 %30, label %146, label %31
 
 31:                                               ; preds = %25
   %32 = load i32, ptr @hf_tcp_option_rvbd_probe_reserved, align 4
@@ -13840,132 +13841,133 @@ define internal i32 @dissect_tcpopt_rvbd_probe(ptr noundef %0, ptr noundef %1, p
   %73 = load i32, ptr @hf_tcp_option_rvbd_probe_type2, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %73, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #20
   %75 = load i32, ptr @hf_tcp_option_rvbd_probe_version2, align 4
-  %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %75, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @.str.1027, i32 noundef 2) #20
-  %77 = load i32, ptr @hf_tcp_option_rvbd_probe_version1, align 4
-  %78 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %77, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 2) #20
-  %.not.i149 = icmp eq ptr %78, null
-  br i1 %.not.i149, label %proto_item_set_hidden.exit, label %79
+  %76 = zext nneg i8 %.7.i to i32
+  %77 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %75, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %76, ptr noundef nonnull @.str.1027, i32 noundef %76) #20
+  %78 = load i32, ptr @hf_tcp_option_rvbd_probe_version1, align 4
+  %79 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %78, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %76) #20
+  %.not.i149 = icmp eq ptr %79, null
+  br i1 %.not.i149, label %proto_item_set_hidden.exit, label %80
 
-79:                                               ; preds = %72
-  %80 = getelementptr inbounds i8, ptr %78, i64 32
-  %81 = load ptr, ptr %80, align 8
-  %.not5.i = icmp eq ptr %81, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %82
+80:                                               ; preds = %72
+  %81 = getelementptr inbounds i8, ptr %79, i64 32
+  %82 = load ptr, ptr %81, align 8
+  %.not5.i = icmp eq ptr %82, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %83
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %81, i64 28
-  %84 = load i32, ptr %83, align 4
-  %85 = or i32 %84, 1
-  store i32 %85, ptr %83, align 4
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %82, i64 28
+  %85 = load i32, ptr %84, align 4
+  %86 = or i32 %85, 1
+  store i32 %86, ptr %84, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %72, %79, %82
+proto_item_set_hidden.exit:                       ; preds = %72, %80, %83
   switch i8 %20, label %.sink.split [
-    i8 6, label %86
-    i8 8, label %86
-    i8 9, label %86
-    i8 7, label %130
-    i8 10, label %141
+    i8 6, label %87
+    i8 8, label %87
+    i8 9, label %87
+    i8 7, label %131
+    i8 10, label %142
   ]
 
-86:                                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
-  %87 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #20
-  %88 = load i32, ptr @hf_tcp_option_rvbd_probe_flags, align 4
-  %89 = zext i8 %87 to i32
-  %90 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %88, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %89) #20
-  %91 = load i32, ptr @ett_tcp_opt_rvbd_probe_flags, align 4
-  %92 = tail call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91) #20
-  %93 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_not_cfe, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %93, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
-  %95 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_last_notify, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %95, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
-  switch i8 %20, label %120 [
-    i8 6, label %97
-    i8 8, label %115
+87:                                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
+  %88 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #20
+  %89 = load i32, ptr @hf_tcp_option_rvbd_probe_flags, align 4
+  %90 = zext i8 %88 to i32
+  %91 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %89, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %90) #20
+  %92 = load i32, ptr @ett_tcp_opt_rvbd_probe_flags, align 4
+  %93 = tail call ptr @proto_item_add_subtree(ptr noundef %91, i32 noundef %92) #20
+  %94 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_not_cfe, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
+  %96 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_last_notify, align 4
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %96, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
+  switch i8 %20, label %121 [
+    i8 6, label %98
+    i8 8, label %116
     i8 9, label %.thread
   ]
 
-97:                                               ; preds = %86
-  %98 = getelementptr inbounds i8, ptr %1, i64 408
-  %99 = load ptr, ptr %98, align 8
-  %100 = load i32, ptr @proto_tcp_option_rvbd_probe, align 4
-  %101 = getelementptr inbounds i8, ptr %1, i64 376
-  %102 = load i8, ptr %101, align 8
-  %103 = zext i8 %102 to i32
-  %104 = tail call ptr @p_get_proto_data(ptr noundef %99, ptr noundef %1, i32 noundef %100, i32 noundef %103) #20
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %106, label %113
+98:                                               ; preds = %87
+  %99 = getelementptr inbounds i8, ptr %1, i64 408
+  %100 = load ptr, ptr %99, align 8
+  %101 = load i32, ptr @proto_tcp_option_rvbd_probe, align 4
+  %102 = getelementptr inbounds i8, ptr %1, i64 376
+  %103 = load i8, ptr %102, align 8
+  %104 = zext i8 %103 to i32
+  %105 = tail call ptr @p_get_proto_data(ptr noundef %100, ptr noundef %1, i32 noundef %101, i32 noundef %104) #20
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %107, label %114
 
-106:                                              ; preds = %97
-  %107 = load ptr, ptr %98, align 8
-  %108 = tail call noalias ptr @wmem_alloc0(ptr noundef %107, i64 noundef 8) #20
-  %109 = load ptr, ptr %98, align 8
-  %110 = load i32, ptr @proto_tcp_option_rvbd_probe, align 4
-  %111 = load i8, ptr %101, align 8
-  %112 = zext i8 %111 to i32
-  tail call void @p_add_proto_data(ptr noundef %109, ptr noundef nonnull %1, i32 noundef %110, i32 noundef %112, ptr noundef %108) #20
-  br label %113
+107:                                              ; preds = %98
+  %108 = load ptr, ptr %99, align 8
+  %109 = tail call noalias ptr @wmem_alloc0(ptr noundef %108, i64 noundef 8) #20
+  %110 = load ptr, ptr %99, align 8
+  %111 = load i32, ptr @proto_tcp_option_rvbd_probe, align 4
+  %112 = load i8, ptr %102, align 8
+  %113 = zext i8 %112 to i32
+  tail call void @p_add_proto_data(ptr noundef %110, ptr noundef nonnull %1, i32 noundef %111, i32 noundef %113, ptr noundef %109) #20
+  br label %114
 
-113:                                              ; preds = %106, %97
-  %.0 = phi ptr [ %108, %106 ], [ %104, %97 ]
-  %114 = getelementptr inbounds i8, ptr %.0, i64 5
-  store i8 %87, ptr %114, align 1
-  br label %120
+114:                                              ; preds = %107, %98
+  %.0 = phi ptr [ %109, %107 ], [ %105, %98 ]
+  %115 = getelementptr inbounds i8, ptr %.0, i64 5
+  store i8 %88, ptr %115, align 1
+  br label %121
 
-115:                                              ; preds = %86
-  %116 = load i32, ptr @hf_tcp_option_rvbd_probe_client, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %116, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #20
-  br label %120
+116:                                              ; preds = %87
+  %117 = load i32, ptr @hf_tcp_option_rvbd_probe_client, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %117, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #20
+  br label %121
 
-.thread:                                          ; preds = %86
-  %118 = load i32, ptr @hf_tcp_option_rvbd_probe_storeid, align 4
-  %119 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %118, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #20
+.thread:                                          ; preds = %87
+  %119 = load i32, ptr @hf_tcp_option_rvbd_probe_storeid, align 4
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %119, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #20
   br label %.sink.split
 
-120:                                              ; preds = %115, %113, %86
+121:                                              ; preds = %116, %114, %87
   %.not161 = icmp eq ptr %3, null
-  br i1 %.not161, label %.sink.split, label %121
+  br i1 %.not161, label %.sink.split, label %122
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds i8, ptr %3, i64 40
-  %123 = load i16, ptr %122, align 8
-  %124 = and i16 %123, 18
-  %125 = icmp ne i16 %124, 18
-  %126 = and i32 %89, 1
-  %.not = icmp eq i32 %126, 0
-  %or.cond148 = or i1 %.not, %125
-  br i1 %or.cond148, label %.sink.split, label %127
+122:                                              ; preds = %121
+  %123 = getelementptr inbounds i8, ptr %3, i64 40
+  %124 = load i16, ptr %123, align 8
+  %125 = and i16 %124, 18
+  %126 = icmp ne i16 %125, 18
+  %127 = and i32 %90, 1
+  %.not = icmp eq i32 %127, 0
+  %or.cond148 = or i1 %.not, %126
+  br i1 %or.cond148, label %.sink.split, label %128
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds i8, ptr %1, i64 8
-  %129 = load ptr, ptr %128, align 8
-  tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %129, i32 noundef 25, ptr noundef nonnull @.str.1028) #20
+128:                                              ; preds = %122
+  %129 = getelementptr inbounds i8, ptr %1, i64 8
+  %130 = load ptr, ptr %129, align 8
+  tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %130, i32 noundef 25, ptr noundef nonnull @.str.1028) #20
   br label %.sink.split
 
-130:                                              ; preds = %proto_item_set_hidden.exit
-  %131 = load i32, ptr @hf_tcp_option_rvbd_probe_flags, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %131, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
-  %133 = load i32, ptr @ett_tcp_opt_rvbd_probe_flags, align 4
-  %134 = tail call ptr @proto_item_add_subtree(ptr noundef %132, i32 noundef %133) #20
-  %135 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_probe_cache, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %135, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
-  %137 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_sslcert, align 4
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %137, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
-  %139 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_server_connected, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %139, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
+131:                                              ; preds = %proto_item_set_hidden.exit
+  %132 = load i32, ptr @hf_tcp_option_rvbd_probe_flags, align 4
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %132, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
+  %134 = load i32, ptr @ett_tcp_opt_rvbd_probe_flags, align 4
+  %135 = tail call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134) #20
+  %136 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_probe_cache, align 4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
+  %138 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_sslcert, align 4
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %138, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
+  %140 = load i32, ptr @hf_tcp_option_rvbd_probe_flag_server_connected, align 4
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %140, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
   br label %.sink.split
 
-141:                                              ; preds = %proto_item_set_hidden.exit
-  %142 = load i32, ptr @hf_tcp_option_rvbd_probe_flags, align 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %142, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
+142:                                              ; preds = %proto_item_set_hidden.exit
+  %143 = load i32, ptr @hf_tcp_option_rvbd_probe_flags, align 4
+  %144 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %143, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
   br label %.sink.split
 
-.sink.split:                                      ; preds = %64, %58, %56, %31, %proto_item_set_hidden.exit, %130, %141, %127, %121, %120, %.thread, %17, %15
-  %144 = tail call i32 @tvb_captured_length(ptr noundef %0) #20
-  br label %145
+.sink.split:                                      ; preds = %64, %58, %56, %31, %proto_item_set_hidden.exit, %131, %142, %128, %122, %121, %.thread, %17, %15
+  %145 = tail call i32 @tvb_captured_length(ptr noundef %0) #20
+  br label %146
 
-145:                                              ; preds = %.sink.split, %25
-  %.0142 = phi i32 [ 2, %25 ], [ %144, %.sink.split ]
+146:                                              ; preds = %.sink.split, %25
+  %.0142 = phi i32 [ 2, %25 ], [ %145, %.sink.split ]
   ret i32 %.0142
 }
 

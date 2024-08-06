@@ -340,9 +340,8 @@ define internal fastcc void @skcipher_done_slow(ptr noundef %0, i32 noundef %1) 
   %24 = getelementptr inbounds i8, ptr %0, i64 132
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
-  %27 = icmp eq i32 %26, 0
-  %28 = select i1 %27, i32 1, i32 2
-  tail call void @scatterwalk_copychunks(ptr noundef %22, ptr noundef %23, i64 noundef %15, i32 noundef %28) #9
+  %27 = add nuw nsw i32 %26, 1
+  tail call void @scatterwalk_copychunks(ptr noundef %22, ptr noundef %23, i64 noundef %15, i32 noundef %27) #9
   ret void
 }
 

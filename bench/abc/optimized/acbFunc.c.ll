@@ -3136,8 +3136,7 @@ Vec_PtrStart.exit:                                ; preds = %Vec_BitStart.exit, 
 
 387:                                              ; preds = %380
   %388 = and i32 %378, 1
-  %.not213 = icmp eq i32 %388, 0
-  %389 = select i1 %.not213, i32 100, i32 99
+  %389 = sub nuw nsw i32 100, %388
   %390 = trunc nuw nsw i64 %indvars.iv394 to i32
   %391 = tail call ptr @Abc_NamStr(ptr noundef %1, i32 noundef %390) #31
   %392 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %389, ptr noundef %391) #31
@@ -3151,9 +3150,10 @@ Vec_PtrStart.exit:                                ; preds = %Vec_BitStart.exit, 
   %399 = getelementptr inbounds ptr, ptr %.val259, i64 %382
   store ptr %396, ptr %399, align 8
   %400 = load ptr, ptr %360, align 8
+  %.not351 = icmp eq i32 %388, 0
   %401 = and i32 %381, 31
   %402 = shl nuw i32 1, %401
-  br i1 %.not213, label %411, label %403
+  br i1 %.not351, label %411, label %403
 
 403:                                              ; preds = %387
   %404 = getelementptr inbounds i8, ptr %400, i64 8

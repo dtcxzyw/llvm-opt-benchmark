@@ -108,7 +108,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   ]
 
 41:                                               ; preds = %37
-  %.103 = select i1 %.not90, i32 6, i32 5
+  %.103 = sub nuw nsw i32 6, %22
   br label %.thread110
 
 42:                                               ; preds = %37

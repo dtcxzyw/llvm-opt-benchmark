@@ -548,7 +548,7 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   switch i32 %46, label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit [
     i32 0, label %47
     i32 1, label %67
-    i32 2, label %97
+    i32 2, label %101
   ]
 
 47:                                               ; preds = %42
@@ -598,193 +598,189 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   %76 = select i1 %.not33.i, i32 120, i32 115
   %77 = select i1 %.not33.i, i32 45, i32 83
   %78 = select i1 %.not32.i, i32 %77, i32 %76
-  %79 = and i32 %44, 32
-  %.not35.i = icmp eq i32 %79, 0
-  %80 = select i1 %.not35.i, i32 45, i32 114
-  %81 = and i32 %44, 16
-  %.not36.i = icmp eq i32 %81, 0
-  %82 = select i1 %.not36.i, i32 45, i32 119
-  %83 = and i32 %44, 8
-  %.not37.i = icmp eq i32 %83, 0
-  %84 = and i32 %44, 1024
-  %.not38.i = icmp eq i32 %84, 0
-  %85 = select i1 %.not38.i, i32 120, i32 115
-  %86 = select i1 %.not38.i, i32 45, i32 83
-  %87 = select i1 %.not37.i, i32 %86, i32 %85
-  %88 = and i32 %44, 4
-  %.not40.i = icmp eq i32 %88, 0
-  %89 = select i1 %.not40.i, i32 45, i32 114
-  %90 = and i32 %44, 2
-  %.not41.i = icmp eq i32 %90, 0
-  %91 = select i1 %.not41.i, i32 45, i32 119
-  %92 = and i32 %44, 1
-  %.not42.i = icmp eq i32 %92, 0
-  %93 = and i32 %44, 512
-  %.not43.i = icmp eq i32 %93, 0
-  %94 = select i1 %.not43.i, i32 120, i32 116
-  %95 = select i1 %.not42.i, i32 45, i32 %94
-  %96 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %69, i64 noundef 29, ptr noundef nonnull @.str.62, i32 noundef %71, i32 noundef %73, i32 noundef %78, i32 noundef %80, i32 noundef %82, i32 noundef %87, i32 noundef %89, i32 noundef %91, i32 noundef %95) #5
+  %79 = insertelement <8 x i32> poison, i32 %44, i64 0
+  %80 = shufflevector <8 x i32> %79, <8 x i32> poison, <8 x i32> zeroinitializer
+  %81 = and <8 x i32> %80, <i32 512, i32 1, i32 2, i32 4, i32 1024, i32 8, i32 16, i32 32>
+  %82 = icmp eq <8 x i32> %81, zeroinitializer
+  %83 = extractelement <8 x i1> %82, i64 7
+  %84 = select i1 %83, i32 45, i32 114
+  %85 = extractelement <8 x i1> %82, i64 6
+  %86 = select i1 %85, i32 45, i32 119
+  %87 = extractelement <8 x i1> %82, i64 4
+  %88 = select i1 %87, i32 120, i32 115
+  %89 = select i1 %87, i32 45, i32 83
+  %90 = extractelement <8 x i1> %82, i64 5
+  %91 = select i1 %90, i32 %89, i32 %88
+  %92 = extractelement <8 x i1> %82, i64 3
+  %93 = select i1 %92, i32 45, i32 114
+  %94 = extractelement <8 x i1> %82, i64 2
+  %95 = select i1 %94, i32 45, i32 119
+  %96 = extractelement <8 x i1> %82, i64 0
+  %97 = select i1 %96, i32 120, i32 116
+  %98 = extractelement <8 x i1> %82, i64 1
+  %99 = select i1 %98, i32 45, i32 %97
+  %100 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %69, i64 noundef 29, ptr noundef nonnull @.str.62, i32 noundef %71, i32 noundef %73, i32 noundef %78, i32 noundef %84, i32 noundef %86, i32 noundef %91, i32 noundef %93, i32 noundef %95, i32 noundef %99) #5
   br label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
 
-97:                                               ; preds = %42
+101:                                              ; preds = %42
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %9, ptr noundef nonnull @.str.20, i64 noundef 30)
   br label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
 
-_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %97, %67, %47, %42, %36
-  %98 = getelementptr inbounds i8, ptr %1, i64 8352
-  %99 = load i8, ptr %98, align 8
-  %100 = trunc i8 %99 to i1
-  %101 = getelementptr inbounds i8, ptr %1, i64 8353
-  %102 = load i8, ptr %101, align 1
-  %103 = trunc i8 %102 to i1
-  br i1 %100, label %104, label %107
+_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %101, %67, %47, %42, %36
+  %102 = getelementptr inbounds i8, ptr %1, i64 8352
+  %103 = load i8, ptr %102, align 8
+  %104 = trunc i8 %103 to i1
+  %105 = getelementptr inbounds i8, ptr %1, i64 8353
+  %106 = load i8, ptr %105, align 1
+  %107 = trunc i8 %106 to i1
+  br i1 %104, label %108, label %111
 
-104:                                              ; preds = %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
-  br i1 %103, label %105, label %106
+108:                                              ; preds = %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
+  br i1 %107, label %109, label %110
 
-105:                                              ; preds = %104
+109:                                              ; preds = %108
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %10, ptr noundef nonnull @.str.22, i64 noundef 10)
-  br label %114
+  br label %118
 
-106:                                              ; preds = %104
+110:                                              ; preds = %108
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %10, ptr noundef nonnull @.str.23, i64 noundef 10)
-  br label %114
+  br label %118
 
-107:                                              ; preds = %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
-  br i1 %103, label %108, label %109
+111:                                              ; preds = %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
+  br i1 %107, label %112, label %113
 
-108:                                              ; preds = %107
+112:                                              ; preds = %111
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %10, ptr noundef nonnull @.str.24, i64 noundef 10)
-  br label %114
+  br label %118
 
-109:                                              ; preds = %107
-  %110 = load i64, ptr %31, align 8
-  %111 = load i64, ptr %25, align 8
-  %112 = call noundef i32 @_Z14ToPercentUnlimll(i64 noundef %110, i64 noundef %111)
-  %113 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %10, i64 noundef 10, ptr noundef nonnull @.str.25, i32 noundef %112) #5
-  br label %114
+113:                                              ; preds = %111
+  %114 = load i64, ptr %31, align 8
+  %115 = load i64, ptr %25, align 8
+  %116 = call noundef i32 @_Z14ToPercentUnlimll(i64 noundef %114, i64 noundef %115)
+  %117 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %10, i64 noundef 10, ptr noundef nonnull @.str.25, i32 noundef %116) #5
+  br label %118
 
-114:                                              ; preds = %106, %109, %108, %105
-  %115 = getelementptr inbounds i8, ptr %1, i64 8264
-  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext %3)
-  br i1 %3, label %116, label %.critedge
+118:                                              ; preds = %110, %113, %112, %109
+  %119 = getelementptr inbounds i8, ptr %1, i64 8264
+  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext %3)
+  br i1 %3, label %120, label %.critedge
 
-116:                                              ; preds = %114
-  %117 = load i32, ptr %33, align 4
-  %118 = icmp eq i32 %117, 2
-  br i1 %118, label %124, label %119
+120:                                              ; preds = %118
+  %121 = load i32, ptr %33, align 4
+  %122 = icmp eq i32 %121, 2
+  br i1 %122, label %128, label %123
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %0, i64 31264
-  %121 = call i32 @wcscmp(ptr noundef nonnull %120, ptr noundef nonnull @.str.27) #6
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %124
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %0, i64 31264
+  %125 = call i32 @wcscmp(ptr noundef nonnull %124, ptr noundef nonnull @.str.27) #6
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %128
 
-123:                                              ; preds = %119
+127:                                              ; preds = %123
   call void @_Z17GetStreamNameNTFSR7ArchivePwm(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %12, i64 noundef 2048)
-  br label %142
-
-124:                                              ; preds = %119, %116
-  %125 = getelementptr inbounds i8, ptr %1, i64 8464
-  %126 = load i32, ptr %125, align 8
-  %.not113 = icmp ne i32 %126, 0
-  %127 = icmp eq i32 %23, 2
-  %or.cond = select i1 %.not113, i1 %127, i1 false
-  br i1 %or.cond, label %128, label %142
-
-128:                                              ; preds = %124
-  %129 = getelementptr inbounds i8, ptr %0, i64 22331
-  %130 = load i8, ptr %129, align 1
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %133
-
-132:                                              ; preds = %128
-  call void @_Z8strncpyzPcPKcm(ptr noundef nonnull %13, ptr noundef nonnull @.str.28, i64 noundef 2048)
-  br label %140
-
-133:                                              ; preds = %128
-  %134 = load i64, ptr %31, align 8
-  %spec.select = call i64 @llvm.umin.i64(i64 %134, i64 2047)
-  %135 = load ptr, ptr %0, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 32
-  %137 = load ptr, ptr %136, align 8
-  %138 = call noundef i32 %137(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i64 noundef %spec.select)
-  %139 = getelementptr inbounds [2048 x i8], ptr %13, i64 0, i64 %spec.select
-  store i8 0, ptr %139, align 1
-  br label %140
-
-140:                                              ; preds = %133, %132
-  %141 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 2048)
-  br label %142
-
-142:                                              ; preds = %124, %140, %123
-  %143 = getelementptr inbounds i8, ptr %1, i64 8272
-  %144 = load i64, ptr %143, align 8
-  %.not = icmp eq i64 %144, 0
-  br i1 %.not, label %146, label %145
-
-145:                                              ; preds = %142
-  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext true)
   br label %146
 
-146:                                              ; preds = %145, %142
-  %147 = getelementptr inbounds i8, ptr %1, i64 8280
+128:                                              ; preds = %123, %120
+  %129 = getelementptr inbounds i8, ptr %1, i64 8464
+  %130 = load i32, ptr %129, align 8
+  %.not113 = icmp ne i32 %130, 0
+  %131 = icmp eq i32 %23, 2
+  %or.cond = select i1 %.not113, i1 %131, i1 false
+  br i1 %or.cond, label %132, label %146
+
+132:                                              ; preds = %128
+  %133 = getelementptr inbounds i8, ptr %0, i64 22331
+  %134 = load i8, ptr %133, align 1
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %136, label %137
+
+136:                                              ; preds = %132
+  call void @_Z8strncpyzPcPKcm(ptr noundef nonnull %13, ptr noundef nonnull @.str.28, i64 noundef 2048)
+  br label %144
+
+137:                                              ; preds = %132
+  %138 = load i64, ptr %31, align 8
+  %spec.select = call i64 @llvm.umin.i64(i64 %138, i64 2047)
+  %139 = load ptr, ptr %0, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 32
+  %141 = load ptr, ptr %140, align 8
+  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i64 noundef %spec.select)
+  %143 = getelementptr inbounds [2048 x i8], ptr %13, i64 0, i64 %spec.select
+  store i8 0, ptr %143, align 1
+  br label %144
+
+144:                                              ; preds = %137, %136
+  %145 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 2048)
+  br label %146
+
+146:                                              ; preds = %128, %144, %127
+  %147 = getelementptr inbounds i8, ptr %1, i64 8272
   %148 = load i64, ptr %147, align 8
-  %.not125 = icmp eq i64 %148, 0
-  br i1 %.not125, label %150, label %149
+  %.not = icmp eq i64 %148, 0
+  br i1 %.not, label %150, label %149
 
 149:                                              ; preds = %146
   call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext true)
   br label %150
 
 150:                                              ; preds = %149, %146
-  %151 = getelementptr inbounds i8, ptr %1, i64 8312
-  %152 = load i32, ptr %151, align 8
-  %cond = icmp eq i32 %152, 3
-  br i1 %cond, label %153, label %.thread122
+  %151 = getelementptr inbounds i8, ptr %1, i64 8280
+  %152 = load i64, ptr %151, align 8
+  %.not125 = icmp eq i64 %152, 0
+  br i1 %.not125, label %154, label %153
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %1, i64 8316
-  call void @_Z8BinToHexPKhmPcPwm(ptr noundef nonnull %154, i64 noundef 32, ptr noundef null, ptr noundef nonnull %15, i64 noundef 65)
+  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext true)
+  br label %154
+
+154:                                              ; preds = %153, %150
+  %155 = getelementptr inbounds i8, ptr %1, i64 8312
+  %156 = load i32, ptr %155, align 8
+  %cond = icmp eq i32 %156, 3
+  br i1 %cond, label %157, label %.thread122
+
+157:                                              ; preds = %154
+  %158 = getelementptr inbounds i8, ptr %1, i64 8316
+  call void @_Z8BinToHexPKhmPcPwm(ptr noundef nonnull %158, i64 noundef 32, ptr noundef null, ptr noundef nonnull %15, i64 noundef 65)
   br label %.thread122
 
-.thread122:                                       ; preds = %150, %153
-  %155 = getelementptr inbounds i8, ptr %1, i64 8443
-  %156 = load i8, ptr %155, align 1
-  %157 = trunc i8 %156 to i1
-  br i1 %157, label %158, label %160
+.thread122:                                       ; preds = %154, %157
+  %159 = getelementptr inbounds i8, ptr %1, i64 8443
+  %160 = load i8, ptr %159, align 1
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %162, label %164
 
-158:                                              ; preds = %.thread122
-  %159 = call noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef nonnull %21, i1 noundef zeroext false)
-  br label %160
+162:                                              ; preds = %.thread122
+  %163 = call noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef nonnull %21, i1 noundef zeroext false)
+  br label %164
 
-160:                                              ; preds = %158, %.thread122
-  %161 = getelementptr inbounds i8, ptr %1, i64 16661
-  %162 = load i8, ptr %161, align 1
-  %163 = trunc i8 %162 to i1
-  br i1 %163, label %164, label %.critedge
+164:                                              ; preds = %162, %.thread122
+  %165 = getelementptr inbounds i8, ptr %1, i64 16661
+  %166 = load i8, ptr %165, align 1
+  %167 = trunc i8 %166 to i1
+  br i1 %167, label %168, label %.critedge
 
-164:                                              ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %1, i64 16664
-  %166 = load i8, ptr %165, align 8
-  %.not117 = icmp eq i8 %166, 0
-  br i1 %.not117, label %169, label %167
+168:                                              ; preds = %164
+  %169 = getelementptr inbounds i8, ptr %1, i64 16664
+  %170 = load i8, ptr %169, align 8
+  %.not117 = icmp eq i8 %170, 0
+  br i1 %.not117, label %173, label %171
 
-167:                                              ; preds = %164
-  %168 = call noundef ptr @_Z7GetWidePKc(ptr noundef nonnull %165)
-  br label %169
+171:                                              ; preds = %168
+  %172 = call noundef ptr @_Z7GetWidePKc(ptr noundef nonnull %169)
+  br label %173
 
-169:                                              ; preds = %164, %167
-  %170 = getelementptr inbounds i8, ptr %1, i64 16920
-  %171 = load i8, ptr %170, align 8
-  %.not118 = icmp eq i8 %171, 0
-  br i1 %.not118, label %.critedge, label %172
+173:                                              ; preds = %168, %171
+  %174 = getelementptr inbounds i8, ptr %1, i64 16920
+  %175 = load i8, ptr %174, align 8
+  %.not118 = icmp eq i8 %175, 0
+  br i1 %.not118, label %.critedge, label %176
 
-172:                                              ; preds = %169
-  %173 = call noundef ptr @_Z7GetWidePKc(ptr noundef nonnull %170)
+176:                                              ; preds = %173
+  %177 = call noundef ptr @_Z7GetWidePKc(ptr noundef nonnull %174)
   br label %.critedge
 
-.critedge:                                        ; preds = %114, %169, %160, %172, %20, %19
+.critedge:                                        ; preds = %118, %173, %164, %176, %20, %19
   ret void
 }
 

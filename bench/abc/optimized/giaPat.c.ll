@@ -178,8 +178,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val56, i64 %26
   %28 = and i32 %20, 1
-  %.not45 = icmp eq i32 %28, 0
-  %29 = select i1 %.not45, i32 2, i32 1
+  %29 = sub nuw nsw i32 2, %28
   %30 = load i64, ptr %27, align 4
   %31 = shl nuw i32 %29, 30
   %32 = and i32 %31, 1073741824

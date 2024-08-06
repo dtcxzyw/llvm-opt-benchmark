@@ -48716,9 +48716,8 @@ nk_create_panel.exit:                             ; preds = %if.end, %if.end19.i
 
 if.then55:                                        ; preds = %nk_create_panel.exit
   %and49 = and i32 %18, 16384
-  %tobool50.not.not = icmp eq i32 %and49, 0
   call void @nk_group_scrolled_end(ptr noundef nonnull %ctx)
-  %.mux = select i1 %tobool50.not.not, i32 32768, i32 16384
+  %.mux = sub nuw nsw i32 32768, %and49
   br label %return
 
 return:                                           ; preds = %nk_create_panel.exit, %if.then55, %land.lhs.true17, %land.lhs.true11

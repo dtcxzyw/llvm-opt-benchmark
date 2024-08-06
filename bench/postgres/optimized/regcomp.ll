@@ -17261,8 +17261,7 @@ define internal fastcc i32 @next(ptr noundef %0) unnamed_addr #0 {
 212:                                              ; preds = %207
   %213 = load i32, ptr %6, align 4
   %214 = and i32 %213, 1
-  %.not345 = icmp eq i32 %214, 0
-  %215 = select i1 %.not345, i32 2, i32 1
+  %215 = sub nuw nsw i32 2, %214
   store i32 %215, ptr %7, align 4
   store i32 93, ptr %4, align 4
   br label %brenext.exit

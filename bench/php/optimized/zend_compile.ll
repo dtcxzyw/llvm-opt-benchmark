@@ -8711,42 +8711,41 @@ zend_set_function_arg_flags.exit.i:               ; preds = %..critedge.loopexit
   %971 = load ptr, ptr %970, align 8
   %972 = getelementptr inbounds i8, ptr %971, i64 2
   %973 = load i16, ptr %972, align 2
-  %974 = zext i16 %973 to i32
-  %975 = and i32 %974, 8
-  %.not252.i = icmp eq i32 %975, 0
-  %976 = and i32 %974, 135
-  %.not253.i = icmp eq i32 %976, 0
-  br i1 %.not253.i, label %1000, label %977
+  %974 = and i16 %973, 135
+  %.not253.i = icmp eq i16 %974, 0
+  br i1 %.not253.i, label %1000, label %975
 
-977:                                              ; preds = %968
-  %978 = getelementptr inbounds i8, ptr %971, i64 16
-  %979 = load ptr, ptr %978, align 8
-  %980 = load i16, ptr %979, align 8
-  %981 = icmp eq i16 %980, 64
-  call void @llvm.assume(i1 %981)
-  %982 = getelementptr inbounds i8, ptr %979, i64 8
-  %983 = load ptr, ptr %982, align 8
+975:                                              ; preds = %968
+  %976 = getelementptr inbounds i8, ptr %971, i64 16
+  %977 = load ptr, ptr %976, align 8
+  %978 = load i16, ptr %977, align 8
+  %979 = icmp eq i16 %978, 64
+  call void @llvm.assume(i1 %979)
+  %980 = getelementptr inbounds i8, ptr %977, i64 8
+  %981 = load ptr, ptr %980, align 8
   store i8 1, ptr %14, align 8
-  store ptr %983, ptr %965, align 8
-  %984 = getelementptr inbounds i8, ptr %983, i64 4
-  %985 = load i32, ptr %984, align 4
-  %986 = and i32 %985, 64
-  %.not254.i = icmp eq i32 %986, 0
-  br i1 %.not254.i, label %987, label %990
+  store ptr %981, ptr %965, align 8
+  %982 = getelementptr inbounds i8, ptr %981, i64 4
+  %983 = load i32, ptr %982, align 4
+  %984 = and i32 %983, 64
+  %.not254.i = icmp eq i32 %984, 0
+  br i1 %.not254.i, label %985, label %988
 
-987:                                              ; preds = %977
-  %988 = load i32, ptr %983, align 4
-  %989 = add i32 %988, 1
-  store i32 %989, ptr %983, align 4
-  br label %990
+985:                                              ; preds = %975
+  %986 = load i32, ptr %981, align 4
+  %987 = add i32 %986, 1
+  store i32 %987, ptr %981, align 4
+  br label %988
 
-990:                                              ; preds = %987, %977
-  %storemerge460.i = phi i32 [ 262, %987 ], [ 6, %977 ]
+988:                                              ; preds = %985, %975
+  %storemerge460.i = phi i32 [ 262, %985 ], [ 6, %975 ]
   store i32 %storemerge460.i, ptr %966, align 8
   store i8 8, ptr %15, align 8
-  %991 = call fastcc i32 @lookup_cv(ptr noundef nonnull %983)
-  store i32 %991, ptr %967, align 8
-  %992 = select i1 %.not252.i, i8 24, i8 32
+  %989 = call fastcc i32 @lookup_cv(ptr noundef nonnull %981)
+  store i32 %989, ptr %967, align 8
+  %990 = trunc i16 %973 to i8
+  %991 = and i8 %990, 8
+  %992 = add nuw nsw i8 %991, 24
   %993 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext %992, ptr noundef null, ptr noundef nonnull %14)
   %994 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
   %995 = getelementptr inbounds i8, ptr %994, i64 76
@@ -8759,8 +8758,8 @@ zend_set_function_arg_flags.exit.i:               ; preds = %..critedge.loopexit
   %.pre459.i = load i32, ptr %577, align 8
   br label %1000
 
-1000:                                             ; preds = %990, %968
-  %1001 = phi i32 [ %969, %968 ], [ %.pre459.i, %990 ]
+1000:                                             ; preds = %988, %968
+  %1001 = phi i32 [ %969, %968 ], [ %.pre459.i, %988 ]
   %indvars.iv.next456.i = add nuw nsw i64 %indvars.iv455.i, 1
   %1002 = zext i32 %1001 to i64
   %1003 = icmp ult i64 %indvars.iv.next456.i, %1002

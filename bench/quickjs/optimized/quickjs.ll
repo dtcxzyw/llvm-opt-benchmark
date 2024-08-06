@@ -170304,8 +170304,7 @@ JS_DupAtom.exit543:                               ; preds = %can_opt_put_ref_val
   %707 = getelementptr %struct.JSClosureVar, ptr %705, i64 %706
   %708 = load i8, ptr %707, align 4
   %709 = and i8 %708, 8
-  %.not500 = icmp eq i8 %709, 0
-  %.704 = select i1 %.not500, i8 94, i8 102
+  %.704 = add nuw nsw i8 %709, 94
   br label %710
 
 710:                                              ; preds = %702, %703, %.thread669

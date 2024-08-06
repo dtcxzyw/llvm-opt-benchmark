@@ -713,11 +713,10 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
   %28 = getelementptr inbounds i32, ptr %.val61, i64 %indvars.iv102
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 1
-  %.not58 = icmp eq i32 %30, 0
   %31 = ashr i32 %29, 1
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %6, i64 %32
-  %. = select i1 %.not58, i32 2, i32 1
+  %. = sub nuw nsw i32 2, %30
   store i32 %., ptr %33, align 4
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %.val60 = load i32, ptr %17, align 4

@@ -3052,7 +3052,7 @@ define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr nou
   br i1 %.not15, label %39, label %40
 
 39:                                               ; preds = %36, %34
-  %. = select i1 %.not12, i32 8, i32 7
+  %. = sub nuw nsw i32 8, %30
   br label %40
 
 40:                                               ; preds = %39, %36, %31, %26, %23, %20, %17, %3

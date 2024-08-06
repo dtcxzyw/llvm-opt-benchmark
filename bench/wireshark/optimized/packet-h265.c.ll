@@ -4043,8 +4043,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   %108 = and i32 %50, 31
   %109 = tail call i32 @tvb_get_bits32(ptr noundef %2, i32 noundef %107, i32 noundef %108, i32 noundef 0) #8
   %110 = and i32 %109, 1
-  %.not266 = icmp eq i32 %110, 0
-  %. = select i1 %.not266, i32 2147483647, i32 -2147483648
+  %. = add nuw i32 %110, 2147483647
   br label %143
 
 111:                                              ; preds = %102
@@ -4058,8 +4057,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
 115:                                              ; preds = %113
   %.not264 = icmp eq i32 %114, 1
   %116 = and i32 %114, 1
-  %.not265 = icmp eq i32 %116, 0
-  %spec.select300 = select i1 %.not265, i32 2147483647, i32 -2147483648
+  %spec.select300 = add nuw i32 %116, 2147483647
   br i1 %.not264, label %select.unfold.thread, label %143
 
 117:                                              ; preds = %113

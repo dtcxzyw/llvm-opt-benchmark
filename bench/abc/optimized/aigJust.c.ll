@@ -432,26 +432,27 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr nocapture nou
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds ptr, ptr %.val15.val, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %17 = and i32 %11, 1
-  %.not = icmp eq i32 %17, 0
-  %18 = select i1 %.not, i64 32, i64 16
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
-  %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, -49
-  %22 = or disjoint i64 %21, %18
-  store i64 %22, ptr %19, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %18 = load i64, ptr %17, align 8
+  %19 = shl i32 %11, 4
+  %20 = and i32 %19, 16
+  %21 = sub nuw nsw i32 32, %20
+  %22 = and i64 %18, -49
+  %23 = zext nneg i32 %21 to i64
+  %24 = or disjoint i64 %22, %23
+  store i64 %24, ptr %17, align 8
   %.val = load i32, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 32
-  store i32 %.val, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %16, i64 32
+  store i32 %.val, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val13 = load i32, ptr %4, align 4
-  %24 = sext i32 %.val13 to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %9, label %.critedge, !llvm.loop !6
+  %26 = sext i32 %.val13 to i64
+  %27 = icmp slt i64 %indvars.iv.next, %26
+  br i1 %27, label %9, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %9, %3
-  %26 = tail call i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef %1)
-  ret i32 %26
+  %28 = tail call i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef %1)
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable

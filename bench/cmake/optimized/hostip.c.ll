@@ -1818,7 +1818,7 @@ define dso_local range(i32 5, 7) i32 @Curl_resolver_error(ptr noundef %0) local_
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
-  %. = select i1 %.not, i32 6, i32 5
+  %. = sub nuw nsw i32 6, %6
   %.str.16..str.15 = select i1 %.not, ptr @.str.16, ptr @.str.15
   %7 = getelementptr inbounds i8, ptr %0, i64 3552
   %8 = load ptr, ptr %7, align 8

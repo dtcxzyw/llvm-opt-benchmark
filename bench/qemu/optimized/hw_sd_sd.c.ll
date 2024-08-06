@@ -1669,8 +1669,7 @@ sw.bb409:                                         ; preds = %sw.bb407
   %data_offset410 = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset410, align 8
   %and412 = and i32 %req.sroa.16187.0.extract.trunc, 1
-  %tobool413.not = icmp eq i32 %and412, 0
-  %.211 = select i1 %tobool413.not, i32 6, i32 5
+  %.211 = sub nuw nsw i32 6, %and412
   store i32 %.211, ptr %state408, align 4
   br label %return
 

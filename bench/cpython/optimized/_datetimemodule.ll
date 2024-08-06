@@ -11019,8 +11019,7 @@ for.end.i:                                        ; preds = %for.inc.i, %for.bod
 
 if.end48.i:                                       ; preds = %for.end.i
   %rem.i = and i64 %idx.0.lcssa.i, 1
-  %cmp49.i = icmp eq i64 %rem.i, 0
-  %..i = select i1 %cmp49.i, i64 7, i64 8
+  %..i = add nuw nsw i64 %rem.i, 7
   br label %_find_isoformat_datetime_separator.exit
 
 _find_isoformat_datetime_separator.exit:          ; preds = %if.end11, %if.end.i32, %for.cond.preheader.i, %if.then3.i, %if.then8.i, %if.end12.i, %land.lhs.true.i, %if.then19.i, %land.lhs.true26.i, %if.end30.i, %for.end.i, %if.end48.i
