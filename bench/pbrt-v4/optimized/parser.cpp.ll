@@ -9398,7 +9398,6 @@ invoke.cont41:                                    ; preds = %if.then27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i24, i8 0, i64 %add31, i1 false), !noalias !233
   %_M_str.i2546 = getelementptr inbounds i8, ptr %t, i64 8
   %15 = load ptr, ptr %_M_str.i2546, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call.i24, ptr align 1 %15, i64 %8, i1 false)
   br label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %invoke.cont41, %invoke.cont41.thread70
