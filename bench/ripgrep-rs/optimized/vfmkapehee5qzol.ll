@@ -146,20 +146,20 @@ define void @"_ZN74_$LT$grep_searcher..searcher..Config$u20$as$u20$core..default
   %3 = getelementptr inbounds i8, ptr %0, i64 41
   store i8 10, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 44
-  store i8 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 45
-  store i8 0, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 46
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store i8 1, ptr %7, align 2
   store i64 0, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 47
-  %9 = getelementptr inbounds i8, ptr %0, i64 42
-  store i8 0, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr null, ptr %10, align 8
-  store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %8, align 1
+  store <4 x i8> <i8 0, i8 0, i8 1, i8 1>, ptr %4, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 42
+  store i8 0, ptr %6, align 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  store i8 0, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 49
+  store i8 1, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 50
+  store i8 0, ptr %10, align 2
   ret void
 }
 

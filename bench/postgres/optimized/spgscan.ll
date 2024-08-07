@@ -403,175 +403,169 @@ spgPrepareScanKeys.exit:                          ; preds = %79, %104, %._crit_e
   %118 = getelementptr inbounds i8, ptr %7, i64 120
   %119 = load i8, ptr %118, align 8
   %120 = trunc i8 %119 to i1
-  br i1 %120, label %121, label %131
+  br i1 %120, label %121, label %128
 
 121:                                              ; preds = %spgPrepareScanKeys.exit
   %122 = tail call ptr @palloc(i64 noundef 64) #8
   %123 = getelementptr inbounds i8, ptr %122, i64 58
-  store i8 1, ptr %123, align 2
   %124 = getelementptr inbounds i8, ptr %122, i64 52
   store i16 0, ptr %124, align 2
   %125 = getelementptr inbounds i8, ptr %122, i64 54
   store i16 2, ptr %125, align 2
   %126 = getelementptr inbounds i8, ptr %122, i64 56
   store i16 1, ptr %126, align 2
-  %127 = getelementptr inbounds i8, ptr %122, i64 59
-  store i8 0, ptr %127, align 1
-  %128 = getelementptr inbounds i8, ptr %122, i64 24
-  %129 = getelementptr inbounds i8, ptr %122, i64 60
-  store i8 0, ptr %129, align 4
-  %130 = getelementptr inbounds i8, ptr %122, i64 61
-  store i8 0, ptr %130, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %128, i8 0, i64 28, i1 false)
+  %127 = getelementptr inbounds i8, ptr %122, i64 24
+  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %123, align 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %127, i8 0, i64 28, i1 false)
   %.val.i.i = load ptr, ptr %117, align 8
   tail call void @pairingheap_add(ptr noundef %.val.i.i, ptr noundef nonnull %122) #8
-  br label %131
+  br label %128
 
-131:                                              ; preds = %121, %spgPrepareScanKeys.exit
-  %132 = getelementptr inbounds i8, ptr %7, i64 121
-  %133 = load i8, ptr %132, align 1
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %135, label %158
+128:                                              ; preds = %121, %spgPrepareScanKeys.exit
+  %129 = getelementptr inbounds i8, ptr %7, i64 121
+  %130 = load i8, ptr %129, align 1
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %132, label %155
 
-135:                                              ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %7, i64 272
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %7, i64 140
-  %139 = load i32, ptr %138, align 4
-  %140 = sext i32 %139 to i64
-  %141 = shl nsw i64 %140, 3
-  %142 = add nsw i64 %141, 64
-  %143 = tail call ptr @palloc(i64 noundef %142) #8
-  %144 = getelementptr inbounds i8, ptr %143, i64 58
-  store i8 0, ptr %144, align 2
-  %145 = load i32, ptr %138, align 4
-  %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %147, label %spgAddStartItem.exit.i
+132:                                              ; preds = %128
+  %133 = getelementptr inbounds i8, ptr %7, i64 272
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %7, i64 140
+  %136 = load i32, ptr %135, align 4
+  %137 = sext i32 %136 to i64
+  %138 = shl nsw i64 %137, 3
+  %139 = add nsw i64 %138, 64
+  %140 = tail call ptr @palloc(i64 noundef %139) #8
+  %141 = getelementptr inbounds i8, ptr %140, i64 58
+  store i8 0, ptr %141, align 2
+  %142 = load i32, ptr %135, align 4
+  %143 = icmp sgt i32 %142, 0
+  br i1 %143, label %144, label %spgAddStartItem.exit.i
 
-147:                                              ; preds = %135
-  %148 = getelementptr inbounds i8, ptr %143, i64 64
-  %149 = zext nneg i32 %145 to i64
-  %150 = shl nuw nsw i64 %149, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %148, ptr readonly align 8 %137, i64 %150, i1 false)
+144:                                              ; preds = %132
+  %145 = getelementptr inbounds i8, ptr %140, i64 64
+  %146 = zext nneg i32 %142 to i64
+  %147 = shl nuw nsw i64 %146, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %145, ptr readonly align 8 %134, i64 %147, i1 false)
   br label %spgAddStartItem.exit.i
 
-spgAddStartItem.exit.i:                           ; preds = %147, %135
-  %151 = getelementptr inbounds i8, ptr %143, i64 52
-  store i16 0, ptr %151, align 2
-  %152 = getelementptr inbounds i8, ptr %143, i64 54
-  store i16 1, ptr %152, align 2
-  %153 = getelementptr inbounds i8, ptr %143, i64 56
-  store i16 1, ptr %153, align 2
-  %154 = getelementptr inbounds i8, ptr %143, i64 59
+spgAddStartItem.exit.i:                           ; preds = %144, %132
+  %148 = getelementptr inbounds i8, ptr %140, i64 52
+  store i16 0, ptr %148, align 2
+  %149 = getelementptr inbounds i8, ptr %140, i64 54
+  store i16 1, ptr %149, align 2
+  %150 = getelementptr inbounds i8, ptr %140, i64 56
+  store i16 1, ptr %150, align 2
+  %151 = getelementptr inbounds i8, ptr %140, i64 59
+  store i8 0, ptr %151, align 1
+  %152 = getelementptr inbounds i8, ptr %140, i64 24
+  %153 = getelementptr inbounds i8, ptr %140, i64 60
+  store i8 0, ptr %153, align 4
+  %154 = getelementptr inbounds i8, ptr %140, i64 61
   store i8 0, ptr %154, align 1
-  %155 = getelementptr inbounds i8, ptr %143, i64 24
-  %156 = getelementptr inbounds i8, ptr %143, i64 60
-  store i8 0, ptr %156, align 4
-  %157 = getelementptr inbounds i8, ptr %143, i64 61
-  store i8 0, ptr %157, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %155, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %152, i8 0, i64 28, i1 false)
   %.val.i26.i = load ptr, ptr %117, align 8
-  tail call void @pairingheap_add(ptr noundef %.val.i26.i, ptr noundef nonnull %143) #8
-  br label %158
+  tail call void @pairingheap_add(ptr noundef %.val.i26.i, ptr noundef nonnull %140) #8
+  br label %155
 
-158:                                              ; preds = %spgAddStartItem.exit.i, %131
+155:                                              ; preds = %spgAddStartItem.exit.i, %128
   store ptr %115, ptr @CurrentMemoryContext, align 8
-  %159 = getelementptr inbounds i8, ptr %7, i64 136
+  %156 = getelementptr inbounds i8, ptr %7, i64 136
+  %157 = load i32, ptr %156, align 8
+  %158 = icmp sgt i32 %157, 0
+  br i1 %158, label %.preheader27.i, label %.loopexit28.i
+
+.preheader27.i:                                   ; preds = %155
+  %159 = getelementptr inbounds i8, ptr %7, i64 320
   %160 = load i32, ptr %159, align 8
   %161 = icmp sgt i32 %160, 0
-  br i1 %161, label %.preheader27.i, label %.loopexit28.i
-
-.preheader27.i:                                   ; preds = %158
-  %162 = getelementptr inbounds i8, ptr %7, i64 320
-  %163 = load i32, ptr %162, align 8
-  %164 = icmp sgt i32 %163, 0
-  br i1 %164, label %.lr.ph.i30, label %.loopexit28.i
+  br i1 %161, label %.lr.ph.i30, label %.loopexit28.i
 
 .lr.ph.i30:                                       ; preds = %.preheader27.i
-  %165 = getelementptr inbounds i8, ptr %7, i64 6856
-  br label %166
+  %162 = getelementptr inbounds i8, ptr %7, i64 6856
+  br label %163
 
-166:                                              ; preds = %171, %.lr.ph.i30
-  %167 = phi i32 [ %163, %.lr.ph.i30 ], [ %172, %171 ]
-  %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i34, %171 ]
-  %168 = getelementptr [408 x ptr], ptr %165, i64 0, i64 %indvars.iv.i31
-  %169 = load ptr, ptr %168, align 8
-  %.not.i32 = icmp eq ptr %169, null
-  br i1 %.not.i32, label %171, label %170
+163:                                              ; preds = %168, %.lr.ph.i30
+  %164 = phi i32 [ %160, %.lr.ph.i30 ], [ %169, %168 ]
+  %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i34, %168 ]
+  %165 = getelementptr [408 x ptr], ptr %162, i64 0, i64 %indvars.iv.i31
+  %166 = load ptr, ptr %165, align 8
+  %.not.i32 = icmp eq ptr %166, null
+  br i1 %.not.i32, label %168, label %167
 
-170:                                              ; preds = %166
-  tail call void @pfree(ptr noundef nonnull %169) #8
-  %.pre.i33 = load i32, ptr %162, align 8
-  br label %171
+167:                                              ; preds = %163
+  tail call void @pfree(ptr noundef nonnull %166) #8
+  %.pre.i33 = load i32, ptr %159, align 8
+  br label %168
 
-171:                                              ; preds = %170, %166
-  %172 = phi i32 [ %167, %166 ], [ %.pre.i33, %170 ]
+168:                                              ; preds = %167, %163
+  %169 = phi i32 [ %164, %163 ], [ %.pre.i33, %167 ]
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i31, 1
-  %173 = sext i32 %172 to i64
-  %174 = icmp slt i64 %indvars.iv.next.i34, %173
-  br i1 %174, label %166, label %.loopexit28.i, !llvm.loop !10
+  %170 = sext i32 %169 to i64
+  %171 = icmp slt i64 %indvars.iv.next.i34, %170
+  br i1 %171, label %163, label %.loopexit28.i, !llvm.loop !10
 
-.loopexit28.i:                                    ; preds = %171, %.preheader27.i, %158
-  %175 = getelementptr inbounds i8, ptr %7, i64 304
-  %176 = load i8, ptr %175, align 8
-  %177 = trunc i8 %176 to i1
-  br i1 %177, label %.preheader.i, label %resetSpGistScanOpaque.exit
+.loopexit28.i:                                    ; preds = %168, %.preheader27.i, %155
+  %172 = getelementptr inbounds i8, ptr %7, i64 304
+  %173 = load i8, ptr %172, align 8
+  %174 = trunc i8 %173 to i1
+  br i1 %174, label %.preheader.i, label %resetSpGistScanOpaque.exit
 
 .preheader.i:                                     ; preds = %.loopexit28.i
-  %178 = getelementptr inbounds i8, ptr %7, i64 320
-  %179 = load i32, ptr %178, align 8
-  %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %.lr.ph31.i, label %resetSpGistScanOpaque.exit
+  %175 = getelementptr inbounds i8, ptr %7, i64 320
+  %176 = load i32, ptr %175, align 8
+  %177 = icmp sgt i32 %176, 0
+  br i1 %177, label %.lr.ph31.i, label %resetSpGistScanOpaque.exit
 
 .lr.ph31.i:                                       ; preds = %.preheader.i
-  %181 = getelementptr inbounds i8, ptr %7, i64 3592
-  br label %182
+  %178 = getelementptr inbounds i8, ptr %7, i64 3592
+  br label %179
 
-182:                                              ; preds = %182, %.lr.ph31.i
-  %indvars.iv33.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next34.i, %182 ]
-  %183 = getelementptr [408 x ptr], ptr %181, i64 0, i64 %indvars.iv33.i
-  %184 = load ptr, ptr %183, align 8
-  tail call void @pfree(ptr noundef %184) #8
+179:                                              ; preds = %179, %.lr.ph31.i
+  %indvars.iv33.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next34.i, %179 ]
+  %180 = getelementptr [408 x ptr], ptr %178, i64 0, i64 %indvars.iv33.i
+  %181 = load ptr, ptr %180, align 8
+  tail call void @pfree(ptr noundef %181) #8
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %185 = load i32, ptr %178, align 8
-  %186 = sext i32 %185 to i64
-  %187 = icmp slt i64 %indvars.iv.next34.i, %186
-  br i1 %187, label %182, label %resetSpGistScanOpaque.exit, !llvm.loop !11
+  %182 = load i32, ptr %175, align 8
+  %183 = sext i32 %182 to i64
+  %184 = icmp slt i64 %indvars.iv.next34.i, %183
+  br i1 %184, label %179, label %resetSpGistScanOpaque.exit, !llvm.loop !11
 
-resetSpGistScanOpaque.exit:                       ; preds = %182, %.loopexit28.i, %.preheader.i
-  %188 = getelementptr inbounds i8, ptr %7, i64 320
-  store i32 0, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %7, i64 324
-  store i32 0, ptr %189, align 4
-  %190 = getelementptr inbounds i8, ptr %0, i64 8
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 472
-  %193 = load ptr, ptr %192, align 8
-  %.not29 = icmp eq ptr %193, null
-  br i1 %.not29, label %194, label %199
+resetSpGistScanOpaque.exit:                       ; preds = %179, %.loopexit28.i, %.preheader.i
+  %185 = getelementptr inbounds i8, ptr %7, i64 320
+  store i32 0, ptr %185, align 8
+  %186 = getelementptr inbounds i8, ptr %7, i64 324
+  store i32 0, ptr %186, align 4
+  %187 = getelementptr inbounds i8, ptr %0, i64 8
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds i8, ptr %188, i64 472
+  %190 = load ptr, ptr %189, align 8
+  %.not29 = icmp eq ptr %190, null
+  br i1 %.not29, label %191, label %196
 
-194:                                              ; preds = %resetSpGistScanOpaque.exit
-  %195 = getelementptr inbounds i8, ptr %191, i64 468
-  %196 = load i8, ptr %195, align 4
-  %197 = trunc i8 %196 to i1
-  br i1 %197, label %198, label %204
+191:                                              ; preds = %resetSpGistScanOpaque.exit
+  %192 = getelementptr inbounds i8, ptr %188, i64 468
+  %193 = load i8, ptr %192, align 4
+  %194 = trunc i8 %193 to i1
+  br i1 %194, label %195, label %201
 
-198:                                              ; preds = %194
-  tail call void @pgstat_assoc_relation(ptr noundef nonnull %191) #8
-  %.pre37 = load ptr, ptr %190, align 8
+195:                                              ; preds = %191
+  tail call void @pgstat_assoc_relation(ptr noundef nonnull %188) #8
+  %.pre37 = load ptr, ptr %187, align 8
   %.phi.trans.insert38 = getelementptr inbounds i8, ptr %.pre37, i64 472
   %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8
-  br label %199
+  br label %196
 
-199:                                              ; preds = %resetSpGistScanOpaque.exit, %198
-  %200 = phi ptr [ %193, %resetSpGistScanOpaque.exit ], [ %.pre39, %198 ]
-  %201 = getelementptr inbounds i8, ptr %200, i64 16
-  %202 = load i64, ptr %201, align 8
-  %203 = add i64 %202, 1
-  store i64 %203, ptr %201, align 8
-  br label %204
+196:                                              ; preds = %resetSpGistScanOpaque.exit, %195
+  %197 = phi ptr [ %190, %resetSpGistScanOpaque.exit ], [ %.pre39, %195 ]
+  %198 = getelementptr inbounds i8, ptr %197, i64 16
+  %199 = load i64, ptr %198, align 8
+  %200 = add i64 %199, 1
+  store i64 %200, ptr %198, align 8
+  br label %201
 
-204:                                              ; preds = %199, %194
+201:                                              ; preds = %196, %191
   ret void
 }
 

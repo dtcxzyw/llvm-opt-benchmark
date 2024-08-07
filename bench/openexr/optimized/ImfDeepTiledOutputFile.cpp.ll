@@ -2528,15 +2528,15 @@ invoke.cont137:                                   ; preds = %if.else135
   %xTileCoords154 = getelementptr inbounds i8, ptr %call114, i64 336
   %sampleStride.i43 = getelementptr inbounds i8, ptr %call138, i64 16
   %xStride2.i44 = getelementptr inbounds i8, ptr %call138, i64 24
-  %31 = load <2 x i64>, ptr %xStride148, align 8
   %zero.i46 = getelementptr inbounds i8, ptr %call138, i64 40
   %xTileCoords.i47 = getelementptr inbounds i8, ptr %call138, i64 44
-  %32 = load <2 x i8>, ptr %xTileCoords154, align 8
+  %31 = load <2 x i8>, ptr %xTileCoords154, align 8
+  %32 = load <2 x i64>, ptr %xStride148, align 8
   store i32 %29, ptr %call138, align 8
   store i64 %conv145, ptr %sampleStride.i43, align 8
-  store <2 x i64> %31, ptr %xStride2.i44, align 8
+  store <2 x i64> %32, ptr %xStride2.i44, align 8
   store i8 0, ptr %zero.i46, align 8
-  %.mask = and <2 x i8> %32, <i8 1, i8 1>
+  %.mask = and <2 x i8> %31, <i8 1, i8 1>
   %33 = zext nneg <2 x i8> %.mask to <2 x i32>
   store <2 x i32> %33, ptr %xTileCoords.i47, align 4
   %cmp.not.i.i51 = icmp eq ptr %slices.sroa.9.0, %slices.sroa.20.0

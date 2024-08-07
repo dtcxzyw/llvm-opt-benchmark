@@ -6508,14 +6508,14 @@ _ZN17cranelift_codegen8machinst3abi21missing_struct_return17h4ca3f883cd817cbaE.e
   %.sroa.794.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
   %.sroa.297.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   %.sroa.398.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %84 = load <2 x i32>, ptr %.sroa.592.0..sroa_idx, align 8
   %.sroa.5100.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %84 = load <2 x i64>, ptr %.sroa.794.0..sroa_idx, align 8
-  %85 = load <2 x i32>, ptr %.sroa.592.0..sroa_idx, align 8
+  %85 = load <2 x i64>, ptr %.sroa.794.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   store i8 %77, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.297.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.297, i64 7, i1 false)
-  store <2 x i32> %85, ptr %.sroa.398.0..sroa_idx, align 8
-  store <2 x i64> %84, ptr %.sroa.5100.0..sroa_idx, align 8
+  store <2 x i32> %84, ptr %.sroa.398.0..sroa_idx, align 8
+  store <2 x i64> %85, ptr %.sroa.5100.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
@@ -43103,66 +43103,60 @@ define void @_ZN17cranelift_codegen3isa3x644inst6unwind7systemv10create_cie17hc6
   store i8 4, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 58
   store i16 1, ptr %.sroa.5.0..sroa_idx, align 2
-  %6 = getelementptr inbounds i8, ptr %4, i64 65
-  store i8 1, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %4, i64 66
-  store i8 -8, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %4, i64 62
-  store i16 16, ptr %8, align 2
+  %6 = getelementptr inbounds i8, ptr %4, i64 62
+  store i16 16, ptr %6, align 2
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i64 2, ptr %.sroa.3.0..sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 60
-  store i8 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 67
-  store i8 0, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %4, i64 64
-  store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 0, ptr %12, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 60
+  store i8 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 64
+  store <4 x i8> <i8 0, i8 1, i8 -8, i8 0>, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 0, ptr %9, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
   store i64 0, ptr %.sroa.55.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %13 = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 7, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 8, ptr %14, align 4
+  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  store i16 7, ptr %10, align 2
+  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 8, ptr %11, align 4
   store i16 0, ptr %3, align 8
   invoke void @_ZN5gimli5write3cfi22CommonInformationEntry15add_instruction17h9fe0d1a94ba536a1E(ptr noalias noundef nonnull align 8 dereferenceable(72) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
-          to label %17 unwind label %15
+          to label %14 unwind label %12
 
-15:                                               ; preds = %17, %1
-  %16 = landingpad { ptr, i32 }
+12:                                               ; preds = %14, %1
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$gimli..write..cfi..CommonInformationEntry$GT$17hc72abbc97bb53c37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #38
-          to label %23 unwind label %21
+          to label %20 unwind label %18
 
-17:                                               ; preds = %1
+14:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  %18 = getelementptr inbounds i8, ptr %2, i64 2
-  store i16 16, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 -8, ptr %19, align 4
+  %15 = getelementptr inbounds i8, ptr %2, i64 2
+  store i16 16, ptr %15, align 2
+  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 -8, ptr %16, align 4
   store i16 7, ptr %2, align 8
   invoke void @_ZN5gimli5write3cfi22CommonInformationEntry15add_instruction17h9fe0d1a94ba536a1E(ptr noalias noundef nonnull align 8 dereferenceable(72) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2)
-          to label %20 unwind label %15
+          to label %17 unwind label %12
 
-20:                                               ; preds = %17
+17:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   ret void
 
-21:                                               ; preds = %15
-  %22 = landingpad { ptr, i32 }
+18:                                               ; preds = %12
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-23:                                               ; preds = %15
-  resume { ptr, i32 } %16
+20:                                               ; preds = %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable

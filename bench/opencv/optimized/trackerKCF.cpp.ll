@@ -7646,21 +7646,9 @@ define void @_ZN2cv8tracking10TrackerKCF6ParamsC2Ev(ptr nocapture noundef nonnul
   store <4 x float> <float 5.000000e-01, float 0x3FC99999A0000000, float 0x3F1A36E2E0000000, float 0x3FB3333340000000>, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 6400, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 1, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 26
-  store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 27
-  store i8 1, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 2, ptr %10, align 4
+  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %3, align 4
+  store <4 x i32> <i32 6400, i32 2, i32 2, i32 1>, ptr %4, align 4
   store <2 x float> <float 6.250000e-02, float 0x3FC3333340000000>, ptr %2, align 4
   ret void
 }
@@ -8569,32 +8557,20 @@ define void @_ZN2cv6legacy8tracking10TrackerKCF6createEv(ptr dead_on_unwind noal
   store <4 x float> <float 5.000000e-01, float 0x3FC99999A0000000, float 0x3F1A36E2E0000000, float 0x3FB3333340000000>, ptr %4, align 16
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = getelementptr inbounds i8, ptr %4, i64 24
-  store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 28
-  store i32 6400, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 25
-  store i8 1, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 26
-  store i8 0, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
-  store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 36
-  store i32 2, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 27
-  store i8 1, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 2, ptr %13, align 16
+  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %6, align 8
+  store <4 x i32> <i32 6400, i32 2, i32 2, i32 1>, ptr %7, align 4
   store <2 x float> <float 6.250000e-02, float 0x3FC3333340000000>, ptr %5, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !81
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !84
   store ptr null, ptr %3, align 16, !alias.scope !87, !noalias !84
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerKCFImplESaIvEJRKNS6_10TrackerKCF6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(44) %4), !noalias !84
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerKCFImplESaIvEJRKNS6_10TrackerKCF6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(44) %4), !noalias !84
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !84
-  %15 = load <2 x ptr>, ptr %3, align 16, !noalias !84
+  %9 = load <2 x ptr>, ptr %3, align 16, !noalias !84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !81
-  store <2 x ptr> %15, ptr %0, align 8, !alias.scope !81
+  store <2 x ptr> %9, ptr %0, align 8, !alias.scope !81
   ret void
 }
 

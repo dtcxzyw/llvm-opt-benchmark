@@ -4834,9 +4834,7 @@ hwloc_read_path_by_length.exit100.thread.i:       ; preds = %341, %337, %hwloc_o
 
 403:                                              ; preds = %392, %379
   %404 = getelementptr inbounds i8, ptr %381, i64 10
-  store i16 0, ptr %404, align 2
   %405 = getelementptr inbounds i8, ptr %381, i64 12
-  store i16 0, ptr %405, align 4
   %406 = getelementptr inbounds i8, ptr %381, i64 8
   store i16 %.082.i, ptr %406, align 4
   %407 = getelementptr inbounds i8, ptr %381, i64 7
@@ -4844,9 +4842,8 @@ hwloc_read_path_by_length.exit100.thread.i:       ; preds = %341, %337, %hwloc_o
   %408 = getelementptr inbounds i8, ptr %381, i64 18
   store i8 0, ptr %408, align 2
   %409 = getelementptr inbounds i8, ptr %381, i64 14
-  store i16 0, ptr %409, align 2
   %410 = getelementptr inbounds i8, ptr %381, i64 16
-  store i16 0, ptr %410, align 4
+  store <4 x i16> zeroinitializer, ptr %404, align 2
   %411 = getelementptr inbounds i8, ptr %381, i64 20
   store float 0.000000e+00, ptr %411, align 4
   %412 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %69, i64 noundef 64, ptr noundef nonnull @.str.404, ptr noundef nonnull %312) #26

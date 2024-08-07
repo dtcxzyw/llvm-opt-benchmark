@@ -56038,23 +56038,23 @@ define void @_ZN17cranelift_codegen2ir12instructions15InstructionData10deep_clon
     i8 16, label %152
     i8 17, label %165
     i8 18, label %173
-    i8 19, label %186
-    i8 20, label %196
-    i8 21, label %203
-    i8 22, label %207
-    i8 23, label %216
-    i8 24, label %223
-    i8 25, label %233
-    i8 26, label %245
-    i8 27, label %254
-    i8 28, label %260
-    i8 29, label %269
-    i8 30, label %276
-    i8 31, label %283
-    i8 32, label %290
-    i8 33, label %297
-    i8 34, label %303
-    i8 35, label %309
+    i8 19, label %183
+    i8 20, label %193
+    i8 21, label %200
+    i8 22, label %204
+    i8 23, label %213
+    i8 24, label %220
+    i8 25, label %230
+    i8 26, label %242
+    i8 27, label %251
+    i8 28, label %257
+    i8 29, label %266
+    i8 30, label %273
+    i8 31, label %280
+    i8 32, label %287
+    i8 33, label %294
+    i8 34, label %300
+    i8 35, label %306
   ]
 
 default.unreachable23:                            ; preds = %3
@@ -56073,7 +56073,7 @@ default.unreachable23:                            ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 2
   store i16 %12, ptr %15, align 2
   store i8 0, ptr %0, align 8
-  br label %316
+  br label %313
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56093,7 +56093,7 @@ default.unreachable23:                            ; preds = %3
   %27 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %23, ptr %27, align 2
   store i8 1, ptr %0, align 8
-  br label %316
+  br label %313
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56105,7 +56105,7 @@ default.unreachable23:                            ; preds = %3
   %33 = getelementptr inbounds i8, ptr %0, i64 4
   store i64 %.sroa.02.0.copyload, ptr %33, align 4
   store i8 2, ptr %0, align 8
-  br label %316
+  br label %313
 
 34:                                               ; preds = %3
   %35 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56121,7 +56121,7 @@ default.unreachable23:                            ; preds = %3
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %40, ptr %43, align 8
   store i8 3, ptr %0, align 8
-  br label %316
+  br label %313
 
 44:                                               ; preds = %3
   %45 = getelementptr inbounds i8, ptr %1, i64 2
@@ -56137,7 +56137,7 @@ default.unreachable23:                            ; preds = %3
   %53 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %50, ptr %53, align 1
   store i8 4, ptr %0, align 8
-  br label %316
+  br label %313
 
 54:                                               ; preds = %3
   %55 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56149,7 +56149,7 @@ default.unreachable23:                            ; preds = %3
   %60 = load <2 x i32>, ptr %57, align 4
   store <2 x i32> %60, ptr %59, align 4
   store i8 5, ptr %0, align 8
-  br label %316
+  br label %313
 
 61:                                               ; preds = %3
   %62 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56173,7 +56173,7 @@ default.unreachable23:                            ; preds = %3
   store i32 %70, ptr %.sroa.4.0..sroa_idx, align 4
   store i8 6, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %316
+  br label %313
 
 74:                                               ; preds = %3
   %75 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56189,7 +56189,7 @@ default.unreachable23:                            ; preds = %3
   %83 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %78, ptr %83, align 8
   store i8 7, ptr %0, align 8
-  br label %316
+  br label %313
 
 84:                                               ; preds = %3
   %85 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56205,7 +56205,7 @@ default.unreachable23:                            ; preds = %3
   %93 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %88, ptr %93, align 8
   store i8 8, ptr %0, align 8
-  br label %316
+  br label %313
 
 94:                                               ; preds = %3
   %95 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56221,7 +56221,7 @@ default.unreachable23:                            ; preds = %3
   %103 = load <2 x i16>, ptr %99, align 8
   store <2 x i16> %103, ptr %102, align 8
   store i8 9, ptr %0, align 8
-  br label %316
+  br label %313
 
 104:                                              ; preds = %3
   %105 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56233,7 +56233,7 @@ default.unreachable23:                            ; preds = %3
   %110 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %108, ptr %110, align 4
   store i8 10, ptr %0, align 8
-  br label %316
+  br label %313
 
 111:                                              ; preds = %3
   %112 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56245,7 +56245,7 @@ default.unreachable23:                            ; preds = %3
   %117 = load <2 x i32>, ptr %114, align 4
   store <2 x i32> %117, ptr %116, align 4
   store i8 11, ptr %0, align 8
-  br label %316
+  br label %313
 
 118:                                              ; preds = %3
   %119 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56261,7 +56261,7 @@ default.unreachable23:                            ; preds = %3
   %126 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %123, ptr %126, align 2
   store i8 12, ptr %0, align 8
-  br label %316
+  br label %313
 
 127:                                              ; preds = %3
   %128 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56273,7 +56273,7 @@ default.unreachable23:                            ; preds = %3
   %133 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %131, ptr %133, align 4
   store i8 13, ptr %0, align 8
-  br label %316
+  br label %313
 
 134:                                              ; preds = %3
   %135 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56289,7 +56289,7 @@ default.unreachable23:                            ; preds = %3
   %142 = load <2 x i16>, ptr %138, align 4
   store <2 x i16> %142, ptr %141, align 4
   store i8 14, ptr %0, align 8
-  br label %316
+  br label %313
 
 143:                                              ; preds = %3
   %144 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56305,7 +56305,7 @@ default.unreachable23:                            ; preds = %3
   %151 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %148, ptr %151, align 2
   store i8 15, ptr %0, align 8
-  br label %316
+  br label %313
 
 152:                                              ; preds = %3
   %153 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56325,7 +56325,7 @@ default.unreachable23:                            ; preds = %3
   %164 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %160, ptr %164, align 8
   store i8 16, ptr %0, align 8
-  br label %316
+  br label %313
 
 165:                                              ; preds = %3
   %166 = getelementptr inbounds i8, ptr %1, i64 1
@@ -56341,256 +56341,252 @@ default.unreachable23:                            ; preds = %3
   store i32 %170, ptr %172, align 4
   store i8 17, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %316
+  br label %313
 
 173:                                              ; preds = %3
   %174 = getelementptr inbounds i8, ptr %1, i64 1
   %175 = load i8, ptr %174, align 1, !range !748, !noundef !4
   %176 = getelementptr inbounds i8, ptr %1, i64 4
-  %177 = load i32, ptr %176, align 4, !noundef !4
-  %178 = getelementptr inbounds i8, ptr %1, i64 2
-  %179 = load i16, ptr %178, align 2, !noundef !4
-  %180 = getelementptr inbounds i8, ptr %1, i64 8
-  %181 = load i32, ptr %180, align 8, !noundef !4
-  %182 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %175, ptr %182, align 1
-  %183 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %177, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %179, ptr %184, align 2
-  %185 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %181, ptr %185, align 8
+  %177 = getelementptr inbounds i8, ptr %1, i64 2
+  %178 = load i16, ptr %177, align 2, !noundef !4
+  %179 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %175, ptr %179, align 1
+  %180 = getelementptr inbounds i8, ptr %0, i64 4
+  %181 = getelementptr inbounds i8, ptr %0, i64 2
+  store i16 %178, ptr %181, align 2
+  %182 = load <2 x i32>, ptr %176, align 4
+  store <2 x i32> %182, ptr %180, align 4
   store i8 18, ptr %0, align 8
-  br label %316
+  br label %313
 
-186:                                              ; preds = %3
-  %187 = getelementptr inbounds i8, ptr %1, i64 1
-  %188 = load i8, ptr %187, align 1, !range !748, !noundef !4
-  %189 = getelementptr inbounds i8, ptr %1, i64 4
-  %190 = load i32, ptr %189, align 4, !noundef !4
-  %191 = getelementptr inbounds i8, ptr %1, i64 2
-  %192 = load i16, ptr %191, align 2, !noundef !4
-  %193 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %188, ptr %193, align 1
-  %194 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %190, ptr %194, align 4
-  %195 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %192, ptr %195, align 2
+183:                                              ; preds = %3
+  %184 = getelementptr inbounds i8, ptr %1, i64 1
+  %185 = load i8, ptr %184, align 1, !range !748, !noundef !4
+  %186 = getelementptr inbounds i8, ptr %1, i64 4
+  %187 = load i32, ptr %186, align 4, !noundef !4
+  %188 = getelementptr inbounds i8, ptr %1, i64 2
+  %189 = load i16, ptr %188, align 2, !noundef !4
+  %190 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %185, ptr %190, align 1
+  %191 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %187, ptr %191, align 4
+  %192 = getelementptr inbounds i8, ptr %0, i64 2
+  store i16 %189, ptr %192, align 2
   store i8 19, ptr %0, align 8
-  br label %316
+  br label %313
 
-196:                                              ; preds = %3
-  %197 = getelementptr inbounds i8, ptr %1, i64 1
-  %198 = load i8, ptr %197, align 1, !range !748, !noundef !4
-  %199 = getelementptr inbounds i8, ptr %1, i64 4
-  %200 = tail call noundef i32 @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$10deep_clone17h739b6e70f20d07c2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %199, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
-  %201 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %198, ptr %201, align 1
-  %202 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %200, ptr %202, align 4
+193:                                              ; preds = %3
+  %194 = getelementptr inbounds i8, ptr %1, i64 1
+  %195 = load i8, ptr %194, align 1, !range !748, !noundef !4
+  %196 = getelementptr inbounds i8, ptr %1, i64 4
+  %197 = tail call noundef i32 @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$10deep_clone17h739b6e70f20d07c2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %196, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
+  %198 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %195, ptr %198, align 1
+  %199 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %197, ptr %199, align 4
   store i8 20, ptr %0, align 8
-  br label %316
+  br label %313
 
-203:                                              ; preds = %3
-  %204 = getelementptr inbounds i8, ptr %1, i64 1
-  %205 = load i8, ptr %204, align 1, !range !748, !noundef !4
-  %206 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %205, ptr %206, align 1
+200:                                              ; preds = %3
+  %201 = getelementptr inbounds i8, ptr %1, i64 1
+  %202 = load i8, ptr %201, align 1, !range !748, !noundef !4
+  %203 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %202, ptr %203, align 1
   store i8 21, ptr %0, align 8
-  br label %316
+  br label %313
 
-207:                                              ; preds = %3
-  %208 = getelementptr inbounds i8, ptr %1, i64 1
-  %209 = load i8, ptr %208, align 1, !range !748, !noundef !4
-  %210 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.011.0.copyload = load i64, ptr %210, align 4
-  %211 = getelementptr inbounds i8, ptr %1, i64 12
-  %212 = load i32, ptr %211, align 4, !noundef !4
-  %213 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %209, ptr %213, align 1
-  %214 = getelementptr inbounds i8, ptr %0, i64 4
-  store i64 %.sroa.011.0.copyload, ptr %214, align 4
-  %215 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %212, ptr %215, align 4
+204:                                              ; preds = %3
+  %205 = getelementptr inbounds i8, ptr %1, i64 1
+  %206 = load i8, ptr %205, align 1, !range !748, !noundef !4
+  %207 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.011.0.copyload = load i64, ptr %207, align 4
+  %208 = getelementptr inbounds i8, ptr %1, i64 12
+  %209 = load i32, ptr %208, align 4, !noundef !4
+  %210 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %206, ptr %210, align 1
+  %211 = getelementptr inbounds i8, ptr %0, i64 4
+  store i64 %.sroa.011.0.copyload, ptr %211, align 4
+  %212 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %209, ptr %212, align 4
   store i8 22, ptr %0, align 8
-  br label %316
+  br label %313
 
-216:                                              ; preds = %3
-  %217 = getelementptr inbounds i8, ptr %1, i64 1
-  %218 = load i8, ptr %217, align 1, !range !748, !noundef !4
-  %219 = getelementptr inbounds i8, ptr %1, i64 4
-  %220 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %218, ptr %220, align 1
-  %221 = getelementptr inbounds i8, ptr %0, i64 4
-  %222 = load <2 x i32>, ptr %219, align 4
-  store <2 x i32> %222, ptr %221, align 4
+213:                                              ; preds = %3
+  %214 = getelementptr inbounds i8, ptr %1, i64 1
+  %215 = load i8, ptr %214, align 1, !range !748, !noundef !4
+  %216 = getelementptr inbounds i8, ptr %1, i64 4
+  %217 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %215, ptr %217, align 1
+  %218 = getelementptr inbounds i8, ptr %0, i64 4
+  %219 = load <2 x i32>, ptr %216, align 4
+  store <2 x i32> %219, ptr %218, align 4
   store i8 23, ptr %0, align 8
-  br label %316
+  br label %313
 
-223:                                              ; preds = %3
-  %224 = getelementptr inbounds i8, ptr %1, i64 1
-  %225 = load i8, ptr %224, align 1, !range !748, !noundef !4
-  %226 = getelementptr inbounds i8, ptr %1, i64 4
-  %227 = getelementptr inbounds i8, ptr %1, i64 12
-  %228 = load i32, ptr %227, align 4, !noundef !4
-  %229 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %225, ptr %229, align 1
-  %230 = getelementptr inbounds i8, ptr %0, i64 4
-  %231 = load <2 x i32>, ptr %226, align 4
-  store <2 x i32> %231, ptr %230, align 4
-  %232 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %228, ptr %232, align 4
+220:                                              ; preds = %3
+  %221 = getelementptr inbounds i8, ptr %1, i64 1
+  %222 = load i8, ptr %221, align 1, !range !748, !noundef !4
+  %223 = getelementptr inbounds i8, ptr %1, i64 4
+  %224 = getelementptr inbounds i8, ptr %1, i64 12
+  %225 = load i32, ptr %224, align 4, !noundef !4
+  %226 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %222, ptr %226, align 1
+  %227 = getelementptr inbounds i8, ptr %0, i64 4
+  %228 = load <2 x i32>, ptr %223, align 4
+  store <2 x i32> %228, ptr %227, align 4
+  %229 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %225, ptr %229, align 4
   store i8 24, ptr %0, align 8
-  br label %316
+  br label %313
 
-233:                                              ; preds = %3
-  %234 = getelementptr inbounds i8, ptr %1, i64 1
-  %235 = load i8, ptr %234, align 1, !range !748, !noundef !4
-  %236 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.013.0.copyload = load i64, ptr %236, align 4
-  %237 = getelementptr inbounds i8, ptr %1, i64 2
-  %238 = load i16, ptr %237, align 2, !noundef !4
-  %239 = getelementptr inbounds i8, ptr %1, i64 12
-  %240 = load i32, ptr %239, align 4, !noundef !4
-  %241 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %235, ptr %241, align 1
-  %242 = getelementptr inbounds i8, ptr %0, i64 4
-  store i64 %.sroa.013.0.copyload, ptr %242, align 4
-  %243 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %238, ptr %243, align 2
-  %244 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %240, ptr %244, align 4
+230:                                              ; preds = %3
+  %231 = getelementptr inbounds i8, ptr %1, i64 1
+  %232 = load i8, ptr %231, align 1, !range !748, !noundef !4
+  %233 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.013.0.copyload = load i64, ptr %233, align 4
+  %234 = getelementptr inbounds i8, ptr %1, i64 2
+  %235 = load i16, ptr %234, align 2, !noundef !4
+  %236 = getelementptr inbounds i8, ptr %1, i64 12
+  %237 = load i32, ptr %236, align 4, !noundef !4
+  %238 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %232, ptr %238, align 1
+  %239 = getelementptr inbounds i8, ptr %0, i64 4
+  store i64 %.sroa.013.0.copyload, ptr %239, align 4
+  %240 = getelementptr inbounds i8, ptr %0, i64 2
+  store i16 %235, ptr %240, align 2
+  %241 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %237, ptr %241, align 4
   store i8 25, ptr %0, align 8
-  br label %316
+  br label %313
 
-245:                                              ; preds = %3
-  %246 = getelementptr inbounds i8, ptr %1, i64 1
-  %247 = load i8, ptr %246, align 1, !range !748, !noundef !4
-  %248 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.015.0.copyload = load i64, ptr %248, align 4
-  %249 = getelementptr inbounds i8, ptr %1, i64 2
-  %250 = load i16, ptr %249, align 2, !noundef !4
-  %251 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %247, ptr %251, align 1
-  %252 = getelementptr inbounds i8, ptr %0, i64 4
-  store i64 %.sroa.015.0.copyload, ptr %252, align 4
-  %253 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %250, ptr %253, align 2
+242:                                              ; preds = %3
+  %243 = getelementptr inbounds i8, ptr %1, i64 1
+  %244 = load i8, ptr %243, align 1, !range !748, !noundef !4
+  %245 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.015.0.copyload = load i64, ptr %245, align 4
+  %246 = getelementptr inbounds i8, ptr %1, i64 2
+  %247 = load i16, ptr %246, align 2, !noundef !4
+  %248 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %244, ptr %248, align 1
+  %249 = getelementptr inbounds i8, ptr %0, i64 4
+  store i64 %.sroa.015.0.copyload, ptr %249, align 4
+  %250 = getelementptr inbounds i8, ptr %0, i64 2
+  store i16 %247, ptr %250, align 2
   store i8 26, ptr %0, align 8
-  br label %316
+  br label %313
 
-254:                                              ; preds = %3
-  %255 = getelementptr inbounds i8, ptr %1, i64 1
-  %256 = load i8, ptr %255, align 1, !range !748, !noundef !4
-  %257 = getelementptr inbounds i8, ptr %1, i64 4
-  %258 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %256, ptr %258, align 1
-  %259 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %259, ptr noundef nonnull align 4 dereferenceable(12) %257, i64 12, i1 false)
+251:                                              ; preds = %3
+  %252 = getelementptr inbounds i8, ptr %1, i64 1
+  %253 = load i8, ptr %252, align 1, !range !748, !noundef !4
+  %254 = getelementptr inbounds i8, ptr %1, i64 4
+  %255 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %253, ptr %255, align 1
+  %256 = getelementptr inbounds i8, ptr %0, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %256, ptr noundef nonnull align 4 dereferenceable(12) %254, i64 12, i1 false)
   store i8 27, ptr %0, align 8
-  br label %316
+  br label %313
 
-260:                                              ; preds = %3
-  %261 = getelementptr inbounds i8, ptr %1, i64 2
-  %262 = load i8, ptr %261, align 2, !range !748, !noundef !4
-  %263 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.017.0.copyload = load i64, ptr %263, align 4
-  %264 = getelementptr inbounds i8, ptr %1, i64 1
-  %265 = load i8, ptr %264, align 1, !noundef !4
-  %266 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %262, ptr %266, align 2
-  %267 = getelementptr inbounds i8, ptr %0, i64 4
-  store i64 %.sroa.017.0.copyload, ptr %267, align 4
-  %268 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %265, ptr %268, align 1
+257:                                              ; preds = %3
+  %258 = getelementptr inbounds i8, ptr %1, i64 2
+  %259 = load i8, ptr %258, align 2, !range !748, !noundef !4
+  %260 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.017.0.copyload = load i64, ptr %260, align 4
+  %261 = getelementptr inbounds i8, ptr %1, i64 1
+  %262 = load i8, ptr %261, align 1, !noundef !4
+  %263 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 %259, ptr %263, align 2
+  %264 = getelementptr inbounds i8, ptr %0, i64 4
+  store i64 %.sroa.017.0.copyload, ptr %264, align 4
+  %265 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %262, ptr %265, align 1
   store i8 28, ptr %0, align 8
-  br label %316
+  br label %313
 
-269:                                              ; preds = %3
-  %270 = getelementptr inbounds i8, ptr %1, i64 1
-  %271 = load i8, ptr %270, align 1, !range !748, !noundef !4
-  %272 = getelementptr inbounds i8, ptr %1, i64 2
-  %273 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %271, ptr %273, align 1
-  %274 = getelementptr inbounds i8, ptr %0, i64 2
-  %275 = load <2 x i16>, ptr %272, align 2
-  store <2 x i16> %275, ptr %274, align 2
+266:                                              ; preds = %3
+  %267 = getelementptr inbounds i8, ptr %1, i64 1
+  %268 = load i8, ptr %267, align 1, !range !748, !noundef !4
+  %269 = getelementptr inbounds i8, ptr %1, i64 2
+  %270 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %268, ptr %270, align 1
+  %271 = getelementptr inbounds i8, ptr %0, i64 2
+  %272 = load <2 x i16>, ptr %269, align 2
+  store <2 x i16> %272, ptr %271, align 2
   store i8 29, ptr %0, align 8
-  br label %316
+  br label %313
 
-276:                                              ; preds = %3
-  %277 = getelementptr inbounds i8, ptr %1, i64 1
-  %278 = load i8, ptr %277, align 1, !range !748, !noundef !4
-  %279 = getelementptr inbounds i8, ptr %1, i64 4
-  %280 = load i32, ptr %279, align 4, !noundef !4
-  %281 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %278, ptr %281, align 1
-  %282 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %280, ptr %282, align 4
+273:                                              ; preds = %3
+  %274 = getelementptr inbounds i8, ptr %1, i64 1
+  %275 = load i8, ptr %274, align 1, !range !748, !noundef !4
+  %276 = getelementptr inbounds i8, ptr %1, i64 4
+  %277 = load i32, ptr %276, align 4, !noundef !4
+  %278 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %275, ptr %278, align 1
+  %279 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %277, ptr %279, align 4
   store i8 30, ptr %0, align 8
-  br label %316
+  br label %313
 
-283:                                              ; preds = %3
-  %284 = getelementptr inbounds i8, ptr %1, i64 1
-  %285 = load i8, ptr %284, align 1, !range !748, !noundef !4
-  %286 = getelementptr inbounds i8, ptr %1, i64 4
-  %287 = load i32, ptr %286, align 4, !noundef !4
-  %288 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %285, ptr %288, align 1
-  %289 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %287, ptr %289, align 4
+280:                                              ; preds = %3
+  %281 = getelementptr inbounds i8, ptr %1, i64 1
+  %282 = load i8, ptr %281, align 1, !range !748, !noundef !4
+  %283 = getelementptr inbounds i8, ptr %1, i64 4
+  %284 = load i32, ptr %283, align 4, !noundef !4
+  %285 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %282, ptr %285, align 1
+  %286 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %284, ptr %286, align 4
   store i8 31, ptr %0, align 8
-  br label %316
+  br label %313
 
-290:                                              ; preds = %3
-  %291 = getelementptr inbounds i8, ptr %1, i64 1
-  %292 = load i8, ptr %291, align 1, !range !748, !noundef !4
-  %293 = getelementptr inbounds i8, ptr %1, i64 4
-  %294 = load i32, ptr %293, align 4, !noundef !4
-  %295 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %292, ptr %295, align 1
-  %296 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %294, ptr %296, align 4
+287:                                              ; preds = %3
+  %288 = getelementptr inbounds i8, ptr %1, i64 1
+  %289 = load i8, ptr %288, align 1, !range !748, !noundef !4
+  %290 = getelementptr inbounds i8, ptr %1, i64 4
+  %291 = load i32, ptr %290, align 4, !noundef !4
+  %292 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %289, ptr %292, align 1
+  %293 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %291, ptr %293, align 4
   store i8 32, ptr %0, align 8
-  br label %316
+  br label %313
 
-297:                                              ; preds = %3
-  %298 = getelementptr inbounds i8, ptr %1, i64 1
-  %299 = load i8, ptr %298, align 1, !range !748, !noundef !4
-  %300 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.019.0.copyload = load i32, ptr %300, align 4
-  %301 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %299, ptr %301, align 1
-  %302 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.019.0.copyload, ptr %302, align 4
+294:                                              ; preds = %3
+  %295 = getelementptr inbounds i8, ptr %1, i64 1
+  %296 = load i8, ptr %295, align 1, !range !748, !noundef !4
+  %297 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.019.0.copyload = load i32, ptr %297, align 4
+  %298 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %296, ptr %298, align 1
+  %299 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sroa.019.0.copyload, ptr %299, align 4
   store i8 33, ptr %0, align 8
-  br label %316
+  br label %313
 
-303:                                              ; preds = %3
-  %304 = getelementptr inbounds i8, ptr %1, i64 1
-  %305 = load i8, ptr %304, align 1, !range !748, !noundef !4
-  %306 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.021.0.copyload = load i64, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %305, ptr %307, align 1
-  %308 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.021.0.copyload, ptr %308, align 8
+300:                                              ; preds = %3
+  %301 = getelementptr inbounds i8, ptr %1, i64 1
+  %302 = load i8, ptr %301, align 1, !range !748, !noundef !4
+  %303 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.021.0.copyload = load i64, ptr %303, align 8
+  %304 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %302, ptr %304, align 1
+  %305 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.021.0.copyload, ptr %305, align 8
   store i8 34, ptr %0, align 8
-  br label %316
+  br label %313
 
-309:                                              ; preds = %3
-  %310 = getelementptr inbounds i8, ptr %1, i64 1
-  %311 = load i8, ptr %310, align 1, !range !748, !noundef !4
-  %312 = getelementptr inbounds i8, ptr %1, i64 8
-  %313 = load i64, ptr %312, align 8, !noundef !4
-  %314 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %311, ptr %314, align 1
-  %315 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %313, ptr %315, align 8
+306:                                              ; preds = %3
+  %307 = getelementptr inbounds i8, ptr %1, i64 1
+  %308 = load i8, ptr %307, align 1, !range !748, !noundef !4
+  %309 = getelementptr inbounds i8, ptr %1, i64 8
+  %310 = load i64, ptr %309, align 8, !noundef !4
+  %311 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %308, ptr %311, align 1
+  %312 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %310, ptr %312, align 8
   store i8 35, ptr %0, align 8
-  br label %316
+  br label %313
 
-316:                                              ; preds = %309, %303, %297, %290, %283, %276, %269, %260, %254, %245, %233, %223, %216, %207, %203, %196, %186, %173, %165, %152, %143, %134, %127, %118, %111, %104, %94, %84, %74, %61, %54, %44, %34, %28, %16, %7
+313:                                              ; preds = %306, %300, %294, %287, %280, %273, %266, %257, %251, %242, %230, %220, %213, %204, %200, %193, %183, %173, %165, %152, %143, %134, %127, %118, %111, %104, %94, %84, %74, %61, %54, %44, %34, %28, %16, %7
   ret void
 }
 

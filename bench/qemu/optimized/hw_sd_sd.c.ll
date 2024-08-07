@@ -3792,12 +3792,7 @@ bitmap_new.exit:                                  ; preds = %cond.end
   store ptr %call.i.i, ptr %wp_group_bmap, align 8
   %function_group = getelementptr inbounds i8, ptr %call.i, i64 372
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %function_group, i8 0, i64 6, i1 false)
-  %erase_start = getelementptr inbounds i8, ptr %call.i, i64 344
-  store i32 -1, ptr %erase_start, align 8
-  %erase_end = getelementptr inbounds i8, ptr %call.i, i64 348
-  store i32 -1, ptr %erase_end, align 4
   %blk_len = getelementptr inbounds i8, ptr %call.i, i64 336
-  store i32 512, ptr %blk_len, align 8
   %pwd_len = getelementptr inbounds i8, ptr %call.i, i64 368
   store i32 0, ptr %pwd_len, align 8
   %expecting_acmd = getelementptr inbounds i8, ptr %call.i, i64 379
@@ -3806,8 +3801,7 @@ bitmap_new.exit:                                  ; preds = %cond.end
   store i8 15, ptr %dat_lines, align 1
   %cmd_line = getelementptr inbounds i8, ptr %call.i, i64 938
   store i8 1, ptr %cmd_line, align 2
-  %multi_blk_cnt = getelementptr inbounds i8, ptr %call.i, i64 340
-  store i32 0, ptr %multi_blk_cnt, align 4
+  store <4 x i32> <i32 512, i32 0, i32 -1, i32 -1>, ptr %blk_len, align 8
   ret void
 }
 

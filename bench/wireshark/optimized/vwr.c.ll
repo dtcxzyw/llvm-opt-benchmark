@@ -324,7 +324,7 @@ decode_msg.exit.thread.i:                         ; preds = %140, %43, %decode_m
   store ptr %149, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %149, i64 176
   store i32 5, ptr %151, align 4
-  br label %186
+  br label %183
 
 152:                                              ; preds = %148
   %153 = load i32, ptr %1, align 4
@@ -335,7 +335,7 @@ decode_msg.exit.thread.i:                         ; preds = %140, %43, %decode_m
 
 vwr_get_fpga_version.exit.thread:                 ; preds = %8, %.thread140.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %258
+  br label %255
 
 vwr_get_fpga_version.exit.thread33:               ; preds = %decode_msg.exit.thread.i, %39
   call void @g_free(ptr noundef %12) #9
@@ -346,12 +346,12 @@ vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, 
   %.0101.i = phi i32 [ %..i, %45 ], [ %.121.i, %50 ], [ %142, %.thread140.i ], [ %.174.i, %152 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   switch i32 %.0101.i, label %156 [
-    i32 -1, label %258
+    i32 -1, label %255
     i32 0, label %155
   ]
 
 155:                                              ; preds = %vwr_get_fpga_version.exit.thread33, %vwr_get_fpga_version.exit
-  br label %258
+  br label %255
 
 156:                                              ; preds = %vwr_get_fpga_version.exit
   %157 = call noalias dereferenceable_or_null(224) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 224) #11
@@ -362,24 +362,22 @@ vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, 
   %160 = trunc nuw nsw i32 %.0101.i to i16
   switch i16 %160, label %setup_defaults.exit [
     i16 1, label %161
-    i16 5, label %186
-    i16 3, label %190
-    i16 2, label %208
-    i16 4, label %231
+    i16 5, label %183
+    i16 3, label %187
+    i16 2, label %205
+    i16 4, label %228
   ]
 
 161:                                              ; preds = %156
-  store i32 48, ptr %157, align 4
-  %162 = getelementptr inbounds i8, ptr %157, i64 8
-  store <4 x i32> <i32 20, i32 1, i32 6, i32 32>, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %157, i64 24
-  %164 = getelementptr inbounds i8, ptr %157, i64 40
-  store <4 x i32> <i32 2, i32 0, i32 8, i32 36>, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %157, i64 56
-  store <4 x i32> <i32 33, i32 3, i32 16, i32 47>, ptr %163, align 4
-  store <4 x i32> <i32 22, i32 0, i32 1, i32 28>, ptr %165, align 4
-  %166 = getelementptr inbounds i8, ptr %157, i64 72
-  store <4 x i32> <i32 30, i32 12, i32 44, i32 9>, ptr %166, align 4
+  %162 = getelementptr inbounds i8, ptr %157, i64 16
+  %163 = getelementptr inbounds i8, ptr %157, i64 32
+  store <4 x i32> <i32 16, i32 47, i32 2, i32 0>, ptr %163, align 4
+  %164 = getelementptr inbounds i8, ptr %157, i64 48
+  %165 = getelementptr inbounds i8, ptr %157, i64 80
+  store <4 x i32> <i32 6, i32 32, i32 33, i32 3>, ptr %162, align 4
+  store <4 x i32> <i32 8, i32 36, i32 22, i32 0>, ptr %164, align 4
+  %166 = getelementptr inbounds i8, ptr %157, i64 64
+  store <4 x i32> <i32 1, i32 28, i32 30, i32 12>, ptr %166, align 4
   %167 = getelementptr inbounds i8, ptr %157, i64 137
   store i8 -128, ptr %167, align 1
   %168 = getelementptr inbounds i8, ptr %157, i64 172
@@ -388,206 +386,202 @@ vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, 
   store i16 -1, ptr %169, align 2
   %170 = getelementptr inbounds i8, ptr %157, i64 140
   store i32 32768, ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %157, i64 4
-  store i32 16, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %157, i64 120
-  store i32 1, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %157, i64 124
-  store i32 7936, ptr %173, align 4
-  %174 = getelementptr inbounds i8, ptr %157, i64 132
-  store i32 1024, ptr %174, align 4
-  %175 = getelementptr inbounds i8, ptr %157, i64 88
+  store <4 x i32> <i32 48, i32 16, i32 20, i32 1>, ptr %157, align 4
+  %171 = getelementptr inbounds i8, ptr %157, i64 120
+  store i32 1, ptr %171, align 4
+  %172 = getelementptr inbounds i8, ptr %157, i64 124
+  store i32 7936, ptr %172, align 4
+  %173 = getelementptr inbounds i8, ptr %157, i64 132
+  store i32 1024, ptr %173, align 4
+  %174 = getelementptr inbounds i8, ptr %157, i64 96
+  %175 = getelementptr inbounds i8, ptr %157, i64 160
   store i32 0, ptr %175, align 4
-  %176 = getelementptr inbounds i8, ptr %157, i64 96
-  %177 = getelementptr inbounds i8, ptr %157, i64 160
-  store i32 0, ptr %177, align 4
-  %178 = getelementptr inbounds i8, ptr %157, i64 164
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %176, i8 0, i64 24, i1 false)
-  store i32 1, ptr %178, align 4
-  %179 = getelementptr inbounds i8, ptr %157, i64 180
-  %180 = getelementptr inbounds i8, ptr %157, i64 92
-  store i32 24, ptr %180, align 4
-  store <4 x i32> <i32 1, i32 2, i32 4, i32 16777216>, ptr %179, align 4
-  %181 = getelementptr inbounds i8, ptr %157, i64 196
-  store i32 1048576, ptr %181, align 4
-  %182 = getelementptr inbounds i8, ptr %157, i64 200
-  store i32 4096, ptr %182, align 4
-  %183 = getelementptr inbounds i8, ptr %157, i64 204
-  store i32 65536, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %157, i64 208
-  store i16 16384, ptr %184, align 4
-  %185 = getelementptr inbounds i8, ptr %157, i64 216
-  store i32 20, ptr %185, align 4
+  %176 = getelementptr inbounds i8, ptr %157, i64 164
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %174, i8 0, i64 24, i1 false)
+  store i32 1, ptr %176, align 4
+  %177 = getelementptr inbounds i8, ptr %157, i64 180
+  store <4 x i32> <i32 44, i32 9, i32 0, i32 24>, ptr %165, align 4
+  store <4 x i32> <i32 1, i32 2, i32 4, i32 16777216>, ptr %177, align 4
+  %178 = getelementptr inbounds i8, ptr %157, i64 196
+  store i32 1048576, ptr %178, align 4
+  %179 = getelementptr inbounds i8, ptr %157, i64 200
+  store i32 4096, ptr %179, align 4
+  %180 = getelementptr inbounds i8, ptr %157, i64 204
+  store i32 65536, ptr %180, align 4
+  %181 = getelementptr inbounds i8, ptr %157, i64 208
+  store i16 16384, ptr %181, align 4
+  %182 = getelementptr inbounds i8, ptr %157, i64 216
+  store i32 20, ptr %182, align 4
   br label %setup_defaults.exit
 
-186:                                              ; preds = %.thread, %156
-  %187 = phi ptr [ %149, %.thread ], [ %157, %156 ]
+183:                                              ; preds = %.thread, %156
+  %184 = phi ptr [ %149, %.thread ], [ %157, %156 ]
   %.0101.i3739 = phi i32 [ 5, %.thread ], [ %.0101.i, %156 ]
-  store i32 48, ptr %187, align 4
-  %188 = getelementptr inbounds i8, ptr %187, i64 76
-  store i32 16, ptr %188, align 4
-  %189 = getelementptr inbounds i8, ptr %187, i64 216
-  store i32 32, ptr %189, align 4
+  store i32 48, ptr %184, align 4
+  %185 = getelementptr inbounds i8, ptr %184, i64 76
+  store i32 16, ptr %185, align 4
+  %186 = getelementptr inbounds i8, ptr %184, i64 216
+  store i32 32, ptr %186, align 4
   br label %setup_defaults.exit
 
-190:                                              ; preds = %156
+187:                                              ; preds = %156
   store i32 44, ptr %157, align 4
-  %191 = getelementptr inbounds i8, ptr %157, i64 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 4>, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %157, i64 24
-  store <4 x i32> <i32 5, i32 8, i32 10, i32 12>, ptr %192, align 4
-  %193 = getelementptr inbounds i8, ptr %157, i64 40
-  store <4 x i32> <i32 21, i32 20, i32 28, i32 36>, ptr %193, align 4
-  %194 = getelementptr inbounds i8, ptr %157, i64 56
-  store i32 40, ptr %194, align 4
-  %195 = getelementptr inbounds i8, ptr %157, i64 68
-  store i32 12, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %157, i64 136
-  store i8 8, ptr %196, align 4
-  %197 = getelementptr inbounds i8, ptr %157, i64 137
-  store i8 7, ptr %197, align 1
-  %198 = getelementptr inbounds i8, ptr %157, i64 138
-  store i16 1023, ptr %198, align 2
-  %199 = getelementptr inbounds i8, ptr %157, i64 140
-  store i32 64, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %157, i64 148
-  %201 = getelementptr inbounds i8, ptr %157, i64 108
-  store <4 x i32> <i32 3, i32 4, i32 5, i32 2>, ptr %201, align 4
-  store <4 x i32> <i32 7, i32 7, i32 64, i32 0>, ptr %200, align 4
-  %202 = getelementptr inbounds i8, ptr %157, i64 164
-  store i32 0, ptr %202, align 4
-  %203 = getelementptr inbounds i8, ptr %157, i64 168
-  store i32 0, ptr %203, align 4
-  %204 = getelementptr inbounds i8, ptr %157, i64 92
-  store <4 x i32> <i32 16, i32 0, i32 1, i32 2>, ptr %204, align 4
-  %205 = getelementptr inbounds i8, ptr %157, i64 192
-  store <4 x i32> <i32 64, i32 16, i32 32, i32 128>, ptr %205, align 4
-  %206 = getelementptr inbounds i8, ptr %157, i64 208
-  store i16 128, ptr %206, align 4
-  %207 = getelementptr inbounds i8, ptr %157, i64 212
-  store i32 2097152, ptr %207, align 4
+  %188 = getelementptr inbounds i8, ptr %157, i64 8
+  store <4 x i32> <i32 0, i32 1, i32 2, i32 4>, ptr %188, align 4
+  %189 = getelementptr inbounds i8, ptr %157, i64 24
+  store <4 x i32> <i32 5, i32 8, i32 10, i32 12>, ptr %189, align 4
+  %190 = getelementptr inbounds i8, ptr %157, i64 40
+  store <4 x i32> <i32 21, i32 20, i32 28, i32 36>, ptr %190, align 4
+  %191 = getelementptr inbounds i8, ptr %157, i64 56
+  store i32 40, ptr %191, align 4
+  %192 = getelementptr inbounds i8, ptr %157, i64 68
+  store i32 12, ptr %192, align 4
+  %193 = getelementptr inbounds i8, ptr %157, i64 136
+  store i8 8, ptr %193, align 4
+  %194 = getelementptr inbounds i8, ptr %157, i64 137
+  store i8 7, ptr %194, align 1
+  %195 = getelementptr inbounds i8, ptr %157, i64 138
+  store i16 1023, ptr %195, align 2
+  %196 = getelementptr inbounds i8, ptr %157, i64 140
+  store i32 64, ptr %196, align 4
+  %197 = getelementptr inbounds i8, ptr %157, i64 148
+  %198 = getelementptr inbounds i8, ptr %157, i64 108
+  store <4 x i32> <i32 3, i32 4, i32 5, i32 2>, ptr %198, align 4
+  store <4 x i32> <i32 7, i32 7, i32 64, i32 0>, ptr %197, align 4
+  %199 = getelementptr inbounds i8, ptr %157, i64 164
+  store i32 0, ptr %199, align 4
+  %200 = getelementptr inbounds i8, ptr %157, i64 168
+  store i32 0, ptr %200, align 4
+  %201 = getelementptr inbounds i8, ptr %157, i64 92
+  store <4 x i32> <i32 16, i32 0, i32 1, i32 2>, ptr %201, align 4
+  %202 = getelementptr inbounds i8, ptr %157, i64 192
+  store <4 x i32> <i32 64, i32 16, i32 32, i32 128>, ptr %202, align 4
+  %203 = getelementptr inbounds i8, ptr %157, i64 208
+  store i16 128, ptr %203, align 4
+  %204 = getelementptr inbounds i8, ptr %157, i64 212
+  store i32 2097152, ptr %204, align 4
   br label %setup_defaults.exit
 
-208:                                              ; preds = %156
+205:                                              ; preds = %156
   store i32 64, ptr %157, align 4
-  %209 = getelementptr inbounds i8, ptr %157, i64 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 4>, ptr %209, align 4
-  %210 = getelementptr inbounds i8, ptr %157, i64 24
-  store <4 x i32> <i32 5, i32 8, i32 10, i32 12>, ptr %210, align 4
-  %211 = getelementptr inbounds i8, ptr %157, i64 40
-  store <4 x i32> <i32 21, i32 24, i32 32, i32 40>, ptr %211, align 4
-  %212 = getelementptr inbounds i8, ptr %157, i64 56
-  store i32 54, ptr %212, align 4
-  %213 = getelementptr inbounds i8, ptr %157, i64 68
-  store i32 12, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %157, i64 72
-  store i32 14, ptr %214, align 4
-  %215 = getelementptr inbounds i8, ptr %157, i64 76
-  store i32 4, ptr %215, align 4
-  %216 = getelementptr inbounds i8, ptr %157, i64 120
-  store <4 x i32> <i32 2, i32 7936, i32 8, i32 1024>, ptr %216, align 4
-  %217 = getelementptr inbounds i8, ptr %157, i64 136
-  store i8 8, ptr %217, align 4
-  %218 = getelementptr inbounds i8, ptr %157, i64 137
-  store i8 7, ptr %218, align 1
-  %219 = getelementptr inbounds i8, ptr %157, i64 138
-  store i16 511, ptr %219, align 2
-  %220 = getelementptr inbounds i8, ptr %157, i64 140
-  store i32 64, ptr %220, align 4
-  %221 = getelementptr inbounds i8, ptr %157, i64 148
-  %222 = getelementptr inbounds i8, ptr %157, i64 96
-  store <4 x i32> <i32 7, i32 7, i32 64, i32 0>, ptr %221, align 4
-  %223 = getelementptr inbounds i8, ptr %157, i64 164
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %222, i8 0, i64 24, i1 false)
-  store i32 1, ptr %223, align 4
-  %224 = getelementptr inbounds i8, ptr %157, i64 168
-  store i32 2, ptr %224, align 4
-  %225 = getelementptr inbounds i8, ptr %157, i64 180
-  %226 = getelementptr inbounds i8, ptr %157, i64 92
-  store i32 16, ptr %226, align 4
-  store <4 x i32> <i32 1, i32 2, i32 4, i32 64>, ptr %225, align 4
-  %227 = getelementptr inbounds i8, ptr %157, i64 196
-  store i32 16, ptr %227, align 4
-  %228 = getelementptr inbounds i8, ptr %157, i64 200
-  store i32 32, ptr %228, align 4
-  %229 = getelementptr inbounds i8, ptr %157, i64 204
-  store i32 128, ptr %229, align 4
-  %230 = getelementptr inbounds i8, ptr %157, i64 208
-  store i16 128, ptr %230, align 4
+  %206 = getelementptr inbounds i8, ptr %157, i64 8
+  store <4 x i32> <i32 0, i32 1, i32 2, i32 4>, ptr %206, align 4
+  %207 = getelementptr inbounds i8, ptr %157, i64 24
+  store <4 x i32> <i32 5, i32 8, i32 10, i32 12>, ptr %207, align 4
+  %208 = getelementptr inbounds i8, ptr %157, i64 40
+  store <4 x i32> <i32 21, i32 24, i32 32, i32 40>, ptr %208, align 4
+  %209 = getelementptr inbounds i8, ptr %157, i64 56
+  store i32 54, ptr %209, align 4
+  %210 = getelementptr inbounds i8, ptr %157, i64 68
+  store i32 12, ptr %210, align 4
+  %211 = getelementptr inbounds i8, ptr %157, i64 72
+  store i32 14, ptr %211, align 4
+  %212 = getelementptr inbounds i8, ptr %157, i64 76
+  store i32 4, ptr %212, align 4
+  %213 = getelementptr inbounds i8, ptr %157, i64 120
+  store <4 x i32> <i32 2, i32 7936, i32 8, i32 1024>, ptr %213, align 4
+  %214 = getelementptr inbounds i8, ptr %157, i64 136
+  store i8 8, ptr %214, align 4
+  %215 = getelementptr inbounds i8, ptr %157, i64 137
+  store i8 7, ptr %215, align 1
+  %216 = getelementptr inbounds i8, ptr %157, i64 138
+  store i16 511, ptr %216, align 2
+  %217 = getelementptr inbounds i8, ptr %157, i64 140
+  store i32 64, ptr %217, align 4
+  %218 = getelementptr inbounds i8, ptr %157, i64 148
+  %219 = getelementptr inbounds i8, ptr %157, i64 96
+  store <4 x i32> <i32 7, i32 7, i32 64, i32 0>, ptr %218, align 4
+  %220 = getelementptr inbounds i8, ptr %157, i64 164
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %219, i8 0, i64 24, i1 false)
+  store i32 1, ptr %220, align 4
+  %221 = getelementptr inbounds i8, ptr %157, i64 168
+  store i32 2, ptr %221, align 4
+  %222 = getelementptr inbounds i8, ptr %157, i64 180
+  %223 = getelementptr inbounds i8, ptr %157, i64 92
+  store i32 16, ptr %223, align 4
+  store <4 x i32> <i32 1, i32 2, i32 4, i32 64>, ptr %222, align 4
+  %224 = getelementptr inbounds i8, ptr %157, i64 196
+  store i32 16, ptr %224, align 4
+  %225 = getelementptr inbounds i8, ptr %157, i64 200
+  store i32 32, ptr %225, align 4
+  %226 = getelementptr inbounds i8, ptr %157, i64 204
+  store i32 128, ptr %226, align 4
+  %227 = getelementptr inbounds i8, ptr %157, i64 208
+  store i16 128, ptr %227, align 4
   br label %setup_defaults.exit
 
-231:                                              ; preds = %156
+228:                                              ; preds = %156
   store i32 48, ptr %157, align 4
-  %232 = getelementptr inbounds i8, ptr %157, i64 8
-  store i32 24, ptr %232, align 4
-  %233 = getelementptr inbounds i8, ptr %157, i64 16
-  store <4 x i32> <i32 2, i32 36, i32 37, i32 0>, ptr %233, align 4
-  %234 = getelementptr inbounds i8, ptr %157, i64 32
-  store i32 22, ptr %234, align 4
-  %235 = getelementptr inbounds i8, ptr %157, i64 36
-  store i32 51, ptr %235, align 4
-  %236 = getelementptr inbounds i8, ptr %157, i64 44
-  store <4 x i32> <i32 4, i32 12, i32 40, i32 26>, ptr %236, align 4
-  %237 = getelementptr inbounds i8, ptr %157, i64 68
-  store i32 32, ptr %237, align 4
-  %238 = getelementptr inbounds i8, ptr %157, i64 72
-  store i32 34, ptr %238, align 4
-  %239 = getelementptr inbounds i8, ptr %157, i64 80
-  store i32 20, ptr %239, align 4
-  %240 = getelementptr inbounds i8, ptr %157, i64 84
-  store i32 16, ptr %240, align 4
-  %241 = getelementptr inbounds i8, ptr %157, i64 138
-  store i16 16383, ptr %241, align 2
-  %242 = getelementptr inbounds i8, ptr %157, i64 140
-  store i32 32768, ptr %242, align 4
-  %243 = getelementptr inbounds i8, ptr %157, i64 120
-  store i32 2, ptr %243, align 4
-  %244 = getelementptr inbounds i8, ptr %157, i64 92
-  store i32 28, ptr %244, align 4
-  %245 = getelementptr inbounds i8, ptr %157, i64 192
-  store <4 x i32> <i32 16777216, i32 1048576, i32 4096, i32 65536>, ptr %245, align 4
-  %246 = getelementptr inbounds i8, ptr %157, i64 208
-  store i16 0, ptr %246, align 4
-  %247 = getelementptr inbounds i8, ptr %157, i64 212
-  store i32 16384, ptr %247, align 4
+  %229 = getelementptr inbounds i8, ptr %157, i64 8
+  store i32 24, ptr %229, align 4
+  %230 = getelementptr inbounds i8, ptr %157, i64 16
+  store <4 x i32> <i32 2, i32 36, i32 37, i32 0>, ptr %230, align 4
+  %231 = getelementptr inbounds i8, ptr %157, i64 32
+  store i32 22, ptr %231, align 4
+  %232 = getelementptr inbounds i8, ptr %157, i64 36
+  store i32 51, ptr %232, align 4
+  %233 = getelementptr inbounds i8, ptr %157, i64 44
+  store <4 x i32> <i32 4, i32 12, i32 40, i32 26>, ptr %233, align 4
+  %234 = getelementptr inbounds i8, ptr %157, i64 68
+  store i32 32, ptr %234, align 4
+  %235 = getelementptr inbounds i8, ptr %157, i64 72
+  store i32 34, ptr %235, align 4
+  %236 = getelementptr inbounds i8, ptr %157, i64 80
+  store i32 20, ptr %236, align 4
+  %237 = getelementptr inbounds i8, ptr %157, i64 84
+  store i32 16, ptr %237, align 4
+  %238 = getelementptr inbounds i8, ptr %157, i64 138
+  store i16 16383, ptr %238, align 2
+  %239 = getelementptr inbounds i8, ptr %157, i64 140
+  store i32 32768, ptr %239, align 4
+  %240 = getelementptr inbounds i8, ptr %157, i64 120
+  store i32 2, ptr %240, align 4
+  %241 = getelementptr inbounds i8, ptr %157, i64 92
+  store i32 28, ptr %241, align 4
+  %242 = getelementptr inbounds i8, ptr %157, i64 192
+  store <4 x i32> <i32 16777216, i32 1048576, i32 4096, i32 65536>, ptr %242, align 4
+  %243 = getelementptr inbounds i8, ptr %157, i64 208
+  store i16 0, ptr %243, align 4
+  %244 = getelementptr inbounds i8, ptr %157, i64 212
+  store i32 16384, ptr %244, align 4
   br label %setup_defaults.exit
 
-setup_defaults.exit:                              ; preds = %156, %161, %186, %190, %208, %231
-  %.0101.i3740 = phi i32 [ %.0101.i, %156 ], [ %.0101.i, %161 ], [ %.0101.i3739, %186 ], [ %.0101.i, %190 ], [ %.0101.i, %208 ], [ %.0101.i, %231 ]
-  %248 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %248, align 8
-  %249 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @vwr_read, ptr %249, align 8
-  %250 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @vwr_seek_read, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 6, ptr %251, align 4
-  %252 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 144, ptr %252, align 8
-  switch i32 %.0101.i3740, label %253 [
+setup_defaults.exit:                              ; preds = %156, %161, %183, %187, %205, %228
+  %.0101.i3740 = phi i32 [ %.0101.i, %156 ], [ %.0101.i, %161 ], [ %.0101.i3739, %183 ], [ %.0101.i, %187 ], [ %.0101.i, %205 ], [ %.0101.i, %228 ]
+  %245 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %245, align 8
+  %246 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @vwr_read, ptr %246, align 8
+  %247 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @vwr_seek_read, ptr %247, align 8
+  %248 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 6, ptr %248, align 4
+  %249 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 144, ptr %249, align 8
+  switch i32 %.0101.i3740, label %250 [
     i32 5, label %.sink.split
     i32 2, label %.sink.split
     i32 1, label %.sink.split
   ]
 
-253:                                              ; preds = %setup_defaults.exit
-  %254 = add nsw i32 %.0101.i3740, -3
-  %or.cond5 = icmp ult i32 %254, 2
-  br i1 %or.cond5, label %.sink.split, label %257
+250:                                              ; preds = %setup_defaults.exit
+  %251 = add nsw i32 %.0101.i3740, -3
+  %or.cond5 = icmp ult i32 %251, 2
+  br i1 %or.cond5, label %.sink.split, label %254
 
-.sink.split:                                      ; preds = %253, %setup_defaults.exit, %setup_defaults.exit, %setup_defaults.exit
-  %vwr_eth_file_type_subtype.sink = phi ptr [ @vwr_80211_file_type_subtype, %setup_defaults.exit ], [ @vwr_80211_file_type_subtype, %setup_defaults.exit ], [ @vwr_80211_file_type_subtype, %setup_defaults.exit ], [ @vwr_eth_file_type_subtype, %253 ]
-  %255 = load i32, ptr %vwr_eth_file_type_subtype.sink, align 4
-  %256 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %255, ptr %256, align 4
-  br label %257
+.sink.split:                                      ; preds = %250, %setup_defaults.exit, %setup_defaults.exit, %setup_defaults.exit
+  %vwr_eth_file_type_subtype.sink = phi ptr [ @vwr_80211_file_type_subtype, %setup_defaults.exit ], [ @vwr_80211_file_type_subtype, %setup_defaults.exit ], [ @vwr_80211_file_type_subtype, %setup_defaults.exit ], [ @vwr_eth_file_type_subtype, %250 ]
+  %252 = load i32, ptr %vwr_eth_file_type_subtype.sink, align 4
+  %253 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %252, ptr %253, align 4
+  br label %254
 
-257:                                              ; preds = %.sink.split, %253
+254:                                              ; preds = %.sink.split, %250
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #9
-  br label %258
+  br label %255
 
-258:                                              ; preds = %vwr_get_fpga_version.exit.thread, %vwr_get_fpga_version.exit, %257, %155
-  %.0 = phi i32 [ 0, %155 ], [ 1, %257 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ]
+255:                                              ; preds = %vwr_get_fpga_version.exit.thread, %vwr_get_fpga_version.exit, %254, %155
+  %.0 = phi i32 [ 0, %155 ], [ 1, %254 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ]
   ret i32 %.0
 }
 

@@ -627,13 +627,8 @@ define void @"_ZN60_$LT$uu_join..Settings$u20$as$u20$core..default..Default$GT$7
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 66
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %3, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 73
-  store i8 10, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
-  store i8 2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 70
-  store i8 0, ptr %6, align 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  store i8 2, ptr %4, align 8
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
@@ -643,10 +638,7 @@ define void @"_ZN60_$LT$uu_join..Settings$u20$as$u20$core..default..Default$GT$7
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %.sroa.53.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
-  store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 71
-  store i8 0, ptr %8, align 1
+  store <8 x i8> <i8 0, i8 0, i8 1, i8 0, i8 0, i8 0, i8 0, i8 10>, ptr %3, align 2
   ret void
 }
 

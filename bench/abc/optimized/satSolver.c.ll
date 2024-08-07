@@ -1224,81 +1224,75 @@ clause_read.exit:                                 ; preds = %0, %13
   %36 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %37 = getelementptr inbounds i8, ptr %1, i64 272
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 4, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 172
-  store i32 0, ptr %39, align 4
-  %40 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %41 = getelementptr inbounds i8, ptr %1, i64 176
-  store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 280
-  store i32 4, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 284
-  store i32 0, ptr %43, align 4
-  %44 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %45 = getelementptr inbounds i8, ptr %1, i64 288
-  store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 560
-  store i32 4, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 564
-  store i32 0, ptr %47, align 4
-  %48 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %49 = getelementptr inbounds i8, ptr %1, i64 568
-  store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 648
-  store i32 4, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 652
-  store i32 0, ptr %51, align 4
-  %52 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %53 = getelementptr inbounds i8, ptr %1, i64 656
-  store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 336
-  store i32 4, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 340
-  store i32 0, ptr %55, align 4
-  %56 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %57 = getelementptr inbounds i8, ptr %1, i64 344
-  store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 88
-  store ptr null, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 144
-  store ptr null, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 240
-  %61 = getelementptr inbounds i8, ptr %1, i64 108
-  store i32 0, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %1, i64 120
+  %38 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %39 = getelementptr inbounds i8, ptr %1, i64 176
+  store ptr %38, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 280
+  store i32 4, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %1, i64 284
+  store i32 0, ptr %41, align 4
+  %42 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %43 = getelementptr inbounds i8, ptr %1, i64 288
+  store ptr %42, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %1, i64 560
+  store i32 4, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 564
+  store i32 0, ptr %45, align 4
+  %46 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %47 = getelementptr inbounds i8, ptr %1, i64 568
+  store ptr %46, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 648
+  store i32 4, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %1, i64 652
+  store i32 0, ptr %49, align 4
+  %50 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %51 = getelementptr inbounds i8, ptr %1, i64 656
+  store ptr %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %1, i64 336
+  store i32 4, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %1, i64 340
+  store i32 0, ptr %53, align 4
+  %54 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %55 = getelementptr inbounds i8, ptr %1, i64 344
+  store ptr %54, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %1, i64 88
+  store ptr null, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 144
+  store ptr null, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %1, i64 240
+  %59 = getelementptr inbounds i8, ptr %1, i64 108
+  store i32 0, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %1, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
-  store i64 32, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 136
-  store i64 -1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 112
-  store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 160
-  store i32 2048, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 164
-  store i32 -1, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %1, i64 520
-  store i32 4, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 524
-  store i32 0, ptr %68, align 4
-  %69 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %70 = getelementptr inbounds i8, ptr %1, i64 528
-  store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 352
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
+  store i64 32, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %1, i64 136
+  store i64 -1, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 112
+  store i32 0, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 160
+  store <4 x i32> <i32 2048, i32 -1, i32 4, i32 0>, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %1, i64 520
+  store i32 4, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %1, i64 524
+  store i32 0, ptr %65, align 4
+  %66 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %67 = getelementptr inbounds i8, ptr %1, i64 528
+  store ptr %66, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %1, i64 352
+  store i32 0, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %1, i64 368
+  store <2 x double> <double 0x4195D9C3F4000000, double 0.000000e+00>, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %1, i64 384
+  store i32 0, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %1, i64 400
   store i32 0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 368
-  store <2 x double> <double 0x4195D9C3F4000000, double 0.000000e+00>, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 384
-  store i32 0, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 400
+  %72 = getelementptr inbounds i8, ptr %1, i64 416
+  %73 = getelementptr inbounds i8, ptr %1, i64 404
+  store i32 0, ptr %73, align 4
+  %74 = getelementptr inbounds i8, ptr %1, i64 408
   store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 416
-  %76 = getelementptr inbounds i8, ptr %1, i64 404
-  store i32 0, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %1, i64 408
-  store i32 0, ptr %77, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %75, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %72, i8 0, i64 56, i1 false)
   ret ptr %1
 }
 
@@ -1373,83 +1367,77 @@ clause_read.exit:                                 ; preds = %1, %14
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %38 = getelementptr inbounds i8, ptr %2, i64 272
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 168
-  store i32 4, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 172
-  store i32 0, ptr %40, align 4
-  %41 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %42 = getelementptr inbounds i8, ptr %2, i64 176
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 280
-  store i32 4, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 284
-  store i32 0, ptr %44, align 4
-  %45 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %46 = getelementptr inbounds i8, ptr %2, i64 288
-  store ptr %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 560
-  store i32 4, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 564
-  store i32 0, ptr %48, align 4
-  %49 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %50 = getelementptr inbounds i8, ptr %2, i64 568
-  store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 648
-  store i32 4, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 652
-  store i32 0, ptr %52, align 4
-  %53 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %54 = getelementptr inbounds i8, ptr %2, i64 656
-  store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 336
-  store i32 4, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %2, i64 340
-  store i32 0, ptr %56, align 4
-  %57 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %58 = getelementptr inbounds i8, ptr %2, i64 344
-  store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 88
-  store ptr null, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 144
-  store ptr null, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 240
-  %62 = getelementptr inbounds i8, ptr %2, i64 108
-  store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %2, i64 120
+  %39 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %40 = getelementptr inbounds i8, ptr %2, i64 176
+  store ptr %39, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %2, i64 280
+  store i32 4, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %2, i64 284
+  store i32 0, ptr %42, align 4
+  %43 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %44 = getelementptr inbounds i8, ptr %2, i64 288
+  store ptr %43, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %2, i64 560
+  store i32 4, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %2, i64 564
+  store i32 0, ptr %46, align 4
+  %47 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %48 = getelementptr inbounds i8, ptr %2, i64 568
+  store ptr %47, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %2, i64 648
+  store i32 4, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %2, i64 652
+  store i32 0, ptr %50, align 4
+  %51 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %52 = getelementptr inbounds i8, ptr %2, i64 656
+  store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %2, i64 336
+  store i32 4, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 340
+  store i32 0, ptr %54, align 4
+  %55 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %56 = getelementptr inbounds i8, ptr %2, i64 344
+  store ptr %55, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %2, i64 88
+  store ptr null, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %2, i64 144
+  store ptr null, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %2, i64 240
+  %60 = getelementptr inbounds i8, ptr %2, i64 108
+  store i32 0, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %2, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
-  store i64 32, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %2, i64 136
-  store i64 -1, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %2, i64 112
-  store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 160
-  store i32 2048, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 164
-  store i32 -1, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %2, i64 520
-  store i32 4, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %2, i64 524
-  store i32 0, ptr %69, align 4
-  %70 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %71 = getelementptr inbounds i8, ptr %2, i64 528
-  store ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 352
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
+  store i64 32, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %2, i64 136
+  store i64 -1, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %2, i64 112
+  store i32 0, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %2, i64 160
+  store <4 x i32> <i32 2048, i32 -1, i32 4, i32 0>, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %2, i64 520
+  store i32 4, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %2, i64 524
+  store i32 0, ptr %66, align 4
+  %67 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %68 = getelementptr inbounds i8, ptr %2, i64 528
+  store ptr %67, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %2, i64 352
+  store i32 0, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %2, i64 368
+  store double %0, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %2, i64 376
+  store double 0.000000e+00, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %2, i64 368
-  store double %0, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %2, i64 376
-  store double 0.000000e+00, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 384
-  store i32 0, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %2, i64 400
+  %73 = getelementptr inbounds i8, ptr %2, i64 400
+  store i32 0, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %2, i64 416
+  %75 = getelementptr inbounds i8, ptr %2, i64 404
+  store i32 0, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %2, i64 408
   store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %2, i64 416
-  %78 = getelementptr inbounds i8, ptr %2, i64 404
-  store i32 0, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %2, i64 408
-  store i32 0, ptr %79, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %77, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %74, i8 0, i64 56, i1 false)
   ret ptr %2
 }
 
@@ -3906,41 +3894,35 @@ order_update.exit:                                ; preds = %.lr.ph.i98, %116, %
   %209 = load i32, ptr %67, align 8
   store i32 %209, ptr %0, align 8
   %210 = icmp eq i32 %209, 0
-  br i1 %210, label %211, label %224
+  br i1 %210, label %211, label %221
 
 211:                                              ; preds = %._crit_edge114
   %212 = getelementptr inbounds i8, ptr %0, i64 400
   store i32 0, ptr %23, align 8
   store i32 0, ptr %7, align 4
-  %213 = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 0, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %0, i64 120
-  store i64 32, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 136
-  store i64 -1, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 0, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %0, i64 160
-  store i32 2048, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %0, i64 164
-  store i32 -1, ptr %218, align 4
-  %219 = getelementptr inbounds i8, ptr %0, i64 352
+  %213 = getelementptr inbounds i8, ptr %0, i64 120
+  store i64 32, ptr %213, align 8
+  %214 = getelementptr inbounds i8, ptr %0, i64 136
+  store i64 -1, ptr %214, align 8
+  %215 = getelementptr inbounds i8, ptr %0, i64 160
+  store i32 2048, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %0, i64 164
+  store i32 -1, ptr %216, align 4
+  %217 = getelementptr inbounds i8, ptr %0, i64 352
+  store i32 0, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %0, i64 368
+  store <2 x double> <double 0x4195D9C3F4000000, double 0.000000e+00>, ptr %218, align 8
+  %219 = getelementptr inbounds i8, ptr %0, i64 384
   store i32 0, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 368
-  store <2 x double> <double 0x4195D9C3F4000000, double 0.000000e+00>, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %0, i64 384
-  store i32 0, ptr %221, align 8
   store i32 0, ptr %212, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 416
+  %220 = getelementptr inbounds i8, ptr %0, i64 416
   store i32 0, ptr %179, align 4
   store i32 0, ptr %182, align 8
-  store i32 0, ptr %5, align 4
-  %223 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %222, i8 0, i64 56, i1 false)
-  store i32 1, ptr %223, align 8
-  br label %224
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %220, i8 0, i64 56, i1 false)
+  store <4 x i32> <i32 0, i32 1, i32 0, i32 0>, ptr %5, align 4
+  br label %221
 
-224:                                              ; preds = %211, %._crit_edge114
+221:                                              ; preds = %211, %._crit_edge114
   ret void
 }
 

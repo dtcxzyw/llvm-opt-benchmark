@@ -2337,12 +2337,6 @@ define hidden void @"_ZN9arrow_csv6writer15Writer$LT$W$GT$3new17h54466f5daddd528
   store i8 0, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !402
   %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 274
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(266) %5, i8 0, i64 266, i1 false)
-  store i8 1, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 2, !noalias !402
-  %.sroa.0.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 275
-  store i8 10, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 1, !noalias !402
-  %.sroa.0.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 276
-  %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 277
-  store i8 1, ptr %.sroa.0.sroa.9.0..sroa_idx.i, align 1, !noalias !402
   %.sroa.0.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 278
   %.sroa.0.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 279
   %.sroa.0.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 280
@@ -2354,7 +2348,7 @@ define hidden void @"_ZN9arrow_csv6writer15Writer$LT$W$GT$3new17h54466f5daddd528
   store i8 1, ptr %16, align 1, !noalias !402
   store i8 44, ptr %.sroa.0.sroa.10.0..sroa_idx.i, align 2, !noalias !402
   store i8 34, ptr %.sroa.0.sroa.11.0..sroa_idx.i, align 1, !noalias !402
-  store i8 1, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 4, !noalias !402
+  store <4 x i8> <i8 1, i8 10, i8 1, i8 1>, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 2, !noalias !402
   store i8 92, ptr %.sroa.0.sroa.12.0..sroa_idx.i, align 8, !noalias !402
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !402
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !404

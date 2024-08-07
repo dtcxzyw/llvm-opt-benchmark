@@ -38,42 +38,34 @@ define dso_local noundef ptr @link_field(ptr noundef %0, i32 noundef %1, i32 nou
   %21 = getelementptr inbounds i8, ptr %8, i64 2
   %22 = load <2 x i16>, ptr %20, align 2
   store <2 x i16> %22, ptr %21, align 2
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 24
-  store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 28
-  %27 = getelementptr inbounds i8, ptr %8, i64 28
-  %28 = getelementptr inbounds i8, ptr %0, i64 12
-  %29 = getelementptr inbounds i8, ptr %8, i64 12
-  %30 = load <2 x i32>, ptr %28, align 4
-  store <2 x i32> %30, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %8, i64 20
-  store i32 %32, ptr %33, align 4
-  %34 = load <2 x i16>, ptr %26, align 4
-  store <2 x i16> %34, ptr %27, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 36
-  %36 = getelementptr inbounds i8, ptr %8, i64 36
-  %37 = load <4 x i32>, ptr %35, align 4
-  store <4 x i32> %37, ptr %36, align 4
-  %38 = load <2 x ptr>, ptr %18, align 8
-  store <2 x ptr> %38, ptr %19, align 8
-  %39 = tail call zeroext i1 @_nc_Copy_Type(ptr noundef nonnull %8, ptr noundef nonnull %0) #6
-  br i1 %39, label %43, label %40
+  %23 = getelementptr inbounds i8, ptr %0, i64 28
+  %24 = getelementptr inbounds i8, ptr %8, i64 28
+  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds i8, ptr %8, i64 12
+  %27 = load <4 x i32>, ptr %25, align 4
+  store <4 x i32> %27, ptr %26, align 4
+  %28 = load <2 x i16>, ptr %23, align 4
+  store <2 x i16> %28, ptr %24, align 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 36
+  %30 = getelementptr inbounds i8, ptr %8, i64 36
+  %31 = load <4 x i32>, ptr %29, align 4
+  store <4 x i32> %31, ptr %30, align 4
+  %32 = load <2 x ptr>, ptr %18, align 8
+  store <2 x ptr> %32, ptr %19, align 8
+  %33 = tail call zeroext i1 @_nc_Copy_Type(ptr noundef nonnull %8, ptr noundef nonnull %0) #6
+  br i1 %33, label %37, label %34
 
-40:                                               ; preds = %9
-  %41 = tail call i32 @free_field(ptr noundef nonnull %8) #6
+34:                                               ; preds = %9
+  %35 = tail call i32 @free_field(ptr noundef nonnull %8) #6
   br label %.thread
 
-.thread:                                          ; preds = %3, %7, %40
-  %.059 = phi i32 [ -1, %40 ], [ -2, %3 ], [ -1, %7 ]
-  %42 = tail call ptr @__errno_location() #7
-  store i32 %.059, ptr %42, align 4
-  br label %43
+.thread:                                          ; preds = %3, %7, %34
+  %.059 = phi i32 [ -1, %34 ], [ -2, %3 ], [ -1, %7 ]
+  %36 = tail call ptr @__errno_location() #7
+  store i32 %.059, ptr %36, align 4
+  br label %37
 
-43:                                               ; preds = %9, %.thread
+37:                                               ; preds = %9, %.thread
   %.050 = phi ptr [ null, %.thread ], [ %8, %9 ]
   ret ptr %.050
 }

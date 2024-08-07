@@ -20872,17 +20872,17 @@ common.ret:                                       ; preds = %574, %507, %"_ZN4co
   %.sroa.2432.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 4
   %.sroa.3433.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 16
+  %242 = load <2 x i32>, ptr %.sroa.10423.8..sroa_idx, align 8, !alias.scope !3541
   %.sroa.5434.sroa.2.0..sroa.5434.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %32, i64 24
-  %242 = load <2 x i64>, ptr %.sroa.11.sroa.8.0..sroa.11.8..sroa_idx.sroa_idx, align 8, !alias.scope !3541
-  %243 = load <2 x i32>, ptr %.sroa.10423.8..sroa_idx, align 8, !alias.scope !3541
+  %243 = load <2 x i64>, ptr %.sroa.11.sroa.8.0..sroa.11.8..sroa_idx.sroa_idx, align 8, !alias.scope !3541
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %60)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7436.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.13, i64 5, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !3542)
   store i32 %233, ptr %32, align 8, !noalias !3542
   store i32 %.sroa.8417.0.copyload419, ptr %.sroa.2432.0..sroa_idx, align 4, !noalias !3542
   store i64 %.sroa.8420.0.copyload422, ptr %.sroa.3433.0..sroa_idx, align 8, !noalias !3542
-  store <2 x i32> %243, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3542
-  store <2 x i64> %242, ptr %.sroa.5434.sroa.2.0..sroa.5434.0..sroa_idx.sroa_idx, align 8, !noalias !3542
+  store <2 x i32> %242, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3542
+  store <2 x i64> %243, ptr %.sroa.5434.sroa.2.0..sroa.5434.0..sroa_idx.sroa_idx, align 8, !noalias !3542
   %.sroa.5434.sroa.4.0..sroa.5434.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %32, i64 40
   store i16 %.sroa.11.sroa.10.0.copyload, ptr %.sroa.5434.sroa.4.0..sroa.5434.0..sroa_idx.sroa_idx, align 8, !noalias !3542
   %.sroa.6435.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 42

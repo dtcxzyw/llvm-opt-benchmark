@@ -1350,20 +1350,16 @@ default.unreachable38:                            ; preds = %34, %4, %2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN57_$LT$tt..Punct$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd11873a15248a8a3E.llvm.4854586973698006518"(ptr noalias nocapture noundef writeonly sret({ i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #7 {
-  %3 = load i32, ptr %1, align 4, !range !129, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = load i8, ptr %4, align 4, !range !125, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 20
-  %8 = load i32, ptr %7, align 4, !alias.scope !191, !noalias !194, !noundef !4
-  store i32 %3, ptr %0, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %5, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
-  %11 = load <4 x i32>, ptr %6, align 4, !alias.scope !191, !noalias !194
-  store <4 x i32> %11, ptr %10, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %8, ptr %.sroa.7.0..sroa_idx, align 4
+  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = load i8, ptr %3, align 4, !range !125, !noundef !4
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %4, ptr %6, align 4
+  %7 = load <4 x i32>, ptr %1, align 4
+  store <4 x i32> %7, ptr %0, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load <2 x i32>, ptr %5, align 4, !alias.scope !191, !noalias !194
+  store <2 x i32> %8, ptr %.sroa.6.0..sroa_idx, align 4
   ret void
 }
 

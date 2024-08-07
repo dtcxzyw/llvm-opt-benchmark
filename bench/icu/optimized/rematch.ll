@@ -543,15 +543,9 @@ if.end:
   store i8 0, ptr %fRequireEnd.i, align 1
   %fStack.i = getelementptr inbounds i8, ptr %this, i64 176
   %fTimeLimit.i = getelementptr inbounds i8, ptr %this, i64 264
-  store i32 0, ptr %fTimeLimit.i, align 8
-  %fTime.i = getelementptr inbounds i8, ptr %this, i64 268
-  store i32 0, ptr %fTime.i, align 4
-  %fTickCounter.i = getelementptr inbounds i8, ptr %this, i64 272
-  store i32 0, ptr %fTickCounter.i, align 8
-  %fStackLimit.i = getelementptr inbounds i8, ptr %this, i64 276
   %0 = getelementptr inbounds i8, ptr %this, i64 184
   store i64 0, ptr %0, align 8
-  store i32 8000000, ptr %fStackLimit.i, align 4
+  store <4 x i32> <i32 0, i32 0, i32 0, i32 8000000>, ptr %fTimeLimit.i, align 8
   %fCallbackFn.i = getelementptr inbounds i8, ptr %this, i64 280
   %fTraceDebug.i = getelementptr inbounds i8, ptr %this, i64 313
   store i8 0, ptr %fTraceDebug.i, align 1

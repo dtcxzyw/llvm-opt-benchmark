@@ -255,17 +255,11 @@ define noalias noundef ptr @_zend_new_array_0() local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr getelementptr inbounds (i8, ptr @uninitialized_bucket, i64 8), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 24
-  store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 28
-  store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 36
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 -9223372036854775808, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr @zval_ptr_dtor, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
-  store i32 8, ptr %8, align 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  store i64 -9223372036854775808, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr @zval_ptr_dtor, ptr %5, align 8
+  store <4 x i32> <i32 0, i32 0, i32 8, i32 0>, ptr %3, align 8
   ret ptr %1
 }
 
@@ -316,36 +310,30 @@ define noalias noundef ptr @zend_new_pair(ptr nocapture noundef readonly %0, ptr
   store <4 x i32> <i32 1, i32 7, i32 20, i32 -2>, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  %6 = getelementptr inbounds i8, ptr %3, i64 28
-  %7 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr @zval_ptr_dtor, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 8, ptr %10, align 8
-  store i64 2, ptr %8, align 8
-  store i32 2, ptr %6, align 4
-  store i32 2, ptr %5, align 8
-  %11 = tail call noalias ptr @_emalloc_160() #28
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %12, ptr %4, align 8
-  store i32 -1, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 -1, ptr %13, align 4
-  %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load i32, ptr %15, align 8
-  store ptr %14, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
-  store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 24
-  %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = load i32, ptr %20, align 8
-  store ptr %19, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 32
-  store i32 %21, ptr %22, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr @zval_ptr_dtor, ptr %7, align 8
+  store i64 2, ptr %6, align 8
+  store <4 x i32> <i32 2, i32 2, i32 8, i32 0>, ptr %5, align 8
+  %8 = tail call noalias ptr @_emalloc_160() #28
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %9, ptr %4, align 8
+  store i32 -1, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 -1, ptr %10, align 4
+  %11 = load ptr, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 8
+  store ptr %11, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 %13, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 24
+  %16 = load ptr, ptr %1, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = load i32, ptr %17, align 8
+  store ptr %16, ptr %15, align 8
+  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  store i32 %18, ptr %19, align 8
   ret ptr %3
 }
 

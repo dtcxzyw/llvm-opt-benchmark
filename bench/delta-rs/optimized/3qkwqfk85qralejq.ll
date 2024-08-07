@@ -88049,26 +88049,20 @@ define void @_ZN14deltalake_core12data_catalog6client13ClientOptions3new17h9f12f
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 -9223372036854775808, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 256
-  store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 257
-  store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 1000000000, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 1000000000, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 1000000000, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
-  store i32 1000000000, ptr %8, align 8
   store i64 0, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 192
+  %8 = getelementptr inbounds i8, ptr %0, i64 192
+  store i32 1000000000, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 1000000000, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 208
-  store i32 1000000000, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 258
-  store i8 0, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 259
-  store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 260
-  store i8 0, ptr %13, align 4
+  store <4 x i8> zeroinitializer, ptr %4, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 260
+  store i8 0, ptr %10, align 4
   ret void
 }
 

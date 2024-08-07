@@ -7093,19 +7093,11 @@ if.end:                                           ; preds = %if.then.tail.i, %en
   store i32 20, ptr getelementptr inbounds (i8, ptr @settings, i64 108), align 4
   store i32 1048576, ptr getelementptr inbounds (i8, ptr @settings, i64 132), align 4
   store <4 x i32> <i32 5, i32 1024, i32 1048576, i32 524288>, ptr getelementptr inbounds (i8, ptr @settings, i64 116), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @settings, i64 140), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @settings, i64 141), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @settings, i64 142), align 2
-  store i32 100, ptr getelementptr inbounds (i8, ptr @settings, i64 192), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @settings, i64 196), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @settings, i64 143), align 1
+  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr getelementptr inbounds (i8, ptr @settings, i64 140), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @settings, i64 144), align 8
-  store i32 20, ptr getelementptr inbounds (i8, ptr @settings, i64 200), align 8
-  store i32 40, ptr getelementptr inbounds (i8, ptr @settings, i64 204), align 4
+  store <4 x i32> <i32 100, i32 0, i32 20, i32 40>, ptr getelementptr inbounds (i8, ptr @settings, i64 192), align 8
   store <2 x double> <double 2.000000e-01, double 2.000000e+00>, ptr getelementptr inbounds (i8, ptr @settings, i64 208), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @settings, i64 228), align 4
-  store i32 61, ptr getelementptr inbounds (i8, ptr @settings, i64 232), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @settings, i64 236), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @settings, i64 164), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @settings, i64 145), align 1
   store i32 1, ptr getelementptr inbounds (i8, ptr @settings, i64 148), align 4
@@ -7116,8 +7108,7 @@ if.end:                                           ; preds = %if.then.tail.i, %en
   store i8 1, ptr getelementptr inbounds (i8, ptr @settings, i64 176), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @settings, i64 177), align 1
   store i32 1000, ptr getelementptr inbounds (i8, ptr @settings, i64 224), align 8
-  store i32 262144, ptr getelementptr inbounds (i8, ptr @settings, i64 240), align 8
-  store i32 65536, ptr getelementptr inbounds (i8, ptr @settings, i64 244), align 4
+  store <4 x i32> <i32 61, i32 0, i32 262144, i32 65536>, ptr getelementptr inbounds (i8, ptr @settings, i64 232), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @settings, i64 252), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @settings, i64 253), align 1
   store i32 0, ptr getelementptr inbounds (i8, ptr @settings, i64 248), align 8

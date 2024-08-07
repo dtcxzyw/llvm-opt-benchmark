@@ -5190,28 +5190,16 @@ define hidden noundef i64 @_ZN16wasmtime_runtime8instance9allocator7pooling16rou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN105_$LT$wasmtime_runtime..instance..allocator..pooling..InstanceLimits$u20$as$u20$core..default..Default$GT$7default17h74bc798b606afd5bE"(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }) align 8 dereferenceable(72) %0) unnamed_addr #18 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1000, ptr %2, align 8
   store i64 1048576, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
-  store <4 x i32> <i32 1000, i32 20, i32 20, i32 20>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 1000, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 1000, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 1000, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 1048576, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 10000, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 160, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 1000, ptr %12, align 4
+  store <4 x i32> <i32 1000, i32 1000, i32 20, i32 20>, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  store <4 x i32> <i32 20, i32 1000, i32 1000, i32 1000>, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 1048576, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 160, ptr %6, align 8
+  store <4 x i32> <i32 1, i32 10000, i32 1, i32 1000>, ptr %5, align 8
   ret void
 }
 

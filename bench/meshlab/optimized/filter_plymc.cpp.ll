@@ -14527,37 +14527,31 @@ define linkonce_odr void @_ZN3vcg3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS2
   %15 = getelementptr inbounds i8, ptr %0, i64 116
   store float -3.000000e+00, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 120
-  store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 121
-  store i8 0, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 122
-  store i8 0, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %0, i64 124
+  %17 = getelementptr inbounds i8, ptr %0, i64 124
+  store i8 0, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 1, ptr %18, align 8
+  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 132
   store i8 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
-  store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 123
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 132
-  store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 133
-  store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 134
-  store i8 0, ptr %24, align 2
-  %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.60)
-          to label %26 unwind label %27
+  %20 = getelementptr inbounds i8, ptr %0, i64 133
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %0, i64 134
+  store i8 0, ptr %21, align 2
+  %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.60)
+          to label %23 unwind label %24
 
-26:                                               ; preds = %1
+23:                                               ; preds = %1
   ret void
 
-27:                                               ; preds = %1
-  %28 = landingpad { ptr, i32 }
+24:                                               ; preds = %1
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %29 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #37
+  %26 = getelementptr inbounds i8, ptr %0, i64 192
+  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #37
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #37
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #37
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

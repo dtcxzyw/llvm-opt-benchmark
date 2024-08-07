@@ -391,35 +391,29 @@ define hidden void @_ZN2cv2ml10TreeParamsC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca %"class.cv::Mat", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #23
-  %4 = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 2147483647, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 10, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
-  store float 0x3F847AE140000000, ptr %6, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  store float 0x3F847AE140000000, ptr %4, align 8
   store i8 0, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 10, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 116
-  store i32 10, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 1, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 1, ptr %10, align 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  store <4 x i32> <i32 10, i32 2147483647, i32 10, i32 10>, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 1, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 1, ptr %7, align 2
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
-  %11 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %2)
-          to label %12 unwind label %13
+  %8 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %2)
+          to label %9 unwind label %10
 
-12:                                               ; preds = %1
+9:                                                ; preds = %1
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #23
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nounwind
@@ -971,40 +965,34 @@ define hidden void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 derefe
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #23
-  %5 = getelementptr inbounds i8, ptr %0, i64 116
-  store i32 2147483647, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
-  store i32 10, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  store float 0x3F847AE140000000, ptr %7, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  store float 0x3F847AE140000000, ptr %5, align 8
   store i8 0, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 10, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 124
-  store i32 10, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 1, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 10
-  store i8 1, ptr %11, align 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  store <4 x i32> <i32 10, i32 2147483647, i32 10, i32 10>, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 9
+  store i8 1, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 10
+  store i8 1, ptr %8, align 2
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
-  %12 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %2)
-          to label %14 unwind label %.body
+  %9 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %2)
+          to label %11 unwind label %.body
 
 .body:                                            ; preds = %1
-  %13 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #23
   call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %10
 
-14:                                               ; preds = %1
+11:                                               ; preds = %1
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2)
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
-  %16 = getelementptr inbounds i8, ptr %0, i64 432
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(289) %15, i8 0, i64 289, i1 false)
+  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds i8, ptr %0, i64 432
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(289) %12, i8 0, i64 289, i1 false)
   ret void
 }
 
@@ -11917,16 +11905,13 @@ define hidden void @_ZN2cv2ml10DTreesImpl10readParamsERKNS_8FileNodeE(ptr nounde
   %70 = getelementptr inbounds i8, ptr %26, i64 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %70) #23
   %71 = getelementptr inbounds i8, ptr %26, i64 108
-  store i32 2147483647, ptr %71, align 4
   %72 = getelementptr inbounds i8, ptr %26, i64 112
-  store i32 10, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %26, i64 120
   store float 0x3F847AE140000000, ptr %73, align 8
   store i8 0, ptr %26, align 8
   %74 = getelementptr inbounds i8, ptr %26, i64 104
-  store i32 10, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %26, i64 116
-  store i32 10, ptr %75, align 4
+  store <4 x i32> <i32 10, i32 2147483647, i32 10, i32 10>, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %26, i64 1
   store i8 1, ptr %76, align 1
   %77 = getelementptr inbounds i8, ptr %26, i64 2

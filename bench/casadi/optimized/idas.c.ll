@@ -136,7 +136,7 @@ define noundef ptr @IDACreate() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
-  br label %47
+  br label %44
 
 3:                                                ; preds = %0
   store double 0x3CB0000000000000, ptr %calloc, align 8
@@ -147,86 +147,80 @@ define noundef ptr @IDACreate() local_unnamed_addr #0 {
   %6 = load ptr, ptr @stderr, align 8
   %7 = getelementptr inbounds i8, ptr %calloc, i64 1528
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %calloc, i64 1284
-  store i32 5, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %calloc, i64 1296
-  store i64 500, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %calloc, i64 1248
-  store double 3.300000e-01, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %calloc, i64 1280
-  store i32 10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %calloc, i64 1272
-  store i32 10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %calloc, i64 1276
-  store i32 4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %calloc, i64 1288
-  store i32 5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %calloc, i64 1104
-  store double 0x3F6B089A02752547, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %calloc, i64 1080
-  store i32 5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %calloc, i64 1084
-  store i32 4, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %calloc, i64 1088
-  store i32 10, ptr %18, align 8
-  %19 = tail call double @SUNRpowerR(double noundef 0x3CB0000000000000, double noundef 6.670000e-01) #13
-  %20 = getelementptr inbounds i8, ptr %calloc, i64 1112
-  store double %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %calloc, i64 80
-  store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %calloc, i64 88
-  store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %calloc, i64 104
-  store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %calloc, i64 108
-  store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %calloc, i64 136
-  store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %calloc, i64 160
-  store ptr %calloc, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %calloc, i64 152
-  store ptr @IDASensResDQ, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %calloc, i64 168
-  store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %calloc, i64 200
-  store i32 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %calloc, i64 208
-  store double 0.000000e+00, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %calloc, i64 176
-  %32 = getelementptr inbounds i8, ptr %calloc, i64 216
+  %8 = getelementptr inbounds i8, ptr %calloc, i64 1296
+  store i64 500, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %calloc, i64 1248
+  store double 3.300000e-01, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %calloc, i64 1272
+  store <4 x i32> <i32 10, i32 4, i32 10, i32 5>, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %calloc, i64 1288
+  store i32 5, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %calloc, i64 1104
+  store double 0x3F6B089A02752547, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %calloc, i64 1080
+  store i32 5, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %calloc, i64 1084
+  store i32 4, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %calloc, i64 1088
+  store i32 10, ptr %15, align 8
+  %16 = tail call double @SUNRpowerR(double noundef 0x3CB0000000000000, double noundef 6.670000e-01) #13
+  %17 = getelementptr inbounds i8, ptr %calloc, i64 1112
+  store double %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %calloc, i64 80
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %calloc, i64 88
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %calloc, i64 104
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %calloc, i64 108
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %calloc, i64 136
+  store i32 0, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %calloc, i64 160
+  store ptr %calloc, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %calloc, i64 152
+  store ptr @IDASensResDQ, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %calloc, i64 168
+  store i32 1, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %calloc, i64 200
+  store i32 1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %calloc, i64 208
+  store double 0.000000e+00, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %calloc, i64 176
+  %29 = getelementptr inbounds i8, ptr %calloc, i64 216
+  store i32 0, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %calloc, i64 1312
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  store i32 4, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %calloc, i64 220
+  store i32 4, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %calloc, i64 248
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %calloc, i64 1312
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
-  store i32 4, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %calloc, i64 220
-  store i32 4, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %calloc, i64 248
-  store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %calloc, i64 264
-  store ptr %calloc, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %calloc, i64 256
-  store ptr @IDAQuadSensRhsInternalDQ, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %calloc, i64 272
-  store i32 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %calloc, i64 276
-  store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %calloc, i64 280
-  store i32 4, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %calloc, i64 1812
-  store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %calloc, i64 1816
-  store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %calloc, i64 1496
-  store i64 55, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %calloc, i64 1504
-  store i64 38, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %calloc, i64 1540
-  %46 = getelementptr inbounds i8, ptr %calloc, i64 1824
-  store i32 0, ptr %46, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %45, i8 0, i64 48, i1 false)
-  br label %47
+  %33 = getelementptr inbounds i8, ptr %calloc, i64 264
+  store ptr %calloc, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %calloc, i64 256
+  store ptr @IDAQuadSensRhsInternalDQ, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %calloc, i64 272
+  store i32 1, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %calloc, i64 276
+  store i32 0, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %calloc, i64 280
+  store i32 4, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %calloc, i64 1812
+  store i32 0, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %calloc, i64 1816
+  store ptr null, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %calloc, i64 1496
+  store i64 55, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %calloc, i64 1504
+  store i64 38, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %calloc, i64 1540
+  %43 = getelementptr inbounds i8, ptr %calloc, i64 1824
+  store i32 0, ptr %43, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %42, i8 0, i64 48, i1 false)
+  br label %44
 
-47:                                               ; preds = %3, %2
+44:                                               ; preds = %3, %2
   ret ptr %calloc
 }
 

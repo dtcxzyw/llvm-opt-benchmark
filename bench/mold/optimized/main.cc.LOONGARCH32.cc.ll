@@ -2843,17 +2843,11 @@ entry:
   %my_cancellation_requested.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1304
   store i32 0, ptr %my_cancellation_requested.i.i.i.i, align 8
   %my_version.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1308
-  store i8 1, ptr %my_version.i.i.i.i, align 4
-  %my_may_have_children.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1310
-  store i8 0, ptr %my_may_have_children.i.i.i.i, align 2
-  %my_state.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1311
-  store i8 0, ptr %my_state.i.i.i.i, align 1
   %my_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1328
   %my_name.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i.i.i, i8 0, i64 24, i1 false)
   store i64 8, ptr %my_name.i.i.i.i, align 8
-  %my_traits2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1309
-  store i8 6, ptr %my_traits2.i.i.i.i, align 1
+  store <4 x i8> <i8 1, i8 6, i8 0, i8 0>, ptr %my_version.i.i.i.i, align 4
   tail call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %m_context.i.i) #17
   %has_error = getelementptr inbounds i8, ptr %this, i64 1424
   %my_mask.i.i.i = getelementptr inbounds i8, ptr %this, i64 1440

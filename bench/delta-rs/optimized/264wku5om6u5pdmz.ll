@@ -151601,10 +151601,10 @@ common.resume:                                    ; preds = %.body.i94, %1018, %
   %.sroa.10.0.i.i.i.i = phi double [ undef, %969 ], [ undef, %966 ], [ %.sroa.0.i.sroa.5.0.copyload.i.i.i.i, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %.sroa.59.0.i.i.i.i.i.i.i, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
   %.sroa.9.0.i.i.i.i = phi i64 [ undef, %969 ], [ undef, %966 ], [ %.sroa.0.i.sroa.4.0.copyload.i.i.i.i, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %857, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
   %.sroa.0.0.i.i.i.i = phi i64 [ 5, %969 ], [ 3, %966 ], [ 2, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %813, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ 4, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
-  %973 = phi <2 x i64> [ undef, %969 ], [ undef, %966 ], [ undef, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %821, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
-  %974 = phi <2 x i64> [ undef, %969 ], [ undef, %966 ], [ undef, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %823, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
-  %975 = phi <4 x i8> [ undef, %969 ], [ undef, %966 ], [ %908, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %892, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
-  %976 = phi <2 x i64> [ undef, %969 ], [ undef, %966 ], [ %963, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %893, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
+  %973 = phi <4 x i8> [ undef, %969 ], [ undef, %966 ], [ %908, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %892, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
+  %974 = phi <2 x i64> [ undef, %969 ], [ undef, %966 ], [ %963, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %893, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
+  %975 = phi <2 x i64> [ undef, %969 ], [ undef, %966 ], [ undef, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %821, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
+  %976 = phi <2 x i64> [ undef, %969 ], [ undef, %966 ], [ undef, %"_ZN71_$LT$arrow_csv..writer..WriterBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hbb448a297ce419a7E.exit.i.i.i.i.i" ], [ %823, %"_ZN82_$LT$parquet..file..properties..WriterProperties$u20$as$u20$core..clone..Clone$GT$5clone17hc1e4de3df8eec91eE.exit.i.i.i.i.i" ], [ undef, %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h822195314fc83509E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i.sroa.20.i.i.i.i)
   store i64 %.sroa.0.0.i.i.i.i, ptr %809, align 8, !noalias !17706
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 8
@@ -151644,9 +151644,9 @@ common.resume:                                    ; preds = %.body.i94, %1018, %
   %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 128
   store i64 %.sroa.23.0.i.i.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
   %.sroa.24.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 136
-  store <2 x i64> %976, ptr %.sroa.24.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
+  store <2 x i64> %974, ptr %.sroa.24.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
   %.sroa.27.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 152
-  store <4 x i8> %975, ptr %.sroa.27.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
+  store <4 x i8> %973, ptr %.sroa.27.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
   %.sroa.31.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 156
   store i8 %.sroa.31.0.i.i.i.i, ptr %.sroa.31.0..sroa_idx.i.i.i.i, align 4, !noalias !17706
   %.sroa.32.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 157
@@ -151656,9 +151656,9 @@ common.resume:                                    ; preds = %.body.i94, %1018, %
   %.sroa.34.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.34.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.34.i.i.i.i, i64 47, i1 false), !noalias !17706
   %.sroa.343.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 208
-  store <2 x i64> %973, ptr %.sroa.343.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
+  store <2 x i64> %975, ptr %.sroa.343.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
   %.sroa.36.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 224
-  store <2 x i64> %974, ptr %.sroa.36.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
+  store <2 x i64> %976, ptr %.sroa.36.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
   %.sroa.38.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 240
   store i64 %.sroa.38.0.i.i.i.i, ptr %.sroa.38.0..sroa_idx.i.i.i.i, align 8, !noalias !17706
   %.sroa.39.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %809, i64 248

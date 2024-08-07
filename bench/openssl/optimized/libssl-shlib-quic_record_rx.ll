@@ -41,16 +41,13 @@ for.cond.preheader:                               ; preds = %if.end
   %demux10 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %3, ptr %demux10, align 8
   %short_conn_id_len = getelementptr inbounds i8, ptr %args, i64 24
-  %4 = load i64, ptr %short_conn_id_len, align 8
   %short_conn_id_len11 = getelementptr inbounds i8, ptr %call, i64 24
-  store i64 %4, ptr %short_conn_id_len11, align 8
   %init_key_phase_bit = getelementptr inbounds i8, ptr %args, i64 64
-  %5 = load i8, ptr %init_key_phase_bit, align 8
+  %4 = load i8, ptr %init_key_phase_bit, align 8
   %init_key_phase_bit12 = getelementptr inbounds i8, ptr %call, i64 1056
-  store i8 %5, ptr %init_key_phase_bit12, align 8
-  %6 = load i64, ptr %max_deferred, align 8
-  %max_deferred14 = getelementptr inbounds i8, ptr %call, i64 32
-  store i64 %6, ptr %max_deferred14, align 8
+  store i8 %4, ptr %init_key_phase_bit12, align 8
+  %5 = load <2 x i64>, ptr %short_conn_id_len, align 8
+  store <2 x i64> %5, ptr %short_conn_id_len11, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %for.cond.preheader

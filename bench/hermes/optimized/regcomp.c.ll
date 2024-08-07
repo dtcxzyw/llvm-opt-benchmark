@@ -212,11 +212,6 @@ if.end20:                                         ; preds = %if.end14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ncsets, i8 0, i64 20, i1 false)
   store i32 %and, ptr %cflags26, align 8
   %iflags = getelementptr inbounds i8, ptr %call11, i64 72
-  store i32 0, ptr %iflags, align 8
-  %nbol = getelementptr inbounds i8, ptr %call11, i64 76
-  store i32 0, ptr %nbol, align 4
-  %neol = getelementptr inbounds i8, ptr %call11, i64 80
-  store i32 0, ptr %neol, align 8
   %must = getelementptr inbounds i8, ptr %call11, i64 96
   store ptr null, ptr %must, align 8
   %mlen = getelementptr inbounds i8, ptr %call11, i64 104
@@ -224,7 +219,7 @@ if.end20:                                         ; preds = %if.end14
   %nsub = getelementptr inbounds i8, ptr %call11, i64 112
   store i64 0, ptr %nsub, align 8
   %ncategories = getelementptr inbounds i8, ptr %call11, i64 84
-  store i32 1, ptr %ncategories, align 4
+  store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %iflags, align 8
   %catspace = getelementptr inbounds i8, ptr %call11, i64 136
   %arrayidx27 = getelementptr inbounds i8, ptr %call11, i64 264
   %categories = getelementptr inbounds i8, ptr %call11, i64 88

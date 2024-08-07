@@ -604,16 +604,10 @@ define hidden void @_ZN14regex_automata4meta7literal20alternation_literals17h57f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN14regex_automata3nfa8thompson8compiler6Config3new17h80837d5571277da0E(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }) align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 18
-  store i8 2, ptr %2, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 19
-  store i8 2, ptr %3, align 1
   store i64 2, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 2, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 21
-  store i8 3, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 0, ptr %6, align 8
+  store <4 x i8> <i8 2, i8 2, i8 2, i8 3>, ptr %2, align 2
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 0, ptr %3, align 8
   ret void
 }
 
@@ -754,65 +748,41 @@ define noundef zeroext i1 @_ZN14regex_automata3nfa8thompson8compiler6Config21get
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN14regex_automata3nfa8thompson8compiler6Config9overwrite17h540961936e0e834fE.llvm.17489849572920684177(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %2, i64 18
-  %5 = load i8, ptr %4, align 2, !range !12, !noundef !4
-  %6 = icmp eq i8 %5, 2
-  %7 = getelementptr inbounds i8, ptr %1, i64 18
-  %8 = load i8, ptr %7, align 2, !range !12
-  %.0 = select i1 %6, i8 %8, i8 %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 19
-  %10 = load i8, ptr %9, align 1, !range !12, !noundef !4
-  %11 = icmp eq i8 %10, 2
-  %12 = getelementptr inbounds i8, ptr %1, i64 19
-  %13 = load i8, ptr %12, align 1, !range !12
-  %.09 = select i1 %11, i8 %13, i8 %10
-  %14 = load i64, ptr %2, align 8, !range !55, !noundef !4
-  %15 = icmp eq i64 %14, 2
-  %16 = load i64, ptr %1, align 8, !range !55
-  %.pn = select i1 %15, ptr %1, ptr %2
-  %.sroa.0.0 = select i1 %15, i64 %16, i64 %14
+  %5 = getelementptr inbounds i8, ptr %1, i64 18
+  %6 = load i64, ptr %2, align 8, !range !55, !noundef !4
+  %7 = icmp eq i64 %6, 2
+  %8 = load i64, ptr %1, align 8, !range !55
+  %.pn = select i1 %7, ptr %1, ptr %2
+  %.sroa.0.0 = select i1 %7, i64 %8, i64 %6
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 20
-  %18 = load i8, ptr %17, align 4, !range !12, !noundef !4
-  %19 = icmp eq i8 %18, 2
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
-  %21 = load i8, ptr %20, align 4, !range !12
-  %.010 = select i1 %19, i8 %21, i8 %18
-  %22 = getelementptr inbounds i8, ptr %2, i64 21
-  %23 = load i8, ptr %22, align 1, !range !56, !noundef !4
-  %24 = icmp eq i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %1, i64 21
-  %26 = load i8, ptr %25, align 1, !range !56
-  %.011 = select i1 %24, i8 %26, i8 %23
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
-  %28 = load i8, ptr %27, align 8, !range !11, !noundef !4
-  %29 = trunc nuw i8 %28 to i1
-  %30 = getelementptr inbounds i8, ptr %2, i64 17
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
-  %.val = load i8, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 17
-  %.val17 = load i8, ptr %33, align 1
+  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = load i8, ptr %9, align 8, !range !11, !noundef !4
+  %11 = trunc nuw i8 %10 to i1
+  %12 = getelementptr inbounds i8, ptr %2, i64 17
+  %13 = load i8, ptr %12, align 1
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %.val = load i8, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 17
+  %.val17 = load i8, ptr %15, align 1
   %trunc.i.i = trunc nuw i8 %.val to i1
   %.sroa.3.0.i.i = select i1 %trunc.i.i, i8 %.val17, i8 undef
-  %34 = and i8 %.val, 1
-  %.sroa.33.0.i = select i1 %29, i8 %31, i8 %.sroa.3.0.i.i
-  %.sroa.02.0.i = select i1 %29, i8 1, i8 %34
-  %35 = getelementptr inbounds i8, ptr %0, i64 18
-  store i8 %.0, ptr %35, align 2
-  %36 = getelementptr inbounds i8, ptr %0, i64 19
-  store i8 %.09, ptr %36, align 1
+  %16 = and i8 %.val, 1
+  %.sroa.33.0.i = select i1 %11, i8 %13, i8 %.sroa.3.0.i.i
+  %.sroa.02.0.i = select i1 %11, i8 1, i8 %16
+  %17 = getelementptr inbounds i8, ptr %0, i64 18
   store i64 %.sroa.0.0, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.4.0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 %.010, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 21
-  store i8 %.011, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 %.sroa.02.0.i, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 17
-  store i8 %.sroa.33.0.i, ptr %41, align 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.4.0, ptr %18, align 8
+  %19 = load <4 x i8>, ptr %4, align 2
+  %20 = icmp eq <4 x i8> %19, <i8 2, i8 2, i8 2, i8 3>
+  %21 = load <4 x i8>, ptr %5, align 2
+  %22 = select <4 x i1> %20, <4 x i8> %21, <4 x i8> %19
+  store <4 x i8> %22, ptr %17, align 2
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 %.sroa.02.0.i, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 17
+  store i8 %.sroa.33.0.i, ptr %24, align 1
   ret void
 }
 

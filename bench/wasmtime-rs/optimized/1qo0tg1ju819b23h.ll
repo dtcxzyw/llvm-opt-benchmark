@@ -7155,13 +7155,13 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h76147083c2b91f2fE.exit
   %.sroa.41918.0..sroa_idx = getelementptr inbounds i8, ptr %207, i64 8
   %.sroa.61920.0..sroa_idx = getelementptr inbounds i8, ptr %207, i64 16
   %.sroa.21923.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %3162 = load <2 x i32>, ptr %.sroa.41918.0..sroa_idx, align 8
   %.sroa.41925.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %3162 = load <2 x i64>, ptr %.sroa.61920.0..sroa_idx, align 8
-  %3163 = load <2 x i32>, ptr %.sroa.41918.0..sroa_idx, align 8
+  %3163 = load <2 x i64>, ptr %.sroa.61920.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207)
   store i64 %451, ptr %0, align 8
-  store <2 x i32> %3163, ptr %.sroa.21923.0..sroa_idx, align 8
-  store <2 x i64> %3162, ptr %.sroa.41925.0..sroa_idx, align 8
+  store <2 x i32> %3162, ptr %.sroa.21923.0..sroa_idx, align 8
+  store <2 x i64> %3163, ptr %.sroa.41925.0..sroa_idx, align 8
   br label %359
 
 3164:                                             ; preds = %3141
@@ -7283,13 +7283,13 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h76147083c2b91f2fE.exit
   %.sroa.41966.0..sroa_idx = getelementptr inbounds i8, ptr %203, i64 8
   %.sroa.61968.0..sroa_idx = getelementptr inbounds i8, ptr %203, i64 16
   %.sroa.21971.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %3211 = load <2 x i32>, ptr %.sroa.41966.0..sroa_idx, align 8
   %.sroa.41973.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %3211 = load <2 x i64>, ptr %.sroa.61968.0..sroa_idx, align 8
-  %3212 = load <2 x i32>, ptr %.sroa.41966.0..sroa_idx, align 8
+  %3212 = load <2 x i64>, ptr %.sroa.61968.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %203)
   store i64 %465, ptr %0, align 8
-  store <2 x i32> %3212, ptr %.sroa.21971.0..sroa_idx, align 8
-  store <2 x i64> %3211, ptr %.sroa.41973.0..sroa_idx, align 8
+  store <2 x i32> %3211, ptr %.sroa.21971.0..sroa_idx, align 8
+  store <2 x i64> %3212, ptr %.sroa.41973.0..sroa_idx, align 8
   br label %359
 
 3213:                                             ; preds = %3194

@@ -234,19 +234,13 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %parent3 = getelementptr inbounds i8, ptr %rxfc, i64 80
   store ptr %conn_rxfc, ptr %parent3, align 8
   %error_code = getelementptr inbounds i8, ptr %rxfc, i64 88
-  store i8 0, ptr %error_code, align 8
-  %has_cwm_changed = getelementptr inbounds i8, ptr %rxfc, i64 89
-  store i8 0, ptr %has_cwm_changed, align 1
   %epoch_start = getelementptr inbounds i8, ptr %rxfc, i64 56
   store i64 0, ptr %epoch_start, align 8
   %now4 = getelementptr inbounds i8, ptr %rxfc, i64 64
   store ptr %now, ptr %now4, align 8
   %now_arg5 = getelementptr inbounds i8, ptr %rxfc, i64 72
   store ptr %now_arg, ptr %now_arg5, align 8
-  %is_fin = getelementptr inbounds i8, ptr %rxfc, i64 90
-  store i8 0, ptr %is_fin, align 2
-  %standalone = getelementptr inbounds i8, ptr %rxfc, i64 91
-  store i8 0, ptr %standalone, align 1
+  store <4 x i8> zeroinitializer, ptr %error_code, align 8
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end
@@ -269,19 +263,13 @@ return:
   %parent3.i = getelementptr inbounds i8, ptr %rxfc, i64 80
   store ptr null, ptr %parent3.i, align 8
   %error_code.i = getelementptr inbounds i8, ptr %rxfc, i64 88
-  store i8 0, ptr %error_code.i, align 8
-  %has_cwm_changed.i = getelementptr inbounds i8, ptr %rxfc, i64 89
-  store i8 0, ptr %has_cwm_changed.i, align 1
   %epoch_start.i = getelementptr inbounds i8, ptr %rxfc, i64 56
   store i64 0, ptr %epoch_start.i, align 8
   %now4.i = getelementptr inbounds i8, ptr %rxfc, i64 64
   store ptr %now, ptr %now4.i, align 8
   %now_arg5.i = getelementptr inbounds i8, ptr %rxfc, i64 72
   store ptr %now_arg, ptr %now_arg5.i, align 8
-  %is_fin.i = getelementptr inbounds i8, ptr %rxfc, i64 90
-  store i8 0, ptr %is_fin.i, align 2
-  %standalone.i = getelementptr inbounds i8, ptr %rxfc, i64 91
-  store i8 1, ptr %standalone.i, align 1
+  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %error_code.i, align 8
   ret i32 1
 }
 

@@ -114987,8 +114987,8 @@ default.unreachable583:                           ; preds = %546, %189, %3
   %.sroa.20.0 = phi i64 [ %.sroa.13356.sroa.5.0.copyload, %644 ], [ %.sroa.13.sroa.5.0.copyload, %97 ], [ %.sroa.20.1601, %640 ], [ %.sroa.20.1601, %.thread584 ], [ undef, %45 ]
   %.sroa.23.0 = phi ptr [ undef, %644 ], [ undef, %97 ], [ %.sroa.23.1604, %640 ], [ %.sroa.23.1604, %.thread584 ], [ undef, %45 ]
   %.sroa.24.0 = phi i8 [ undef, %644 ], [ undef, %97 ], [ %.sroa.24.1605, %640 ], [ %.sroa.24.1605, %.thread584 ], [ undef, %45 ]
-  %99 = phi <2 x i32> [ %645, %644 ], [ %98, %97 ], [ %630, %640 ], [ %630, %.thread584 ], [ undef, %45 ]
-  %100 = phi <2 x i32> [ <i32 3, i32 undef>, %644 ], [ <i32 3, i32 undef>, %97 ], [ %631, %640 ], [ %631, %.thread584 ], [ <i32 3, i32 undef>, %45 ]
+  %99 = phi <2 x i32> [ <i32 3, i32 undef>, %644 ], [ <i32 3, i32 undef>, %97 ], [ %630, %640 ], [ %630, %.thread584 ], [ <i32 3, i32 undef>, %45 ]
+  %100 = phi <2 x i32> [ %645, %644 ], [ %98, %97 ], [ %631, %640 ], [ %631, %.thread584 ], [ undef, %45 ]
   %101 = getelementptr inbounds i8, ptr %1, i64 259
   %102 = load i8, ptr %101, align 1, !range !609, !noundef !4
   %103 = trunc nuw i8 %102 to i1
@@ -115685,8 +115685,8 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %.sroa.20.1 = phi i64 [ %.sroa.5465.0.copyload, %.thread557 ], [ %350, %349 ]
   %.sroa.23.1 = phi ptr [ undef, %.thread557 ], [ %339, %349 ]
   %.sroa.24.1 = phi i8 [ undef, %.thread557 ], [ %341, %349 ]
-  %356 = phi <2 x i32> [ %538, %.thread557 ], [ %353, %349 ]
-  %357 = phi <2 x i32> [ <i32 3, i32 undef>, %.thread557 ], [ %352, %349 ]
+  %356 = phi <2 x i32> [ <i32 3, i32 undef>, %.thread557 ], [ %352, %349 ]
+  %357 = phi <2 x i32> [ %538, %.thread557 ], [ %353, %349 ]
   %.not214 = icmp eq i64 %355, 17
   br i1 %.not214, label %.thread584, label %628
 
@@ -116511,8 +116511,8 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %.sroa.16452.1600 = phi i32 [ %.sroa.16452.1, %628 ], [ %.sroa.16452.1, %354 ], [ undef, %280 ]
   %.sroa.12449.1599 = phi i64 [ %.sroa.12449.1, %628 ], [ %.sroa.12449.1, %354 ], [ undef, %280 ]
   %.sroa.7447.1598 = phi i64 [ %.sroa.7447.1, %628 ], [ %.sroa.7447.1, %354 ], [ 12, %280 ]
-  %630 = phi <2 x i32> [ %356, %628 ], [ %356, %354 ], [ undef, %280 ]
-  %631 = phi <2 x i32> [ %357, %628 ], [ %357, %354 ], [ <i32 3, i32 undef>, %280 ]
+  %630 = phi <2 x i32> [ %356, %628 ], [ %356, %354 ], [ <i32 3, i32 undef>, %280 ]
+  %631 = phi <2 x i32> [ %357, %628 ], [ %357, %354 ], [ undef, %280 ]
   %632 = getelementptr inbounds i8, ptr %1, i64 258
   store i8 0, ptr %632, align 2
   %633 = getelementptr inbounds i8, ptr %1, i64 257
@@ -116561,7 +116561,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
 
 "_ZN4core3ptr100drop_in_place$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h5a76c297446c923bE.exit": ; preds = %"_ZN94_$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h913b8c1c7870a9deE.llvm.1425447921696267910.exit.i", %662, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$sqlx_sqlite..options..SqliteConnectOptions$GT$$GT$17ha6546a4da7ffc28fE.exit325"
   store i8 0, ptr %101, align 1
-  store <2 x i32> %100, ptr %0, align 8
+  store <2 x i32> %99, ptr %0, align 8
   %.sroa.7447.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.7447.0, ptr %.sroa.7447.0..sroa_idx, align 8
   %.sroa.12449.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -116573,7 +116573,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sroa.20.0, ptr %.sroa.20.0..sroa_idx, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store <2 x i32> %99, ptr %.sroa.21.0..sroa_idx, align 8
+  store <2 x i32> %100, ptr %.sroa.21.0..sroa_idx, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.23.0, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64

@@ -1300,76 +1300,70 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter5ClearEv(ptr no
   %14 = getelementptr inbounds i8, ptr %0, i64 680
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
   %15 = getelementptr inbounds i8, ptr %0, i64 248
-  store i8 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 249
-  store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 600
-  store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 596
-  store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 250
-  store i8 0, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 251
-  store i8 0, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 712
-  %22 = load ptr, ptr %21, align 8
-  %.not8.i.i = icmp eq ptr %22, %21
+  %16 = getelementptr inbounds i8, ptr %0, i64 600
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 596
+  store i32 0, ptr %17, align 4
+  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 712
+  %19 = load ptr, ptr %18, align 8
+  %.not8.i.i = icmp eq ptr %19, %18
   br i1 %.not8.i.i, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
-  %.09.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %22, %1 ]
-  %23 = load ptr, ptr %.09.i.i, align 8
+  %.09.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %19, %1 ]
+  %20 = load ptr, ptr %.09.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %.09.i.i) #19
-  %.not.i.i = icmp eq ptr %23, %21
+  %.not.i.i = icmp eq ptr %20, %18
   br i1 %.not.i.i, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 720
-  store ptr %21, ptr %24, align 8
-  store ptr %21, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 728
-  store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 640
-  store i8 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 584
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 576
-  %30 = load ptr, ptr %29, align 8
-  %.not = icmp eq ptr %28, %30
-  br i1 %.not, label %43, label %31
+  %21 = getelementptr inbounds i8, ptr %0, i64 720
+  store ptr %18, ptr %21, align 8
+  store ptr %18, ptr %18, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 728
+  store i64 0, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 640
+  store i8 0, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 584
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 576
+  %27 = load ptr, ptr %26, align 8
+  %.not = icmp eq ptr %25, %27
+  br i1 %.not, label %40, label %28
 
-31:                                               ; preds = %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 264
+28:                                               ; preds = %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit
+  %29 = getelementptr inbounds i8, ptr %0, i64 264
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  %33 = getelementptr inbounds i8, ptr %0, i64 256
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil23GetCountryCodeForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  %30 = getelementptr inbounds i8, ptr %0, i64 256
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil23GetCountryCodeForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(32) %29)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
-  %36 = load ptr, ptr %33, align 8
-  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil27GetRegionCodeForCountryCodeEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %36, i32 noundef %35, ptr noundef nonnull %2)
-          to label %37 unwind label %40
+  %33 = load ptr, ptr %30, align 8
+  invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil27GetRegionCodeForCountryCodeEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %33, i32 noundef %32, ptr noundef nonnull %2)
+          to label %34 unwind label %37
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %33, align 8
-  %39 = invoke noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %_ZNK4i18n12phonenumbers18AsYouTypeFormatter20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %40
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %30, align 8
+  %36 = invoke noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %_ZNK4i18n12phonenumbers18AsYouTypeFormatter20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %37
 
-40:                                               ; preds = %37, %31
-  %41 = landingpad { ptr, i32 }
+37:                                               ; preds = %34, %28
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %38
 
-_ZNK4i18n12phonenumbers18AsYouTypeFormatter20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %37
-  %.not.i = icmp eq ptr %39, null
-  %42 = getelementptr inbounds i8, ptr %0, i64 296
-  %.0.i = select i1 %.not.i, ptr %42, ptr %39
+_ZNK4i18n12phonenumbers18AsYouTypeFormatter20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %34
+  %.not.i = icmp eq ptr %36, null
+  %39 = getelementptr inbounds i8, ptr %0, i64 296
+  %.0.i = select i1 %.not.i, ptr %39, ptr %36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  store ptr %.0.i, ptr %27, align 8
-  br label %43
+  store ptr %.0.i, ptr %24, align 8
+  br label %40
 
-43:                                               ; preds = %_ZNK4i18n12phonenumbers18AsYouTypeFormatter20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit
+40:                                               ; preds = %_ZNK4i18n12phonenumbers18AsYouTypeFormatter20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit
   ret void
 }
 

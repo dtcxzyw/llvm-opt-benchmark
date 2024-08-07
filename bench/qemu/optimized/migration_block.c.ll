@@ -279,11 +279,8 @@ trace_migration_block_save.exit:                  ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
   tail call void @bdrv_graph_rdlock_main_loop() #13
-  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 16), align 8
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 60), align 4
+  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 64), align 8
   %call1.i = tail call zeroext i1 @migrate_zero_blocks() #13
   %frombool.i = zext i1 %call1.i to i8

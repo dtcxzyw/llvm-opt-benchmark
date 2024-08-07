@@ -2004,11 +2004,11 @@ if.end40.i.i:                                     ; preds = %virtio_snd_pcm_get_
   %val.sroa.10.0.info.sroa_idx.i.i = getelementptr inbounds i8, ptr %45, i64 32
   %46 = load i64, ptr %val.sroa.10.0.info.sroa_idx.i.i, align 8
   %arrayidx.i.i = getelementptr %struct.virtio_snd_pcm_info, ptr %call30.i.i, i64 %indvars.iv.i.i
+  %47 = load <2 x i32>, ptr %info.i.i, align 8
   %val.sroa.6.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %47 = load <2 x i64>, ptr %val.sroa.6.0.info.sroa_idx.i.i, align 8
-  %48 = load <2 x i32>, ptr %info.i.i, align 8
-  store <2 x i32> %48, ptr %arrayidx.i.i, align 8
-  store <2 x i64> %47, ptr %val.sroa.6.0.arrayidx.sroa_idx.i.i, align 8
+  %48 = load <2 x i64>, ptr %val.sroa.6.0.info.sroa_idx.i.i, align 8
+  store <2 x i32> %47, ptr %arrayidx.i.i, align 8
+  store <2 x i64> %48, ptr %val.sroa.6.0.arrayidx.sroa_idx.i.i, align 8
   %val.sroa.10.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   store i64 %46, ptr %val.sroa.10.0.arrayidx.sroa_idx.i.i, align 8
   %padding.i.i = getelementptr %struct.virtio_snd_pcm_info, ptr %call30.i.i, i64 %indvars.iv.i.i, i32 7

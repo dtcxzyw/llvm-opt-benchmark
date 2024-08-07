@@ -25028,9 +25028,9 @@ switch.lookup777:                                 ; preds = %196
   %.sroa.7.i195.sroa.10.0..sroa.410.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %29, i64 48
   %.sroa.2165.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   %.sroa.2165.sroa.2.0..sroa.2165.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %703 = load <2 x i32>, ptr %.sroa.7.i195.sroa.6.0..sroa.410.0..sroa_idx.i.sroa_idx, align 8, !noalias !6048
   %.sroa.2165.sroa.4.0..sroa.2165.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  %703 = load <2 x i64>, ptr %.sroa.7.i195.sroa.10.0..sroa.410.0..sroa_idx.i.sroa_idx, align 8, !noalias !6048
-  %704 = load <2 x i32>, ptr %.sroa.7.i195.sroa.6.0..sroa.410.0..sroa_idx.i.sroa_idx, align 8, !noalias !6048
+  %704 = load <2 x i64>, ptr %.sroa.7.i195.sroa.10.0..sroa.410.0..sroa_idx.i.sroa_idx, align 8, !noalias !6048
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29), !noalias !6048
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.4552.sroa.0, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.7.i195.sroa.0, i64 39, i1 false), !noalias !6350
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.7.i195.sroa.0)
@@ -25039,8 +25039,8 @@ switch.lookup777:                                 ; preds = %196
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.4552.sroa.0)
   store i8 %223, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.2165.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.786.sroa.0, i64 39, i1 false)
-  store <2 x i32> %704, ptr %.sroa.2165.sroa.2.0..sroa.2165.0..sroa_idx.sroa_idx, align 8
-  store <2 x i64> %703, ptr %.sroa.2165.sroa.4.0..sroa.2165.0..sroa_idx.sroa_idx, align 8
+  store <2 x i32> %703, ptr %.sroa.2165.sroa.2.0..sroa.2165.0..sroa_idx.sroa_idx, align 8
+  store <2 x i64> %704, ptr %.sroa.2165.sroa.4.0..sroa.2165.0..sroa_idx.sroa_idx, align 8
   br label %"_ZN112_$LT$image..io..free_functions..load_inner..LoadVisitor$u20$as$u20$image..io..free_functions..DecoderVisitor$GT$13visit_decoder17hb89903ef6d0cd537E.exit"
 
 705:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hae4bb5a2e3fa1998E.llvm.17224713629878502917.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hae4bb5a2e3fa1998E.llvm.17224713629878502917.exit.thread.i"

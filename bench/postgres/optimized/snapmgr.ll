@@ -2771,21 +2771,21 @@ define dso_local void @SerializeSnapshot(ptr nocapture noundef readonly %0, ptr 
   %18 = trunc i8 %13 to i1
   %spec.select = select i1 %18, i32 %7, i32 0
   %.sroa.4.0 = select i1 %10, i32 %spec.select, i32 %7
+  %19 = load <2 x i32>, ptr %3, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 17
   %.sroa.101.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %19 = load <2 x i64>, ptr %17, align 8
-  %20 = load <2 x i32>, ptr %3, align 4
-  store <2 x i32> %20, ptr %1, align 1
+  %20 = load <2 x i64>, ptr %17, align 8
+  store <2 x i32> %19, ptr %1, align 1
   store i32 %5, ptr %.sroa.3.0..sroa_idx, align 1
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
   store i8 %11, ptr %.sroa.7.0..sroa_idx, align 1
   store i8 %14, ptr %.sroa.9.0..sroa_idx, align 1
   store i32 %16, ptr %.sroa.101.0..sroa_idx, align 1
-  store <2 x i64> %19, ptr %.sroa.11.0..sroa_idx, align 1
+  store <2 x i64> %20, ptr %.sroa.11.0..sroa_idx, align 1
   %21 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %28, label %22
@@ -2845,14 +2845,14 @@ define dso_local noundef ptr @RestoreSnapshot(ptr nocapture noundef readonly %0)
   %7 = shl nsw i64 %6, 2
   %8 = add nsw i64 %5, %7
   %9 = load ptr, ptr @TopTransactionContext, align 8
-  %10 = and i8 %.sroa.13.0.copyload, 1
-  %11 = and i8 %.sroa.14.0.copyload, 1
-  %12 = load <2 x i64>, ptr %.sroa.16.0..sroa_idx, align 1
-  %13 = load <2 x i32>, ptr %0, align 1
+  %10 = load <2 x i32>, ptr %0, align 1
+  %11 = and i8 %.sroa.13.0.copyload, 1
+  %12 = and i8 %.sroa.14.0.copyload, 1
+  %13 = load <2 x i64>, ptr %.sroa.16.0..sroa_idx, align 1
   %14 = tail call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef %8) #16
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 4
-  store <2 x i32> %13, ptr %15, align 4
+  store <2 x i32> %10, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 24
@@ -2862,13 +2862,13 @@ define dso_local noundef ptr @RestoreSnapshot(ptr nocapture noundef readonly %0)
   %19 = getelementptr inbounds i8, ptr %14, i64 40
   store i32 %.sroa.9.0.copyload, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 44
-  store i8 %10, ptr %20, align 4
+  store i8 %11, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %14, i64 45
-  store i8 %11, ptr %21, align 1
+  store i8 %12, ptr %21, align 1
   %22 = getelementptr inbounds i8, ptr %14, i64 48
   store i32 %.sroa.1533.0.copyload, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %14, i64 96
-  store <2 x i64> %12, ptr %23, align 8
+  store <2 x i64> %13, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %14, i64 112
   store i64 0, ptr %24, align 8
   %.not = icmp eq i32 %.sroa.3.0.copyload, 0

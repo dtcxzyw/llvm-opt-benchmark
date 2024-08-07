@@ -11837,9 +11837,9 @@ default.unreachable9.i68:                         ; preds = %.thread211
 
 .noexc10.i:                                       ; preds = %151
   store i32 %153, ptr %13, align 4, !noalias !1856
-  %154 = extractelement <2 x i32> %141, i64 0
-  %155 = extractelement <2 x i32> %140, i64 0
-  %156 = invoke noundef ptr @_ZN12fs_set_times9set_times15_set_file_times17hfe54beb3ee514c97E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, i64 %.sroa.0.0.copyload.i, i32 noundef %155, i64 %.sroa.423.0.copyload.i, i32 noundef %154)
+  %154 = extractelement <2 x i32> %140, i64 0
+  %155 = extractelement <2 x i32> %141, i64 0
+  %156 = invoke noundef ptr @_ZN12fs_set_times9set_times15_set_file_times17hfe54beb3ee514c97E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, i64 %.sroa.0.0.copyload.i, i32 noundef %154, i64 %.sroa.423.0.copyload.i, i32 noundef %155)
           to label %.thread.i unwind label %160, !noalias !1840
 
 .thread.i:                                        ; preds = %.noexc10.i
@@ -12131,9 +12131,9 @@ default.unreachable9.i68:                         ; preds = %.thread211
 
 .noexc.i:                                         ; preds = %241
   store i32 %243, ptr %7, align 4, !noalias !1901
-  %244 = extractelement <2 x i32> %229, i64 0
-  %245 = extractelement <2 x i32> %228, i64 0
-  %246 = invoke noundef ptr @_ZN12fs_set_times9set_times15_set_file_times17hfe54beb3ee514c97E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, i64 %.sroa.019.0.copyload.i, i32 noundef %245, i64 %.sroa.10.0.copyload.i, i32 noundef %244)
+  %244 = extractelement <2 x i32> %228, i64 0
+  %245 = extractelement <2 x i32> %229, i64 0
+  %246 = invoke noundef ptr @_ZN12fs_set_times9set_times15_set_file_times17hfe54beb3ee514c97E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, i64 %.sroa.019.0.copyload.i, i32 noundef %244, i64 %.sroa.10.0.copyload.i, i32 noundef %245)
           to label %249 unwind label %247, !noalias !1895
 
 247:                                              ; preds = %.noexc.i, %241

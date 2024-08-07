@@ -1589,17 +1589,9 @@ do.body80.i:                                      ; preds = %if.then1.i314.i, %i
 
 if.end85.i:                                       ; preds = %do.body80.i
   %hastzinfo.i164.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 24
-  store i8 0, ptr %hastzinfo.i164.i, align 8
   %hashcode.i165.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 16
   store i64 -1, ptr %hashcode.i165.i, align 8
-  %data.i166.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 25
-  store <4 x i8> <i8 23, i8 59, i8 59, i8 15>, ptr %data.i166.i, align 1
-  %arrayidx28.i170.i = getelementptr i8, ptr %call10.i161.i, i64 29
-  store i8 66, ptr %arrayidx28.i170.i, align 1
-  %arrayidx32.i171.i = getelementptr i8, ptr %call10.i161.i, i64 30
-  store i8 63, ptr %arrayidx32.i171.i, align 1
-  %fold38.i172.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 31
-  store i8 0, ptr %fold38.i172.i, align 1
+  store <8 x i8> <i8 0, i8 23, i8 59, i8 59, i8 15, i8 66, i8 63, i8 0>, ptr %hastzinfo.i164.i, align 8
   %call86.i = tail call i32 @PyDict_SetItemString(ptr noundef %19, ptr noundef nonnull @.str.4, ptr noundef nonnull %call10.i161.i) #15
   %cmp87.i = icmp slt i32 %call86.i, 0
   %24 = load i64, ptr %call10.i161.i, align 8

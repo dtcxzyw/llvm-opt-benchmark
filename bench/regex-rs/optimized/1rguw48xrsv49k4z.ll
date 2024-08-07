@@ -7056,23 +7056,23 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
   %.sroa.7.i.sroa.8.sroa.7.0.copyload.i = load i64, ptr %.sroa.7.i.sroa.8.sroa.7.0..sroa.7.i.sroa.8.0..sroa.450.0..sroa_idx.i.sroa_idx.sroa_idx.i, align 8, !noalias !731
   %.sroa.7.i.sroa.11.sroa.6.0.copyload.i = load i64, ptr %.sroa.7.i.sroa.11.sroa.6.0..sroa.7.i.sroa.11.0..sroa.450.0..sroa_idx.i.sroa_idx.sroa_idx.i, align 8, !noalias !731
   %.sroa.7.i.sroa.11.sroa.7.0.copyload.i = load ptr, ptr %.sroa.7.i.sroa.11.sroa.7.0..sroa.7.i.sroa.11.0..sroa.450.0..sroa_idx.i.sroa_idx.sroa_idx.i, align 8, !noalias !731
-  %1400 = load <2 x i64>, ptr %.sroa.7.i.sroa.14.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
+  %1400 = load <2 x i32>, ptr %.sroa.7.i.sroa.9.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
   %1401 = load <2 x i32>, ptr %.sroa.7.i.sroa.12.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
-  %1402 = load <2 x i64>, ptr %.sroa.7.i.sroa.11.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
-  %1403 = load <2 x i32>, ptr %.sroa.7.i.sroa.9.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
-  %1404 = load <2 x i64>, ptr %.sroa.7.i.sroa.6.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
-  %1405 = load <2 x i64>, ptr %.sroa.7.i.sroa.8.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
+  %1402 = load <2 x i64>, ptr %.sroa.7.i.sroa.6.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
+  %1403 = load <2 x i64>, ptr %.sroa.7.i.sroa.8.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
+  %1404 = load <2 x i64>, ptr %.sroa.7.i.sroa.11.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
+  %1405 = load <2 x i64>, ptr %.sroa.7.i.sroa.14.0..sroa.450.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !731
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %80), !noalias !731
   store ptr %.sroa.7.i.sroa.0.0.copyload.i, ptr %81, align 8, !noalias !731
-  store <2 x i64> %1404, ptr %.sroa.7.i.sroa.6.0..sroa_idx396.i, align 8, !noalias !731
-  store <2 x i64> %1405, ptr %.sroa.7.i.sroa.8.0..sroa_idx402.i, align 8, !noalias !731
+  store <2 x i64> %1402, ptr %.sroa.7.i.sroa.6.0..sroa_idx396.i, align 8, !noalias !731
+  store <2 x i64> %1403, ptr %.sroa.7.i.sroa.8.0..sroa_idx402.i, align 8, !noalias !731
   store i64 %.sroa.7.i.sroa.8.sroa.7.0.copyload.i, ptr %.sroa.7.i.sroa.8.sroa.7.0..sroa.7.i.sroa.8.0..sroa_idx402.sroa_idx.i, align 8, !noalias !731
-  store <2 x i32> %1403, ptr %.sroa.7.i.sroa.9.0..sroa_idx403.i, align 8, !noalias !731
-  store <2 x i64> %1402, ptr %.sroa.7.i.sroa.11.0..sroa_idx409.i, align 8, !noalias !731
+  store <2 x i32> %1400, ptr %.sroa.7.i.sroa.9.0..sroa_idx403.i, align 8, !noalias !731
+  store <2 x i64> %1404, ptr %.sroa.7.i.sroa.11.0..sroa_idx409.i, align 8, !noalias !731
   store i64 %.sroa.7.i.sroa.11.sroa.6.0.copyload.i, ptr %.sroa.7.i.sroa.11.sroa.6.0..sroa.7.i.sroa.11.0..sroa_idx409.sroa_idx.i, align 8, !noalias !731
   store ptr %.sroa.7.i.sroa.11.sroa.7.0.copyload.i, ptr %.sroa.7.i.sroa.11.sroa.7.0..sroa.7.i.sroa.11.0..sroa_idx409.sroa_idx.i, align 8, !noalias !731
   store <2 x i32> %1401, ptr %.sroa.7.i.sroa.12.0..sroa_idx410.i, align 8, !noalias !731
-  store <2 x i64> %1400, ptr %.sroa.7.i.sroa.14.0..sroa_idx416.i, align 8, !noalias !731
+  store <2 x i64> %1405, ptr %.sroa.7.i.sroa.14.0..sroa_idx416.i, align 8, !noalias !731
   invoke fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$10bump_space17ha11294e21af99c92E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %1407 unwind label %1522, !noalias !740
 
@@ -7346,23 +7346,23 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
   %.sroa.713.i.sroa.11.sroa.0.sroa.6.0.copyload616.i = load i64, ptr %.sroa.713.i.sroa.11.sroa.0.sroa.6.0..sroa.713.i.sroa.11.0..sroa_idx.sroa_idx.i, align 8, !noalias !731
   %.sroa.713.i.sroa.11.sroa.6.0.copyload557.i = load i64, ptr %.sroa.713.i.sroa.11.sroa.6.0..sroa.713.i.sroa.11.0..sroa_idx.sroa_idx.i, align 8, !noalias !731
   %.sroa.713.i.sroa.11.sroa.7.0.copyload559.i = load ptr, ptr %.sroa.713.i.sroa.11.sroa.7.0..sroa.713.i.sroa.11.0..sroa_idx.sroa_idx.i, align 8, !noalias !731
-  %1458 = load <2 x i64>, ptr %.sroa.713.i.sroa.14.0..sroa_idx.i, align 8, !noalias !731
+  %1458 = load <2 x i32>, ptr %.sroa.713.i.sroa.9.0..sroa_idx.i, align 8, !noalias !731
   %1459 = load <2 x i32>, ptr %.sroa.713.i.sroa.12.0..sroa_idx.i, align 8, !noalias !731
-  %1460 = load <2 x i32>, ptr %.sroa.713.i.sroa.9.0..sroa_idx.i, align 8, !noalias !731
-  %1461 = load <2 x i64>, ptr %.sroa.713.i.sroa.6.0..sroa_idx.i, align 8, !noalias !731
+  %1460 = load <2 x i64>, ptr %.sroa.713.i.sroa.6.0..sroa_idx.i, align 8, !noalias !731
+  %1461 = load <2 x i64>, ptr %.sroa.713.i.sroa.14.0..sroa_idx.i, align 8, !noalias !731
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %76), !noalias !731
   store ptr %.sroa.713.i.sroa.0.0.copyload419.i, ptr %77, align 8, !noalias !731
-  store <2 x i64> %1461, ptr %.sroa.713.i.sroa.6.0..sroa_idx423.i, align 8, !noalias !731
+  store <2 x i64> %1460, ptr %.sroa.713.i.sroa.6.0..sroa_idx423.i, align 8, !noalias !731
   store i64 %.sroa.713.i.sroa.8.sroa.0.0.copyload483.i, ptr %.sroa.713.i.sroa.8.0..sroa_idx430.i, align 8, !noalias !731
   store i64 %.sroa.713.i.sroa.8.sroa.6.0.copyload485.i, ptr %.sroa.713.i.sroa.8.sroa.6.0..sroa.713.i.sroa.8.0..sroa_idx430.sroa_idx.i, align 8, !noalias !731
   store i64 %.sroa.713.i.sroa.8.sroa.7.0.copyload487.i, ptr %.sroa.713.i.sroa.8.sroa.7.0..sroa.713.i.sroa.8.0..sroa_idx430.sroa_idx.i, align 8, !noalias !731
-  store <2 x i32> %1460, ptr %.sroa.713.i.sroa.9.0..sroa_idx433.i, align 8, !noalias !731
+  store <2 x i32> %1458, ptr %.sroa.713.i.sroa.9.0..sroa_idx433.i, align 8, !noalias !731
   store i64 %.sroa.713.i.sroa.11.sroa.0.sroa.0.0.copyload614.i, ptr %.sroa.713.i.sroa.11.0..sroa_idx440.i, align 8, !noalias !731
   store i64 %.sroa.713.i.sroa.11.sroa.0.sroa.6.0.copyload616.i, ptr %.sroa.713.i.sroa.11.sroa.0.sroa.6.0..sroa.713.i.sroa.11.0..sroa_idx440.sroa_idx.i, align 8, !noalias !731
   store i64 %.sroa.713.i.sroa.11.sroa.6.0.copyload557.i, ptr %.sroa.713.i.sroa.11.sroa.6.0..sroa.713.i.sroa.11.0..sroa_idx440.sroa_idx.i, align 8, !noalias !731
   store ptr %.sroa.713.i.sroa.11.sroa.7.0.copyload559.i, ptr %.sroa.713.i.sroa.11.sroa.7.0..sroa.713.i.sroa.11.0..sroa_idx440.sroa_idx.i, align 8, !noalias !731
   store <2 x i32> %1459, ptr %.sroa.713.i.sroa.12.0..sroa_idx443.i, align 8, !noalias !731
-  store <2 x i64> %1458, ptr %.sroa.713.i.sroa.14.0..sroa_idx450.i, align 8, !noalias !731
+  store <2 x i64> %1461, ptr %.sroa.713.i.sroa.14.0..sroa_idx450.i, align 8, !noalias !731
   %1462 = load i64, ptr %.sroa.7.i.sroa.8.0..sroa_idx402.i, align 8, !range !753, !noalias !731, !noundef !5
   %1463 = add i64 %1462, 9223372036854775806
   %switch.i.i.i = icmp ult i64 %1463, 4
@@ -7381,7 +7381,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i: ; preds = %.threa
   %.sroa.8572.24.copyload.i = select i1 %switch.i114.i.i, i64 %.sroa.713.i.sroa.11.sroa.0.sroa.0.0.copyload614.i, i64 %1465
   %.sroa.gep418.sroa.gep.val.i = load i64, ptr %.sroa.713.i.sroa.12.0..sroa_idx443.i, align 8, !noalias !726
   %.sroa.10573.24.copyload.i = select i1 %switch.i114.i.i, i64 %.sroa.713.i.sroa.11.sroa.0.sroa.6.0.copyload616.i, i64 %.sroa.gep418.sroa.gep.val.i
-  %1466 = extractelement <2 x i64> %1458, i64 0
+  %1466 = extractelement <2 x i64> %1461, i64 0
   %.sroa.11574.24.copyload.i = select i1 %switch.i114.i.i, i64 %.sroa.713.i.sroa.11.sroa.6.0.copyload557.i, i64 %1466
   %1467 = ptrtoint ptr %.sroa.gep.sroa.gep.val.i to i64
   %1468 = ptrtoint ptr %.sroa.7.i.sroa.11.sroa.0.sroa.6.0..sroa.7.i.sroa.11.0..sroa_idx409.sroa_idx.val.i to i64

@@ -321,19 +321,19 @@ define hidden void @_ZN2cv18DISOpticalFlowImplC2Ev(ptr noundef nonnull align 8 d
 
 58:                                               ; preds = %1
   %59 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 2, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 8, i32 4, i32 16, i32 5>, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x float> <float 2.000000e+01, float 1.000000e+01, float 5.000000e+00, float 0x3F847AE140000000>, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 16, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 48
-  store i8 1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 49
-  store i8 1, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 10, ptr %65, align 4
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 16, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 5, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  store <4 x float> <float 2.000000e+01, float 1.000000e+01, float 5.000000e+00, float 0x3F847AE140000000>, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 16, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  store i8 1, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 49
+  store i8 1, ptr %65, align 1
+  store <4 x i32> <i32 2, i32 10, i32 8, i32 4>, ptr %59, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 56
   %67 = getelementptr inbounds i8, ptr %0, i64 1544
   %68 = getelementptr inbounds i8, ptr %0, i64 1552

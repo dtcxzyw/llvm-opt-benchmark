@@ -318,11 +318,9 @@ while.cond10.preheader.lr.ph:                     ; preds = %for.body
   %3 = getelementptr inbounds i8, ptr %ref.tmp92, i64 16
   %my_cancellation_requested.i.i.i = getelementptr inbounds i8, ptr %context.i, i64 8
   %my_version.i.i.i = getelementptr inbounds i8, ptr %context.i, i64 12
-  %my_may_have_children.i.i.i = getelementptr inbounds i8, ptr %context.i, i64 14
   %my_state.i.i.i = getelementptr inbounds i8, ptr %context.i, i64 15
   %my_node.i.i.i = getelementptr inbounds i8, ptr %context.i, i64 32
   %my_name.i.i.i = getelementptr inbounds i8, ptr %context.i, i64 64
-  %my_traits2.i.i.i = getelementptr inbounds i8, ptr %context.i, i64 13
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %w_context.i.i, i64 8
   %4 = getelementptr inbounds i8, ptr %root_task.i.i, i64 8
   %my_first.i.i.i.i = getelementptr inbounds i8, ptr %root_task.i.i, i64 64
@@ -334,11 +332,9 @@ while.cond10.preheader.lr.ph:                     ; preds = %for.body
   %6 = getelementptr inbounds i8, ptr %ref.tmp124, i64 8
   %my_cancellation_requested.i.i.i83 = getelementptr inbounds i8, ptr %context.i82, i64 8
   %my_version.i.i.i84 = getelementptr inbounds i8, ptr %context.i82, i64 12
-  %my_may_have_children.i.i.i85 = getelementptr inbounds i8, ptr %context.i82, i64 14
   %my_state.i.i.i86 = getelementptr inbounds i8, ptr %context.i82, i64 15
   %my_node.i.i.i87 = getelementptr inbounds i8, ptr %context.i82, i64 32
   %my_name.i.i.i88 = getelementptr inbounds i8, ptr %context.i82, i64 64
-  %my_traits2.i.i.i89 = getelementptr inbounds i8, ptr %context.i82, i64 13
   %m_ref_count.i.i.i92 = getelementptr inbounds i8, ptr %w_context.i.i80, i64 8
   %7 = getelementptr inbounds i8, ptr %root_task.i.i81, i64 8
   %my_first.i.i.i.i93 = getelementptr inbounds i8, ptr %root_task.i.i81, i64 64
@@ -671,12 +667,9 @@ _ZNSt6vectorISt10unique_ptrIN4mold3elf5ThunkINS2_11LOONGARCH32EEESt14default_del
   store ptr %thunk_idx, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %context.i)
   store i32 0, ptr %my_cancellation_requested.i.i.i, align 8
-  store i8 1, ptr %my_version.i.i.i, align 4
-  store i8 0, ptr %my_may_have_children.i.i.i, align 2
-  store i8 0, ptr %my_state.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i.i, align 8
-  store i8 4, ptr %my_traits2.i.i.i, align 1
+  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i.i, align 4
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i.i)
@@ -807,12 +800,9 @@ for.end111:                                       ; preds = %for.body102, %"_ZN4
   store ptr %thunk_idx, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %context.i82)
   store i32 0, ptr %my_cancellation_requested.i.i.i83, align 8
-  store i8 1, ptr %my_version.i.i.i84, align 4
-  store i8 0, ptr %my_may_have_children.i.i.i85, align 2
-  store i8 0, ptr %my_state.i.i.i86, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i.i87, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i.i88, align 8
-  store i8 4, ptr %my_traits2.i.i.i89, align 1
+  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i.i84, align 4
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i82) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i.i80)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i.i81)

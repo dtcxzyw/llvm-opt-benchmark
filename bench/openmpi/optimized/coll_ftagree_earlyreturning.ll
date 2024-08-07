@@ -2292,7 +2292,7 @@ opal_free_list_get_st.exit.i:                     ; preds = %52, %opal_lifo_pop_
 opal_free_list_get.exit:                          ; preds = %opal_free_list_get_mt.exit.i, %opal_free_list_get_st.exit.i
   %.0.i = phi ptr [ %43, %opal_free_list_get_mt.exit.i ], [ %55, %opal_free_list_get_st.exit.i ]
   %56 = icmp eq ptr %.0.i, null
-  br i1 %56, label %475, label %57
+  br i1 %56, label %472, label %57
 
 57:                                               ; preds = %opal_free_list_get.exit
   %58 = getelementptr inbounds i8, ptr %.0.i, i64 88
@@ -3080,66 +3080,60 @@ mca_coll_ftagree_era_prepare_agreement.exit:      ; preds = %.lr.ph.i96.i, %era_
   %449 = getelementptr inbounds i8, ptr %.0.i, i64 56
   store i32 4, ptr %449, align 8
   %450 = getelementptr inbounds i8, ptr %.0.i, i64 64
-  store i32 -1, ptr %450, align 8
-  %451 = getelementptr inbounds i8, ptr %.0.i, i64 72
-  store i32 0, ptr %451, align 8
-  %452 = getelementptr inbounds i8, ptr %.0.i, i64 68
-  store i32 -1, ptr %452, align 4
-  %453 = getelementptr inbounds i8, ptr %.0.i, i64 80
-  store i64 0, ptr %453, align 8
-  %454 = getelementptr inbounds i8, ptr %.0.i, i64 76
-  store i32 0, ptr %454, align 4
-  %455 = getelementptr inbounds i8, ptr %.0.i, i64 152
-  store ptr %6, ptr %455, align 8
+  %451 = getelementptr inbounds i8, ptr %.0.i, i64 80
+  store i64 0, ptr %451, align 8
+  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 0>, ptr %450, align 8
+  %452 = getelementptr inbounds i8, ptr %.0.i, i64 152
+  store ptr %6, ptr %452, align 8
   store ptr null, ptr %62, align 8
-  %456 = getelementptr inbounds i8, ptr %.0.i, i64 120
-  store ptr @era_iagree_req_free, ptr %456, align 8
-  %457 = getelementptr inbounds i8, ptr %.0.i, i64 128
-  store ptr null, ptr %457, align 8
+  %453 = getelementptr inbounds i8, ptr %.0.i, i64 120
+  store ptr @era_iagree_req_free, ptr %453, align 8
+  %454 = getelementptr inbounds i8, ptr %.0.i, i64 128
+  store ptr null, ptr %454, align 8
   store ptr @era_iagree_req_complete_cb, ptr %61, align 8
-  %458 = getelementptr inbounds i8, ptr %.0.i, i64 160
-  %459 = or disjoint i64 %.sroa.8.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %.sroa.0.0.insert.insert = or disjoint i64 %459, %.sroa.10.0.insert.shift.i
-  store i64 %.sroa.0.0.insert.insert, ptr %458, align 8
-  %460 = getelementptr inbounds i8, ptr %.0.i, i64 168
-  store ptr %0, ptr %460, align 8
-  %461 = select i1 %5, ptr %4, ptr null
-  %462 = getelementptr inbounds i8, ptr %.0.i, i64 176
-  store ptr %461, ptr %462, align 8
-  %463 = getelementptr inbounds i8, ptr %.0.i, i64 184
-  store ptr %.0.i39, ptr %463, align 8
-  %464 = getelementptr inbounds i8, ptr %.0.i39, i64 48
-  store ptr %.0.i, ptr %464, align 8
-  %465 = load i32, ptr %447, align 8
-  %466 = icmp eq i32 %465, 4
-  br i1 %466, label %467, label %474
+  %455 = getelementptr inbounds i8, ptr %.0.i, i64 160
+  %456 = or disjoint i64 %.sroa.8.0.insert.shift.i, %.sroa.0.0.insert.ext.i
+  %.sroa.0.0.insert.insert = or disjoint i64 %456, %.sroa.10.0.insert.shift.i
+  store i64 %.sroa.0.0.insert.insert, ptr %455, align 8
+  %457 = getelementptr inbounds i8, ptr %.0.i, i64 168
+  store ptr %0, ptr %457, align 8
+  %458 = select i1 %5, ptr %4, ptr null
+  %459 = getelementptr inbounds i8, ptr %.0.i, i64 176
+  store ptr %458, ptr %459, align 8
+  %460 = getelementptr inbounds i8, ptr %.0.i, i64 184
+  store ptr %.0.i39, ptr %460, align 8
+  %461 = getelementptr inbounds i8, ptr %.0.i39, i64 48
+  store ptr %.0.i, ptr %461, align 8
+  %462 = load i32, ptr %447, align 8
+  %463 = icmp eq i32 %462, 4
+  br i1 %463, label %464, label %471
 
-467:                                              ; preds = %mca_coll_ftagree_era_prepare_agreement.exit
-  %468 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_mutex, i64 16)) #19
-  %469 = load ptr, ptr %61, align 8
-  %.not.i41 = icmp eq ptr %469, null
-  br i1 %.not.i41, label %.critedge.i, label %470
+464:                                              ; preds = %mca_coll_ftagree_era_prepare_agreement.exit
+  %465 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_mutex, i64 16)) #19
+  %466 = load ptr, ptr %61, align 8
+  %.not.i41 = icmp eq ptr %466, null
+  br i1 %.not.i41, label %.critedge.i, label %467
 
-470:                                              ; preds = %467
+467:                                              ; preds = %464
   store ptr null, ptr %61, align 8
-  %471 = call i32 %469(ptr noundef nonnull %.0.i) #19
-  %472 = icmp eq i32 %471, 0
-  br i1 %472, label %.critedge.i, label %ompi_request_complete.exit
+  %468 = call i32 %466(ptr noundef nonnull %.0.i) #19
+  %469 = icmp eq i32 %468, 0
+  br i1 %469, label %.critedge.i, label %ompi_request_complete.exit
 
-.critedge.i:                                      ; preds = %470, %467
+.critedge.i:                                      ; preds = %467, %464
   store ptr inttoptr (i64 1 to ptr), ptr %58, align 8
   br label %ompi_request_complete.exit
 
-ompi_request_complete.exit:                       ; preds = %470, %.critedge.i
-  %473 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_mutex, i64 16)) #19
-  br label %474
+ompi_request_complete.exit:                       ; preds = %467, %.critedge.i
+  %470 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_mutex, i64 16)) #19
+  br label %471
 
-474:                                              ; preds = %ompi_request_complete.exit, %mca_coll_ftagree_era_prepare_agreement.exit
+471:                                              ; preds = %ompi_request_complete.exit, %mca_coll_ftagree_era_prepare_agreement.exit
   store ptr %.0.i, ptr %7, align 8
-  br label %475
+  br label %472
 
-475:                                              ; preds = %opal_free_list_get.exit, %474
-  %.0 = phi i32 [ 0, %474 ], [ -2, %opal_free_list_get.exit ]
+472:                                              ; preds = %opal_free_list_get.exit, %471
+  %.0 = phi i32 [ 0, %471 ], [ -2, %opal_free_list_get.exit ]
   ret i32 %.0
 }
 

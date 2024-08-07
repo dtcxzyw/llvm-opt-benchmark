@@ -9271,7 +9271,7 @@ define void @"_ZN6rustls6server7builder140_$LT$impl$u20$rustls..builder..ConfigB
 30:                                               ; preds = %.body
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9f1b2b8c9bcfd040E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
-          to label %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ResolvesServerCert$GT$$GT$17ha4f194a1968597edE.exit" unwind label %80
+          to label %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ResolvesServerCert$GT$$GT$17ha4f194a1968597edE.exit" unwind label %77
 
 31:                                               ; preds = %4
   %32 = landingpad { ptr, i32 }
@@ -9298,8 +9298,8 @@ define void @"_ZN6rustls6server7builder140_$LT$impl$u20$rustls..builder..ConfigB
 .noexc5:                                          ; preds = %38
   unreachable
 
-"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ProducesTickets$GT$$GT$17h6dae17542bba056fE.exit": ; preds = %82, %85, %43
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %56, %85 ], [ %56, %82 ]
+"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ProducesTickets$GT$$GT$17h6dae17542bba056fE.exit": ; preds = %79, %82, %43
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %56, %82 ], [ %56, %79 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1504)
   call void @llvm.experimental.noalias.scope.decl(metadata !1507)
   %39 = load ptr, ptr %8, align 8, !alias.scope !1510, !nonnull !4, !noundef !4
@@ -9310,7 +9310,7 @@ define void @"_ZN6rustls6server7builder140_$LT$impl$u20$rustls..builder..ConfigB
 42:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ProducesTickets$GT$$GT$17h6dae17542bba056fE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habec7b586f33b504E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %.body unwind label %80
+          to label %.body unwind label %77
 
 43:                                               ; preds = %38
   %44 = landingpad { ptr, i32 }
@@ -9348,7 +9348,7 @@ define void @"_ZN6rustls6server7builder140_$LT$impl$u20$rustls..builder..ConfigB
   %56 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h10409cc4937d0f75E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #41
-          to label %82 unwind label %80
+          to label %79 unwind label %77
 
 57:                                               ; preds = %45
   store i64 1, ptr %52, align 8
@@ -9358,7 +9358,6 @@ define void @"_ZN6rustls6server7builder140_$LT$impl$u20$rustls..builder..ConfigB
   %59 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %12, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 172
-  store i8 0, ptr %60, align 4
   store i64 0, ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %21, ptr %61, align 8
@@ -9384,19 +9383,14 @@ define void @"_ZN6rustls6server7builder140_$LT$impl$u20$rustls..builder..ConfigB
   store ptr %52, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr @anon.57abb3be8c01c189e633236260de9ac9.86, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 173
-  store i8 0, ptr %73, align 1
-  %74 = getelementptr inbounds i8, ptr %0, i64 168
-  store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 174
-  store i8 0, ptr %75, align 2
-  %76 = getelementptr inbounds i8, ptr %0, i64 160
-  store i64 4, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 175
-  store i8 0, ptr %77, align 1
-  %78 = getelementptr inbounds i8, ptr %0, i64 128
-  %79 = load <2 x ptr>, ptr %58, align 8
-  store <2 x ptr> %79, ptr %78, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 168
+  store i32 0, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 160
+  store i64 4, ptr %74, align 8
+  store <4 x i8> zeroinitializer, ptr %60, align 4
+  %75 = getelementptr inbounds i8, ptr %0, i64 128
+  %76 = load <2 x ptr>, ptr %58, align 8
+  store <2 x ptr> %76, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -9405,63 +9399,63 @@ define void @"_ZN6rustls6server7builder140_$LT$impl$u20$rustls..builder..ConfigB
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   ret void
 
-80:                                               ; preds = %98, %93, %89, %85, %42, %30, %55
-  %81 = landingpad { ptr, i32 }
+77:                                               ; preds = %95, %90, %86, %82, %42, %30, %55
+  %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #42
   unreachable
 
-82:                                               ; preds = %55
-  %83 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !1514
-  %84 = icmp eq i64 %83, 1
-  br i1 %84, label %85, label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ProducesTickets$GT$$GT$17h6dae17542bba056fE.exit"
+79:                                               ; preds = %55
+  %80 = atomicrmw sub ptr %36, i64 1 release, align 8, !noalias !1514
+  %81 = icmp eq i64 %80, 1
+  br i1 %81, label %82, label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ProducesTickets$GT$$GT$17h6dae17542bba056fE.exit"
 
-85:                                               ; preds = %82
+82:                                               ; preds = %79
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hae9b64edd15937c5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ProducesTickets$GT$$GT$17h6dae17542bba056fE.exit" unwind label %80
+          to label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ProducesTickets$GT$$GT$17h6dae17542bba056fE.exit" unwind label %77
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ResolvesServerCert$GT$$GT$17ha4f194a1968597edE.exit": ; preds = %.body, %30
   call void @llvm.experimental.noalias.scope.decl(metadata !1519)
   call void @llvm.experimental.noalias.scope.decl(metadata !1522)
-  %86 = load ptr, ptr %10, align 8, !alias.scope !1525, !nonnull !4, !noundef !4
-  %87 = atomicrmw sub ptr %86, i64 1 release, align 8, !noalias !1525
-  %88 = icmp eq i64 %87, 1
-  br i1 %88, label %89, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit"
+  %83 = load ptr, ptr %10, align 8, !alias.scope !1525, !nonnull !4, !noundef !4
+  %84 = atomicrmw sub ptr %83, i64 1 release, align 8, !noalias !1525
+  %85 = icmp eq i64 %84, 1
+  br i1 %85, label %86, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit"
 
-89:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ResolvesServerCert$GT$$GT$17ha4f194a1968597edE.exit"
+86:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ResolvesServerCert$GT$$GT$17ha4f194a1968597edE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h78615f992ef12c36E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit" unwind label %80
+          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit" unwind label %77
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ResolvesServerCert$GT$$GT$17ha4f194a1968597edE.exit", %89
+"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..server..server_conn..ResolvesServerCert$GT$$GT$17ha4f194a1968597edE.exit", %86
   call void @llvm.experimental.noalias.scope.decl(metadata !1526)
   call void @llvm.experimental.noalias.scope.decl(metadata !1529)
-  %90 = load ptr, ptr %11, align 8, !alias.scope !1532, !nonnull !4, !noundef !4
-  %91 = atomicrmw sub ptr %90, i64 1 release, align 8, !noalias !1532
-  %92 = icmp eq i64 %91, 1
-  br i1 %92, label %93, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit"
+  %87 = load ptr, ptr %11, align 8, !alias.scope !1532, !nonnull !4, !noundef !4
+  %88 = atomicrmw sub ptr %87, i64 1 release, align 8, !noalias !1532
+  %89 = icmp eq i64 %88, 1
+  br i1 %89, label %90, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit"
 
-93:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit"
+90:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8bb6ad44e9bbd694E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit" unwind label %80
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit" unwind label %77
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit", %93
-  %94 = getelementptr inbounds i8, ptr %1, i64 24
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..verify..ClientCertVerifier$GT$$GT$17haca9f8839848067fE.exit", %90
+  %91 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !1533)
   call void @llvm.experimental.noalias.scope.decl(metadata !1536)
-  %95 = load ptr, ptr %94, align 8, !alias.scope !1539, !nonnull !4, !noundef !4
-  %96 = atomicrmw sub ptr %95, i64 1 release, align 8, !noalias !1539
-  %97 = icmp eq i64 %96, 1
-  br i1 %97, label %98, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..time_provider..TimeProvider$GT$$GT$17hfed0cca22901b95cE.exit"
+  %92 = load ptr, ptr %91, align 8, !alias.scope !1539, !nonnull !4, !noundef !4
+  %93 = atomicrmw sub ptr %92, i64 1 release, align 8, !noalias !1539
+  %94 = icmp eq i64 %93, 1
+  br i1 %94, label %95, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..time_provider..TimeProvider$GT$$GT$17hfed0cca22901b95cE.exit"
 
-98:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit"
+95:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfdda60a0afe53589E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %94)
-          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..time_provider..TimeProvider$GT$$GT$17hfed0cca22901b95cE.exit" unwind label %80
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfdda60a0afe53589E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %91)
+          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..time_provider..TimeProvider$GT$$GT$17hfed0cca22901b95cE.exit" unwind label %77
 
-"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..time_provider..TimeProvider$GT$$GT$17hfed0cca22901b95cE.exit": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit", %98
+"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$rustls..time_provider..TimeProvider$GT$$GT$17hfed0cca22901b95cE.exit": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$17h05c11244a9245cabE.llvm.5361720058829915877.exit", %95
   resume { ptr, i32 } %.pn.pn
 }
 

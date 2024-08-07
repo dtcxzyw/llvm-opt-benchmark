@@ -44325,11 +44325,11 @@ if.else71:                                        ; preds = %_ZN11realclosure7ma
   %m_upper.i.i.i244 = getelementptr inbounds i8, ptr %v, i64 32
   %m_kind.i.i.i.i256 = getelementptr inbounds i8, ptr %v, i64 36
   %m_k3.i.i.i252 = getelementptr inbounds i8, ptr %v, i64 48
-  %m_upper_open.i.i.i253 = getelementptr inbounds i8, ptr %v, i64 59
-  %m_upper_inf.i.i.i254 = getelementptr inbounds i8, ptr %v, i64 57
   br i1 %cmp61, label %_ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit259, label %_ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit302
 
 _ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit259: ; preds = %if.else71
+  %m_upper_inf.i.i.i254 = getelementptr inbounds i8, ptr %v, i64 57
+  %m_upper_open.i.i.i253 = getelementptr inbounds i8, ptr %v, i64 59
   store i32 0, ptr %m_interval.i192, align 8
   %m_kind.i.i.i.i234 = getelementptr inbounds i8, ptr %v, i64 12
   %bf.load.i.i.i.i235 = load i8, ptr %m_kind.i.i.i.i234, align 4
@@ -44362,17 +44362,13 @@ _ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit3
   store i8 %bf.clear.i.i.i.i279, ptr %m_kind.i.i.i.i277, align 4
   %m_k3.i.i.i273 = getelementptr inbounds i8, ptr %v, i64 24
   store i32 %102, ptr %m_k3.i.i.i273, align 8
-  %m_lower_open.i.i.i274 = getelementptr inbounds i8, ptr %v, i64 58
-  store i8 1, ptr %m_lower_open.i.i.i274, align 2
   %m_lower_inf.i.i.i275 = getelementptr inbounds i8, ptr %v, i64 56
-  store i8 0, ptr %m_lower_inf.i.i.i275, align 8
   store i32 0, ptr %m_upper.i.i.i244, align 8
   %bf.load.i.i.i.i300 = load i8, ptr %m_kind.i.i.i.i256, align 4
   %bf.clear.i.i.i.i301 = and i8 %bf.load.i.i.i.i300, -2
   store i8 %bf.clear.i.i.i.i301, ptr %m_kind.i.i.i.i256, align 4
   store i32 0, ptr %m_k3.i.i.i252, align 8
-  store i8 1, ptr %m_upper_open.i.i.i253, align 1
-  store i8 0, ptr %m_upper_inf.i.i.i254, align 1
+  store <4 x i8> <i8 0, i8 0, i8 1, i8 1>, ptr %m_lower_inf.i.i.i275, align 8
   br label %if.end86
 
 if.end86:                                         ; preds = %.noexc.i164, %_ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit, %_ZN11realclosure7manager3imp9set_lowerERNS_11mpbq_config8intervalERK4mpbqb.exit, %_ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit302, %_ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit259, %_ZN11realclosure7manager3imp3divERKNS_11mpbq_config8intervalES5_jRS3_.exit

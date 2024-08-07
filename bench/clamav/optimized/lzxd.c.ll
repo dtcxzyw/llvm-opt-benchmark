@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @lzxd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i8 noundef signext %7) local_unnamed_addr #0 {
   %9 = shl nuw i32 1, %3
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %80, label %10
+  br i1 %.not, label %77, label %10
 
 10:                                               ; preds = %8
   %.not77 = icmp eq i8 %7, 0
@@ -21,31 +21,31 @@ define ptr @lzxd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
 11:                                               ; preds = %10
   %12 = add i32 %3, -26
   %or.cond = icmp ult i32 %12, -9
-  br i1 %or.cond, label %80, label %15
+  br i1 %or.cond, label %77, label %15
 
 13:                                               ; preds = %10
   %14 = add i32 %3, -22
   %or.cond3 = icmp ult i32 %14, -7
-  br i1 %or.cond3, label %80, label %15
+  br i1 %or.cond3, label %77, label %15
 
 15:                                               ; preds = %13, %11
   %16 = icmp slt i32 %4, 0
   %17 = icmp slt i64 %6, 0
   %or.cond5 = or i1 %16, %17
-  br i1 %or.cond5, label %80, label %18
+  br i1 %or.cond5, label %77, label %18
 
 18:                                               ; preds = %15
   %19 = add nsw i32 %5, 1
   %20 = and i32 %19, -2
   %21 = icmp slt i32 %20, 2
-  br i1 %21, label %80, label %22
+  br i1 %21, label %77, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, i64 noundef 64232) #5
   %.not78 = icmp eq ptr %25, null
-  br i1 %.not78, label %80, label %26
+  br i1 %.not78, label %77, label %26
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %23, align 8
@@ -73,7 +73,7 @@ define ptr @lzxd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   tail call void %39(ptr noundef %40) #5
   %41 = load ptr, ptr %37, align 8
   tail call void %41(ptr noundef nonnull %25) #5
-  br label %80
+  br label %77
 
 42:                                               ; preds = %26
   store ptr %0, ptr %25, align 8
@@ -102,7 +102,6 @@ define ptr @lzxd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   %54 = getelementptr inbounds i8, ptr %25, i64 96
   store i32 0, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %25, i64 100
-  store i8 0, ptr %55, align 4
   %56 = getelementptr inbounds i8, ptr %25, i64 108
   store i32 0, ptr %56, align 4
   %57 = add nsw i32 %3, -15
@@ -125,29 +124,24 @@ define ptr @lzxd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   store i32 1, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %25, i64 84
   store i32 1, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %25, i64 102
-  store i8 0, ptr %70, align 2
-  %71 = getelementptr inbounds i8, ptr %25, i64 92
-  store i32 0, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %25, i64 101
-  store i8 0, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %25, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2576) %73, i8 0, i64 2576, i1 false)
-  %74 = getelementptr inbounds i8, ptr %25, i64 2888
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(250) %74, i8 0, i64 250, i1 false)
-  %75 = getelementptr inbounds i8, ptr %25, i64 120
-  store ptr %33, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %25, i64 128
-  store ptr %33, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %25, i64 152
-  store i32 0, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %25, i64 156
-  store i32 0, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %25, i64 103
-  store i8 0, ptr %79, align 1
-  br label %80
+  %70 = getelementptr inbounds i8, ptr %25, i64 92
+  store i32 0, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %25, i64 248
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2576) %71, i8 0, i64 2576, i1 false)
+  %72 = getelementptr inbounds i8, ptr %25, i64 2888
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(250) %72, i8 0, i64 250, i1 false)
+  %73 = getelementptr inbounds i8, ptr %25, i64 120
+  store ptr %33, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %25, i64 128
+  store ptr %33, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %25, i64 152
+  store i32 0, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %25, i64 156
+  store i32 0, ptr %76, align 4
+  store <4 x i8> zeroinitializer, ptr %55, align 4
+  br label %77
 
-80:                                               ; preds = %22, %18, %15, %13, %11, %8, %42, %36
+77:                                               ; preds = %22, %18, %15, %13, %11, %8, %42, %36
   %.0 = phi ptr [ %25, %42 ], [ null, %36 ], [ null, %8 ], [ null, %11 ], [ null, %13 ], [ null, %15 ], [ null, %18 ], [ null, %22 ]
   ret ptr %.0
 }

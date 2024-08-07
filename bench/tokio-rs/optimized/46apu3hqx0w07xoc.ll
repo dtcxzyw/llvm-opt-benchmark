@@ -6930,73 +6930,67 @@ define hidden void @_ZN5tokio7runtime7builder7Builder3new17ha8b152244337d113E.ll
   %16 = zext i1 %1 to i8
   store i8 %16, ptr %15, align 4
   %17 = getelementptr inbounds i8, ptr %0, i64 181
-  store i8 0, ptr %17, align 1
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 1024, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 182
-  store i8 0, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 183
-  store i8 0, ptr %20, align 1
   store i64 0, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 512, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %6, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr @anon.489e625cf0d9bafa89a816c128d01e73.119, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 512, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %6, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr @anon.489e625cf0d9bafa89a816c128d01e73.119, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 1000000000, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 176
-  store i32 %2, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 256, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 184
-  store i8 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 160
-  store i32 0, ptr %34, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 1000000000, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 176
+  store i32 %2, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 152
+  store i64 256, ptr %30, align 8
+  store <4 x i8> zeroinitializer, ptr %17, align 1
+  %31 = getelementptr inbounds i8, ptr %0, i64 160
+  store i32 0, ptr %31, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 164
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 168
   store i32 %13, ptr %.sroa.515.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 172
   store i32 %spec.store.select.i.i, ptr %.sroa.6.0..sroa_idx, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 185
-  store i8 0, ptr %35, align 1
+  %32 = getelementptr inbounds i8, ptr %0, i64 185
+  store i8 0, ptr %32, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 
-36:                                               ; preds = %41
-  %37 = landingpad { ptr, i32 }
+33:                                               ; preds = %38
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #40
   unreachable
 
 "_ZN4core3ptr200drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17ha8b1a52b893263e2E.exit13": ; preds = %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hcf753fa9c7ea26b9E.exit"
-  %38 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %39 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !737
-  %40 = icmp eq i64 %39, 1
-  br i1 %40, label %41, label %"_ZN4core3ptr185drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..string..String$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h2e63f6315432a12dE.exit"
+  %36 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !737
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %38, label %"_ZN4core3ptr185drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..string..String$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h2e63f6315432a12dE.exit"
 
-41:                                               ; preds = %"_ZN4core3ptr200drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17ha8b1a52b893263e2E.exit13"
+38:                                               ; preds = %"_ZN4core3ptr200drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17ha8b1a52b893263e2E.exit13"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf371b5e2ed194ecbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZN4core3ptr185drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..string..String$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h2e63f6315432a12dE.exit" unwind label %36
+          to label %"_ZN4core3ptr185drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..string..String$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h2e63f6315432a12dE.exit" unwind label %33
 
-"_ZN4core3ptr185drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..string..String$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h2e63f6315432a12dE.exit": ; preds = %"_ZN4core3ptr200drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17ha8b1a52b893263e2E.exit13", %41
-  resume { ptr, i32 } %38
+"_ZN4core3ptr185drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..string..String$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h2e63f6315432a12dE.exit": ; preds = %"_ZN4core3ptr200drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17ha8b1a52b893263e2E.exit13", %38
+  resume { ptr, i32 } %35
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

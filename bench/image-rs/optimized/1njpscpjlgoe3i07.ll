@@ -24776,14 +24776,14 @@ define hidden void @"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$3new17h4b1
   %.sroa.7.i82.sroa.13.7.copyload = load i8, ptr %.sroa.7.i82.sroa.13.7..sroa_idx, align 8, !noalias !4880
   %.sroa.7.i82.sroa.14.7..sroa_idx = getelementptr inbounds i8, ptr %6, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.i82.sroa.14, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.i82.sroa.14.7..sroa_idx, i64 15, i1 false), !noalias !4880
+  %170 = load <2 x i32>, ptr %169, align 8, !noalias !4880
   %.sroa.7.i82.sroa.10.7..sroa_idx324 = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.7.i82.sroa.11.7..sroa_idx326 = getelementptr inbounds i8, ptr %7, i64 16
-  %170 = load <2 x i32>, ptr %.sroa.7.i82.sroa.11.7..sroa_idx, align 8, !noalias !4880
-  %171 = load <2 x i32>, ptr %169, align 8, !noalias !4880
+  %171 = load <2 x i32>, ptr %.sroa.7.i82.sroa.11.7..sroa_idx, align 8, !noalias !4880
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !4880
-  store <2 x i32> %171, ptr %7, align 8, !noalias !4880
+  store <2 x i32> %170, ptr %7, align 8, !noalias !4880
   store i64 %.sroa.7.i82.sroa.10.7.copyload, ptr %.sroa.7.i82.sroa.10.7..sroa_idx324, align 8, !noalias !4880
-  store <2 x i32> %170, ptr %.sroa.7.i82.sroa.11.7..sroa_idx326, align 8, !noalias !4880
+  store <2 x i32> %171, ptr %.sroa.7.i82.sroa.11.7..sroa_idx326, align 8, !noalias !4880
   %.sroa.7.i82.sroa.13.7..sroa_idx330 = getelementptr inbounds i8, ptr %7, i64 24
   store i8 %.sroa.7.i82.sroa.13.7.copyload, ptr %.sroa.7.i82.sroa.13.7..sroa_idx330, align 8, !noalias !4880
   %.sroa.7.i82.sroa.14.7..sroa_idx332 = getelementptr inbounds i8, ptr %7, i64 25

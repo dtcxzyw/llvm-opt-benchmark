@@ -2751,16 +2751,10 @@ define noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa3NFA11never_matc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN14regex_automata3nfa8thompson3nfa3NFA6config17hd4eee49fbc8d8074E(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }) align 8 dereferenceable(24) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 18
-  store i8 2, ptr %2, align 2, !alias.scope !280
-  %3 = getelementptr inbounds i8, ptr %0, i64 19
-  store i8 2, ptr %3, align 1, !alias.scope !280
   store i64 2, ptr %0, align 8, !alias.scope !280
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 2, ptr %4, align 4, !alias.scope !280
-  %5 = getelementptr inbounds i8, ptr %0, i64 21
-  store i8 3, ptr %5, align 1, !alias.scope !280
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 0, ptr %6, align 8, !alias.scope !280
+  store <4 x i8> <i8 2, i8 2, i8 2, i8 3>, ptr %2, align 2, !alias.scope !280
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 0, ptr %3, align 8, !alias.scope !280
   ret void
 }
 

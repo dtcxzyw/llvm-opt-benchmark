@@ -8088,14 +8088,10 @@ invoke.cont218:                                   ; preds = %if.end32
   %m_spec_valid221 = getelementptr inbounds i8, ptr %this, i64 424
   store i8 0, ptr %m_spec_valid221, align 8
   %m_nsubimages222 = getelementptr inbounds i8, ptr %this, i64 24
-  store i32 0, ptr %m_nsubimages222, align 8
-  %m_nmiplevels223 = getelementptr inbounds i8, ptr %this, i64 36
-  store i32 0, ptr %m_nmiplevels223, align 4
   store i8 0, ptr %m_badfile, align 2
   %m_current_subimage225 = getelementptr inbounds i8, ptr %this, i64 28
-  store i32 -1, ptr %m_current_subimage225, align 4
   %m_current_miplevel226 = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 -1, ptr %m_current_miplevel226, align 8
+  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %m_nsubimages222, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %93 = load ptr, ptr %filename, align 8, !noalias !59
   %tobool.not.not.i = icmp eq ptr %93, null

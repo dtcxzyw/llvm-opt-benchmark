@@ -113608,9 +113608,6 @@ entry.resume:
   %ref.tmp56.reload.addr = getelementptr inbounds i8, ptr %0, i64 328
   %ref.tmp57.reload.addr = getelementptr inbounds i8, ptr %0, i64 40
   %ref.tmp58.reload.addr = getelementptr inbounds i8, ptr %0, i64 384
-  %ref.tmp62.reload.addr = getelementptr inbounds i8, ptr %0, i64 388
-  %ref.tmp66.reload.addr = getelementptr inbounds i8, ptr %0, i64 392
-  %ref.tmp70.reload.addr = getelementptr inbounds i8, ptr %0, i64 396
   %agg.tmp80.reload.addr = getelementptr inbounds i8, ptr %0, i64 344
   %__promise.reload.addr = getelementptr inbounds i8, ptr %0, i64 16
   %index.addr = getelementptr inbounds i8, ptr %0, i64 400
@@ -113751,16 +113748,13 @@ invoke.cont54:                                    ; preds = %invoke.cont52
   %idle_queue_per_max_clear_count = getelementptr inbounds i8, ptr %0, i64 48
   store i32 1000, ptr %idle_queue_per_max_clear_count, align 8
   %reconnect_wait_time = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 1000, ptr %ref.tmp58.reload.addr, align 8
   store i64 1000, ptr %reconnect_wait_time, align 8
   %idle_timeout = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 30000, ptr %ref.tmp62.reload.addr, align 4
   store i64 30000, ptr %idle_timeout, align 8
   %short_connect_idle_timeout = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 1000, ptr %ref.tmp66.reload.addr, align 8
   store i64 1000, ptr %short_connect_idle_timeout, align 8
   %max_connection_time = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 60000, ptr %ref.tmp70.reload.addr, align 4
+  store <4 x i32> <i32 1000, i32 30000, i32 1000, i32 60000>, ptr %ref.tmp58.reload.addr, align 8
   store i64 60000, ptr %max_connection_time, align 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8

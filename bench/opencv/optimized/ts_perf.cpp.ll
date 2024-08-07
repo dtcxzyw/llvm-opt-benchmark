@@ -10348,20 +10348,14 @@ define hidden void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenc
   %7 = getelementptr inbounds i8, ptr %0, i64 240
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 96
-  %9 = getelementptr inbounds i8, ptr %0, i64 132
-  store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 124
-  store i32 0, ptr %11, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 124
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %12 = load i32, ptr @_ZL17param_min_samples, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
-  store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 232
-  store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
-  store i32 0, ptr %15, align 8
+  %10 = load i32, ptr @_ZL17param_min_samples, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 232
+  store i8 0, ptr %12, align 8
+  store <4 x i32> zeroinitializer, ptr %9, align 4
   ret void
 }
 

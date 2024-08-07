@@ -879,31 +879,25 @@ define internal range(i32 0, 21) i32 @rtf_object_begin(ptr nocapture noundef wri
 
 5:                                                ; preds = %3
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #9
-  br label %16
+  br label %13
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
-  store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %1, ptr %13, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  store i64 0, ptr %8, align 8
+  store <4 x i32> <i32 -1, i32 0, i32 0, i32 0>, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %2, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %1, ptr %10, align 8
   store ptr null, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %4, ptr %15, align 8
-  br label %16
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %4, ptr %12, align 8
+  br label %13
 
-16:                                               ; preds = %6, %5
+13:                                               ; preds = %6, %5
   %.0 = phi i32 [ 0, %6 ], [ 20, %5 ]
   ret i32 %.0
 }

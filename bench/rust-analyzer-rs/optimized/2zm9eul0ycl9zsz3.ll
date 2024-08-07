@@ -29475,23 +29475,17 @@ define hidden void @_ZN14ide_completion6render13RenderContext20completion_releva
   %6 = load i32, ptr %5, align 4, !range !2050, !noundef !9
   %7 = icmp ne i32 %6, 3
   store i8 0, ptr %0, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 2, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 5
-  %11 = zext i1 %7 to i8
-  store i32 0, ptr %9, align 1
-  store i8 %11, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
-  store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 7
-  store i8 %4, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 10
-  store i8 2, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 0, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 11
-  store i8 2, ptr %16, align 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 5
+  %10 = zext i1 %7 to i8
+  store i32 0, ptr %8, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 6
+  store i8 0, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 7
+  store i8 %4, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store <4 x i8> <i8 0, i8 2, i8 2, i8 2>, ptr %13, align 1
   ret void
 }
 

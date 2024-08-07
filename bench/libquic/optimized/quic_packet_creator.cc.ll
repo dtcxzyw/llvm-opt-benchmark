@@ -2808,19 +2808,13 @@ if.end:                                           ; preds = %entry
   %8 = load ptr, ptr %vfn21, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %packet_)
   %has_ack.i = getelementptr inbounds i8, ptr %this, i64 219
-  store i8 0, ptr %has_ack.i, align 1
-  %has_stop_waiting.i = getelementptr inbounds i8, ptr %this, i64 220
-  store i8 0, ptr %has_stop_waiting.i, align 4
   %has_crypto_handshake.i = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %has_crypto_handshake.i, align 8
   %num_padding_bytes.i = getelementptr inbounds i8, ptr %this, i64 202
   store i16 0, ptr %num_padding_bytes.i, align 2
-  %original_path_id.i = getelementptr inbounds i8, ptr %this, i64 222
-  store i8 -1, ptr %original_path_id.i, align 2
   %original_packet_number.i = getelementptr inbounds i8, ptr %this, i64 224
   store i64 0, ptr %original_packet_number.i, align 8
-  %transmission_type.i = getelementptr inbounds i8, ptr %this, i64 221
-  store i8 0, ptr %transmission_type.i, align 1
+  store <4 x i8> <i8 0, i8 0, i8 0, i8 -1>, ptr %has_ack.i, align 1
   store ptr null, ptr %packet_, align 8
   %encrypted_length.i = getelementptr inbounds i8, ptr %this, i64 168
   store i16 0, ptr %encrypted_length.i, align 8
@@ -2890,19 +2884,13 @@ define dso_local void @_ZN3net17QuicPacketCreator11ClearPacketEv(ptr noundef non
 entry:
   %packet_ = getelementptr inbounds i8, ptr %this, i64 160
   %has_ack = getelementptr inbounds i8, ptr %this, i64 219
-  store i8 0, ptr %has_ack, align 1
-  %has_stop_waiting = getelementptr inbounds i8, ptr %this, i64 220
-  store i8 0, ptr %has_stop_waiting, align 4
   %has_crypto_handshake = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %has_crypto_handshake, align 8
   %num_padding_bytes = getelementptr inbounds i8, ptr %this, i64 202
   store i16 0, ptr %num_padding_bytes, align 2
-  %original_path_id = getelementptr inbounds i8, ptr %this, i64 222
-  store i8 -1, ptr %original_path_id, align 2
   %original_packet_number = getelementptr inbounds i8, ptr %this, i64 224
   store i64 0, ptr %original_packet_number, align 8
-  %transmission_type = getelementptr inbounds i8, ptr %this, i64 221
-  store i8 0, ptr %transmission_type, align 1
+  store <4 x i8> <i8 0, i8 0, i8 0, i8 -1>, ptr %has_ack, align 1
   store ptr null, ptr %packet_, align 8
   %encrypted_length = getelementptr inbounds i8, ptr %this, i64 168
   store i16 0, ptr %encrypted_length, align 8

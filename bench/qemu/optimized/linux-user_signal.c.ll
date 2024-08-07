@@ -1453,8 +1453,8 @@ host_to_target_siginfo_noswap.exit:               ; preds = %sw.bb.i, %if.end.i4
   %tinfo.sroa.14.sroa.4.0 = phi i64 [ %tinfo.sroa.14.sroa.4.0.extract.shift, %sw.default37.i ], [ 0, %sw.bb32.i ], [ 0, %if.end.i47 ], [ 0, %sw.bb.i ]
   %tinfo.sroa.14.sroa.0.0 = phi i32 [ %tinfo.sroa.14.sroa.0.0.extract.trunc, %sw.default37.i ], [ 0, %sw.bb32.i ], [ %or.sink.i, %if.end.i47 ], [ 0, %sw.bb.i ]
   %si_type.0.i = phi i32 [ 327680, %sw.default37.i ], [ 131072, %sw.bb32.i ], [ 262144, %if.end.i47 ], [ 0, %sw.bb.i ]
-  %53 = phi <2 x i64> [ zeroinitializer, %sw.default37.i ], [ zeroinitializer, %sw.bb32.i ], [ %45, %if.end.i47 ], [ zeroinitializer, %sw.bb.i ]
-  %54 = phi <2 x i32> [ %50, %sw.default37.i ], [ %49, %sw.bb32.i ], [ %42, %if.end.i47 ], [ %41, %sw.bb.i ]
+  %53 = phi <2 x i32> [ %50, %sw.default37.i ], [ %49, %sw.bb32.i ], [ %42, %if.end.i47 ], [ %41, %sw.bb.i ]
+  %54 = phi <2 x i64> [ zeroinitializer, %sw.default37.i ], [ zeroinitializer, %sw.bb32.i ], [ %45, %if.end.i47 ], [ zeroinitializer, %sw.bb.i ]
   %and.i.i42 = and i32 %40, 65535
   %or.i.i = or disjoint i32 %si_type.0.i, %and.i.i42
   %sigtab = getelementptr inbounds i8, ptr %2, i64 200
@@ -1468,13 +1468,13 @@ host_to_target_siginfo_noswap.exit:               ; preds = %sw.bb.i, %if.end.i4
   %tinfo.sroa.3.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %or.i.i, ptr %tinfo.sroa.3.0.info8.sroa_idx, align 8
   %tinfo.sroa.552.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  store <2 x i32> %54, ptr %tinfo.sroa.552.0.info8.sroa_idx, align 8
+  store <2 x i32> %53, ptr %tinfo.sroa.552.0.info8.sroa_idx, align 8
   %tinfo.sroa.14.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %tinfo.sroa.14.sroa.0.0.insert.ext = zext i32 %tinfo.sroa.14.sroa.0.0 to i64
   %tinfo.sroa.14.sroa.0.0.insert.insert = or disjoint i64 %tinfo.sroa.14.sroa.4.0, %tinfo.sroa.14.sroa.0.0.insert.ext
   store i64 %tinfo.sroa.14.sroa.0.0.insert.insert, ptr %tinfo.sroa.14.0.info8.sroa_idx, align 8
   %tinfo.sroa.16.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  store <2 x i64> %53, ptr %tinfo.sroa.16.0.info8.sroa_idx, align 8
+  store <2 x i64> %54, ptr %tinfo.sroa.16.0.info8.sroa_idx, align 8
   %tinfo.sroa.18.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tinfo.sroa.18.0.info8.sroa_idx, i8 0, i64 80, i1 false)
   store i32 %retval.0.i, ptr %arrayidx, align 8

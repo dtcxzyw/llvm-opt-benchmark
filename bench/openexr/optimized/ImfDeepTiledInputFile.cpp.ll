@@ -2985,22 +2985,22 @@ invoke.cont139:                                   ; preds = %if.end137
   %typeInFile.i55 = getelementptr inbounds i8, ptr %call140, i64 4
   %pointerArrayBase.i56 = getelementptr inbounds i8, ptr %call140, i64 8
   %xStride.i57 = getelementptr inbounds i8, ptr %call140, i64 16
-  %31 = load <2 x i64>, ptr %xStride157, align 8
   %sampleStride.i59 = getelementptr inbounds i8, ptr %call140, i64 32
   %fill.i60 = getelementptr inbounds i8, ptr %call140, i64 40
   %skip.i61 = getelementptr inbounds i8, ptr %call140, i64 41
   %fillValue.i62 = getelementptr inbounds i8, ptr %call140, i64 48
   %xTileCoords.i63 = getelementptr inbounds i8, ptr %call140, i64 56
-  %32 = load <2 x i8>, ptr %xTileCoords169, align 8
+  %31 = load <2 x i8>, ptr %xTileCoords169, align 8
+  %32 = load <2 x i64>, ptr %xStride157, align 8
   store i32 %27, ptr %call140, align 8
   store i32 %cond, ptr %typeInFile.i55, align 4
   store ptr %28, ptr %pointerArrayBase.i56, align 8
-  store <2 x i64> %31, ptr %xStride.i57, align 8
+  store <2 x i64> %32, ptr %xStride.i57, align 8
   store i64 %conv163, ptr %sampleStride.i59, align 8
   store i8 %frombool.i, ptr %fill.i60, align 8
   store i8 0, ptr %skip.i61, align 1
   store double %30, ptr %fillValue.i62, align 8
-  %.mask = and <2 x i8> %32, <i8 1, i8 1>
+  %.mask = and <2 x i8> %31, <i8 1, i8 1>
   %33 = zext nneg <2 x i8> %.mask to <2 x i32>
   store <2 x i32> %33, ptr %xTileCoords.i63, align 8
   %cmp.not.i.i67 = icmp eq ptr %incdec.ptr.i.i.i227, %add.ptr19.i.i.i233

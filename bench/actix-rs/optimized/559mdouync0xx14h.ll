@@ -608,7 +608,7 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
   %.2 = phi i1 [ %.3, %.body30 ], [ true, %70 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i.i21" ], [ true, %74 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body30 ], [ %71, %70 ], [ %71, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i.i21" ], [ %75, %74 ]
   invoke void @"_ZN4core3ptr154drop_in_place$LT$brotli_decompressor..huffman..HuffmanTreeGroup$LT$alloc_stdlib..std_alloc..StandardAlloc$C$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h0c30aeaa4028c82cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %23) #26
-          to label %.body unwind label %249
+          to label %.body unwind label %246
 
 74:                                               ; preds = %51
   %75 = landingpad { ptr, i32 }
@@ -675,7 +675,7 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
   %.3 = phi i1 [ %.4, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit" ], [ true, %95 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i.i27" ], [ true, %99 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit" ], [ %96, %95 ], [ %96, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i.i27" ], [ %100, %99 ]
   invoke void @"_ZN4core3ptr154drop_in_place$LT$brotli_decompressor..huffman..HuffmanTreeGroup$LT$alloc_stdlib..std_alloc..StandardAlloc$C$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h0c30aeaa4028c82cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %22) #26
-          to label %.body24 unwind label %249
+          to label %.body24 unwind label %246
 
 99:                                               ; preds = %76
   %100 = landingpad { ptr, i32 }
@@ -715,7 +715,7 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
   %.4 = phi i1 [ %.5, %"_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hfbc23ceedcdb9801E.exit42" ], [ true, %114 ], [ true, %123 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i36" ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %"_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hfbc23ceedcdb9801E.exit42" ], [ %115, %114 ], [ %124, %123 ], [ %124, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i36" ]
   invoke void @"_ZN4core3ptr154drop_in_place$LT$brotli_decompressor..huffman..HuffmanTreeGroup$LT$alloc_stdlib..std_alloc..StandardAlloc$C$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h0c30aeaa4028c82cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %21) #26
-          to label %.body30 unwind label %249
+          to label %.body30 unwind label %246
 
 114:                                              ; preds = %101
   %115 = landingpad { ptr, i32 }
@@ -778,7 +778,7 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
   %.5 = phi i1 [ true, %139 ], [ %.6, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit58" ], [ %.6, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i41" ]
   %.pn.pn.pn = phi { ptr, i32 } [ %140, %139 ], [ %.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit58" ], [ %.pn.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i41" ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$brotli_decompressor..state..BlockTypeAndLengthState$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17hb8d797acf5e9f161E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %20) #26
-          to label %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit" unwind label %249
+          to label %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit" unwind label %246
 
 139:                                              ; preds = %127
   %140 = landingpad { ptr, i32 }
@@ -931,60 +931,54 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
   %201 = getelementptr inbounds i8, ptr %24, i64 2317
   store i8 0, ptr %201, align 1
   %202 = getelementptr inbounds i8, ptr %24, i64 2584
-  store i8 0, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %24, i64 2585
-  store i8 0, ptr %203, align 1
-  %204 = getelementptr inbounds i8, ptr %24, i64 2292
-  store i32 1, ptr %204, align 4
-  %205 = getelementptr inbounds i8, ptr %24, i64 2228
-  %206 = getelementptr inbounds i8, ptr %24, i64 1920
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %206, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %205, i8 0, i64 28, i1 false)
+  %203 = getelementptr inbounds i8, ptr %24, i64 2292
+  store i32 1, ptr %203, align 4
+  %204 = getelementptr inbounds i8, ptr %24, i64 2228
+  %205 = getelementptr inbounds i8, ptr %24, i64 1920
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %205, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %204, i8 0, i64 28, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 2 dereferenceable(128) %19, i64 128, i1 false)
-  %207 = getelementptr inbounds i8, ptr %24, i64 1936
-  store i64 16, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %24, i64 128
-  %209 = getelementptr inbounds i8, ptr %24, i64 2298
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %209, i8 0, i64 18, i1 false)
-  %210 = getelementptr inbounds i8, ptr %24, i64 2256
-  %211 = getelementptr inbounds i8, ptr %24, i64 1808
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %210, i8 0, i64 20, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %208, i8 0, i64 1600, i1 false)
-  store ptr %158, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %24, i64 1816
-  store i64 %160, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %24, i64 2276
-  store i32 255, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %24, i64 2327
-  %215 = getelementptr inbounds i8, ptr %24, i64 1824
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(257) %214, i8 0, i64 257, i1 false)
-  store ptr %1, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %24, i64 1832
-  store i64 %2, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %24, i64 2280
-  store i32 %161, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %24, i64 2323
-  %219 = getelementptr inbounds i8, ptr %24, i64 2586
-  store i8 0, ptr %219, align 2
-  %220 = getelementptr inbounds i8, ptr %24, i64 2587
-  store i8 0, ptr %220, align 1
-  %221 = getelementptr inbounds i8, ptr %24, i64 2318
-  %222 = getelementptr inbounds i8, ptr %24, i64 2284
-  store i32 0, ptr %222, align 4
-  %223 = getelementptr inbounds i8, ptr %24, i64 2288
-  store i32 0, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %24, i64 1840
-  store i32 0, ptr %221, align 2
-  store i32 0, ptr %218, align 1
-  store ptr %169, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %24, i64 1848
-  store i64 %171, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %24, i64 1856
-  store ptr %179, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %24, i64 1864
-  store i64 %181, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %24, i64 1728
-  store <8 x i32> zeroinitializer, ptr %228, align 8
+  %206 = getelementptr inbounds i8, ptr %24, i64 1936
+  store i64 16, ptr %206, align 8
+  %207 = getelementptr inbounds i8, ptr %24, i64 128
+  %208 = getelementptr inbounds i8, ptr %24, i64 2298
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %208, i8 0, i64 18, i1 false)
+  %209 = getelementptr inbounds i8, ptr %24, i64 2256
+  %210 = getelementptr inbounds i8, ptr %24, i64 1808
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %209, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %207, i8 0, i64 1600, i1 false)
+  store ptr %158, ptr %210, align 8
+  %211 = getelementptr inbounds i8, ptr %24, i64 1816
+  store i64 %160, ptr %211, align 8
+  %212 = getelementptr inbounds i8, ptr %24, i64 2276
+  store i32 255, ptr %212, align 4
+  %213 = getelementptr inbounds i8, ptr %24, i64 2327
+  %214 = getelementptr inbounds i8, ptr %24, i64 1824
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(257) %213, i8 0, i64 257, i1 false)
+  store ptr %1, ptr %214, align 8
+  %215 = getelementptr inbounds i8, ptr %24, i64 1832
+  store i64 %2, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %24, i64 2280
+  store i32 %161, ptr %216, align 8
+  %217 = getelementptr inbounds i8, ptr %24, i64 2323
+  store <4 x i8> zeroinitializer, ptr %202, align 8
+  %218 = getelementptr inbounds i8, ptr %24, i64 2318
+  %219 = getelementptr inbounds i8, ptr %24, i64 2284
+  store i32 0, ptr %219, align 4
+  %220 = getelementptr inbounds i8, ptr %24, i64 2288
+  store i32 0, ptr %220, align 8
+  %221 = getelementptr inbounds i8, ptr %24, i64 1840
+  store i32 0, ptr %218, align 2
+  store i32 0, ptr %217, align 1
+  store ptr %169, ptr %221, align 8
+  %222 = getelementptr inbounds i8, ptr %24, i64 1848
+  store i64 %171, ptr %222, align 8
+  %223 = getelementptr inbounds i8, ptr %24, i64 1856
+  store ptr %179, ptr %223, align 8
+  %224 = getelementptr inbounds i8, ptr %24, i64 1864
+  store i64 %181, ptr %224, align 8
+  %225 = getelementptr inbounds i8, ptr %24, i64 1728
+  store <8 x i32> zeroinitializer, ptr %225, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21)
@@ -992,28 +986,28 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !157
-  %229 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h620a3867aa4ccab1E"(i64 noundef 1080, i1 noundef zeroext false)
-          to label %.noexc51 unwind label %239
+  %226 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h620a3867aa4ccab1E"(i64 noundef 1080, i1 noundef zeroext false)
+          to label %.noexc51 unwind label %236
 
 .noexc51:                                         ; preds = %178
-  %230 = extractvalue { i64, ptr } %229, 0
-  %231 = extractvalue { i64, ptr } %229, 1
-  store i64 %230, ptr %4, align 8, !noalias !157
-  %232 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %231, ptr %232, align 8, !noalias !157
-  %233 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 0, ptr %233, align 8, !noalias !157
+  %227 = extractvalue { i64, ptr } %226, 0
+  %228 = extractvalue { i64, ptr } %226, 1
+  store i64 %227, ptr %4, align 8, !noalias !157
+  %229 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %228, ptr %229, align 8, !noalias !157
+  %230 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 0, ptr %230, align 8, !noalias !157
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h67d18853ed06a87fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 1080, i16 noundef 0, i8 noundef 0)
-          to label %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h963123ddf9dfc815E.exit.i" unwind label %234, !noalias !157
+          to label %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h963123ddf9dfc815E.exit.i" unwind label %231, !noalias !157
 
-234:                                              ; preds = %.noexc51
-  %235 = landingpad { ptr, i32 }
+231:                                              ; preds = %.noexc51
+  %232 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17h4131d5c54f27e603E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #26
-          to label %.body52 unwind label %236, !noalias !157
+          to label %.body52 unwind label %233, !noalias !157
 
-236:                                              ; preds = %234
-  %237 = landingpad { ptr, i32 }
+233:                                              ; preds = %231
+  %234 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !157
   unreachable
@@ -1021,42 +1015,42 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
 "_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h963123ddf9dfc815E.exit.i": ; preds = %.noexc51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !157
-  %238 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h264203e75913daf4E.llvm.17320615007082653151"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
-          to label %241 unwind label %239
+  %235 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h264203e75913daf4E.llvm.17320615007082653151"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+          to label %238 unwind label %236
 
-.body52:                                          ; preds = %239, %234
-  %.pn17 = phi { ptr, i32 } [ %240, %239 ], [ %235, %234 ]
+.body52:                                          ; preds = %236, %231
+  %.pn17 = phi { ptr, i32 } [ %237, %236 ], [ %232, %231 ]
   invoke void @"_ZN4core3ptr188drop_in_place$LT$brotli_decompressor..state..BrotliState$LT$alloc_stdlib..std_alloc..StandardAlloc$C$alloc_stdlib..std_alloc..StandardAlloc$C$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h21c5f0c50e9bac46E"(ptr noalias noundef nonnull align 8 dereferenceable(2592) %24) #26
-          to label %.thread91 unwind label %249
+          to label %.thread91 unwind label %246
 
-239:                                              ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h963123ddf9dfc815E.exit.i", %178
-  %240 = landingpad { ptr, i32 }
+236:                                              ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h963123ddf9dfc815E.exit.i", %178
+  %237 = landingpad { ptr, i32 }
           cleanup
   br label %.body52
 
-241:                                              ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h963123ddf9dfc815E.exit.i"
-  %242 = extractvalue { ptr, i64 } %238, 0
+238:                                              ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h963123ddf9dfc815E.exit.i"
+  %239 = extractvalue { ptr, i64 } %235, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %243 = icmp ne ptr %242, null
-  call void @llvm.assume(i1 %243)
+  %240 = icmp ne ptr %239, null
+  call void @llvm.assume(i1 %240)
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
   call void @llvm.experimental.noalias.scope.decl(metadata !163)
   call void @llvm.experimental.noalias.scope.decl(metadata !166)
-  %244 = load i64, ptr %212, align 8, !alias.scope !169, !noundef !15
-  %245 = icmp eq i64 %244, 0
-  br i1 %245, label %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit56", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i55"
+  %241 = load i64, ptr %211, align 8, !alias.scope !169, !noundef !15
+  %242 = icmp eq i64 %241, 0
+  br i1 %242, label %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit56", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i55"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i55": ; preds = %241
-  %246 = shl nsw i64 %244, 2
-  %247 = load ptr, ptr %211, align 8, !alias.scope !169, !nonnull !15, !noundef !15
-  call void @__rust_dealloc(ptr noundef nonnull %247, i64 noundef %246, i64 noundef 2) #25, !noalias !169
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i55": ; preds = %238
+  %243 = shl nsw i64 %241, 2
+  %244 = load ptr, ptr %210, align 8, !alias.scope !169, !nonnull !15, !noundef !15
+  call void @__rust_dealloc(ptr noundef nonnull %244, i64 noundef %243, i64 noundef 2) #25, !noalias !169
   br label %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit56"
 
-"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit56": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i55", %241
+"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit56": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i55", %238
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 1880
-  %248 = extractvalue { ptr, i64 } %238, 1
-  store ptr %242, ptr %211, align 8
-  store i64 %248, ptr %212, align 8
+  %245 = extractvalue { ptr, i64 } %235, 1
+  store ptr %239, ptr %210, align 8
+  store i64 %245, ptr %211, align 8
   store i8 1, ptr %202, align 8
   store i64 0, ptr %184, align 8
   store i32 64, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1064,25 +1058,25 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
   call void @llvm.lifetime.end.p0(i64 2592, ptr nonnull %24)
   ret void
 
-249:                                              ; preds = %.body52, %"_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hfbc23ceedcdb9801E.exit42", %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit", %.body30, %.body24
-  %250 = landingpad { ptr, i32 }
+246:                                              ; preds = %.body52, %"_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hfbc23ceedcdb9801E.exit42", %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit", %.body30, %.body24
+  %247 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24
   unreachable
 
 "_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hfbc23ceedcdb9801E.exit46": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i45", %"_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hfbc23ceedcdb9801E.exit50"
-  %251 = icmp eq i64 %160, 0
-  br i1 %251, label %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit58", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i57"
+  %248 = icmp eq i64 %160, 0
+  br i1 %248, label %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit58", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i57"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i57": ; preds = %"_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hfbc23ceedcdb9801E.exit46"
-  %252 = shl nsw i64 %160, 2
-  tail call void @__rust_dealloc(ptr noundef nonnull %158, i64 noundef %252, i64 noundef 2) #25, !noalias !170
+  %249 = shl nsw i64 %160, 2
+  tail call void @__rust_dealloc(ptr noundef nonnull %158, i64 noundef %249, i64 noundef 2) #25, !noalias !170
   br label %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17hce619dd133d2ad07E.exit58"
 
 .thread:                                          ; preds = %29, %28
   %.pn17.pn90 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %28 ], [ %30, %29 ]
-  %253 = icmp eq i64 %2, 0
-  br i1 %253, label %.thread91, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i59"
+  %250 = icmp eq i64 %2, 0
+  br i1 %250, label %.thread91, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i59"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i.i.i59": ; preds = %.thread
   call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %2, i64 noundef 1) #25, !noalias !177

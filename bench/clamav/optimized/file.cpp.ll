@@ -28,7 +28,6 @@ define void @_ZN4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 derefe
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 20
@@ -41,18 +40,13 @@ define void @_ZN4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 derefe
   store i32 0, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 33
-  store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 34
-  store i8 1, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 35
-  store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 36
-  store i8 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 0, ptr %16, align 8
+  store <4 x i8> <i8 0, i8 1, i8 1, i8 0>, ptr %4, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 36
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 0, ptr %13, align 8
   ret void
 }
 

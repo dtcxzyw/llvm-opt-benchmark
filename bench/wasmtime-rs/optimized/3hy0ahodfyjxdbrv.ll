@@ -31249,62 +31249,56 @@ define void @"_ZN93_$LT$cranelift_codegen..isa..x64..X64Backend$u20$as$u20$crane
   store i8 4, ptr %.sroa.4.0..sroa_idx.i, align 1, !noalias !8080
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 58
   store i16 1, ptr %.sroa.5.0..sroa_idx.i, align 2, !noalias !8080
-  %8 = getelementptr inbounds i8, ptr %5, i64 65
-  store i8 1, ptr %8, align 1, !noalias !8080
-  %9 = getelementptr inbounds i8, ptr %5, i64 66
-  store i8 -8, ptr %9, align 2, !noalias !8080
-  %10 = getelementptr inbounds i8, ptr %5, i64 62
-  store i16 16, ptr %10, align 2, !noalias !8080
+  %8 = getelementptr inbounds i8, ptr %5, i64 62
+  store i16 16, ptr %8, align 2, !noalias !8080
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 2, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !8080
-  %11 = getelementptr inbounds i8, ptr %5, i64 60
-  store i8 0, ptr %11, align 4, !noalias !8080
-  %12 = getelementptr inbounds i8, ptr %5, i64 67
-  store i8 0, ptr %12, align 1, !noalias !8080
-  %13 = getelementptr inbounds i8, ptr %5, i64 64
-  store i8 0, ptr %13, align 8, !noalias !8080
-  %14 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 0, ptr %14, align 8, !noalias !8080
+  %9 = getelementptr inbounds i8, ptr %5, i64 60
+  store i8 0, ptr %9, align 4, !noalias !8080
+  %10 = getelementptr inbounds i8, ptr %5, i64 64
+  store <4 x i8> <i8 0, i8 1, i8 -8, i8 0>, ptr %10, align 8, !noalias !8080
+  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 0, ptr %11, align 8, !noalias !8080
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 40
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.44.0..sroa_idx.i, align 8, !noalias !8080
   %.sroa.55.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 48
   store i64 0, ptr %.sroa.55.0..sroa_idx.i, align 8, !noalias !8080
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !8080
-  %15 = getelementptr inbounds i8, ptr %4, i64 2
-  store i16 7, ptr %15, align 2, !noalias !8080
-  %16 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 8, ptr %16, align 4, !noalias !8080
+  %12 = getelementptr inbounds i8, ptr %4, i64 2
+  store i16 7, ptr %12, align 2, !noalias !8080
+  %13 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 8, ptr %13, align 4, !noalias !8080
   store i16 0, ptr %4, align 8, !noalias !8080
   invoke void @_ZN5gimli5write3cfi22CommonInformationEntry15add_instruction17h9fe0d1a94ba536a1E(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4)
-          to label %19 unwind label %17, !noalias !8080
+          to label %16 unwind label %14, !noalias !8080
 
-17:                                               ; preds = %19, %2
-  %18 = landingpad { ptr, i32 }
+14:                                               ; preds = %16, %2
+  %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$gimli..write..cfi..CommonInformationEntry$GT$17hc72abbc97bb53c37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5) #75
-          to label %24 unwind label %22, !noalias !8080
+          to label %21 unwind label %19, !noalias !8080
 
-19:                                               ; preds = %2
+16:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !8080
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !8080
-  %20 = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 16, ptr %20, align 2, !noalias !8080
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 -8, ptr %21, align 4, !noalias !8080
+  %17 = getelementptr inbounds i8, ptr %3, i64 2
+  store i16 16, ptr %17, align 2, !noalias !8080
+  %18 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 -8, ptr %18, align 4, !noalias !8080
   store i16 7, ptr %3, align 8, !noalias !8080
   invoke void @_ZN5gimli5write3cfi22CommonInformationEntry15add_instruction17h9fe0d1a94ba536a1E(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
-          to label %_ZN17cranelift_codegen3isa3x644inst6unwind7systemv10create_cie17hc6bbc2e6d604ec0cE.exit unwind label %17, !noalias !8080
+          to label %_ZN17cranelift_codegen3isa3x644inst6unwind7systemv10create_cie17hc6bbc2e6d604ec0cE.exit unwind label %14, !noalias !8080
 
-22:                                               ; preds = %17
-  %23 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #72, !noalias !8080
   unreachable
 
-24:                                               ; preds = %17
-  resume { ptr, i32 } %18
+21:                                               ; preds = %14
+  resume { ptr, i32 } %15
 
-_ZN17cranelift_codegen3isa3x644inst6unwind7systemv10create_cie17hc6bbc2e6d604ec0cE.exit: ; preds = %19
+_ZN17cranelift_codegen3isa3x644inst6unwind7systemv10create_cie17hc6bbc2e6d604ec0cE.exit: ; preds = %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !8080
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8080

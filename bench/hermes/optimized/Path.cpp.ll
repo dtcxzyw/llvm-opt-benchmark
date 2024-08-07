@@ -7292,21 +7292,21 @@ _ZN4llvh3sys2fsL11typeForModeEj.exit:             ; preds = %if.end6, %switch.lo
   %9 = load i64, ptr %st_size, align 8
   %ref.tmp8.sroa.2.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 8
   %ref.tmp8.sroa.3.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 16
+  %10 = load <2 x i32>, ptr %st_uid, align 4
   %ref.tmp8.sroa.5.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 24
   %ref.tmp8.sroa.6.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 32
   %ref.tmp8.sroa.7.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 36
   %ref.tmp8.sroa.8.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 40
   %ref.tmp8.sroa.9.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 48
-  %10 = load <2 x i64>, ptr %st_ino, align 8
-  %11 = load <2 x i32>, ptr %st_uid, align 4
+  %11 = load <2 x i64>, ptr %st_ino, align 8
   store i64 %7, ptr %Result, align 8
   store i64 %8, ptr %ref.tmp8.sroa.2.0.Result.sroa_idx, align 8
-  store <2 x i32> %11, ptr %ref.tmp8.sroa.3.0.Result.sroa_idx, align 8
+  store <2 x i32> %10, ptr %ref.tmp8.sroa.3.0.Result.sroa_idx, align 8
   store i64 %9, ptr %ref.tmp8.sroa.5.0.Result.sroa_idx, align 8
   store i32 %retval.0.i, ptr %ref.tmp8.sroa.6.0.Result.sroa_idx, align 8
   store i32 %and.i, ptr %ref.tmp8.sroa.7.0.Result.sroa_idx, align 4
   store i64 %6, ptr %ref.tmp8.sroa.8.0.Result.sroa_idx, align 8
-  %12 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %12 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i64> %12, ptr %ref.tmp8.sroa.9.0.Result.sroa_idx, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
   br label %return

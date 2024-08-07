@@ -68,30 +68,24 @@ define hidden void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 der
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   invoke void @_ZN2cv10ExifReaderC1Ev(ptr noundef nonnull align 8 dereferenceable(76) %5)
-          to label %6 unwind label %13
+          to label %6 unwind label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 185
-  store i8 0, ptr %12, align 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  store i8 0, ptr %8, align 8
+  store <4 x i32> <i32 0, i32 0, i32 -1, i32 1>, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 185
+  store i8 0, ptr %9, align 1
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nounwind

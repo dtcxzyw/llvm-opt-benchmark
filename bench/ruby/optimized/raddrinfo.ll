@@ -4770,8 +4770,8 @@ ai_get_afamily.exit:                              ; preds = %get_addrinfo.exit
   %33 = phi i32 [ %.pre, %._crit_edge ], [ %29, %27 ]
   %34 = getelementptr inbounds i8, ptr %2, i64 20
   %35 = load i64, ptr @rb_cAddrinfo, align 8
-  %36 = load <2 x i64>, ptr %2, align 8
-  %37 = load <2 x i32>, ptr %34, align 4
+  %36 = load <2 x i32>, ptr %34, align 4
+  %37 = load <2 x i64>, ptr %2, align 8
   %38 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %35, ptr noundef null, ptr noundef nonnull @addrinfo_type) #19
   %39 = tail call noalias noundef nonnull dereferenceable(2080) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2080) #24
   %40 = inttoptr i64 %38 to ptr
@@ -4790,8 +4790,8 @@ ai_get_afamily.exit:                              ; preds = %get_addrinfo.exit
   %44 = getelementptr inbounds i8, ptr %39, i64 16
   store i32 2, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %39, i64 20
-  store <2 x i32> %37, ptr %45, align 4
-  store <2 x i64> %36, ptr %39, align 8
+  store <2 x i32> %36, ptr %45, align 4
+  store <2 x i64> %37, ptr %39, align 8
   br label %.critedge24
 
 .critedge24:                                      ; preds = %14, %get_addrinfo.exit, %10, %27, %23, %ai_get_afamily.exit, %32

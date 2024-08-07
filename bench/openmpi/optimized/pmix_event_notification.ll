@@ -5916,25 +5916,19 @@ pmix_obj_run_destructors.exit173:                 ; preds = %.lr.ph.i170, %._cri
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @chcon(ptr nocapture noundef writeonly %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
-  store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 284
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 540
   store i32 -1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 281
-  store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 282
-  store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 283
-  store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 552
-  %9 = getelementptr inbounds i8, ptr %0, i64 544
-  store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 608
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
-  store i32 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 72, i1 false)
+  store <4 x i8> zeroinitializer, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds i8, ptr %0, i64 544
+  store i8 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 608
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
+  store i32 -1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 616
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   ret void
 }
 

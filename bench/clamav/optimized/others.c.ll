@@ -1511,7 +1511,7 @@ define noundef ptr @cl_engine_settings_copy(ptr noundef readonly %0) local_unnam
 
 3:                                                ; preds = %1
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.61, i64 noundef 384) #24
-  br label %108
+  br label %105
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1548,119 +1548,116 @@ define noundef ptr @cl_engine_settings_copy(ptr noundef readonly %0) local_unnam
   store <2 x i64> %25, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 80
   %27 = getelementptr inbounds i8, ptr %2, i64 48
-  %28 = load <2 x i32>, ptr %26, align 8
-  store <2 x i32> %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 1040
-  %30 = getelementptr inbounds i8, ptr %2, i64 232
-  %31 = load <2 x i64>, ptr %29, align 8
-  store <2 x i64> %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 1056
-  %33 = getelementptr inbounds i8, ptr %2, i64 248
-  %34 = load <2 x i64>, ptr %32, align 8
-  store <2 x i64> %34, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 1072
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 264
-  store i64 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
-  %39 = getelementptr inbounds i8, ptr %2, i64 56
+  %28 = getelementptr inbounds i8, ptr %0, i64 1040
+  %29 = getelementptr inbounds i8, ptr %2, i64 232
+  %30 = load <2 x i64>, ptr %28, align 8
+  store <2 x i64> %30, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 1056
+  %32 = getelementptr inbounds i8, ptr %2, i64 248
+  %33 = load <2 x i64>, ptr %31, align 8
+  store <2 x i64> %33, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 1072
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %2, i64 264
+  store i64 %35, ptr %36, align 8
+  %37 = load <4 x i32>, ptr %26, align 8
+  store <4 x i32> %37, ptr %27, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 1024
+  %39 = getelementptr inbounds i8, ptr %2, i64 64
   %40 = load <2 x i32>, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 1024
-  %42 = load <2 x i32>, ptr %41, align 8
-  %43 = shufflevector <2 x i32> %40, <2 x i32> %42, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i32> %43, ptr %39, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 1032
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 72
-  store i32 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 216
-  %48 = load ptr, ptr %47, align 8
-  %.not113 = icmp eq ptr %48, null
-  br i1 %.not113, label %51, label %49
+  store <2 x i32> %40, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 1032
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %2, i64 72
+  store i32 %42, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 216
+  %45 = load ptr, ptr %44, align 8
+  %.not113 = icmp eq ptr %45, null
+  br i1 %.not113, label %48, label %46
 
-49:                                               ; preds = %14
-  %50 = tail call noalias ptr @strdup(ptr noundef nonnull %48) #24
-  br label %51
+46:                                               ; preds = %14
+  %47 = tail call noalias ptr @strdup(ptr noundef nonnull %45) #24
+  br label %48
 
-51:                                               ; preds = %14, %49
-  %52 = phi ptr [ %50, %49 ], [ null, %14 ]
-  %53 = getelementptr inbounds i8, ptr %2, i64 80
-  store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 288
-  %55 = getelementptr inbounds i8, ptr %2, i64 104
+48:                                               ; preds = %14, %46
+  %49 = phi ptr [ %47, %46 ], [ null, %14 ]
+  %50 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 288
+  %52 = getelementptr inbounds i8, ptr %2, i64 104
+  %53 = load <2 x ptr>, ptr %51, align 8
+  store <2 x ptr> %53, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 304
+  %55 = getelementptr inbounds i8, ptr %2, i64 120
   %56 = load <2 x ptr>, ptr %54, align 8
   store <2 x ptr> %56, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 304
-  %58 = getelementptr inbounds i8, ptr %2, i64 120
+  %57 = getelementptr inbounds i8, ptr %0, i64 320
+  %58 = getelementptr inbounds i8, ptr %2, i64 136
   %59 = load <2 x ptr>, ptr %57, align 8
   store <2 x ptr> %59, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 320
-  %61 = getelementptr inbounds i8, ptr %2, i64 136
+  %60 = getelementptr inbounds i8, ptr %0, i64 376
+  %61 = getelementptr inbounds i8, ptr %2, i64 192
   %62 = load <2 x ptr>, ptr %60, align 8
   store <2 x ptr> %62, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 376
-  %64 = getelementptr inbounds i8, ptr %2, i64 192
+  %63 = getelementptr inbounds i8, ptr %0, i64 392
+  %64 = getelementptr inbounds i8, ptr %2, i64 208
   %65 = load <2 x ptr>, ptr %63, align 8
   store <2 x ptr> %65, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 392
-  %67 = getelementptr inbounds i8, ptr %2, i64 208
-  %68 = load <2 x ptr>, ptr %66, align 8
-  store <2 x ptr> %68, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 408
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %2, i64 224
-  store ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 336
-  %73 = getelementptr inbounds i8, ptr %2, i64 160
+  %66 = getelementptr inbounds i8, ptr %0, i64 408
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %2, i64 224
+  store ptr %67, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 336
+  %70 = getelementptr inbounds i8, ptr %2, i64 160
+  %71 = load <2 x ptr>, ptr %69, align 8
+  store <2 x ptr> %71, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 360
+  %73 = getelementptr inbounds i8, ptr %2, i64 176
   %74 = load <2 x ptr>, ptr %72, align 8
   store <2 x ptr> %74, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 360
-  %76 = getelementptr inbounds i8, ptr %2, i64 176
-  %77 = load <2 x ptr>, ptr %75, align 8
-  store <2 x ptr> %77, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
-  %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %2, i64 88
-  store i64 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 56
-  %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 96
-  store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 1088
-  %85 = getelementptr inbounds i8, ptr %2, i64 280
+  %75 = getelementptr inbounds i8, ptr %0, i64 48
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %2, i64 88
+  store i64 %76, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %0, i64 56
+  %79 = load i32, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %2, i64 96
+  store i32 %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 1088
+  %82 = getelementptr inbounds i8, ptr %2, i64 280
+  %83 = load <2 x ptr>, ptr %81, align 8
+  store <2 x ptr> %83, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 1104
+  %85 = getelementptr inbounds i8, ptr %2, i64 296
   %86 = load <2 x ptr>, ptr %84, align 8
   store <2 x ptr> %86, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 1104
-  %88 = getelementptr inbounds i8, ptr %2, i64 296
+  %87 = getelementptr inbounds i8, ptr %0, i64 1120
+  %88 = getelementptr inbounds i8, ptr %2, i64 312
   %89 = load <2 x ptr>, ptr %87, align 8
   store <2 x ptr> %89, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 1120
-  %91 = getelementptr inbounds i8, ptr %2, i64 312
+  %90 = getelementptr inbounds i8, ptr %0, i64 1136
+  %91 = getelementptr inbounds i8, ptr %2, i64 328
   %92 = load <2 x ptr>, ptr %90, align 8
   store <2 x ptr> %92, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 1136
-  %94 = getelementptr inbounds i8, ptr %2, i64 328
-  %95 = load <2 x ptr>, ptr %93, align 8
-  store <2 x ptr> %95, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 1152
-  %97 = getelementptr inbounds i8, ptr %2, i64 344
-  %98 = load <2 x i32>, ptr %96, align 8
-  store <2 x i32> %98, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 1160
-  %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 352
-  store i32 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 1168
-  %103 = getelementptr inbounds i8, ptr %2, i64 360
-  %104 = load <2 x i64>, ptr %102, align 8
-  store <2 x i64> %104, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 1184
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %2, i64 376
-  store i64 %106, ptr %107, align 8
-  br label %108
+  %93 = getelementptr inbounds i8, ptr %0, i64 1152
+  %94 = getelementptr inbounds i8, ptr %2, i64 344
+  %95 = load <2 x i32>, ptr %93, align 8
+  store <2 x i32> %95, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 1160
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %2, i64 352
+  store i32 %97, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 1168
+  %100 = getelementptr inbounds i8, ptr %2, i64 360
+  %101 = load <2 x i64>, ptr %99, align 8
+  store <2 x i64> %101, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 1184
+  %103 = load i64, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %2, i64 376
+  store i64 %103, ptr %104, align 8
+  br label %105
 
-108:                                              ; preds = %51, %3
+105:                                              ; preds = %48, %3
   ret ptr %2
 }
 

@@ -486,13 +486,13 @@ ReadByte.exit188:                                 ; preds = %228
   %266 = getelementptr inbounds i8, ptr %1, i64 408
   store ptr %265, ptr %266, align 8
   %267 = getelementptr inbounds i8, ptr %1, i64 340
-  store i32 2, ptr %267, align 4
   %268 = getelementptr inbounds i8, ptr %1, i64 80
   store i8 0, ptr %268, align 8
   %269 = getelementptr inbounds i8, ptr %1, i64 81
   store i8 0, ptr %269, align 1
-  %270 = getelementptr inbounds i8, ptr %1, i64 344
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 0>, ptr %270, align 8
+  store <4 x i32> <i32 2, i32 0, i32 0, i32 1>, ptr %267, align 4
+  %270 = getelementptr inbounds i8, ptr %1, i64 356
+  store i32 0, ptr %270, align 4
   %271 = load i32, ptr %251, align 8
   %272 = shl nuw i32 1, %271
   %273 = getelementptr inbounds i8, ptr %1, i64 364

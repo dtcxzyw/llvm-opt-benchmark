@@ -479,19 +479,13 @@ entry:
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(240) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %call)
   %EnableProps.i = getelementptr inbounds i8, ptr %call4, i64 184
-  store i32 0, ptr %EnableProps.i, align 8, !tbaa !24
   %EnablePasses.i = getelementptr inbounds i8, ptr %call4, i64 200
-  store i16 0, ptr %EnablePasses.i, align 8, !tbaa !37
+  store i16 0, ptr %EnablePasses.i, align 8, !tbaa !24
   %Enabled.i = getelementptr inbounds i8, ptr %call4, i64 202
-  store i8 0, ptr %Enabled.i, align 2, !tbaa !38
-  %EnableLayerProps.i = getelementptr inbounds i8, ptr %call4, i64 188
-  %EnableTextures.i = getelementptr inbounds i8, ptr %call4, i64 192
-  %EnableLayers.i = getelementptr inbounds i8, ptr %call4, i64 196
-  store i32 16843009, ptr %EnableLayerProps.i, align 4
-  store i32 0, ptr %EnableTextures.i, align 8
-  store i32 0, ptr %EnableLayers.i, align 4
+  store i8 0, ptr %Enabled.i, align 2, !tbaa !37
+  store <4 x i32> <i32 0, i32 16843009, i32 0, i32 0>, ptr %EnableProps.i, align 8
   %MaterialTypes.i = getelementptr inbounds i8, ptr %call4, i64 208
-  %3 = load ptr, ptr %MaterialTypes.i, align 8, !tbaa !39
+  %3 = load ptr, ptr %MaterialTypes.i, align 8, !tbaa !38
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %MaterialTypes.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3irr5video17SOverrideMaterial5resetEv.exit, label %if.then.i.i.i.i.i
@@ -502,7 +496,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 _ZN3irr5video17SOverrideMaterial5resetEv.exit:    ; preds = %if.then.i.i.i.i.i, %entry
   %is_sorted.i.i = getelementptr inbounds i8, ptr %call4, i64 232
-  store i8 1, ptr %is_sorted.i.i, align 8, !tbaa !40
+  store i8 1, ptr %is_sorted.i.i, align 8, !tbaa !39
   %color_mask = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %color_mask, align 8, !tbaa !14
   %conv = trunc i32 %4 to i16
@@ -512,8 +506,8 @@ _ZN3irr5video17SOverrideMaterial5resetEv.exit:    ; preds = %if.then.i.i.i.i.i, 
   %bf.clear = and i16 %bf.load, -16
   %bf.set = or disjoint i16 %bf.clear, %bf.value
   store i16 %bf.set, ptr %ColorMask, align 2
-  store i32 32768, ptr %EnableProps.i, align 8, !tbaa !24
-  store i16 124, ptr %EnablePasses.i, align 8, !tbaa !37
+  store i32 32768, ptr %EnableProps.i, align 8, !tbaa !40
+  store i16 124, ptr %EnablePasses.i, align 8, !tbaa !24
   ret void
 }
 
@@ -641,7 +635,7 @@ entry:
   %5 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(240) ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %call)
   %Enabled = getelementptr inbounds i8, ptr %call6, i64 202
-  store i8 %2, ptr %Enabled, align 2, !tbaa !38
+  store i8 %2, ptr %Enabled, align 2, !tbaa !37
   ret void
 }
 
@@ -4011,7 +4005,7 @@ attributes #25 = { noreturn nounwind }
 !21 = !{!"_ZTSN3irr5video6SColorE", !18, i64 0}
 !22 = !{!"_ZTSN3irr4core8vector2dIjEE", !18, i64 0, !18, i64 4}
 !23 = !{!"bool", !8, i64 0}
-!24 = !{!25, !18, i64 184}
+!24 = !{!25, !31, i64 200}
 !25 = !{!"_ZTSN3irr5video17SOverrideMaterialE", !26, i64 0, !18, i64 184, !8, i64 188, !8, i64 192, !8, i64 196, !31, i64 200, !23, i64 202, !32, i64 208}
 !26 = !{!"_ZTSN3irr5video9SMaterialE", !8, i64 0, !27, i64 128, !21, i64 132, !21, i64 136, !21, i64 140, !21, i64 144, !28, i64 148, !28, i64 152, !28, i64 156, !8, i64 160, !8, i64 161, !8, i64 162, !8, i64 162, !29, i64 162, !28, i64 164, !28, i64 168, !28, i64 172, !23, i64 176, !23, i64 176, !23, i64 176, !23, i64 176, !30, i64 176, !23, i64 176, !23, i64 176, !23, i64 177, !23, i64 177, !23, i64 177}
 !27 = !{!"_ZTSN3irr5video15E_MATERIAL_TYPEE", !8, i64 0}
@@ -4024,10 +4018,10 @@ attributes #25 = { noreturn nounwind }
 !34 = !{!"_ZTSSt12_Vector_baseIN3irr5video17SOverrideMaterial24SMaterialTypeReplacementESaIS3_EE", !35, i64 0}
 !35 = !{!"_ZTSNSt12_Vector_baseIN3irr5video17SOverrideMaterial24SMaterialTypeReplacementESaIS3_EE12_Vector_implE", !36, i64 0}
 !36 = !{!"_ZTSNSt12_Vector_baseIN3irr5video17SOverrideMaterial24SMaterialTypeReplacementESaIS3_EE17_Vector_impl_dataE", !7, i64 0, !7, i64 8, !7, i64 16}
-!37 = !{!25, !31, i64 200}
-!38 = !{!25, !23, i64 202}
-!39 = !{!36, !7, i64 0}
-!40 = !{!32, !23, i64 24}
+!37 = !{!25, !23, i64 202}
+!38 = !{!36, !7, i64 0}
+!39 = !{!32, !23, i64 24}
+!40 = !{!25, !18, i64 184}
 !41 = !{!42, !23, i64 8}
 !42 = !{!"_ZTS12RenderTarget", !23, i64 8}
 !43 = !{!44, !7, i64 16}

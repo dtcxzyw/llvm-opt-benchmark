@@ -37043,8 +37043,8 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   %.sroa.22.0 = phi i64 [ 0, %567 ], [ 0, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h07840f2b3d1bfa4dE.exit" ], [ %.sroa.22.0.copyload485, %612 ]
   %.sroa.23.0 = phi i8 [ 1, %567 ], [ 0, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h07840f2b3d1bfa4dE.exit" ], [ %.sroa.23.0.copyload489, %612 ]
   %.sroa.24.0 = phi i8 [ %573, %567 ], [ %573, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h07840f2b3d1bfa4dE.exit" ], [ %.sroa.24.0.copyload493, %612 ]
-  %581 = phi <2 x i64> [ zeroinitializer, %567 ], [ zeroinitializer, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h07840f2b3d1bfa4dE.exit" ], [ %614, %612 ]
-  %582 = phi <2 x i32> [ zeroinitializer, %567 ], [ zeroinitializer, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h07840f2b3d1bfa4dE.exit" ], [ %613, %612 ]
+  %581 = phi <2 x i32> [ zeroinitializer, %567 ], [ zeroinitializer, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h07840f2b3d1bfa4dE.exit" ], [ %613, %612 ]
+  %582 = phi <2 x i64> [ zeroinitializer, %567 ], [ zeroinitializer, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h07840f2b3d1bfa4dE.exit" ], [ %614, %612 ]
   store i64 %.sroa.0414.0, ptr %0, align 8
   %.sroa.7418.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.7418.0, ptr %.sroa.7418.0..sroa_idx, align 8
@@ -37059,7 +37059,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   %.sroa.10.0..sroa_idx439 = getelementptr inbounds i8, ptr %0, i64 1136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.10.0..sroa_idx439, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.10, i64 64, i1 false)
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1200
-  store <2 x i32> %582, ptr %.sroa.11.0..sroa_idx, align 8
+  store <2 x i32> %581, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1208
   store i8 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1209
@@ -37067,7 +37067,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1216
   store ptr %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1224
-  store <2 x i64> %581, ptr %.sroa.16.0..sroa_idx, align 8
+  store <2 x i64> %582, ptr %.sroa.16.0..sroa_idx, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1240
   store i64 %.sroa.18.0, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1248

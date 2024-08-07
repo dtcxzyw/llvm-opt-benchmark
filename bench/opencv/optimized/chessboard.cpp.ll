@@ -29416,19 +29416,13 @@ define hidden void @_ZN2cv7details10ChessboardC2ERKNS1_10ParametersE(ptr nocaptu
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 25769803785, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 4, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 200, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 50, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 33
-  store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 34
-  store i8 0, ptr %24, align 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %19, align 8
+  store <4 x i32> <i32 3, i32 4, i32 200, i32 50>, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 33
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %0, i64 34
+  store i8 0, ptr %21, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %17, ptr noundef nonnull readonly align 4 dereferenceable(27) %2, i64 27, i1 false)
   ret void
 }
@@ -29447,19 +29441,13 @@ define hidden void @_ZN2cv7details10ChessboardC1ERKNS1_10ParametersE(ptr noundef
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 25769803785, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 200, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 50, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 33
-  store i8 0, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 34
-  store i8 0, ptr %10, align 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %5, align 8
+  store <4 x i32> <i32 3, i32 4, i32 200, i32 50>, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 33
+  store i8 0, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 34
+  store i8 0, ptr %7, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %3, ptr noundef nonnull readonly align 4 dereferenceable(27) %1, i64 27, i1 false)
   ret void
 }

@@ -2055,7 +2055,6 @@ define ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noundef %2, pt
   %64 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %63, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %8, i64 182
-  store i16 0, ptr %65, align 2
   %66 = getelementptr inbounds i8, ptr %8, i64 204
   store i32 0, ptr %66, align 4
   store ptr %spec.store.select, ptr %8, align 8
@@ -2083,7 +2082,6 @@ define ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noundef %2, pt
   %79 = getelementptr inbounds i8, ptr %8, i64 272
   store i32 %78, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %8, i64 178
-  store i16 0, ptr %80, align 2
   %81 = getelementptr inbounds i8, ptr %8, i64 72
   store ptr null, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %8, i64 184
@@ -2091,9 +2089,8 @@ define ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noundef %2, pt
   %83 = getelementptr inbounds i8, ptr %8, i64 192
   store i32 20, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %8, i64 176
-  store i16 0, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %8, i64 180
-  store i16 0, ptr %85, align 4
+  store <4 x i16> zeroinitializer, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %8, i64 216
   store ptr %18, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %8, i64 268

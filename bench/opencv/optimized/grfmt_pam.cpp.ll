@@ -175,31 +175,25 @@ define hidden void @_ZN2cv10PAMDecoderC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv10PAMDecoderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   invoke void @_ZN2cv11RBaseStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(57) %2)
-          to label %3 unwind label %11
+          to label %3 unwind label %8
 
 3:                                                ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv12RLByteStreamE, i64 16), ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 348
-  store i32 -1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
-  store i8 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 356
-  store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 352
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 336
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 340
-  store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 344
-  store i32 0, ptr %10, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  store i8 1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 356
+  store i8 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 352
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 336
+  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %7, align 8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2cv16BaseImageDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) #18
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %9
 }
 
 declare void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(272)) unnamed_addr #0
@@ -375,23 +369,17 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PAMDecoderESaIvELN9_
 
 _ZN2cv3PtrINS_10PAMDecoderEED2Ev.exit:            ; preds = %.noexc.i.i.i.i.i
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv12RLByteStreamE, i64 16), ptr %7, align 8, !noalias !4
-  %11 = getelementptr inbounds i8, ptr %3, i64 364
-  store i32 -1, ptr %11, align 4, !noalias !4
-  %12 = getelementptr inbounds i8, ptr %3, i64 200
-  store i8 1, ptr %12, align 8, !noalias !4
-  %13 = getelementptr inbounds i8, ptr %3, i64 372
-  store i8 0, ptr %13, align 4, !noalias !4
-  %14 = getelementptr inbounds i8, ptr %3, i64 368
-  store i32 0, ptr %14, align 8, !noalias !4
-  %15 = getelementptr inbounds i8, ptr %3, i64 352
-  store i32 0, ptr %15, align 8, !noalias !4
-  %16 = getelementptr inbounds i8, ptr %3, i64 356
-  store i32 0, ptr %16, align 4, !noalias !4
-  %17 = getelementptr inbounds i8, ptr %3, i64 360
-  store i32 0, ptr %17, align 8, !noalias !4
+  %11 = getelementptr inbounds i8, ptr %3, i64 200
+  store i8 1, ptr %11, align 8, !noalias !4
+  %12 = getelementptr inbounds i8, ptr %3, i64 372
+  store i8 0, ptr %12, align 4, !noalias !4
+  %13 = getelementptr inbounds i8, ptr %3, i64 368
+  store i32 0, ptr %13, align 8, !noalias !4
+  %14 = getelementptr inbounds i8, ptr %3, i64 352
+  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %14, align 8, !noalias !4
   store ptr %6, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %18, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %15, align 8
   ret void
 }
 

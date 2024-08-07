@@ -7849,117 +7849,113 @@ define hidden void @"_ZN58_$LT$h2..client..Builder$u20$as$u20$core..clone..Clone
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8, !range !531, !noundef !5
   %7 = getelementptr inbounds i8, ptr %1, i64 40
-  %8 = load i64, ptr %7, align 8, !noundef !5
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load i32, ptr %9, align 8, !range !32, !noundef !5
-  %trunc = trunc nuw i32 %10 to i1
-  %11 = getelementptr inbounds i8, ptr %1, i64 20
-  %12 = load i32, ptr %11, align 4
-  %.sroa.5.0 = select i1 %trunc, i32 %12, i32 undef
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
-  %15 = load i64, ptr %14, align 8, !noundef !5
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
-  %17 = getelementptr inbounds i8, ptr %1, i64 128
-  %18 = load i8, ptr %17, align 8, !alias.scope !761, !noalias !764, !noundef !5
-  %19 = load i32, ptr %16, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
-  %trunc.i = trunc nuw i32 %19 to i1
-  %20 = getelementptr inbounds i8, ptr %1, i64 76
-  %21 = load i32, ptr %20, align 4, !alias.scope !761, !noalias !764
-  %.sroa.5.0.i = select i1 %trunc.i, i32 %21, i32 undef
-  %22 = getelementptr inbounds i8, ptr %1, i64 80
-  %23 = load i32, ptr %22, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
-  %trunc13.i = trunc nuw i32 %23 to i1
-  %24 = getelementptr inbounds i8, ptr %1, i64 84
-  %25 = load i32, ptr %24, align 4, !alias.scope !761, !noalias !764
-  %.sroa.52.0.i = select i1 %trunc13.i, i32 %25, i32 undef
-  %26 = getelementptr inbounds i8, ptr %1, i64 88
-  %27 = load i32, ptr %26, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
-  %trunc14.i = trunc nuw i32 %27 to i1
-  %28 = getelementptr inbounds i8, ptr %1, i64 92
-  %29 = load i32, ptr %28, align 4, !alias.scope !761, !noalias !764
-  %.sroa.54.0.i = select i1 %trunc14.i, i32 %29, i32 undef
-  %30 = getelementptr inbounds i8, ptr %1, i64 96
-  %31 = load i32, ptr %30, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
-  %trunc15.i = trunc nuw i32 %31 to i1
-  %32 = getelementptr inbounds i8, ptr %1, i64 100
-  %33 = load i32, ptr %32, align 4, !alias.scope !761, !noalias !764
-  %.sroa.56.0.i = select i1 %trunc15.i, i32 %33, i32 undef
-  %34 = getelementptr inbounds i8, ptr %1, i64 104
-  %35 = load i32, ptr %34, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
-  %trunc16.i = trunc nuw i32 %35 to i1
-  %36 = getelementptr inbounds i8, ptr %1, i64 108
-  %37 = load i32, ptr %36, align 4, !alias.scope !761, !noalias !764
-  %.sroa.58.0.i = select i1 %trunc16.i, i32 %37, i32 undef
-  %38 = getelementptr inbounds i8, ptr %1, i64 112
-  %39 = load i32, ptr %38, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
-  %trunc17.i = trunc nuw i32 %39 to i1
-  %40 = getelementptr inbounds i8, ptr %1, i64 116
-  %41 = load i32, ptr %40, align 4, !alias.scope !761, !noalias !764
-  %.sroa.510.0.i = select i1 %trunc17.i, i32 %41, i32 undef
-  %42 = getelementptr inbounds i8, ptr %1, i64 120
-  %43 = load i32, ptr %42, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
-  %trunc18.i = trunc nuw i32 %43 to i1
-  %44 = getelementptr inbounds i8, ptr %1, i64 124
-  %45 = load i32, ptr %44, align 4, !alias.scope !761, !noalias !764
-  %.sroa.512.0.i = select i1 %trunc18.i, i32 %45, i32 undef
-  %46 = getelementptr inbounds i8, ptr %1, i64 132
-  %47 = load i32, ptr %46, align 4, !noundef !5
-  %48 = load i64, ptr %1, align 8, !range !537, !noundef !5
-  %trunc3 = trunc nuw i64 %48 to i1
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
-  %50 = load i64, ptr %49, align 8
-  %.sroa.52.0 = select i1 %trunc3, i64 %50, i64 undef
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %4, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 %6, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %8, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %10, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %.sroa.5.0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 48
-  %57 = load <2 x i64>, ptr %13, align 8
-  store <2 x i64> %57, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %15, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %19, ptr %59, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load i32, ptr %8, align 8, !range !32, !noundef !5
+  %trunc = trunc nuw i32 %9 to i1
+  %10 = getelementptr inbounds i8, ptr %1, i64 20
+  %11 = load i32, ptr %10, align 4
+  %.sroa.5.0 = select i1 %trunc, i32 %11, i32 undef
+  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %13 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds i8, ptr %1, i64 128
+  %15 = load i8, ptr %14, align 8, !alias.scope !761, !noalias !764, !noundef !5
+  %16 = load i32, ptr %13, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
+  %trunc.i = trunc nuw i32 %16 to i1
+  %17 = getelementptr inbounds i8, ptr %1, i64 76
+  %18 = load i32, ptr %17, align 4, !alias.scope !761, !noalias !764
+  %.sroa.5.0.i = select i1 %trunc.i, i32 %18, i32 undef
+  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %20 = load i32, ptr %19, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
+  %trunc13.i = trunc nuw i32 %20 to i1
+  %21 = getelementptr inbounds i8, ptr %1, i64 84
+  %22 = load i32, ptr %21, align 4, !alias.scope !761, !noalias !764
+  %.sroa.52.0.i = select i1 %trunc13.i, i32 %22, i32 undef
+  %23 = getelementptr inbounds i8, ptr %1, i64 88
+  %24 = load i32, ptr %23, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
+  %trunc14.i = trunc nuw i32 %24 to i1
+  %25 = getelementptr inbounds i8, ptr %1, i64 92
+  %26 = load i32, ptr %25, align 4, !alias.scope !761, !noalias !764
+  %.sroa.54.0.i = select i1 %trunc14.i, i32 %26, i32 undef
+  %27 = getelementptr inbounds i8, ptr %1, i64 96
+  %28 = load i32, ptr %27, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
+  %trunc15.i = trunc nuw i32 %28 to i1
+  %29 = getelementptr inbounds i8, ptr %1, i64 100
+  %30 = load i32, ptr %29, align 4, !alias.scope !761, !noalias !764
+  %.sroa.56.0.i = select i1 %trunc15.i, i32 %30, i32 undef
+  %31 = getelementptr inbounds i8, ptr %1, i64 104
+  %32 = load i32, ptr %31, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
+  %trunc16.i = trunc nuw i32 %32 to i1
+  %33 = getelementptr inbounds i8, ptr %1, i64 108
+  %34 = load i32, ptr %33, align 4, !alias.scope !761, !noalias !764
+  %.sroa.58.0.i = select i1 %trunc16.i, i32 %34, i32 undef
+  %35 = getelementptr inbounds i8, ptr %1, i64 112
+  %36 = load i32, ptr %35, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
+  %trunc17.i = trunc nuw i32 %36 to i1
+  %37 = getelementptr inbounds i8, ptr %1, i64 116
+  %38 = load i32, ptr %37, align 4, !alias.scope !761, !noalias !764
+  %.sroa.510.0.i = select i1 %trunc17.i, i32 %38, i32 undef
+  %39 = getelementptr inbounds i8, ptr %1, i64 120
+  %40 = load i32, ptr %39, align 8, !range !32, !alias.scope !761, !noalias !764, !noundef !5
+  %trunc18.i = trunc nuw i32 %40 to i1
+  %41 = getelementptr inbounds i8, ptr %1, i64 124
+  %42 = load i32, ptr %41, align 4, !alias.scope !761, !noalias !764
+  %.sroa.512.0.i = select i1 %trunc18.i, i32 %42, i32 undef
+  %43 = getelementptr inbounds i8, ptr %1, i64 132
+  %44 = load i32, ptr %43, align 4, !noundef !5
+  %45 = load i64, ptr %1, align 8, !range !537, !noundef !5
+  %trunc3 = trunc nuw i64 %45 to i1
+  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = load i64, ptr %46, align 8
+  %.sroa.52.0 = select i1 %trunc3, i64 %47, i64 undef
+  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %4, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %6, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %.sroa.5.0, ptr %52, align 4
+  %53 = load <2 x i64>, ptr %7, align 8
+  store <2 x i64> %53, ptr %50, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 56
+  %55 = load <2 x i64>, ptr %12, align 8
+  store <2 x i64> %55, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %16, ptr %56, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %.sroa.5.0.i, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %23, ptr %.sroa.5.0..sroa_idx, align 8
+  store i32 %20, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %.sroa.52.0.i, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 %27, ptr %.sroa.7.0..sroa_idx, align 8
+  store i32 %24, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 92
   store i32 %.sroa.54.0.i, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 %31, ptr %.sroa.9.0..sroa_idx, align 8
+  store i32 %28, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 100
   store i32 %.sroa.56.0.i, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 %35, ptr %.sroa.11.0..sroa_idx, align 8
+  store i32 %32, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 108
   store i32 %.sroa.58.0.i, ptr %.sroa.12.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 %39, ptr %.sroa.13.0..sroa_idx, align 8
+  store i32 %36, ptr %.sroa.13.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 116
   store i32 %.sroa.510.0.i, ptr %.sroa.14.0..sroa_idx, align 4
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
-  store i32 %43, ptr %.sroa.15.0..sroa_idx, align 8
+  store i32 %40, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 124
   store i32 %.sroa.512.0.i, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
-  store i8 %18, ptr %.sroa.17.0..sroa_idx, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 132
-  store i32 %47, ptr %60, align 4
-  store i64 %48, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.52.0, ptr %61, align 8
+  store i8 %15, ptr %.sroa.17.0..sroa_idx, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 %44, ptr %57, align 4
+  store i64 %45, ptr %0, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.52.0, ptr %58, align 8
   ret void
 }
 

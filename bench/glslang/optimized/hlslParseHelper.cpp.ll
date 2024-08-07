@@ -18307,25 +18307,25 @@ define void @_ZN7glslang16HlslParseContext16fixBuiltInIoTypeERNS_5TTypeE(ptr noc
   %.sroa.17.16..sroa_idx43 = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.19.16..sroa_idx45 = getelementptr inbounds i8, ptr %1, i64 33
   %.sroa.1946.16..sroa_idx47 = getelementptr inbounds i8, ptr %1, i64 36
+  %86 = load <2 x i32>, ptr %.sroa.1946.16..sroa_idx, align 4
   %.sroa.21.16..sroa_idx51 = getelementptr inbounds i8, ptr %1, i64 44
   %.sroa.25.16..sroa_idx55 = getelementptr inbounds i8, ptr %1, i64 60
   %.sroa.26.16..sroa_idx57 = getelementptr inbounds i8, ptr %1, i64 61
   %.sroa.27.16..sroa_idx59 = getelementptr inbounds i8, ptr %1, i64 65
   %.sroa.2760.16..sroa_idx61 = getelementptr inbounds i8, ptr %1, i64 68
-  %86 = load <2 x i32>, ptr %.sroa.2760.16..sroa_idx, align 4
-  %87 = load <2 x i64>, ptr %.sroa.21.16..sroa_idx, align 4
-  %88 = load <2 x i32>, ptr %.sroa.1946.16..sroa_idx, align 4
+  %87 = load <2 x i32>, ptr %.sroa.2760.16..sroa_idx, align 4
+  %88 = load <2 x i64>, ptr %.sroa.21.16..sroa_idx, align 4
   store i32 520093696, ptr %84, align 8
   store ptr %.sroa.12.16.copyload, ptr %85, align 8
   store i64 %.sroa.15.16.copyload, ptr %.sroa.15.16..sroa_idx41, align 8
   store i8 %.sroa.17.16.copyload, ptr %.sroa.17.16..sroa_idx43, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19.16..sroa_idx45, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19, i64 3, i1 false)
-  store <2 x i32> %88, ptr %.sroa.1946.16..sroa_idx47, align 4
-  store <2 x i64> %87, ptr %.sroa.21.16..sroa_idx51, align 4
+  store <2 x i32> %86, ptr %.sroa.1946.16..sroa_idx47, align 4
+  store <2 x i64> %88, ptr %.sroa.21.16..sroa_idx51, align 4
   store i8 %.sroa.25.16.copyload, ptr %.sroa.25.16..sroa_idx55, align 4
   store i32 %.sroa.26.16.copyload, ptr %.sroa.26.16..sroa_idx57, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.27.16..sroa_idx59, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.27, i64 3, i1 false)
-  store <2 x i32> %86, ptr %.sroa.2760.16..sroa_idx61, align 4
+  store <2 x i32> %87, ptr %.sroa.2760.16..sroa_idx61, align 4
   %.sroa.29.16..sroa_idx65 = getelementptr inbounds i8, ptr %1, i64 76
   store i32 %.sroa.29.16.copyload, ptr %.sroa.29.16..sroa_idx65, align 4
   %.sroa.30.16..sroa_idx67 = getelementptr inbounds i8, ptr %1, i64 80

@@ -11148,11 +11148,6 @@ cond.end:                                         ; preds = %invoke.cont113, %in
   %ActiveIdUsingAllKeyboardKeys = getelementptr inbounds i8, ptr %this, i64 18756
   store i8 0, ptr %ActiveIdUsingAllKeyboardKeys, align 4
   %ActiveIdUsingNavInputMask = getelementptr inbounds i8, ptr %this, i64 18760
-  store i32 0, ptr %ActiveIdUsingNavInputMask, align 8
-  %CurrentFocusScopeId = getelementptr inbounds i8, ptr %this, i64 18764
-  store i32 0, ptr %CurrentFocusScopeId, align 4
-  %CurrentItemFlags = getelementptr inbounds i8, ptr %this, i64 18768
-  store i32 0, ptr %CurrentItemFlags, align 8
   %DebugShowGroupRects = getelementptr inbounds i8, ptr %this, i64 19000
   store i8 0, ptr %DebugShowGroupRects, align 8
   %BeginMenuCount = getelementptr inbounds i8, ptr %this, i64 19152
@@ -11264,8 +11259,7 @@ cond.end:                                         ; preds = %invoke.cont113, %in
   store i8 0, ptr %LogLineFirstItem, align 4
   %LogDepthRef = getelementptr inbounds i8, ptr %this, i64 24544
   store <4 x i32> <i32 0, i32 2, i32 2, i32 1024>, ptr %LogDepthRef, align 8
-  %DebugLocateId = getelementptr inbounds i8, ptr %this, i64 18772
-  store i32 0, ptr %DebugLocateId, align 4
+  store <4 x i32> zeroinitializer, ptr %ActiveIdUsingNavInputMask, align 8
   %DebugLogClipperAutoDisableFrames = getelementptr inbounds i8, ptr %this, i64 24600
   store <4 x i8> <i8 0, i8 0, i8 -1, i8 0>, ptr %DebugLogClipperAutoDisableFrames, align 8
   %DebugItemPickerMouseButton = getelementptr inbounds i8, ptr %this, i64 24604
@@ -45871,12 +45865,6 @@ if.end4.i:                                        ; preds = %do.end.i, %if.end10
   %NavAnyRequest.i.i = getelementptr inbounds i8, ptr %13, i64 19252
   %NavMoveSubmitted.i10 = getelementptr inbounds i8, ptr %13, i64 19320
   store i8 1, ptr %NavMoveSubmitted.i10, align 8
-  %NavMoveDir.i = getelementptr inbounds i8, ptr %13, i64 19336
-  store i32 -1, ptr %NavMoveDir.i, align 8
-  %NavMoveDirForDebug.i = getelementptr inbounds i8, ptr %13, i64 19340
-  store i32 -1, ptr %NavMoveDirForDebug.i, align 4
-  %NavMoveClipDir.i = getelementptr inbounds i8, ptr %13, i64 19344
-  store i32 2, ptr %NavMoveClipDir.i, align 8
   %NavMoveFlags.i = getelementptr inbounds i8, ptr %13, i64 19324
   store i32 26128, ptr %NavMoveFlags.i, align 4
   %NavMoveScrollFlags.i = getelementptr inbounds i8, ptr %13, i64 19328
@@ -45884,7 +45872,7 @@ if.end4.i:                                        ; preds = %do.end.i, %if.end10
   %NavMoveForwardToNextFrame.i = getelementptr inbounds i8, ptr %13, i64 19322
   store i8 0, ptr %NavMoveForwardToNextFrame.i, align 2
   %NavMoveKeyMods.i = getelementptr inbounds i8, ptr %13, i64 19332
-  store i32 0, ptr %NavMoveKeyMods.i, align 4
+  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 2>, ptr %NavMoveKeyMods.i, align 4
   %NavMoveResultLocal.i = getelementptr inbounds i8, ptr %13, i64 19392
   %InFlags.i.i = getelementptr inbounds i8, ptr %13, i64 19424
   store i32 0, ptr %InFlags.i.i, align 8

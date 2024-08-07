@@ -189485,7 +189485,7 @@ define void @"_ZN85_$LT$typst..layout..grid..GridCell$u20$as$u20$typst..foundati
   %19 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br i1 %18, label %38, label %23
+  br i1 %18, label %40, label %23
 
 20:                                               ; preds = %"_ZN5typst11foundations5value100_$LT$impl$u20$typst..foundations..cast..Reflect$u20$for$u20$typst..foundations..content..Content$GT$8castable17h286aae9b5a5032e7E.exit"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !41882
@@ -189496,7 +189496,7 @@ define void @"_ZN85_$LT$typst..layout..grid..GridCell$u20$as$u20$typst..foundati
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.13383457361836014260"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   br label %22
 
-22:                                               ; preds = %38, %40, %20
+22:                                               ; preds = %40, %42, %20
   ret void
 
 23:                                               ; preds = %16
@@ -189535,7 +189535,7 @@ define void @"_ZN85_$LT$typst..layout..grid..GridCell$u20$as$u20$typst..foundati
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.thread.i": ; preds = %28
   %31 = load <2 x i64>, ptr %.sroa.7.0..sroa_idx2, align 8, !noalias !41892
-  br label %36
+  br label %38
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.i": ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !41898
@@ -189547,8 +189547,9 @@ define void @"_ZN85_$LT$typst..layout..grid..GridCell$u20$as$u20$typst..foundati
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.6.i.sroa.0.0.copyload17 = load i64, ptr %.sroa.6.0..sroa_idx2.i, align 8, !noalias !41904
   %.sroa.6.i.sroa.6.0..sroa.6.0..sroa_idx2.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.8.0..sroa_idx3.i = getelementptr inbounds i8, ptr %4, i64 32
-  %.sroa.8.i.sroa.0.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx3.i, align 8, !noalias !41903
+  %.sroa.6.i.sroa.6.0.copyload19 = load i64, ptr %.sroa.6.i.sroa.6.0..sroa.6.0..sroa_idx2.i.sroa_idx, align 8, !noalias !41904
+  %.sroa.6.i.sroa.7.0..sroa.6.0..sroa_idx2.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %32 = load <2 x i64>, ptr %.sroa.6.i.sroa.7.0..sroa.6.0..sroa_idx2.i.sroa_idx, align 8, !noalias !41904
   %.sroa.8.i.sroa.4.0..sroa.8.0..sroa_idx3.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.i.sroa.4, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.i.sroa.4.0..sroa.8.0..sroa_idx3.i.sroa_idx, i64 56, i1 false), !noalias !41903
   %.sroa.8.i.sroa.5.0..sroa.8.0..sroa_idx3.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 96
@@ -189562,7 +189563,6 @@ define void @"_ZN85_$LT$typst..layout..grid..GridCell$u20$as$u20$typst..foundati
   %.sroa.8.i.sroa.8.sroa.4.0..sroa.8.i.sroa.8.0..sroa.8.0..sroa_idx3.i.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 248
   %.sroa.8.i.sroa.8.sroa.4.0.copyload = load i64, ptr %.sroa.8.i.sroa.8.sroa.4.0..sroa.8.i.sroa.8.0..sroa.8.0..sroa_idx3.i.sroa_idx.sroa_idx, align 8, !noalias !41903
   %.sroa.8.i.sroa.8.sroa.5.0..sroa.8.i.sroa.8.0..sroa.8.0..sroa_idx3.i.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 256
-  %32 = load <2 x i64>, ptr %.sroa.6.i.sroa.6.0..sroa.6.0..sroa_idx2.i.sroa_idx, align 8, !noalias !41904
   %33 = load <2 x i64>, ptr %.sroa.8.i.sroa.8.sroa.5.0..sroa.8.i.sroa.8.0..sroa.8.0..sroa_idx3.i.sroa_idx.sroa_idx, align 8, !noalias !41903
   %.sroa.8.i.sroa.9.0..sroa.8.0..sroa_idx3.i.sroa_idx = getelementptr inbounds i8, ptr %4, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.i.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.i.sroa.9.0..sroa.8.0..sroa_idx3.i.sroa_idx, i64 16, i1 false), !noalias !41903
@@ -189576,40 +189576,42 @@ define void @"_ZN85_$LT$typst..layout..grid..GridCell$u20$as$u20$typst..foundati
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.8.i.sroa.13, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.8.i.sroa.13.0..sroa.8.0..sroa_idx3.i.sroa_idx, i64 5, i1 false), !noalias !41903
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %4), !noalias !41898
   %34 = icmp eq i64 %.sroa.0.0.copyload1.i, 3
-  br i1 %34, label %36, label %35
+  %35 = shufflevector <2 x i64> %32, <2 x i64> poison, <2 x i32> <i32 poison, i32 0>
+  %36 = insertelement <2 x i64> %35, i64 %.sroa.6.i.sroa.6.0.copyload19, i64 0
+  br i1 %34, label %38, label %37
 
-35:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.i"
+37:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.i.sroa.4, i64 56, i1 false), !noalias !41905
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.8.i.sroa.6, i64 120, i1 false), !noalias !41905
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.11.sroa.0, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8.i.sroa.8.sroa.0, i64 20, i1 false), !noalias !41905
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.i.sroa.9, i64 16, i1 false), !noalias !41905
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.15, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.8.i.sroa.13, i64 5, i1 false), !noalias !41905
-  br label %40
+  br label %42
 
-36:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.thread.i"
+38:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.thread.i"
   %.sroa.6.i.sroa.0.0 = phi i64 [ %.sroa.6.i.sroa.0.0.copyload17, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.i" ], [ %24, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.thread.i" ]
-  %37 = phi <2 x i64> [ %32, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.i" ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.thread.i" ]
+  %39 = phi <2 x i64> [ %36, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.i" ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6e6e067ba5760d92E.exit.thread.i" ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i8 0, i64 16, i1 false), !alias.scope !41906, !noalias !41911
-  br label %40
+  br label %42
 
-38:                                               ; preds = %16
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)
+40:                                               ; preds = %16
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)
   store i64 3, ptr %0, align 8
   br label %22
 
-40:                                               ; preds = %36, %35
-  %.sroa.11.sroa.4.0 = phi i64 [ %.sroa.6.i.sroa.0.0, %36 ], [ %.sroa.8.i.sroa.8.sroa.4.0.copyload, %35 ]
-  %.sroa.1416.0 = phi i8 [ 3, %36 ], [ %.sroa.8.i.sroa.12.0.copyload, %35 ]
-  %.sroa.14.0 = phi i8 [ undef, %36 ], [ %.sroa.8.i.sroa.11.0.copyload, %35 ]
-  %.sroa.13.0 = phi i8 [ 6, %36 ], [ %.sroa.8.i.sroa.10.0.copyload, %35 ]
-  %.sroa.1015.0 = phi i32 [ 5, %36 ], [ %.sroa.8.i.sroa.7.0.copyload, %35 ]
-  %.sroa.914.0 = phi i64 [ 3, %36 ], [ %.sroa.8.i.sroa.5.0.copyload, %35 ]
-  %.sroa.713.0 = phi i64 [ 2, %36 ], [ %.sroa.8.i.sroa.0.0.copyload, %35 ]
-  %.sroa.5.0 = phi i64 [ undef, %36 ], [ %.sroa.6.i.sroa.0.0.copyload17, %35 ]
-  %.sroa.0.026 = phi i64 [ 2, %36 ], [ %.sroa.0.0.copyload1.i, %35 ]
-  %41 = phi <2 x i64> [ %37, %36 ], [ %33, %35 ]
-  %42 = phi <2 x i64> [ <i64 2, i64 undef>, %36 ], [ %32, %35 ]
+42:                                               ; preds = %38, %37
+  %.sroa.11.sroa.4.0 = phi i64 [ %.sroa.6.i.sroa.0.0, %38 ], [ %.sroa.8.i.sroa.8.sroa.4.0.copyload, %37 ]
+  %.sroa.1416.0 = phi i8 [ 3, %38 ], [ %.sroa.8.i.sroa.12.0.copyload, %37 ]
+  %.sroa.14.0 = phi i8 [ undef, %38 ], [ %.sroa.8.i.sroa.11.0.copyload, %37 ]
+  %.sroa.13.0 = phi i8 [ 6, %38 ], [ %.sroa.8.i.sroa.10.0.copyload, %37 ]
+  %.sroa.1015.0 = phi i32 [ 5, %38 ], [ %.sroa.8.i.sroa.7.0.copyload, %37 ]
+  %.sroa.914.0 = phi i64 [ 3, %38 ], [ %.sroa.8.i.sroa.5.0.copyload, %37 ]
+  %.sroa.6.0 = phi i64 [ 2, %38 ], [ %.sroa.6.i.sroa.6.0.copyload19, %37 ]
+  %.sroa.5.0 = phi i64 [ undef, %38 ], [ %.sroa.6.i.sroa.0.0.copyload17, %37 ]
+  %.sroa.0.026 = phi i64 [ 2, %38 ], [ %.sroa.0.0.copyload1.i, %37 ]
+  %43 = phi <2 x i64> [ <i64 undef, i64 2>, %38 ], [ %32, %37 ]
+  %44 = phi <2 x i64> [ %39, %38 ], [ %33, %37 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.8.i.sroa.4)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %.sroa.8.i.sroa.6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.8.i.sroa.8.sroa.0)
@@ -189619,9 +189621,9 @@ define void @"_ZN85_$LT$typst..layout..grid..GridCell$u20$as$u20$typst..foundati
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x i64> %42, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.713.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.713.0, ptr %.sroa.713.0..sroa_idx, align 8
+  store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.712.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store <2 x i64> %43, ptr %.sroa.712.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.9, i64 56, i1 false)
   %.sroa.914.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
@@ -189635,7 +189637,7 @@ define void @"_ZN85_$LT$typst..layout..grid..GridCell$u20$as$u20$typst..foundati
   %.sroa.11.sroa.4.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 248
   store i64 %.sroa.11.sroa.4.0, ptr %.sroa.11.sroa.4.0..sroa.11.0..sroa_idx.sroa_idx, align 8
   %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 256
-  store <2 x i64> %41, ptr %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx.sroa_idx, align 8
+  store <2 x i64> %44, ptr %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx.sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 288
@@ -189659,10 +189661,10 @@ define void @"_ZN85_$LT$typst..layout..grid..GridCell$u20$as$u20$typst..foundati
 
 .body:                                            ; preds = %12
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.13383457361836014260"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #65
-          to label %.body.thread unwind label %43
+          to label %.body.thread unwind label %45
 
-43:                                               ; preds = %.body
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %.body
+  %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #64
   unreachable

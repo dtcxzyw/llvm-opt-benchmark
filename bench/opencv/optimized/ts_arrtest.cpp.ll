@@ -116,32 +116,26 @@ define hidden void @_ZN6cvtest9ArrayTestC2Ev(ptr noundef nonnull align 8 derefer
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   store i32 500, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 57
-  store i8 1, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 58
-  store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 9, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 59
-  store i8 1, ptr %9, align 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 9, ptr %6, align 8
+  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %4, align 8
   invoke void @_ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 7)
-          to label %_ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE6resizeEm.exit unwind label %10
+          to label %_ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE6resizeEm.exit unwind label %7
 
 _ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE6resizeEm.exit: ; preds = %1
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #20
+  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  tail call void @_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #20
   tail call void @_ZNSt6vectorIS_IPvSaIS0_EESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #20
   tail call void @_ZN6cvtest8BaseTestD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %8
 }
 
 declare void @_ZN6cvtest8BaseTestC2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0

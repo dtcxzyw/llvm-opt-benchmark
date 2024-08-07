@@ -2892,18 +2892,18 @@ if.end9:                                          ; preds = %if.end4
   %11 = getelementptr inbounds i8, ptr %v9stat_dotl, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %11, i8 0, i64 152, i1 false)
   %st_mode.i = getelementptr inbounds i8, ptr %stbuf, i64 24
-  %12 = load i32, ptr %st_mode.i, align 8
   %st_mode1.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 24
-  store i32 %12, ptr %st_mode1.i, align 8
   %st_nlink.i = getelementptr inbounds i8, ptr %stbuf, i64 16
-  %13 = load i64, ptr %st_nlink.i, align 8
+  %12 = load i64, ptr %st_nlink.i, align 8
   %st_nlink2.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 40
-  store i64 %13, ptr %st_nlink2.i, align 8
-  %st_uid.i = getelementptr inbounds i8, ptr %stbuf, i64 28
+  store i64 %12, ptr %st_nlink2.i, align 8
   %st_uid3.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 28
+  %13 = load <2 x i32>, ptr %st_mode.i, align 8
+  store <2 x i32> %13, ptr %st_mode1.i, align 8
+  %st_gid.i = getelementptr inbounds i8, ptr %stbuf, i64 32
+  %14 = load i32, ptr %st_gid.i, align 8
   %st_gid4.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 32
-  %14 = load <2 x i32>, ptr %st_uid.i, align 4
-  store <2 x i32> %14, ptr %st_uid3.i, align 4
+  store i32 %14, ptr %st_gid4.i, align 8
   %st_rdev.i = getelementptr inbounds i8, ptr %stbuf, i64 40
   %st_rdev5.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 48
   %15 = load <2 x i64>, ptr %st_rdev.i, align 8

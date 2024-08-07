@@ -6041,31 +6041,25 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74: ; preds = %
   br label %191
 
 191:                                              ; preds = %189, %187, %177
-  %192 = getelementptr inbounds i8, ptr %179, i64 212
-  store i32 0, ptr %192, align 4
-  %193 = getelementptr inbounds i8, ptr %179, i64 216
-  store i32 1, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %179, i64 232
-  store i64 0, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %179, i64 240
-  store i64 %178, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %179, i64 204
-  store i32 1, ptr %196, align 4
-  %197 = getelementptr inbounds i8, ptr %179, i64 208
-  store i32 0, ptr %197, align 8
+  %192 = getelementptr inbounds i8, ptr %179, i64 232
+  store i64 0, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %179, i64 240
+  store i64 %178, ptr %193, align 8
+  %194 = getelementptr inbounds i8, ptr %179, i64 204
+  store <4 x i32> <i32 1, i32 0, i32 0, i32 1>, ptr %194, align 4
   store i32 %186, ptr %180, align 8
-  %198 = getelementptr inbounds i8, ptr %179, i64 220
-  store i32 0, ptr %198, align 4
-  %199 = getelementptr inbounds i8, ptr %179, i64 280
-  store ptr null, ptr %199, align 8
+  %195 = getelementptr inbounds i8, ptr %179, i64 220
+  store i32 0, ptr %195, align 4
+  %196 = getelementptr inbounds i8, ptr %179, i64 280
+  store ptr null, ptr %196, align 8
   %.not31.i = icmp eq ptr %134, null
-  br i1 %.not31.i, label %_ZN11FileMapInfo12write_regionEiPcmbb.exit, label %200
+  br i1 %.not31.i, label %_ZN11FileMapInfo12write_regionEiPcmbb.exit, label %197
 
-200:                                              ; preds = %191
+197:                                              ; preds = %191
   tail call void @_ZN11FileMapInfo19write_bytes_alignedEPKvm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %134, i64 noundef %178)
   br label %_ZN11FileMapInfo12write_regionEiPcmbb.exit
 
-_ZN11FileMapInfo12write_regionEiPcmbb.exit:       ; preds = %191, %200
+_ZN11FileMapInfo12write_regionEiPcmbb.exit:       ; preds = %191, %197
   ret ptr %134
 }
 

@@ -29584,14 +29584,14 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc364, %
   %253 = getelementptr inbounds i8, ptr %248, i64 16
   %254 = getelementptr inbounds i8, ptr %80, i64 40
   %255 = getelementptr inbounds i8, ptr %80, i64 32
-  %256 = load <2 x i64>, ptr %252, align 8
-  store <2 x i64> %256, ptr %80, align 16
-  %257 = getelementptr inbounds i8, ptr %80, i64 16
-  %258 = load <2 x i64>, ptr %253, align 8
+  %256 = load <2 x i32>, ptr %251, align 8
+  %257 = load <2 x i64>, ptr %252, align 8
+  store <2 x i64> %257, ptr %80, align 16
+  %258 = getelementptr inbounds i8, ptr %80, i64 16
+  %259 = load <2 x i64>, ptr %253, align 8
   store i8 %250, ptr %254, align 8
-  %259 = load <2 x i32>, ptr %251, align 8
-  store <2 x i32> %259, ptr %255, align 16
-  store <2 x i64> %258, ptr %257, align 16
+  store <2 x i32> %256, ptr %255, align 16
+  store <2 x i64> %259, ptr %258, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
   %260 = getelementptr inbounds i8, ptr %248, i64 32
   %261 = load i64, ptr %260, align 8, !range !329, !noundef !5
@@ -42622,14 +42622,14 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit.i: ; preds = %.noexc366.
   %366 = getelementptr inbounds i8, ptr %361, i64 16
   %367 = getelementptr inbounds i8, ptr %85, i64 40
   %368 = getelementptr inbounds i8, ptr %85, i64 32
-  %369 = load <2 x i64>, ptr %365, align 8, !noalias !7272
-  store <2 x i64> %369, ptr %85, align 16, !noalias !7269
-  %370 = getelementptr inbounds i8, ptr %85, i64 16
-  %371 = load <2 x i64>, ptr %366, align 8, !noalias !7272
+  %369 = load <2 x i32>, ptr %364, align 8, !noalias !7272
+  %370 = load <2 x i64>, ptr %365, align 8, !noalias !7272
+  store <2 x i64> %370, ptr %85, align 16, !noalias !7269
+  %371 = getelementptr inbounds i8, ptr %85, i64 16
+  %372 = load <2 x i64>, ptr %366, align 8, !noalias !7272
   store i8 %363, ptr %367, align 8, !noalias !7269
-  %372 = load <2 x i32>, ptr %364, align 8, !noalias !7272
-  store <2 x i32> %372, ptr %368, align 16, !noalias !7269
-  store <2 x i64> %371, ptr %370, align 16, !noalias !7269
+  store <2 x i32> %369, ptr %368, align 16, !noalias !7269
+  store <2 x i64> %372, ptr %371, align 16, !noalias !7269
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84), !noalias !7269
   %373 = getelementptr inbounds i8, ptr %361, i64 32
   %374 = load i64, ptr %373, align 8, !range !329, !noalias !7272, !noundef !5
