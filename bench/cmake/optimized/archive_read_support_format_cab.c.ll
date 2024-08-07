@@ -6108,20 +6108,18 @@ define internal fastcc range(i32 -1, 2) i32 @lzx_read_bitlen(ptr nocapture nound
   %195 = add nsw i32 %194, 1
   store i32 %195, ptr %193, align 4
   %196 = trunc nuw nsw i32 %189 to i8
-  %197 = load ptr, ptr %23, align 8
-  %198 = add nsw i32 %.0125158, 1
-  %199 = getelementptr inbounds i8, ptr %197, i64 %184
-  store i8 %196, ptr %199, align 1
+  %197 = add nsw i32 %.0125158, 1
+  store i8 %196, ptr %185, align 1
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %75
-  %200 = trunc nsw i64 %indvars.iv.next176 to i32
+  %198 = trunc nsw i64 %indvars.iv.next176 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %191, %171, %104
-  %.2 = phi i32 [ %198, %191 ], [ %172, %171 ], [ %102, %104 ], [ %200, %.loopexit.loopexit ]
-  %201 = icmp slt i32 %.2, %.0128
-  br i1 %201, label %25, label %._crit_edge, !llvm.loop !40
+  %.2 = phi i32 [ %197, %191 ], [ %172, %171 ], [ %102, %104 ], [ %198, %.loopexit.loopexit ]
+  %199 = icmp slt i32 %.2, %.0128
+  br i1 %199, label %25, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %55, %86, %117, %.loopexit, %28, %16
   %.0125.lcssa = phi i32 [ %8, %16 ], [ %.2, %.loopexit ], [ %.0125158, %117 ], [ %.0125158, %86 ], [ %.0125158, %55 ], [ %.0125158, %28 ]
