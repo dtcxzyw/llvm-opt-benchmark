@@ -1854,12 +1854,12 @@ define internal fastcc range(i32 0, 2) i32 @CreateBotDist(ptr noundef %0, ptr no
   %38 = and i64 %7, 1
   br label %39
 
-39:                                               ; preds = %108, %32
-  %40 = phi ptr [ %17, %32 ], [ %109, %108 ]
-  %41 = phi ptr [ %17, %32 ], [ %110, %108 ]
-  %.0 = phi i32 [ 0, %32 ], [ %111, %108 ]
+39:                                               ; preds = %104, %32
+  %40 = phi ptr [ %17, %32 ], [ %105, %104 ]
+  %41 = phi ptr [ %17, %32 ], [ %106, %104 ]
+  %.0 = phi i32 [ 0, %32 ], [ %107, %104 ]
   switch i32 %.0, label %42 [
-    i32 2, label %112
+    i32 2, label %108
     i32 0, label %43
   ]
 
@@ -1885,12 +1885,12 @@ define internal fastcc range(i32 0, 2) i32 @CreateBotDist(ptr noundef %0, ptr no
 53:                                               ; preds = %51
   %54 = getelementptr inbounds i8, ptr %41, i64 8
   store i32 1, ptr %54, align 8
-  br label %108
+  br label %104
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %40, i64 12
   store i32 1, ptr %56, align 4
-  br label %108
+  br label %104
 
 57:                                               ; preds = %43
   %58 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %48, ptr noundef nonnull %6) #8
@@ -1930,150 +1930,142 @@ define internal fastcc range(i32 0, 2) i32 @CreateBotDist(ptr noundef %0, ptr no
   %77 = load ptr, ptr %5, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 12
   %79 = load i32, ptr %78, align 4
-  br i1 %.not92, label %94, label %80
+  br i1 %.not92, label %92, label %80
 
 80:                                               ; preds = %74
   %81 = getelementptr inbounds i8, ptr %76, i64 8
   %82 = load i32, ptr %81, align 8
-  %.not95 = icmp eq i32 %82, -1
-  %83 = add nuw i32 %82, 1
-  %.055 = select i1 %.not95, i32 -1, i32 %83
-  %84 = icmp ugt i32 %79, %.055
-  br i1 %84, label %85, label %86
+  %.055 = call i32 @llvm.uadd.sat.i32(i32 %82, i32 1)
+  %83 = icmp ugt i32 %79, %.055
+  br i1 %83, label %84, label %85
 
-85:                                               ; preds = %80
+84:                                               ; preds = %80
   store i32 %.055, ptr %78, align 4
-  br label %86
+  br label %85
 
-86:                                               ; preds = %85, %80
-  %87 = getelementptr inbounds i8, ptr %76, i64 12
-  %88 = load i32, ptr %87, align 4
-  %.not96 = icmp eq i32 %88, -1
-  %89 = add nuw i32 %88, 1
-  %.1 = select i1 %.not96, i32 -1, i32 %89
-  %90 = getelementptr inbounds i8, ptr %77, i64 8
-  %91 = load i32, ptr %90, align 8
-  %92 = icmp ugt i32 %91, %.1
-  br i1 %92, label %93, label %108
+85:                                               ; preds = %84, %80
+  %86 = getelementptr inbounds i8, ptr %76, i64 12
+  %87 = load i32, ptr %86, align 4
+  %.1 = call i32 @llvm.uadd.sat.i32(i32 %87, i32 1)
+  %88 = getelementptr inbounds i8, ptr %77, i64 8
+  %89 = load i32, ptr %88, align 8
+  %90 = icmp ugt i32 %89, %.1
+  br i1 %90, label %91, label %104
 
-93:                                               ; preds = %86
-  store i32 %.1, ptr %90, align 8
-  br label %108
+91:                                               ; preds = %85
+  store i32 %.1, ptr %88, align 8
+  br label %104
 
-94:                                               ; preds = %74
-  %95 = getelementptr inbounds i8, ptr %76, i64 12
-  %96 = load i32, ptr %95, align 4
-  %.not93 = icmp eq i32 %96, -1
-  %97 = add nuw i32 %96, 1
-  %.2 = select i1 %.not93, i32 -1, i32 %97
-  %98 = icmp ugt i32 %79, %.2
-  br i1 %98, label %99, label %100
+92:                                               ; preds = %74
+  %93 = getelementptr inbounds i8, ptr %76, i64 12
+  %94 = load i32, ptr %93, align 4
+  %.2 = call i32 @llvm.uadd.sat.i32(i32 %94, i32 1)
+  %95 = icmp ugt i32 %79, %.2
+  br i1 %95, label %96, label %97
 
-99:                                               ; preds = %94
+96:                                               ; preds = %92
   store i32 %.2, ptr %78, align 4
-  br label %100
+  br label %97
 
-100:                                              ; preds = %99, %94
-  %101 = getelementptr inbounds i8, ptr %76, i64 8
-  %102 = load i32, ptr %101, align 8
-  %.not94 = icmp eq i32 %102, -1
-  %103 = add nuw i32 %102, 1
-  %.3 = select i1 %.not94, i32 -1, i32 %103
-  %104 = getelementptr inbounds i8, ptr %77, i64 8
-  %105 = load i32, ptr %104, align 8
-  %106 = icmp ugt i32 %105, %.3
-  br i1 %106, label %107, label %108
+97:                                               ; preds = %96, %92
+  %98 = getelementptr inbounds i8, ptr %76, i64 8
+  %99 = load i32, ptr %98, align 8
+  %.3 = call i32 @llvm.uadd.sat.i32(i32 %99, i32 1)
+  %100 = getelementptr inbounds i8, ptr %77, i64 8
+  %101 = load i32, ptr %100, align 8
+  %102 = icmp ugt i32 %101, %.3
+  br i1 %102, label %103, label %104
 
-107:                                              ; preds = %100
-  store i32 %.3, ptr %104, align 8
-  br label %108
+103:                                              ; preds = %97
+  store i32 %.3, ptr %100, align 8
+  br label %104
 
-108:                                              ; preds = %93, %86, %107, %100, %53, %55
-  %109 = phi ptr [ %77, %93 ], [ %77, %86 ], [ %77, %107 ], [ %77, %100 ], [ %40, %53 ], [ %40, %55 ]
-  %110 = phi ptr [ %77, %93 ], [ %77, %86 ], [ %77, %107 ], [ %77, %100 ], [ %41, %53 ], [ %40, %55 ]
-  %111 = add nuw nsw i32 %.0, 1
+104:                                              ; preds = %91, %85, %103, %97, %53, %55
+  %105 = phi ptr [ %77, %91 ], [ %77, %85 ], [ %77, %103 ], [ %77, %97 ], [ %40, %53 ], [ %40, %55 ]
+  %106 = phi ptr [ %77, %91 ], [ %77, %85 ], [ %77, %103 ], [ %77, %97 ], [ %41, %53 ], [ %40, %55 ]
+  %107 = add nuw nsw i32 %.0, 1
   br label %39, !llvm.loop !22
 
-112:                                              ; preds = %39
-  %113 = load i32, ptr %41, align 8
-  %.not81 = icmp eq i32 %113, -1
-  br i1 %.not81, label %118, label %114
+108:                                              ; preds = %39
+  %109 = load i32, ptr %41, align 8
+  %.not81 = icmp eq i32 %109, -1
+  br i1 %.not81, label %114, label %110
 
-114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %41, i64 8
-  %116 = load i32, ptr %115, align 8
-  %.not82 = icmp eq i32 %116, -1
-  %117 = add i32 %116, %113
-  %spec.select99 = select i1 %.not82, i32 -1, i32 %117
-  br label %118
+110:                                              ; preds = %108
+  %111 = getelementptr inbounds i8, ptr %41, i64 8
+  %112 = load i32, ptr %111, align 8
+  %.not82 = icmp eq i32 %112, -1
+  %113 = add i32 %112, %109
+  %spec.select99 = select i1 %.not82, i32 -1, i32 %113
+  br label %114
 
-118:                                              ; preds = %114, %112
-  %.160 = phi i32 [ -1, %112 ], [ %spec.select99, %114 ]
-  %119 = getelementptr inbounds i8, ptr %41, i64 4
-  %120 = load i32, ptr %119, align 4
-  %.not83 = icmp eq i32 %120, -1
-  br i1 %.not83, label %125, label %121
+114:                                              ; preds = %110, %108
+  %.160 = phi i32 [ -1, %108 ], [ %spec.select99, %110 ]
+  %115 = getelementptr inbounds i8, ptr %41, i64 4
+  %116 = load i32, ptr %115, align 4
+  %.not83 = icmp eq i32 %116, -1
+  br i1 %.not83, label %121, label %117
 
-121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %41, i64 12
-  %123 = load i32, ptr %122, align 4
-  %.not84 = icmp eq i32 %123, -1
-  %124 = add i32 %123, %120
-  %spec.select100 = select i1 %.not84, i32 -1, i32 %124
-  br label %125
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds i8, ptr %41, i64 12
+  %119 = load i32, ptr %118, align 4
+  %.not84 = icmp eq i32 %119, -1
+  %120 = add i32 %119, %116
+  %spec.select100 = select i1 %.not84, i32 -1, i32 %120
+  br label %121
 
-125:                                              ; preds = %121, %118
-  %.158 = phi i32 [ -1, %118 ], [ %spec.select100, %121 ]
-  %126 = icmp ult i32 %.160, %33
-  br i1 %126, label %127, label %138
+121:                                              ; preds = %117, %114
+  %.158 = phi i32 [ -1, %114 ], [ %spec.select100, %117 ]
+  %122 = icmp ult i32 %.160, %33
+  br i1 %122, label %123, label %134
 
-127:                                              ; preds = %125
+123:                                              ; preds = %121
   %.not85 = icmp eq i32 %33, -1
-  br i1 %.not85, label %133, label %128
+  br i1 %.not85, label %129, label %124
 
-128:                                              ; preds = %127
-  %129 = zext i32 %33 to i64
-  %130 = getelementptr inbounds i32, ptr %2, i64 %129
-  %131 = load i32, ptr %130, align 4
-  %132 = add i32 %131, -1
-  store i32 %132, ptr %130, align 4
-  br label %133
+124:                                              ; preds = %123
+  %125 = zext i32 %33 to i64
+  %126 = getelementptr inbounds i32, ptr %2, i64 %125
+  %127 = load i32, ptr %126, align 4
+  %128 = add i32 %127, -1
+  store i32 %128, ptr %126, align 4
+  br label %129
 
-133:                                              ; preds = %127, %128
-  %134 = zext i32 %.160 to i64
-  %135 = getelementptr inbounds i32, ptr %2, i64 %134
-  %136 = load i32, ptr %135, align 4
-  %137 = add i32 %136, 1
-  store i32 %137, ptr %135, align 4
-  br label %138
+129:                                              ; preds = %123, %124
+  %130 = zext i32 %.160 to i64
+  %131 = getelementptr inbounds i32, ptr %2, i64 %130
+  %132 = load i32, ptr %131, align 4
+  %133 = add i32 %132, 1
+  store i32 %133, ptr %131, align 4
+  br label %134
 
-138:                                              ; preds = %133, %125
-  %.056 = phi i32 [ %33, %125 ], [ %.160, %133 ]
-  %139 = icmp ult i32 %.158, %.056
-  br i1 %139, label %140, label %.loopexit
+134:                                              ; preds = %129, %121
+  %.056 = phi i32 [ %33, %121 ], [ %.160, %129 ]
+  %135 = icmp ult i32 %.158, %.056
+  br i1 %135, label %136, label %.loopexit
 
-140:                                              ; preds = %138
+136:                                              ; preds = %134
   %.not87 = icmp eq i32 %.056, -1
-  br i1 %.not87, label %146, label %141
+  br i1 %.not87, label %142, label %137
 
-141:                                              ; preds = %140
-  %142 = zext i32 %.056 to i64
-  %143 = getelementptr inbounds i32, ptr %2, i64 %142
-  %144 = load i32, ptr %143, align 4
-  %145 = add i32 %144, -1
-  store i32 %145, ptr %143, align 4
-  br label %146
+137:                                              ; preds = %136
+  %138 = zext i32 %.056 to i64
+  %139 = getelementptr inbounds i32, ptr %2, i64 %138
+  %140 = load i32, ptr %139, align 4
+  %141 = add i32 %140, -1
+  store i32 %141, ptr %139, align 4
+  br label %142
 
-146:                                              ; preds = %140, %141
-  %147 = zext i32 %.158 to i64
-  %148 = getelementptr inbounds i32, ptr %2, i64 %147
-  %149 = load i32, ptr %148, align 4
-  %150 = add i32 %149, 1
-  store i32 %150, ptr %148, align 4
+142:                                              ; preds = %136, %137
+  %143 = zext i32 %.158 to i64
+  %144 = getelementptr inbounds i32, ptr %2, i64 %143
+  %145 = load i32, ptr %144, align 4
+  %146 = add i32 %145, 1
+  store i32 %146, ptr %144, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %70, %138, %146, %4, %72, %59, %14
-  %.061 = phi i32 [ 0, %72 ], [ 0, %59 ], [ 0, %14 ], [ 1, %4 ], [ 1, %146 ], [ 1, %138 ], [ 0, %70 ]
+.loopexit:                                        ; preds = %70, %134, %142, %4, %72, %59, %14
+  %.061 = phi i32 [ 0, %72 ], [ 0, %59 ], [ 0, %14 ], [ 1, %4 ], [ 1, %142 ], [ 1, %134 ], [ 0, %70 ]
   ret i32 %.061
 }
 
@@ -2237,6 +2229,9 @@ declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

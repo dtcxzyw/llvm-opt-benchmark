@@ -10166,9 +10166,7 @@ entry:
   %1 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %nativeCallFrameDepth_.i, align 8
-  %add1.i.i = add nuw i32 %argCount, 7
-  %cmp.not.i.i = icmp ugt i32 %argCount, -8
-  %cond.i.i = select i1 %cmp.not.i.i, i32 -1, i32 %add1.i.i
+  %cond.i.i = tail call noundef i32 @llvm.uadd.sat.i32(i32 %argCount, i32 7)
   %registerStackEnd_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9464
   %2 = load ptr, ptr %registerStackEnd_.i.i.i.i, align 8
   %3 = load ptr, ptr %stackPointer_.i.i, align 8
@@ -10744,6 +10742,9 @@ declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

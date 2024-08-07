@@ -1019,9 +1019,7 @@ if.then16.i:                                      ; preds = %if.then5.i
   br label %if.then26
 
 if.end20.i:                                       ; preds = %if.end.i
-  %cmp21.not.i = icmp eq i64 %conv3.i.i, -1
-  %add23.i = add i64 %conv3.i.i, 1
-  %cond.i = select i1 %cmp21.not.i, i64 -1, i64 %add23.i
+  %cond.i = tail call i64 @llvm.uadd.sat.i64(i64 %conv3.i.i, i64 1)
   %call24.i = tail call noalias ptr @g_malloc0_n(i64 noundef %cond.i, i64 noundef 16) #25
   %resample_buf.i = getelementptr inbounds i8, ptr %sw, i64 56
   %buffer.i = getelementptr inbounds i8, ptr %sw, i64 72
@@ -1927,9 +1925,7 @@ if.then16.i:                                      ; preds = %if.then5.i
   br label %if.then25
 
 if.end20.i:                                       ; preds = %if.end.i
-  %cmp21.not.i = icmp eq i64 %conv3.i.i, -1
-  %add23.i = add i64 %conv3.i.i, 1
-  %cond.i = select i1 %cmp21.not.i, i64 -1, i64 %add23.i
+  %cond.i = tail call i64 @llvm.uadd.sat.i64(i64 %conv3.i.i, i64 1)
   %call24.i = tail call noalias ptr @g_malloc0_n(i64 noundef %cond.i, i64 noundef 16) #25
   %resample_buf.i = getelementptr inbounds i8, ptr %sw, i64 64
   %buffer.i = getelementptr inbounds i8, ptr %sw, i64 80
@@ -8090,6 +8086,9 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.uadd.sat.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21

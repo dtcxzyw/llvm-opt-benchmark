@@ -13518,9 +13518,7 @@ invoke.cont5:                                     ; preds = %for.cond
   br i1 %tobool.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont5
-  %cmp8.not = icmp eq i64 %n.0, -1
-  %inc = add i64 %n.0, 1
-  %spec.select = select i1 %cmp8.not, i64 -1, i64 %inc
+  %spec.select = call i64 @llvm.uadd.sat.i64(i64 %n.0, i64 1)
   %12 = load ptr, ptr %lock, align 8
   %enabled_.i5 = getelementptr inbounds i8, ptr %12, i64 48
   %13 = load i8, ptr %enabled_.i5, align 8
@@ -67316,6 +67314,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.uadd.sat.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #30

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_alone_encoder(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @lzma_strm_init(ptr noundef %0) #4
+  %3 = tail call i32 @lzma_strm_init(ptr noundef %0) #5
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %16
 
@@ -21,7 +21,7 @@ define dso_local i32 @lzma_alone_encoder(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not13, label %11, label %10
 
 10:                                               ; preds = %4
-  tail call void @lzma_end(ptr noundef nonnull %0) #4
+  tail call void @lzma_end(ptr noundef nonnull %0) #5
   br label %16
 
 11:                                               ; preds = %4
@@ -49,7 +49,7 @@ define internal i32 @alone_encoder_init(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void @lzma_next_end(ptr noundef nonnull %0, ptr noundef %1) #4
+  tail call void @lzma_next_end(ptr noundef nonnull %0, ptr noundef %1) #5
   br label %8
 
 8:                                                ; preds = %7, %3
@@ -59,9 +59,9 @@ define internal i32 @alone_encoder_init(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
-  %12 = tail call noalias ptr @lzma_alloc(i64 noundef 104, ptr noundef %1) #4
+  %12 = tail call noalias ptr @lzma_alloc(i64 noundef 104, ptr noundef %1) #5
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %44, label %14
+  br i1 %13, label %43, label %14
 
 14:                                               ; preds = %11
   store ptr %12, ptr %0, align 8
@@ -83,13 +83,13 @@ define internal i32 @alone_encoder_init(ptr noundef %0, ptr noundef %1, ptr noun
   %19 = getelementptr inbounds i8, ptr %.038, i64 80
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %.038, i64 88
-  %21 = tail call zeroext i1 @lzma_lzma_lclppb_encode(ptr noundef %2, ptr noundef nonnull %20) #4
-  br i1 %21, label %44, label %22
+  %21 = tail call zeroext i1 @lzma_lzma_lclppb_encode(ptr noundef %2, ptr noundef nonnull %20) #5
+  br i1 %21, label %43, label %22
 
 22:                                               ; preds = %17
   %23 = load i32, ptr %2, align 8
   %24 = icmp ult i32 %23, 4096
-  br i1 %24, label %44, label %25
+  br i1 %24, label %43, label %25
 
 25:                                               ; preds = %22
   %26 = add i32 %23, -1
@@ -103,25 +103,23 @@ define internal i32 @alone_encoder_init(ptr noundef %0, ptr noundef %1, ptr noun
   %34 = or i32 %33, %32
   %35 = lshr i32 %34, 16
   %36 = or i32 %35, %34
-  %.not43 = icmp eq i32 %36, -1
-  %37 = add nuw i32 %36, 1
-  %spec.select = select i1 %.not43, i32 -1, i32 %37
-  %38 = getelementptr inbounds i8, ptr %.038, i64 89
-  store i32 %spec.select, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %.038, i64 93
-  store i64 -1, ptr %39, align 1
+  %spec.select = tail call i32 @llvm.uadd.sat.i32(i32 %36, i32 1)
+  %37 = getelementptr inbounds i8, ptr %.038, i64 89
+  store i32 %spec.select, ptr %37, align 1
+  %38 = getelementptr inbounds i8, ptr %.038, i64 93
+  store i64 -1, ptr %38, align 1
   store i64 0, ptr %4, align 16
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @lzma_lzma_encoder_init, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %2, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
-  %43 = call i32 @lzma_next_filter_init(ptr noundef nonnull %.038, ptr noundef %1, ptr noundef nonnull %4) #4
-  br label %44
+  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @lzma_lzma_encoder_init, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %2, ptr %40, align 16
+  %41 = getelementptr inbounds i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  %42 = call i32 @lzma_next_filter_init(ptr noundef nonnull %.038, ptr noundef %1, ptr noundef nonnull %4) #5
+  br label %43
 
-44:                                               ; preds = %22, %17, %11, %25
-  %.037 = phi i32 [ %43, %25 ], [ 5, %11 ], [ 8, %17 ], [ 8, %22 ]
+43:                                               ; preds = %22, %17, %11, %25
+  %.037 = phi i32 [ %42, %25 ], [ 5, %11 ], [ 8, %17 ], [ 8, %22 ]
   ret i32 %.037
 }
 
@@ -153,7 +151,7 @@ define internal i32 @alone_encode(ptr noundef %0, ptr noundef %1, ptr noalias no
   ]
 
 17:                                               ; preds = %15
-  %18 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 13, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7) #4
+  %18 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 13, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7) #5
   %19 = load i64, ptr %14, align 8
   %20 = icmp ult i64 %19, 13
   br i1 %20, label %.loopexit, label %21
@@ -168,7 +166,7 @@ define internal i32 @alone_encode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = tail call i32 %26(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #4
+  %28 = tail call i32 %26(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %15, %21, %9, %24
@@ -178,8 +176,8 @@ define internal i32 @alone_encode(ptr noundef %0, ptr noundef %1, ptr noalias no
 
 ; Function Attrs: nounwind uwtable
 define internal void @alone_encoder_end(ptr noundef %0, ptr noundef %1) #0 {
-  tail call void @lzma_next_end(ptr noundef %0, ptr noundef %1) #4
-  tail call void @lzma_free(ptr noundef %0, ptr noundef %1) #4
+  tail call void @lzma_next_end(ptr noundef %0, ptr noundef %1) #5
+  tail call void @lzma_free(ptr noundef %0, ptr noundef %1) #5
   ret void
 }
 
@@ -196,11 +194,15 @@ declare i64 @lzma_bufcpy(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr
 
 declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

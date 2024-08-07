@@ -5736,9 +5736,7 @@ invoke.cont60:                                    ; preds = %if.end57, %cond.fal
   br i1 %cmp.i314, label %return, label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont60
-  %cmp.not.i480 = icmp eq i64 %i.sroa.8.0521, -1
-  %inc.i482 = add nuw nsw i64 %i.sroa.8.0521, 1
-  %spec.select = select i1 %cmp.not.i480, i64 -1, i64 %inc.i482
+  %spec.select = call i64 @llvm.uadd.sat.i64(i64 %i.sroa.8.0521, i64 1)
   %cmp.i.i116.not = icmp eq i64 %spec.select, %cond.i.i112527
   br i1 %cmp.i.i116.not, label %return, label %for.body, !llvm.loop !61
 
@@ -7634,6 +7632,9 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.uadd.sat.i64(i64, i64) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

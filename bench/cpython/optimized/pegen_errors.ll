@@ -463,9 +463,7 @@ if.end49:                                         ; preds = %if.then28, %cond.en
   %col_offset.0 = phi i64 [ %conv44, %cond.end40 ], [ %conv48, %if.else46 ], [ 0, %if.then28 ]
   %end_col_offset50 = getelementptr inbounds i8, ptr %cond25, i64 32
   %14 = load i32, ptr %end_col_offset50, align 8
-  %cmp51.not = icmp eq i32 %14, -1
-  %add55 = add nuw i32 %14, 1
-  %narrow = select i1 %cmp51.not, i32 -1, i32 %add55
+  %narrow = tail call i32 @llvm.uadd.sat.i32(i32 %14, i32 1)
   %end_col_offset.0 = sext i32 %narrow to i64
   call void @llvm.va_start.p0(ptr nonnull %va58)
   %lineno = getelementptr inbounds i8, ptr %cond25, i64 20
@@ -1276,6 +1274,9 @@ declare void @llvm.va_end.p0(ptr) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

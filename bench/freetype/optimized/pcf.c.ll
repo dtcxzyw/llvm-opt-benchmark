@@ -2455,8 +2455,8 @@ define internal fastcc i32 @pcf_get_encodings(ptr noundef %0, ptr noundef %1) un
   br i1 %121, label %._crit_edge117, label %.lr.ph116.split
 
 .lr.ph116.split:                                  ; preds = %.lr.ph116, %._crit_edge
-  %122 = phi i16 [ %138, %._crit_edge ], [ %120, %.lr.ph116 ]
-  %.074114 = phi i16 [ %139, %._crit_edge ], [ %117, %.lr.ph116 ]
+  %122 = phi i16 [ %134, %._crit_edge ], [ %120, %.lr.ph116 ]
+  %.074114 = phi i16 [ %135, %._crit_edge ], [ %117, %.lr.ph116 ]
   %.079113 = phi ptr [ %.180.lcssa, %._crit_edge ], [ %113, %.lr.ph116 ]
   %123 = load i16, ptr %6, align 8
   %.not96109 = icmp ugt i16 %123, %122
@@ -2466,39 +2466,35 @@ define internal fastcc i32 @pcf_get_encodings(ptr noundef %0, ptr noundef %1) un
   br i1 %.not88, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.073111.us = phi i16 [ %129, %.lr.ph.split.us ], [ %123, %.lr.ph ]
-  %.180110.us = phi ptr [ %128, %.lr.ph.split.us ], [ %.079113, %.lr.ph ]
+  %.073111.us = phi i16 [ %127, %.lr.ph.split.us ], [ %123, %.lr.ph ]
+  %.180110.us = phi ptr [ %126, %.lr.ph.split.us ], [ %.079113, %.lr.ph ]
   %124 = call zeroext i16 @FT_Stream_GetUShortLE(ptr noundef %0) #15
-  %125 = icmp eq i16 %124, -1
-  %126 = add i16 %124, 1
-  %127 = select i1 %125, i16 -1, i16 %126
-  %128 = getelementptr inbounds i8, ptr %.180110.us, i64 2
-  store i16 %127, ptr %.180110.us, align 2
-  %129 = add i16 %.073111.us, 1
-  %130 = load i16, ptr %38, align 2
-  %.not96.us = icmp ugt i16 %129, %130
+  %125 = call i16 @llvm.uadd.sat.i16(i16 %124, i16 1)
+  %126 = getelementptr inbounds i8, ptr %.180110.us, i64 2
+  store i16 %125, ptr %.180110.us, align 2
+  %127 = add i16 %.073111.us, 1
+  %128 = load i16, ptr %38, align 2
+  %.not96.us = icmp ugt i16 %127, %128
   br i1 %.not96.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.073111 = phi i16 [ %136, %.lr.ph.split ], [ %123, %.lr.ph ]
-  %.180110 = phi ptr [ %135, %.lr.ph.split ], [ %.079113, %.lr.ph ]
-  %131 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %0) #15
-  %132 = icmp eq i16 %131, -1
-  %133 = add i16 %131, 1
-  %134 = select i1 %132, i16 -1, i16 %133
-  %135 = getelementptr inbounds i8, ptr %.180110, i64 2
-  store i16 %134, ptr %.180110, align 2
-  %136 = add i16 %.073111, 1
-  %137 = load i16, ptr %38, align 2
-  %.not96 = icmp ugt i16 %136, %137
+  %.073111 = phi i16 [ %132, %.lr.ph.split ], [ %123, %.lr.ph ]
+  %.180110 = phi ptr [ %131, %.lr.ph.split ], [ %.079113, %.lr.ph ]
+  %129 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %0) #15
+  %130 = call i16 @llvm.uadd.sat.i16(i16 %129, i16 1)
+  %131 = getelementptr inbounds i8, ptr %.180110, i64 2
+  store i16 %130, ptr %.180110, align 2
+  %132 = add i16 %.073111, 1
+  %133 = load i16, ptr %38, align 2
+  %.not96 = icmp ugt i16 %132, %133
   br i1 %.not96, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph116.split
-  %138 = phi i16 [ %122, %.lr.ph116.split ], [ %130, %.lr.ph.split.us ], [ %137, %.lr.ph.split ]
-  %.180.lcssa = phi ptr [ %.079113, %.lr.ph116.split ], [ %128, %.lr.ph.split.us ], [ %135, %.lr.ph.split ]
-  %139 = add i16 %.074114, 1
-  %140 = load i16, ptr %45, align 2
-  %.not95 = icmp ugt i16 %139, %140
+  %134 = phi i16 [ %122, %.lr.ph116.split ], [ %128, %.lr.ph.split.us ], [ %133, %.lr.ph.split ]
+  %.180.lcssa = phi ptr [ %.079113, %.lr.ph116.split ], [ %126, %.lr.ph.split.us ], [ %131, %.lr.ph.split ]
+  %135 = add i16 %.074114, 1
+  %136 = load i16, ptr %45, align 2
+  %.not95 = icmp ugt i16 %135, %136
   br i1 %.not95, label %._crit_edge117, label %.lr.ph116.split, !llvm.loop !23
 
 ._crit_edge117:                                   ; preds = %._crit_edge, %.lr.ph116, %116
@@ -3064,6 +3060,9 @@ declare hidden void @FT_Select_Metrics(ptr noundef, i64 noundef) local_unnamed_a
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.uadd.sat.i16(i16, i16) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13

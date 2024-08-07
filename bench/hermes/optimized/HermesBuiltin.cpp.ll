@@ -2988,9 +2988,7 @@ if.end46:                                         ; preds = %cond.true.i, %if.el
   %29 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
   %inc.i.i = add i32 %29, 1
   store i32 %inc.i.i, ptr %nativeCallFrameDepth_.i.i, align 8
-  %add1.i.i.i = add nuw i32 %conv.i, 7
-  %cmp.not.i.i.i = icmp ugt i32 %conv.i, -8
-  %cond.i.i.i = select i1 %cmp.not.i.i.i, i32 -1, i32 %add1.i.i.i
+  %cond.i.i.i = tail call noundef i32 @llvm.uadd.sat.i32(i32 %conv.i, i32 7)
   %registerStackEnd_.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9464
   %30 = load ptr, ptr %registerStackEnd_.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %30 to i64
@@ -4417,6 +4415,9 @@ declare i32 @_ZN6hermes2vm8JSObject17hasNamedOrIndexedENS0_6HandleIS1_EERNS0_7Ru
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10

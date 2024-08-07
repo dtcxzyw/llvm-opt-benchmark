@@ -1003,9 +1003,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %if.end, %cond.true.
   %10 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
   %inc.i.i = add i32 %10, 1
   store i32 %inc.i.i, ptr %nativeCallFrameDepth_.i.i, align 8
-  %add1.i.i.i = add nuw i32 %cond, 7
-  %cmp.not.i.i.i = icmp ugt i32 %cond, -8
-  %cond.i.i.i = select i1 %cmp.not.i.i.i, i32 -1, i32 %add1.i.i.i
+  %cond.i.i.i = tail call noundef i32 @llvm.uadd.sat.i32(i32 %cond, i32 7)
   %registerStackEnd_.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9464
   %11 = load ptr, ptr %registerStackEnd_.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %11 to i64
@@ -1262,6 +1260,9 @@ declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

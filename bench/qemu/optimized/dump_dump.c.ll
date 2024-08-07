@@ -804,9 +804,7 @@ if.then189:                                       ; preds = %if.end186
 
 if.end192:                                        ; preds = %if.then189, %if.end186
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 80), align 8
-  %cmp194.not = icmp eq i32 %37, -1
-  %add200 = add nuw i32 %37, 1
-  %storemerge127 = select i1 %cmp194.not, i32 -1, i32 %add200
+  %storemerge127 = call i32 @llvm.uadd.sat.i32(i32 %37, i32 1)
   store i32 %storemerge127, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 152), align 8
   %dump_state_global.val131 = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 32), align 8
   %cmp.i136 = icmp eq i32 %dump_state_global.val131, 2
@@ -3971,6 +3969,9 @@ declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16

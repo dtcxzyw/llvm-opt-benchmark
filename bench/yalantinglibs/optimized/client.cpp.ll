@@ -12689,9 +12689,7 @@ invoke.cont5:                                     ; preds = %for.cond
   br i1 %tobool.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont5
-  %cmp8.not = icmp eq i64 %n.0, -1
-  %inc = add i64 %n.0, 1
-  %spec.select = select i1 %cmp8.not, i64 -1, i64 %inc
+  %spec.select = call i64 @llvm.uadd.sat.i64(i64 %n.0, i64 1)
   %12 = load ptr, ptr %lock, align 8
   %enabled_.i5 = getelementptr inbounds i8, ptr %12, i64 48
   %13 = load i8, ptr %enabled_.i5, align 8
@@ -37372,6 +37370,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.uadd.sat.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #26

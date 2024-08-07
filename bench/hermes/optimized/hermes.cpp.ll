@@ -9091,6 +9091,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 
 invoke.cont18:                                    ; preds = %invoke.cont2
   %6 = load ptr, ptr %runtime_, align 8
+  %conv12 = trunc nuw i64 %count to i32
   %retval.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %7 = load i32, ptr %jsThis, align 8
   switch i32 %7, label %lor.lhs.false23.i [
@@ -9142,8 +9143,7 @@ invoke.cont22:                                    ; preds = %return.fold.split.i
   %16 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %inc.i = add i32 %16, 1
   store i32 %inc.i, ptr %nativeCallFrameDepth_.i, align 8
-  %add1.i.i = add nuw nsw i64 %count, 7
-  %cmp.not.i.i = icmp ugt i64 %count, 4294967288
+  %cond.i.i = call noundef i32 @llvm.uadd.sat.i32(i32 %conv12, i32 7)
   %registerStackEnd_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 9464
   %17 = load ptr, ptr %registerStackEnd_.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %17 to i64
@@ -9151,7 +9151,7 @@ invoke.cont22:                                    ; preds = %return.fold.split.i
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
-  %conv2.i.i.i = select i1 %cmp.not.i.i, i64 4294967295, i64 %add1.i.i
+  %conv2.i.i.i = zext i32 %cond.i.i to i64
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
   %cmp.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
@@ -9422,6 +9422,7 @@ invoke.cont37:                                    ; preds = %if.end.i.i.i.i.i.i.
   %retval.sroa.0.0.copyload.i10 = phi i64 [ %or.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %retval.sroa.0.0.copyload.i10.pre, %if.end.i.i.i.i.i.i.invoke.cont37_crit_edge ]
   %retval.0.i.i.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i8, %if.end.i.i.i.i.i.i.invoke.cont37_crit_edge ]
   %13 = load ptr, ptr %runtime_, align 8
+  %conv27 = trunc nuw i64 %count to i32
   %retval.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %stackPointer_.i.i = getelementptr inbounds i8, ptr %13, i64 9472
   %14 = load ptr, ptr %stackPointer_.i.i, align 8
@@ -9429,8 +9430,7 @@ invoke.cont37:                                    ; preds = %if.end.i.i.i.i.i.i.
   %15 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %inc.i = add i32 %15, 1
   store i32 %inc.i, ptr %nativeCallFrameDepth_.i, align 8
-  %add1.i.i = add nuw nsw i64 %count, 7
-  %cmp.not.i.i = icmp ugt i64 %count, 4294967288
+  %cond.i.i = call noundef i32 @llvm.uadd.sat.i32(i32 %conv27, i32 7)
   %registerStackEnd_.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 9464
   %16 = load ptr, ptr %registerStackEnd_.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %16 to i64
@@ -9438,7 +9438,7 @@ invoke.cont37:                                    ; preds = %if.end.i.i.i.i.i.i.
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
-  %conv2.i.i.i = select i1 %cmp.not.i.i, i64 4294967295, i64 %add1.i.i
+  %conv2.i.i.i = zext i32 %cond.i.i to i64
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
   %cmp.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
@@ -24322,14 +24322,17 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #30
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #31
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #32
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #32
+declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #33
+declare i64 @llvm.umax.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #33
+declare i64 @llvm.umin.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #34
@@ -24372,8 +24375,8 @@ attributes #28 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #29 = { nofree nounwind }
 attributes #30 = { nofree nosync nounwind memory(none) }
 attributes #31 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #33 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #32 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #33 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #34 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #35 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #36 = { nounwind willreturn memory(none) }

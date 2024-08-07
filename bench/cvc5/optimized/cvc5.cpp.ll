@@ -96181,9 +96181,7 @@ _ZN4cvc512_GLOBAL__N_112extToIntKindENS_4KindE.exit37: ; preds = %for.cond.i.i.i
   ]
 
 land.lhs.true:                                    ; preds = %_ZN4cvc512_GLOBAL__N_112extToIntKindENS_4KindE.exit37, %_ZN4cvc512_GLOBAL__N_112extToIntKindENS_4KindE.exit37, %_ZN4cvc512_GLOBAL__N_112extToIntKindENS_4KindE.exit37, %_ZN4cvc512_GLOBAL__N_112extToIntKindENS_4KindE.exit37, %_ZN4cvc512_GLOBAL__N_112extToIntKindENS_4KindE.exit37
-  %cmp.not = icmp eq i32 %call1, -1
-  %inc = add nuw i32 %call1, 1
-  %spec.select = select i1 %cmp.not, i32 -1, i32 %inc
+  %spec.select = tail call i32 @llvm.uadd.sat.i32(i32 %call1, i32 1)
   br label %if.end
 
 if.end:                                           ; preds = %if.end3.i.i.i.i.i15, %lor.lhs.false.i.i.i.i.i18, %for.cond.i.i.i30, %if.end15.i.i.i5, %_ZN4cvc512_GLOBAL__N_112extToIntKindENS_4KindE.exit37, %land.lhs.true
@@ -197659,6 +197657,9 @@ declare i64 @llvm.umin.i64(i64, i64) #28
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #28
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -12155,14 +12155,14 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 7, label %.preheader
     i32 8, label %40
     i32 0, label %78
-    i32 4, label %109
-    i32 9, label %159
-    i32 2, label %166
-    i32 1, label %166
-    i32 5, label %169
-    i32 10, label %243
+    i32 4, label %108
+    i32 9, label %158
+    i32 2, label %165
+    i32 1, label %165
+    i32 5, label %168
+    i32 10, label %242
     i32 6, label %.loopexit
-    i32 3, label %248
+    i32 3, label %247
   ]
 
 .preheader:                                       ; preds = %tailrecurse
@@ -12359,459 +12359,457 @@ mmcl_alt_merge.exit:                              ; preds = %67, %70
   %101 = tail call i32 %100(ptr noundef %.0164299) #22
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %.0164299, i64 %102
-  %.not.i223 = icmp eq i32 %.0165298, -1
-  %104 = add i32 %.0165298, 1
-  %.0.i = select i1 %.not.i223, i32 -1, i32 %104
-  %105 = load ptr, ptr %94, align 8
-  %106 = icmp ult ptr %103, %105
-  br i1 %106, label %98, label %._crit_edge, !llvm.loop !82
+  %.0.i = tail call i32 @llvm.uadd.sat.i32(i32 %.0165298, i32 1)
+  %104 = load ptr, ptr %94, align 8
+  %105 = icmp ult ptr %103, %104
+  br i1 %105, label %98, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %98, %93
   %.0165.lcssa = phi i32 [ 0, %93 ], [ %.0.i, %98 ]
   store i32 %.0165.lcssa, ptr %2, align 4
-  %107 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 %.0165.lcssa, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 1, ptr %108, align 4
+  %106 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %.0165.lcssa, ptr %106, align 4
+  %107 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 1, ptr %107, align 4
   br label %mmcl_alt_merge.exit229
 
-109:                                              ; preds = %tailrecurse
-  %110 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %111 = load i32, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %.tr, i64 28
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp eq i32 %111, %113
-  br i1 %114, label %115, label %139
+108:                                              ; preds = %tailrecurse
+  %109 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %110 = load i32, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %.tr, i64 28
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp eq i32 %110, %112
+  br i1 %113, label %114, label %138
 
-115:                                              ; preds = %109
-  %116 = icmp eq i32 %111, 0
-  br i1 %116, label %117, label %120
+114:                                              ; preds = %108
+  %115 = icmp eq i32 %110, 0
+  br i1 %115, label %116, label %119
 
-117:                                              ; preds = %115
+116:                                              ; preds = %114
   store i32 0, ptr %2, align 4
-  %118 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 0, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 1, ptr %119, align 4
+  %117 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 0, ptr %117, align 4
+  %118 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 1, ptr %118, align 4
   br label %mmcl_alt_merge.exit229
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %.tr, i64 16
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call fastcc i32 @node_char_len1(ptr noundef %122, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
-  %124 = icmp slt i32 %123, 0
-  br i1 %124, label %mmcl_alt_merge.exit229, label %125
+119:                                              ; preds = %114
+  %120 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call fastcc i32 @node_char_len1(ptr noundef %121, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
+  %123 = icmp slt i32 %122, 0
+  br i1 %123, label %mmcl_alt_merge.exit229, label %124
 
-125:                                              ; preds = %120
-  %126 = load i32, ptr %110, align 8
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %distance_multiply.exit.thread.i, label %129
+124:                                              ; preds = %119
+  %125 = load i32, ptr %109, align 8
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %distance_multiply.exit.thread.i, label %128
 
-distance_multiply.exit.thread.i:                  ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %2, i64 4
+distance_multiply.exit.thread.i:                  ; preds = %124
+  %127 = getelementptr inbounds i8, ptr %2, i64 4
   br label %mmcl_multiply.exit
 
-129:                                              ; preds = %125
-  %130 = load i32, ptr %2, align 4
-  %131 = udiv i32 -1, %126
-  %132 = icmp ugt i32 %131, %130
-  %133 = mul i32 %130, %126
-  %spec.select.i.i = select i1 %132, i32 %133, i32 -1
-  %134 = getelementptr inbounds i8, ptr %2, i64 4
-  %135 = load i32, ptr %134, align 4
-  %136 = icmp ugt i32 %131, %135
-  %137 = mul i32 %135, %126
-  %spec.select.i5.i = select i1 %136, i32 %137, i32 -1
+128:                                              ; preds = %124
+  %129 = load i32, ptr %2, align 4
+  %130 = udiv i32 -1, %125
+  %131 = icmp ugt i32 %130, %129
+  %132 = mul i32 %129, %125
+  %spec.select.i.i = select i1 %131, i32 %132, i32 -1
+  %133 = getelementptr inbounds i8, ptr %2, i64 4
+  %134 = load i32, ptr %133, align 4
+  %135 = icmp ugt i32 %130, %134
+  %136 = mul i32 %134, %125
+  %spec.select.i5.i = select i1 %135, i32 %136, i32 -1
   br label %mmcl_multiply.exit
 
-mmcl_multiply.exit:                               ; preds = %distance_multiply.exit.thread.i, %129
-  %spec.select.i.sink.i = phi i32 [ 0, %distance_multiply.exit.thread.i ], [ %spec.select.i.i, %129 ]
-  %138 = phi ptr [ %128, %distance_multiply.exit.thread.i ], [ %134, %129 ]
-  %.0.i6.i = phi i32 [ 0, %distance_multiply.exit.thread.i ], [ %spec.select.i5.i, %129 ]
+mmcl_multiply.exit:                               ; preds = %distance_multiply.exit.thread.i, %128
+  %spec.select.i.sink.i = phi i32 [ 0, %distance_multiply.exit.thread.i ], [ %spec.select.i.i, %128 ]
+  %137 = phi ptr [ %127, %distance_multiply.exit.thread.i ], [ %133, %128 ]
+  %.0.i6.i = phi i32 [ 0, %distance_multiply.exit.thread.i ], [ %spec.select.i5.i, %128 ]
   store i32 %spec.select.i.sink.i, ptr %2, align 4
-  store i32 %.0.i6.i, ptr %138, align 4
+  store i32 %.0.i6.i, ptr %137, align 4
   br label %mmcl_alt_merge.exit229
 
-139:                                              ; preds = %109
-  %140 = getelementptr inbounds i8, ptr %.tr, i64 16
-  %141 = load ptr, ptr %140, align 8
-  %142 = tail call fastcc i32 @node_char_len1(ptr noundef %141, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
-  %143 = icmp slt i32 %142, 0
-  br i1 %143, label %mmcl_alt_merge.exit229, label %144
+138:                                              ; preds = %108
+  %139 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %140 = load ptr, ptr %139, align 8
+  %141 = tail call fastcc i32 @node_char_len1(ptr noundef %140, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
+  %142 = icmp slt i32 %141, 0
+  br i1 %142, label %mmcl_alt_merge.exit229, label %143
 
-144:                                              ; preds = %139
-  %145 = load i32, ptr %110, align 8
-  %146 = load i32, ptr %112, align 4
-  %147 = icmp eq i32 %145, 0
-  br i1 %147, label %distance_multiply.exit.i, label %148
+143:                                              ; preds = %138
+  %144 = load i32, ptr %109, align 8
+  %145 = load i32, ptr %111, align 4
+  %146 = icmp eq i32 %144, 0
+  br i1 %146, label %distance_multiply.exit.i, label %147
 
-148:                                              ; preds = %144
-  %149 = load i32, ptr %2, align 4
-  %150 = udiv i32 -1, %145
-  %151 = icmp ugt i32 %150, %149
-  %152 = mul i32 %149, %145
-  %spec.select.i.i224 = select i1 %151, i32 %152, i32 -1
+147:                                              ; preds = %143
+  %148 = load i32, ptr %2, align 4
+  %149 = udiv i32 -1, %144
+  %150 = icmp ugt i32 %149, %148
+  %151 = mul i32 %148, %144
+  %spec.select.i.i224 = select i1 %150, i32 %151, i32 -1
   br label %distance_multiply.exit.i
 
-distance_multiply.exit.i:                         ; preds = %148, %144
-  %.0.i.i225 = phi i32 [ 0, %144 ], [ %spec.select.i.i224, %148 ]
+distance_multiply.exit.i:                         ; preds = %147, %143
+  %.0.i.i225 = phi i32 [ 0, %143 ], [ %spec.select.i.i224, %147 ]
   store i32 %.0.i.i225, ptr %2, align 4
-  %153 = getelementptr inbounds i8, ptr %2, i64 4
-  switch i32 %146, label %154 [
+  %152 = getelementptr inbounds i8, ptr %2, i64 4
+  switch i32 %145, label %153 [
     i32 -1, label %mmcl_repeat_range_multiply.exit
     i32 0, label %mmcl_repeat_range_multiply.exit
   ]
 
-154:                                              ; preds = %distance_multiply.exit.i
-  %155 = load i32, ptr %153, align 4
-  %156 = udiv i32 -1, %146
-  %157 = icmp ugt i32 %156, %155
-  %158 = mul i32 %155, %146
-  %spec.select.i7.i = select i1 %157, i32 %158, i32 -1
+153:                                              ; preds = %distance_multiply.exit.i
+  %154 = load i32, ptr %152, align 4
+  %155 = udiv i32 -1, %145
+  %156 = icmp ugt i32 %155, %154
+  %157 = mul i32 %154, %145
+  %spec.select.i7.i = select i1 %156, i32 %157, i32 -1
   br label %mmcl_repeat_range_multiply.exit
 
-mmcl_repeat_range_multiply.exit:                  ; preds = %distance_multiply.exit.i, %distance_multiply.exit.i, %154
-  %.0.i8.sink.i = phi i32 [ %146, %distance_multiply.exit.i ], [ %spec.select.i7.i, %154 ], [ %146, %distance_multiply.exit.i ]
-  store i32 %.0.i8.sink.i, ptr %153, align 4
+mmcl_repeat_range_multiply.exit:                  ; preds = %distance_multiply.exit.i, %distance_multiply.exit.i, %153
+  %.0.i8.sink.i = phi i32 [ %145, %distance_multiply.exit.i ], [ %spec.select.i7.i, %153 ], [ %145, %distance_multiply.exit.i ]
+  store i32 %.0.i8.sink.i, ptr %152, align 4
   br label %mmcl_alt_merge.exit229
 
-159:                                              ; preds = %tailrecurse
-  %160 = getelementptr inbounds i8, ptr %.tr, i64 4
-  %161 = load i32, ptr %160, align 4
-  %162 = and i32 %161, 64
-  %.not206 = icmp eq i32 %162, 0
-  br i1 %.not206, label %tailrecurse.backedge, label %163
+158:                                              ; preds = %tailrecurse
+  %159 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %160 = load i32, ptr %159, align 4
+  %161 = and i32 %160, 64
+  %.not206 = icmp eq i32 %161, 0
+  br i1 %.not206, label %tailrecurse.backedge, label %162
 
-163:                                              ; preds = %159
+162:                                              ; preds = %158
   store i32 0, ptr %2, align 4
-  %164 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 -1, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %165, align 4
+  %163 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 -1, ptr %163, align 4
+  %164 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %164, align 4
   br label %mmcl_alt_merge.exit229
 
-tailrecurse.backedge:                             ; preds = %169, %169, %159
+tailrecurse.backedge:                             ; preds = %168, %168, %158
   %.tr.be.in = getelementptr inbounds i8, ptr %.tr, i64 16
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   br label %tailrecurse
 
-166:                                              ; preds = %tailrecurse, %tailrecurse
+165:                                              ; preds = %tailrecurse, %tailrecurse
   store i32 1, ptr %2, align 4
-  %167 = getelementptr inbounds i8, ptr %2, i64 4
+  %166 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 1, ptr %166, align 4
+  %167 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %167, align 4
-  %168 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 1, ptr %168, align 4
   br label %mmcl_alt_merge.exit229
 
-169:                                              ; preds = %tailrecurse
-  %170 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %171 = load i32, ptr %170, align 8
-  switch i32 %171, label %mmcl_alt_merge.exit229 [
-    i32 0, label %172
+168:                                              ; preds = %tailrecurse
+  %169 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %170 = load i32, ptr %169, align 8
+  switch i32 %170, label %mmcl_alt_merge.exit229 [
+    i32 0, label %171
     i32 1, label %tailrecurse.backedge
     i32 2, label %tailrecurse.backedge
-    i32 3, label %204
+    i32 3, label %203
   ]
 
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %.tr, i64 4
-  %174 = load i32, ptr %173, align 4
-  %175 = and i32 %174, 4
-  %.not203 = icmp eq i32 %175, 0
-  br i1 %.not203, label %179, label %176
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %173 = load i32, ptr %172, align 4
+  %174 = and i32 %173, 4
+  %.not203 = icmp eq i32 %174, 0
+  br i1 %.not203, label %178, label %175
 
-176:                                              ; preds = %172
-  %177 = getelementptr inbounds i8, ptr %.tr, i64 56
-  %178 = load <2 x i32>, ptr %177, align 8
-  store <2 x i32> %178, ptr %2, align 4
-  br label %202
+175:                                              ; preds = %171
+  %176 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %177 = load <2 x i32>, ptr %176, align 8
+  store <2 x i32> %177, ptr %2, align 4
+  br label %201
 
-179:                                              ; preds = %172
-  %180 = and i32 %174, 8
-  %.not204 = icmp eq i32 %180, 0
-  br i1 %.not204, label %183, label %181
+178:                                              ; preds = %171
+  %179 = and i32 %173, 8
+  %.not204 = icmp eq i32 %179, 0
+  br i1 %.not204, label %182, label %180
 
-181:                                              ; preds = %179
+180:                                              ; preds = %178
   store i32 0, ptr %2, align 4
-  %182 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 -1, ptr %182, align 4
-  br label %202
+  %181 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 -1, ptr %181, align 4
+  br label %201
 
-183:                                              ; preds = %179
-  %184 = or disjoint i32 %174, 8
-  store i32 %184, ptr %173, align 4
-  %185 = getelementptr inbounds i8, ptr %.tr, i64 16
-  %186 = load ptr, ptr %185, align 8
-  %187 = tail call fastcc i32 @node_char_len1(ptr noundef %186, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
-  %188 = load i32, ptr %173, align 4
-  %189 = and i32 %188, -9
-  store i32 %189, ptr %173, align 4
-  %190 = icmp slt i32 %187, 0
-  br i1 %190, label %mmcl_alt_merge.exit229, label %191
+182:                                              ; preds = %178
+  %183 = or disjoint i32 %173, 8
+  store i32 %183, ptr %172, align 4
+  %184 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %185 = load ptr, ptr %184, align 8
+  %186 = tail call fastcc i32 @node_char_len1(ptr noundef %185, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
+  %187 = load i32, ptr %172, align 4
+  %188 = and i32 %187, -9
+  store i32 %188, ptr %172, align 4
+  %189 = icmp slt i32 %186, 0
+  br i1 %189, label %mmcl_alt_merge.exit229, label %190
 
-191:                                              ; preds = %183
-  %192 = load i32, ptr %2, align 4
-  %193 = getelementptr inbounds i8, ptr %.tr, i64 56
-  store i32 %192, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %2, i64 4
-  %195 = load i32, ptr %194, align 4
-  %196 = getelementptr inbounds i8, ptr %.tr, i64 60
-  store i32 %195, ptr %196, align 4
-  %197 = or i32 %189, 4
-  store i32 %197, ptr %173, align 4
-  %198 = getelementptr inbounds i8, ptr %2, i64 8
-  %199 = load i32, ptr %198, align 4
-  %.not205 = icmp eq i32 %199, 0
-  br i1 %.not205, label %202, label %200
+190:                                              ; preds = %182
+  %191 = load i32, ptr %2, align 4
+  %192 = getelementptr inbounds i8, ptr %.tr, i64 56
+  store i32 %191, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %2, i64 4
+  %194 = load i32, ptr %193, align 4
+  %195 = getelementptr inbounds i8, ptr %.tr, i64 60
+  store i32 %194, ptr %195, align 4
+  %196 = or i32 %188, 4
+  store i32 %196, ptr %172, align 4
+  %197 = getelementptr inbounds i8, ptr %2, i64 8
+  %198 = load i32, ptr %197, align 4
+  %.not205 = icmp eq i32 %198, 0
+  br i1 %.not205, label %201, label %199
 
-200:                                              ; preds = %191
-  %201 = or i32 %189, 33554436
-  store i32 %201, ptr %173, align 4
-  br label %202
+199:                                              ; preds = %190
+  %200 = or i32 %188, 33554436
+  store i32 %200, ptr %172, align 4
+  br label %201
 
-202:                                              ; preds = %181, %200, %191, %176
-  %.3 = phi i32 [ 0, %176 ], [ 0, %181 ], [ %187, %200 ], [ %187, %191 ]
-  %203 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %203, align 4
+201:                                              ; preds = %180, %199, %190, %175
+  %.3 = phi i32 [ 0, %175 ], [ 0, %180 ], [ %186, %199 ], [ %186, %190 ]
+  %202 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %202, align 4
   br label %mmcl_alt_merge.exit229
 
-204:                                              ; preds = %169
-  %205 = getelementptr inbounds i8, ptr %.tr, i64 16
-  %206 = load ptr, ptr %205, align 8
-  %207 = tail call fastcc i32 @node_char_len1(ptr noundef %206, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
-  %208 = icmp slt i32 %207, 0
-  br i1 %208, label %mmcl_alt_merge.exit229, label %209
+203:                                              ; preds = %168
+  %204 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %205 = load ptr, ptr %204, align 8
+  %206 = tail call fastcc i32 @node_char_len1(ptr noundef %205, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
+  %207 = icmp slt i32 %206, 0
+  br i1 %207, label %mmcl_alt_merge.exit229, label %208
 
-209:                                              ; preds = %204
-  %210 = getelementptr inbounds i8, ptr %.tr, i64 32
-  %211 = load ptr, ptr %210, align 8
-  %.not201 = icmp eq ptr %211, null
-  br i1 %.not201, label %216, label %212
+208:                                              ; preds = %203
+  %209 = getelementptr inbounds i8, ptr %.tr, i64 32
+  %210 = load ptr, ptr %209, align 8
+  %.not201 = icmp eq ptr %210, null
+  br i1 %.not201, label %215, label %211
 
-212:                                              ; preds = %209
-  %213 = call fastcc i32 @node_char_len1(ptr noundef nonnull %211, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %3, i32 noundef %8)
-  %214 = icmp slt i32 %213, 0
-  br i1 %214, label %mmcl_alt_merge.exit229, label %215
+211:                                              ; preds = %208
+  %212 = call fastcc i32 @node_char_len1(ptr noundef nonnull %210, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %3, i32 noundef %8)
+  %213 = icmp slt i32 %212, 0
+  br i1 %213, label %mmcl_alt_merge.exit229, label %214
 
-215:                                              ; preds = %212
+214:                                              ; preds = %211
   call fastcc void @mmcl_add(ptr noundef %2, ptr noundef nonnull %6)
-  br label %216
+  br label %215
 
-216:                                              ; preds = %215, %209
-  %.4 = phi i32 [ %213, %215 ], [ %207, %209 ]
-  %217 = getelementptr inbounds i8, ptr %.tr, i64 40
-  %218 = load ptr, ptr %217, align 8
-  %.not202 = icmp eq ptr %218, null
-  br i1 %.not202, label %222, label %219
+215:                                              ; preds = %214, %208
+  %.4 = phi i32 [ %212, %214 ], [ %206, %208 ]
+  %216 = getelementptr inbounds i8, ptr %.tr, i64 40
+  %217 = load ptr, ptr %216, align 8
+  %.not202 = icmp eq ptr %217, null
+  br i1 %.not202, label %221, label %218
 
-219:                                              ; preds = %216
-  %220 = call fastcc i32 @node_char_len1(ptr noundef nonnull %218, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, i32 noundef %8)
-  %221 = icmp slt i32 %220, 0
-  br i1 %221, label %mmcl_alt_merge.exit229, label %._crit_edge348
+218:                                              ; preds = %215
+  %219 = call fastcc i32 @node_char_len1(ptr noundef nonnull %217, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, i32 noundef %8)
+  %220 = icmp slt i32 %219, 0
+  br i1 %220, label %mmcl_alt_merge.exit229, label %._crit_edge348
 
-._crit_edge348:                                   ; preds = %219
+._crit_edge348:                                   ; preds = %218
   %.pre = load i32, ptr %7, align 4
-  br label %225
+  br label %224
 
-222:                                              ; preds = %216
-  %223 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 0, ptr %223, align 4
-  %224 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 1, ptr %224, align 4
-  br label %225
+221:                                              ; preds = %215
+  %222 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 0, ptr %222, align 4
+  %223 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 1, ptr %223, align 4
+  br label %224
 
-225:                                              ; preds = %._crit_edge348, %222
-  %226 = phi i32 [ %.pre, %._crit_edge348 ], [ 0, %222 ]
-  %.5 = phi i32 [ %220, %._crit_edge348 ], [ %.4, %222 ]
-  %227 = load i32, ptr %2, align 4
-  %228 = icmp ugt i32 %227, %226
-  %229 = getelementptr inbounds i8, ptr %7, i64 8
-  br i1 %228, label %230, label %232
+224:                                              ; preds = %._crit_edge348, %221
+  %225 = phi i32 [ %.pre, %._crit_edge348 ], [ 0, %221 ]
+  %.5 = phi i32 [ %219, %._crit_edge348 ], [ %.4, %221 ]
+  %226 = load i32, ptr %2, align 4
+  %227 = icmp ugt i32 %226, %225
+  %228 = getelementptr inbounds i8, ptr %7, i64 8
+  br i1 %227, label %229, label %231
 
-230:                                              ; preds = %225
-  store i32 %226, ptr %2, align 4
-  %231 = load i32, ptr %229, align 4
+229:                                              ; preds = %224
+  store i32 %225, ptr %2, align 4
+  %230 = load i32, ptr %228, align 4
   br label %.sink.split.i227
 
-232:                                              ; preds = %225
-  %233 = icmp ne i32 %227, %226
-  %234 = load i32, ptr %229, align 4
-  %.not.i226 = icmp eq i32 %234, 0
-  %or.cond240 = select i1 %233, i1 true, i1 %.not.i226
-  br i1 %or.cond240, label %236, label %.sink.split.i227
+231:                                              ; preds = %224
+  %232 = icmp ne i32 %226, %225
+  %233 = load i32, ptr %228, align 4
+  %.not.i226 = icmp eq i32 %233, 0
+  %or.cond240 = select i1 %232, i1 true, i1 %.not.i226
+  br i1 %or.cond240, label %235, label %.sink.split.i227
 
-.sink.split.i227:                                 ; preds = %232, %230
-  %.sink.i228 = phi i32 [ %231, %230 ], [ 1, %232 ]
-  %235 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %.sink.i228, ptr %235, align 4
-  br label %236
+.sink.split.i227:                                 ; preds = %231, %229
+  %.sink.i228 = phi i32 [ %230, %229 ], [ 1, %231 ]
+  %234 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %.sink.i228, ptr %234, align 4
+  br label %235
 
-236:                                              ; preds = %.sink.split.i227, %232
-  %237 = getelementptr inbounds i8, ptr %2, i64 4
-  %238 = load i32, ptr %237, align 4
-  %239 = getelementptr inbounds i8, ptr %7, i64 4
-  %240 = load i32, ptr %239, align 4
-  %241 = icmp ult i32 %238, %240
-  br i1 %241, label %242, label %mmcl_alt_merge.exit229
+235:                                              ; preds = %.sink.split.i227, %231
+  %236 = getelementptr inbounds i8, ptr %2, i64 4
+  %237 = load i32, ptr %236, align 4
+  %238 = getelementptr inbounds i8, ptr %7, i64 4
+  %239 = load i32, ptr %238, align 4
+  %240 = icmp ult i32 %237, %239
+  br i1 %240, label %241, label %mmcl_alt_merge.exit229
 
-242:                                              ; preds = %236
-  store i32 %240, ptr %237, align 4
+241:                                              ; preds = %235
+  store i32 %239, ptr %236, align 4
   br label %mmcl_alt_merge.exit229
 
-243:                                              ; preds = %tailrecurse
+242:                                              ; preds = %tailrecurse
   store i32 0, ptr %2, align 4
-  %244 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 0, ptr %244, align 4
-  %245 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 1, ptr %245, align 4
+  %243 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 0, ptr %243, align 4
+  %244 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 1, ptr %244, align 4
   br label %mmcl_alt_merge.exit229
 
-.loopexit:                                        ; preds = %tailrecurse, %248
+.loopexit:                                        ; preds = %tailrecurse, %247
   store i32 0, ptr %2, align 4
-  %246 = getelementptr inbounds i8, ptr %2, i64 4
+  %245 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 0, ptr %245, align 4
+  %246 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %246, align 4
-  %247 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %247, align 4
   br label %mmcl_alt_merge.exit229
 
-248:                                              ; preds = %tailrecurse
-  %249 = getelementptr inbounds i8, ptr %.tr, i64 4
-  %250 = load i32, ptr %249, align 4
-  %251 = and i32 %250, 131072
-  %.not = icmp eq i32 %251, 0
-  br i1 %.not, label %252, label %.loopexit
+247:                                              ; preds = %tailrecurse
+  %248 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %249 = load i32, ptr %248, align 4
+  %250 = and i32 %249, 131072
+  %.not = icmp eq i32 %250, 0
+  br i1 %.not, label %251, label %.loopexit
 
-252:                                              ; preds = %248
-  %253 = and i32 %250, 64
-  %.not195 = icmp eq i32 %253, 0
-  br i1 %.not195, label %260, label %254
+251:                                              ; preds = %247
+  %252 = and i32 %249, 64
+  %.not195 = icmp eq i32 %252, 0
+  br i1 %.not195, label %259, label %253
 
-254:                                              ; preds = %252
-  %255 = and i32 %250, 8192
-  %.not200 = icmp eq i32 %255, 0
+253:                                              ; preds = %251
+  %254 = and i32 %249, 8192
+  %.not200 = icmp eq i32 %254, 0
   store i32 0, ptr %2, align 4
-  %256 = getelementptr inbounds i8, ptr %2, i64 4
-  %257 = getelementptr inbounds i8, ptr %2, i64 8
-  br i1 %.not200, label %259, label %258
+  %255 = getelementptr inbounds i8, ptr %2, i64 4
+  %256 = getelementptr inbounds i8, ptr %2, i64 8
+  br i1 %.not200, label %258, label %257
 
-258:                                              ; preds = %254
-  store i32 -1, ptr %256, align 4
-  store i32 0, ptr %257, align 4
-  br label %mmcl_alt_merge.exit229
-
-259:                                              ; preds = %254
+257:                                              ; preds = %253
+  store i32 -1, ptr %255, align 4
   store i32 0, ptr %256, align 4
-  store i32 0, ptr %257, align 4
   br label %mmcl_alt_merge.exit229
 
-260:                                              ; preds = %252
-  %261 = getelementptr inbounds i8, ptr %3, i64 224
-  %262 = load ptr, ptr %261, align 8
-  %.not196 = icmp eq ptr %262, null
-  %263 = getelementptr inbounds i8, ptr %3, i64 96
-  %264 = select i1 %.not196, ptr %263, ptr %262
-  %265 = getelementptr inbounds i8, ptr %.tr, i64 48
-  %266 = load ptr, ptr %265, align 8
-  %.not197 = icmp eq ptr %266, null
-  %267 = getelementptr inbounds i8, ptr %.tr, i64 20
-  %268 = select i1 %.not197, ptr %267, ptr %266
-  %269 = load i32, ptr %268, align 4
-  %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds %struct.MemEnv, ptr %264, i64 %270
-  %272 = load ptr, ptr %271, align 8
-  %273 = tail call fastcc i32 @node_char_len1(ptr noundef %272, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
-  %274 = icmp slt i32 %273, 0
-  br i1 %274, label %mmcl_alt_merge.exit229, label %275
+258:                                              ; preds = %253
+  store i32 0, ptr %255, align 4
+  store i32 0, ptr %256, align 4
+  br label %mmcl_alt_merge.exit229
 
-275:                                              ; preds = %260
+259:                                              ; preds = %251
+  %260 = getelementptr inbounds i8, ptr %3, i64 224
+  %261 = load ptr, ptr %260, align 8
+  %.not196 = icmp eq ptr %261, null
+  %262 = getelementptr inbounds i8, ptr %3, i64 96
+  %263 = select i1 %.not196, ptr %262, ptr %261
+  %264 = getelementptr inbounds i8, ptr %.tr, i64 48
+  %265 = load ptr, ptr %264, align 8
+  %.not197 = icmp eq ptr %265, null
+  %266 = getelementptr inbounds i8, ptr %.tr, i64 20
+  %267 = select i1 %.not197, ptr %266, ptr %265
+  %268 = load i32, ptr %267, align 4
+  %269 = sext i32 %268 to i64
+  %270 = getelementptr inbounds %struct.MemEnv, ptr %263, i64 %269
+  %271 = load ptr, ptr %270, align 8
+  %272 = tail call fastcc i32 @node_char_len1(ptr noundef %271, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8)
+  %273 = icmp slt i32 %272, 0
+  br i1 %273, label %mmcl_alt_merge.exit229, label %274
+
+274:                                              ; preds = %259
   %.val217 = load i32, ptr %2, align 4
-  %276 = getelementptr i8, ptr %2, i64 4
-  %.val218 = load i32, ptr %276, align 4
-  %277 = icmp ne i32 %.val217, %.val218
-  %278 = icmp eq i32 %.val217, -1
-  %narrow.i230.not = or i1 %278, %277
-  br i1 %narrow.i230.not, label %279, label %281
+  %275 = getelementptr i8, ptr %2, i64 4
+  %.val218 = load i32, ptr %275, align 4
+  %276 = icmp ne i32 %.val217, %.val218
+  %277 = icmp eq i32 %.val217, -1
+  %narrow.i230.not = or i1 %277, %276
+  br i1 %narrow.i230.not, label %278, label %280
 
-279:                                              ; preds = %275
-  %280 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %280, align 4
-  br label %281
+278:                                              ; preds = %274
+  %279 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %279, align 4
+  br label %280
 
-281:                                              ; preds = %279, %275
-  %282 = getelementptr inbounds i8, ptr %.tr, i64 16
-  %283 = load i32, ptr %282, align 8
-  %284 = icmp sgt i32 %283, 1
-  br i1 %284, label %.lr.ph, label %mmcl_alt_merge.exit229
+280:                                              ; preds = %278, %274
+  %281 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %282 = load i32, ptr %281, align 8
+  %283 = icmp sgt i32 %282, 1
+  br i1 %283, label %.lr.ph, label %mmcl_alt_merge.exit229
 
-.lr.ph:                                           ; preds = %281
-  %285 = getelementptr inbounds i8, ptr %6, i64 4
-  %286 = getelementptr inbounds i8, ptr %6, i64 8
-  %287 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %288
+.lr.ph:                                           ; preds = %280
+  %284 = getelementptr inbounds i8, ptr %6, i64 4
+  %285 = getelementptr inbounds i8, ptr %6, i64 8
+  %286 = getelementptr inbounds i8, ptr %2, i64 8
+  br label %287
 
-288:                                              ; preds = %.lr.ph, %mmcl_alt_merge.exit235
+287:                                              ; preds = %.lr.ph, %mmcl_alt_merge.exit235
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %mmcl_alt_merge.exit235 ]
-  %289 = getelementptr inbounds i32, ptr %268, i64 %indvars.iv
-  %290 = load i32, ptr %289, align 4
-  %291 = sext i32 %290 to i64
-  %292 = getelementptr inbounds %struct.MemEnv, ptr %264, i64 %291
-  %293 = load ptr, ptr %292, align 8
-  %294 = call fastcc i32 @node_char_len1(ptr noundef %293, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %3, i32 noundef %8)
-  %295 = icmp slt i32 %294, 0
-  br i1 %295, label %mmcl_alt_merge.exit229, label %296
+  %288 = getelementptr inbounds i32, ptr %267, i64 %indvars.iv
+  %289 = load i32, ptr %288, align 4
+  %290 = sext i32 %289 to i64
+  %291 = getelementptr inbounds %struct.MemEnv, ptr %263, i64 %290
+  %292 = load ptr, ptr %291, align 8
+  %293 = call fastcc i32 @node_char_len1(ptr noundef %292, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %3, i32 noundef %8)
+  %294 = icmp slt i32 %293, 0
+  br i1 %294, label %mmcl_alt_merge.exit229, label %295
 
-296:                                              ; preds = %288
+295:                                              ; preds = %287
   %.val219 = load i32, ptr %6, align 8
-  %.val220 = load i32, ptr %285, align 4
-  %297 = icmp ne i32 %.val219, %.val220
-  %298 = icmp eq i32 %.val219, -1
-  %narrow.i231.not = or i1 %298, %297
-  br i1 %narrow.i231.not, label %299, label %300
+  %.val220 = load i32, ptr %284, align 4
+  %296 = icmp ne i32 %.val219, %.val220
+  %297 = icmp eq i32 %.val219, -1
+  %narrow.i231.not = or i1 %297, %296
+  br i1 %narrow.i231.not, label %298, label %299
 
-299:                                              ; preds = %296
-  store i32 0, ptr %286, align 8
-  br label %300
+298:                                              ; preds = %295
+  store i32 0, ptr %285, align 8
+  br label %299
 
-300:                                              ; preds = %299, %296
-  %301 = load i32, ptr %2, align 4
-  %302 = icmp ugt i32 %301, %.val219
-  br i1 %302, label %303, label %305
+299:                                              ; preds = %298, %295
+  %300 = load i32, ptr %2, align 4
+  %301 = icmp ugt i32 %300, %.val219
+  br i1 %301, label %302, label %304
 
-303:                                              ; preds = %300
+302:                                              ; preds = %299
   store i32 %.val219, ptr %2, align 4
-  %304 = load i32, ptr %286, align 8
+  %303 = load i32, ptr %285, align 8
   br label %.sink.split.i233
 
-305:                                              ; preds = %300
-  %306 = icmp ne i32 %301, %.val219
-  %307 = load i32, ptr %286, align 8
-  %.not.i232 = icmp eq i32 %307, 0
-  %or.cond242 = select i1 %306, i1 true, i1 %.not.i232
-  br i1 %or.cond242, label %308, label %.sink.split.i233
+304:                                              ; preds = %299
+  %305 = icmp ne i32 %300, %.val219
+  %306 = load i32, ptr %285, align 8
+  %.not.i232 = icmp eq i32 %306, 0
+  %or.cond242 = select i1 %305, i1 true, i1 %.not.i232
+  br i1 %or.cond242, label %307, label %.sink.split.i233
 
-.sink.split.i233:                                 ; preds = %305, %303
-  %.sink.i234 = phi i32 [ %304, %303 ], [ 1, %305 ]
-  store i32 %.sink.i234, ptr %287, align 4
-  br label %308
+.sink.split.i233:                                 ; preds = %304, %302
+  %.sink.i234 = phi i32 [ %303, %302 ], [ 1, %304 ]
+  store i32 %.sink.i234, ptr %286, align 4
+  br label %307
 
-308:                                              ; preds = %.sink.split.i233, %305
-  %309 = load i32, ptr %276, align 4
-  %310 = icmp ult i32 %309, %.val220
-  br i1 %310, label %311, label %mmcl_alt_merge.exit235
+307:                                              ; preds = %.sink.split.i233, %304
+  %308 = load i32, ptr %275, align 4
+  %309 = icmp ult i32 %308, %.val220
+  br i1 %309, label %310, label %mmcl_alt_merge.exit235
 
-311:                                              ; preds = %308
-  store i32 %.val220, ptr %276, align 4
+310:                                              ; preds = %307
+  store i32 %.val220, ptr %275, align 4
   br label %mmcl_alt_merge.exit235
 
-mmcl_alt_merge.exit235:                           ; preds = %308, %311
+mmcl_alt_merge.exit235:                           ; preds = %307, %310
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %312 = load i32, ptr %282, align 8
-  %313 = sext i32 %312 to i64
-  %314 = icmp slt i64 %indvars.iv.next, %313
-  br i1 %314, label %288, label %mmcl_alt_merge.exit229, !llvm.loop !83
+  %311 = load i32, ptr %281, align 8
+  %312 = sext i32 %311 to i64
+  %313 = icmp slt i64 %indvars.iv.next, %312
+  br i1 %313, label %287, label %mmcl_alt_merge.exit229, !llvm.loop !83
 
-mmcl_alt_merge.exit229:                           ; preds = %tailrecurse, %169, %288, %mmcl_alt_merge.exit235, %51, %37, %12, %281, %242, %236, %76, %88, %260, %202, %183, %204, %212, %219, %163, %mmcl_repeat_range_multiply.exit, %mmcl_multiply.exit, %117, %139, %120, %._crit_edge305, %40, %259, %258, %.loopexit, %243, %166, %._crit_edge
-  %.0157 = phi i32 [ 0, %.loopexit ], [ 0, %258 ], [ 0, %259 ], [ %273, %260 ], [ 0, %243 ], [ %207, %204 ], [ %213, %212 ], [ %220, %219 ], [ %.3, %202 ], [ %187, %183 ], [ 0, %166 ], [ 0, %163 ], [ 0, %117 ], [ %123, %120 ], [ %123, %mmcl_multiply.exit ], [ %142, %139 ], [ %142, %mmcl_repeat_range_multiply.exit ], [ 0, %._crit_edge ], [ %43, %40 ], [ 0, %._crit_edge305 ], [ %spec.select213, %76 ], [ -122, %88 ], [ %.5, %236 ], [ %.5, %242 ], [ %273, %281 ], [ %16, %12 ], [ %16, %37 ], [ %55, %51 ], [ %294, %mmcl_alt_merge.exit235 ], [ %294, %288 ], [ -11, %169 ], [ -11, %tailrecurse ]
+mmcl_alt_merge.exit229:                           ; preds = %tailrecurse, %168, %287, %mmcl_alt_merge.exit235, %51, %37, %12, %280, %241, %235, %76, %88, %259, %201, %182, %203, %211, %218, %162, %mmcl_repeat_range_multiply.exit, %mmcl_multiply.exit, %116, %138, %119, %._crit_edge305, %40, %258, %257, %.loopexit, %242, %165, %._crit_edge
+  %.0157 = phi i32 [ 0, %.loopexit ], [ 0, %257 ], [ 0, %258 ], [ %272, %259 ], [ 0, %242 ], [ %206, %203 ], [ %212, %211 ], [ %219, %218 ], [ %.3, %201 ], [ %186, %182 ], [ 0, %165 ], [ 0, %162 ], [ 0, %116 ], [ %122, %119 ], [ %122, %mmcl_multiply.exit ], [ %141, %138 ], [ %141, %mmcl_repeat_range_multiply.exit ], [ 0, %._crit_edge ], [ %43, %40 ], [ 0, %._crit_edge305 ], [ %spec.select213, %76 ], [ -122, %88 ], [ %.5, %235 ], [ %.5, %241 ], [ %272, %280 ], [ %16, %12 ], [ %16, %37 ], [ %55, %51 ], [ %293, %mmcl_alt_merge.exit235 ], [ %293, %287 ], [ -11, %168 ], [ -11, %tailrecurse ]
   ret i32 %.0157
 }
 
@@ -18112,6 +18110,9 @@ declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.uadd.sat.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #21
