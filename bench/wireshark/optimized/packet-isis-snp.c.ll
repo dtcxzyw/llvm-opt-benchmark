@@ -414,23 +414,23 @@ define internal void @dissect_snp_lsp_entries_clv(ptr noundef %0, ptr noundef %1
   br label %9
 
 9:                                                ; preds = %.lr.ph, %16
-  %10 = phi i8 [ %.pre, %.lr.ph ], [ %37, %16 ]
-  %.038 = phi i32 [ %3, %.lr.ph ], [ %41, %16 ]
-  %.03137 = phi i32 [ %5, %.lr.ph ], [ %40, %16 ]
+  %10 = phi i8 [ %.pre, %.lr.ph ], [ %39, %16 ]
+  %.036 = phi i32 [ %3, %.lr.ph ], [ %43, %16 ]
+  %.03135 = phi i32 [ %5, %.lr.ph ], [ %42, %16 ]
   %11 = zext i8 %10 to i32
   %12 = add nuw nsw i32 %11, 10
-  %13 = icmp ult i32 %.03137, %12
+  %13 = icmp ult i32 %.03135, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_csnp_short_clv, ptr noundef %0, i32 noundef %.038, i32 noundef -1, ptr noundef nonnull @.str.69, i32 noundef %.03137, i32 noundef %12) #2
+  %15 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_csnp_short_clv, ptr noundef %0, i32 noundef %.036, i32 noundef -1, ptr noundef nonnull @.str.69, i32 noundef %.03135, i32 noundef %12) #2
   br label %.loopexit
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @ett_isis_csnp_lsp_entry, align 4
-  %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.038, i32 noundef %12, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.70) #2
+  %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.036, i32 noundef %12, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.70) #2
   %19 = load i32, ptr @hf_isis_csnp_lsp_id, align 4
-  %20 = add i32 %.038, 2
+  %20 = add i32 %.036, 2
   %21 = load i8, ptr %8, align 1
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 2
@@ -438,24 +438,24 @@ define internal void @dissect_snp_lsp_entries_clv(ptr noundef %0, ptr noundef %1
   %25 = load i32, ptr @hf_isis_csnp_lsp_seq_num, align 4
   %26 = load i8, ptr %8, align 1
   %27 = zext i8 %26 to i32
-  %.reass = add i32 %.038, 4
-  %28 = add i32 %.reass, %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %25, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0) #2
-  %30 = load i32, ptr @hf_isis_csnp_lsp_remain_life, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %30, ptr noundef %0, i32 noundef %.038, i32 noundef 2, i32 noundef 0) #2
-  %32 = load i32, ptr @hf_isis_csnp_lsp_checksum, align 4
-  %33 = load i8, ptr %8, align 1
-  %34 = zext i8 %33 to i32
-  %.reass36 = add i32 %.038, 8
-  %35 = add i32 %.reass36, %34
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %32, ptr noundef %0, i32 noundef %35, i32 noundef 2, i32 noundef 0) #2
-  %37 = load i8, ptr %8, align 1
-  %38 = zext i8 %37 to i32
-  %39 = add nuw nsw i32 %38, 10
-  %40 = sub nsw i32 %.03137, %39
-  %41 = add i32 %39, %.038
-  %42 = icmp sgt i32 %40, 0
-  br i1 %42, label %9, label %.loopexit, !llvm.loop !4
+  %28 = add i32 %.036, 4
+  %29 = add i32 %28, %27
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %25, ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #2
+  %31 = load i32, ptr @hf_isis_csnp_lsp_remain_life, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %31, ptr noundef %0, i32 noundef %.036, i32 noundef 2, i32 noundef 0) #2
+  %33 = load i32, ptr @hf_isis_csnp_lsp_checksum, align 4
+  %34 = load i8, ptr %8, align 1
+  %35 = zext i8 %34 to i32
+  %36 = add i32 %.036, 8
+  %37 = add i32 %36, %35
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %33, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef 0) #2
+  %39 = load i8, ptr %8, align 1
+  %40 = zext i8 %39 to i32
+  %41 = add nuw nsw i32 %40, 10
+  %42 = sub nsw i32 %.03135, %41
+  %43 = add i32 %41, %.036
+  %44 = icmp sgt i32 %42, 0
+  br i1 %44, label %9, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %16, %6, %14
   ret void

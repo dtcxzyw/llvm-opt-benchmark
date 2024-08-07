@@ -1091,8 +1091,8 @@ for.body:                                         ; preds = %if.then11, %for.bod
   %arrayidx21 = getelementptr inbounds i8, ptr %data, i64 %idxprom20
   tail call void @SHA1Transform(ptr noundef %context, ptr noundef %arrayidx21)
   %add22 = add i32 %i.026, 64
-  %add15.reass = add i32 %i.026, 127
-  %cmp16 = icmp ult i32 %add15.reass, %len
+  %add15 = add i32 %i.026, 127
+  %cmp16 = icmp ult i32 %add15, %len
   br i1 %cmp16, label %for.body, label %if.end23, !llvm.loop !5
 
 if.else:                                          ; preds = %entry

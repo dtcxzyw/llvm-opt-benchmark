@@ -1146,7 +1146,6 @@ define internal fastcc void @dissect_rtmpt_common(ptr noundef %0, ptr noundef %1
   %25 = getelementptr inbounds i8, ptr %1, i64 20
   %26 = getelementptr inbounds i8, ptr %3, i64 48
   %27 = getelementptr [2 x ptr], ptr %26, i64 0, i64 %17
-  %invariant.op = add i32 %5, -1
   br label %67
 
 28:                                               ; preds = %9
@@ -2250,8 +2249,8 @@ switch.lookup:                                    ; preds = %141
   %625 = getelementptr inbounds i8, ptr %613, i64 20
   store i32 %624, ptr %625, align 4
   %626 = load ptr, ptr %18, align 8
-  %.reass = add i32 %.2, %invariant.op
-  tail call void @wmem_tree_insert32(ptr noundef %626, i32 noundef %.reass, ptr noundef nonnull %613) #8
+  %627 = add i32 %614, -1
+  tail call void @wmem_tree_insert32(ptr noundef %626, i32 noundef %627, ptr noundef nonnull %613) #8
   br label %.backedge
 
 .loopexit:                                        ; preds = %65, %.backedge, %131, %.critedge, %.preheader, %7, %156
@@ -3371,16 +3370,15 @@ dissect_rtmpt_body_command.exit:                  ; preds = %41, %33
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #8
-  %invariant.op = add i32 %1, 1
   br label %5
 
 5:                                                ; preds = %3, %.backedge
   %6 = phi i1 [ false, %3 ], [ %36, %.backedge ]
-  %.071 = phi i32 [ 1000, %3 ], [ %7, %.backedge ]
-  %.05770 = phi i32 [ 0, %3 ], [ %.057.be, %.backedge ]
-  %.05869 = phi i32 [ 0, %3 ], [ %.058.be, %.backedge ]
-  %.06068 = phi i32 [ 0, %3 ], [ %.060.be, %.backedge ]
-  %7 = add nsw i32 %.071, -1
+  %.069 = phi i32 [ 1000, %3 ], [ %7, %.backedge ]
+  %.05768 = phi i32 [ 0, %3 ], [ %.057.be, %.backedge ]
+  %.05867 = phi i32 [ 0, %3 ], [ %.058.be, %.backedge ]
+  %.06066 = phi i32 [ 0, %3 ], [ %.060.be, %.backedge ]
+  %7 = add nsw i32 %.069, -1
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11
 
@@ -3392,12 +3390,12 @@ define internal fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %1,
   br i1 %6, label %12, label %24
 
 12:                                               ; preds = %11
-  %13 = sub i32 %4, %.05770
+  %13 = sub i32 %4, %.05768
   %14 = icmp ult i32 %13, 2
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = add i32 %.05770, %1
+  %16 = add i32 %.05768, %1
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %16) #8
   %18 = zext i16 %17 to i32
   %19 = add nuw nsw i32 %18, 3
@@ -3406,12 +3404,12 @@ define internal fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %1,
 
 21:                                               ; preds = %15
   %22 = add nuw nsw i32 %18, 2
-  %23 = add i32 %22, %.05770
+  %23 = add i32 %22, %.05768
   br label %24
 
 24:                                               ; preds = %21, %11
-  %.159 = phi i32 [ %22, %21 ], [ %.05869, %11 ]
-  %.1 = phi i32 [ %23, %21 ], [ %.05770, %11 ]
+  %.159 = phi i32 [ %22, %21 ], [ %.05867, %11 ]
+  %.1 = phi i32 [ %23, %21 ], [ %.05768, %11 ]
   %25 = sub i32 %4, %.1
   %26 = icmp eq i32 %4, %.1
   br i1 %26, label %.loopexit, label %27
@@ -3427,13 +3425,13 @@ define internal fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %1,
 
 32:                                               ; preds = %27
   %33 = add i32 %.1, 1
-  %34 = add i32 %.06068, -1
+  %34 = add i32 %.06066, -1
   br label %.backedge
 
-.backedge:                                        ; preds = %32, %59
-  %.060.be = phi i32 [ %34, %32 ], [ %.161, %59 ]
-  %.058.be = phi i32 [ 2, %32 ], [ %.2, %59 ]
-  %.057.be = phi i32 [ %33, %32 ], [ %60, %59 ]
+.backedge:                                        ; preds = %32, %61
+  %.060.be = phi i32 [ %34, %32 ], [ %.161, %61 ]
+  %.058.be = phi i32 [ 2, %32 ], [ %.2, %61 ]
+  %.057.be = phi i32 [ %33, %32 ], [ %62, %61 ]
   %35 = icmp eq i32 %.057.be, 0
   %36 = icmp ne i32 %.060.be, 0
   %37 = select i1 %35, i1 true, i1 %36
@@ -3441,70 +3439,70 @@ define internal fastcc i32 @rtmpt_get_amf_length(ptr noundef %0, i32 noundef %1,
 
 38:                                               ; preds = %27
   switch i8 %29, label %.loopexit [
-    i8 0, label %57
+    i8 0, label %59
     i8 1, label %39
     i8 2, label %40
-    i8 5, label %46
-    i8 6, label %46
-    i8 13, label %46
-    i8 11, label %47
-    i8 12, label %48
-    i8 15, label %48
-    i8 34, label %57
-    i8 3, label %53
-    i8 8, label %55
+    i8 5, label %47
+    i8 6, label %47
+    i8 13, label %47
+    i8 11, label %48
+    i8 12, label %49
+    i8 15, label %49
+    i8 34, label %59
+    i8 3, label %55
+    i8 8, label %57
   ]
 
 39:                                               ; preds = %38
-  br label %57
+  br label %59
 
 40:                                               ; preds = %38
   %41 = icmp ult i32 %25, 3
   br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %40
-  %.reass67 = add i32 %.1, %invariant.op
-  %43 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.reass67) #8
-  %44 = zext i16 %43 to i32
-  %45 = add nuw nsw i32 %44, 3
-  br label %57
+  %43 = add i32 %28, 1
+  %44 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %43) #8
+  %45 = zext i16 %44 to i32
+  %46 = add nuw nsw i32 %45, 3
+  br label %59
 
-46:                                               ; preds = %38, %38, %38
-  br label %57
+47:                                               ; preds = %38, %38, %38
+  br label %59
 
-47:                                               ; preds = %38
-  br label %57
+48:                                               ; preds = %38
+  br label %59
 
-48:                                               ; preds = %38, %38
-  %49 = icmp ult i32 %25, 5
-  br i1 %49, label %.loopexit, label %50
+49:                                               ; preds = %38, %38
+  %50 = icmp ult i32 %25, 5
+  br i1 %50, label %.loopexit, label %51
 
-50:                                               ; preds = %48
-  %.reass = add i32 %.1, %invariant.op
-  %51 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.reass) #8
-  %52 = add i32 %51, 5
-  br label %57
-
-53:                                               ; preds = %38
-  %54 = add i32 %.06068, 1
-  br label %57
+51:                                               ; preds = %49
+  %52 = add i32 %28, 1
+  %53 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %52) #8
+  %54 = add i32 %53, 5
+  br label %59
 
 55:                                               ; preds = %38
-  %56 = add i32 %.06068, 1
-  br label %57
+  %56 = add i32 %.06066, 1
+  br label %59
 
-57:                                               ; preds = %38, %38, %55, %53, %50, %47, %46, %42, %39
-  %.161 = phi i32 [ %56, %55 ], [ %54, %53 ], [ %.06068, %50 ], [ %.06068, %47 ], [ %.06068, %46 ], [ %.06068, %42 ], [ %.06068, %39 ], [ %.06068, %38 ], [ %.06068, %38 ]
-  %.2 = phi i32 [ 5, %55 ], [ 1, %53 ], [ %52, %50 ], [ 11, %47 ], [ 1, %46 ], [ %45, %42 ], [ 2, %39 ], [ 9, %38 ], [ 9, %38 ]
-  %58 = icmp ult i32 %25, %.2
-  br i1 %58, label %.loopexit, label %59
+57:                                               ; preds = %38
+  %58 = add i32 %.06066, 1
+  br label %59
 
-59:                                               ; preds = %57
-  %60 = add i32 %.2, %.1
+59:                                               ; preds = %38, %38, %57, %55, %51, %48, %47, %42, %39
+  %.161 = phi i32 [ %58, %57 ], [ %56, %55 ], [ %.06066, %51 ], [ %.06066, %48 ], [ %.06066, %47 ], [ %.06066, %42 ], [ %.06066, %39 ], [ %.06066, %38 ], [ %.06066, %38 ]
+  %.2 = phi i32 [ 5, %57 ], [ 1, %55 ], [ %54, %51 ], [ 11, %48 ], [ 1, %47 ], [ %46, %42 ], [ 2, %39 ], [ 9, %38 ], [ 9, %38 ]
+  %60 = icmp ult i32 %25, %.2
+  br i1 %60, label %.loopexit, label %61
+
+61:                                               ; preds = %59
+  %62 = add i32 %.2, %.1
   br label %.backedge
 
-.loopexit:                                        ; preds = %.backedge, %57, %38, %48, %40, %24, %15, %12, %9
-  %.062 = phi i32 [ 0, %9 ], [ %.057.be, %.backedge ], [ %4, %57 ], [ %4, %38 ], [ %4, %48 ], [ %4, %40 ], [ %4, %24 ], [ %4, %15 ], [ %4, %12 ]
+.loopexit:                                        ; preds = %.backedge, %59, %38, %49, %40, %24, %15, %12, %9
+  %.062 = phi i32 [ 0, %9 ], [ %.057.be, %.backedge ], [ %4, %59 ], [ %4, %38 ], [ %4, %49 ], [ %4, %40 ], [ %4, %24 ], [ %4, %15 ], [ %4, %12 ]
   ret i32 %.062
 }
 

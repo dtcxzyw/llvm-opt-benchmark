@@ -27,11 +27,10 @@ define noundef ptr @If_ManSatBuildXY(i32 noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %2, i64 12
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
   %13 = shl i32 2, %0
-  %invariant.op = add nuw i32 %13, 2
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
-  %.023 = phi i32 [ 0, %.lr.ph ], [ %32, %14 ]
+  %.023 = phi i32 [ 0, %.lr.ph ], [ %33, %14 ]
   %15 = add nuw nsw i32 %.023, %7
   %16 = srem i32 %.023, %3
   %17 = lshr i32 %.023, %0
@@ -41,37 +40,37 @@ define noundef ptr @If_ManSatBuildXY(i32 noundef %0) local_unnamed_addr #0 {
   store i32 %19, ptr %2, align 4
   %20 = shl i32 %17, 2
   %21 = add i32 %20, %13
-  %.reass = add i32 %20, %invariant.op
-  %22 = or disjoint i32 %.reass, 1
-  store i32 %22, ptr %10, align 4
-  %23 = shl nsw i32 %15, 1
-  store i32 %23, ptr %11, align 4
-  %24 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %12) #9
+  %22 = add i32 %21, 2
+  %23 = or disjoint i32 %22, 1
+  store i32 %23, ptr %10, align 4
+  %24 = shl nsw i32 %15, 1
+  store i32 %24, ptr %11, align 4
+  %25 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %12) #9
   store i32 %19, ptr %2, align 4
-  store i32 %.reass, ptr %10, align 4
-  %25 = or disjoint i32 %23, 1
-  store i32 %25, ptr %11, align 4
-  %26 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %12) #9
+  store i32 %22, ptr %10, align 4
+  %26 = or disjoint i32 %24, 1
+  store i32 %26, ptr %11, align 4
+  %27 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %12) #9
   store i32 %18, ptr %2, align 4
-  %27 = or disjoint i32 %21, 1
-  store i32 %27, ptr %10, align 4
-  store i32 %23, ptr %11, align 4
-  %28 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %12) #9
-  store i32 %18, ptr %2, align 4
-  store i32 %21, ptr %10, align 4
-  store i32 %25, ptr %11, align 4
+  %28 = or disjoint i32 %21, 1
+  store i32 %28, ptr %10, align 4
+  store i32 %24, ptr %11, align 4
   %29 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %12) #9
-  store i32 %.reass, ptr %2, align 4
+  store i32 %18, ptr %2, align 4
   store i32 %21, ptr %10, align 4
-  store i32 %25, ptr %11, align 4
+  store i32 %26, ptr %11, align 4
   %30 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %12) #9
   store i32 %22, ptr %2, align 4
-  store i32 %27, ptr %10, align 4
-  store i32 %23, ptr %11, align 4
+  store i32 %21, ptr %10, align 4
+  store i32 %26, ptr %11, align 4
   %31 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %12) #9
+  store i32 %23, ptr %2, align 4
+  store i32 %28, ptr %10, align 4
+  store i32 %24, ptr %11, align 4
+  %32 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
-  %32 = add nuw nsw i32 %.023, 1
-  %exitcond.not = icmp eq i32 %32, %smax
+  %33 = add nuw nsw i32 %.023, 1
+  %exitcond.not = icmp eq i32 %33, %smax
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %14, %1
@@ -104,12 +103,10 @@ define noundef ptr @If_ManSatBuildXYZ(i32 noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
   %15 = shl i32 4, %0
-  %invariant.op = add nuw i32 %15, 4
-  %invariant.op35 = add nuw i32 %15, 6
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
-  %.034 = phi i32 [ 0, %.lr.ph ], [ %44, %16 ]
+  %.034 = phi i32 [ 0, %.lr.ph ], [ %46, %16 ]
   %17 = add nsw i32 %.034, %7
   %18 = srem i32 %.034, %3
   %19 = lshr i32 %.034, %0
@@ -136,45 +133,45 @@ define noundef ptr @If_ManSatBuildXYZ(i32 noundef %0) local_unnamed_addr #0 {
   store i32 %27, ptr %12, align 8
   store i32 %28, ptr %13, align 4
   %33 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
-  %.reass = add i32 %23, %invariant.op
-  %34 = or disjoint i32 %.reass, 1
-  store i32 %34, ptr %2, align 16
+  %34 = add i32 %24, 4
+  %35 = or disjoint i32 %34, 1
+  store i32 %35, ptr %2, align 16
   store i32 %26, ptr %11, align 4
-  %35 = or disjoint i32 %27, 1
-  store i32 %35, ptr %12, align 8
+  %36 = or disjoint i32 %27, 1
+  store i32 %36, ptr %12, align 8
   store i32 %28, ptr %13, align 4
-  %36 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
-  %.reass36 = add i32 %23, %invariant.op35
-  %37 = or disjoint i32 %.reass36, 1
-  store i32 %37, ptr %2, align 16
+  %37 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
+  %38 = add i32 %24, 6
+  %39 = or disjoint i32 %38, 1
+  store i32 %39, ptr %2, align 16
   store i32 %32, ptr %11, align 4
-  store i32 %35, ptr %12, align 8
+  store i32 %36, ptr %12, align 8
   store i32 %28, ptr %13, align 4
-  %38 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
+  %40 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
   store i32 %24, ptr %2, align 16
   store i32 %26, ptr %11, align 4
   store i32 %27, ptr %12, align 8
-  %39 = or disjoint i32 %28, 1
-  store i32 %39, ptr %13, align 4
-  %40 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
+  %41 = or disjoint i32 %28, 1
+  store i32 %41, ptr %13, align 4
+  %42 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
   store i32 %30, ptr %2, align 16
   store i32 %32, ptr %11, align 4
   store i32 %27, ptr %12, align 8
-  store i32 %39, ptr %13, align 4
-  %41 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
-  store i32 %.reass, ptr %2, align 16
-  store i32 %26, ptr %11, align 4
-  store i32 %35, ptr %12, align 8
-  store i32 %39, ptr %13, align 4
-  %42 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
-  store i32 %.reass36, ptr %2, align 16
-  store i32 %32, ptr %11, align 4
-  store i32 %35, ptr %12, align 8
-  store i32 %39, ptr %13, align 4
+  store i32 %41, ptr %13, align 4
   %43 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
+  store i32 %34, ptr %2, align 16
+  store i32 %26, ptr %11, align 4
+  store i32 %36, ptr %12, align 8
+  store i32 %41, ptr %13, align 4
+  %44 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
+  store i32 %38, ptr %2, align 16
+  store i32 %32, ptr %11, align 4
+  store i32 %36, ptr %12, align 8
+  store i32 %41, ptr %13, align 4
+  %45 = call i32 @sat_solver_addclause(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %44 = add nuw nsw i32 %.034, 1
-  %exitcond.not = icmp eq i32 %44, %smax
+  %46 = add nuw nsw i32 %.034, 1
+  %exitcond.not = icmp eq i32 %46, %smax
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %16, %1

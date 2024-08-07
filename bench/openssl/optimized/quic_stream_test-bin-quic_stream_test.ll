@@ -1251,7 +1251,6 @@ for.cond17.preheader:                             ; preds = %for.cond13.preheade
   %fin_set.099 = phi i32 [ 0, %for.cond13.preheader ], [ %fin_set.1, %for.inc175 ]
   %queued_max.097 = phi i64 [ 0, %for.cond13.preheader ], [ %queued_max.2, %for.inc175 ]
   %queued_min.096 = phi i64 [ 0, %for.cond13.preheader ], [ %add136, %for.inc175 ]
-  %invariant.op = add i64 %queued_min.096, -50
   %1 = mul nuw nsw i64 %indvars.iv108, 10
   br label %for.body20
 
@@ -1292,8 +1291,8 @@ if.end55:                                         ; preds = %if.end43
   %conv58 = zext nneg i32 %rem57 to i64
   %add59 = add i64 %queued_min.096, %conv58
   %cmp60 = icmp ugt i64 %add59, 50
-  %sub.reass = add i64 %invariant.op, %conv58
-  %spec.select81 = select i1 %cmp60, i64 %sub.reass, i64 %add59
+  %sub = add i64 %add59, -50
+  %spec.select81 = select i1 %cmp60, i64 %sub, i64 %add59
   %call64 = call i32 @test_random() #7
   %rem65 = urem i32 %call64, 100
   %add66 = add nuw nsw i32 %rem65, 1

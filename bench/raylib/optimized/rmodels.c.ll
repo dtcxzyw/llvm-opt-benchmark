@@ -39870,14 +39870,13 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #55
-  %invariant.op = add i32 %3, 2
   %invariant.gep = getelementptr inbounds i8, ptr %47, i64 20
   %48 = icmp sgt i32 %43, 0
   br i1 %48, label %.lr.ph160, label %._crit_edge161
 
 .lr.ph160:                                        ; preds = %._crit_edge156, %.lr.ph160
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %.lr.ph160 ], [ 0, %._crit_edge156 ]
-  %.0122158 = phi i32 [ %58, %.lr.ph160 ], [ 0, %._crit_edge156 ]
+  %.0122158 = phi i32 [ %59, %.lr.ph160 ], [ 0, %._crit_edge156 ]
   %49 = sdiv i32 %.0122158, %3
   %50 = add nsw i32 %49, %.0122158
   %51 = add nsw i32 %50, %6
@@ -39890,40 +39889,40 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   store i32 %50, ptr %55, align 4
   %56 = getelementptr i8, ptr %52, i64 12
   store i32 %51, ptr %56, align 4
-  %.reass = add i32 %50, %invariant.op
-  %57 = getelementptr i8, ptr %52, i64 16
-  store i32 %.reass, ptr %57, align 4
+  %57 = add nsw i32 %51, 1
+  %58 = getelementptr i8, ptr %52, i64 16
+  store i32 %57, ptr %58, align 4
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 6
   %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv195
   store i32 %53, ptr %gep, align 4
-  %58 = add nuw nsw i32 %.0122158, 1
-  %exitcond198.not = icmp eq i32 %58, %43
+  %59 = add nuw nsw i32 %.0122158, 1
+  %exitcond198.not = icmp eq i32 %59, %43
   br i1 %exitcond198.not, label %._crit_edge161, label %.lr.ph160
 
 ._crit_edge161:                                   ; preds = %.lr.ph160, %._crit_edge156
   store i32 %8, ptr %0, align 8
-  %59 = shl nsw i32 %43, 1
-  %60 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %59, ptr %60, align 4
-  %61 = mul nsw i32 %8, 3
-  %62 = sext i32 %61 to i64
-  %63 = shl nsw i64 %62, 2
-  %64 = tail call noalias ptr @malloc(i64 noundef %63) #55
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %64, ptr %65, align 8
-  %66 = shl nsw i32 %8, 1
-  %67 = sext i32 %66 to i64
-  %68 = shl nsw i64 %67, 2
-  %69 = tail call noalias ptr @malloc(i64 noundef %68) #55
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %69, ptr %70, align 8
-  %71 = tail call noalias ptr @malloc(i64 noundef %63) #55
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %71, ptr %72, align 8
-  %73 = shl nsw i64 %45, 1
-  %74 = tail call noalias ptr @malloc(i64 noundef %73) #55
-  %75 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %74, ptr %75, align 8
+  %60 = shl nsw i32 %43, 1
+  %61 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %60, ptr %61, align 4
+  %62 = mul nsw i32 %8, 3
+  %63 = sext i32 %62 to i64
+  %64 = shl nsw i64 %63, 2
+  %65 = tail call noalias ptr @malloc(i64 noundef %64) #55
+  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %65, ptr %66, align 8
+  %67 = shl nsw i32 %8, 1
+  %68 = sext i32 %67 to i64
+  %69 = shl nsw i64 %68, 2
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #55
+  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %70, ptr %71, align 8
+  %72 = tail call noalias ptr @malloc(i64 noundef %64) #55
+  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %72, ptr %73, align 8
+  %74 = shl nsw i64 %45, 1
+  %75 = tail call noalias ptr @malloc(i64 noundef %74) #55
+  %76 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %75, ptr %76, align 8
   br i1 %28, label %.lr.ph164.preheader, label %.preheader
 
 .lr.ph164.preheader:                              ; preds = %._crit_edge161
@@ -39939,15 +39938,15 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
   %indvars.iv199 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next200, %.lr.ph164 ]
-  %76 = getelementptr inbounds %struct.Vector3, ptr %11, i64 %indvars.iv199
+  %77 = getelementptr inbounds %struct.Vector3, ptr %11, i64 %indvars.iv199
   %.idx = mul i64 %indvars.iv199, 12
-  %77 = getelementptr inbounds i8, ptr %64, i64 %.idx
-  %78 = load <2 x float>, ptr %76, align 4
-  store <2 x float> %78, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %76, i64 8
-  %80 = load float, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %77, i64 8
-  store float %80, ptr %81, align 4
+  %78 = getelementptr inbounds i8, ptr %65, i64 %.idx
+  %79 = load <2 x float>, ptr %77, align 4
+  store <2 x float> %79, ptr %78, align 4
+  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  %81 = load float, ptr %80, align 4
+  %82 = getelementptr inbounds i8, ptr %78, i64 8
+  store float %81, ptr %82, align 4
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
   br i1 %exitcond203.not, label %.preheader137, label %.lr.ph164
@@ -39961,11 +39960,11 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %.lr.ph166
   %indvars.iv204 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next205, %.lr.ph166 ]
-  %82 = getelementptr inbounds %struct.Vector2, ptr %31, i64 %indvars.iv204
+  %83 = getelementptr inbounds %struct.Vector2, ptr %31, i64 %indvars.iv204
   %.idx224 = shl nsw i64 %indvars.iv204, 3
-  %83 = getelementptr inbounds i8, ptr %69, i64 %.idx224
-  %84 = load <2 x float>, ptr %82, align 4
-  store <2 x float> %84, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %70, i64 %.idx224
+  %85 = load <2 x float>, ptr %83, align 4
+  store <2 x float> %85, ptr %84, align 4
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
   br i1 %exitcond208.not, label %.preheader136, label %.lr.ph166
@@ -39980,26 +39979,26 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168
   %indvars.iv209 = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next210, %.lr.ph168 ]
-  %85 = getelementptr inbounds %struct.Vector3, ptr %27, i64 %indvars.iv209
+  %86 = getelementptr inbounds %struct.Vector3, ptr %27, i64 %indvars.iv209
   %.idx219 = mul i64 %indvars.iv209, 12
-  %86 = getelementptr inbounds i8, ptr %71, i64 %.idx219
-  %87 = load <2 x float>, ptr %85, align 4
-  store <2 x float> %87, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %85, i64 8
-  %89 = load float, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %86, i64 8
-  store float %89, ptr %90, align 4
+  %87 = getelementptr inbounds i8, ptr %72, i64 %.idx219
+  %88 = load <2 x float>, ptr %86, align 4
+  store <2 x float> %88, ptr %87, align 4
+  %89 = getelementptr inbounds i8, ptr %86, i64 8
+  %90 = load float, ptr %89, align 4
+  %91 = getelementptr inbounds i8, ptr %87, i64 8
+  store float %90, ptr %91, align 4
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
   br i1 %exitcond213.not, label %.preheader, label %.lr.ph168
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
   %indvars.iv214 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next215, %.lr.ph170 ]
-  %91 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv214
-  %92 = load i32, ptr %91, align 4
-  %93 = trunc i32 %92 to i16
-  %94 = getelementptr inbounds i16, ptr %74, i64 %indvars.iv214
-  store i16 %93, ptr %94, align 2
+  %92 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv214
+  %93 = load i32, ptr %92, align 4
+  %94 = trunc i32 %93 to i16
+  %95 = getelementptr inbounds i16, ptr %75, i64 %indvars.iv214
+  store i16 %94, ptr %95, align 2
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
   br i1 %exitcond218.not, label %._crit_edge171, label %.lr.ph170
@@ -41308,67 +41307,67 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %33 = sitofp i32 %12 to float
   %34 = fdiv float %3, %33
   %35 = icmp sgt i32 %9, 1
-  br i1 %35, label %.preheader.lr.ph, label %._crit_edge290
+  br i1 %35, label %.preheader.lr.ph, label %._crit_edge272
 
 .preheader.lr.ph:                                 ; preds = %4
   %invariant.gep = getelementptr i8, ptr %20, i64 12
-  %invariant.gep252 = getelementptr i8, ptr %20, i64 16
-  %invariant.gep254 = getelementptr i8, ptr %20, i64 20
-  %invariant.gep256 = getelementptr i8, ptr %20, i64 24
-  %invariant.gep258 = getelementptr i8, ptr %20, i64 28
-  %invariant.gep260 = getelementptr i8, ptr %20, i64 32
-  %invariant.gep262 = getelementptr i8, ptr %27, i64 8
-  %invariant.gep264 = getelementptr i8, ptr %27, i64 12
-  %invariant.gep266 = getelementptr i8, ptr %27, i64 16
-  %invariant.gep268 = getelementptr i8, ptr %27, i64 20
+  %invariant.gep238 = getelementptr i8, ptr %20, i64 16
+  %invariant.gep240 = getelementptr i8, ptr %20, i64 20
+  %invariant.gep242 = getelementptr i8, ptr %20, i64 24
+  %invariant.gep244 = getelementptr i8, ptr %20, i64 28
+  %invariant.gep246 = getelementptr i8, ptr %20, i64 32
+  %invariant.gep248 = getelementptr i8, ptr %27, i64 8
+  %invariant.gep250 = getelementptr i8, ptr %27, i64 12
+  %invariant.gep252 = getelementptr i8, ptr %27, i64 16
+  %invariant.gep254 = getelementptr i8, ptr %27, i64 20
   %36 = icmp sgt i32 %7, 1
-  br i1 %36, label %.preheader.us.preheader, label %._crit_edge290
+  br i1 %36, label %.preheader.us.preheader, label %._crit_edge272
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %37 = zext nneg i32 %7 to i64
-  %wide.trip.count313 = zext nneg i32 %12 to i64
+  %wide.trip.count295 = zext nneg i32 %12 to i64
   %wide.trip.count = zext i32 %11 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv310 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next311, %._crit_edge.us ]
-  %.0289.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next296, %._crit_edge.us ]
-  %.0230288.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next298, %._crit_edge.us ]
-  %.0232287.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next300, %._crit_edge.us ]
-  %38 = mul nuw nsw i64 %indvars.iv310, %37
-  %39 = trunc nuw nsw i64 %indvars.iv310 to i32
+  %indvars.iv292 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next293, %._crit_edge.us ]
+  %.0271.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next278, %._crit_edge.us ]
+  %.0230270.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next280, %._crit_edge.us ]
+  %.0232269.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next282, %._crit_edge.us ]
+  %38 = mul nuw nsw i64 %indvars.iv292, %37
+  %39 = trunc nuw nsw i64 %indvars.iv292 to i32
   %40 = uitofp nneg i32 %39 to float
   %41 = fmul float %34, %40
-  %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
-  %42 = mul nuw nsw i64 %indvars.iv.next311, %37
-  %43 = trunc nuw nsw i64 %indvars.iv.next311 to i32
+  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
+  %42 = mul nuw nsw i64 %indvars.iv.next293, %37
+  %43 = trunc nuw nsw i64 %indvars.iv.next293 to i32
   %44 = uitofp nneg i32 %43 to float
   %45 = fmul float %34, %44
-  %invariant.op279.us = add nuw i64 %38, 1
-  %invariant.op281.us = add nuw i64 %42, 1
   %46 = fdiv float %40, %33
   %47 = fdiv float %44, %33
-  %sext = shl i64 %.0289.us, 32
+  %sext = shl i64 %.0271.us, 32
   %48 = ashr exact i64 %sext, 32
-  %sext315 = shl i64 %.0230288.us, 32
-  %49 = ashr exact i64 %sext315, 32
-  %sext316 = shl i64 %.0232287.us, 32
-  %50 = ashr exact i64 %sext316, 32
-  %invariant.gep327 = getelementptr inbounds %struct.Color, ptr %10, i64 %38
-  %invariant.gep328 = getelementptr inbounds %struct.Color, ptr %10, i64 %42
+  %sext297 = shl i64 %.0230270.us, 32
+  %49 = ashr exact i64 %sext297, 32
+  %sext298 = shl i64 %.0232269.us, 32
+  %50 = ashr exact i64 %sext298, 32
+  %invariant.gep299 = getelementptr inbounds %struct.Color, ptr %10, i64 %38
+  %invariant.gep300 = getelementptr inbounds %struct.Color, ptr %10, i64 %42
+  %invariant.gep302 = getelementptr inbounds %struct.Color, ptr %10, i64 %38
+  %invariant.gep304 = getelementptr inbounds %struct.Color, ptr %10, i64 %42
   br label %51
 
-51:                                               ; preds = %.preheader.us, %136
-  %indvars.iv301 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next302, %136 ]
-  %indvars.iv299 = phi i64 [ %50, %.preheader.us ], [ %indvars.iv.next300, %136 ]
-  %indvars.iv297 = phi i64 [ %49, %.preheader.us ], [ %indvars.iv.next298, %136 ]
-  %indvars.iv295 = phi i64 [ %48, %.preheader.us ], [ %indvars.iv.next296, %136 ]
-  %52 = trunc nuw nsw i64 %indvars.iv301 to i32
+51:                                               ; preds = %.preheader.us, %132
+  %indvars.iv283 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next284, %132 ]
+  %indvars.iv281 = phi i64 [ %50, %.preheader.us ], [ %indvars.iv.next282, %132 ]
+  %indvars.iv279 = phi i64 [ %49, %.preheader.us ], [ %indvars.iv.next280, %132 ]
+  %indvars.iv277 = phi i64 [ %48, %.preheader.us ], [ %indvars.iv.next278, %132 ]
+  %52 = trunc nuw nsw i64 %indvars.iv283 to i32
   %53 = uitofp nneg i32 %52 to float
   %54 = fmul float %31, %53
-  %55 = getelementptr inbounds float, ptr %20, i64 %indvars.iv295
+  %55 = getelementptr inbounds float, ptr %20, i64 %indvars.iv277
   store float %54, ptr %55, align 4
-  %gep = getelementptr inbounds %struct.Color, ptr %invariant.gep327, i64 %indvars.iv301
+  %gep = getelementptr inbounds %struct.Color, ptr %invariant.gep299, i64 %indvars.iv283
   %56 = load i8, ptr %gep, align 1
   %57 = zext i8 %56 to i32
   %58 = getelementptr inbounds i8, ptr %gep, i64 1
@@ -41386,223 +41385,170 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   store float %68, ptr %69, align 4
   %70 = getelementptr i8, ptr %55, i64 8
   store float %41, ptr %70, align 4
-  %gep.us = getelementptr float, ptr %invariant.gep, i64 %indvars.iv295
+  %gep.us = getelementptr float, ptr %invariant.gep, i64 %indvars.iv277
   store float %54, ptr %gep.us, align 4
-  %gep329 = getelementptr inbounds %struct.Color, ptr %invariant.gep328, i64 %indvars.iv301
-  %71 = load i8, ptr %gep329, align 1
+  %gep301 = getelementptr inbounds %struct.Color, ptr %invariant.gep300, i64 %indvars.iv283
+  %71 = load i8, ptr %gep301, align 1
   %72 = zext i8 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %gep329, i64 1
+  %73 = getelementptr inbounds i8, ptr %gep301, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %75, %72
-  %77 = getelementptr inbounds i8, ptr %gep329, i64 2
+  %77 = getelementptr inbounds i8, ptr %gep301, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = add nuw nsw i32 %76, %79
   %81 = uitofp nneg i32 %80 to float
   %82 = fdiv float %81, 3.000000e+00
   %83 = fmul float %32, %82
-  %gep253.us = getelementptr float, ptr %invariant.gep252, i64 %indvars.iv295
-  store float %83, ptr %gep253.us, align 4
-  %gep255.us = getelementptr float, ptr %invariant.gep254, i64 %indvars.iv295
-  store float %45, ptr %gep255.us, align 4
-  %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
-  %84 = trunc nuw nsw i64 %indvars.iv.next302 to i32
+  %gep239.us = getelementptr float, ptr %invariant.gep238, i64 %indvars.iv277
+  store float %83, ptr %gep239.us, align 4
+  %gep241.us = getelementptr float, ptr %invariant.gep240, i64 %indvars.iv277
+  store float %45, ptr %gep241.us, align 4
+  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
+  %84 = trunc nuw nsw i64 %indvars.iv.next284 to i32
   %85 = uitofp nneg i32 %84 to float
   %86 = fmul float %31, %85
-  %gep257.us = getelementptr float, ptr %invariant.gep256, i64 %indvars.iv295
-  store float %86, ptr %gep257.us, align 4
-  %.reass280.us = add i64 %invariant.op279.us, %indvars.iv301
-  %sext317 = shl i64 %.reass280.us, 32
-  %87 = ashr exact i64 %sext317, 30
-  %88 = getelementptr inbounds i8, ptr %10, i64 %87
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i32
-  %91 = getelementptr inbounds i8, ptr %88, i64 1
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i32
-  %94 = add nuw nsw i32 %93, %90
-  %95 = getelementptr inbounds i8, ptr %88, i64 2
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i32
-  %98 = add nuw nsw i32 %94, %97
-  %99 = uitofp nneg i32 %98 to float
-  %100 = fdiv float %99, 3.000000e+00
-  %101 = fmul float %32, %100
-  %gep259.us = getelementptr float, ptr %invariant.gep258, i64 %indvars.iv295
-  store float %101, ptr %gep259.us, align 4
-  %gep261.us = getelementptr float, ptr %invariant.gep260, i64 %indvars.iv295
-  store float %41, ptr %gep261.us, align 4
-  %102 = getelementptr i8, ptr %55, i64 36
-  store float %86, ptr %102, align 4
-  %103 = getelementptr i8, ptr %55, i64 40
-  store float %101, ptr %103, align 4
-  %104 = getelementptr i8, ptr %55, i64 44
-  store float %41, ptr %104, align 4
-  %105 = getelementptr i8, ptr %55, i64 48
-  store float %54, ptr %105, align 4
-  %106 = getelementptr i8, ptr %55, i64 52
-  store float %83, ptr %106, align 4
-  %107 = getelementptr i8, ptr %55, i64 56
-  store float %45, ptr %107, align 4
-  %108 = getelementptr i8, ptr %55, i64 60
-  store float %86, ptr %108, align 4
-  %.reass282.us = add i64 %invariant.op281.us, %indvars.iv301
-  %sext318 = shl i64 %.reass282.us, 32
-  %109 = ashr exact i64 %sext318, 30
-  %110 = getelementptr inbounds i8, ptr %10, i64 %109
-  %111 = load i8, ptr %110, align 1
-  %112 = zext i8 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %110, i64 1
+  %gep243.us = getelementptr float, ptr %invariant.gep242, i64 %indvars.iv277
+  store float %86, ptr %gep243.us, align 4
+  %gep303 = getelementptr inbounds %struct.Color, ptr %invariant.gep302, i64 %indvars.iv.next284
+  %87 = load i8, ptr %gep303, align 1
+  %88 = zext i8 %87 to i32
+  %89 = getelementptr inbounds i8, ptr %gep303, i64 1
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  %92 = add nuw nsw i32 %91, %88
+  %93 = getelementptr inbounds i8, ptr %gep303, i64 2
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i32
+  %96 = add nuw nsw i32 %92, %95
+  %97 = uitofp nneg i32 %96 to float
+  %98 = fdiv float %97, 3.000000e+00
+  %99 = fmul float %32, %98
+  %gep245.us = getelementptr float, ptr %invariant.gep244, i64 %indvars.iv277
+  store float %99, ptr %gep245.us, align 4
+  %gep247.us = getelementptr float, ptr %invariant.gep246, i64 %indvars.iv277
+  store float %41, ptr %gep247.us, align 4
+  %100 = getelementptr i8, ptr %55, i64 36
+  store float %86, ptr %100, align 4
+  %101 = getelementptr i8, ptr %55, i64 40
+  store float %99, ptr %101, align 4
+  %102 = getelementptr i8, ptr %55, i64 44
+  store float %41, ptr %102, align 4
+  %103 = getelementptr i8, ptr %55, i64 48
+  store float %54, ptr %103, align 4
+  %104 = getelementptr i8, ptr %55, i64 52
+  store float %83, ptr %104, align 4
+  %105 = getelementptr i8, ptr %55, i64 56
+  store float %45, ptr %105, align 4
+  %106 = getelementptr i8, ptr %55, i64 60
+  store float %86, ptr %106, align 4
+  %gep305 = getelementptr inbounds %struct.Color, ptr %invariant.gep304, i64 %indvars.iv.next284
+  %107 = load i8, ptr %gep305, align 1
+  %108 = zext i8 %107 to i32
+  %109 = getelementptr inbounds i8, ptr %gep305, i64 1
+  %110 = load i8, ptr %109, align 1
+  %111 = zext i8 %110 to i32
+  %112 = add nuw nsw i32 %111, %108
+  %113 = getelementptr inbounds i8, ptr %gep305, i64 2
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
-  %116 = add nuw nsw i32 %115, %112
-  %117 = getelementptr inbounds i8, ptr %110, i64 2
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i32
-  %120 = add nuw nsw i32 %116, %119
-  %121 = uitofp nneg i32 %120 to float
-  %122 = fdiv float %121, 3.000000e+00
-  %123 = fmul float %32, %122
-  %124 = getelementptr i8, ptr %55, i64 64
-  store float %123, ptr %124, align 4
-  %125 = getelementptr i8, ptr %55, i64 68
-  store float %45, ptr %125, align 4
-  %126 = fdiv float %53, %30
-  %127 = getelementptr inbounds float, ptr %27, i64 %indvars.iv297
-  store float %126, ptr %127, align 4
-  %128 = getelementptr i8, ptr %127, i64 4
-  store float %46, ptr %128, align 4
-  %gep263.us = getelementptr float, ptr %invariant.gep262, i64 %indvars.iv297
-  store float %126, ptr %gep263.us, align 4
-  %gep265.us = getelementptr float, ptr %invariant.gep264, i64 %indvars.iv297
-  store float %47, ptr %gep265.us, align 4
-  %129 = fdiv float %85, %30
-  %gep267.us = getelementptr float, ptr %invariant.gep266, i64 %indvars.iv297
-  store float %129, ptr %gep267.us, align 4
-  %gep269.us = getelementptr float, ptr %invariant.gep268, i64 %indvars.iv297
-  store float %46, ptr %gep269.us, align 4
-  %130 = getelementptr i8, ptr %127, i64 24
-  store float %129, ptr %130, align 4
-  %131 = getelementptr i8, ptr %127, i64 28
-  store float %46, ptr %131, align 4
-  %132 = getelementptr i8, ptr %127, i64 32
-  store float %126, ptr %132, align 4
-  %133 = getelementptr i8, ptr %127, i64 36
-  store float %47, ptr %133, align 4
-  %134 = getelementptr i8, ptr %127, i64 40
-  store float %129, ptr %134, align 4
-  %135 = getelementptr i8, ptr %127, i64 44
-  store float %47, ptr %135, align 4
-  %invariant.op.us = add i64 %indvars.iv299, 1
-  %invariant.op237.us = add i64 %indvars.iv299, 2
-  %invariant.op239.us = add i64 %indvars.iv299, 3
-  %invariant.op241.us = add i64 %indvars.iv299, 4
-  %invariant.op243.us = add i64 %indvars.iv299, 5
-  %invariant.op245.us = add i64 %indvars.iv299, 6
-  %invariant.op247.us = add i64 %indvars.iv299, 7
-  %invariant.op249.us = add i64 %indvars.iv299, 8
-  br label %137
+  %116 = add nuw nsw i32 %112, %115
+  %117 = uitofp nneg i32 %116 to float
+  %118 = fdiv float %117, 3.000000e+00
+  %119 = fmul float %32, %118
+  %120 = getelementptr i8, ptr %55, i64 64
+  store float %119, ptr %120, align 4
+  %121 = getelementptr i8, ptr %55, i64 68
+  store float %45, ptr %121, align 4
+  %122 = fdiv float %53, %30
+  %123 = getelementptr inbounds float, ptr %27, i64 %indvars.iv279
+  store float %122, ptr %123, align 4
+  %124 = getelementptr i8, ptr %123, i64 4
+  store float %46, ptr %124, align 4
+  %gep249.us = getelementptr float, ptr %invariant.gep248, i64 %indvars.iv279
+  store float %122, ptr %gep249.us, align 4
+  %gep251.us = getelementptr float, ptr %invariant.gep250, i64 %indvars.iv279
+  store float %47, ptr %gep251.us, align 4
+  %125 = fdiv float %85, %30
+  %gep253.us = getelementptr float, ptr %invariant.gep252, i64 %indvars.iv279
+  store float %125, ptr %gep253.us, align 4
+  %gep255.us = getelementptr float, ptr %invariant.gep254, i64 %indvars.iv279
+  store float %46, ptr %gep255.us, align 4
+  %126 = getelementptr i8, ptr %123, i64 24
+  store float %125, ptr %126, align 4
+  %127 = getelementptr i8, ptr %123, i64 28
+  store float %46, ptr %127, align 4
+  %128 = getelementptr i8, ptr %123, i64 32
+  store float %122, ptr %128, align 4
+  %129 = getelementptr i8, ptr %123, i64 36
+  store float %47, ptr %129, align 4
+  %130 = getelementptr i8, ptr %123, i64 40
+  store float %125, ptr %130, align 4
+  %131 = getelementptr i8, ptr %123, i64 44
+  store float %47, ptr %131, align 4
+  br label %133
 
-136:                                              ; preds = %137
-  %indvars.iv.next296 = add nsw i64 %indvars.iv295, 18
-  %indvars.iv.next298 = add nsw i64 %indvars.iv297, 12
-  %indvars.iv.next300 = add nsw i64 %indvars.iv299, 18
-  %exitcond.not = icmp eq i64 %indvars.iv.next302, %wide.trip.count
+132:                                              ; preds = %133
+  %indvars.iv.next278 = add nsw i64 %indvars.iv277, 18
+  %indvars.iv.next280 = add nsw i64 %indvars.iv279, 12
+  %indvars.iv.next282 = add nsw i64 %indvars.iv281, 18
+  %exitcond.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %51
 
-137:                                              ; preds = %137, %51
-  %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %51 ]
-  %138 = add nsw i64 %indvars.iv, %indvars.iv299
-  %139 = getelementptr inbounds float, ptr %20, i64 %138
-  %140 = load float, ptr %139, align 4
-  %.sroa.0114.0.vec.insert.us = insertelement <2 x float> poison, float %140, i64 0
-  %.reass.us = add i64 %invariant.op.us, %indvars.iv
-  %sext319 = shl i64 %.reass.us, 32
-  %141 = ashr exact i64 %sext319, 32
-  %142 = getelementptr inbounds float, ptr %20, i64 %141
-  %143 = load float, ptr %142, align 4
-  %.sroa.0114.4.vec.insert.us = insertelement <2 x float> %.sroa.0114.0.vec.insert.us, float %143, i64 1
-  %.reass238.us = add i64 %invariant.op237.us, %indvars.iv
-  %sext320 = shl i64 %.reass238.us, 32
-  %144 = ashr exact i64 %sext320, 32
-  %145 = getelementptr inbounds float, ptr %20, i64 %144
-  %146 = load float, ptr %145, align 4
-  %.reass240.us = add i64 %invariant.op239.us, %indvars.iv
-  %sext321 = shl i64 %.reass240.us, 32
-  %147 = ashr exact i64 %sext321, 32
-  %148 = getelementptr inbounds float, ptr %20, i64 %147
-  %149 = load float, ptr %148, align 4
-  %.sroa.0111.0.vec.insert.us = insertelement <2 x float> poison, float %149, i64 0
-  %.reass242.us = add i64 %invariant.op241.us, %indvars.iv
-  %sext322 = shl i64 %.reass242.us, 32
-  %150 = ashr exact i64 %sext322, 32
-  %151 = getelementptr inbounds float, ptr %20, i64 %150
-  %152 = load float, ptr %151, align 4
-  %.sroa.0111.4.vec.insert.us = insertelement <2 x float> %.sroa.0111.0.vec.insert.us, float %152, i64 1
-  %.reass244.us = add i64 %invariant.op243.us, %indvars.iv
-  %sext323 = shl i64 %.reass244.us, 32
-  %153 = ashr exact i64 %sext323, 32
-  %154 = getelementptr inbounds float, ptr %20, i64 %153
-  %155 = load float, ptr %154, align 4
-  %.reass246.us = add i64 %invariant.op245.us, %indvars.iv
-  %sext324 = shl i64 %.reass246.us, 32
-  %156 = ashr exact i64 %sext324, 32
-  %157 = getelementptr inbounds float, ptr %20, i64 %156
-  %158 = load float, ptr %157, align 4
-  %.sroa.0109.0.vec.insert.us = insertelement <2 x float> poison, float %158, i64 0
-  %.reass248.us = add i64 %invariant.op247.us, %indvars.iv
-  %sext325 = shl i64 %.reass248.us, 32
-  %159 = ashr exact i64 %sext325, 32
-  %160 = getelementptr inbounds float, ptr %20, i64 %159
-  %161 = load float, ptr %160, align 4
-  %.sroa.0109.4.vec.insert.us = insertelement <2 x float> %.sroa.0109.0.vec.insert.us, float %161, i64 1
-  %.reass250.us = add i64 %invariant.op249.us, %indvars.iv
-  %sext326 = shl i64 %.reass250.us, 32
-  %162 = ashr exact i64 %sext326, 32
-  %163 = getelementptr inbounds float, ptr %20, i64 %162
-  %164 = load float, ptr %163, align 4
-  %165 = tail call { <2 x float>, float } @Vector3Subtract(<2 x float> %.sroa.0111.4.vec.insert.us, float %155, <2 x float> %.sroa.0114.4.vec.insert.us, float %146) #53
-  %.fca.0.extract21.us = extractvalue { <2 x float>, float } %165, 0
-  %.fca.1.extract22.us = extractvalue { <2 x float>, float } %165, 1
-  %166 = tail call { <2 x float>, float } @Vector3Subtract(<2 x float> %.sroa.0109.4.vec.insert.us, float %164, <2 x float> %.sroa.0114.4.vec.insert.us, float %146) #53
-  %.fca.0.extract11.us = extractvalue { <2 x float>, float } %166, 0
-  %.fca.1.extract12.us = extractvalue { <2 x float>, float } %166, 1
-  %167 = tail call { <2 x float>, float } @Vector3CrossProduct(<2 x float> %.fca.0.extract21.us, float %.fca.1.extract22.us, <2 x float> %.fca.0.extract11.us, float %.fca.1.extract12.us) #53
-  %.fca.0.extract3.us = extractvalue { <2 x float>, float } %167, 0
-  %.fca.1.extract4.us = extractvalue { <2 x float>, float } %167, 1
-  %168 = tail call { <2 x float>, float } @Vector3Normalize(<2 x float> %.fca.0.extract3.us, float %.fca.1.extract4.us) #53
-  %.fca.0.extract.us = extractvalue { <2 x float>, float } %168, 0
-  %.fca.1.extract.us = extractvalue { <2 x float>, float } %168, 1
-  %.sroa.098.0.vec.extract.us = extractelement <2 x float> %.fca.0.extract.us, i64 0
-  %169 = getelementptr inbounds float, ptr %22, i64 %138
-  store float %.sroa.098.0.vec.extract.us, ptr %169, align 4
-  %.sroa.098.4.vec.extract.us = extractelement <2 x float> %.fca.0.extract.us, i64 1
-  %170 = getelementptr inbounds float, ptr %22, i64 %141
-  store float %.sroa.098.4.vec.extract.us, ptr %170, align 4
-  %171 = getelementptr inbounds float, ptr %22, i64 %144
-  store float %.fca.1.extract.us, ptr %171, align 4
-  %172 = getelementptr inbounds float, ptr %22, i64 %147
-  store float %.sroa.098.0.vec.extract.us, ptr %172, align 4
-  %173 = getelementptr inbounds float, ptr %22, i64 %150
-  store float %.sroa.098.4.vec.extract.us, ptr %173, align 4
-  %174 = getelementptr inbounds float, ptr %22, i64 %153
-  store float %.fca.1.extract.us, ptr %174, align 4
-  %175 = getelementptr inbounds float, ptr %22, i64 %156
-  store float %.sroa.098.0.vec.extract.us, ptr %175, align 4
-  %176 = getelementptr inbounds float, ptr %22, i64 %159
-  store float %.sroa.098.4.vec.extract.us, ptr %176, align 4
-  %177 = getelementptr inbounds float, ptr %22, i64 %162
-  store float %.fca.1.extract.us, ptr %177, align 4
+133:                                              ; preds = %133, %51
+  %indvars.iv = phi i64 [ %indvars.iv.next, %133 ], [ 0, %51 ]
+  %134 = add nsw i64 %indvars.iv, %indvars.iv281
+  %135 = getelementptr inbounds float, ptr %20, i64 %134
+  %136 = load <2 x float>, ptr %135, align 4
+  %137 = add nsw i64 %134, 2
+  %138 = getelementptr inbounds float, ptr %20, i64 %137
+  %139 = load float, ptr %138, align 4
+  %140 = add nsw i64 %134, 3
+  %141 = getelementptr inbounds float, ptr %20, i64 %140
+  %142 = load <2 x float>, ptr %141, align 4
+  %143 = add nsw i64 %134, 5
+  %144 = getelementptr inbounds float, ptr %20, i64 %143
+  %145 = load float, ptr %144, align 4
+  %146 = add nsw i64 %134, 6
+  %147 = getelementptr inbounds float, ptr %20, i64 %146
+  %148 = load <2 x float>, ptr %147, align 4
+  %149 = add nsw i64 %134, 8
+  %150 = getelementptr inbounds float, ptr %20, i64 %149
+  %151 = load float, ptr %150, align 4
+  %152 = tail call { <2 x float>, float } @Vector3Subtract(<2 x float> %142, float %145, <2 x float> %136, float %139) #53
+  %.fca.0.extract21.us = extractvalue { <2 x float>, float } %152, 0
+  %.fca.1.extract22.us = extractvalue { <2 x float>, float } %152, 1
+  %153 = tail call { <2 x float>, float } @Vector3Subtract(<2 x float> %148, float %151, <2 x float> %136, float %139) #53
+  %.fca.0.extract11.us = extractvalue { <2 x float>, float } %153, 0
+  %.fca.1.extract12.us = extractvalue { <2 x float>, float } %153, 1
+  %154 = tail call { <2 x float>, float } @Vector3CrossProduct(<2 x float> %.fca.0.extract21.us, float %.fca.1.extract22.us, <2 x float> %.fca.0.extract11.us, float %.fca.1.extract12.us) #53
+  %.fca.0.extract3.us = extractvalue { <2 x float>, float } %154, 0
+  %.fca.1.extract4.us = extractvalue { <2 x float>, float } %154, 1
+  %155 = tail call { <2 x float>, float } @Vector3Normalize(<2 x float> %.fca.0.extract3.us, float %.fca.1.extract4.us) #53
+  %.fca.0.extract.us = extractvalue { <2 x float>, float } %155, 0
+  %.fca.1.extract.us = extractvalue { <2 x float>, float } %155, 1
+  %156 = getelementptr inbounds float, ptr %22, i64 %134
+  store <2 x float> %.fca.0.extract.us, ptr %156, align 4
+  %157 = getelementptr inbounds float, ptr %22, i64 %137
+  store float %.fca.1.extract.us, ptr %157, align 4
+  %158 = getelementptr inbounds float, ptr %22, i64 %140
+  store <2 x float> %.fca.0.extract.us, ptr %158, align 4
+  %159 = getelementptr inbounds float, ptr %22, i64 %143
+  store float %.fca.1.extract.us, ptr %159, align 4
+  %160 = getelementptr inbounds float, ptr %22, i64 %146
+  store <2 x float> %.fca.0.extract.us, ptr %160, align 4
+  %161 = getelementptr inbounds float, ptr %22, i64 %149
+  store float %.fca.1.extract.us, ptr %161, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 9
-  %178 = icmp ult i64 %indvars.iv, 9
-  br i1 %178, label %137, label %136
+  %162 = icmp ult i64 %indvars.iv, 9
+  br i1 %162, label %133, label %132
 
-._crit_edge.us:                                   ; preds = %136
-  %exitcond314.not = icmp eq i64 %indvars.iv.next311, %wide.trip.count313
-  br i1 %exitcond314.not, label %._crit_edge290, label %.preheader.us
+._crit_edge.us:                                   ; preds = %132
+  %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
+  br i1 %exitcond296.not, label %._crit_edge272, label %.preheader.us
 
-._crit_edge290:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
+._crit_edge272:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   tail call void @UnloadImageColors(ptr noundef %10) #53
   tail call void @UploadMesh(ptr noundef nonnull %0, i1 noundef zeroext false)
   ret void

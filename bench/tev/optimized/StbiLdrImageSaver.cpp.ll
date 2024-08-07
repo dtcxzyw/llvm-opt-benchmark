@@ -1113,15 +1113,15 @@ define dso_local void @_Z25stbiw__write_hdr_scanlineP19stbi__write_contextiiPhPf
   %22 = sext i32 %2 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
   %invariant.gep = getelementptr inbounds i8, ptr %3, i64 %19
-  %invariant.gep198 = getelementptr inbounds i8, ptr %3, i64 %20
-  %invariant.gep200 = getelementptr inbounds i8, ptr %3, i64 %21
+  %invariant.gep195 = getelementptr inbounds i8, ptr %3, i64 %20
+  %invariant.gep197 = getelementptr inbounds i8, ptr %3, i64 %21
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %23 = zext nneg i32 %2 to i64
-  %invariant.gep202 = getelementptr inbounds i8, ptr %3, i64 %19
-  %invariant.gep204 = getelementptr inbounds i8, ptr %3, i64 %20
-  %invariant.gep206 = getelementptr inbounds i8, ptr %3, i64 %21
+  %invariant.gep199 = getelementptr inbounds i8, ptr %3, i64 %19
+  %invariant.gep201 = getelementptr inbounds i8, ptr %3, i64 %20
+  %invariant.gep203 = getelementptr inbounds i8, ptr %3, i64 %21
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_Z21stbiw__linear_to_rgbePhPf.exit119.us
@@ -1163,12 +1163,12 @@ _Z21stbiw__linear_to_rgbePhPf.exit119.us:         ; preds = %.lr.ph.split.us, %3
   %.sink.i118.us = phi i8 [ %46, %35 ], [ 0, %.lr.ph.split.us ]
   %51 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv168
   store i8 %50, ptr %51, align 1
-  %gep203 = getelementptr inbounds i8, ptr %invariant.gep202, i64 %indvars.iv168
-  store i8 %49, ptr %gep203, align 1
-  %gep205 = getelementptr inbounds i8, ptr %invariant.gep204, i64 %indvars.iv168
-  store i8 %.sink.i118.us, ptr %gep205, align 1
-  %gep207 = getelementptr inbounds i8, ptr %invariant.gep206, i64 %indvars.iv168
-  store i8 %.sink32.i117.us, ptr %gep207, align 1
+  %gep200 = getelementptr inbounds i8, ptr %invariant.gep199, i64 %indvars.iv168
+  store i8 %49, ptr %gep200, align 1
+  %gep202 = getelementptr inbounds i8, ptr %invariant.gep201, i64 %indvars.iv168
+  store i8 %.sink.i118.us, ptr %gep202, align 1
+  %gep204 = getelementptr inbounds i8, ptr %invariant.gep203, i64 %indvars.iv168
+  store i8 %.sink32.i117.us, ptr %gep204, align 1
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %19
   br i1 %exitcond172.not, label %.preheader129.lr.ph.us.preheader, label %.lr.ph.split.us, !llvm.loop !11
@@ -1185,12 +1185,12 @@ _Z21stbiw__linear_to_rgbePhPf.exit119.us:         ; preds = %.lr.ph.split.us, %3
   %55 = getelementptr inbounds i8, ptr %10, i64 2
   %56 = getelementptr inbounds i8, ptr %0, i64 8
   %57 = sext i32 %2 to i64
-  %wide.trip.count193 = zext nneg i32 %1 to i64
+  %wide.trip.count190 = zext nneg i32 %1 to i64
   br label %58
 
 58:                                               ; preds = %.lr.ph157, %_Z21stbiw__linear_to_rgbePhPf.exit
-  %indvars.iv189 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next190, %_Z21stbiw__linear_to_rgbePhPf.exit ]
-  %59 = mul nsw i64 %indvars.iv189, %57
+  %indvars.iv187 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next188, %_Z21stbiw__linear_to_rgbePhPf.exit ]
+  %59 = mul nsw i64 %indvars.iv187, %57
   %60 = getelementptr float, ptr %4, i64 %59
   br i1 %switch, label %61, label %67
 
@@ -1248,9 +1248,9 @@ _Z21stbiw__linear_to_rgbePhPf.exit:               ; preds = %74, %75
   %89 = load ptr, ptr %0, align 8
   %90 = load ptr, ptr %56, align 8
   call void %89(ptr noundef %90, ptr noundef nonnull %10, i32 noundef 4)
-  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %exitcond194.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count193
-  br i1 %exitcond194.not, label %.loopexit, label %58, !llvm.loop !12
+  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
+  %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
+  br i1 %exitcond191.not, label %.loopexit, label %58, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_Z21stbiw__linear_to_rgbePhPf.exit119
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_Z21stbiw__linear_to_rgbePhPf.exit119 ]
@@ -1279,10 +1279,10 @@ _Z21stbiw__linear_to_rgbePhPf.exit119:            ; preds = %.lr.ph.split, %95
   store i8 %105, ptr %106, align 1
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 %105, ptr %gep, align 1
-  %gep199 = getelementptr inbounds i8, ptr %invariant.gep198, i64 %indvars.iv
-  store i8 %105, ptr %gep199, align 1
-  %gep201 = getelementptr inbounds i8, ptr %invariant.gep200, i64 %indvars.iv
-  store i8 %.sink32.i117, ptr %gep201, align 1
+  %gep196 = getelementptr inbounds i8, ptr %invariant.gep195, i64 %indvars.iv
+  store i8 %105, ptr %gep196, align 1
+  %gep198 = getelementptr inbounds i8, ptr %invariant.gep197, i64 %indvars.iv
+  store i8 %.sink32.i117, ptr %gep198, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader129.lr.ph.us.preheader, label %.lr.ph.split, !llvm.loop !11
@@ -1294,11 +1294,12 @@ _Z21stbiw__linear_to_rgbePhPf.exit119:            ; preds = %.lr.ph.split, %95
   call void %107(ptr noundef %109, ptr noundef nonnull %9, i32 noundef 4)
   %110 = zext nneg i32 %1 to i64
   %111 = zext nneg i32 %1 to i64
+  %invariant.op = add nsw i64 %110, -3
   br label %.preheader129.lr.ph.us
 
 .preheader129.lr.ph.us:                           ; preds = %.preheader129.lr.ph.us.preheader, %._crit_edge154.us
-  %indvars.iv184 = phi i64 [ 0, %.preheader129.lr.ph.us.preheader ], [ %indvars.iv.next185, %._crit_edge154.us ]
-  %112 = mul nuw nsw i64 %indvars.iv184, %111
+  %indvars.iv183 = phi i64 [ 0, %.preheader129.lr.ph.us.preheader ], [ %indvars.iv.next184, %._crit_edge154.us ]
+  %112 = mul nuw nsw i64 %indvars.iv183, %111
   %113 = getelementptr inbounds i8, ptr %3, i64 %112
   br label %.preheader129.us
 
@@ -1319,9 +1320,8 @@ _Z21stbiw__linear_to_rgbePhPf.exit119:            ; preds = %.lr.ph.split, %95
   br i1 %121, label %._crit_edge140.us.loopexit.split.loop.exit, label %122
 
 122:                                              ; preds = %118, %.lr.ph139.us
+  %123 = icmp slt i64 %indvars.iv175, %invariant.op
   %indvars.iv.next174 = add nsw i64 %indvars.iv173, 1
-  %indvars = trunc i64 %indvars.iv.next174 to i32
-  %123 = icmp slt i32 %indvars, %1
   br i1 %123, label %.lr.ph139.us, label %._crit_edge140.us, !llvm.loop !13
 
 ._crit_edge140.us.loopexit.split.loop.exit:       ; preds = %118
@@ -1344,14 +1344,14 @@ _Z21stbiw__linear_to_rgbePhPf.exit119:            ; preds = %.lr.ph.split, %95
   %129 = getelementptr inbounds i8, ptr %113, i64 %indvars.iv180
   %130 = load i8, ptr %129, align 1
   %131 = icmp eq i8 %130, %161
-  br i1 %131, label %147, label %.critedge.us.split.loop.exit210
+  br i1 %131, label %147, label %.critedge.us.split.loop.exit207
 
-.critedge.us.split.loop.exit210:                  ; preds = %128
+.critedge.us.split.loop.exit207:                  ; preds = %128
   %132 = trunc nsw i64 %indvars.iv180 to i32
   br label %.critedge.us
 
-.critedge.us:                                     ; preds = %147, %.critedge.us.split.loop.exit210
-  %.2109.lcssa.us = phi i32 [ %132, %.critedge.us.split.loop.exit210 ], [ %smax, %147 ]
+.critedge.us:                                     ; preds = %147, %.critedge.us.split.loop.exit207
+  %.2109.lcssa.us = phi i32 [ %132, %.critedge.us.split.loop.exit207 ], [ %smax, %147 ]
   %133 = icmp slt i32 %.3.lcssa.us, %.2109.lcssa.us
   br i1 %133, label %.lr.ph151.us, label %.loopexit127.us
 
@@ -1433,9 +1433,9 @@ _Z21stbiw__linear_to_rgbePhPf.exit119:            ; preds = %.lr.ph.split, %95
   br label %.lr.ph139.us
 
 ._crit_edge154.us:                                ; preds = %.loopexit127.us
-  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
-  %exitcond188.not = icmp eq i64 %indvars.iv.next185, 4
-  br i1 %exitcond188.not, label %.loopexit, label %.preheader129.lr.ph.us, !llvm.loop !18
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
+  %exitcond186.not = icmp eq i64 %indvars.iv.next184, 4
+  br i1 %exitcond186.not, label %.loopexit, label %.preheader129.lr.ph.us, !llvm.loop !18
 
 .loopexit:                                        ; preds = %._crit_edge154.us, %_Z21stbiw__linear_to_rgbePhPf.exit, %.preheader
   ret void

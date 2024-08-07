@@ -4201,42 +4201,41 @@ rb_num2long_inline.exit:                          ; preds = %31, %33
 51:                                               ; preds = %49
   %52 = and i64 %10, 1
   %.not200 = icmp eq i64 %52, 0
-  br i1 %.not200, label %.critedge164, label %.lr.ph215
+  br i1 %.not200, label %.critedge164, label %.lr.ph215.preheader
 
-.lr.ph215:                                        ; preds = %51
+.lr.ph215.preheader:                              ; preds = %51
   %53 = ashr i64 %10, 1
   %54 = tail call i64 @rb_ary_new_capa(i64 noundef %.0.i) #17
   %55 = ashr i64 %6, 1
-  %invariant.op = add nsw i64 %53, 4611686018427387904
-  br label %56
+  br label %.lr.ph215
 
-56:                                               ; preds = %.lr.ph215, %56
-  %.0144214 = phi i64 [ %.0.i, %.lr.ph215 ], [ %61, %56 ]
-  %.0146213 = phi i64 [ %55, %.lr.ph215 ], [ %60, %56 ]
-  %57 = shl nsw i64 %.0146213, 1
-  %58 = or disjoint i64 %57, 1
-  %59 = tail call i64 @rb_ary_push(i64 noundef %54, i64 noundef %58) #17
-  %60 = add nsw i64 %.0146213, %53
-  %61 = add nsw i64 %.0144214, -1
-  %62 = icmp ne i64 %61, 0
-  %.reass = add i64 %.0146213, %invariant.op
-  %63 = icmp sgt i64 %.reass, -1
-  %or.cond = select i1 %62, i1 %63, i1 false
-  br i1 %or.cond, label %56, label %.critedge, !llvm.loop !17
+.lr.ph215:                                        ; preds = %.lr.ph215.preheader, %.lr.ph215
+  %.0144214 = phi i64 [ %60, %.lr.ph215 ], [ %.0.i, %.lr.ph215.preheader ]
+  %.0146213 = phi i64 [ %59, %.lr.ph215 ], [ %55, %.lr.ph215.preheader ]
+  %56 = shl nsw i64 %.0146213, 1
+  %57 = or disjoint i64 %56, 1
+  %58 = tail call i64 @rb_ary_push(i64 noundef %54, i64 noundef %57) #17
+  %59 = add nsw i64 %.0146213, %53
+  %60 = add nsw i64 %.0144214, -1
+  %61 = icmp ne i64 %60, 0
+  %62 = add i64 %59, 4611686018427387904
+  %63 = icmp sgt i64 %62, -1
+  %or.cond = select i1 %61, i1 %63, i1 false
+  br i1 %or.cond, label %.lr.ph215, label %.critedge, !llvm.loop !17
 
-.critedge:                                        ; preds = %56
-  br i1 %62, label %64, label %.loopexit
+.critedge:                                        ; preds = %.lr.ph215
+  br i1 %61, label %64, label %.loopexit
 
 64:                                               ; preds = %.critedge
   br i1 %63, label %65, label %68
 
 65:                                               ; preds = %64
-  %66 = shl nsw i64 %60, 1
+  %66 = shl nsw i64 %59, 1
   %67 = or disjoint i64 %66, 1
   br label %rb_long2num_inline.exit
 
 68:                                               ; preds = %64
-  %69 = tail call i64 @rb_int2big(i64 noundef %60) #17
+  %69 = tail call i64 @rb_int2big(i64 noundef %59) #17
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %65, %68
@@ -4246,7 +4245,7 @@ rb_long2num_inline.exit:                          ; preds = %65, %68
 
 .lr.ph221:                                        ; preds = %rb_long2num_inline.exit, %.lr.ph221
   %.0141220 = phi i64 [ %72, %.lr.ph221 ], [ %.0.i167, %rb_long2num_inline.exit ]
-  %.1145219 = phi i64 [ %73, %.lr.ph221 ], [ %61, %rb_long2num_inline.exit ]
+  %.1145219 = phi i64 [ %73, %.lr.ph221 ], [ %60, %rb_long2num_inline.exit ]
   %71 = tail call i64 @rb_ary_push(i64 noundef %54, i64 noundef %.0141220) #17
   %72 = tail call i64 @rb_big_plus(i64 noundef %.0141220, i64 noundef %10) #17
   %73 = add nsw i64 %.1145219, -1

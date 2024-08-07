@@ -12259,22 +12259,21 @@ bignew_1.exit:                                    ; preds = %24, %37
 
 BIGNUM_DIGITS.exit:                               ; preds = %43, %45
   %.0.i = phi ptr [ %44, %43 ], [ %47, %45 ]
-  %invariant.op = add i32 %4, -32
   %48 = icmp ugt ptr %2, %1
   br i1 %48, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %BIGNUM_DIGITS.exit, %66
-  %.037 = phi ptr [ %.1, %66 ], [ %.0.i, %BIGNUM_DIGITS.exit ]
-  %.02536 = phi i64 [ %.126, %66 ], [ 0, %BIGNUM_DIGITS.exit ]
-  %.02735 = phi ptr [ %49, %66 ], [ %2, %BIGNUM_DIGITS.exit ]
-  %.02834 = phi i32 [ %.129, %66 ], [ 0, %BIGNUM_DIGITS.exit ]
+.lr.ph:                                           ; preds = %BIGNUM_DIGITS.exit, %67
+  %.037 = phi ptr [ %.1, %67 ], [ %.0.i, %BIGNUM_DIGITS.exit ]
+  %.02536 = phi i64 [ %.126, %67 ], [ 0, %BIGNUM_DIGITS.exit ]
+  %.02735 = phi ptr [ %49, %67 ], [ %2, %BIGNUM_DIGITS.exit ]
+  %.02834 = phi i32 [ %.129, %67 ], [ 0, %BIGNUM_DIGITS.exit ]
   %49 = getelementptr i8, ptr %.02735, i64 -1
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
   %52 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = icmp slt i8 %53, 0
-  br i1 %54, label %66, label %55
+  br i1 %54, label %67, label %55
 
 55:                                               ; preds = %.lr.ph
   %56 = zext nneg i8 %53 to i64
@@ -12283,33 +12282,33 @@ BIGNUM_DIGITS.exit:                               ; preds = %43, %45
   %59 = or i64 %58, %.02536
   %60 = add nuw nsw i32 %.02834, %4
   %61 = icmp sgt i32 %60, 31
-  br i1 %61, label %62, label %66
+  br i1 %61, label %62, label %67
 
 62:                                               ; preds = %55
   %63 = trunc i64 %59 to i32
   %64 = getelementptr i8, ptr %.037, i64 4
   store i32 %63, ptr %.037, align 4
   %65 = lshr i64 %59, 32
-  %.reass = add i32 %.02834, %invariant.op
-  br label %66
+  %66 = add nsw i32 %60, -32
+  br label %67
 
-66:                                               ; preds = %55, %62, %.lr.ph
-  %.129 = phi i32 [ %.02834, %.lr.ph ], [ %.reass, %62 ], [ %60, %55 ]
+67:                                               ; preds = %55, %62, %.lr.ph
+  %.129 = phi i32 [ %.02834, %.lr.ph ], [ %66, %62 ], [ %60, %55 ]
   %.126 = phi i64 [ %.02536, %.lr.ph ], [ %65, %62 ], [ %59, %55 ]
   %.1 = phi ptr [ %.037, %.lr.ph ], [ %64, %62 ], [ %.037, %55 ]
-  %67 = icmp ugt ptr %49, %1
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !86
+  %68 = icmp ugt ptr %49, %1
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !86
 
-._crit_edge:                                      ; preds = %66
-  %68 = icmp eq i32 %.129, 0
-  br i1 %68, label %._crit_edge.thread, label %69
+._crit_edge:                                      ; preds = %67
+  %69 = icmp eq i32 %.129, 0
+  br i1 %69, label %._crit_edge.thread, label %70
 
-69:                                               ; preds = %._crit_edge
-  %70 = trunc i64 %.126 to i32
-  store i32 %70, ptr %.1, align 4
+70:                                               ; preds = %._crit_edge
+  %71 = trunc i64 %.126 to i32
+  store i32 %71, ptr %.1, align 4
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %BIGNUM_DIGITS.exit, %69, %._crit_edge
+._crit_edge.thread:                               ; preds = %BIGNUM_DIGITS.exit, %70, %._crit_edge
   ret i64 %19
 }
 

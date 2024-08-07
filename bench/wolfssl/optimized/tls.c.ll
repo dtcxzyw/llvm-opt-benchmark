@@ -6252,8 +6252,8 @@ return:                                           ; preds = %entry, %if.then92, 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly %list, ptr nocapture noundef %semaphore, i8 noundef zeroext %msgType, ptr nocapture noundef %pLength) unnamed_addr #9 {
 entry:
-  %tobool.not6875 = icmp eq ptr %list, null
-  br i1 %tobool.not6875, label %while.end, label %while.body.lr.ph.lr.ph
+  %tobool.not6873 = icmp eq ptr %list, null
+  br i1 %tobool.not6873, label %while.end, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %entry
   %0 = add i8 %msgType, -3
@@ -6266,13 +6266,13 @@ while.body.lr.ph.lr.ph:                           ; preds = %entry
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %sw.epilog
-  %list.addr.0.ph78 = phi ptr [ %list, %while.body.lr.ph.lr.ph ], [ %2, %sw.epilog ]
-  %ret.0.ph77 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %ret.1, %sw.epilog ]
-  %length.0.ph76 = phi i16 [ 0, %while.body.lr.ph.lr.ph ], [ %length.1, %sw.epilog ]
+  %list.addr.0.ph76 = phi ptr [ %list, %while.body.lr.ph.lr.ph ], [ %2, %sw.epilog ]
+  %ret.0.ph75 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %ret.1, %sw.epilog ]
+  %length.0.ph74 = phi i16 [ 0, %while.body.lr.ph.lr.ph ], [ %length.1, %sw.epilog ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %list.addr.069 = phi ptr [ %list.addr.0.ph78, %while.body.lr.ph ], [ %2, %while.cond.backedge ]
+  %list.addr.069 = phi ptr [ %list.addr.0.ph76, %while.body.lr.ph ], [ %2, %while.cond.backedge ]
   %next = getelementptr inbounds i8, ptr %list.addr.069, i64 24
   %2 = load ptr, ptr %next, align 8
   switch i8 %msgType, label %land.lhs.true [
@@ -6308,7 +6308,7 @@ if.end:                                           ; preds = %while.body, %while.
 
 if.end19:                                         ; preds = %if.end
   %arrayidx.le = getelementptr inbounds i8, ptr %semaphore, i64 %idxprom
-  %add = add i16 %length.0.ph76, 4
+  %add = add i16 %length.0.ph74, 4
   switch i32 %4, label %sw.epilog [
     i32 0, label %sw.bb
     i32 13, label %sw.bb77
@@ -6429,8 +6429,8 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.t
 
 TLSX_SignatureAlgorithms_GetSize.exit:            ; preds = %sw.bb77, %cond.end.i
   %retval.0.in.i = phi i16 [ %22, %cond.end.i ], [ %17, %sw.bb77 ]
-  %retval.0.i.reass = add i16 %length.0.ph76, 6
-  %add82 = add i16 %retval.0.i.reass, %retval.0.in.i
+  %retval.0.i = add i16 %length.0.ph74, 6
+  %add82 = add i16 %retval.0.i, %retval.0.in.i
   br label %sw.epilog
 
 sw.bb84:                                          ; preds = %if.end19
@@ -6469,73 +6469,73 @@ if.then24.i:                                      ; preds = %if.then.i43
 if.end39.i:                                       ; preds = %if.then24.i, %if.then.i43
   %cnt.1.i = phi i16 [ %spec.select.i, %if.then.i43 ], [ %spec.select18.i, %if.then24.i ]
   %27 = shl nuw nsw i16 %cnt.1.i, 1
-  %.reass = add i16 %length.0.ph76, 5
-  %conv44.i = add i16 %.reass, %27
+  %28 = add i16 %length.0.ph74, 5
+  %conv44.i = add i16 %28, %27
   br label %sw.epilog
 
 if.else.i:                                        ; preds = %sw.bb86
-  %add53.i = add i16 %length.0.ph76, 6
+  %add53.i = add i16 %length.0.ph74, 6
   %spec.select = select i1 %or.cond.i41, i16 %add53.i, i16 %add
   br label %sw.epilog
 
 sw.bb89:                                          ; preds = %if.end19
   %data90 = getelementptr inbounds i8, ptr %list.addr.069, i64 8
-  %28 = load ptr, ptr %data90, align 8
-  %29 = getelementptr i8, ptr %28, i64 1084
-  %.val = load i16, ptr %29, align 4
-  %add.i44.reass = add i16 %length.0.ph76, 6
-  %add94 = add i16 %add.i44.reass, %.val
+  %29 = load ptr, ptr %data90, align 8
+  %30 = getelementptr i8, ptr %29, i64 1084
+  %.val = load i16, ptr %30, align 4
+  %add.i44 = add i16 %length.0.ph74, 6
+  %add94 = add i16 %add.i44, %.val
   br label %sw.epilog
 
 sw.bb96:                                          ; preds = %if.end19
   %data97 = getelementptr inbounds i8, ptr %list.addr.069, i64 8
-  %30 = load ptr, ptr %data97, align 8
+  %31 = load ptr, ptr %data97, align 8
   switch i8 %msgType, label %while.cond.outer.i [
     i8 6, label %TLSX_KeyShare_GetSize.exit
     i8 1, label %if.end.split.us.i
   ]
 
 if.end.split.us.i:                                ; preds = %sw.bb96
-  %cmp10.not.us.us11.i = icmp eq ptr %30, null
+  %cmp10.not.us.us11.i = icmp eq ptr %31, null
   br i1 %cmp10.not.us.us11.i, label %TLSX_KeyShare_GetSize.exit, label %while.body.us.us.i
 
 while.body.us.us.i:                               ; preds = %if.end.split.us.i, %while.body.us.us.i
-  %list.addr.0.ph.us13.i = phi ptr [ %31, %while.body.us.us.i ], [ %30, %if.end.split.us.i ]
+  %list.addr.0.ph.us13.i = phi ptr [ %32, %while.body.us.us.i ], [ %31, %if.end.split.us.i ]
   %len.1.ph.us12.i = phi i16 [ %conv22.us.i, %while.body.us.us.i ], [ 2, %if.end.split.us.i ]
   %next.us.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us13.i, i64 64
-  %31 = load ptr, ptr %next.us.us.i, align 8
+  %32 = load ptr, ptr %next.us.us.i, align 8
   %pubKeyLen.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us13.i, i64 48
-  %32 = load i32, ptr %pubKeyLen.us.i, align 8
-  %33 = trunc i32 %32 to i16
-  %34 = add i16 %len.1.ph.us12.i, 4
-  %conv22.us.i = add i16 %34, %33
-  %cmp10.not.us.us.i = icmp eq ptr %31, null
+  %33 = load i32, ptr %pubKeyLen.us.i, align 8
+  %34 = trunc i32 %33 to i16
+  %35 = add i16 %len.1.ph.us12.i, 4
+  %conv22.us.i = add i16 %35, %34
+  %cmp10.not.us.us.i = icmp eq ptr %32, null
   br i1 %cmp10.not.us.us.i, label %TLSX_KeyShare_GetSize.exit, label %while.body.us.us.i, !llvm.loop !50
 
 while.cond.outer.i:                               ; preds = %sw.bb96, %if.end16.split.i
   %len.1.ph.i = phi i16 [ %conv22.i, %if.end16.split.i ], [ 0, %sw.bb96 ]
-  %list.addr.0.ph.i = phi ptr [ %35, %if.end16.split.i ], [ %30, %sw.bb96 ]
+  %list.addr.0.ph.i = phi ptr [ %36, %if.end16.split.i ], [ %31, %sw.bb96 ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i46, %while.cond.outer.i
-  %list.addr.0.i = phi ptr [ %35, %while.body.i46 ], [ %list.addr.0.ph.i, %while.cond.outer.i ]
+  %list.addr.0.i = phi ptr [ %36, %while.body.i46 ], [ %list.addr.0.ph.i, %while.cond.outer.i ]
   %cmp10.not.i = icmp eq ptr %list.addr.0.i, null
   br i1 %cmp10.not.i, label %TLSX_KeyShare_GetSize.exit, label %while.body.i46
 
 while.body.i46:                                   ; preds = %while.cond.i
   %next.i47 = getelementptr inbounds i8, ptr %list.addr.0.i, i64 64
-  %35 = load ptr, ptr %next.i47, align 8
+  %36 = load ptr, ptr %next.i47, align 8
   %pubKey.i = getelementptr inbounds i8, ptr %list.addr.0.i, i64 40
-  %36 = load ptr, ptr %pubKey.i, align 8
-  %cmp13.i = icmp eq ptr %36, null
+  %37 = load ptr, ptr %pubKey.i, align 8
+  %cmp13.i = icmp eq ptr %37, null
   br i1 %cmp13.i, label %while.cond.i, label %if.end16.split.i, !llvm.loop !50
 
 if.end16.split.i:                                 ; preds = %while.body.i46
   %pubKeyLen.i = getelementptr inbounds i8, ptr %list.addr.0.i, i64 48
-  %37 = load i32, ptr %pubKeyLen.i, align 8
-  %38 = trunc i32 %37 to i16
-  %39 = add i16 %len.1.ph.i, 4
-  %conv22.i = add i16 %39, %38
+  %38 = load i32, ptr %pubKeyLen.i, align 8
+  %39 = trunc i32 %38 to i16
+  %40 = add i16 %len.1.ph.i, 4
+  %conv22.i = add i16 %40, %39
   br label %while.cond.outer.i, !llvm.loop !50
 
 TLSX_KeyShare_GetSize.exit:                       ; preds = %while.body.us.us.i, %while.cond.i, %sw.bb96, %if.end.split.us.i
@@ -6545,17 +6545,17 @@ TLSX_KeyShare_GetSize.exit:                       ; preds = %while.body.us.us.i,
 
 sw.epilog:                                        ; preds = %if.else.i, %if.end39.i, %sw.bb, %if.end19, %TLSX_SNI_GetSize.exit, %TLSX_KeyShare_GetSize.exit, %sw.bb89, %sw.bb84, %TLSX_SignatureAlgorithms_GetSize.exit, %TLSX_PointFormat_GetSize.exit, %TLSX_SupportedCurve_GetSize.exit
   %length.1 = phi i16 [ %add, %sw.bb84 ], [ %add82, %TLSX_SignatureAlgorithms_GetSize.exit ], [ %add55, %TLSX_PointFormat_GetSize.exit ], [ %add48, %TLSX_SupportedCurve_GetSize.exit ], [ %add94, %sw.bb89 ], [ %add101, %TLSX_KeyShare_GetSize.exit ], [ %add, %sw.bb ], [ %add28, %TLSX_SNI_GetSize.exit ], [ %conv44.i, %if.end39.i ], [ %add, %if.end19 ], [ %spec.select, %if.else.i ]
-  %ret.1 = phi i32 [ %..i, %sw.bb84 ], [ %ret.0.ph77, %TLSX_SignatureAlgorithms_GetSize.exit ], [ %ret.0.ph77, %TLSX_PointFormat_GetSize.exit ], [ %ret.0.ph77, %TLSX_SupportedCurve_GetSize.exit ], [ %ret.0.ph77, %sw.bb89 ], [ %ret.0.ph77, %TLSX_KeyShare_GetSize.exit ], [ %ret.0.ph77, %sw.bb ], [ %ret.0.ph77, %TLSX_SNI_GetSize.exit ], [ 0, %if.end39.i ], [ %ret.0.ph77, %if.end19 ], [ %spec.select61, %if.else.i ]
+  %ret.1 = phi i32 [ %..i, %sw.bb84 ], [ %ret.0.ph75, %TLSX_SignatureAlgorithms_GetSize.exit ], [ %ret.0.ph75, %TLSX_PointFormat_GetSize.exit ], [ %ret.0.ph75, %TLSX_SupportedCurve_GetSize.exit ], [ %ret.0.ph75, %sw.bb89 ], [ %ret.0.ph75, %TLSX_KeyShare_GetSize.exit ], [ %ret.0.ph75, %sw.bb ], [ %ret.0.ph75, %TLSX_SNI_GetSize.exit ], [ 0, %if.end39.i ], [ %ret.0.ph75, %if.end19 ], [ %spec.select61, %if.else.i ]
   %or22 = or i8 %shl, %6
   store i8 %or22, ptr %arrayidx.le, align 1
   %tobool.not68 = icmp eq ptr %2, null
   br i1 %tobool.not68, label %while.end, label %while.body.lr.ph, !llvm.loop !46
 
 while.end:                                        ; preds = %sw.epilog, %while.cond.backedge, %entry
-  %length.0.ph.lcssa = phi i16 [ 0, %entry ], [ %length.0.ph76, %while.cond.backedge ], [ %length.1, %sw.epilog ]
-  %ret.0.ph.lcssa = phi i32 [ 0, %entry ], [ %ret.0.ph77, %while.cond.backedge ], [ %ret.1, %sw.epilog ]
-  %40 = load i16, ptr %pLength, align 2
-  %add122 = add i16 %40, %length.0.ph.lcssa
+  %length.0.ph.lcssa = phi i16 [ 0, %entry ], [ %length.0.ph74, %while.cond.backedge ], [ %length.1, %sw.epilog ]
+  %ret.0.ph.lcssa = phi i32 [ 0, %entry ], [ %ret.0.ph75, %while.cond.backedge ], [ %ret.1, %sw.epilog ]
+  %41 = load i16, ptr %pLength, align 2
+  %add122 = add i16 %41, %length.0.ph.lcssa
   store i16 %add122, ptr %pLength, align 2
   ret i32 %ret.0.ph.lcssa
 }
@@ -7085,8 +7085,8 @@ for.inc.i.i:                                      ; preds = %if.then46.i.i, %lan
   br i1 %cmp4.i.i, label %for.body.i.i, label %TLSX_SignatureAlgorithms_Write.exit, !llvm.loop !55
 
 TLSX_SignatureAlgorithms_Write.exit:              ; preds = %for.inc.i.i, %if.end.i, %if.end.i.i
-  %add.i59.reass = add i16 %offset.0.ph, 6
-  %add122 = add i16 %add.i59.reass, %hashSigAlgoSz.0.i
+  %add.i59 = add i16 %offset.0.ph, 6
+  %add122 = add i16 %add.i59, %hashSigAlgoSz.0.i
   br label %sw.epilog
 
 do.end126:                                        ; preds = %if.end19
@@ -7156,8 +7156,8 @@ if.then26.i:                                      ; preds = %if.end21.i
 if.end33.i:                                       ; preds = %if.then26.i, %if.end21.i, %if.then10.i, %if.end.i68
   %50 = phi i8 [ %.pre34.pre.i, %if.end21.i ], [ %.pre33.i, %if.then26.i ], [ %46, %if.end.i68 ], [ %46, %if.then10.i ]
   %conv34.i = zext i8 %50 to i16
-  %add35.i.reass = add i16 %offset.0.ph, 5
-  %add39.i = add i16 %add35.i.reass, %conv34.i
+  %add35.i = add i16 %offset.0.ph, 5
+  %add39.i = add i16 %add35.i, %conv34.i
   br label %sw.epilog
 
 if.else.i65:                                      ; preds = %do.end131
@@ -7193,8 +7193,8 @@ do.end139:                                        ; preds = %if.end19
   %conv.i75 = zext i16 %55 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i74, ptr nonnull readonly align 2 %certHashSigAlgo.i, i64 %conv.i75, i1 false)
   %56 = load i16, ptr %certHashSigAlgoSz.i, align 4
-  %add.i76.reass = add i16 %offset.0.ph, 6
-  %add147 = add i16 %add.i76.reass, %56
+  %add.i76 = add i16 %offset.0.ph, 6
+  %add147 = add i16 %add.i76, %56
   br label %sw.epilog
 
 do.end151:                                        ; preds = %if.end19

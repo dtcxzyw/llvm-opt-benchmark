@@ -1058,13 +1058,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
-  %indvars.iv41 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next42, %for.inc55 ]
+  %indvars.iv42 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next43, %for.inc55 ]
   %7 = load i32, ptr %y1, align 4
-  %8 = trunc nuw nsw i64 %indvars.iv41 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv42 to i32
   %add7 = add nsw i32 %7, %8
   %mul8 = mul nsw i32 %add7, %mul5
   %conv9 = sext i32 %mul8 to i64
-  %9 = mul nsw i64 %indvars.iv41, %4
+  %9 = mul nsw i64 %indvars.iv42, %4
   %add12 = add nsw i64 %9, %conv9
   %10 = load i32, ptr %block, align 4
   %mul13 = mul nsw i32 %10, %conv
@@ -1091,46 +1091,44 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul27 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %13 = load i32, ptr %block, align 4
-  %conv31 = sext i32 %13 to i64
-  %mul32 = shl nsw i64 %conv31, 2
-  %rem34 = urem i64 %mul32, %conv33
-  %conv35 = trunc nuw nsw i64 %rem34 to i32
   %14 = load i32, ptr %x2, align 4
   %reass.sub39 = sub i32 %14, %13
   %add39 = add i32 %reass.sub39, 1
   %mul40 = mul nsw i32 %add39, %conv
-  %invariant.op = add nsw i32 %conv35, -1
   %cmp4335 = icmp sgt i32 %mul40, 0
   br i1 %cmp4335, label %for.body44.preheader, label %for.inc55
 
 for.body44.preheader:                             ; preds = %for.body
+  %conv31 = sext i32 %13 to i64
+  %mul32 = shl nsw i64 %conv31, 2
+  %rem34 = urem i64 %mul32, %conv33
   %15 = zext nneg i32 %mul40 to i64
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.body44
   %indvars.iv = phi i64 [ %15, %for.body44.preheader ], [ %indvars.iv.next, %for.body44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %add45.reass = add i32 %invariant.op, %16
-  %div46 = udiv i32 %add45.reass, 3
+  %16 = add nuw nsw i64 %indvars.iv.next, %rem34
+  %17 = trunc nsw i64 %16 to i32
+  %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
   %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
-  %17 = load i32, ptr %arrayidx, align 4
-  %rem48 = urem i32 %add45.reass, 3
+  %18 = load i32, ptr %arrayidx, align 4
+  %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
   %add51 = add nuw nsw i32 %mul50, 2
-  %shr = lshr i32 %17, %add51
+  %shr = lshr i32 %18, %add51
   %arrayidx54 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.next
-  %18 = lshr i32 %shr, 2
-  %conv1.i = trunc i32 %18 to i8
+  %19 = lshr i32 %shr, 2
+  %conv1.i = trunc i32 %19 to i8
   store i8 %conv1.i, ptr %arrayidx54, align 1
   %cmp43 = icmp ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !15
 
 for.inc55:                                        ; preds = %for.body44, %for.body
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
   br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !16
 
 for.end56:                                        ; preds = %for.inc55, %entry
@@ -1170,13 +1168,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
-  %indvars.iv41 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next42, %for.inc55 ]
+  %indvars.iv42 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next43, %for.inc55 ]
   %7 = load i32, ptr %y1, align 4
-  %8 = trunc nuw nsw i64 %indvars.iv41 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv42 to i32
   %add7 = add nsw i32 %7, %8
   %mul8 = mul nsw i32 %add7, %mul5
   %conv9 = sext i32 %mul8 to i64
-  %9 = mul nsw i64 %indvars.iv41, %4
+  %9 = mul nsw i64 %indvars.iv42, %4
   %add12 = add nsw i64 %9, %conv9
   %10 = load i32, ptr %block, align 4
   %mul13 = mul nsw i32 %10, %conv
@@ -1203,45 +1201,43 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul27 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %13 = load i32, ptr %block, align 4
-  %conv31 = sext i32 %13 to i64
-  %mul32 = shl nsw i64 %conv31, 2
-  %rem34 = urem i64 %mul32, %conv33
-  %conv35 = trunc nuw nsw i64 %rem34 to i32
   %14 = load i32, ptr %x2, align 4
   %reass.sub39 = sub i32 %14, %13
   %add39 = add i32 %reass.sub39, 1
   %mul40 = mul nsw i32 %add39, %conv
-  %invariant.op = add nsw i32 %conv35, -1
   %cmp4335 = icmp sgt i32 %mul40, 0
   br i1 %cmp4335, label %for.body44.preheader, label %for.inc55
 
 for.body44.preheader:                             ; preds = %for.body
+  %conv31 = sext i32 %13 to i64
+  %mul32 = shl nsw i64 %conv31, 2
+  %rem34 = urem i64 %mul32, %conv33
   %15 = zext nneg i32 %mul40 to i64
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.body44
   %indvars.iv = phi i64 [ %15, %for.body44.preheader ], [ %indvars.iv.next, %for.body44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %add45.reass = add i32 %invariant.op, %16
-  %div46 = udiv i32 %add45.reass, 3
+  %16 = add nuw nsw i64 %indvars.iv.next, %rem34
+  %17 = trunc nsw i64 %16 to i32
+  %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
   %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
-  %17 = load i32, ptr %arrayidx, align 4
-  %rem48 = urem i32 %add45.reass, 3
+  %18 = load i32, ptr %arrayidx, align 4
+  %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
-  %shr = lshr i32 %17, %mul50
+  %shr = lshr i32 %18, %mul50
   %arrayidx54 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.next
-  %18 = lshr i32 %shr, 2
-  %conv1.i = trunc i32 %18 to i8
+  %19 = lshr i32 %shr, 2
+  %conv1.i = trunc i32 %19 to i8
   store i8 %conv1.i, ptr %arrayidx54, align 1
   %cmp43 = icmp ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !17
 
 for.inc55:                                        ; preds = %for.body44, %for.body
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
   br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !18
 
 for.end56:                                        ; preds = %for.inc55, %entry
@@ -1916,13 +1912,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
-  %indvars.iv41 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next42, %for.inc55 ]
+  %indvars.iv42 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next43, %for.inc55 ]
   %7 = load i32, ptr %y1, align 4
-  %8 = trunc nuw nsw i64 %indvars.iv41 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv42 to i32
   %add7 = add nsw i32 %7, %8
   %mul8 = mul nsw i32 %add7, %mul5
   %conv9 = sext i32 %mul8 to i64
-  %9 = mul nsw i64 %indvars.iv41, %4
+  %9 = mul nsw i64 %indvars.iv42, %4
   %add12 = add nsw i64 %9, %conv9
   %10 = load i32, ptr %block, align 4
   %mul13 = mul nsw i32 %10, %conv
@@ -1949,38 +1945,36 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul27 to i64
   %add.ptr = getelementptr inbounds i16, ptr %data, i64 %idx.ext
   %13 = load i32, ptr %block, align 4
-  %conv31 = sext i32 %13 to i64
-  %mul32 = shl nsw i64 %conv31, 2
-  %rem34 = urem i64 %mul32, %conv33
-  %conv35 = trunc nuw nsw i64 %rem34 to i32
   %14 = load i32, ptr %x2, align 4
   %reass.sub39 = sub i32 %14, %13
   %add39 = add i32 %reass.sub39, 1
   %mul40 = mul nsw i32 %add39, %conv
-  %invariant.op = add nsw i32 %conv35, -1
   %cmp4335 = icmp sgt i32 %mul40, 0
   br i1 %cmp4335, label %for.body44.preheader, label %for.inc55
 
 for.body44.preheader:                             ; preds = %for.body
+  %conv31 = sext i32 %13 to i64
+  %mul32 = shl nsw i64 %conv31, 2
+  %rem34 = urem i64 %mul32, %conv33
   %15 = zext nneg i32 %mul40 to i64
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.body44
   %indvars.iv = phi i64 [ %15, %for.body44.preheader ], [ %indvars.iv.next, %for.body44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %add45.reass = add i32 %invariant.op, %16
-  %div46 = udiv i32 %add45.reass, 3
+  %16 = add nuw nsw i64 %indvars.iv.next, %rem34
+  %17 = trunc nsw i64 %16 to i32
+  %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
   %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
-  %17 = load i32, ptr %arrayidx, align 4
-  %rem48 = urem i32 %add45.reass, 3
+  %18 = load i32, ptr %arrayidx, align 4
+  %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
   %add51 = add nuw nsw i32 %mul50, 2
-  %shr = lshr i32 %17, %add51
-  %18 = trunc i32 %shr to i16
-  %conv52 = and i16 %18, 1023
+  %shr = lshr i32 %18, %add51
+  %19 = trunc i32 %shr to i16
+  %conv52 = and i16 %19, 1023
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
@@ -1990,8 +1984,8 @@ for.body44:                                       ; preds = %for.body44.preheade
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !29
 
 for.inc55:                                        ; preds = %for.body44, %for.body
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
   br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !30
 
 for.end56:                                        ; preds = %for.inc55, %entry
@@ -2031,13 +2025,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
-  %indvars.iv41 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next42, %for.inc55 ]
+  %indvars.iv42 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next43, %for.inc55 ]
   %7 = load i32, ptr %y1, align 4
-  %8 = trunc nuw nsw i64 %indvars.iv41 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv42 to i32
   %add7 = add nsw i32 %7, %8
   %mul8 = mul nsw i32 %add7, %mul5
   %conv9 = sext i32 %mul8 to i64
-  %9 = mul nsw i64 %indvars.iv41, %4
+  %9 = mul nsw i64 %indvars.iv42, %4
   %add12 = add nsw i64 %9, %conv9
   %10 = load i32, ptr %block, align 4
   %mul13 = mul nsw i32 %10, %conv
@@ -2064,37 +2058,35 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul27 to i64
   %add.ptr = getelementptr inbounds i16, ptr %data, i64 %idx.ext
   %13 = load i32, ptr %block, align 4
-  %conv31 = sext i32 %13 to i64
-  %mul32 = shl nsw i64 %conv31, 2
-  %rem34 = urem i64 %mul32, %conv33
-  %conv35 = trunc nuw nsw i64 %rem34 to i32
   %14 = load i32, ptr %x2, align 4
   %reass.sub39 = sub i32 %14, %13
   %add39 = add i32 %reass.sub39, 1
   %mul40 = mul nsw i32 %add39, %conv
-  %invariant.op = add nsw i32 %conv35, -1
   %cmp4335 = icmp sgt i32 %mul40, 0
   br i1 %cmp4335, label %for.body44.preheader, label %for.inc55
 
 for.body44.preheader:                             ; preds = %for.body
+  %conv31 = sext i32 %13 to i64
+  %mul32 = shl nsw i64 %conv31, 2
+  %rem34 = urem i64 %mul32, %conv33
   %15 = zext nneg i32 %mul40 to i64
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.body44
   %indvars.iv = phi i64 [ %15, %for.body44.preheader ], [ %indvars.iv.next, %for.body44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %add45.reass = add i32 %invariant.op, %16
-  %div46 = udiv i32 %add45.reass, 3
+  %16 = add nuw nsw i64 %indvars.iv.next, %rem34
+  %17 = trunc nsw i64 %16 to i32
+  %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
   %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
-  %17 = load i32, ptr %arrayidx, align 4
-  %rem48 = urem i32 %add45.reass, 3
+  %18 = load i32, ptr %arrayidx, align 4
+  %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
-  %shr = lshr i32 %17, %mul50
-  %18 = trunc i32 %shr to i16
-  %conv52 = and i16 %18, 1023
+  %shr = lshr i32 %18, %mul50
+  %19 = trunc i32 %shr to i16
+  %conv52 = and i16 %19, 1023
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
@@ -2104,8 +2096,8 @@ for.body44:                                       ; preds = %for.body44.preheade
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !31
 
 for.inc55:                                        ; preds = %for.body44, %for.body
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
   br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !32
 
 for.end56:                                        ; preds = %for.inc55, %entry
@@ -2786,13 +2778,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
-  %indvars.iv42 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next43, %for.inc55 ]
+  %indvars.iv43 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next44, %for.inc55 ]
   %7 = load i32, ptr %y1, align 4
-  %8 = trunc nuw nsw i64 %indvars.iv42 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv43 to i32
   %add7 = add nsw i32 %7, %8
   %mul8 = mul nsw i32 %add7, %mul5
   %conv9 = sext i32 %mul8 to i64
-  %9 = mul nsw i64 %indvars.iv42, %4
+  %9 = mul nsw i64 %indvars.iv43, %4
   %add12 = add nsw i64 %9, %conv9
   %10 = load i32, ptr %block, align 4
   %mul13 = mul nsw i32 %10, %conv
@@ -2819,38 +2811,36 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul27 to i64
   %add.ptr = getelementptr inbounds i32, ptr %data, i64 %idx.ext
   %13 = load i32, ptr %block, align 4
-  %conv31 = sext i32 %13 to i64
-  %mul32 = shl nsw i64 %conv31, 2
-  %rem34 = urem i64 %mul32, %conv33
-  %conv35 = trunc nuw nsw i64 %rem34 to i32
   %14 = load i32, ptr %x2, align 4
   %reass.sub40 = sub i32 %14, %13
   %add39 = add i32 %reass.sub40, 1
   %mul40 = mul nsw i32 %add39, %conv
-  %invariant.op = add nsw i32 %conv35, -1
   %cmp4336 = icmp sgt i32 %mul40, 0
   br i1 %cmp4336, label %for.body44.preheader, label %for.inc55
 
 for.body44.preheader:                             ; preds = %for.body
+  %conv31 = sext i32 %13 to i64
+  %mul32 = shl nsw i64 %conv31, 2
+  %rem34 = urem i64 %mul32, %conv33
   %15 = zext nneg i32 %mul40 to i64
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.body44
   %indvars.iv = phi i64 [ %15, %for.body44.preheader ], [ %indvars.iv.next, %for.body44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %add45.reass = add i32 %invariant.op, %16
-  %div46 = udiv i32 %add45.reass, 3
+  %16 = add nuw nsw i64 %indvars.iv.next, %rem34
+  %17 = trunc nsw i64 %16 to i32
+  %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
   %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
-  %17 = load i32, ptr %arrayidx, align 4
-  %rem48 = urem i32 %add45.reass, 3
+  %18 = load i32, ptr %arrayidx, align 4
+  %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
   %add51 = add nuw nsw i32 %mul50, 2
-  %shr = lshr i32 %17, %add51
-  %18 = trunc i32 %shr to i16
-  %conv52 = and i16 %18, 1023
+  %shr = lshr i32 %18, %add51
+  %19 = trunc i32 %shr to i16
+  %conv52 = and i16 %19, 1023
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
@@ -2862,8 +2852,8 @@ for.body44:                                       ; preds = %for.body44.preheade
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !43
 
 for.inc55:                                        ; preds = %for.body44, %for.body
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
   br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !44
 
 for.end56:                                        ; preds = %for.inc55, %entry
@@ -2903,13 +2893,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
-  %indvars.iv42 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next43, %for.inc55 ]
+  %indvars.iv43 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next44, %for.inc55 ]
   %7 = load i32, ptr %y1, align 4
-  %8 = trunc nuw nsw i64 %indvars.iv42 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv43 to i32
   %add7 = add nsw i32 %7, %8
   %mul8 = mul nsw i32 %add7, %mul5
   %conv9 = sext i32 %mul8 to i64
-  %9 = mul nsw i64 %indvars.iv42, %4
+  %9 = mul nsw i64 %indvars.iv43, %4
   %add12 = add nsw i64 %9, %conv9
   %10 = load i32, ptr %block, align 4
   %mul13 = mul nsw i32 %10, %conv
@@ -2936,37 +2926,35 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul27 to i64
   %add.ptr = getelementptr inbounds i32, ptr %data, i64 %idx.ext
   %13 = load i32, ptr %block, align 4
-  %conv31 = sext i32 %13 to i64
-  %mul32 = shl nsw i64 %conv31, 2
-  %rem34 = urem i64 %mul32, %conv33
-  %conv35 = trunc nuw nsw i64 %rem34 to i32
   %14 = load i32, ptr %x2, align 4
   %reass.sub40 = sub i32 %14, %13
   %add39 = add i32 %reass.sub40, 1
   %mul40 = mul nsw i32 %add39, %conv
-  %invariant.op = add nsw i32 %conv35, -1
   %cmp4336 = icmp sgt i32 %mul40, 0
   br i1 %cmp4336, label %for.body44.preheader, label %for.inc55
 
 for.body44.preheader:                             ; preds = %for.body
+  %conv31 = sext i32 %13 to i64
+  %mul32 = shl nsw i64 %conv31, 2
+  %rem34 = urem i64 %mul32, %conv33
   %15 = zext nneg i32 %mul40 to i64
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.body44
   %indvars.iv = phi i64 [ %15, %for.body44.preheader ], [ %indvars.iv.next, %for.body44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %add45.reass = add i32 %invariant.op, %16
-  %div46 = udiv i32 %add45.reass, 3
+  %16 = add nuw nsw i64 %indvars.iv.next, %rem34
+  %17 = trunc nsw i64 %16 to i32
+  %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
   %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
-  %17 = load i32, ptr %arrayidx, align 4
-  %rem48 = urem i32 %add45.reass, 3
+  %18 = load i32, ptr %arrayidx, align 4
+  %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
-  %shr = lshr i32 %17, %mul50
-  %18 = trunc i32 %shr to i16
-  %conv52 = and i16 %18, 1023
+  %shr = lshr i32 %18, %mul50
+  %19 = trunc i32 %shr to i16
+  %conv52 = and i16 %19, 1023
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
@@ -2978,8 +2966,8 @@ for.body44:                                       ; preds = %for.body44.preheade
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !45
 
 for.inc55:                                        ; preds = %for.body44, %for.body
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
   br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !46
 
 for.end56:                                        ; preds = %for.inc55, %entry
@@ -3665,13 +3653,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
-  %indvars.iv42 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next43, %for.inc55 ]
+  %indvars.iv43 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next44, %for.inc55 ]
   %7 = load i32, ptr %y1, align 4
-  %8 = trunc nuw nsw i64 %indvars.iv42 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv43 to i32
   %add7 = add nsw i32 %7, %8
   %mul8 = mul nsw i32 %add7, %mul5
   %conv9 = sext i32 %mul8 to i64
-  %9 = mul nsw i64 %indvars.iv42, %4
+  %9 = mul nsw i64 %indvars.iv43, %4
   %add12 = add nsw i64 %9, %conv9
   %10 = load i32, ptr %block, align 4
   %mul13 = mul nsw i32 %10, %conv
@@ -3698,38 +3686,36 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul27 to i64
   %add.ptr = getelementptr inbounds i64, ptr %data, i64 %idx.ext
   %13 = load i32, ptr %block, align 4
-  %conv31 = sext i32 %13 to i64
-  %mul32 = shl nsw i64 %conv31, 2
-  %rem34 = urem i64 %mul32, %conv33
-  %conv35 = trunc nuw nsw i64 %rem34 to i32
   %14 = load i32, ptr %x2, align 4
   %reass.sub40 = sub i32 %14, %13
   %add39 = add i32 %reass.sub40, 1
   %mul40 = mul nsw i32 %add39, %conv
-  %invariant.op = add nsw i32 %conv35, -1
   %cmp4336 = icmp sgt i32 %mul40, 0
   br i1 %cmp4336, label %for.body44.preheader, label %for.inc55
 
 for.body44.preheader:                             ; preds = %for.body
+  %conv31 = sext i32 %13 to i64
+  %mul32 = shl nsw i64 %conv31, 2
+  %rem34 = urem i64 %mul32, %conv33
   %15 = zext nneg i32 %mul40 to i64
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.body44
   %indvars.iv = phi i64 [ %15, %for.body44.preheader ], [ %indvars.iv.next, %for.body44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %add45.reass = add i32 %invariant.op, %16
-  %div46 = udiv i32 %add45.reass, 3
+  %16 = add nuw nsw i64 %indvars.iv.next, %rem34
+  %17 = trunc nsw i64 %16 to i32
+  %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
   %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
-  %17 = load i32, ptr %arrayidx, align 4
-  %rem48 = urem i32 %add45.reass, 3
+  %18 = load i32, ptr %arrayidx, align 4
+  %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
   %add51 = add nuw nsw i32 %mul50, 2
-  %shr = lshr i32 %17, %add51
-  %18 = trunc i32 %shr to i16
-  %conv52 = and i16 %18, 1023
+  %shr = lshr i32 %18, %add51
+  %19 = trunc i32 %shr to i16
+  %conv52 = and i16 %19, 1023
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
@@ -3741,8 +3727,8 @@ for.body44:                                       ; preds = %for.body44.preheade
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !57
 
 for.inc55:                                        ; preds = %for.body44, %for.body
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
   br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !58
 
 for.end56:                                        ; preds = %for.inc55, %entry
@@ -3782,13 +3768,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
-  %indvars.iv42 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next43, %for.inc55 ]
+  %indvars.iv43 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next44, %for.inc55 ]
   %7 = load i32, ptr %y1, align 4
-  %8 = trunc nuw nsw i64 %indvars.iv42 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv43 to i32
   %add7 = add nsw i32 %7, %8
   %mul8 = mul nsw i32 %add7, %mul5
   %conv9 = sext i32 %mul8 to i64
-  %9 = mul nsw i64 %indvars.iv42, %4
+  %9 = mul nsw i64 %indvars.iv43, %4
   %add12 = add nsw i64 %9, %conv9
   %10 = load i32, ptr %block, align 4
   %mul13 = mul nsw i32 %10, %conv
@@ -3815,37 +3801,35 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul27 to i64
   %add.ptr = getelementptr inbounds i64, ptr %data, i64 %idx.ext
   %13 = load i32, ptr %block, align 4
-  %conv31 = sext i32 %13 to i64
-  %mul32 = shl nsw i64 %conv31, 2
-  %rem34 = urem i64 %mul32, %conv33
-  %conv35 = trunc nuw nsw i64 %rem34 to i32
   %14 = load i32, ptr %x2, align 4
   %reass.sub40 = sub i32 %14, %13
   %add39 = add i32 %reass.sub40, 1
   %mul40 = mul nsw i32 %add39, %conv
-  %invariant.op = add nsw i32 %conv35, -1
   %cmp4336 = icmp sgt i32 %mul40, 0
   br i1 %cmp4336, label %for.body44.preheader, label %for.inc55
 
 for.body44.preheader:                             ; preds = %for.body
+  %conv31 = sext i32 %13 to i64
+  %mul32 = shl nsw i64 %conv31, 2
+  %rem34 = urem i64 %mul32, %conv33
   %15 = zext nneg i32 %mul40 to i64
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.body44
   %indvars.iv = phi i64 [ %15, %for.body44.preheader ], [ %indvars.iv.next, %for.body44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %add45.reass = add i32 %invariant.op, %16
-  %div46 = udiv i32 %add45.reass, 3
+  %16 = add nuw nsw i64 %indvars.iv.next, %rem34
+  %17 = trunc nsw i64 %16 to i32
+  %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
   %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
-  %17 = load i32, ptr %arrayidx, align 4
-  %rem48 = urem i32 %add45.reass, 3
+  %18 = load i32, ptr %arrayidx, align 4
+  %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
-  %shr = lshr i32 %17, %mul50
-  %18 = trunc i32 %shr to i16
-  %conv52 = and i16 %18, 1023
+  %shr = lshr i32 %18, %mul50
+  %19 = trunc i32 %shr to i16
+  %conv52 = and i16 %19, 1023
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
@@ -3857,8 +3841,8 @@ for.body44:                                       ; preds = %for.body44.preheade
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !59
 
 for.inc55:                                        ; preds = %for.body44, %for.body
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
   br i1 %exitcond.not, label %for.end56, label %for.body, !llvm.loop !60
 
 for.end56:                                        ; preds = %for.inc55, %entry

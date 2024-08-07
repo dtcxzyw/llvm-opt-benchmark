@@ -9544,31 +9544,30 @@ entry:
   br label %invoke.cont.i.1
 
 invoke.cont.i.1:                                  ; preds = %entry, %invoke.cont.i.1
-  %arrayctor.cur.add.i7 = phi i64 [ 40, %entry ], [ %arrayctor.cur.add.i.reass, %invoke.cont.i.1 ]
   %arrayctor.cur.idx.i6 = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i.1, %invoke.cont.i.1 ]
-  %arrayctor.cur.ptr.i.1 = getelementptr inbounds i8, ptr %keycache, i64 %arrayctor.cur.add.i7
+  %1 = getelementptr inbounds i8, ptr %keycache, i64 %arrayctor.cur.idx.i6
+  %arrayctor.cur.ptr.i.1 = getelementptr inbounds i8, ptr %1, i64 40
   store i32 256, ptr %arrayctor.cur.ptr.i.1, align 8, !tbaa !268
-  %Char.i.i.1 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.1, i64 4
+  %Char.i.i.1 = getelementptr inbounds i8, ptr %1, i64 44
   store i32 0, ptr %Char.i.i.1, align 4, !tbaa !264
-  %m_name.i.i.1 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.1, i64 8
-  %1 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.1, i64 24
-  store ptr %1, ptr %m_name.i.i.1, align 8, !tbaa !37
-  %_M_string_length.i.i.i.i.i.i.1 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.1, i64 16
+  %m_name.i.i.1 = getelementptr inbounds i8, ptr %1, i64 48
+  %2 = getelementptr inbounds i8, ptr %1, i64 64
+  store ptr %2, ptr %m_name.i.i.1, align 8, !tbaa !37
+  %_M_string_length.i.i.i.i.i.i.1 = getelementptr inbounds i8, ptr %1, i64 56
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.1, align 8, !tbaa !11
-  store i8 0, ptr %1, align 8, !tbaa !34
+  store i8 0, ptr %2, align 8, !tbaa !34
   %arrayctor.cur.add.i.1 = add nuw nsw i64 %arrayctor.cur.idx.i6, 80
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %keycache, i64 %arrayctor.cur.add.i.1
   store i32 256, ptr %arrayctor.cur.ptr.i, align 8, !tbaa !268
   %Char.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 4
   store i32 0, ptr %Char.i.i, align 4, !tbaa !264
   %m_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 8
-  %2 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 24
-  store ptr %2, ptr %m_name.i.i, align 8, !tbaa !37
+  %3 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 24
+  store ptr %3, ptr %m_name.i.i, align 8, !tbaa !37
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !11
-  store i8 0, ptr %2, align 8, !tbaa !34
-  %arrayctor.cur.add.i.reass = add nuw nsw i64 %arrayctor.cur.idx.i6, 120
-  %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i.reass, 3080
+  store i8 0, ptr %3, align 8, !tbaa !34
+  %arrayctor.done.i = icmp eq i64 %arrayctor.cur.idx.i6, 2960
   br i1 %arrayctor.done.i, label %arrayctor.cont.i, label %invoke.cont.i.1
 
 arrayctor.cont.i:                                 ; preds = %invoke.cont.i.1
@@ -9582,7 +9581,7 @@ invoke.cont4.i:                                   ; preds = %arrayctor.cont.i
           to label %invoke.cont unwind label %lpad3.i
 
 lpad3.i:                                          ; preds = %invoke.cont4.i, %arrayctor.cont.i
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %arraydestroy.body7.i
 
@@ -9591,20 +9590,20 @@ arraydestroy.body7.i:                             ; preds = %_ZN8KeyPressD2Ev.ex
   %arraydestroy.elementPast8.i.ptr = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast8.i.idx
   %arraydestroy.elementPast8.i.add = add nsw i64 %arraydestroy.elementPast8.i.idx, -40
   %m_name.i15.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast8.i.ptr, i64 -32
-  %4 = load ptr, ptr %m_name.i15.i, align 8, !tbaa !4
-  %5 = getelementptr inbounds i8, ptr %arraydestroy.elementPast8.i.ptr, i64 -16
-  %cmp.i.i.i.i16.i = icmp eq ptr %4, %5
+  %5 = load ptr, ptr %m_name.i15.i, align 8, !tbaa !4
+  %6 = getelementptr inbounds i8, ptr %arraydestroy.elementPast8.i.ptr, i64 -16
+  %cmp.i.i.i.i16.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i16.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i18.i, label %if.then.i.i.i17.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i18.i: ; preds = %arraydestroy.body7.i
   %_M_string_length.i.i.i.i19.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast8.i.ptr, i64 -24
-  %6 = load i64, ptr %_M_string_length.i.i.i.i19.i, align 8, !tbaa !11
-  %cmp3.i.i.i.i20.i = icmp ult i64 %6, 16
+  %7 = load i64, ptr %_M_string_length.i.i.i.i19.i, align 8, !tbaa !11
+  %cmp3.i.i.i.i20.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i20.i)
   br label %_ZN8KeyPressD2Ev.exit21.i
 
 if.then.i.i.i17.i:                                ; preds = %arraydestroy.body7.i
-  tail call void @_ZdlPv(ptr noundef %4) #27
+  tail call void @_ZdlPv(ptr noundef %5) #27
   br label %_ZN8KeyPressD2Ev.exit21.i
 
 _ZN8KeyPressD2Ev.exit21.i:                        ; preds = %if.then.i.i.i17.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i18.i
@@ -9620,7 +9619,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad4:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %arraydestroy.body.i
 
@@ -9629,20 +9628,20 @@ arraydestroy.body.i:                              ; preds = %_ZN8KeyPressD2Ev.ex
   %arraydestroy.elementPast.i.ptr = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast.i.idx
   %arraydestroy.elementPast.i.add = add nsw i64 %arraydestroy.elementPast.i.idx, -40
   %m_name.i.i8 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.ptr, i64 -32
-  %8 = load ptr, ptr %m_name.i.i8, align 8, !tbaa !4
-  %9 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.ptr, i64 -16
-  %cmp.i.i.i.i.i = icmp eq ptr %8, %9
+  %9 = load ptr, ptr %m_name.i.i8, align 8, !tbaa !4
+  %10 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.ptr, i64 -16
+  %cmp.i.i.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %arraydestroy.body.i
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.ptr, i64 -24
-  %10 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !11
-  %cmp3.i.i.i.i.i = icmp ult i64 %10, 16
+  %11 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !11
+  %cmp3.i.i.i.i.i = icmp ult i64 %11, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   br label %_ZN8KeyPressD2Ev.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %arraydestroy.body.i
-  tail call void @_ZdlPv(ptr noundef %8) #27
+  tail call void @_ZdlPv(ptr noundef %9) #27
   br label %_ZN8KeyPressD2Ev.exit.i
 
 _ZN8KeyPressD2Ev.exit.i:                          ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
@@ -9650,7 +9649,7 @@ _ZN8KeyPressD2Ev.exit.i:                          ; preds = %if.then.i.i.i.i, %_
   br i1 %arraydestroy.done.i, label %ehcleanup, label %arraydestroy.body.i
 
 ehcleanup:                                        ; preds = %_ZN8KeyPressD2Ev.exit21.i, %_ZN8KeyPressD2Ev.exit.i
-  %.pn = phi { ptr, i32 } [ %7, %_ZN8KeyPressD2Ev.exit.i ], [ %3, %_ZN8KeyPressD2Ev.exit21.i ]
+  %.pn = phi { ptr, i32 } [ %8, %_ZN8KeyPressD2Ev.exit.i ], [ %4, %_ZN8KeyPressD2Ev.exit21.i ]
   tail call void @_ZN18JoystickControllerD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %joystick) #28
   resume { ptr, i32 } %.pn
 }

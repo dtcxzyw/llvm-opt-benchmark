@@ -928,7 +928,7 @@ get_read_list_chunk_count.exit.i:                 ; preds = %.lr.ph.i.i, %4
   br i1 %.not25.i, label %dissect_rpcrdma_read_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %get_read_list_chunk_count.exit.i, %dissect_rpcrdma_read_chunk.exit.i
-  %15 = phi i32 [ %.reass.i, %dissect_rpcrdma_read_chunk.exit.i ], [ %14, %get_read_list_chunk_count.exit.i ]
+  %15 = phi i32 [ %63, %dissect_rpcrdma_read_chunk.exit.i ], [ %14, %get_read_list_chunk_count.exit.i ]
   %.026.i = phi i32 [ %61, %dissect_rpcrdma_read_chunk.exit.i ], [ %1, %get_read_list_chunk_count.exit.i ]
   %16 = load ptr, ptr %3, align 8
   %17 = icmp eq ptr %16, null
@@ -1001,97 +1001,97 @@ dissect_rpcrdma_read_chunk.exit.i:                ; preds = %.lr.ph.i.i.i, %._cr
   tail call void @wmem_array_append(ptr noundef %60, ptr noundef nonnull %24, i32 noundef 1) #9
   %61 = add i32 %.026.i, 24
   %62 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %61) #9
-  %.reass.i = add i32 %.026.i, 28
+  %63 = add i32 %.026.i, 28
   %.not.i = icmp eq i32 %62, 0
   br i1 %.not.i, label %dissect_rpcrdma_read_list.exit, label %.lr.ph.i
 
 dissect_rpcrdma_read_list.exit:                   ; preds = %dissect_rpcrdma_read_chunk.exit.i, %get_read_list_chunk_count.exit.i
-  %.lcssa23.i = phi i32 [ %14, %get_read_list_chunk_count.exit.i ], [ %.reass.i, %dissect_rpcrdma_read_chunk.exit.i ]
-  %63 = sub i32 %.lcssa23.i, %1
-  tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %63) #9
-  %64 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa23.i) #9
-  %.not12.i.i = icmp eq i32 %64, 0
+  %.lcssa23.i = phi i32 [ %14, %get_read_list_chunk_count.exit.i ], [ %63, %dissect_rpcrdma_read_chunk.exit.i ]
+  %64 = sub i32 %.lcssa23.i, %1
+  tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %64) #9
+  %65 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa23.i) #9
+  %.not12.i.i = icmp eq i32 %65, 0
   br i1 %.not12.i.i, label %get_write_list_chunk_count.exit.i, label %.lr.ph.i.i11
 
 .lr.ph.i.i11:                                     ; preds = %dissect_rpcrdma_read_list.exit, %.lr.ph.i.i11
-  %.014.i.i = phi i32 [ %72, %.lr.ph.i.i11 ], [ %.lcssa23.i, %dissect_rpcrdma_read_list.exit ]
-  %.01013.i.i = phi i32 [ %71, %.lr.ph.i.i11 ], [ 0, %dissect_rpcrdma_read_list.exit ]
-  %65 = add i32 %.014.i.i, 4
-  %66 = add i32 %.014.i.i, 8
-  %67 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %66) #9
-  %68 = lshr i32 %67, 4
-  %69 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %65) #9
-  %spec.select.i.i.i = tail call i32 @llvm.umin.i32(i32 %69, i32 %68)
-  %70 = shl nuw i32 %spec.select.i.i.i, 4
-  %71 = add i32 %.01013.i.i, 1
-  %72 = add i32 %70, %66
-  %73 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %72) #9
-  %.not.i.i12 = icmp eq i32 %73, 0
+  %.014.i.i = phi i32 [ %73, %.lr.ph.i.i11 ], [ %.lcssa23.i, %dissect_rpcrdma_read_list.exit ]
+  %.01013.i.i = phi i32 [ %72, %.lr.ph.i.i11 ], [ 0, %dissect_rpcrdma_read_list.exit ]
+  %66 = add i32 %.014.i.i, 4
+  %67 = add i32 %.014.i.i, 8
+  %68 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %67) #9
+  %69 = lshr i32 %68, 4
+  %70 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %66) #9
+  %spec.select.i.i.i = tail call i32 @llvm.umin.i32(i32 %70, i32 %69)
+  %71 = shl nuw i32 %spec.select.i.i.i, 4
+  %72 = add i32 %.01013.i.i, 1
+  %73 = add i32 %71, %67
+  %74 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %73) #9
+  %.not.i.i12 = icmp eq i32 %74, 0
   br i1 %.not.i.i12, label %get_write_list_chunk_count.exit.i, label %.lr.ph.i.i11
 
 get_write_list_chunk_count.exit.i:                ; preds = %.lr.ph.i.i11, %dissect_rpcrdma_read_list.exit
-  %.010.lcssa.i.i = phi i32 [ 0, %dissect_rpcrdma_read_list.exit ], [ %71, %.lr.ph.i.i11 ]
-  %74 = load i32, ptr @hf_rpcordma_writes_count, align 4
-  %75 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %.lcssa23.i, i32 noundef 0, i32 noundef %.010.lcssa.i.i, ptr noundef nonnull @.str.88, i32 noundef %.010.lcssa.i.i) #9
-  %76 = load i32, ptr @ett_rpcordma_write_list, align 4
-  %77 = tail call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76) #9
-  %78 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa23.i) #9
-  %79 = add i32 %.lcssa23.i, 4
-  %.not23.i = icmp eq i32 %78, 0
+  %.010.lcssa.i.i = phi i32 [ 0, %dissect_rpcrdma_read_list.exit ], [ %72, %.lr.ph.i.i11 ]
+  %75 = load i32, ptr @hf_rpcordma_writes_count, align 4
+  %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %.lcssa23.i, i32 noundef 0, i32 noundef %.010.lcssa.i.i, ptr noundef nonnull @.str.88, i32 noundef %.010.lcssa.i.i) #9
+  %77 = load i32, ptr @ett_rpcordma_write_list, align 4
+  %78 = tail call ptr @proto_item_add_subtree(ptr noundef %76, i32 noundef %77) #9
+  %79 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa23.i) #9
+  %80 = add i32 %.lcssa23.i, 4
+  %.not23.i = icmp eq i32 %79, 0
   br i1 %.not23.i, label %dissect_rpcrdma_write_list.exit, label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %get_write_list_chunk_count.exit.i
-  %80 = getelementptr inbounds i8, ptr %3, i64 8
-  br label %81
+  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  br label %82
 
-81:                                               ; preds = %88, %.lr.ph.i13
-  %82 = phi i32 [ %79, %.lr.ph.i13 ], [ %92, %88 ]
-  %83 = load ptr, ptr %80, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %88
+82:                                               ; preds = %89, %.lr.ph.i13
+  %83 = phi i32 [ %80, %.lr.ph.i13 ], [ %93, %89 ]
+  %84 = load ptr, ptr %81, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %89
 
-85:                                               ; preds = %81
-  %86 = tail call ptr @wmem_packet_scope() #9
-  %87 = tail call noalias ptr @wmem_array_new(ptr noundef %86, i64 noundef 16) #9
-  store ptr %87, ptr %80, align 8
-  br label %88
+86:                                               ; preds = %82
+  %87 = tail call ptr @wmem_packet_scope() #9
+  %88 = tail call noalias ptr @wmem_array_new(ptr noundef %87, i64 noundef 16) #9
+  store ptr %88, ptr %81, align 8
+  br label %89
 
-88:                                               ; preds = %85, %81
-  %89 = phi ptr [ %87, %85 ], [ %83, %81 ]
-  %90 = tail call fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %77, ptr noundef %0, i32 noundef %82, i32 noundef 1, ptr noundef %89)
-  %91 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %90) #9
-  %92 = add i32 %90, 4
-  %.not.i14 = icmp eq i32 %91, 0
-  br i1 %.not.i14, label %dissect_rpcrdma_write_list.exit, label %81
+89:                                               ; preds = %86, %82
+  %90 = phi ptr [ %88, %86 ], [ %84, %82 ]
+  %91 = tail call fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %78, ptr noundef %0, i32 noundef %83, i32 noundef 1, ptr noundef %90)
+  %92 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %91) #9
+  %93 = add i32 %91, 4
+  %.not.i14 = icmp eq i32 %92, 0
+  br i1 %.not.i14, label %dissect_rpcrdma_write_list.exit, label %82
 
-dissect_rpcrdma_write_list.exit:                  ; preds = %88, %get_write_list_chunk_count.exit.i
-  %.lcssa.i = phi i32 [ %79, %get_write_list_chunk_count.exit.i ], [ %92, %88 ]
-  %93 = sub i32 %.lcssa.i, %.lcssa23.i
-  tail call void @proto_item_set_len(ptr noundef %75, i32 noundef %93) #9
-  %94 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i) #9
-  %.not.i.i15 = icmp ne i32 %94, 0
-  %95 = zext i1 %.not.i.i15 to i32
-  %96 = load i32, ptr @hf_rpcordma_reply_count, align 4
-  %97 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %.lcssa.i, i32 noundef 4, i32 noundef %95, ptr noundef nonnull @.str.93, i32 noundef %95) #9
-  %98 = load i32, ptr @ett_rpcordma_reply_chunk, align 4
-  %99 = tail call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %98) #9
-  %100 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i) #9
-  %101 = add i32 %.lcssa.i, 4
-  %.not.i16 = icmp eq i32 %100, 0
-  br i1 %.not.i16, label %dissect_rpcrdma_reply_chunk.exit, label %102
+dissect_rpcrdma_write_list.exit:                  ; preds = %89, %get_write_list_chunk_count.exit.i
+  %.lcssa.i = phi i32 [ %80, %get_write_list_chunk_count.exit.i ], [ %93, %89 ]
+  %94 = sub i32 %.lcssa.i, %.lcssa23.i
+  tail call void @proto_item_set_len(ptr noundef %76, i32 noundef %94) #9
+  %95 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i) #9
+  %.not.i.i15 = icmp ne i32 %95, 0
+  %96 = zext i1 %.not.i.i15 to i32
+  %97 = load i32, ptr @hf_rpcordma_reply_count, align 4
+  %98 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %97, ptr noundef %0, i32 noundef %.lcssa.i, i32 noundef 4, i32 noundef %96, ptr noundef nonnull @.str.93, i32 noundef %96) #9
+  %99 = load i32, ptr @ett_rpcordma_reply_chunk, align 4
+  %100 = tail call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99) #9
+  %101 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i) #9
+  %102 = add i32 %.lcssa.i, 4
+  %.not.i16 = icmp eq i32 %101, 0
+  br i1 %.not.i16, label %dissect_rpcrdma_reply_chunk.exit, label %103
 
-102:                                              ; preds = %dissect_rpcrdma_write_list.exit
-  %103 = tail call ptr @wmem_packet_scope() #9
-  %104 = tail call noalias ptr @wmem_array_new(ptr noundef %103, i64 noundef 16) #9
-  %105 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %104, ptr %105, align 8
-  %106 = tail call fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %99, ptr noundef %0, i32 noundef %101, i32 noundef 2, ptr noundef %104)
-  %107 = sub i32 %106, %.lcssa.i
-  tail call void @proto_item_set_len(ptr noundef %97, i32 noundef %107) #9
+103:                                              ; preds = %dissect_rpcrdma_write_list.exit
+  %104 = tail call ptr @wmem_packet_scope() #9
+  %105 = tail call noalias ptr @wmem_array_new(ptr noundef %104, i64 noundef 16) #9
+  %106 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %105, ptr %106, align 8
+  %107 = tail call fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %100, ptr noundef %0, i32 noundef %102, i32 noundef 2, ptr noundef %105)
+  %108 = sub i32 %107, %.lcssa.i
+  tail call void @proto_item_set_len(ptr noundef %98, i32 noundef %108) #9
   br label %dissect_rpcrdma_reply_chunk.exit
 
-dissect_rpcrdma_reply_chunk.exit:                 ; preds = %dissect_rpcrdma_write_list.exit, %102
-  %.0.i = phi i32 [ %106, %102 ], [ %101, %dissect_rpcrdma_write_list.exit ]
+dissect_rpcrdma_reply_chunk.exit:                 ; preds = %dissect_rpcrdma_write_list.exit, %103
+  %.0.i = phi i32 [ %107, %103 ], [ %102, %dissect_rpcrdma_write_list.exit ]
   ret i32 %.0.i
 }
 

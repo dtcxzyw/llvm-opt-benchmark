@@ -730,28 +730,28 @@ define dso_local noundef i64 @_ZN4Luau12editDistanceESt17basic_string_viewIcSt11
   br i1 %18, label %.critedge2, label %.lr.ph150.preheader
 
 .lr.ph150.preheader:                              ; preds = %.lr.ph, %.critedge
-  %.sroa.15.0.lcssa176 = phi ptr [ %.sroa.15.0.lcssa, %.critedge ], [ %.sroa.15.0137, %.lr.ph ]
-  %.sroa.0111.0.lcssa175 = phi i64 [ %.sroa.0111.0.lcssa, %.critedge ], [ %.sroa.0111.0136, %.lr.ph ]
-  %.sroa.16106.0.lcssa174 = phi ptr [ %.sroa.16106.0.lcssa, %.critedge ], [ %.sroa.16106.0135, %.lr.ph ]
-  %.sroa.093.0.lcssa173 = phi i64 [ %.sroa.093.0.lcssa, %.critedge ], [ %.sroa.093.0134, %.lr.ph ]
-  %invariant.gep177 = getelementptr i8, ptr %.sroa.15.0.lcssa176, i64 -1
-  %invariant.gep146178 = getelementptr i8, ptr %.sroa.16106.0.lcssa174, i64 -1
-  %19 = sub i64 %.sroa.0111.0.lcssa175, %.sroa.093.0.lcssa173
-  %20 = sub i64 %.sroa.093.0.lcssa173, %.sroa.0111.0.lcssa175
-  %21 = add i64 %.sroa.0111.0.lcssa175, 2
-  %22 = add i64 %.sroa.093.0.lcssa173, 2
+  %.sroa.15.0.lcssa172 = phi ptr [ %.sroa.15.0.lcssa, %.critedge ], [ %.sroa.15.0137, %.lr.ph ]
+  %.sroa.0111.0.lcssa171 = phi i64 [ %.sroa.0111.0.lcssa, %.critedge ], [ %.sroa.0111.0136, %.lr.ph ]
+  %.sroa.16106.0.lcssa170 = phi ptr [ %.sroa.16106.0.lcssa, %.critedge ], [ %.sroa.16106.0135, %.lr.ph ]
+  %.sroa.093.0.lcssa169 = phi i64 [ %.sroa.093.0.lcssa, %.critedge ], [ %.sroa.093.0134, %.lr.ph ]
+  %invariant.gep173 = getelementptr i8, ptr %.sroa.15.0.lcssa172, i64 -1
+  %invariant.gep146174 = getelementptr i8, ptr %.sroa.16106.0.lcssa170, i64 -1
+  %19 = sub i64 %.sroa.0111.0.lcssa171, %.sroa.093.0.lcssa169
+  %20 = sub i64 %.sroa.093.0.lcssa169, %.sroa.0111.0.lcssa171
+  %21 = add i64 %.sroa.0111.0.lcssa171, 2
+  %22 = add i64 %.sroa.093.0.lcssa169, 2
   %23 = mul i64 %21, %22
   %24 = shl i64 %23, 3
   %25 = add i64 %24, -8
-  %26 = add i64 %.sroa.093.0.lcssa173, %.sroa.0111.0.lcssa175
+  %26 = add i64 %.sroa.093.0.lcssa169, %.sroa.0111.0.lcssa171
   %27 = shl i64 %26, 3
   br label %.lr.ph150
 
 .lr.ph150:                                        ; preds = %.lr.ph150.preheader, %35
   %loop-idiom.iv = phi i64 [ %25, %.lr.ph150.preheader ], [ %loop-idiom.iv.next, %35 ]
   %indvar = phi i64 [ 0, %.lr.ph150.preheader ], [ %indvar.next, %35 ]
-  %.sroa.0111.1149 = phi i64 [ %.sroa.0111.0.lcssa175, %.lr.ph150.preheader ], [ %36, %35 ]
-  %.sroa.093.1148 = phi i64 [ %.sroa.093.0.lcssa173, %.lr.ph150.preheader ], [ %37, %35 ]
+  %.sroa.0111.1149 = phi i64 [ %.sroa.0111.0.lcssa171, %.lr.ph150.preheader ], [ %36, %35 ]
+  %.sroa.093.1148 = phi i64 [ %.sroa.093.0.lcssa169, %.lr.ph150.preheader ], [ %37, %35 ]
   %28 = shl i64 %indvar, 4
   %reass.sub = sub i64 %28, %27
   %29 = add i64 %reass.sub, -24
@@ -759,9 +759,9 @@ define dso_local noundef i64 @_ZN4Luau12editDistanceESt17basic_string_viewIcSt11
   br i1 %30, label %.critedge2, label %31
 
 31:                                               ; preds = %.lr.ph150
-  %gep = getelementptr i8, ptr %invariant.gep177, i64 %.sroa.0111.1149
+  %gep = getelementptr i8, ptr %invariant.gep173, i64 %.sroa.0111.1149
   %32 = load i8, ptr %gep, align 1
-  %gep147 = getelementptr i8, ptr %invariant.gep146178, i64 %.sroa.093.1148
+  %gep147 = getelementptr i8, ptr %invariant.gep146174, i64 %.sroa.093.1148
   %33 = load i8, ptr %gep147, align 1
   %34 = icmp eq i8 %32, %33
   br i1 %34, label %35, label %39
@@ -805,10 +805,6 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc67, %_ZNSt6ve
   store i64 %40, ptr %.sroa.076.0, align 8
   br label %50
 
-.preheader130:                                    ; preds = %50
-  %invariant.op = add i64 %.sroa.093.1148, 3
-  br label %56
-
 50:                                               ; preds = %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit, %50
   %.048154 = phi i64 [ 0, %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit ], [ %51, %50 ]
   %51 = add nuw i64 %.048154, 1
@@ -821,98 +817,96 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc67, %_ZNSt6ve
   %.not.not = icmp ult i64 %.048154, %.sroa.0111.1149
   br i1 %.not.not, label %50, label %.preheader130, !llvm.loop !26
 
-56:                                               ; preds = %.preheader130, %56
-  %.052155 = phi i64 [ 0, %.preheader130 ], [ %57, %56 ]
-  %57 = add nuw i64 %.052155, 1
-  %58 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %57
-  store i64 %40, ptr %58, align 8
-  %.reass = add i64 %.052155, %invariant.op
-  %59 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %.reass
+.preheader130:                                    ; preds = %50, %.preheader130
+  %.052155 = phi i64 [ %56, %.preheader130 ], [ 0, %50 ]
+  %56 = add nuw i64 %.052155, 1
+  %57 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %56
+  store i64 %40, ptr %57, align 8
+  %58 = add i64 %56, %42
+  %59 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %58
   store i64 %.052155, ptr %59, align 8
   %.not53.not = icmp ult i64 %.052155, %.sroa.093.1148
-  br i1 %.not53.not, label %56, label %.preheader.preheader, !llvm.loop !27
+  br i1 %.not53.not, label %.preheader130, label %.preheader.preheader, !llvm.loop !27
 
-.preheader.preheader:                             ; preds = %56
+.preheader.preheader:                             ; preds = %.preheader130
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZNSt5arrayImLm256EE4fillERKm.exit
-  %.051163 = phi i64 [ %63, %_ZNSt5arrayImLm256EE4fillERKm.exit ], [ 1, %.preheader.preheader ]
-  %60 = add i64 %.051163, -1
-  %61 = getelementptr inbounds i8, ptr %.sroa.15.0.lcssa176, i64 %60
-  %62 = mul i64 %.051163, %42
-  %invariant.op156 = add i64 %62, 1
-  %63 = add nuw i64 %.051163, 1
+  %.051159 = phi i64 [ %63, %_ZNSt5arrayImLm256EE4fillERKm.exit ], [ 1, %.preheader.preheader ]
+  %60 = add i64 %.051159, -1
+  %61 = getelementptr inbounds i8, ptr %.sroa.15.0.lcssa172, i64 %60
+  %62 = mul i64 %.051159, %42
+  %63 = add nuw i64 %.051159, 1
   %64 = mul i64 %63, %42
-  %invariant.op158 = add i64 %64, 1
   br label %65
 
 65:                                               ; preds = %.preheader, %65
-  %.049161 = phi i64 [ 1, %.preheader ], [ %87, %65 ]
-  %.050160 = phi i64 [ 0, %.preheader ], [ %spec.select, %65 ]
-  %66 = add i64 %.049161, -1
-  %67 = getelementptr inbounds i8, ptr %.sroa.16106.0.lcssa174, i64 %66
+  %.049157 = phi i64 [ 1, %.preheader ], [ %87, %65 ]
+  %.050156 = phi i64 [ 0, %.preheader ], [ %spec.select, %65 ]
+  %66 = add i64 %.049157, -1
+  %67 = getelementptr inbounds i8, ptr %.sroa.16106.0.lcssa170, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
   %70 = getelementptr inbounds [256 x i64], ptr %5, i64 0, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = load i8, ptr %61, align 1
   %73 = icmp ne i8 %72, %68
-  %spec.select = select i1 %73, i64 %.050160, i64 %.049161
+  %spec.select = select i1 %73, i64 %.050156, i64 %.049157
   %spec.select57 = zext i1 %73 to i64
   %74 = mul i64 %71, %42
-  %75 = add i64 %74, %.050160
+  %75 = add i64 %74, %.050156
   %76 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %75
   %77 = load i64, ptr %76, align 8
   %78 = xor i64 %71, -1
-  %79 = sub i64 %.051163, %.050160
-  %80 = add i64 %79, %.049161
+  %79 = sub i64 %.051159, %.050156
+  %80 = add i64 %79, %.049157
   %81 = add i64 %80, %78
   %82 = add i64 %81, %77
-  %83 = add i64 %.049161, %62
+  %83 = add i64 %.049157, %62
   %84 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %83
   %85 = load i64, ptr %84, align 8
   %86 = add i64 %85, %spec.select57
-  %87 = add nuw i64 %.049161, 1
-  %.reass157 = add i64 %.049161, %invariant.op156
-  %88 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %.reass157
-  %89 = load i64, ptr %88, align 8
-  %90 = add i64 %89, 1
-  %91 = add i64 %.049161, %64
-  %92 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %91
-  %93 = load i64, ptr %92, align 8
-  %94 = add i64 %93, 1
-  %95 = tail call i64 @llvm.umin.i64(i64 %82, i64 %86)
-  %96 = tail call i64 @llvm.umin.i64(i64 %94, i64 %90)
-  %97 = tail call i64 @llvm.umin.i64(i64 %95, i64 %96)
-  %.reass159 = add i64 %.049161, %invariant.op158
-  %98 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %.reass159
-  store i64 %97, ptr %98, align 8
-  %.not56.not = icmp ult i64 %.049161, %.sroa.093.1148
+  %87 = add nuw i64 %.049157, 1
+  %88 = add i64 %87, %62
+  %89 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %88
+  %90 = load i64, ptr %89, align 8
+  %91 = add i64 %90, 1
+  %92 = add i64 %.049157, %64
+  %93 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %92
+  %94 = load i64, ptr %93, align 8
+  %95 = add i64 %94, 1
+  %96 = tail call i64 @llvm.umin.i64(i64 %82, i64 %86)
+  %97 = tail call i64 @llvm.umin.i64(i64 %95, i64 %91)
+  %98 = tail call i64 @llvm.umin.i64(i64 %96, i64 %97)
+  %99 = add i64 %87, %64
+  %100 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %99
+  store i64 %98, ptr %100, align 8
+  %.not56.not = icmp ult i64 %.049157, %.sroa.093.1148
   br i1 %.not56.not, label %65, label %_ZNSt5arrayImLm256EE4fillERKm.exit, !llvm.loop !28
 
 _ZNSt5arrayImLm256EE4fillERKm.exit:               ; preds = %65
-  %99 = load i8, ptr %61, align 1
-  %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds [256 x i64], ptr %5, i64 0, i64 %100
-  store i64 %.051163, ptr %101, align 8
-  %.not55.not = icmp ult i64 %.051163, %.sroa.0111.1149
+  %101 = load i8, ptr %61, align 1
+  %102 = zext i8 %101 to i64
+  %103 = getelementptr inbounds [256 x i64], ptr %5, i64 0, i64 %102
+  store i64 %.051159, ptr %103, align 8
+  %.not55.not = icmp ult i64 %.051159, %.sroa.0111.1149
   br i1 %.not55.not, label %.preheader, label %_ZNSt6vectorImSaImEED2Ev.exit71, !llvm.loop !29
 
 _ZNSt6vectorImSaImEED2Ev.exit71:                  ; preds = %_ZNSt5arrayImLm256EE4fillERKm.exit
-  %102 = add nuw i64 %.sroa.0111.1149, 1
-  %103 = add i64 %.sroa.093.1148, 1
-  %104 = mul i64 %102, %42
-  %105 = add i64 %103, %104
-  %106 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %105
-  %107 = load i64, ptr %106, align 8
-  %108 = ptrtoint ptr %.sroa.076.0 to i64
-  %109 = sub i64 %.sroa.19.0, %108
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.076.0, i64 noundef %109) #24
+  %104 = add nuw i64 %.sroa.0111.1149, 1
+  %105 = add i64 %.sroa.093.1148, 1
+  %106 = mul i64 %104, %42
+  %107 = add i64 %105, %106
+  %108 = getelementptr inbounds i64, ptr %.sroa.076.0, i64 %107
+  %109 = load i64, ptr %108, align 8
+  %110 = ptrtoint ptr %.sroa.076.0 to i64
+  %111 = sub i64 %.sroa.19.0, %110
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.076.0, i64 noundef %111) #24
   br label %.critedge2
 
 .critedge2:                                       ; preds = %35, %.lr.ph150, %.critedge, %_ZNSt6vectorImSaImEED2Ev.exit71
-  %.0 = phi i64 [ %107, %_ZNSt6vectorImSaImEED2Ev.exit71 ], [ %.sroa.093.0.lcssa, %.critedge ], [ %20, %35 ], [ %19, %.lr.ph150 ]
+  %.0 = phi i64 [ %109, %_ZNSt6vectorImSaImEED2Ev.exit71 ], [ %.sroa.093.0.lcssa, %.critedge ], [ %20, %35 ], [ %19, %.lr.ph150 ]
   ret i64 %.0
 }
 

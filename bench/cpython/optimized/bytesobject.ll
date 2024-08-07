@@ -3193,12 +3193,12 @@ if.then255:                                       ; preds = %land.lhs.true248
   br i1 %cmp259797, label %while.body261.preheader, label %if.then312
 
 while.body261.preheader:                          ; preds = %if.then255
-  %dec258796.reass = add nsw i64 %fmtcnt.6, -2
+  %dec258796 = add nsw i64 %fmtcnt.6, -2
   %sub256 = add nsw i32 %c.5428437, -48
   br label %while.body261
 
 while.body261:                                    ; preds = %while.body261.preheader, %if.end281
-  %dec258800 = phi i64 [ %dec258, %if.end281 ], [ %dec258796.reass, %while.body261.preheader ]
+  %dec258800 = phi i64 [ %dec258, %if.end281 ], [ %dec258796, %while.body261.preheader ]
   %fmt.10799 = phi ptr [ %incdec.ptr262, %if.end281 ], [ %fmt.9429436, %while.body261.preheader ]
   %prec.1798 = phi i32 [ %add284, %if.end281 ], [ %sub256, %while.body261.preheader ]
   %incdec.ptr262 = getelementptr i8, ptr %fmt.10799, i64 1

@@ -527,11 +527,9 @@ if.then7:                                         ; preds = %if.end4
 if.end11:                                         ; preds = %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4
   %has_ext_hdrs12 = getelementptr inbounds i8, ptr %info, i64 56
   store i8 1, ptr %has_ext_hdrs12, align 8
-  %invariant.op = add i64 %ip6hdr_off, 8
-  %invariant.op88 = add i64 %ip6hdr_off, 24
-  %add89 = add i64 %ip6hdr_off, 40
-  %cmp1490 = icmp ult i64 %call, %add89
-  br i1 %cmp1490, label %return, label %if.end16.lr.ph
+  %add88 = add i64 %ip6hdr_off, 40
+  %cmp1489 = icmp ult i64 %call, %add88
+  br i1 %cmp1489, label %return, label %if.end16.lr.ph
 
 if.end16.lr.ph:                                   ; preds = %if.end11
   %iov_len.i46 = getelementptr inbounds i8, ptr %pkt, i64 8
@@ -545,32 +543,32 @@ if.end16.lr.ph:                                   ; preds = %if.end11
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end16.lr.ph, %eth_is_ip6_extension_header_type.exit75
-  %add92 = phi i64 [ %add89, %if.end16.lr.ph ], [ %add, %eth_is_ip6_extension_header_type.exit75 ]
-  %curr_ext_hdr_type.091 = phi i8 [ %2, %if.end16.lr.ph ], [ %33, %eth_is_ip6_extension_header_type.exit75 ]
+  %add91 = phi i64 [ %add88, %if.end16.lr.ph ], [ %add, %eth_is_ip6_extension_header_type.exit75 ]
+  %curr_ext_hdr_type.090 = phi i8 [ %2, %if.end16.lr.ph ], [ %33, %eth_is_ip6_extension_header_type.exit75 ]
   br i1 %tobool.i.not, label %iov_to_buf.exit53, label %land.lhs.true1.i45
 
 land.lhs.true1.i45:                               ; preds = %if.end16
   %4 = load i64, ptr %iov_len.i46, align 8
-  %cmp.not.i47 = icmp ult i64 %4, %add92
-  %sub.i48 = sub nuw i64 %4, %add92
+  %cmp.not.i47 = icmp ult i64 %4, %add91
+  %sub.i48 = sub nuw i64 %4, %add91
   %cmp5.not.i49 = icmp ult i64 %sub.i48, 2
   %or.cond13.i50 = select i1 %cmp.not.i47, i1 true, i1 %cmp5.not.i49
   br i1 %or.cond13.i50, label %iov_to_buf.exit53, label %iov_to_buf.exit53.thread
 
 iov_to_buf.exit53.thread:                         ; preds = %land.lhs.true1.i45
   %5 = load ptr, ptr %pkt, align 8
-  %add.ptr.i52 = getelementptr i8, ptr %5, i64 %add92
+  %add.ptr.i52 = getelementptr i8, ptr %5, i64 %add91
   %6 = load i16, ptr %add.ptr.i52, align 1
   store i16 %6, ptr %ext_hdr, align 2
   br label %if.end22
 
 iov_to_buf.exit53:                                ; preds = %if.end16, %land.lhs.true1.i45
-  %call.i43 = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef %pkt_frags, i64 noundef %add92, ptr noundef nonnull %ext_hdr, i64 noundef 2) #8
+  %call.i43 = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef %pkt_frags, i64 noundef %add91, ptr noundef nonnull %ext_hdr, i64 noundef 2) #8
   %cmp20 = icmp ult i64 %call.i43, 2
   br i1 %cmp20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %iov_to_buf.exit53.thread, %iov_to_buf.exit53
-  switch i8 %curr_ext_hdr_type.091, label %if.end52 [
+  switch i8 %curr_ext_hdr_type.090, label %if.end52 [
     i8 43, label %if.then25
     i8 60, label %if.then38
     i8 44, label %if.then48
@@ -586,9 +584,9 @@ if.then29:                                        ; preds = %if.then25
   %add31 = add i64 %8, %ip6hdr_off
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rt_hdr.i)
   %call.i54 = call i64 @iov_size(ptr noundef %pkt, i32 noundef %pkt_frags) #8
-  %add.i.reass = add i64 %8, %invariant.op
-  %add1.i.reass = add i64 %8, %invariant.op88
-  %cmp.i = icmp ult i64 %call.i54, %add1.i.reass
+  %add.i = add i64 %add31, 8
+  %add1.i = add i64 %add31, 24
+  %cmp.i = icmp ult i64 %call.i54, %add1.i
   br i1 %cmp.i, label %_eth_get_rss_ex_dst_addr.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then29
@@ -637,20 +635,20 @@ if.end12.land.lhs.true1.i12_crit_edge.i:          ; preds = %if.end12.i
 
 land.lhs.true1.i12.i:                             ; preds = %if.end12.land.lhs.true1.i12_crit_edge.i, %if.end5.thread.i
   %15 = phi i64 [ %.pre.i, %if.end12.land.lhs.true1.i12_crit_edge.i ], [ %9, %if.end5.thread.i ]
-  %cmp.not.i14.i = icmp ult i64 %15, %add.i.reass
-  %sub.i15.i = sub nuw i64 %15, %add.i.reass
+  %cmp.not.i14.i = icmp ult i64 %15, %add.i
+  %sub.i15.i = sub nuw i64 %15, %add.i
   %cmp5.not.i16.i = icmp ult i64 %sub.i15.i, 16
   %or.cond13.i17.i = select i1 %cmp.not.i14.i, i1 true, i1 %cmp5.not.i16.i
   br i1 %or.cond13.i17.i, label %iov_to_buf.exit20.i, label %iov_to_buf.exit20.thread.i
 
 iov_to_buf.exit20.thread.i:                       ; preds = %land.lhs.true1.i12.i
   %16 = load ptr, ptr %pkt, align 8
-  %add.ptr.i19.i = getelementptr i8, ptr %16, i64 %add.i.reass
+  %add.ptr.i19.i = getelementptr i8, ptr %16, i64 %add.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %rss_ex_dst, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i19.i, i64 16, i1 false)
   br label %_eth_get_rss_ex_dst_addr.exit
 
 iov_to_buf.exit20.i:                              ; preds = %land.lhs.true1.i12.i, %if.end12.i
-  %call.i10.i = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef %pkt_frags, i64 noundef %add.i.reass, ptr noundef nonnull %rss_ex_dst, i64 noundef 16) #8
+  %call.i10.i = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef %pkt_frags, i64 noundef %add.i, ptr noundef nonnull %rss_ex_dst, i64 noundef 16) #8
   %cmp15.i = icmp eq i64 %call.i10.i, 16
   br i1 %cmp15.i, label %_eth_get_rss_ex_dst_addr.exit, label %if.else18.i
 

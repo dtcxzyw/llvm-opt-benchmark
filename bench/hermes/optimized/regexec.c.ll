@@ -1559,14 +1559,14 @@ if.end79:                                         ; preds = %for.end67, %if.end7
   %cmp91 = icmp eq i64 %and90, 2281701376
   %dec = add i64 %and85, %esub.0129
   %spec.select121 = select i1 %cmp91, i64 %dec, i64 %add86
-  %ssub.0.reass = add i64 %esub.0129, 2
-  %call76 = tail call fastcc ptr @sslow(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call61, i64 noundef %ssub.0.reass, i64 noundef %spec.select121)
+  %ssub.0 = add nsw i64 %esub.0129, 2
+  %call76 = tail call fastcc ptr @sslow(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call61, i64 noundef %ssub.0, i64 noundef %spec.select121)
   %cmp77 = icmp eq ptr %call76, %call61
   br i1 %cmp77, label %for.end95, label %if.end79
 
 for.end95:                                        ; preds = %if.end79, %for.end67
   %esub.0.lcssa = phi i64 [ %sub74, %for.end67 ], [ %spec.select121, %if.end79 ]
-  %ssub.0.lcssa = phi i64 [ %ssub.0126, %for.end67 ], [ %ssub.0.reass, %if.end79 ]
+  %ssub.0.lcssa = phi i64 [ %ssub.0126, %for.end67 ], [ %ssub.0, %if.end79 ]
   %call97 = tail call fastcc ptr @sdissect(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call61, i64 noundef %ssub.0.lcssa, i64 noundef %esub.0.lcssa)
   br label %for.inc
 
@@ -2792,14 +2792,14 @@ if.end79:                                         ; preds = %for.end67, %if.end7
   %cmp91 = icmp eq i64 %and90, 2281701376
   %dec = add i64 %and85, %esub.0129
   %spec.select121 = select i1 %cmp91, i64 %dec, i64 %add86
-  %ssub.0.reass = add i64 %esub.0129, 2
-  %call76 = tail call fastcc ptr @lslow(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call61, i64 noundef %ssub.0.reass, i64 noundef %spec.select121)
+  %ssub.0 = add nsw i64 %esub.0129, 2
+  %call76 = tail call fastcc ptr @lslow(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call61, i64 noundef %ssub.0, i64 noundef %spec.select121)
   %cmp77 = icmp eq ptr %call76, %call61
   br i1 %cmp77, label %for.end95, label %if.end79
 
 for.end95:                                        ; preds = %if.end79, %for.end67
   %esub.0.lcssa = phi i64 [ %sub74, %for.end67 ], [ %spec.select121, %if.end79 ]
-  %ssub.0.lcssa = phi i64 [ %ssub.0126, %for.end67 ], [ %ssub.0.reass, %if.end79 ]
+  %ssub.0.lcssa = phi i64 [ %ssub.0126, %for.end67 ], [ %ssub.0, %if.end79 ]
   %call97 = tail call fastcc ptr @ldissect(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call61, i64 noundef %ssub.0.lcssa, i64 noundef %esub.0.lcssa)
   br label %for.inc
 

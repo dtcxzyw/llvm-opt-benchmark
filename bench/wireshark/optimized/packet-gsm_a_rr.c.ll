@@ -12649,7 +12649,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.0.in.in.not128, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
-  %.2111131 = phi i32 [ %.2111.reass, %.lr.ph ], [ %.2111129, %38 ]
+  %.2111131 = phi i32 [ %.2111, %.lr.ph ], [ %.2111129, %38 ]
   %.2111.in130 = phi i32 [ %54, %.lr.ph ], [ %.1110, %38 ]
   %47 = load i32, ptr @hf_gsm_a_rr_rtd_index, align 4
   %48 = ashr i32 %.2111131, 3
@@ -12668,12 +12668,12 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %61 = zext i8 %59 to i32
   %62 = and i32 %57, %61
   %.0.in.in.not = icmp eq i32 %62, 0
-  %.2111.reass = add i32 %.2111.in130, 8
+  %.2111 = add i32 %.2111.in130, 8
   br i1 %.0.in.in.not, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   %.2111.in.lcssa = phi i32 [ %.1110, %38 ], [ %54, %.lr.ph ]
-  %.2111.lcssa = phi i32 [ %.2111129, %38 ], [ %.2111.reass, %.lr.ph ]
+  %.2111.lcssa = phi i32 [ %.2111129, %38 ], [ %.2111, %.lr.ph ]
   %63 = load i32, ptr @hf_gsm_a_rr_additional_rtd_struct, align 4
   %64 = and i32 %.2111.lcssa, 7
   %65 = lshr exact i32 128, %64
@@ -12682,30 +12682,29 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %68 = call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %63, ptr noundef %0, i32 noundef %.2111.lcssa, i32 noundef 1, i32 noundef 0) #10
   %69 = zext i8 %67 to i32
   %70 = and i32 %65, %69
-  %.1.in.in.not144 = icmp eq i32 %70, 0
-  %.3112145 = add i32 %.2111.in.lcssa, 2
-  br i1 %.1.in.in.not144, label %.lr.ph150, label %.loopexit125
+  %.1.in.in.not142 = icmp eq i32 %70, 0
+  %.3112143 = add i32 %.2111.in.lcssa, 2
+  br i1 %.1.in.in.not142, label %.lr.ph147, label %.loopexit125
 
-.lr.ph150:                                        ; preds = %._crit_edge, %._crit_edge139
-  %.3112148 = phi i32 [ %.3112, %._crit_edge139 ], [ %.3112145, %._crit_edge ]
-  %.1107147 = phi i32 [ %71, %._crit_edge139 ], [ %.0106, %._crit_edge ]
-  %.3112.in146 = phi i32 [ %.4.in.lcssa, %._crit_edge139 ], [ %.2111.in.lcssa, %._crit_edge ]
-  %71 = add i32 %.1107147, 1
+.lr.ph147:                                        ; preds = %._crit_edge, %._crit_edge139
+  %.3112145 = phi i32 [ %.3112, %._crit_edge139 ], [ %.3112143, %._crit_edge ]
+  %.1107144 = phi i32 [ %71, %._crit_edge139 ], [ %.0106, %._crit_edge ]
+  %71 = add i32 %.1107144, 1
   %72 = load i32, ptr @hf_gsm_a_rr_rtd, align 4
-  %73 = and i32 %.3112148, 7
+  %73 = and i32 %.3112145, 7
   %74 = lshr exact i32 128, %73
-  %75 = ashr i32 %.3112148, 3
+  %75 = ashr i32 %.3112145, 3
   %76 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %75) #10
-  %77 = call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %72, ptr noundef %0, i32 noundef %.3112148, i32 noundef 1, i32 noundef 0) #10
+  %77 = call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %72, ptr noundef %0, i32 noundef %.3112145, i32 noundef 1, i32 noundef 0) #10
   %78 = zext i8 %76 to i32
   %79 = and i32 %74, %78
   %.2.in.in.not133 = icmp eq i32 %79, 0
-  %.4134.reass = add i32 %.3112.in146, 3
+  %.4134 = add i32 %.3112145, 1
   br i1 %.2.in.in.not133, label %.lr.ph138, label %._crit_edge139
 
-.lr.ph138:                                        ; preds = %.lr.ph150, %.lr.ph138
-  %.4136 = phi i32 [ %.4.reass, %.lr.ph138 ], [ %.4134.reass, %.lr.ph150 ]
-  %.4.in135 = phi i32 [ %87, %.lr.ph138 ], [ %.3112148, %.lr.ph150 ]
+.lr.ph138:                                        ; preds = %.lr.ph147, %.lr.ph138
+  %.4136 = phi i32 [ %.4, %.lr.ph138 ], [ %.4134, %.lr.ph147 ]
+  %.4.in135 = phi i32 [ %87, %.lr.ph138 ], [ %.3112145, %.lr.ph147 ]
   %80 = load i32, ptr @hf_gsm_a_rr_rtd_index, align 4
   %81 = ashr i32 %.4136, 3
   %82 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.4136, i32 noundef 6) #10
@@ -12723,12 +12722,12 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %94 = zext i8 %92 to i32
   %95 = and i32 %90, %94
   %.2.in.in.not = icmp eq i32 %95, 0
-  %.4.reass = add i32 %.4.in135, 8
+  %.4 = add i32 %.4.in135, 8
   br i1 %.2.in.in.not, label %.lr.ph138, label %._crit_edge139, !llvm.loop !58
 
-._crit_edge139:                                   ; preds = %.lr.ph138, %.lr.ph150
-  %.4.in.lcssa = phi i32 [ %.3112148, %.lr.ph150 ], [ %87, %.lr.ph138 ]
-  %.4.lcssa = phi i32 [ %.4134.reass, %.lr.ph150 ], [ %.4.reass, %.lr.ph138 ]
+._crit_edge139:                                   ; preds = %.lr.ph138, %.lr.ph147
+  %.4.in.lcssa = phi i32 [ %.3112145, %.lr.ph147 ], [ %87, %.lr.ph138 ]
+  %.4.lcssa = phi i32 [ %.4134, %.lr.ph147 ], [ %.4, %.lr.ph138 ]
   %96 = load i32, ptr @hf_gsm_a_rr_additional_rtd_struct, align 4
   %97 = and i32 %.4.lcssa, 7
   %98 = lshr exact i32 128, %97
@@ -12739,10 +12738,10 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %103 = and i32 %98, %102
   %.1.in.in.not = icmp eq i32 %103, 0
   %.3112 = add i32 %.4.in.lcssa, 2
-  br i1 %.1.in.in.not, label %.lr.ph150, label %.loopexit125, !llvm.loop !59
+  br i1 %.1.in.in.not, label %.lr.ph147, label %.loopexit125, !llvm.loop !59
 
 .loopexit125:                                     ; preds = %._crit_edge139, %._crit_edge, %4
-  %.0109 = phi i32 [ %13, %4 ], [ %.3112145, %._crit_edge ], [ %.3112, %._crit_edge139 ]
+  %.0109 = phi i32 [ %13, %4 ], [ %.3112143, %._crit_edge ], [ %.3112, %._crit_edge139 ]
   %104 = add i32 %.0109, 1
   %105 = load i32, ptr @hf_gsm_a_rr_rtd12, align 4
   %106 = and i32 %.0109, 7

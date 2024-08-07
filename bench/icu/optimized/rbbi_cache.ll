@@ -2456,16 +2456,16 @@ _ZN6icu_759UVector324popiEv.exit199:              ; preds = %while.body87
   br i1 %cmp.i201.not, label %_ZN6icu_759UVector324popiEv.exit209, label %if.then.i204
 
 if.then.i204:                                     ; preds = %_ZN6icu_759UVector324popiEv.exit199
-  %dec.i205.reass = add nsw i32 %92, -2
-  store i32 %dec.i205.reass, ptr %count.i, align 8
-  %idxprom.i207 = zext nneg i32 %dec.i205.reass to i64
+  %dec.i205 = add nsw i32 %92, -2
+  store i32 %dec.i205, ptr %count.i, align 8
+  %idxprom.i207 = zext nneg i32 %dec.i205 to i64
   %arrayidx.i208 = getelementptr inbounds i32, ptr %90, i64 %idxprom.i207
   %95 = load i32, ptr %arrayidx.i208, align 4
   br label %_ZN6icu_759UVector324popiEv.exit209
 
 _ZN6icu_759UVector324popiEv.exit209:              ; preds = %while.body87, %_ZN6icu_759UVector324popiEv.exit199, %if.then.i204
   %result.0.i193330 = phi i32 [ %94, %if.then.i204 ], [ %94, %_ZN6icu_759UVector324popiEv.exit199 ], [ 0, %while.body87 ]
-  %96 = phi i32 [ %dec.i205.reass, %if.then.i204 ], [ 0, %_ZN6icu_759UVector324popiEv.exit199 ], [ %92, %while.body87 ]
+  %96 = phi i32 [ %dec.i205, %if.then.i204 ], [ 0, %_ZN6icu_759UVector324popiEv.exit199 ], [ %92, %while.body87 ]
   %result.0.i203 = phi i32 [ %95, %if.then.i204 ], [ 0, %_ZN6icu_759UVector324popiEv.exit199 ], [ 0, %while.body87 ]
   %sub.i211 = add i32 %93, 127
   %and.i.i212 = and i32 %sub.i211, 127

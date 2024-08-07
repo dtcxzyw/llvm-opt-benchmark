@@ -42,66 +42,67 @@ if.end6:                                          ; preds = %if.end
   store i64 0, ptr %arrayidx, align 8
   %cmp10 = icmp eq i32 %rem, 0
   %5 = load i32, ptr %top, align 8
-  %invariant.op39 = add nsw i32 %div35, -1
-  %cmp1540 = icmp sgt i32 %5, 0
+  %cmp1539 = icmp sgt i32 %5, 0
   br i1 %cmp10, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end6
-  br i1 %cmp1540, label %for.body.preheader, label %if.end42
+  br i1 %cmp1539, label %for.body.preheader, label %if.end42
 
 for.body.preheader:                               ; preds = %if.then12
   %6 = zext nneg i32 %5 to i64
+  %7 = zext nneg i32 %div35 to i64
+  %invariant.gep52 = getelementptr i64, ptr %3, i64 %7
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv45 = phi i64 [ %6, %for.body.preheader ], [ %indvars.iv.next46, %for.body ]
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %arrayidx18 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.next46
-  %7 = load i64, ptr %arrayidx18, align 8
-  %8 = trunc nuw nsw i64 %indvars.iv45 to i32
-  %add19.reass = add i32 %invariant.op39, %8
-  %idxprom20 = zext nneg i32 %add19.reass to i64
-  %arrayidx21 = getelementptr inbounds i64, ptr %3, i64 %idxprom20
-  store i64 %7, ptr %arrayidx21, align 8
+  %8 = load i64, ptr %arrayidx18, align 8
+  %gep53 = getelementptr i64, ptr %invariant.gep52, i64 %indvars.iv.next46
+  store i64 %8, ptr %gep53, align 8
   %cmp15 = icmp ugt i64 %indvars.iv45, 1
   br i1 %cmp15, label %for.body, label %if.end42, !llvm.loop !7
 
 if.else:                                          ; preds = %if.end6
-  br i1 %cmp1540, label %for.body27.lr.ph, label %if.end42
+  br i1 %cmp1539, label %for.body27.lr.ph, label %if.end42
 
 for.body27.lr.ph:                                 ; preds = %if.else
   %sh_prom = zext nneg i32 %sub to i64
   %sh_prom34 = zext nneg i32 %rem to i64
   %9 = zext nneg i32 %5 to i64
   %10 = zext nneg i32 %div35 to i64
+  %11 = zext nneg i32 %div35 to i64
   %invariant.gep = getelementptr i64, ptr %3, i64 %10
+  %invariant.gep50 = getelementptr i64, ptr %3, i64 %11
+  %12 = add nuw nsw i64 %10, %9
+  %13 = shl nuw nsw i64 %12, 3
+  %scevgep = getelementptr i8, ptr %3, i64 %13
+  %load_initial = load i64, ptr %scevgep, align 8
   br label %for.body27
 
 for.body27:                                       ; preds = %for.body27.lr.ph, %for.body27
+  %store_forwarded = phi i64 [ %load_initial, %for.body27.lr.ph ], [ %shl, %for.body27 ]
   %indvars.iv = phi i64 [ %9, %for.body27.lr.ph ], [ %indvars.iv.next, %for.body27 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx29 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.next
-  %11 = load i64, ptr %arrayidx29, align 8
-  %shr = lshr i64 %11, %sh_prom
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
-  %add30.reass = add i32 %invariant.op39, %12
+  %14 = load i64, ptr %arrayidx29, align 8
+  %shr = lshr i64 %14, %sh_prom
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %13 = load i64, ptr %gep, align 8
-  %or = or i64 %13, %shr
+  %or = or i64 %store_forwarded, %shr
   store i64 %or, ptr %gep, align 8
-  %shl = shl i64 %11, %sh_prom34
-  %idxprom37 = zext nneg i32 %add30.reass to i64
-  %arrayidx38 = getelementptr inbounds i64, ptr %3, i64 %idxprom37
-  store i64 %shl, ptr %arrayidx38, align 8
+  %shl = shl i64 %14, %sh_prom34
+  %gep51 = getelementptr i64, ptr %invariant.gep50, i64 %indvars.iv.next
+  store i64 %shl, ptr %gep51, align 8
   %cmp25 = icmp ugt i64 %indvars.iv, 1
   br i1 %cmp25, label %for.body27, label %if.end42, !llvm.loop !9
 
 if.end42:                                         ; preds = %for.body27, %for.body, %if.else, %if.then12
-  %14 = shl nuw nsw i32 %div35, 3
-  %mul = zext nneg i32 %14 to i64
+  %15 = shl nuw nsw i32 %div35, 3
+  %mul = zext nneg i32 %15 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %mul, i1 false)
-  %15 = load i32, ptr %top, align 8
-  %add46 = add i32 %add, %15
+  %16 = load i32, ptr %top, align 8
+  %add46 = add i32 %add, %16
   %top47 = getelementptr inbounds i8, ptr %r, i64 8
   store i32 %add46, ptr %top47, align 8
   tail call void @bn_correct_top(ptr noundef nonnull %r) #5

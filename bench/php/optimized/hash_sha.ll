@@ -74,7 +74,7 @@ define void @PHP_SHA256Update(ptr nocapture noundef %0, ptr nocapture noundef re
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
   %.not = icmp ugt i64 %20, %2
-  br i1 %.not, label %30, label %21
+  br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds i8, ptr %0, i64 40
@@ -91,22 +91,22 @@ define void @PHP_SHA256Update(ptr nocapture noundef %0, ptr nocapture noundef re
   %27 = getelementptr inbounds i8, ptr %1, i64 %.031
   tail call fastcc void @SHA256Transform(ptr noundef %0, ptr noundef %27)
   %28 = add i64 %.031, 64
-  %.reass = add i64 %.031, 127
-  %29 = icmp ult i64 %.reass, %2
-  br i1 %29, label %.lr.ph, label %.loopexit
+  %29 = add i64 %.031, 127
+  %30 = icmp ult i64 %29, %2
+  br i1 %30, label %.lr.ph, label %.loopexit
 
-30:                                               ; preds = %._crit_edge
-  %31 = zext nneg i32 %6 to i64
+31:                                               ; preds = %._crit_edge
+  %32 = zext nneg i32 %6 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %21, %30
-  %.028 = phi i64 [ %31, %30 ], [ 0, %21 ], [ 0, %.lr.ph ]
-  %.1 = phi i64 [ 0, %30 ], [ %20, %21 ], [ %28, %.lr.ph ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  %33 = getelementptr inbounds [64 x i8], ptr %32, i64 0, i64 %.028
-  %34 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %35 = sub i64 %2, %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %34, i64 %35, i1 false)
+.loopexit:                                        ; preds = %.lr.ph, %21, %31
+  %.028 = phi i64 [ %32, %31 ], [ 0, %21 ], [ 0, %.lr.ph ]
+  %.1 = phi i64 [ 0, %31 ], [ %20, %21 ], [ %28, %.lr.ph ]
+  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 0, i64 %.028
+  %35 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %36 = sub i64 %2, %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %35, i64 %36, i1 false)
   ret void
 }
 
@@ -163,7 +163,7 @@ define void @PHP_SHA256Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   store i32 %40, ptr %17, align 4
   %41 = sub nuw nsw i32 64, %30
   %.not.i = icmp ugt i32 %41, %32
-  br i1 %.not.i, label %52, label %42
+  br i1 %.not.i, label %53, label %42
 
 42:                                               ; preds = %2
   %43 = zext nneg i32 %41 to i64
@@ -181,89 +181,89 @@ define void @PHP_SHA256Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   %49 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
   tail call fastcc void @SHA256Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
-  %.reass.i = add nuw nsw i64 %.031.i, 127
-  %51 = icmp ult i64 %.reass.i, %33
-  br i1 %51, label %.lr.ph.i, label %PHP_SHA256Update.exit
+  %51 = add nuw nsw i64 %.031.i, 127
+  %52 = icmp ult i64 %51, %33
+  br i1 %52, label %.lr.ph.i, label %PHP_SHA256Update.exit
 
-52:                                               ; preds = %2
-  %53 = zext nneg i32 %30 to i64
+53:                                               ; preds = %2
+  %54 = zext nneg i32 %30 to i64
   br label %PHP_SHA256Update.exit
 
-PHP_SHA256Update.exit:                            ; preds = %.lr.ph.i, %42, %52
-  %.028.i = phi i64 [ %53, %52 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i64 [ 0, %52 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
-  %54 = getelementptr inbounds i8, ptr %1, i64 40
-  %55 = getelementptr inbounds [64 x i8], ptr %54, i64 0, i64 %.028.i
-  %56 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %57 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %56, i64 %57, i1 false)
-  %58 = load i32, ptr %4, align 4
-  %59 = lshr i32 %58, 3
-  %60 = and i32 %59, 63
-  %61 = add i32 %58, 64
-  store i32 %61, ptr %4, align 4
-  %62 = icmp ugt i32 %58, -65
-  %63 = load i32, ptr %17, align 4
-  %64 = zext i1 %62 to i32
-  %65 = add i32 %63, %64
-  store i32 %65, ptr %17, align 4
-  %.not.i17 = icmp ult i32 %60, 56
-  br i1 %.not.i17, label %71, label %66
+PHP_SHA256Update.exit:                            ; preds = %.lr.ph.i, %42, %53
+  %.028.i = phi i64 [ %54, %53 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
+  %55 = getelementptr inbounds i8, ptr %1, i64 40
+  %56 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i
+  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %58 = sub i64 %33, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
+  %59 = load i32, ptr %4, align 4
+  %60 = lshr i32 %59, 3
+  %61 = and i32 %60, 63
+  %62 = add i32 %59, 64
+  store i32 %62, ptr %4, align 4
+  %63 = icmp ugt i32 %59, -65
+  %64 = load i32, ptr %17, align 4
+  %65 = zext i1 %63 to i32
+  %66 = add i32 %64, %65
+  store i32 %66, ptr %17, align 4
+  %.not.i17 = icmp ult i32 %61, 56
+  br i1 %.not.i17, label %72, label %67
 
-66:                                               ; preds = %PHP_SHA256Update.exit
-  %67 = sub nuw nsw i32 64, %60
-  %68 = zext nneg i32 %67 to i64
-  %69 = zext nneg i32 %60 to i64
-  %70 = getelementptr inbounds [64 x i8], ptr %54, i64 0, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %68, i1 false)
-  tail call fastcc void @SHA256Transform(ptr noundef nonnull %1, ptr noundef nonnull %54)
-  br label %PHP_SHA256Update.exit23
+67:                                               ; preds = %PHP_SHA256Update.exit
+  %68 = sub nuw nsw i32 64, %61
+  %69 = zext nneg i32 %68 to i64
+  %70 = zext nneg i32 %61 to i64
+  %71 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
+  tail call fastcc void @SHA256Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
+  br label %PHP_SHA256Update.exit22
 
-71:                                               ; preds = %PHP_SHA256Update.exit
-  %72 = zext nneg i32 %60 to i64
-  br label %PHP_SHA256Update.exit23
+72:                                               ; preds = %PHP_SHA256Update.exit
+  %73 = zext nneg i32 %61 to i64
+  br label %PHP_SHA256Update.exit22
 
-PHP_SHA256Update.exit23:                          ; preds = %71, %66
-  %.028.i18 = phi i64 [ %72, %71 ], [ 0, %66 ]
-  %.1.i19 = phi i64 [ 0, %71 ], [ %68, %66 ]
-  %73 = getelementptr inbounds [64 x i8], ptr %54, i64 0, i64 %.028.i18
-  %74 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
-  %75 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %74, i64 %75, i1 false)
-  br label %.lr.ph.i24
+PHP_SHA256Update.exit22:                          ; preds = %72, %67
+  %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
+  %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
+  %74 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i18
+  %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
+  %76 = sub nuw nsw i64 8, %.1.i19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
+  br label %.lr.ph.i23
 
-.lr.ph.i24:                                       ; preds = %.lr.ph.i24, %PHP_SHA256Update.exit23
-  %indvars.iv22.i = phi i64 [ 0, %PHP_SHA256Update.exit23 ], [ %indvars.iv.next23.i, %.lr.ph.i24 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_SHA256Update.exit23 ], [ %indvars.iv.next.i, %.lr.ph.i24 ]
-  %76 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
-  %77 = load i32, ptr %76, align 4
-  %78 = lshr i32 %77, 24
-  %79 = trunc nuw i32 %78 to i8
-  %80 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %79, ptr %80, align 1
-  %81 = load i32, ptr %76, align 4
-  %82 = lshr i32 %81, 16
-  %83 = trunc i32 %82 to i8
-  %84 = or disjoint i64 %indvars.iv.i, 1
-  %85 = getelementptr inbounds i8, ptr %0, i64 %84
-  store i8 %83, ptr %85, align 1
-  %86 = load i32, ptr %76, align 4
-  %87 = lshr i32 %86, 8
-  %88 = trunc i32 %87 to i8
-  %89 = or disjoint i64 %indvars.iv.i, 2
-  %90 = getelementptr inbounds i8, ptr %0, i64 %89
-  store i8 %88, ptr %90, align 1
-  %91 = load i32, ptr %76, align 4
-  %92 = trunc i32 %91 to i8
-  %93 = or disjoint i64 %indvars.iv.i, 3
-  %94 = getelementptr inbounds i8, ptr %0, i64 %93
-  store i8 %92, ptr %94, align 1
+.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_SHA256Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_SHA256Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_SHA256Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
+  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
+  %78 = load i32, ptr %77, align 4
+  %79 = lshr i32 %78, 24
+  %80 = trunc nuw i32 %79 to i8
+  %81 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %80, ptr %81, align 1
+  %82 = load i32, ptr %77, align 4
+  %83 = lshr i32 %82, 16
+  %84 = trunc i32 %83 to i8
+  %85 = or disjoint i64 %indvars.iv.i, 1
+  %86 = getelementptr inbounds i8, ptr %0, i64 %85
+  store i8 %84, ptr %86, align 1
+  %87 = load i32, ptr %77, align 4
+  %88 = lshr i32 %87, 8
+  %89 = trunc i32 %88 to i8
+  %90 = or disjoint i64 %indvars.iv.i, 2
+  %91 = getelementptr inbounds i8, ptr %0, i64 %90
+  store i8 %89, ptr %91, align 1
+  %92 = load i32, ptr %77, align 4
+  %93 = trunc i32 %92 to i8
+  %94 = or disjoint i64 %indvars.iv.i, 3
+  %95 = getelementptr inbounds i8, ptr %0, i64 %94
+  store i8 %93, ptr %95, align 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %.lr.ph.i24
+  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %.lr.ph.i23
 
-SHAEncode32.exit:                                 ; preds = %.lr.ph.i24
+SHAEncode32.exit:                                 ; preds = %.lr.ph.i23
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
   ret void
 }
@@ -304,7 +304,7 @@ define void @PHP_SHA224Update(ptr nocapture noundef %0, ptr nocapture noundef re
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
   %.not = icmp ugt i64 %20, %2
-  br i1 %.not, label %30, label %21
+  br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds i8, ptr %0, i64 40
@@ -321,22 +321,22 @@ define void @PHP_SHA224Update(ptr nocapture noundef %0, ptr nocapture noundef re
   %27 = getelementptr inbounds i8, ptr %1, i64 %.031
   tail call fastcc void @SHA256Transform(ptr noundef %0, ptr noundef %27)
   %28 = add i64 %.031, 64
-  %.reass = add i64 %.031, 127
-  %29 = icmp ult i64 %.reass, %2
-  br i1 %29, label %.lr.ph, label %.loopexit
+  %29 = add i64 %.031, 127
+  %30 = icmp ult i64 %29, %2
+  br i1 %30, label %.lr.ph, label %.loopexit
 
-30:                                               ; preds = %._crit_edge
-  %31 = zext nneg i32 %6 to i64
+31:                                               ; preds = %._crit_edge
+  %32 = zext nneg i32 %6 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %21, %30
-  %.028 = phi i64 [ %31, %30 ], [ 0, %21 ], [ 0, %.lr.ph ]
-  %.1 = phi i64 [ 0, %30 ], [ %20, %21 ], [ %28, %.lr.ph ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  %33 = getelementptr inbounds [64 x i8], ptr %32, i64 0, i64 %.028
-  %34 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %35 = sub i64 %2, %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %34, i64 %35, i1 false)
+.loopexit:                                        ; preds = %.lr.ph, %21, %31
+  %.028 = phi i64 [ %32, %31 ], [ 0, %21 ], [ 0, %.lr.ph ]
+  %.1 = phi i64 [ 0, %31 ], [ %20, %21 ], [ %28, %.lr.ph ]
+  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 0, i64 %.028
+  %35 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %36 = sub i64 %2, %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %35, i64 %36, i1 false)
   ret void
 }
 
@@ -393,7 +393,7 @@ define void @PHP_SHA224Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   store i32 %40, ptr %17, align 4
   %41 = sub nuw nsw i32 64, %30
   %.not.i = icmp ugt i32 %41, %32
-  br i1 %.not.i, label %52, label %42
+  br i1 %.not.i, label %53, label %42
 
 42:                                               ; preds = %2
   %43 = zext nneg i32 %41 to i64
@@ -411,89 +411,89 @@ define void @PHP_SHA224Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   %49 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
   tail call fastcc void @SHA256Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
-  %.reass.i = add nuw nsw i64 %.031.i, 127
-  %51 = icmp ult i64 %.reass.i, %33
-  br i1 %51, label %.lr.ph.i, label %PHP_SHA224Update.exit
+  %51 = add nuw nsw i64 %.031.i, 127
+  %52 = icmp ult i64 %51, %33
+  br i1 %52, label %.lr.ph.i, label %PHP_SHA224Update.exit
 
-52:                                               ; preds = %2
-  %53 = zext nneg i32 %30 to i64
+53:                                               ; preds = %2
+  %54 = zext nneg i32 %30 to i64
   br label %PHP_SHA224Update.exit
 
-PHP_SHA224Update.exit:                            ; preds = %.lr.ph.i, %42, %52
-  %.028.i = phi i64 [ %53, %52 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i64 [ 0, %52 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
-  %54 = getelementptr inbounds i8, ptr %1, i64 40
-  %55 = getelementptr inbounds [64 x i8], ptr %54, i64 0, i64 %.028.i
-  %56 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %57 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %56, i64 %57, i1 false)
-  %58 = load i32, ptr %4, align 4
-  %59 = lshr i32 %58, 3
-  %60 = and i32 %59, 63
-  %61 = add i32 %58, 64
-  store i32 %61, ptr %4, align 4
-  %62 = icmp ugt i32 %58, -65
-  %63 = load i32, ptr %17, align 4
-  %64 = zext i1 %62 to i32
-  %65 = add i32 %63, %64
-  store i32 %65, ptr %17, align 4
-  %.not.i17 = icmp ult i32 %60, 56
-  br i1 %.not.i17, label %71, label %66
+PHP_SHA224Update.exit:                            ; preds = %.lr.ph.i, %42, %53
+  %.028.i = phi i64 [ %54, %53 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
+  %55 = getelementptr inbounds i8, ptr %1, i64 40
+  %56 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i
+  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %58 = sub i64 %33, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
+  %59 = load i32, ptr %4, align 4
+  %60 = lshr i32 %59, 3
+  %61 = and i32 %60, 63
+  %62 = add i32 %59, 64
+  store i32 %62, ptr %4, align 4
+  %63 = icmp ugt i32 %59, -65
+  %64 = load i32, ptr %17, align 4
+  %65 = zext i1 %63 to i32
+  %66 = add i32 %64, %65
+  store i32 %66, ptr %17, align 4
+  %.not.i17 = icmp ult i32 %61, 56
+  br i1 %.not.i17, label %72, label %67
 
-66:                                               ; preds = %PHP_SHA224Update.exit
-  %67 = sub nuw nsw i32 64, %60
-  %68 = zext nneg i32 %67 to i64
-  %69 = zext nneg i32 %60 to i64
-  %70 = getelementptr inbounds [64 x i8], ptr %54, i64 0, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %68, i1 false)
-  tail call fastcc void @SHA256Transform(ptr noundef nonnull %1, ptr noundef nonnull %54)
-  br label %PHP_SHA224Update.exit23
+67:                                               ; preds = %PHP_SHA224Update.exit
+  %68 = sub nuw nsw i32 64, %61
+  %69 = zext nneg i32 %68 to i64
+  %70 = zext nneg i32 %61 to i64
+  %71 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
+  tail call fastcc void @SHA256Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
+  br label %PHP_SHA224Update.exit22
 
-71:                                               ; preds = %PHP_SHA224Update.exit
-  %72 = zext nneg i32 %60 to i64
-  br label %PHP_SHA224Update.exit23
+72:                                               ; preds = %PHP_SHA224Update.exit
+  %73 = zext nneg i32 %61 to i64
+  br label %PHP_SHA224Update.exit22
 
-PHP_SHA224Update.exit23:                          ; preds = %71, %66
-  %.028.i18 = phi i64 [ %72, %71 ], [ 0, %66 ]
-  %.1.i19 = phi i64 [ 0, %71 ], [ %68, %66 ]
-  %73 = getelementptr inbounds [64 x i8], ptr %54, i64 0, i64 %.028.i18
-  %74 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
-  %75 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %74, i64 %75, i1 false)
-  br label %.lr.ph.i24
+PHP_SHA224Update.exit22:                          ; preds = %72, %67
+  %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
+  %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
+  %74 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i18
+  %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
+  %76 = sub nuw nsw i64 8, %.1.i19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
+  br label %.lr.ph.i23
 
-.lr.ph.i24:                                       ; preds = %.lr.ph.i24, %PHP_SHA224Update.exit23
-  %indvars.iv22.i = phi i64 [ 0, %PHP_SHA224Update.exit23 ], [ %indvars.iv.next23.i, %.lr.ph.i24 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_SHA224Update.exit23 ], [ %indvars.iv.next.i, %.lr.ph.i24 ]
-  %76 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
-  %77 = load i32, ptr %76, align 4
-  %78 = lshr i32 %77, 24
-  %79 = trunc nuw i32 %78 to i8
-  %80 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %79, ptr %80, align 1
-  %81 = load i32, ptr %76, align 4
-  %82 = lshr i32 %81, 16
-  %83 = trunc i32 %82 to i8
-  %84 = or disjoint i64 %indvars.iv.i, 1
-  %85 = getelementptr inbounds i8, ptr %0, i64 %84
-  store i8 %83, ptr %85, align 1
-  %86 = load i32, ptr %76, align 4
-  %87 = lshr i32 %86, 8
-  %88 = trunc i32 %87 to i8
-  %89 = or disjoint i64 %indvars.iv.i, 2
-  %90 = getelementptr inbounds i8, ptr %0, i64 %89
-  store i8 %88, ptr %90, align 1
-  %91 = load i32, ptr %76, align 4
-  %92 = trunc i32 %91 to i8
-  %93 = or disjoint i64 %indvars.iv.i, 3
-  %94 = getelementptr inbounds i8, ptr %0, i64 %93
-  store i8 %92, ptr %94, align 1
+.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_SHA224Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_SHA224Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_SHA224Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
+  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
+  %78 = load i32, ptr %77, align 4
+  %79 = lshr i32 %78, 24
+  %80 = trunc nuw i32 %79 to i8
+  %81 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %80, ptr %81, align 1
+  %82 = load i32, ptr %77, align 4
+  %83 = lshr i32 %82, 16
+  %84 = trunc i32 %83 to i8
+  %85 = or disjoint i64 %indvars.iv.i, 1
+  %86 = getelementptr inbounds i8, ptr %0, i64 %85
+  store i8 %84, ptr %86, align 1
+  %87 = load i32, ptr %77, align 4
+  %88 = lshr i32 %87, 8
+  %89 = trunc i32 %88 to i8
+  %90 = or disjoint i64 %indvars.iv.i, 2
+  %91 = getelementptr inbounds i8, ptr %0, i64 %90
+  store i8 %89, ptr %91, align 1
+  %92 = load i32, ptr %77, align 4
+  %93 = trunc i32 %92 to i8
+  %94 = or disjoint i64 %indvars.iv.i, 3
+  %95 = getelementptr inbounds i8, ptr %0, i64 %94
+  store i8 %93, ptr %95, align 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 7
-  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %.lr.ph.i24
+  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %.lr.ph.i23
 
-SHAEncode32.exit:                                 ; preds = %.lr.ph.i24
+SHAEncode32.exit:                                 ; preds = %.lr.ph.i23
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
   ret void
 }
@@ -718,19 +718,19 @@ define void @PHP_SHA384Update(ptr nocapture noundef %0, ptr nocapture noundef re
   %26 = getelementptr inbounds i8, ptr %1, i64 %.131
   tail call fastcc void @SHA512Transform(ptr noundef %0, ptr noundef %26)
   %27 = add i64 %.131, 128
-  %.reass = add i64 %.131, 255
-  %28 = icmp ult i64 %.reass, %2
-  br i1 %28, label %.lr.ph, label %.loopexit
+  %28 = add i64 %.131, 255
+  %29 = icmp ult i64 %28, %2
+  br i1 %29, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %._crit_edge
   %.028 = phi i32 [ %7, %._crit_edge ], [ 0, %20 ], [ 0, %.lr.ph ]
   %.0 = phi i64 [ 0, %._crit_edge ], [ %19, %20 ], [ %27, %.lr.ph ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
-  %30 = zext nneg i32 %.028 to i64
-  %31 = getelementptr inbounds [128 x i8], ptr %29, i64 0, i64 %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 %.0
-  %33 = sub i64 %2, %.0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %32, i64 %33, i1 false)
+  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = zext nneg i32 %.028 to i64
+  %32 = getelementptr inbounds [128 x i8], ptr %30, i64 0, i64 %31
+  %33 = getelementptr inbounds i8, ptr %1, i64 %.0
+  %34 = sub i64 %2, %.0
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %33, i64 %34, i1 false)
   ret void
 }
 
@@ -1012,108 +1012,108 @@ define void @PHP_SHA384Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   %72 = getelementptr inbounds i8, ptr @PADDING, i64 %.131.i
   tail call fastcc void @SHA512Transform(ptr noundef %1, ptr noundef nonnull readonly %72)
   %73 = add nuw nsw i64 %.131.i, 128
-  %.reass.i = add nuw nsw i64 %.131.i, 255
-  %74 = icmp ult i64 %.reass.i, %58
-  br i1 %74, label %.lr.ph.i, label %PHP_SHA384Update.exit
+  %74 = add nuw nsw i64 %.131.i, 255
+  %75 = icmp ult i64 %74, %58
+  br i1 %75, label %.lr.ph.i, label %PHP_SHA384Update.exit
 
 PHP_SHA384Update.exit:                            ; preds = %.lr.ph.i, %2, %65
   %.028.i = phi i32 [ %55, %2 ], [ 0, %65 ], [ 0, %.lr.ph.i ]
   %.0.i = phi i64 [ 0, %2 ], [ %66, %65 ], [ %73, %.lr.ph.i ]
-  %75 = getelementptr inbounds i8, ptr %1, i64 80
-  %76 = zext nneg i32 %.028.i to i64
-  %77 = getelementptr inbounds [128 x i8], ptr %75, i64 0, i64 %76
-  %78 = getelementptr inbounds i8, ptr @PADDING, i64 %.0.i
-  %79 = sub i64 %58, %.0.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull readonly align 1 %78, i64 %79, i1 false)
-  %80 = load i64, ptr %4, align 8
-  %81 = trunc i64 %80 to i32
-  %82 = lshr i32 %81, 3
-  %83 = and i32 %82, 127
-  %84 = add i64 %80, 128
-  store i64 %84, ptr %4, align 8
-  %85 = icmp ugt i64 %80, -129
-  %86 = load i64, ptr %29, align 8
-  %87 = zext i1 %85 to i64
-  %88 = add i64 %86, %87
-  store i64 %88, ptr %29, align 8
-  %.not.i25 = icmp ult i32 %83, 112
-  br i1 %.not.i25, label %PHP_SHA384Update.exit31, label %89
+  %76 = getelementptr inbounds i8, ptr %1, i64 80
+  %77 = zext nneg i32 %.028.i to i64
+  %78 = getelementptr inbounds [128 x i8], ptr %76, i64 0, i64 %77
+  %79 = getelementptr inbounds i8, ptr @PADDING, i64 %.0.i
+  %80 = sub i64 %58, %.0.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull readonly align 1 %79, i64 %80, i1 false)
+  %81 = load i64, ptr %4, align 8
+  %82 = trunc i64 %81 to i32
+  %83 = lshr i32 %82, 3
+  %84 = and i32 %83, 127
+  %85 = add i64 %81, 128
+  store i64 %85, ptr %4, align 8
+  %86 = icmp ugt i64 %81, -129
+  %87 = load i64, ptr %29, align 8
+  %88 = zext i1 %86 to i64
+  %89 = add i64 %87, %88
+  store i64 %89, ptr %29, align 8
+  %.not.i25 = icmp ult i32 %84, 112
+  br i1 %.not.i25, label %PHP_SHA384Update.exit30, label %90
 
-89:                                               ; preds = %PHP_SHA384Update.exit
-  %90 = sub nuw nsw i32 128, %83
-  %91 = zext nneg i32 %90 to i64
-  %92 = zext nneg i32 %83 to i64
-  %93 = getelementptr inbounds [128 x i8], ptr %75, i64 0, i64 %92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %93, ptr noundef nonnull readonly align 16 dereferenceable(1) %3, i64 %91, i1 false)
-  tail call fastcc void @SHA512Transform(ptr noundef nonnull %1, ptr noundef nonnull %75)
-  br label %PHP_SHA384Update.exit31
+90:                                               ; preds = %PHP_SHA384Update.exit
+  %91 = sub nuw nsw i32 128, %84
+  %92 = zext nneg i32 %91 to i64
+  %93 = zext nneg i32 %84 to i64
+  %94 = getelementptr inbounds [128 x i8], ptr %76, i64 0, i64 %93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %94, ptr noundef nonnull readonly align 16 dereferenceable(1) %3, i64 %92, i1 false)
+  tail call fastcc void @SHA512Transform(ptr noundef nonnull %1, ptr noundef nonnull %76)
+  br label %PHP_SHA384Update.exit30
 
-PHP_SHA384Update.exit31:                          ; preds = %PHP_SHA384Update.exit, %89
-  %.028.i26 = phi i32 [ %83, %PHP_SHA384Update.exit ], [ 0, %89 ]
-  %.0.i27 = phi i64 [ 0, %PHP_SHA384Update.exit ], [ %91, %89 ]
-  %94 = zext nneg i32 %.028.i26 to i64
-  %95 = getelementptr inbounds [128 x i8], ptr %75, i64 0, i64 %94
-  %96 = getelementptr inbounds i8, ptr %3, i64 %.0.i27
-  %97 = sub nuw nsw i64 16, %.0.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull readonly align 1 %96, i64 %97, i1 false)
-  br label %.lr.ph.i32
+PHP_SHA384Update.exit30:                          ; preds = %PHP_SHA384Update.exit, %90
+  %.028.i26 = phi i32 [ %84, %PHP_SHA384Update.exit ], [ 0, %90 ]
+  %.0.i27 = phi i64 [ 0, %PHP_SHA384Update.exit ], [ %92, %90 ]
+  %95 = zext nneg i32 %.028.i26 to i64
+  %96 = getelementptr inbounds [128 x i8], ptr %76, i64 0, i64 %95
+  %97 = getelementptr inbounds i8, ptr %3, i64 %.0.i27
+  %98 = sub nuw nsw i64 16, %.0.i27
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr nonnull readonly align 1 %97, i64 %98, i1 false)
+  br label %.lr.ph.i31
 
-.lr.ph.i32:                                       ; preds = %.lr.ph.i32, %PHP_SHA384Update.exit31
-  %indvars.iv38.i = phi i64 [ 0, %PHP_SHA384Update.exit31 ], [ %indvars.iv.next39.i, %.lr.ph.i32 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_SHA384Update.exit31 ], [ %indvars.iv.next.i, %.lr.ph.i32 ]
-  %98 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv38.i
-  %99 = load i64, ptr %98, align 8
-  %100 = lshr i64 %99, 56
-  %101 = trunc nuw i64 %100 to i8
-  %102 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %101, ptr %102, align 1
-  %103 = load i64, ptr %98, align 8
-  %104 = lshr i64 %103, 48
-  %105 = trunc i64 %104 to i8
-  %106 = or disjoint i64 %indvars.iv.i, 1
-  %107 = getelementptr inbounds i8, ptr %0, i64 %106
-  store i8 %105, ptr %107, align 1
-  %108 = load i64, ptr %98, align 8
-  %109 = lshr i64 %108, 40
-  %110 = trunc i64 %109 to i8
-  %111 = or disjoint i64 %indvars.iv.i, 2
-  %112 = getelementptr inbounds i8, ptr %0, i64 %111
-  store i8 %110, ptr %112, align 1
-  %113 = load i64, ptr %98, align 8
-  %114 = lshr i64 %113, 32
-  %115 = trunc i64 %114 to i8
-  %116 = or disjoint i64 %indvars.iv.i, 3
-  %117 = getelementptr inbounds i8, ptr %0, i64 %116
-  store i8 %115, ptr %117, align 1
-  %118 = load i64, ptr %98, align 8
-  %119 = lshr i64 %118, 24
-  %120 = trunc i64 %119 to i8
-  %121 = or disjoint i64 %indvars.iv.i, 4
-  %122 = getelementptr inbounds i8, ptr %0, i64 %121
-  store i8 %120, ptr %122, align 1
-  %123 = load i64, ptr %98, align 8
-  %124 = lshr i64 %123, 16
-  %125 = trunc i64 %124 to i8
-  %126 = or disjoint i64 %indvars.iv.i, 5
-  %127 = getelementptr inbounds i8, ptr %0, i64 %126
-  store i8 %125, ptr %127, align 1
-  %128 = load i64, ptr %98, align 8
-  %129 = lshr i64 %128, 8
-  %130 = trunc i64 %129 to i8
-  %131 = or disjoint i64 %indvars.iv.i, 6
-  %132 = getelementptr inbounds i8, ptr %0, i64 %131
-  store i8 %130, ptr %132, align 1
-  %133 = load i64, ptr %98, align 8
-  %134 = trunc i64 %133 to i8
-  %135 = or disjoint i64 %indvars.iv.i, 7
-  %136 = getelementptr inbounds i8, ptr %0, i64 %135
-  store i8 %134, ptr %136, align 1
+.lr.ph.i31:                                       ; preds = %.lr.ph.i31, %PHP_SHA384Update.exit30
+  %indvars.iv38.i = phi i64 [ 0, %PHP_SHA384Update.exit30 ], [ %indvars.iv.next39.i, %.lr.ph.i31 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_SHA384Update.exit30 ], [ %indvars.iv.next.i, %.lr.ph.i31 ]
+  %99 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv38.i
+  %100 = load i64, ptr %99, align 8
+  %101 = lshr i64 %100, 56
+  %102 = trunc nuw i64 %101 to i8
+  %103 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %102, ptr %103, align 1
+  %104 = load i64, ptr %99, align 8
+  %105 = lshr i64 %104, 48
+  %106 = trunc i64 %105 to i8
+  %107 = or disjoint i64 %indvars.iv.i, 1
+  %108 = getelementptr inbounds i8, ptr %0, i64 %107
+  store i8 %106, ptr %108, align 1
+  %109 = load i64, ptr %99, align 8
+  %110 = lshr i64 %109, 40
+  %111 = trunc i64 %110 to i8
+  %112 = or disjoint i64 %indvars.iv.i, 2
+  %113 = getelementptr inbounds i8, ptr %0, i64 %112
+  store i8 %111, ptr %113, align 1
+  %114 = load i64, ptr %99, align 8
+  %115 = lshr i64 %114, 32
+  %116 = trunc i64 %115 to i8
+  %117 = or disjoint i64 %indvars.iv.i, 3
+  %118 = getelementptr inbounds i8, ptr %0, i64 %117
+  store i8 %116, ptr %118, align 1
+  %119 = load i64, ptr %99, align 8
+  %120 = lshr i64 %119, 24
+  %121 = trunc i64 %120 to i8
+  %122 = or disjoint i64 %indvars.iv.i, 4
+  %123 = getelementptr inbounds i8, ptr %0, i64 %122
+  store i8 %121, ptr %123, align 1
+  %124 = load i64, ptr %99, align 8
+  %125 = lshr i64 %124, 16
+  %126 = trunc i64 %125 to i8
+  %127 = or disjoint i64 %indvars.iv.i, 5
+  %128 = getelementptr inbounds i8, ptr %0, i64 %127
+  store i8 %126, ptr %128, align 1
+  %129 = load i64, ptr %99, align 8
+  %130 = lshr i64 %129, 8
+  %131 = trunc i64 %130 to i8
+  %132 = or disjoint i64 %indvars.iv.i, 6
+  %133 = getelementptr inbounds i8, ptr %0, i64 %132
+  store i8 %131, ptr %133, align 1
+  %134 = load i64, ptr %99, align 8
+  %135 = trunc i64 %134 to i8
+  %136 = or disjoint i64 %indvars.iv.i, 7
+  %137 = getelementptr inbounds i8, ptr %0, i64 %136
+  store i8 %135, ptr %137, align 1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, 6
-  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %.lr.ph.i32
+  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %.lr.ph.i31
 
-SHAEncode64.exit:                                 ; preds = %.lr.ph.i32
+SHAEncode64.exit:                                 ; preds = %.lr.ph.i31
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 208) #7
   ret void
 }
@@ -1207,7 +1207,7 @@ define void @PHP_SHA512Update(ptr nocapture noundef %0, ptr nocapture noundef re
   %18 = sub nuw nsw i32 128, %7
   %19 = zext nneg i32 %18 to i64
   %.not = icmp ugt i64 %19, %2
-  br i1 %.not, label %29, label %20
+  br i1 %.not, label %30, label %20
 
 20:                                               ; preds = %._crit_edge
   %21 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1224,22 +1224,22 @@ define void @PHP_SHA512Update(ptr nocapture noundef %0, ptr nocapture noundef re
   %26 = getelementptr inbounds i8, ptr %1, i64 %.031
   tail call fastcc void @SHA512Transform(ptr noundef %0, ptr noundef %26)
   %27 = add i64 %.031, 128
-  %.reass = add i64 %.031, 255
-  %28 = icmp ult i64 %.reass, %2
-  br i1 %28, label %.lr.ph, label %.loopexit
+  %28 = add i64 %.031, 255
+  %29 = icmp ult i64 %28, %2
+  br i1 %29, label %.lr.ph, label %.loopexit
 
-29:                                               ; preds = %._crit_edge
-  %30 = zext nneg i32 %7 to i64
+30:                                               ; preds = %._crit_edge
+  %31 = zext nneg i32 %7 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %20, %29
-  %.028 = phi i64 [ %30, %29 ], [ 0, %20 ], [ 0, %.lr.ph ]
-  %.1 = phi i64 [ 0, %29 ], [ %19, %20 ], [ %27, %.lr.ph ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
-  %32 = getelementptr inbounds [128 x i8], ptr %31, i64 0, i64 %.028
-  %33 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %34 = sub i64 %2, %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %33, i64 %34, i1 false)
+.loopexit:                                        ; preds = %.lr.ph, %20, %30
+  %.028 = phi i64 [ %31, %30 ], [ 0, %20 ], [ 0, %.lr.ph ]
+  %.1 = phi i64 [ 0, %30 ], [ %19, %20 ], [ %27, %.lr.ph ]
+  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = getelementptr inbounds [128 x i8], ptr %32, i64 0, i64 %.028
+  %34 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %35 = sub i64 %2, %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %34, i64 %35, i1 false)
   ret void
 }
 
@@ -1327,7 +1327,7 @@ define void @PHP_SHA512Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   store i64 %63, ptr %29, align 8
   %64 = sub nuw nsw i32 128, %55
   %.not.i = icmp ugt i32 %64, %57
-  br i1 %.not.i, label %75, label %65
+  br i1 %.not.i, label %76, label %65
 
 65:                                               ; preds = %2
   %66 = zext nneg i32 %64 to i64
@@ -1345,114 +1345,114 @@ define void @PHP_SHA512Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   %72 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
   tail call fastcc void @SHA512Transform(ptr noundef %1, ptr noundef nonnull readonly %72)
   %73 = add nuw nsw i64 %.031.i, 128
-  %.reass.i = add nuw nsw i64 %.031.i, 255
-  %74 = icmp ult i64 %.reass.i, %58
-  br i1 %74, label %.lr.ph.i, label %PHP_SHA512Update.exit
+  %74 = add nuw nsw i64 %.031.i, 255
+  %75 = icmp ult i64 %74, %58
+  br i1 %75, label %.lr.ph.i, label %PHP_SHA512Update.exit
 
-75:                                               ; preds = %2
-  %76 = zext nneg i32 %55 to i64
+76:                                               ; preds = %2
+  %77 = zext nneg i32 %55 to i64
   br label %PHP_SHA512Update.exit
 
-PHP_SHA512Update.exit:                            ; preds = %.lr.ph.i, %65, %75
-  %.028.i = phi i64 [ %76, %75 ], [ 0, %65 ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i64 [ 0, %75 ], [ %66, %65 ], [ %73, %.lr.ph.i ]
-  %77 = getelementptr inbounds i8, ptr %1, i64 80
-  %78 = getelementptr inbounds [128 x i8], ptr %77, i64 0, i64 %.028.i
-  %79 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %80 = sub i64 %58, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull readonly align 1 %79, i64 %80, i1 false)
-  %81 = load i64, ptr %4, align 8
-  %82 = trunc i64 %81 to i32
-  %83 = lshr i32 %82, 3
-  %84 = and i32 %83, 127
-  %85 = add i64 %81, 128
-  store i64 %85, ptr %4, align 8
-  %86 = icmp ugt i64 %81, -129
-  %87 = load i64, ptr %29, align 8
-  %88 = zext i1 %86 to i64
-  %89 = add i64 %87, %88
-  store i64 %89, ptr %29, align 8
-  %.not.i25 = icmp ult i32 %84, 112
-  br i1 %.not.i25, label %95, label %90
+PHP_SHA512Update.exit:                            ; preds = %.lr.ph.i, %65, %76
+  %.028.i = phi i64 [ %77, %76 ], [ 0, %65 ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i64 [ 0, %76 ], [ %66, %65 ], [ %73, %.lr.ph.i ]
+  %78 = getelementptr inbounds i8, ptr %1, i64 80
+  %79 = getelementptr inbounds [128 x i8], ptr %78, i64 0, i64 %.028.i
+  %80 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %81 = sub i64 %58, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull readonly align 1 %80, i64 %81, i1 false)
+  %82 = load i64, ptr %4, align 8
+  %83 = trunc i64 %82 to i32
+  %84 = lshr i32 %83, 3
+  %85 = and i32 %84, 127
+  %86 = add i64 %82, 128
+  store i64 %86, ptr %4, align 8
+  %87 = icmp ugt i64 %82, -129
+  %88 = load i64, ptr %29, align 8
+  %89 = zext i1 %87 to i64
+  %90 = add i64 %88, %89
+  store i64 %90, ptr %29, align 8
+  %.not.i25 = icmp ult i32 %85, 112
+  br i1 %.not.i25, label %96, label %91
 
-90:                                               ; preds = %PHP_SHA512Update.exit
-  %91 = sub nuw nsw i32 128, %84
-  %92 = zext nneg i32 %91 to i64
-  %93 = zext nneg i32 %84 to i64
-  %94 = getelementptr inbounds [128 x i8], ptr %77, i64 0, i64 %93
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %94, ptr noundef nonnull readonly align 16 dereferenceable(1) %3, i64 %92, i1 false)
-  tail call fastcc void @SHA512Transform(ptr noundef nonnull %1, ptr noundef nonnull %77)
-  br label %PHP_SHA512Update.exit31
+91:                                               ; preds = %PHP_SHA512Update.exit
+  %92 = sub nuw nsw i32 128, %85
+  %93 = zext nneg i32 %92 to i64
+  %94 = zext nneg i32 %85 to i64
+  %95 = getelementptr inbounds [128 x i8], ptr %78, i64 0, i64 %94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %95, ptr noundef nonnull readonly align 16 dereferenceable(1) %3, i64 %93, i1 false)
+  tail call fastcc void @SHA512Transform(ptr noundef nonnull %1, ptr noundef nonnull %78)
+  br label %PHP_SHA512Update.exit30
 
-95:                                               ; preds = %PHP_SHA512Update.exit
-  %96 = zext nneg i32 %84 to i64
-  br label %PHP_SHA512Update.exit31
+96:                                               ; preds = %PHP_SHA512Update.exit
+  %97 = zext nneg i32 %85 to i64
+  br label %PHP_SHA512Update.exit30
 
-PHP_SHA512Update.exit31:                          ; preds = %95, %90
-  %.028.i26 = phi i64 [ %96, %95 ], [ 0, %90 ]
-  %.1.i27 = phi i64 [ 0, %95 ], [ %92, %90 ]
-  %97 = getelementptr inbounds [128 x i8], ptr %77, i64 0, i64 %.028.i26
-  %98 = getelementptr inbounds i8, ptr %3, i64 %.1.i27
-  %99 = sub nuw nsw i64 16, %.1.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull readonly align 1 %98, i64 %99, i1 false)
-  br label %.lr.ph.i32
+PHP_SHA512Update.exit30:                          ; preds = %96, %91
+  %.028.i26 = phi i64 [ %97, %96 ], [ 0, %91 ]
+  %.1.i27 = phi i64 [ 0, %96 ], [ %93, %91 ]
+  %98 = getelementptr inbounds [128 x i8], ptr %78, i64 0, i64 %.028.i26
+  %99 = getelementptr inbounds i8, ptr %3, i64 %.1.i27
+  %100 = sub nuw nsw i64 16, %.1.i27
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull readonly align 1 %99, i64 %100, i1 false)
+  br label %.lr.ph.i31
 
-.lr.ph.i32:                                       ; preds = %.lr.ph.i32, %PHP_SHA512Update.exit31
-  %indvars.iv38.i = phi i64 [ 0, %PHP_SHA512Update.exit31 ], [ %indvars.iv.next39.i, %.lr.ph.i32 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_SHA512Update.exit31 ], [ %indvars.iv.next.i, %.lr.ph.i32 ]
-  %100 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv38.i
-  %101 = load i64, ptr %100, align 8
-  %102 = lshr i64 %101, 56
-  %103 = trunc nuw i64 %102 to i8
-  %104 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %103, ptr %104, align 1
-  %105 = load i64, ptr %100, align 8
-  %106 = lshr i64 %105, 48
-  %107 = trunc i64 %106 to i8
-  %108 = or disjoint i64 %indvars.iv.i, 1
-  %109 = getelementptr inbounds i8, ptr %0, i64 %108
-  store i8 %107, ptr %109, align 1
-  %110 = load i64, ptr %100, align 8
-  %111 = lshr i64 %110, 40
-  %112 = trunc i64 %111 to i8
-  %113 = or disjoint i64 %indvars.iv.i, 2
-  %114 = getelementptr inbounds i8, ptr %0, i64 %113
-  store i8 %112, ptr %114, align 1
-  %115 = load i64, ptr %100, align 8
-  %116 = lshr i64 %115, 32
-  %117 = trunc i64 %116 to i8
-  %118 = or disjoint i64 %indvars.iv.i, 3
-  %119 = getelementptr inbounds i8, ptr %0, i64 %118
-  store i8 %117, ptr %119, align 1
-  %120 = load i64, ptr %100, align 8
-  %121 = lshr i64 %120, 24
-  %122 = trunc i64 %121 to i8
-  %123 = or disjoint i64 %indvars.iv.i, 4
-  %124 = getelementptr inbounds i8, ptr %0, i64 %123
-  store i8 %122, ptr %124, align 1
-  %125 = load i64, ptr %100, align 8
-  %126 = lshr i64 %125, 16
-  %127 = trunc i64 %126 to i8
-  %128 = or disjoint i64 %indvars.iv.i, 5
-  %129 = getelementptr inbounds i8, ptr %0, i64 %128
-  store i8 %127, ptr %129, align 1
-  %130 = load i64, ptr %100, align 8
-  %131 = lshr i64 %130, 8
-  %132 = trunc i64 %131 to i8
-  %133 = or disjoint i64 %indvars.iv.i, 6
-  %134 = getelementptr inbounds i8, ptr %0, i64 %133
-  store i8 %132, ptr %134, align 1
-  %135 = load i64, ptr %100, align 8
-  %136 = trunc i64 %135 to i8
-  %137 = or disjoint i64 %indvars.iv.i, 7
-  %138 = getelementptr inbounds i8, ptr %0, i64 %137
-  store i8 %136, ptr %138, align 1
+.lr.ph.i31:                                       ; preds = %.lr.ph.i31, %PHP_SHA512Update.exit30
+  %indvars.iv38.i = phi i64 [ 0, %PHP_SHA512Update.exit30 ], [ %indvars.iv.next39.i, %.lr.ph.i31 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_SHA512Update.exit30 ], [ %indvars.iv.next.i, %.lr.ph.i31 ]
+  %101 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv38.i
+  %102 = load i64, ptr %101, align 8
+  %103 = lshr i64 %102, 56
+  %104 = trunc nuw i64 %103 to i8
+  %105 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %104, ptr %105, align 1
+  %106 = load i64, ptr %101, align 8
+  %107 = lshr i64 %106, 48
+  %108 = trunc i64 %107 to i8
+  %109 = or disjoint i64 %indvars.iv.i, 1
+  %110 = getelementptr inbounds i8, ptr %0, i64 %109
+  store i8 %108, ptr %110, align 1
+  %111 = load i64, ptr %101, align 8
+  %112 = lshr i64 %111, 40
+  %113 = trunc i64 %112 to i8
+  %114 = or disjoint i64 %indvars.iv.i, 2
+  %115 = getelementptr inbounds i8, ptr %0, i64 %114
+  store i8 %113, ptr %115, align 1
+  %116 = load i64, ptr %101, align 8
+  %117 = lshr i64 %116, 32
+  %118 = trunc i64 %117 to i8
+  %119 = or disjoint i64 %indvars.iv.i, 3
+  %120 = getelementptr inbounds i8, ptr %0, i64 %119
+  store i8 %118, ptr %120, align 1
+  %121 = load i64, ptr %101, align 8
+  %122 = lshr i64 %121, 24
+  %123 = trunc i64 %122 to i8
+  %124 = or disjoint i64 %indvars.iv.i, 4
+  %125 = getelementptr inbounds i8, ptr %0, i64 %124
+  store i8 %123, ptr %125, align 1
+  %126 = load i64, ptr %101, align 8
+  %127 = lshr i64 %126, 16
+  %128 = trunc i64 %127 to i8
+  %129 = or disjoint i64 %indvars.iv.i, 5
+  %130 = getelementptr inbounds i8, ptr %0, i64 %129
+  store i8 %128, ptr %130, align 1
+  %131 = load i64, ptr %101, align 8
+  %132 = lshr i64 %131, 8
+  %133 = trunc i64 %132 to i8
+  %134 = or disjoint i64 %indvars.iv.i, 6
+  %135 = getelementptr inbounds i8, ptr %0, i64 %134
+  store i8 %133, ptr %135, align 1
+  %136 = load i64, ptr %101, align 8
+  %137 = trunc i64 %136 to i8
+  %138 = or disjoint i64 %indvars.iv.i, 7
+  %139 = getelementptr inbounds i8, ptr %0, i64 %138
+  store i8 %137, ptr %139, align 1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %.lr.ph.i32
+  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %.lr.ph.i31
 
-SHAEncode64.exit:                                 ; preds = %.lr.ph.i32
+SHAEncode64.exit:                                 ; preds = %.lr.ph.i31
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 208) #7
   ret void
 }

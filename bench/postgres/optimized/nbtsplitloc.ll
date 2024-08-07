@@ -86,7 +86,6 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
   %spec.select600 = select i1 %44, i64 4294967288, i64 0
   %.pn.in.neg.i126 = sub i64 %spec.select600, %41
   %.pn.neg80.i127 = trunc i64 %.pn.in.neg.i126 to i32
-  %invariant.op = add i32 %20, %.pn.neg80.i127
   br label %58
 
 58:                                               ; preds = %.lr.ph, %_bt_recsplitloc.exit
@@ -254,9 +253,9 @@ BTreeTupleIsPosting.exit.thread.i106:             ; preds = %97
   %130 = add i32 %.073575, %.072
   %.059.in.i128 = sub i32 %130, %55
   %131 = add i32 %.073.neg580, %20
-  %.1.in.i129.reass = add i32 %.073.neg580, %invariant.op
+  %.1.in.i129 = add i32 %131, %.pn.neg80.i127
   %.160.in.i130 = add i32 %57, %.059.in.i128
-  %sext.mask.i131 = and i32 %.1.in.i129.reass, 32768
+  %sext.mask.i131 = and i32 %.1.in.i129, 32768
   %132 = icmp eq i32 %sext.mask.i131, 0
   %sext.mask72.i132 = and i32 %.160.in.i130, 32768
   %133 = icmp eq i32 %sext.mask72.i132, 0
@@ -265,7 +264,7 @@ BTreeTupleIsPosting.exit.thread.i106:             ; preds = %97
 
 134:                                              ; preds = %129
   %.160.i134 = trunc i32 %.160.in.i130 to i16
-  %.1.i135 = trunc i32 %.1.in.i129.reass to i16
+  %.1.i135 = trunc i32 %.1.in.i129 to i16
   %..061.i136 = tail call i64 @llvm.umin.i64(i64 %.sroa.122.0572, i64 %41)
   %135 = sext i32 %.sroa.136.0573 to i64
   %136 = getelementptr %struct.SplitPoint, ptr %49, i64 %135

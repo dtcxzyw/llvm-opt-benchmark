@@ -1371,7 +1371,6 @@ define internal fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua
   %7 = alloca %struct.lua_TValue, align 8
   %8 = alloca %struct.lua_TValue, align 8
   %9 = sub nsw i32 %3, %2
-  %invariant.op = add i32 %2, 2
   %10 = shl nsw i32 %5, 1
   %11 = add nsw i32 %10, 2
   %.not63 = icmp sgt i32 %11, %9
@@ -1382,10 +1381,10 @@ define internal fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   br label %14
 
-14:                                               ; preds = %.lr.ph, %41
-  %15 = phi i32 [ %11, %.lr.ph ], [ %48, %41 ]
-  %16 = phi i32 [ %10, %.lr.ph ], [ %47, %41 ]
-  %.064 = phi i32 [ %5, %.lr.ph ], [ %39, %41 ]
+14:                                               ; preds = %.lr.ph, %42
+  %15 = phi i32 [ %11, %.lr.ph ], [ %49, %42 ]
+  %16 = phi i32 [ %10, %.lr.ph ], [ %48, %42 ]
+  %.064 = phi i32 [ %5, %.lr.ph ], [ %40, %42 ]
   %17 = or disjoint i32 %16, 1
   %18 = add nsw i32 %.064, %2
   %19 = add nsw i32 %17, %2
@@ -1408,85 +1407,85 @@ _Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %14
   %.not52 = icmp eq i32 %26, 0
   %29 = select i1 %.not52, i32 %.064, i32 %17
   %30 = add nsw i32 %29, %2
-  %.reass = add i32 %16, %invariant.op
-  %31 = load ptr, ptr %12, align 8
-  %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %struct.lua_TValue, ptr %31, i64 %32
-  %34 = sext i32 %.reass to i64
-  %35 = getelementptr inbounds %struct.lua_TValue, ptr %31, i64 %34
-  %36 = tail call noundef i32 %4(ptr noundef %0, ptr noundef %33, ptr noundef %35)
-  %37 = load i32, ptr %13, align 8
-  %.not.i55 = icmp eq i32 %37, %21
-  br i1 %.not.i55, label %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56, label %38
+  %31 = add nsw i32 %15, %2
+  %32 = load ptr, ptr %12, align 8
+  %33 = sext i32 %30 to i64
+  %34 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 %33
+  %35 = sext i32 %31 to i64
+  %36 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 %35
+  %37 = tail call noundef i32 %4(ptr noundef %0, ptr noundef %34, ptr noundef %36)
+  %38 = load i32, ptr %13, align 8
+  %.not.i55 = icmp eq i32 %38, %21
+  br i1 %.not.i55, label %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56, label %39
 
-38:                                               ; preds = %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit
+39:                                               ; preds = %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.22) #6
   unreachable
 
 _Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56: ; preds = %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit
-  %.not53 = icmp eq i32 %36, 0
-  %39 = select i1 %.not53, i32 %29, i32 %15
-  %40 = icmp eq i32 %39, %.064
-  br i1 %40, label %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge, label %41
+  %.not53 = icmp eq i32 %37, 0
+  %40 = select i1 %.not53, i32 %29, i32 %15
+  %41 = icmp eq i32 %40, %.064
+  br i1 %41, label %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge, label %42
 
-41:                                               ; preds = %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56
-  %42 = add nsw i32 %39, %2
+42:                                               ; preds = %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56
+  %43 = add nsw i32 %40, %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %43 = load ptr, ptr %12, align 8
-  %44 = getelementptr inbounds %struct.lua_TValue, ptr %43, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
-  %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds %struct.lua_TValue, ptr %43, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  %44 = load ptr, ptr %12, align 8
+  %45 = getelementptr inbounds %struct.lua_TValue, ptr %44, i64 %22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
+  %46 = sext i32 %43 to i64
+  %47 = getelementptr inbounds %struct.lua_TValue, ptr %44, i64 %46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %47 = shl nsw i32 %39, 1
-  %48 = add nsw i32 %47, 2
-  %.not = icmp sgt i32 %48, %9
+  %48 = shl nsw i32 %40, 1
+  %49 = add nsw i32 %48, 2
+  %.not = icmp sgt i32 %49, %9
   br i1 %.not, label %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge, label %14, !llvm.loop !26
 
-_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge: ; preds = %41, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56, %6
-  %.0.lcssa = phi i32 [ %5, %6 ], [ %.064, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56 ], [ %39, %41 ]
-  %.lcssa = phi i32 [ %10, %6 ], [ %16, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56 ], [ %47, %41 ]
-  %49 = or disjoint i32 %.lcssa, 1
-  %50 = icmp eq i32 %49, %9
-  br i1 %50, label %51, label %68
+_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge: ; preds = %42, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56, %6
+  %.0.lcssa = phi i32 [ %5, %6 ], [ %.064, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56 ], [ %40, %42 ]
+  %.lcssa = phi i32 [ %10, %6 ], [ %16, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56 ], [ %48, %42 ]
+  %50 = or disjoint i32 %.lcssa, 1
+  %51 = icmp eq i32 %50, %9
+  br i1 %51, label %52, label %69
 
-51:                                               ; preds = %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge
-  %52 = add nsw i32 %.0.lcssa, %2
-  %53 = getelementptr inbounds i8, ptr %1, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
-  %56 = load i32, ptr %55, align 8
-  %57 = sext i32 %52 to i64
-  %58 = getelementptr inbounds %struct.lua_TValue, ptr %54, i64 %57
-  %59 = sext i32 %3 to i64
-  %60 = getelementptr inbounds %struct.lua_TValue, ptr %54, i64 %59
-  %61 = tail call noundef i32 %4(ptr noundef %0, ptr noundef %58, ptr noundef %60)
-  %62 = load i32, ptr %55, align 8
-  %.not.i57 = icmp eq i32 %62, %56
-  br i1 %.not.i57, label %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit58, label %63
+52:                                               ; preds = %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge
+  %53 = add nsw i32 %.0.lcssa, %2
+  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = load i32, ptr %56, align 8
+  %58 = sext i32 %53 to i64
+  %59 = getelementptr inbounds %struct.lua_TValue, ptr %55, i64 %58
+  %60 = sext i32 %3 to i64
+  %61 = getelementptr inbounds %struct.lua_TValue, ptr %55, i64 %60
+  %62 = tail call noundef i32 %4(ptr noundef %0, ptr noundef %59, ptr noundef %61)
+  %63 = load i32, ptr %56, align 8
+  %.not.i57 = icmp eq i32 %63, %57
+  br i1 %.not.i57, label %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit58, label %64
 
-63:                                               ; preds = %51
+64:                                               ; preds = %52
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.22) #6
   unreachable
 
-_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit58: ; preds = %51
-  %.not54 = icmp eq i32 %61, 0
-  br i1 %.not54, label %68, label %64
+_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit58: ; preds = %52
+  %.not54 = icmp eq i32 %62, 0
+  br i1 %.not54, label %69, label %65
 
-64:                                               ; preds = %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit58
+65:                                               ; preds = %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %65 = load ptr, ptr %53, align 8
-  %66 = getelementptr inbounds %struct.lua_TValue, ptr %65, i64 %57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false)
-  %67 = getelementptr inbounds %struct.lua_TValue, ptr %65, i64 %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  %66 = load ptr, ptr %54, align 8
+  %67 = getelementptr inbounds %struct.lua_TValue, ptr %66, i64 %58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false)
+  %68 = getelementptr inbounds %struct.lua_TValue, ptr %66, i64 %60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %68
+  br label %69
 
-68:                                               ; preds = %64, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit58, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge
+69:                                               ; preds = %65, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit58, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge
   ret void
 }
 

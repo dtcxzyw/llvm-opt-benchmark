@@ -1502,7 +1502,6 @@ _ZNKSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEEclES4_.exit: ; preds = 
 .preheader39:                                     ; preds = %.lr.ph, %.preheader40
   %24 = getelementptr inbounds i8, ptr %4, i64 16
   %25 = getelementptr inbounds i8, ptr %4, i64 24
-  %invariant.op.i = xor i32 %2, -1
   br label %29
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1546,7 +1545,7 @@ _ZNKSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEEclES4_.exit27: ; preds 
 
 .loopexit:                                        ; preds = %.lr.ph51.preheader, %35, %_ZNKSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEEclES4_.exit27
   %.1 = phi i32 [ %.035, %_ZNKSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEEclES4_.exit27 ], [ %33, %35 ], [ %33, %.lr.ph51.preheader ]
-  %invariant.op57.i = add i32 %.pre, %invariant.op.i
+  %invariant.op.i = sub i32 %.pre, %2
   br label %38
 
 38:                                               ; preds = %42, %.loopexit
@@ -1555,8 +1554,8 @@ _ZNKSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEEclES4_.exit27: ; preds 
   %39 = zext i32 %.045.i to i64
   %40 = getelementptr inbounds i32, ptr %7, i64 %39
   %41 = load i32, ptr %40, align 4
-  %.reass58.i = add i32 %invariant.op57.i, %.045.in.i
-  %.not.i.not = icmp eq i32 %41, %.reass58.i
+  %.reass.i = add i32 %invariant.op.i, %.045.i
+  %.not.i.not = icmp eq i32 %41, %.reass.i
   br i1 %.not.i.not, label %42, label %44
 
 42:                                               ; preds = %38

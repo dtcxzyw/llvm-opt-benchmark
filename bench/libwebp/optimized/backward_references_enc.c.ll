@@ -433,15 +433,15 @@ GetWindowSizeForHashChain.exit:                   ; preds = %9, %17, %19
   br i1 %.not237264, label %.loopexit257, label %.lr.ph267
 
 .lr.ph267:                                        ; preds = %59, %73, %79
-  %.1204328 = phi i32 [ %.0203, %79 ], [ %78, %73 ], [ %.0203, %59 ]
-  %.1210327 = phi i32 [ %.0209.lcssa, %79 ], [ 4095, %73 ], [ 1, %59 ]
+  %.1204324 = phi i32 [ %.0203, %79 ], [ %78, %73 ], [ %.0203, %59 ]
+  %.1210323 = phi i32 [ %.0209.lcssa, %79 ], [ 4095, %73 ], [ 1, %59 ]
   %80 = mul i32 %60, 1540483478
-  %81 = sext i32 %.1204328 to i64
+  %81 = sext i32 %.1204324 to i64
   br label %82
 
 82:                                               ; preds = %.lr.ph267, %82
   %indvars.iv = phi i64 [ %81, %.lr.ph267 ], [ %indvars.iv.next, %82 ]
-  %.2211265 = phi i32 [ %.1210327, %.lr.ph267 ], [ %83, %82 ]
+  %.2211265 = phi i32 [ %.1210323, %.lr.ph267 ], [ %83, %82 ]
   %83 = add nsw i32 %.2211265, -1
   %84 = mul i32 %.2211265, -962287725
   %85 = add i32 %84, %80
@@ -558,13 +558,13 @@ FindMatchLength.exit:                             ; preds = %142
   %.fr = freeze i32 %147
   %148 = icmp sgt i32 %.fr, 0
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.fr, i32 0)
-  %spec.select336 = select i1 %148, i32 %3, i32 0
+  %spec.select332 = select i1 %148, i32 %3, i32 0
   br label %FindMatchLength.exit.thread
 
 FindMatchLength.exit.thread:                      ; preds = %FindMatchLength.exit, %142, %141
   %.1201 = phi i32 [ %13, %141 ], [ %130, %142 ], [ %130, %FindMatchLength.exit ]
   %.1194 = phi i32 [ 0, %141 ], [ 0, %142 ], [ %spec.select, %FindMatchLength.exit ]
-  %.1192 = phi i32 [ 0, %141 ], [ 0, %142 ], [ %spec.select336, %FindMatchLength.exit ]
+  %.1192 = phi i32 [ 0, %141 ], [ 0, %142 ], [ %spec.select332, %FindMatchLength.exit ]
   %149 = getelementptr inbounds i8, ptr %136, i64 -4
   %150 = zext nneg i32 %.1194 to i64
   %151 = getelementptr inbounds i32, ptr %149, i64 %150
@@ -620,9 +620,9 @@ FindMatchLength.exit256:                          ; preds = %FindMatchLength.exi
   %170 = getelementptr inbounds i32, ptr %2, i64 %169
   %171 = load i32, ptr %170, align 4
   %.not233 = icmp eq i32 %171, %.0189274
-  br i1 %.not233, label %172, label %._crit_edge321
+  br i1 %.not233, label %172, label %._crit_edge317
 
-._crit_edge321:                                   ; preds = %167
+._crit_edge317:                                   ; preds = %167
   %.pre = sext i32 %.5208270 to i64
   br label %183
 
@@ -642,12 +642,12 @@ FindMatchLength.exit256:                          ; preds = %FindMatchLength.exi
   %.not234 = icmp slt i32 %176, %138
   br i1 %.not234, label %183, label %.critedge3
 
-183:                                              ; preds = %._crit_edge321, %172, %178
-  %.pre-phi322 = phi i64 [ %.pre, %._crit_edge321 ], [ %174, %172 ], [ %174, %178 ]
-  %.6199 = phi i32 [ %.4197272, %._crit_edge321 ], [ %.4197272, %172 ], [ %176, %178 ]
-  %.6 = phi i32 [ %.4273, %._crit_edge321 ], [ %.4273, %172 ], [ %179, %178 ]
-  %.1190 = phi i32 [ %.0189274, %._crit_edge321 ], [ %.0189274, %172 ], [ %182, %178 ]
-  %184 = getelementptr inbounds i32, ptr %25, i64 %.pre-phi322
+183:                                              ; preds = %._crit_edge317, %172, %178
+  %.pre-phi318 = phi i64 [ %.pre, %._crit_edge317 ], [ %174, %172 ], [ %174, %178 ]
+  %.6199 = phi i32 [ %.4197272, %._crit_edge317 ], [ %.4197272, %172 ], [ %176, %178 ]
+  %.6 = phi i32 [ %.4273, %._crit_edge317 ], [ %.4273, %172 ], [ %179, %178 ]
+  %.1190 = phi i32 [ %.0189274, %._crit_edge317 ], [ %.0189274, %172 ], [ %182, %178 ]
+  %184 = getelementptr inbounds i32, ptr %25, i64 %.pre-phi318
   %185 = load i32, ptr %184, align 4
   %.not231 = icmp slt i32 %185, %137
   br i1 %.not231, label %.critedge3, label %.lr.ph275, !llvm.loop !9
@@ -670,8 +670,8 @@ FindMatchLength.exit256:                          ; preds = %FindMatchLength.exi
   br i1 %or.cond242284, label %._crit_edge, label %.lr.ph288
 
 .lr.ph288:                                        ; preds = %.critedge3
-  %.not314 = icmp eq i32 %.5.fr, 1
-  br i1 %.not314, label %.lr.ph288.split.us.split, label %.lr.ph288.split.split
+  %.not310 = icmp eq i32 %.5.fr, 1
+  br i1 %.not310, label %.lr.ph288.split.us.split, label %.lr.ph288.split.split
 
 .lr.ph288.split.us.split:                         ; preds = %.lr.ph288, %203
   %195 = phi i32 [ %209, %203 ], [ %191, %.lr.ph288 ]

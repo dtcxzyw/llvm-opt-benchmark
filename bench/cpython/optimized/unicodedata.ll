@@ -3913,8 +3913,8 @@ if.end6.i155:                                     ; preds = %PyUnicode_READ.exit
 
 PyUnicode_READ.exit157:                           ; preds = %if.then3.i148, %if.end6.i155
   %retval.0.i151 = phi i32 [ %conv5.i150, %if.then3.i148 ], [ %25, %if.end6.i155 ]
-  %sub50.reass = add i32 %19, -2644035
-  %add51 = add i32 %sub50.reass, %retval.0.i151
+  %sub50 = add i32 %19, -2644035
+  %add51 = add i32 %sub50, %retval.0.i151
   %inc52 = add i64 %i.1286, 3
   br label %if.end53
 

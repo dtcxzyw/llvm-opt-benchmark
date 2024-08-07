@@ -98,19 +98,20 @@ for.end30.i:                                      ; preds = %for.body17.i, %for.
   %arrayidx41.i = getelementptr inbounds [256 x i8], ptr @key_table, i64 0, i64 %idxprom40.i
   %12 = load i8, ptr %arrayidx41.i, align 1
   store i8 %12, ptr %arrayidx37.i, align 1
-  %invariant.op.i = add nsw i32 %shr.i, -1
   %tobool.not49.i = icmp eq i32 %shr.i, 128
-  br i1 %tobool.not49.i, label %while.end.i, label %while.body.i
+  br i1 %tobool.not49.i, label %while.end.i, label %while.body.preheader.i
 
-while.body.i:                                     ; preds = %for.end30.i, %while.body.i
-  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %while.body.i ], [ %idxprom36.i, %for.end30.i ]
-  %d.1.in51.i = phi i8 [ %15, %while.body.i ], [ %12, %for.end30.i ]
+while.body.preheader.i:                           ; preds = %for.end30.i
+  %13 = zext nneg i32 %shr.i to i64
+  %invariant.gep68.i = getelementptr i8, ptr %ks, i64 %13
+  br label %while.body.i
+
+while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
+  %indvars.iv61.i = phi i64 [ %idxprom36.i, %while.body.preheader.i ], [ %indvars.iv.next62.i, %while.body.i ]
+  %d.1.in51.i = phi i8 [ %12, %while.body.preheader.i ], [ %15, %while.body.i ]
   %indvars.iv.next62.i = add nsw i64 %indvars.iv61.i, -1
-  %13 = trunc nsw i64 %indvars.iv61.i to i32
-  %add46.reass.i = add i32 %invariant.op.i, %13
-  %idxprom47.i = sext i32 %add46.reass.i to i64
-  %arrayidx48.i = getelementptr inbounds i8, ptr %ks, i64 %idxprom47.i
-  %14 = load i8, ptr %arrayidx48.i, align 1
+  %gep69.i = getelementptr i8, ptr %invariant.gep68.i, i64 %indvars.iv.next62.i
+  %14 = load i8, ptr %gep69.i, align 1
   %xor42.i = xor i8 %14, %d.1.in51.i
   %idxprom50.i = zext i8 %xor42.i to i64
   %arrayidx51.i = getelementptr inbounds [256 x i8], ptr @key_table, i64 0, i64 %idxprom50.i
@@ -126,14 +127,14 @@ while.end.i:                                      ; preds = %while.body.i, %for.
   br label %for.body61.i
 
 for.body61.i:                                     ; preds = %for.body61.i, %while.end.i
-  %indvars.iv63.i = phi i64 [ 127, %while.end.i ], [ %indvars.iv.next64.i, %for.body61.i ]
+  %indvars.iv64.i = phi i64 [ 127, %while.end.i ], [ %indvars.iv.next65.i, %for.body61.i ]
   %ki.053.i = phi ptr [ %arrayidx57.i, %while.end.i ], [ %incdec.ptr.i, %for.body61.i ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv63.i
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv64.i
   %17 = load i16, ptr %gep.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ki.053.i, i64 -2
   store i16 %17, ptr %ki.053.i, align 2
-  %indvars.iv.next64.i = add nsw i64 %indvars.iv63.i, -2
-  %cmp59.i = icmp ugt i64 %indvars.iv63.i, 1
+  %indvars.iv.next65.i = add nsw i64 %indvars.iv64.i, -2
+  %cmp59.i = icmp ugt i64 %indvars.iv64.i, 1
   br i1 %cmp59.i, label %for.body61.i, label %RC2_set_key.exit, !llvm.loop !11
 
 RC2_set_key.exit:                                 ; preds = %for.body61.i

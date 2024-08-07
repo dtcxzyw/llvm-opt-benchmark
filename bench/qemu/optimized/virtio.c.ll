@@ -739,10 +739,8 @@ entry:
   %mul = shl nuw nsw i64 %conv, 4
   %call2 = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef %mul) #6
   store i64 %call2, ptr %call, align 8
-  %invariant.op = add i64 %call2, 12
-  %invariant.op31 = add i64 %call2, 14
-  %cmp32 = icmp ugt i16 %elem, 1
-  br i1 %cmp32, label %for.body.lr.ph, label %for.end
+  %cmp31 = icmp ugt i16 %elem, 1
+  br i1 %cmp31, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = zext i16 %elem to i64
@@ -766,7 +764,7 @@ land.lhs.true.i:                                  ; preds = %for.body
 
 qvirtio_writeq.exit:                              ; preds = %for.body, %land.lhs.true.i
   tail call void @qtest_writeq(ptr noundef %qs, i64 noundef %add, i64 noundef 0) #6
-  %add12.reass = add i64 %invariant.op, %1
+  %add12 = add i64 %add, 12
   %d.val19 = load i64, ptr %0, align 8
   %and.i20 = and i64 %d.val19, 4294967296
   %tobool.not.i21 = icmp eq i64 %and.i20, 0
@@ -779,8 +777,8 @@ land.lhs.true.i22:                                ; preds = %qvirtio_writeq.exit
 
 qvirtio_writew.exit:                              ; preds = %qvirtio_writeq.exit, %land.lhs.true.i22
   %val.addr.0.i = phi i16 [ 1, %qvirtio_writeq.exit ], [ %spec.select.i, %land.lhs.true.i22 ]
-  tail call void @qtest_writew(ptr noundef %qs, i64 noundef %add12.reass, i16 noundef zeroext %val.addr.0.i) #6
-  %add17.reass = add i64 %invariant.op31, %1
+  tail call void @qtest_writew(ptr noundef %qs, i64 noundef %add12, i16 noundef zeroext %val.addr.0.i) #6
+  %add17 = add i64 %add, 14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %d.val18 = load i64, ptr %0, align 8
   %and.i24 = and i64 %d.val18, 4294967296
@@ -796,7 +794,7 @@ land.lhs.true.i26:                                ; preds = %qvirtio_writew.exit
 
 qvirtio_writew.exit30:                            ; preds = %qvirtio_writew.exit, %land.lhs.true.i26
   %val.addr.0.i29 = phi i16 [ %2, %qvirtio_writew.exit ], [ %spec.select.i28, %land.lhs.true.i26 ]
-  tail call void @qtest_writew(ptr noundef %qs, i64 noundef %add17.reass, i16 noundef zeroext %val.addr.0.i29) #6
+  tail call void @qtest_writew(ptr noundef %qs, i64 noundef %add17, i16 noundef zeroext %val.addr.0.i29) #6
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 

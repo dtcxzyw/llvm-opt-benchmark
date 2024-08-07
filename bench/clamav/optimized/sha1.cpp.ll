@@ -1094,25 +1094,25 @@ define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr n
   %17 = getelementptr inbounds i8, ptr %1, i64 %.02426
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %17, i1 noundef zeroext false)
   %18 = add i64 %.02426, 64
-  %.reass = add i64 %.02426, 127
-  %19 = icmp ult i64 %.reass, %2
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !4
+  %19 = add i64 %.02426, 127
+  %20 = icmp ult i64 %19, %2
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %3
   %.1 = phi i64 [ 0, %3 ], [ %14, %11 ], [ %18, %.lr.ph ]
   %.0 = phi i64 [ %7, %3 ], [ 0, %11 ], [ 0, %.lr.ph ]
-  %20 = icmp ult i64 %.1, %2
-  br i1 %20, label %21, label %26
+  %21 = icmp ult i64 %.1, %2
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %.loopexit
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = getelementptr inbounds i8, ptr %22, i64 %.0
-  %24 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %25 = sub nuw i64 %2, %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %24, i64 %25, i1 false)
-  br label %26
+22:                                               ; preds = %.loopexit
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds i8, ptr %23, i64 %.0
+  %25 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %26 = sub nuw i64 %2, %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %25, i64 %26, i1 false)
+  br label %27
 
-26:                                               ; preds = %21, %.loopexit
+27:                                               ; preds = %22, %.loopexit
   ret void
 }
 
@@ -1144,25 +1144,25 @@ define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0,
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %scevgep, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %scevgep, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false)
   %17 = add i64 %.03134, 64
-  %.reass = add i64 %.03134, 127
-  %18 = icmp ult i64 %.reass, %2
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  %18 = add i64 %.03134, 127
+  %19 = icmp ult i64 %18, %2
+  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %3
   %.1 = phi i64 [ 0, %3 ], [ %14, %11 ], [ %17, %.lr.ph ]
   %.030 = phi i64 [ %7, %3 ], [ 0, %11 ], [ 0, %.lr.ph ]
-  %19 = icmp ult i64 %.1, %2
-  br i1 %19, label %20, label %25
+  %20 = icmp ult i64 %.1, %2
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %.loopexit
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = getelementptr inbounds i8, ptr %21, i64 %.030
-  %23 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %24 = sub nuw i64 %2, %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %23, i64 %24, i1 false)
-  br label %25
+21:                                               ; preds = %.loopexit
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds i8, ptr %22, i64 %.030
+  %24 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %25 = sub nuw i64 %2, %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %24, i64 %25, i1 false)
+  br label %26
 
-25:                                               ; preds = %20, %.loopexit
+26:                                               ; preds = %21, %.loopexit
   ret void
 }
 

@@ -541,14 +541,14 @@ lor.lhs.false.i69:                                ; preds = %lor.lhs.false51
   %10 = load i8, ptr %add.ptr.i.i.i73, align 1
   %conv2.i.i.i74 = zext i8 %10 to i64
   %or.i.i.i75 = or disjoint i64 %shl.i.i.i72, %conv2.i.i.i74
-  %sub.i.i.i76.reass = add i64 %pkt2.sroa.11.0, -4
-  %cmp.i.i4.i77 = icmp ult i64 %sub.i.i.i76.reass, %or.i.i.i75
+  %sub.i.i.i76 = add i64 %pkt2.sroa.11.0, -4
+  %cmp.i.i4.i77 = icmp ult i64 %sub.i.i.i76, %or.i.i.i75
   br i1 %cmp.i.i4.i77, label %PACKET_get_length_prefixed_2.exit84, label %if.end.i78
 
 if.end.i78:                                       ; preds = %lor.lhs.false.i69
   %add.ptr.i2.i.i79 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 4
   %add.ptr.i.i6.i80 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i79, i64 %or.i.i.i75
-  %sub.i.i7.i81 = sub nuw i64 %sub.i.i.i76.reass, %or.i.i.i75
+  %sub.i.i7.i81 = sub nuw i64 %sub.i.i.i76, %or.i.i.i75
   br label %PACKET_get_length_prefixed_2.exit84
 
 PACKET_get_length_prefixed_2.exit84:              ; preds = %PACKET_get_net_2.exit.thread, %lor.lhs.false51, %lor.lhs.false.i69, %if.end.i78

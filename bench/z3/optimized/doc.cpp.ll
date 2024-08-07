@@ -1816,21 +1816,17 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %call7 = tail call noundef zeroext i1 @_ZN11doc_manager5mergeER3docjRK10union_findI22union_find_default_ctxS3_ERK10bit_vector(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(88) %d, i32 noundef %lo, ptr noundef nonnull align 8 dereferenceable(56) %equalities, ptr noundef nonnull align 8 dereferenceable(16) %discard_cols)
-  br i1 %call7, label %for.cond.preheader, label %return
+  br i1 %call7, label %for.cond, label %return
 
-for.cond.preheader:                               ; preds = %for.body.preheader
-  %invariant.op = add i32 1, %lo
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.cond.preheader, %for.body
-  %i.048 = phi i32 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+for.cond:                                         ; preds = %for.body.preheader, %for.body
+  %i.048 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %inc = add nuw i32 %i.048, 1
   %exitcond = icmp eq i32 %inc, %length
   br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !19
 
 for.body:                                         ; preds = %for.cond
-  %add.reass = add i32 %i.048, %invariant.op
-  %call = tail call noundef zeroext i1 @_ZN11doc_manager5mergeER3docjRK10union_findI22union_find_default_ctxS3_ERK10bit_vector(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(88) %d, i32 noundef %add.reass, ptr noundef nonnull align 8 dereferenceable(56) %equalities, ptr noundef nonnull align 8 dereferenceable(16) %discard_cols)
+  %add = add i32 %inc, %lo
+  %call = tail call noundef zeroext i1 @_ZN11doc_manager5mergeER3docjRK10union_findI22union_find_default_ctxS3_ERK10bit_vector(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(88) %d, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(56) %equalities, ptr noundef nonnull align 8 dereferenceable(16) %discard_cols)
   br i1 %call, label %for.cond, label %return.loopexit, !llvm.loop !19
 
 return.loopexit:                                  ; preds = %for.body, %for.cond

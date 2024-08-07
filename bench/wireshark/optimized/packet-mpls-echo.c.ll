@@ -2811,8 +2811,8 @@ define internal fastcc void @dissect_mpls_echo_tlv_dd_map(ptr noundef %0, ptr no
   br label %182
 
 182:                                              ; preds = %171, %150, %163, %149, %127, %109, %91, %172, %168, %146, %128, %124, %110, %106, %92
-  %.neg303.reass = add nsw i32 %.1278314, -8
-  %183 = sub nsw i32 %.neg303.reass, %86
+  %.neg303 = add nsw i32 %.1278314, -8
+  %183 = sub nsw i32 %.neg303, %86
   br label %.loopexit
 
 184:                                              ; preds = %81

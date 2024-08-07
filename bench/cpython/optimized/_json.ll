@@ -2445,40 +2445,40 @@ PyUnicode_READ.exit128:                           ; preds = %if.then.i123, %if.t
   br i1 %cmp90, label %land.lhs.true91, label %if.end128
 
 land.lhs.true91:                                  ; preds = %PyUnicode_READ.exit128
-  %inc88.reass = add i64 %next.0160, 7
+  %inc88 = add i64 %next.0160, 7
   switch i32 %bf.clear, label %if.end6.i136 [
     i32 1, label %if.then.i133
     i32 2, label %if.then3.i129
   ]
 
 if.then.i133:                                     ; preds = %land.lhs.true91
-  %arrayidx.i134 = getelementptr i8, ptr %retval.0.i, i64 %inc88.reass
+  %arrayidx.i134 = getelementptr i8, ptr %retval.0.i, i64 %inc88
   %25 = load i8, ptr %arrayidx.i134, align 1
   %conv.i135 = zext i8 %25 to i32
   br label %PyUnicode_READ.exit138
 
 if.then3.i129:                                    ; preds = %land.lhs.true91
-  %arrayidx4.i130 = getelementptr i16, ptr %retval.0.i, i64 %inc88.reass
+  %arrayidx4.i130 = getelementptr i16, ptr %retval.0.i, i64 %inc88
   %26 = load i16, ptr %arrayidx4.i130, align 2
   %conv5.i131 = zext i16 %26 to i32
   br label %PyUnicode_READ.exit138
 
 if.end6.i136:                                     ; preds = %land.lhs.true91
-  %arrayidx7.i137 = getelementptr i32, ptr %retval.0.i, i64 %inc88.reass
+  %arrayidx7.i137 = getelementptr i32, ptr %retval.0.i, i64 %inc88
   %27 = load i32, ptr %arrayidx7.i137, align 4
   br label %PyUnicode_READ.exit138
 
 PyUnicode_READ.exit138:                           ; preds = %if.then.i133, %if.then3.i129, %if.end6.i136
   %retval.0.i132 = phi i32 [ %conv.i135, %if.then.i133 ], [ %conv5.i131, %if.then3.i129 ], [ %27, %if.end6.i136 ]
   %cmp94 = icmp eq i32 %retval.0.i132, 117
-  %inc92.reass = add i64 %next.0160, 8
-  %cmp98221 = icmp slt i64 %inc92.reass, %add85
+  %inc92 = add i64 %next.0160, 8
+  %cmp98221 = icmp slt i64 %inc92, %add85
   %or.cond = and i1 %cmp94, %cmp98221
   br i1 %or.cond, label %for.body99, label %if.end128
 
-for.body99:                                       ; preds = %PyUnicode_READ.exit138, %switch.lookup380
-  %c2.0223 = phi i32 [ %c2.1, %switch.lookup380 ], [ 0, %PyUnicode_READ.exit138 ]
-  %next.2222 = phi i64 [ %inc118, %switch.lookup380 ], [ %inc92.reass, %PyUnicode_READ.exit138 ]
+for.body99:                                       ; preds = %PyUnicode_READ.exit138, %switch.lookup379
+  %c2.0223 = phi i32 [ %c2.1, %switch.lookup379 ], [ 0, %PyUnicode_READ.exit138 ]
+  %next.2222 = phi i64 [ %inc118, %switch.lookup379 ], [ %inc92, %PyUnicode_READ.exit138 ]
   switch i32 %bf.clear, label %if.end6.i146 [
     i32 1, label %if.then.i143
     i32 2, label %if.then3.i139
@@ -2504,32 +2504,32 @@ if.end6.i146:                                     ; preds = %for.body99
 PyUnicode_READ.exit148:                           ; preds = %if.then.i143, %if.then3.i139, %if.end6.i146
   %retval.0.i142 = phi i32 [ %conv.i145, %if.then.i143 ], [ %conv5.i141, %if.then3.i139 ], [ %30, %if.end6.i146 ]
   %shl102 = shl i32 %c2.0223, 4
-  %switch.tableidx378 = add i32 %retval.0.i142, -48
-  %31 = icmp ult i32 %switch.tableidx378, 55
-  br i1 %31, label %switch.hole_check379, label %sw.default114
+  %switch.tableidx377 = add i32 %retval.0.i142, -48
+  %31 = icmp ult i32 %switch.tableidx377, 55
+  br i1 %31, label %switch.hole_check378, label %sw.default114
 
-sw.default114:                                    ; preds = %switch.hole_check379, %PyUnicode_READ.exit148
+sw.default114:                                    ; preds = %switch.hole_check378, %PyUnicode_READ.exit148
   %sub115 = add i64 %next.0160, 7
   call fastcc void @raise_errmsg(ptr noundef nonnull @.str.11, ptr noundef %pystr, i64 noundef %sub115)
   br label %bail
 
-switch.hole_check379:                             ; preds = %PyUnicode_READ.exit148
-  %switch.maskindex381 = zext nneg i32 %switch.tableidx378 to i64
-  %switch.shifted382 = lshr i64 35465847073801215, %switch.maskindex381
-  %switch.lobit383 = trunc i64 %switch.shifted382 to i1
-  br i1 %switch.lobit383, label %switch.lookup380, label %sw.default114
+switch.hole_check378:                             ; preds = %PyUnicode_READ.exit148
+  %switch.maskindex380 = zext nneg i32 %switch.tableidx377 to i64
+  %switch.shifted381 = lshr i64 35465847073801215, %switch.maskindex380
+  %switch.lobit382 = trunc i64 %switch.shifted381 to i1
+  br i1 %switch.lobit382, label %switch.lookup379, label %sw.default114
 
-switch.lookup380:                                 ; preds = %switch.hole_check379
-  %32 = zext nneg i32 %switch.tableidx378 to i64
-  %switch.gep384 = getelementptr inbounds [55 x i32], ptr @switch.table.scanstring_unicode.15, i64 0, i64 %32
-  %switch.load385 = load i32, ptr %switch.gep384, align 4
-  %sub104 = add nsw i32 %retval.0.i142, %switch.load385
+switch.lookup379:                                 ; preds = %switch.hole_check378
+  %32 = zext nneg i32 %switch.tableidx377 to i64
+  %switch.gep383 = getelementptr inbounds [55 x i32], ptr @switch.table.scanstring_unicode.15, i64 0, i64 %32
+  %switch.load384 = load i32, ptr %switch.gep383, align 4
+  %sub104 = add nsw i32 %retval.0.i142, %switch.load384
   %c2.1 = or i32 %sub104, %shl102
   %inc118 = add i64 %next.2222, 1
   %exitcond268.not = icmp eq i64 %inc118, %add85
   br i1 %exitcond268.not, label %for.end119, label %for.body99, !llvm.loop !13
 
-for.end119:                                       ; preds = %switch.lookup380
+for.end119:                                       ; preds = %switch.lookup379
   %33 = and i32 %c2.1, -1024
   %.not157 = icmp eq i32 %33, 56320
   br i1 %.not157, label %if.then122, label %if.end128

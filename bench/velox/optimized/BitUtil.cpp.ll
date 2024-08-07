@@ -234,98 +234,98 @@ _ZN8facebook5velox4bits6detail9storeBitsItEEvPmmmh.exit.i: ; preds = %if.then.i.
 
 _ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit: ; preds = %_ZN8facebook5velox4bits6detail9storeBitsItEEvPmmmh.exit.i, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIjEEvPmmmRl.exit
   %remaining.5 = phi i64 [ %remaining.3, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIjEEvPmmmRl.exit ], [ %sub3.i81, %_ZN8facebook5velox4bits6detail9storeBitsItEEvPmmmh.exit.i ]
-  %invariant.op.i84 = add i64 %sourceOffset, -8
-  %invariant.op9.i85 = add i64 %targetOffset, -8
-  %cmp10.i86 = icmp sgt i64 %remaining.5, 7
-  br i1 %cmp10.i86, label %for.body.lr.ph.i87, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIhEEvPmmmRl.exit
+  %invariant.op.i84 = add i64 %targetOffset, -8
+  %cmp9.i = icmp sgt i64 %remaining.5, 7
+  br i1 %cmp9.i, label %for.body.lr.ph.i85, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIhEEvPmmmRl.exit
 
-for.body.lr.ph.i87:                               ; preds = %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit
+for.body.lr.ph.i85:                               ; preds = %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit
   %42 = ptrtoint ptr %bits to i64
   %43 = add i64 %remaining.5, %targetOffset
   %44 = and i64 %43, 7
   %45 = add i64 %remaining.5, %sourceOffset
   %46 = and i64 %45, 7
-  %tobool.not.i.i94 = icmp eq i64 %46, 0
-  %shl2.i.i104 = shl nuw nsw i64 255, %44
-  %not.i.i106 = xor i64 %shl2.i.i104, -1
-  %cmp10.i.not.i111 = icmp eq i64 %44, 0
+  %invariant.op = add i64 %sourceOffset, -8
+  %tobool.not.i.i91 = icmp eq i64 %46, 0
+  %shl2.i.i101 = shl nuw nsw i64 255, %44
+  %not.i.i103 = xor i64 %shl2.i.i101, -1
+  %cmp10.i.not.i108 = icmp eq i64 %44, 0
   %47 = trunc nuw nsw i64 %44 to i32
-  %notmask17.i.i114 = shl nsw i32 -1, %47
-  %48 = xor i32 %notmask17.i.i114, 255
-  %conv20.i.i116 = zext i32 %48 to i64
-  %not21.i.i117 = xor i64 %conv20.i.i116, -1
-  %sub25.i.i119 = sub nuw nsw i64 8, %44
-  br label %for.body.i88
+  %notmask17.i.i111 = shl nsw i32 -1, %47
+  %48 = xor i32 %notmask17.i.i111, 255
+  %conv20.i.i113 = zext i32 %48 to i64
+  %not21.i.i114 = xor i64 %conv20.i.i113, -1
+  %sub25.i.i116 = sub nuw nsw i64 8, %44
+  br label %for.body.i86
 
-for.body.i88:                                     ; preds = %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i, %for.body.lr.ph.i87
-  %remaining.6 = phi i64 [ %remaining.5, %for.body.lr.ph.i87 ], [ %sub3.i124, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i ]
-  %sub.reass.i90 = add i64 %invariant.op.i84, %remaining.6
-  %div9.i.i91 = lshr i64 %sub.reass.i90, 3
-  %add.i.i92 = add i64 %div9.i.i91, %42
-  %49 = inttoptr i64 %add.i.i92 to ptr
+for.body.i86:                                     ; preds = %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i, %for.body.lr.ph.i85
+  %remaining.6 = phi i64 [ %remaining.5, %for.body.lr.ph.i85 ], [ %sub3.i121, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i ]
+  %sub.i.reass = add i64 %remaining.6, %invariant.op
+  %div9.i.i88 = lshr i64 %sub.i.reass, 3
+  %add.i.i89 = add i64 %div9.i.i88, %42
+  %49 = inttoptr i64 %add.i.i89 to ptr
   %50 = load i8, ptr %49, align 1
-  br i1 %tobool.not.i.i94, label %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i, label %if.end5.i.i95
+  br i1 %tobool.not.i.i91, label %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i, label %if.end5.i.i92
 
-if.end5.i.i95:                                    ; preds = %for.body.i88
-  %add.i89 = add i64 %remaining.6, %sourceOffset
-  %arrayidx.i.i96 = getelementptr inbounds i8, ptr %49, i64 1
-  %51 = load i8, ptr %arrayidx.i.i96, align 1
-  %52 = trunc i64 %add.i89 to i8
+if.end5.i.i92:                                    ; preds = %for.body.i86
+  %add.i87 = add i64 %remaining.6, %sourceOffset
+  %arrayidx.i.i93 = getelementptr inbounds i8, ptr %49, i64 1
+  %51 = load i8, ptr %arrayidx.i.i93, align 1
+  %52 = trunc i64 %add.i87 to i8
   %conv13.i.i = tail call i8 @llvm.fshr.i8(i8 %51, i8 %50, i8 %52)
   br label %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i
 
-_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i: ; preds = %if.end5.i.i95, %for.body.i88
-  %retval.0.i.i97 = phi i8 [ %conv13.i.i, %if.end5.i.i95 ], [ %50, %for.body.i88 ]
-  %sub2.reass.i99 = add i64 %invariant.op9.i85, %remaining.6
-  %conv.i100 = zext i8 %retval.0.i.i97 to i64
-  %div15.i.i101 = lshr i64 %sub2.reass.i99, 3
-  %add.i5.i102 = add i64 %div15.i.i101, %42
-  %53 = inttoptr i64 %add.i5.i102 to ptr
+_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i: ; preds = %if.end5.i.i92, %for.body.i86
+  %retval.0.i.i94 = phi i8 [ %conv13.i.i, %if.end5.i.i92 ], [ %50, %for.body.i86 ]
+  %sub2.reass.i96 = add i64 %invariant.op.i84, %remaining.6
+  %conv.i97 = zext i8 %retval.0.i.i94 to i64
+  %div15.i.i98 = lshr i64 %sub2.reass.i96, 3
+  %add.i5.i99 = add i64 %div15.i.i98, %42
+  %53 = inttoptr i64 %add.i5.i99 to ptr
   %54 = load i8, ptr %53, align 1
-  %conv3.i.i105 = zext i8 %54 to i64
-  %and4.i.i107 = and i64 %conv3.i.i105, %not.i.i106
-  %and6.i.i108 = shl nuw nsw i64 %conv.i100, %44
-  %or.i.i109 = or i64 %and4.i.i107, %and6.i.i108
-  %conv7.i.i110 = trunc i64 %or.i.i109 to i8
-  store i8 %conv7.i.i110, ptr %53, align 1
-  br i1 %cmp10.i.not.i111, label %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i, label %if.then.i.i112
+  %conv3.i.i102 = zext i8 %54 to i64
+  %and4.i.i104 = and i64 %conv3.i.i102, %not.i.i103
+  %and6.i.i105 = shl nuw nsw i64 %conv.i97, %44
+  %or.i.i106 = or i64 %and4.i.i104, %and6.i.i105
+  %conv7.i.i107 = trunc i64 %or.i.i106 to i8
+  store i8 %conv7.i.i107, ptr %53, align 1
+  br i1 %cmp10.i.not.i108, label %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i, label %if.then.i.i109
 
-if.then.i.i112:                                   ; preds = %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i
-  %add.ptr.i.i113 = getelementptr inbounds i8, ptr %53, i64 1
-  %55 = load i8, ptr %add.ptr.i.i113, align 1
-  %conv19.i.i115 = zext i8 %55 to i64
-  %and22.i.i118 = and i64 %conv19.i.i115, %not21.i.i117
-  %shr.i8.i120 = lshr i64 %conv.i100, %sub25.i.i119
-  %and26.i.i121 = and i64 %shr.i8.i120, %conv20.i.i116
-  %or27.i.i122 = or i64 %and22.i.i118, %and26.i.i121
-  %conv28.i.i123 = trunc nuw i64 %or27.i.i122 to i8
-  store i8 %conv28.i.i123, ptr %add.ptr.i.i113, align 1
+if.then.i.i109:                                   ; preds = %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i
+  %add.ptr.i.i110 = getelementptr inbounds i8, ptr %53, i64 1
+  %55 = load i8, ptr %add.ptr.i.i110, align 1
+  %conv19.i.i112 = zext i8 %55 to i64
+  %and22.i.i115 = and i64 %conv19.i.i112, %not21.i.i114
+  %shr.i8.i117 = lshr i64 %conv.i97, %sub25.i.i116
+  %and26.i.i118 = and i64 %shr.i8.i117, %conv20.i.i113
+  %or27.i.i119 = or i64 %and22.i.i115, %and26.i.i118
+  %conv28.i.i120 = trunc nuw i64 %or27.i.i119 to i8
+  store i8 %conv28.i.i120, ptr %add.ptr.i.i110, align 1
   br label %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i
 
-_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i: ; preds = %if.then.i.i112, %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i
-  %sub3.i124 = add nsw i64 %remaining.6, -8
-  %cmp.i125 = icmp sgt i64 %remaining.6, 15
-  br i1 %cmp.i125, label %for.body.i88, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIhEEvPmmmRl.exit, !llvm.loop !8
+_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i: ; preds = %if.then.i.i109, %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i
+  %sub3.i121 = add nsw i64 %remaining.6, -8
+  %cmp.i122 = icmp sgt i64 %remaining.6, 15
+  br i1 %cmp.i122, label %for.body.i86, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIhEEvPmmmRl.exit, !llvm.loop !8
 
 _ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIhEEvPmmmRl.exit: ; preds = %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit
-  %remaining.7 = phi i64 [ %remaining.5, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit ], [ %sub3.i124, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i ]
+  %remaining.7 = phi i64 [ %remaining.5, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit ], [ %sub3.i121, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i ]
   %cmp = icmp sgt i64 %remaining.7, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIhEEvPmmmRl.exit
   %56 = ptrtoint ptr %bits to i64
   %div9.i = lshr i64 %sourceOffset, 3
-  %add.i126 = add i64 %div9.i, %56
-  %57 = inttoptr i64 %add.i126 to ptr
+  %add.i123 = add i64 %div9.i, %56
+  %57 = inttoptr i64 %add.i123 to ptr
   %58 = load i8, ptr %57, align 1
   %and.i = and i64 %sourceOffset, 7
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %add1.i128 = add nuw nsw i64 %remaining.7, %and.i
-  %cmp.i129 = icmp ult i64 %add1.i128, 9
-  br i1 %cmp.i129, label %if.then2.i, label %if.end5.i
+  %add1.i125 = add nuw nsw i64 %remaining.7, %and.i
+  %cmp.i126 = icmp ult i64 %add1.i125, 9
+  br i1 %cmp.i126, label %if.then2.i, label %if.end5.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %sh_prom.i = trunc nuw nsw i64 %and.i to i8
@@ -343,24 +343,24 @@ _ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit: ; preds = %if.then, %if
   %retval.0.i = phi i8 [ %shr.i, %if.then2.i ], [ %conv13.i, %if.end5.i ], [ %58, %if.then ]
   %conv1 = zext i8 %retval.0.i to i64
   %div15.i = lshr i64 %targetOffset, 3
-  %add.i130 = add i64 %div15.i, %56
-  %61 = inttoptr i64 %add.i130 to ptr
-  %and.i131 = and i64 %targetOffset, 7
+  %add.i127 = add i64 %div15.i, %56
+  %61 = inttoptr i64 %add.i127 to ptr
+  %and.i128 = and i64 %targetOffset, 7
   %notmask.i = shl nsw i64 -1, %remaining.7
-  %sub.i = xor i64 %notmask.i, -1
-  %shl2.i = shl nuw nsw i64 %sub.i, %and.i131
+  %sub.i131 = xor i64 %notmask.i, -1
+  %shl2.i = shl nuw nsw i64 %sub.i131, %and.i128
   %62 = load i8, ptr %61, align 1
   %conv3.i = zext i8 %62 to i64
   %not.i = xor i64 %shl2.i, -1
   %and4.i = and i64 %conv3.i, %not.i
-  %shl216.i = and i64 %conv1, %sub.i
-  %and6.i = shl nuw nsw i64 %shl216.i, %and.i131
+  %shl216.i = and i64 %conv1, %sub.i131
+  %and6.i = shl nuw nsw i64 %shl216.i, %and.i128
   %or.i = or i64 %and4.i, %and6.i
   %conv7.i = trunc i64 %or.i to i8
   store i8 %conv7.i, ptr %61, align 1
-  %add9.i = add nuw nsw i64 %remaining.7, %and.i131
-  %cmp10.i134 = icmp ugt i64 %add9.i, 8
-  br i1 %cmp10.i134, label %if.then.i, label %if.end
+  %add9.i = add nuw nsw i64 %remaining.7, %and.i128
+  %cmp10.i132 = icmp ugt i64 %add9.i, 8
+  br i1 %cmp10.i132, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit
   %add.ptr.i = getelementptr inbounds i8, ptr %61, i64 1
@@ -374,9 +374,9 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
   %conv20.i = zext i32 %65 to i64
   %not21.i = xor i64 %conv20.i, -1
   %and22.i = and i64 %conv19.i, %not21.i
-  %sub25.i = sub nuw nsw i64 8, %and.i131
-  %shr.i136 = lshr i64 %conv1, %sub25.i
-  %and26.i = and i64 %shr.i136, %conv20.i
+  %sub25.i = sub nuw nsw i64 8, %and.i128
+  %shr.i134 = lshr i64 %conv1, %sub25.i
+  %and26.i = and i64 %shr.i134, %conv20.i
   %or27.i = or i64 %and22.i, %and26.i
   %conv28.i = trunc nuw i64 %or27.i to i8
   store i8 %conv28.i, ptr %add.ptr.i, align 1

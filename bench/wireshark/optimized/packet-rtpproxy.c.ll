@@ -1269,7 +1269,6 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_get_string_enc(ptr noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #7
-  %invariant.op = add i32 %3, 1
   %.not177 = icmp eq i32 %4, 0
   br i1 %.not177, label %._crit_edge, label %.lr.ph176
 
@@ -1279,223 +1278,223 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
   %11 = add i32 %.0164175, %3
   %12 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #7
   %13 = add nuw i32 %.0164175, 1
-  %.reass = add i32 %.0164175, %invariant.op
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #7
-  %15 = call signext i8 @g_ascii_tolower(i8 noundef signext %14) #8
-  switch i8 %15, label %.loopexit [
-    i8 99, label %16
-    i8 108, label %49
-    i8 114, label %68
-    i8 122, label %86
-    i8 100, label %101
-    i8 109, label %124
-    i8 112, label %130
-    i8 116, label %136
-    i8 117, label %156
+  %14 = add i32 %13, %3
+  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #7
+  %16 = call signext i8 @g_ascii_tolower(i8 noundef signext %15) #8
+  switch i8 %16, label %.loopexit [
+    i8 99, label %17
+    i8 108, label %50
+    i8 114, label %69
+    i8 122, label %87
+    i8 100, label %102
+    i8 109, label %125
+    i8 112, label %131
+    i8 116, label %137
+    i8 117, label %157
   ]
 
-16:                                               ; preds = %.lr.ph176
-  %17 = zext i32 %13 to i64
-  %18 = getelementptr i8, ptr %9, i64 %17
-  %19 = call i64 @strspn(ptr noundef %18, ptr noundef nonnull @.str.177) #9
-  %20 = trunc i64 %19 to i32
-  %21 = load i32, ptr @ett_rtpproxy_command_parameters_codecs, align 4
-  %22 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %21) #7
-  %23 = load ptr, ptr %7, align 8
-  %24 = call ptr @tvb_get_string_enc(ptr noundef %23, ptr noundef %0, i32 noundef %.reass, i32 noundef %20, i32 noundef 0) #7
-  %25 = call ptr @wmem_strsplit(ptr noundef %23, ptr noundef %24, ptr noundef nonnull @.str.178, i32 noundef 0) #7
-  %26 = load ptr, ptr %25, align 8
-  %.not170172 = icmp eq ptr %26, null
+17:                                               ; preds = %.lr.ph176
+  %18 = zext i32 %13 to i64
+  %19 = getelementptr i8, ptr %9, i64 %18
+  %20 = call i64 @strspn(ptr noundef %19, ptr noundef nonnull @.str.177) #9
+  %21 = trunc i64 %20 to i32
+  %22 = load i32, ptr @ett_rtpproxy_command_parameters_codecs, align 4
+  %23 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %22) #7
+  %24 = load ptr, ptr %7, align 8
+  %25 = call ptr @tvb_get_string_enc(ptr noundef %24, ptr noundef %0, i32 noundef %14, i32 noundef %21, i32 noundef 0) #7
+  %26 = call ptr @wmem_strsplit(ptr noundef %24, ptr noundef %25, ptr noundef nonnull @.str.178, i32 noundef 0) #7
+  %27 = load ptr, ptr %26, align 8
+  %.not170172 = icmp eq ptr %27, null
   br i1 %.not170172, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16, %.lr.ph
-  %27 = phi ptr [ %47, %.lr.ph ], [ %26, %16 ]
-  %.0174 = phi i32 [ %44, %.lr.ph ], [ 0, %16 ]
-  %.1173 = phi i32 [ %spec.select, %.lr.ph ], [ %13, %16 ]
-  %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #9
-  %29 = trunc i64 %28 to i32
-  %30 = load i32, ptr @hf_rtpproxy_command_parameter_codec, align 4
-  %31 = add i32 %.1173, %3
-  %32 = load ptr, ptr %7, align 8
-  %33 = call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef %29, i32 noundef 0) #7
-  %34 = call i64 @g_ascii_strtoull(ptr noundef %33, ptr noundef null, i32 noundef 10) #7
-  %35 = trunc i64 %34 to i32
-  %36 = and i32 %35, 65535
-  %37 = call ptr @proto_tree_add_uint(ptr noundef %22, i32 noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef %29, i32 noundef %36) #7
-  %38 = load ptr, ptr %7, align 8
-  %39 = call ptr @tvb_format_text(ptr noundef %38, ptr noundef %0, i32 noundef %31, i32 noundef %29) #7
-  %40 = call i64 @strtoul(ptr nocapture noundef %39, ptr noundef null, i32 noundef 10) #7
-  %41 = trunc i64 %40 to i32
-  %42 = call ptr @val_to_str_ext_const(i32 noundef %41, ptr noundef nonnull @rtp_payload_type_vals_ext, ptr noundef nonnull @.str.143) #7
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.142, ptr noundef %42) #7
-  %43 = add i32 %.1173, %29
-  %44 = add i32 %.0174, 1
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr ptr, ptr %25, i64 %45
-  %47 = load ptr, ptr %46, align 8
-  %.not171 = icmp ne ptr %47, null
-  %48 = zext i1 %.not171 to i32
-  %spec.select = add i32 %43, %48
-  %.not170 = icmp eq ptr %47, null
+.lr.ph:                                           ; preds = %17, %.lr.ph
+  %28 = phi ptr [ %48, %.lr.ph ], [ %27, %17 ]
+  %.0174 = phi i32 [ %45, %.lr.ph ], [ 0, %17 ]
+  %.1173 = phi i32 [ %spec.select, %.lr.ph ], [ %13, %17 ]
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #9
+  %30 = trunc i64 %29 to i32
+  %31 = load i32, ptr @hf_rtpproxy_command_parameter_codec, align 4
+  %32 = add i32 %.1173, %3
+  %33 = load ptr, ptr %7, align 8
+  %34 = call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef %30, i32 noundef 0) #7
+  %35 = call i64 @g_ascii_strtoull(ptr noundef %34, ptr noundef null, i32 noundef 10) #7
+  %36 = trunc i64 %35 to i32
+  %37 = and i32 %36, 65535
+  %38 = call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef %30, i32 noundef %37) #7
+  %39 = load ptr, ptr %7, align 8
+  %40 = call ptr @tvb_format_text(ptr noundef %39, ptr noundef %0, i32 noundef %32, i32 noundef %30) #7
+  %41 = call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #7
+  %42 = trunc i64 %41 to i32
+  %43 = call ptr @val_to_str_ext_const(i32 noundef %42, ptr noundef nonnull @rtp_payload_type_vals_ext, ptr noundef nonnull @.str.143) #7
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.142, ptr noundef %43) #7
+  %44 = add i32 %.1173, %30
+  %45 = add i32 %.0174, 1
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr ptr, ptr %26, i64 %46
+  %48 = load ptr, ptr %47, align 8
+  %.not171 = icmp ne ptr %48, null
+  %49 = zext i1 %.not171 to i32
+  %spec.select = add i32 %44, %49
+  %.not170 = icmp eq ptr %48, null
   br i1 %.not170, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-49:                                               ; preds = %.lr.ph176
-  %50 = zext i32 %13 to i64
-  %51 = getelementptr i8, ptr %9, i64 %50
-  %52 = call i64 @strspn(ptr noundef %51, ptr noundef nonnull @.str.179) #9
-  %53 = trunc i64 %52 to i32
-  %.not168 = icmp eq i32 %53, 0
-  br i1 %.not168, label %.loopexit, label %54
+50:                                               ; preds = %.lr.ph176
+  %51 = zext i32 %13 to i64
+  %52 = getelementptr i8, ptr %9, i64 %51
+  %53 = call i64 @strspn(ptr noundef %52, ptr noundef nonnull @.str.179) #9
+  %54 = trunc i64 %53 to i32
+  %.not168 = icmp eq i32 %54, 0
+  br i1 %.not168, label %.loopexit, label %55
 
-54:                                               ; preds = %49
-  %55 = load i32, ptr @ett_rtpproxy_command_parameters_local, align 4
-  %56 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %55) #7
-  %57 = load ptr, ptr %7, align 8
-  %58 = call ptr @tvb_get_string_enc(ptr noundef %57, ptr noundef %0, i32 noundef %.reass, i32 noundef %53, i32 noundef 0) #7
-  %59 = call i32 @str_to_ip(ptr noundef %58, ptr noundef nonnull %6) #7
-  %.not169 = icmp eq i32 %59, 0
-  br i1 %.not169, label %64, label %60
+55:                                               ; preds = %50
+  %56 = load i32, ptr @ett_rtpproxy_command_parameters_local, align 4
+  %57 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %56) #7
+  %58 = load ptr, ptr %7, align 8
+  %59 = call ptr @tvb_get_string_enc(ptr noundef %58, ptr noundef %0, i32 noundef %14, i32 noundef %54, i32 noundef 0) #7
+  %60 = call i32 @str_to_ip(ptr noundef %59, ptr noundef nonnull %6) #7
+  %.not169 = icmp eq i32 %60, 0
+  br i1 %.not169, label %65, label %61
 
-60:                                               ; preds = %54
-  %61 = load i32, ptr @hf_rtpproxy_command_parameter_local_ipv4, align 4
-  %62 = load i32, ptr %6, align 16
-  %63 = call ptr @proto_tree_add_ipv4(ptr noundef %56, i32 noundef %61, ptr noundef %0, i32 noundef %.reass, i32 noundef %53, i32 noundef %62) #7
-  br label %66
+61:                                               ; preds = %55
+  %62 = load i32, ptr @hf_rtpproxy_command_parameter_local_ipv4, align 4
+  %63 = load i32, ptr %6, align 16
+  %64 = call ptr @proto_tree_add_ipv4(ptr noundef %57, i32 noundef %62, ptr noundef %0, i32 noundef %14, i32 noundef %54, i32 noundef %63) #7
+  br label %67
 
-64:                                               ; preds = %54
-  %65 = call ptr @proto_tree_add_expert(ptr noundef %56, ptr noundef nonnull %1, ptr noundef nonnull @ei_rtpproxy_bad_ipv4, ptr noundef %0, i32 noundef %.reass, i32 noundef %53) #7
-  br label %66
+65:                                               ; preds = %55
+  %66 = call ptr @proto_tree_add_expert(ptr noundef %57, ptr noundef nonnull %1, ptr noundef nonnull @ei_rtpproxy_bad_ipv4, ptr noundef %0, i32 noundef %14, i32 noundef %54) #7
+  br label %67
 
-66:                                               ; preds = %64, %60
-  %67 = add i32 %13, %53
+67:                                               ; preds = %65, %61
+  %68 = add i32 %13, %54
   br label %.loopexit
 
-68:                                               ; preds = %.lr.ph176
-  %69 = zext i32 %13 to i64
-  %70 = getelementptr i8, ptr %9, i64 %69
-  %71 = call i64 @strspn(ptr noundef %70, ptr noundef nonnull @.str.179) #9
-  %72 = trunc i64 %71 to i32
-  %73 = load i32, ptr @ett_rtpproxy_command_parameters_remote, align 4
-  %74 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %73) #7
-  %75 = load ptr, ptr %7, align 8
-  %76 = call ptr @tvb_get_string_enc(ptr noundef %75, ptr noundef %0, i32 noundef %.reass, i32 noundef %72, i32 noundef 0) #7
-  %77 = call i32 @str_to_ip(ptr noundef %76, ptr noundef nonnull %6) #7
-  %.not167 = icmp eq i32 %77, 0
-  br i1 %.not167, label %82, label %78
+69:                                               ; preds = %.lr.ph176
+  %70 = zext i32 %13 to i64
+  %71 = getelementptr i8, ptr %9, i64 %70
+  %72 = call i64 @strspn(ptr noundef %71, ptr noundef nonnull @.str.179) #9
+  %73 = trunc i64 %72 to i32
+  %74 = load i32, ptr @ett_rtpproxy_command_parameters_remote, align 4
+  %75 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %74) #7
+  %76 = load ptr, ptr %7, align 8
+  %77 = call ptr @tvb_get_string_enc(ptr noundef %76, ptr noundef %0, i32 noundef %14, i32 noundef %73, i32 noundef 0) #7
+  %78 = call i32 @str_to_ip(ptr noundef %77, ptr noundef nonnull %6) #7
+  %.not167 = icmp eq i32 %78, 0
+  br i1 %.not167, label %83, label %79
 
-78:                                               ; preds = %68
-  %79 = load i32, ptr @hf_rtpproxy_command_parameter_remote_ipv4, align 4
-  %80 = load i32, ptr %6, align 16
-  %81 = call ptr @proto_tree_add_ipv4(ptr noundef %74, i32 noundef %79, ptr noundef %0, i32 noundef %.reass, i32 noundef %72, i32 noundef %80) #7
-  br label %84
+79:                                               ; preds = %69
+  %80 = load i32, ptr @hf_rtpproxy_command_parameter_remote_ipv4, align 4
+  %81 = load i32, ptr %6, align 16
+  %82 = call ptr @proto_tree_add_ipv4(ptr noundef %75, i32 noundef %80, ptr noundef %0, i32 noundef %14, i32 noundef %73, i32 noundef %81) #7
+  br label %85
 
-82:                                               ; preds = %68
-  %83 = call ptr @proto_tree_add_expert(ptr noundef %74, ptr noundef nonnull %1, ptr noundef nonnull @ei_rtpproxy_bad_ipv4, ptr noundef %0, i32 noundef %.reass, i32 noundef %72) #7
-  br label %84
+83:                                               ; preds = %69
+  %84 = call ptr @proto_tree_add_expert(ptr noundef %75, ptr noundef nonnull %1, ptr noundef nonnull @ei_rtpproxy_bad_ipv4, ptr noundef %0, i32 noundef %14, i32 noundef %73) #7
+  br label %85
 
-84:                                               ; preds = %82, %78
-  %85 = add i32 %13, %72
+85:                                               ; preds = %83, %79
+  %86 = add i32 %13, %73
   br label %.loopexit
 
-86:                                               ; preds = %.lr.ph176
-  %87 = zext i32 %13 to i64
-  %88 = getelementptr i8, ptr %9, i64 %87
-  %89 = call i64 @strspn(ptr noundef %88, ptr noundef nonnull @.str.180) #9
-  %90 = trunc i64 %89 to i32
-  %91 = load i32, ptr @ett_rtpproxy_command_parameters_repacketize, align 4
-  %92 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %91) #7
-  %93 = load i32, ptr @hf_rtpproxy_command_parameter_repacketize, align 4
-  %94 = load ptr, ptr %7, align 8
-  %95 = call ptr @tvb_get_string_enc(ptr noundef %94, ptr noundef %0, i32 noundef %.reass, i32 noundef %90, i32 noundef 0) #7
-  %96 = call i64 @g_ascii_strtoull(ptr noundef %95, ptr noundef null, i32 noundef 10) #7
-  %97 = trunc i64 %96 to i32
-  %98 = and i32 %97, 65535
-  %99 = call ptr @proto_tree_add_uint(ptr noundef %92, i32 noundef %93, ptr noundef %0, i32 noundef %.reass, i32 noundef %90, i32 noundef %98) #7
-  %100 = add i32 %13, %90
+87:                                               ; preds = %.lr.ph176
+  %88 = zext i32 %13 to i64
+  %89 = getelementptr i8, ptr %9, i64 %88
+  %90 = call i64 @strspn(ptr noundef %89, ptr noundef nonnull @.str.180) #9
+  %91 = trunc i64 %90 to i32
+  %92 = load i32, ptr @ett_rtpproxy_command_parameters_repacketize, align 4
+  %93 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %92) #7
+  %94 = load i32, ptr @hf_rtpproxy_command_parameter_repacketize, align 4
+  %95 = load ptr, ptr %7, align 8
+  %96 = call ptr @tvb_get_string_enc(ptr noundef %95, ptr noundef %0, i32 noundef %14, i32 noundef %91, i32 noundef 0) #7
+  %97 = call i64 @g_ascii_strtoull(ptr noundef %96, ptr noundef null, i32 noundef 10) #7
+  %98 = trunc i64 %97 to i32
+  %99 = and i32 %98, 65535
+  %100 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %94, ptr noundef %0, i32 noundef %14, i32 noundef %91, i32 noundef %99) #7
+  %101 = add i32 %13, %91
   br label %.loopexit
 
-101:                                              ; preds = %.lr.ph176
-  %102 = zext i32 %13 to i64
-  %103 = getelementptr i8, ptr %9, i64 %102
-  %104 = call i64 @strspn(ptr noundef %103, ptr noundef nonnull @.str.180) #9
-  %105 = trunc i64 %104 to i32
-  %106 = load i32, ptr @ett_rtpproxy_command_parameters_dtmf, align 4
-  %107 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %106) #7
-  %108 = load i32, ptr @hf_rtpproxy_command_parameter_dtmf, align 4
-  %109 = load ptr, ptr %7, align 8
-  %110 = call ptr @tvb_get_string_enc(ptr noundef %109, ptr noundef %0, i32 noundef %.reass, i32 noundef %105, i32 noundef 0) #7
-  %111 = call i64 @g_ascii_strtoull(ptr noundef %110, ptr noundef null, i32 noundef 10) #7
-  %112 = trunc i64 %111 to i32
-  %113 = and i32 %112, 65535
-  %114 = call ptr @proto_tree_add_uint(ptr noundef %107, i32 noundef %108, ptr noundef %0, i32 noundef %.reass, i32 noundef %105, i32 noundef %113) #7
-  %115 = load i32, ptr @rtpproxy_establish_conversation, align 4
-  %.not = icmp eq i32 %115, 0
-  br i1 %.not, label %122, label %116
+102:                                              ; preds = %.lr.ph176
+  %103 = zext i32 %13 to i64
+  %104 = getelementptr i8, ptr %9, i64 %103
+  %105 = call i64 @strspn(ptr noundef %104, ptr noundef nonnull @.str.180) #9
+  %106 = trunc i64 %105 to i32
+  %107 = load i32, ptr @ett_rtpproxy_command_parameters_dtmf, align 4
+  %108 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %107) #7
+  %109 = load i32, ptr @hf_rtpproxy_command_parameter_dtmf, align 4
+  %110 = load ptr, ptr %7, align 8
+  %111 = call ptr @tvb_get_string_enc(ptr noundef %110, ptr noundef %0, i32 noundef %14, i32 noundef %106, i32 noundef 0) #7
+  %112 = call i64 @g_ascii_strtoull(ptr noundef %111, ptr noundef null, i32 noundef 10) #7
+  %113 = trunc i64 %112 to i32
+  %114 = and i32 %113, 65535
+  %115 = call ptr @proto_tree_add_uint(ptr noundef %108, i32 noundef %109, ptr noundef %0, i32 noundef %14, i32 noundef %106, i32 noundef %114) #7
+  %116 = load i32, ptr @rtpproxy_establish_conversation, align 4
+  %.not = icmp eq i32 %116, 0
+  br i1 %.not, label %123, label %117
 
-116:                                              ; preds = %101
-  %117 = load ptr, ptr %7, align 8
-  %118 = call ptr @tvb_format_text(ptr noundef %117, ptr noundef %0, i32 noundef %.reass, i32 noundef %105) #7
-  %119 = call i64 @strtoul(ptr nocapture noundef %118, ptr noundef null, i32 noundef 10) #7
-  %120 = trunc i64 %119 to i32
-  %121 = load ptr, ptr @rtp_events_handle, align 8
-  call void @dissector_add_uint(ptr noundef nonnull @.str.181, i32 noundef %120, ptr noundef %121) #7
-  br label %122
+117:                                              ; preds = %102
+  %118 = load ptr, ptr %7, align 8
+  %119 = call ptr @tvb_format_text(ptr noundef %118, ptr noundef %0, i32 noundef %14, i32 noundef %106) #7
+  %120 = call i64 @strtoul(ptr nocapture noundef %119, ptr noundef null, i32 noundef 10) #7
+  %121 = trunc i64 %120 to i32
+  %122 = load ptr, ptr @rtp_events_handle, align 8
+  call void @dissector_add_uint(ptr noundef nonnull @.str.181, i32 noundef %121, ptr noundef %122) #7
+  br label %123
 
-122:                                              ; preds = %116, %101
-  %123 = add i32 %13, %105
+123:                                              ; preds = %117, %102
+  %124 = add i32 %13, %106
   br label %.loopexit
 
-124:                                              ; preds = %.lr.ph176
-  %125 = zext i32 %13 to i64
-  %126 = getelementptr i8, ptr %9, i64 %125
-  %127 = call i64 @strspn(ptr noundef %126, ptr noundef nonnull @.str.182) #9
-  %128 = trunc i64 %127 to i32
-  %129 = add i32 %13, %128
+125:                                              ; preds = %.lr.ph176
+  %126 = zext i32 %13 to i64
+  %127 = getelementptr i8, ptr %9, i64 %126
+  %128 = call i64 @strspn(ptr noundef %127, ptr noundef nonnull @.str.182) #9
+  %129 = trunc i64 %128 to i32
+  %130 = add i32 %13, %129
   br label %.loopexit
 
-130:                                              ; preds = %.lr.ph176
-  %131 = load i32, ptr @ett_rtpproxy_command_parameters_proto, align 4
-  %132 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %131) #7
-  %133 = load i32, ptr @hf_rtpproxy_command_parameter_proto, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %0, i32 noundef %.reass, i32 noundef 1, i32 noundef 0) #7
-  %135 = add i32 %.0164175, 2
+131:                                              ; preds = %.lr.ph176
+  %132 = load i32, ptr @ett_rtpproxy_command_parameters_proto, align 4
+  %133 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %132) #7
+  %134 = load i32, ptr @hf_rtpproxy_command_parameter_proto, align 4
+  %135 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0) #7
+  %136 = add i32 %.0164175, 2
   br label %.loopexit
 
-136:                                              ; preds = %.lr.ph176
-  %137 = zext i32 %13 to i64
-  %138 = getelementptr i8, ptr %9, i64 %137
-  %139 = call i64 @strspn(ptr noundef %138, ptr noundef nonnull @.str.180) #9
-  %140 = trunc i64 %139 to i32
-  %141 = load i32, ptr @ett_rtpproxy_command_parameters_transcode, align 4
-  %142 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %141) #7
-  %143 = load i32, ptr @hf_rtpproxy_command_parameter_transcode, align 4
-  %144 = load ptr, ptr %7, align 8
-  %145 = call ptr @tvb_get_string_enc(ptr noundef %144, ptr noundef %0, i32 noundef %.reass, i32 noundef %140, i32 noundef 0) #7
-  %146 = call i64 @g_ascii_strtoull(ptr noundef %145, ptr noundef null, i32 noundef 10) #7
-  %147 = trunc i64 %146 to i32
-  %148 = and i32 %147, 65535
-  %149 = call ptr @proto_tree_add_uint(ptr noundef %142, i32 noundef %143, ptr noundef %0, i32 noundef %.reass, i32 noundef %140, i32 noundef %148) #7
-  %150 = load ptr, ptr %7, align 8
-  %151 = call ptr @tvb_format_text(ptr noundef %150, ptr noundef %0, i32 noundef %.reass, i32 noundef %140) #7
-  %152 = call i64 @strtoul(ptr nocapture noundef %151, ptr noundef null, i32 noundef 10) #7
-  %153 = trunc i64 %152 to i32
-  %154 = call ptr @val_to_str_ext_const(i32 noundef %153, ptr noundef nonnull @rtp_payload_type_vals_ext, ptr noundef nonnull @.str.143) #7
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %149, ptr noundef nonnull @.str.142, ptr noundef %154) #7
-  %155 = add i32 %13, %140
+137:                                              ; preds = %.lr.ph176
+  %138 = zext i32 %13 to i64
+  %139 = getelementptr i8, ptr %9, i64 %138
+  %140 = call i64 @strspn(ptr noundef %139, ptr noundef nonnull @.str.180) #9
+  %141 = trunc i64 %140 to i32
+  %142 = load i32, ptr @ett_rtpproxy_command_parameters_transcode, align 4
+  %143 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %142) #7
+  %144 = load i32, ptr @hf_rtpproxy_command_parameter_transcode, align 4
+  %145 = load ptr, ptr %7, align 8
+  %146 = call ptr @tvb_get_string_enc(ptr noundef %145, ptr noundef %0, i32 noundef %14, i32 noundef %141, i32 noundef 0) #7
+  %147 = call i64 @g_ascii_strtoull(ptr noundef %146, ptr noundef null, i32 noundef 10) #7
+  %148 = trunc i64 %147 to i32
+  %149 = and i32 %148, 65535
+  %150 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %144, ptr noundef %0, i32 noundef %14, i32 noundef %141, i32 noundef %149) #7
+  %151 = load ptr, ptr %7, align 8
+  %152 = call ptr @tvb_format_text(ptr noundef %151, ptr noundef %0, i32 noundef %14, i32 noundef %141) #7
+  %153 = call i64 @strtoul(ptr nocapture noundef %152, ptr noundef null, i32 noundef 10) #7
+  %154 = trunc i64 %153 to i32
+  %155 = call ptr @val_to_str_ext_const(i32 noundef %154, ptr noundef nonnull @rtp_payload_type_vals_ext, ptr noundef nonnull @.str.143) #7
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %150, ptr noundef nonnull @.str.142, ptr noundef %155) #7
+  %156 = add i32 %13, %141
   br label %.loopexit
 
-156:                                              ; preds = %.lr.ph176
-  %157 = load i32, ptr @ett_rtpproxy_command_parameters_acc, align 4
-  %158 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %157) #7
-  %159 = load i32, ptr @hf_rtpproxy_command_parameter_acc, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %159, ptr noundef %0, i32 noundef %.reass, i32 noundef 1, i32 noundef 0) #7
-  %161 = add i32 %.0164175, 2
+157:                                              ; preds = %.lr.ph176
+  %158 = load i32, ptr @ett_rtpproxy_command_parameters_acc, align 4
+  %159 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %158) #7
+  %160 = load i32, ptr @hf_rtpproxy_command_parameter_acc, align 4
+  %161 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %160, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0) #7
+  %162 = add i32 %.0164175, 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %16, %.lr.ph176, %49, %66, %156, %136, %130, %124, %122, %86, %84
-  %.3 = phi i32 [ %13, %.lr.ph176 ], [ %161, %156 ], [ %155, %136 ], [ %135, %130 ], [ %129, %124 ], [ %123, %122 ], [ %100, %86 ], [ %85, %84 ], [ %67, %66 ], [ %13, %49 ], [ %13, %16 ], [ %spec.select, %.lr.ph ]
-  %162 = icmp ult i32 %.3, %4
-  br i1 %162, label %.lr.ph176, label %._crit_edge, !llvm.loop !7
+.loopexit:                                        ; preds = %.lr.ph, %17, %.lr.ph176, %50, %67, %157, %137, %131, %125, %123, %87, %85
+  %.3 = phi i32 [ %13, %.lr.ph176 ], [ %162, %157 ], [ %156, %137 ], [ %136, %131 ], [ %130, %125 ], [ %124, %123 ], [ %101, %87 ], [ %86, %85 ], [ %68, %67 ], [ %13, %50 ], [ %13, %17 ], [ %spec.select, %.lr.ph ]
+  %163 = icmp ult i32 %.3, %4
+  br i1 %163, label %.lr.ph176, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.loopexit, %5
   ret void

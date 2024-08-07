@@ -2554,8 +2554,6 @@ if.else.i.i363:                                   ; preds = %_ZNSt17_Temporary_b
 "_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEEZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EvT_SH_T0_.exit": ; preds = %if.then5.i.i, %if.else.i.i363
   %__buf.sroa.4.017.i.i = phi ptr [ %call.i.i.i.i, %if.else.i.i363 ], [ null, %if.then5.i.i ]
   call void @_ZdlPv(ptr noundef %__buf.sroa.4.017.i.i) #29
-  %invariant.op = add i64 %table_offset, -1
-  %invariant.op1804 = add i64 %table_offset, 7
   br i1 %cmp.i.i.i358, label %for.end595, label %for.body110.lr.ph
 
 for.body110.lr.ph:                                ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEEZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EvT_SH_T0_.exit"
@@ -2741,8 +2739,8 @@ for.body110.lr.ph:                                ; preds = %"_ZSt11stable_sortI
   br label %for.body110
 
 for.body110:                                      ; preds = %for.body110.lr.ph, %for.inc594
-  %i.01808 = phi i64 [ 0, %for.body110.lr.ph ], [ %inc, %for.inc594 ]
-  %add.ptr.i366 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %fields.sroa.0.1, i64 %i.01808
+  %i.01805 = phi i64 [ 0, %for.body110.lr.ph ], [ %inc, %for.inc594 ]
+  %add.ptr.i366 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %fields.sroa.0.1, i64 %i.01805
   %81 = load ptr, ptr %add.ptr.i366, align 8
   %offset_from_table114 = getelementptr inbounds i8, ptr %add.ptr.i366, i64 8
   %82 = load i16, ptr %offset_from_table114, align 8
@@ -2761,7 +2759,7 @@ if.end124:                                        ; preds = %if.end118
   br i1 %cmp125, label %if.then126, label %if.end201
 
 if.then126:                                       ; preds = %if.end124
-  %add127 = add nuw i64 %i.01808, 1
+  %add127 = add nuw i64 %i.01805, 1
   %cmp129 = icmp ult i64 %add127, %sub.ptr.div.i.i.i
   br i1 %cmp129, label %cond.true, label %cond.end
 
@@ -2786,8 +2784,8 @@ if.end138:                                        ; preds = %cond.end
 if.then140:                                       ; preds = %if.end138
   %85 = load i64, ptr %binary_length_.i.i.i, align 8
   %cmp.i.i.i377 = icmp ugt i64 %85, 4
-  %sub.i.i.i378.reass = add i64 %sub.i.i.i, %conv119
-  %cmp.i.i.i.i379 = icmp ugt i64 %85, %sub.i.i.i378.reass
+  %sub.i.i.i378 = add i64 %add120, 3
+  %cmp.i.i.i.i379 = icmp ugt i64 %85, %sub.i.i.i378
   %86 = and i1 %cmp.i.i.i377, %cmp.i.i.i.i379
   br i1 %86, label %if.then147, label %if.end163
 
@@ -3053,29 +3051,29 @@ lpad194:                                          ; preds = %if.else.i.i529
   br label %ehcleanup198
 
 cleanup.sink.split:                               ; preds = %if.then.i.i452, %if.then.i.i515
-  %.sink1866 = phi ptr [ %115, %if.then.i.i515 ], [ %102, %if.then.i.i452 ]
+  %.sink1861 = phi ptr [ %115, %if.then.i.i515 ], [ %102, %if.then.i.i452 ]
   %comment6.i503.sink = phi ptr [ %comment6.i503, %if.then.i.i515 ], [ %comment6.i440, %if.then.i.i452 ]
-  %status_message.i.i.i495.sink1863 = phi ptr [ %status_message.i.i.i495, %if.then.i.i515 ], [ %status_message.i.i.i432, %if.then.i.i452 ]
+  %status_message.i.i.i495.sink1858 = phi ptr [ %status_message.i.i.i495, %if.then.i.i515 ], [ %status_message.i.i.i432, %if.then.i.i452 ]
   %type.i.i.i496.sink = phi ptr [ %type.i.i.i496, %if.then.i.i515 ], [ %type.i.i.i433, %if.then.i.i452 ]
-  %name.i.i.i497.sink1859 = phi ptr [ %name.i.i.i497, %if.then.i.i515 ], [ %name.i.i.i434, %if.then.i.i452 ]
-  %default_value.i.i.i498.sink1857 = phi ptr [ %default_value.i.i.i498, %if.then.i.i515 ], [ %default_value.i.i.i435, %if.then.i.i452 ]
+  %name.i.i.i497.sink1854 = phi ptr [ %name.i.i.i497, %if.then.i.i515 ], [ %name.i.i.i434, %if.then.i.i452 ]
+  %default_value.i.i.i498.sink1852 = phi ptr [ %default_value.i.i.i498, %if.then.i.i515 ], [ %default_value.i.i.i435, %if.then.i.i452 ]
   %index.i.i.i499.sink = phi ptr [ %index.i.i.i499, %if.then.i.i515 ], [ %index.i.i.i436, %if.then.i.i452 ]
   %default_value.i485.sink.ph = phi ptr [ %default_value.i485, %if.then.i.i515 ], [ %default_value.i423, %if.then.i.i452 ]
   %name.i479.sink.ph = phi ptr [ %name.i479, %if.then.i.i515 ], [ %name.i417, %if.then.i.i452 ]
   %status_message.i475.sink.ph = phi ptr [ %status_message.i475, %if.then.i.i515 ], [ %status_message.i413, %if.then.i.i452 ]
-  %comment.i.i.i.i.i516 = getelementptr inbounds i8, ptr %.sink1866, i64 40
+  %comment.i.i.i.i.i516 = getelementptr inbounds i8, ptr %.sink1861, i64 40
   %118 = load i32, ptr %comment6.i503.sink, align 8
   store i32 %118, ptr %comment.i.i.i.i.i516, align 8
-  %status_message.i.i.i.i.i.i518 = getelementptr inbounds i8, ptr %.sink1866, i64 48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i518, ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i495.sink1863) #29
-  %type.i.i.i.i.i.i520 = getelementptr inbounds i8, ptr %.sink1866, i64 80
+  %status_message.i.i.i.i.i.i518 = getelementptr inbounds i8, ptr %.sink1861, i64 48
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i518, ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i495.sink1858) #29
+  %type.i.i.i.i.i.i520 = getelementptr inbounds i8, ptr %.sink1861, i64 80
   %119 = load i32, ptr %type.i.i.i496.sink, align 8
   store i32 %119, ptr %type.i.i.i.i.i.i520, align 8
-  %name.i.i.i.i.i.i522 = getelementptr inbounds i8, ptr %.sink1866, i64 88
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i522, ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i497.sink1859) #29
-  %default_value.i.i.i.i.i.i524 = getelementptr inbounds i8, ptr %.sink1866, i64 120
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i524, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i498.sink1857) #29
-  %index.i.i.i.i.i.i526 = getelementptr inbounds i8, ptr %.sink1866, i64 152
+  %name.i.i.i.i.i.i522 = getelementptr inbounds i8, ptr %.sink1861, i64 88
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i522, ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i497.sink1854) #29
+  %default_value.i.i.i.i.i.i524 = getelementptr inbounds i8, ptr %.sink1861, i64 120
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i524, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i498.sink1852) #29
+  %index.i.i.i.i.i.i526 = getelementptr inbounds i8, ptr %.sink1861, i64 152
   %120 = load i64, ptr %index.i.i.i499.sink, align 8
   store i64 %120, ptr %index.i.i.i.i.i.i526, align 8
   %121 = load ptr, ptr %_M_finish.i.i334, align 8
@@ -3084,9 +3082,9 @@ cleanup.sink.split:                               ; preds = %if.then.i.i452, %if
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.else.i.i529, %if.else.i.i466
-  %default_value.i.i.i498.sink = phi ptr [ %default_value.i.i.i435, %if.else.i.i466 ], [ %default_value.i.i.i498, %if.else.i.i529 ], [ %default_value.i.i.i498.sink1857, %cleanup.sink.split ]
-  %name.i.i.i497.sink = phi ptr [ %name.i.i.i434, %if.else.i.i466 ], [ %name.i.i.i497, %if.else.i.i529 ], [ %name.i.i.i497.sink1859, %cleanup.sink.split ]
-  %status_message.i.i.i495.sink = phi ptr [ %status_message.i.i.i432, %if.else.i.i466 ], [ %status_message.i.i.i495, %if.else.i.i529 ], [ %status_message.i.i.i495.sink1863, %cleanup.sink.split ]
+  %default_value.i.i.i498.sink = phi ptr [ %default_value.i.i.i435, %if.else.i.i466 ], [ %default_value.i.i.i498, %if.else.i.i529 ], [ %default_value.i.i.i498.sink1852, %cleanup.sink.split ]
+  %name.i.i.i497.sink = phi ptr [ %name.i.i.i434, %if.else.i.i466 ], [ %name.i.i.i497, %if.else.i.i529 ], [ %name.i.i.i497.sink1854, %cleanup.sink.split ]
+  %status_message.i.i.i495.sink = phi ptr [ %status_message.i.i.i432, %if.else.i.i466 ], [ %status_message.i.i.i495, %if.else.i.i529 ], [ %status_message.i.i.i495.sink1858, %cleanup.sink.split ]
   %default_value.i485.sink = phi ptr [ %default_value.i423, %if.else.i.i466 ], [ %default_value.i485, %if.else.i.i529 ], [ %default_value.i485.sink.ph, %cleanup.sink.split ]
   %name.i479.sink = phi ptr [ %name.i417, %if.else.i.i466 ], [ %name.i479, %if.else.i.i529 ], [ %name.i479.sink.ph, %cleanup.sink.split ]
   %status_message.i475.sink = phi ptr [ %status_message.i413, %if.else.i.i466 ], [ %status_message.i475, %if.else.i.i529 ], [ %status_message.i475.sink.ph, %cleanup.sink.split ]
@@ -3379,8 +3377,8 @@ invoke.cont245:                                   ; preds = %invoke.cont243
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp231) #29
   %164 = load i64, ptr %binary_length_.i.i.i, align 8
   %cmp.i681 = icmp ugt i64 %164, %140
-  %add.i682.reass = add i64 %invariant.op, %conv119
-  %sub.i683 = add i64 %add.i682.reass, %140
+  %add.i682 = add i64 %add120, -1
+  %sub.i683 = add i64 %add.i682, %140
   %cmp.i.i684 = icmp ugt i64 %164, %sub.i683
   %165 = and i1 %cmp.i681, %cmp.i.i684
   br i1 %165, label %if.end271, label %if.then253
@@ -3831,29 +3829,29 @@ lpad309:                                          ; preds = %if.else.i.i910
   br label %ehcleanup314
 
 cleanup313.sink.split:                            ; preds = %if.then.i.i730, %if.then.i.i833, %if.then.i.i896
-  %.sink1879 = phi ptr [ %222, %if.then.i.i896 ], [ %209, %if.then.i.i833 ], [ %174, %if.then.i.i730 ]
+  %.sink1874 = phi ptr [ %222, %if.then.i.i896 ], [ %209, %if.then.i.i833 ], [ %174, %if.then.i.i730 ]
   %comment6.i884.sink = phi ptr [ %comment6.i884, %if.then.i.i896 ], [ %comment6.i821, %if.then.i.i833 ], [ %comment6.i718, %if.then.i.i730 ]
-  %status_message.i.i.i876.sink1876 = phi ptr [ %status_message.i.i.i876, %if.then.i.i896 ], [ %status_message.i.i.i813, %if.then.i.i833 ], [ %status_message.i.i.i710, %if.then.i.i730 ]
+  %status_message.i.i.i876.sink1871 = phi ptr [ %status_message.i.i.i876, %if.then.i.i896 ], [ %status_message.i.i.i813, %if.then.i.i833 ], [ %status_message.i.i.i710, %if.then.i.i730 ]
   %type.i.i.i877.sink = phi ptr [ %type.i.i.i877, %if.then.i.i896 ], [ %type.i.i.i814, %if.then.i.i833 ], [ %type.i.i.i711, %if.then.i.i730 ]
-  %name.i.i.i878.sink1872 = phi ptr [ %name.i.i.i878, %if.then.i.i896 ], [ %name.i.i.i815, %if.then.i.i833 ], [ %name.i.i.i712, %if.then.i.i730 ]
-  %default_value.i.i.i879.sink1870 = phi ptr [ %default_value.i.i.i879, %if.then.i.i896 ], [ %default_value.i.i.i816, %if.then.i.i833 ], [ %default_value.i.i.i713, %if.then.i.i730 ]
+  %name.i.i.i878.sink1867 = phi ptr [ %name.i.i.i878, %if.then.i.i896 ], [ %name.i.i.i815, %if.then.i.i833 ], [ %name.i.i.i712, %if.then.i.i730 ]
+  %default_value.i.i.i879.sink1865 = phi ptr [ %default_value.i.i.i879, %if.then.i.i896 ], [ %default_value.i.i.i816, %if.then.i.i833 ], [ %default_value.i.i.i713, %if.then.i.i730 ]
   %index.i.i.i880.sink = phi ptr [ %index.i.i.i880, %if.then.i.i896 ], [ %index.i.i.i817, %if.then.i.i833 ], [ %index.i.i.i714, %if.then.i.i730 ]
   %default_value.i866.sink.ph = phi ptr [ %default_value.i866, %if.then.i.i896 ], [ %default_value.i803, %if.then.i.i833 ], [ %default_value.i701, %if.then.i.i730 ]
   %name.i860.sink.ph = phi ptr [ %name.i860, %if.then.i.i896 ], [ %name.i797, %if.then.i.i833 ], [ %name.i695, %if.then.i.i730 ]
   %status_message.i856.sink.ph = phi ptr [ %status_message.i856, %if.then.i.i896 ], [ %status_message.i793, %if.then.i.i833 ], [ %status_message.i691, %if.then.i.i730 ]
-  %comment.i.i.i.i.i897 = getelementptr inbounds i8, ptr %.sink1879, i64 40
+  %comment.i.i.i.i.i897 = getelementptr inbounds i8, ptr %.sink1874, i64 40
   %225 = load i32, ptr %comment6.i884.sink, align 8
   store i32 %225, ptr %comment.i.i.i.i.i897, align 8
-  %status_message.i.i.i.i.i.i899 = getelementptr inbounds i8, ptr %.sink1879, i64 48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i899, ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i876.sink1876) #29
-  %type.i.i.i.i.i.i901 = getelementptr inbounds i8, ptr %.sink1879, i64 80
+  %status_message.i.i.i.i.i.i899 = getelementptr inbounds i8, ptr %.sink1874, i64 48
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i899, ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i876.sink1871) #29
+  %type.i.i.i.i.i.i901 = getelementptr inbounds i8, ptr %.sink1874, i64 80
   %226 = load i32, ptr %type.i.i.i877.sink, align 8
   store i32 %226, ptr %type.i.i.i.i.i.i901, align 8
-  %name.i.i.i.i.i.i903 = getelementptr inbounds i8, ptr %.sink1879, i64 88
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i903, ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i878.sink1872) #29
-  %default_value.i.i.i.i.i.i905 = getelementptr inbounds i8, ptr %.sink1879, i64 120
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i905, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i879.sink1870) #29
-  %index.i.i.i.i.i.i907 = getelementptr inbounds i8, ptr %.sink1879, i64 152
+  %name.i.i.i.i.i.i903 = getelementptr inbounds i8, ptr %.sink1874, i64 88
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i903, ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i878.sink1867) #29
+  %default_value.i.i.i.i.i.i905 = getelementptr inbounds i8, ptr %.sink1874, i64 120
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i905, ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i879.sink1865) #29
+  %index.i.i.i.i.i.i907 = getelementptr inbounds i8, ptr %.sink1874, i64 152
   %227 = load i64, ptr %index.i.i.i880.sink, align 8
   store i64 %227, ptr %index.i.i.i.i.i.i907, align 8
   %228 = load ptr, ptr %_M_finish.i.i334, align 8
@@ -3862,9 +3860,9 @@ cleanup313.sink.split:                            ; preds = %if.then.i.i730, %if
   br label %cleanup313
 
 cleanup313:                                       ; preds = %cleanup313.sink.split, %if.else.i.i910, %if.else.i.i847, %if.else.i.i744
-  %default_value.i.i.i879.sink = phi ptr [ %default_value.i.i.i713, %if.else.i.i744 ], [ %default_value.i.i.i816, %if.else.i.i847 ], [ %default_value.i.i.i879, %if.else.i.i910 ], [ %default_value.i.i.i879.sink1870, %cleanup313.sink.split ]
-  %name.i.i.i878.sink = phi ptr [ %name.i.i.i712, %if.else.i.i744 ], [ %name.i.i.i815, %if.else.i.i847 ], [ %name.i.i.i878, %if.else.i.i910 ], [ %name.i.i.i878.sink1872, %cleanup313.sink.split ]
-  %status_message.i.i.i876.sink = phi ptr [ %status_message.i.i.i710, %if.else.i.i744 ], [ %status_message.i.i.i813, %if.else.i.i847 ], [ %status_message.i.i.i876, %if.else.i.i910 ], [ %status_message.i.i.i876.sink1876, %cleanup313.sink.split ]
+  %default_value.i.i.i879.sink = phi ptr [ %default_value.i.i.i713, %if.else.i.i744 ], [ %default_value.i.i.i816, %if.else.i.i847 ], [ %default_value.i.i.i879, %if.else.i.i910 ], [ %default_value.i.i.i879.sink1865, %cleanup313.sink.split ]
+  %name.i.i.i878.sink = phi ptr [ %name.i.i.i712, %if.else.i.i744 ], [ %name.i.i.i815, %if.else.i.i847 ], [ %name.i.i.i878, %if.else.i.i910 ], [ %name.i.i.i878.sink1867, %cleanup313.sink.split ]
+  %status_message.i.i.i876.sink = phi ptr [ %status_message.i.i.i710, %if.else.i.i744 ], [ %status_message.i.i.i813, %if.else.i.i847 ], [ %status_message.i.i.i876, %if.else.i.i910 ], [ %status_message.i.i.i876.sink1871, %cleanup313.sink.split ]
   %default_value.i866.sink = phi ptr [ %default_value.i701, %if.else.i.i744 ], [ %default_value.i803, %if.else.i.i847 ], [ %default_value.i866, %if.else.i.i910 ], [ %default_value.i866.sink.ph, %cleanup313.sink.split ]
   %name.i860.sink = phi ptr [ %name.i695, %if.else.i.i744 ], [ %name.i797, %if.else.i.i847 ], [ %name.i860, %if.else.i.i910 ], [ %name.i860.sink.ph, %cleanup313.sink.split ]
   %status_message.i856.sink = phi ptr [ %status_message.i691, %if.else.i.i744 ], [ %status_message.i793, %if.else.i.i847 ], [ %status_message.i856, %if.else.i.i910 ], [ %status_message.i856.sink.ph, %cleanup313.sink.split ]
@@ -3899,8 +3897,8 @@ invoke.cont317:                                   ; preds = %_ZNK11flatbuffers5T
 
 if.then319:                                       ; preds = %invoke.cont317
   %cmp.i.i.i934 = icmp ugt i64 %83, 8
-  %sub.i.i.i935.reass = add i64 %invariant.op1804, %conv119
-  %cmp.i.i.i.i936 = icmp ugt i64 %83, %sub.i.i.i935.reass
+  %sub.i.i.i935 = add i64 %add120, 7
+  %cmp.i.i.i.i936 = icmp ugt i64 %83, %sub.i.i.i935
   %231 = and i1 %cmp.i.i.i934, %cmp.i.i.i.i936
   br i1 %231, label %if.end.i939, label %if.end337
 
@@ -3912,8 +3910,8 @@ if.end.i939:                                      ; preds = %if.then319
 
 if.else:                                          ; preds = %if.end315, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i927, %invoke.cont317
   %cmp.i.i.i947 = icmp ugt i64 %83, 4
-  %sub.i.i.i948.reass = add i64 %sub.i.i.i, %conv119
-  %cmp.i.i.i.i949 = icmp ugt i64 %83, %sub.i.i.i948.reass
+  %sub.i.i.i948 = add i64 %add120, 3
+  %cmp.i.i.i.i949 = icmp ugt i64 %83, %sub.i.i.i948
   %234 = and i1 %cmp.i.i.i947, %cmp.i.i.i.i949
   br i1 %234, label %if.end.i953, label %invoke.cont329
 
@@ -5221,7 +5219,7 @@ for.inc594.sink.split:                            ; preds = %invoke.cont386, %in
   br label %for.inc594
 
 for.inc594:                                       ; preds = %for.inc594.sink.split, %cond.end, %if.end118, %for.body110
-  %inc = add nuw i64 %i.01808, 1
+  %inc = add nuw i64 %i.01805, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end595, label %for.body110, !llvm.loop !82
 
@@ -5236,7 +5234,7 @@ ehcleanup593:                                     ; preds = %ehcleanup591, %ehcl
   br label %ehcleanup634
 
 for.end595:                                       ; preds = %for.inc594, %if.end79, %for.end, %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEEZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EvT_SH_T0_.exit"
-  %fields.sroa.0.0.lcssa18231845 = phi ptr [ %fields.sroa.0.1, %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEEZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EvT_SH_T0_.exit" ], [ %fields.sroa.0.1, %for.end ], [ null, %if.end79 ], [ %fields.sroa.0.1, %for.inc594 ]
+  %fields.sroa.0.0.lcssa18201840 = phi ptr [ %fields.sroa.0.1, %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEEZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EvT_SH_T0_.exit" ], [ %fields.sroa.0.1, %for.end ], [ null, %if.end79 ], [ %fields.sroa.0.1, %for.inc594 ]
   %395 = load ptr, ptr %_M_finish.i.i334, align 8
   %add.ptr.i.i1534 = getelementptr inbounds i8, ptr %395, i64 -160
   %396 = load i64, ptr %add.ptr.i.i1534, align 8
@@ -5508,11 +5506,11 @@ if.then.i.i.i1649:                                ; preds = %invoke.cont.i1647
 
 _ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i1647, %if.then.i.i.i1649
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp622) #29
-  %tobool.not.i.i.i1651 = icmp eq ptr %fields.sroa.0.0.lcssa18231845, null
+  %tobool.not.i.i.i1651 = icmp eq ptr %fields.sroa.0.0.lcssa18201840, null
   br i1 %tobool.not.i.i.i1651, label %cleanup635, label %if.then.i.i.i1652
 
 if.then.i.i.i1652:                                ; preds = %_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %fields.sroa.0.0.lcssa18231845) #30
+  call void @_ZdlPv(ptr noundef nonnull %fields.sroa.0.0.lcssa18201840) #30
   br label %cleanup635
 
 cleanup635:                                       ; preds = %if.then.i.i.i1652, %_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EED2Ev.exit, %invoke.cont76
@@ -5573,7 +5571,7 @@ ehcleanup632:                                     ; preds = %lpad629, %lpad627
   br label %ehcleanup634
 
 ehcleanup634:                                     ; preds = %lpad94.loopexit, %lpad94.loopexit.split-lp, %lpad.i1624, %ehcleanup632, %ehcleanup619, %ehcleanup593
-  %fields.sroa.0.01779 = phi ptr [ %fields.sroa.0.1, %ehcleanup593 ], [ %fields.sroa.0.0.lcssa18231845, %ehcleanup632 ], [ %fields.sroa.0.0.lcssa18231845, %ehcleanup619 ], [ %fields.sroa.0.0.lcssa18231845, %lpad.i1624 ], [ %fields.sroa.0.01802, %lpad94.loopexit ], [ %fields.sroa.0.01802, %lpad94.loopexit.split-lp ]
+  %fields.sroa.0.01779 = phi ptr [ %fields.sroa.0.1, %ehcleanup593 ], [ %fields.sroa.0.0.lcssa18201840, %ehcleanup632 ], [ %fields.sroa.0.0.lcssa18201840, %ehcleanup619 ], [ %fields.sroa.0.0.lcssa18201840, %lpad.i1624 ], [ %fields.sroa.0.01802, %lpad94.loopexit ], [ %fields.sroa.0.01802, %lpad94.loopexit.split-lp ]
   %.pn171 = phi { ptr, i32 } [ %.pn154.pn.pn, %ehcleanup593 ], [ %.pn143, %ehcleanup632 ], [ %.pn141, %ehcleanup619 ], [ %419, %lpad.i1624 ], [ %lpad.loopexit1713, %lpad94.loopexit ], [ %lpad.loopexit.split-lp1714, %lpad94.loopexit.split-lp ]
   %tobool.not.i.i.i1672 = icmp eq ptr %fields.sroa.0.01779, null
   br i1 %tobool.not.i.i.i1672, label %ehcleanup636, label %if.then.i.i.i1673

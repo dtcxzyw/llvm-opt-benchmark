@@ -4736,8 +4736,6 @@ define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 nound
 
 .preheader:                                       ; preds = %5
   %17 = zext i8 %3 to i32
-  %invariant.op = add i32 %1, 1
-  %invariant.op28 = add i32 %1, 2
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -4755,32 +4753,32 @@ define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 nound
   %28 = getelementptr inbounds i8, ptr %4, i64 72
   br label %29
 
-29:                                               ; preds = %.lr.ph, %53
-  %.030 = phi i32 [ 0, %.lr.ph ], [ %55, %53 ]
-  %30 = add i32 %.030, %1
+29:                                               ; preds = %.lr.ph, %55
+  %.028 = phi i32 [ 0, %.lr.ph ], [ %57, %55 ]
+  %30 = add i32 %.028, %1
   %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %30) #9
   %32 = zext i8 %31 to i32
   %33 = icmp eq i8 %31, 0
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %29
-  %.reass = add i32 %.030, %invariant.op
-  %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass) #9
-  %36 = and i8 %35, -2
-  %switch = icmp eq i8 %36, 8
-  br i1 %switch, label %37, label %53
+  %35 = add i32 %30, 1
+  %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %35) #9
+  %37 = and i8 %36, -2
+  %switch = icmp eq i8 %37, 8
+  br i1 %switch, label %38, label %55
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %18, align 8
-  %.reass29 = add i32 %.030, %invariant.op28
-  %39 = add nsw i32 %32, -1
-  %40 = call ptr @tvb_get_string_enc(ptr noundef %38, ptr noundef %0, i32 noundef %.reass29, i32 noundef %39, i32 noundef 0) #9
-  %41 = load i32, ptr %4, align 8
-  store i32 %41, ptr %7, align 4
-  %42 = load i32, ptr %19, align 4
-  store i32 %42, ptr %8, align 4
-  %43 = load i32, ptr %20, align 4
-  store i32 %43, ptr %9, align 4
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %18, align 8
+  %40 = add i32 %30, 2
+  %41 = add nsw i32 %32, -1
+  %42 = call ptr @tvb_get_string_enc(ptr noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef %41, i32 noundef 0) #9
+  %43 = load i32, ptr %4, align 8
+  store i32 %43, ptr %7, align 4
+  %44 = load i32, ptr %19, align 4
+  store i32 %44, ptr %8, align 4
+  %45 = load i32, ptr %20, align 4
+  store i32 %45, ptr %9, align 4
   store i32 1, ptr %6, align 16
   store ptr %7, ptr %21, align 8
   store i32 1, ptr %22, align 16
@@ -4789,28 +4787,28 @@ define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 nound
   store ptr %9, ptr %25, align 8
   store i32 0, ptr %26, align 16
   store ptr null, ptr %27, align 8
-  %44 = call ptr @wmem_file_scope() #9
-  %45 = call noalias ptr @wmem_alloc(ptr noundef %44, i64 noundef 16) #9
-  %46 = load i32, ptr %7, align 4
-  store i32 %46, ptr %45, align 8
-  %47 = load i32, ptr %8, align 4
-  %48 = getelementptr inbounds i8, ptr %45, i64 4
-  store i32 %47, ptr %48, align 4
-  %49 = call ptr @wmem_file_scope() #9
-  %50 = call noalias ptr @wmem_strdup(ptr noundef %49, ptr noundef %40) #9
-  %51 = getelementptr inbounds i8, ptr %45, i64 8
-  store ptr %50, ptr %51, align 8
-  %52 = load ptr, ptr %28, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %52, ptr noundef nonnull %6, ptr noundef nonnull %45) #9
-  br label %53
+  %46 = call ptr @wmem_file_scope() #9
+  %47 = call noalias ptr @wmem_alloc(ptr noundef %46, i64 noundef 16) #9
+  %48 = load i32, ptr %7, align 4
+  store i32 %48, ptr %47, align 8
+  %49 = load i32, ptr %8, align 4
+  %50 = getelementptr inbounds i8, ptr %47, i64 4
+  store i32 %49, ptr %50, align 4
+  %51 = call ptr @wmem_file_scope() #9
+  %52 = call noalias ptr @wmem_strdup(ptr noundef %51, ptr noundef %42) #9
+  %53 = getelementptr inbounds i8, ptr %47, i64 8
+  store ptr %52, ptr %53, align 8
+  %54 = load ptr, ptr %28, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %54, ptr noundef nonnull %6, ptr noundef nonnull %47) #9
+  br label %55
 
-53:                                               ; preds = %34, %37
-  %54 = add nuw nsw i32 %.030, 1
-  %55 = add nuw nsw i32 %54, %32
-  %56 = icmp ult i32 %55, %17
-  br i1 %56, label %29, label %.loopexit, !llvm.loop !4
+55:                                               ; preds = %34, %38
+  %56 = add nuw nsw i32 %.028, 1
+  %57 = add nuw nsw i32 %56, %32
+  %58 = icmp ult i32 %57, %17
+  br i1 %58, label %29, label %.loopexit, !llvm.loop !4
 
-.loopexit:                                        ; preds = %53, %29, %.preheader, %5
+.loopexit:                                        ; preds = %55, %29, %.preheader, %5
   ret void
 }
 

@@ -2207,7 +2207,7 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %487, %486, %294
   %.not.i471.i = icmp eq i8 %633, 0
   %635 = zext nneg i8 %.1376.i to i32
   %.not461.i = icmp eq i32 %.0392.i, 0
-  %invariant.op.i = add nuw nsw i32 %635, 188
+  %invariant.op = add nuw nsw i32 %635, 188
   br label %636
 
 636:                                              ; preds = %661, %.lr.ph.i
@@ -2271,8 +2271,8 @@ compute_crc8.exit477.i:                           ; preds = %.lr.ph.i472.i, %643
 
 658:                                              ; preds = %657
   %659 = load i32, ptr @hf_dvb_s2_bb_dnp, align 4
-  %.reass.i = add i32 %invariant.op.i, %.412.i
-  %660 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %659, ptr noundef %92, i32 noundef %.reass.i, i32 noundef 1, i32 noundef 0) #9
+  %.reass = add i32 %.412.i, %invariant.op
+  %660 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %659, ptr noundef %92, i32 noundef %.reass, i32 noundef 1, i32 noundef 0) #9
   br label %661
 
 661:                                              ; preds = %658, %657

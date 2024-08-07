@@ -6522,7 +6522,6 @@ for.end121:                                       ; preds = %invoke.cont114, %fo
   %max_token_text_size.0.lcssa = phi i64 [ 0, %for.cond108.preheader ], [ %.sroa.speculated831, %invoke.cont114 ]
   %conv122 = zext i32 %context_length to i64
   %mul = mul i64 %max_token_text_size.0.lcssa, %conv122
-  %invariant.op = add i64 %cond102, %mul
   %86 = load ptr, ptr %_M_finish.i.i344, align 8
   %87 = load ptr, ptr %out_samples_begin, align 8
   %cmp126950.not = icmp eq ptr %86, %87
@@ -6561,8 +6560,8 @@ for.body127:                                      ; preds = %for.body127.lr.ph, 
 
 cond.true133:                                     ; preds = %for.body127
   %call135 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %data_str) #34
-  %add137.reass = add i64 %89, %invariant.op
-  %.sroa.speculated827 = call i64 @llvm.umin.i64(i64 %add137.reass, i64 %call135)
+  %add137 = add i64 %add131, %mul
+  %.sroa.speculated827 = call i64 @llvm.umin.i64(i64 %add137, i64 %call135)
   br label %cond.end153
 
 cond.false140:                                    ; preds = %for.body127

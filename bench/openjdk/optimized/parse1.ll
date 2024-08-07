@@ -9146,7 +9146,7 @@ define hidden noundef i32 @_ZN5Parse5Block12add_new_pathEv(ptr nocapture noundef
   %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq i64 %indvars.iv, 2
-  br i1 %29, label %30, label %65
+  br i1 %29, label %30, label %64
 
 30:                                               ; preds = %.lr.ph
   tail call void @_ZN12MergeMemNode15iteration_setupEPKS_(ptr noundef nonnull align 8 dereferenceable(52) %28, ptr noundef null) #14
@@ -9160,9 +9160,8 @@ define hidden noundef i32 @_ZN5Parse5Block12add_new_pathEv(ptr nocapture noundef
   %35 = add nsw i32 %33, -1
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.lr.ph, %62
-  %36 = phi i32 [ 2, %.lr.ph.i.i.lr.ph ], [ %63, %62 ]
-  %.sroa.4.038 = phi i32 [ 1, %.lr.ph.i.i.lr.ph ], [ %.sroa.4.124, %62 ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.lr.ph, %61
+  %36 = phi i32 [ 2, %.lr.ph.i.i.lr.ph ], [ %62, %61 ]
   %37 = load ptr, ptr %31, align 8
   %38 = zext i32 %36 to i64
   %39 = getelementptr inbounds ptr, ptr %37, i64 %38
@@ -9174,14 +9173,11 @@ define hidden noundef i32 @_ZN5Parse5Block12add_new_pathEv(ptr nocapture noundef
 
 .thread5.preheader.i.i:                           ; preds = %.lr.ph.i.i
   %exitcond.not.i.i36 = icmp eq i32 %36, %35
-  br i1 %exitcond.not.i.i36, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26, label %.thread.i.i.preheader, !llvm.loop !25
+  br i1 %exitcond.not.i.i36, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26, label %.thread.i.i, !llvm.loop !25
 
-.thread.i.i.preheader:                            ; preds = %.thread5.preheader.i.i
-  %.reass = add i32 %.sroa.4.038, 2
-  br label %.thread.i.i
-
-.thread.i.i:                                      ; preds = %.thread.i.i.preheader, %.thread5.i.i
-  %44 = phi i32 [ %51, %.thread5.i.i ], [ %.reass, %.thread.i.i.preheader ]
+.thread.i.i:                                      ; preds = %.thread5.preheader.i.i, %.thread5.i.i
+  %.in = phi i32 [ %44, %.thread5.i.i ], [ %36, %.thread5.preheader.i.i ]
+  %44 = add nsw i32 %.in, 1
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds ptr, ptr %37, i64 %45
   %47 = load ptr, ptr %46, align 8
@@ -9191,59 +9187,58 @@ define hidden noundef i32 @_ZN5Parse5Block12add_new_pathEv(ptr nocapture noundef
   br i1 %50, label %.thread5.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread, !llvm.loop !25
 
 .thread5.i.i:                                     ; preds = %.thread.i.i
-  %51 = add nsw i32 %44, 1
   %exitcond.not.i.i = icmp eq i32 %44, %35
   br i1 %exitcond.not.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26, label %.thread.i.i, !llvm.loop !25
 
 _ZN14MergeMemStream14next_non_emptyEv.exit.thread: ; preds = %.thread.i.i, %.lr.ph.i.i
   %.sroa.10.525 = phi ptr [ %40, %.lr.ph.i.i ], [ %47, %.thread.i.i ]
   %.sroa.4.124 = phi i32 [ %36, %.lr.ph.i.i ], [ %44, %.thread.i.i ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.10.525, i64 44
-  %53 = load i32, ptr %52, align 4
-  %54 = and i32 %53, 15
-  %55 = icmp eq i32 %54, 12
-  br i1 %55, label %56, label %62
+  %51 = getelementptr inbounds i8, ptr %.sroa.10.525, i64 44
+  %52 = load i32, ptr %51, align 4
+  %53 = and i32 %52, 15
+  %54 = icmp eq i32 %53, 12
+  br i1 %54, label %55, label %61
 
-56:                                               ; preds = %_ZN14MergeMemStream14next_non_emptyEv.exit.thread
-  %57 = getelementptr inbounds i8, ptr %.sroa.10.525, i64 8
+55:                                               ; preds = %_ZN14MergeMemStream14next_non_emptyEv.exit.thread
+  %56 = getelementptr inbounds i8, ptr %.sroa.10.525, i64 8
+  %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %11
-  br i1 %60, label %61, label %62
+  %59 = icmp eq ptr %58, %11
+  br i1 %59, label %60, label %61
 
-61:                                               ; preds = %56
+60:                                               ; preds = %55
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.10.525, ptr noundef null) #14
-  br label %62
+  br label %61
 
-62:                                               ; preds = %61, %56, %_ZN14MergeMemStream14next_non_emptyEv.exit.thread
-  %63 = add nsw i32 %.sroa.4.124, 1
-  %64 = icmp slt i32 %63, %33
-  br i1 %64, label %.lr.ph.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26, !llvm.loop !42
+61:                                               ; preds = %60, %55, %_ZN14MergeMemStream14next_non_emptyEv.exit.thread
+  %62 = add nsw i32 %.sroa.4.124, 1
+  %63 = icmp slt i32 %62, %33
+  br i1 %63, label %.lr.ph.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26, !llvm.loop !42
 
-65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds i8, ptr %28, i64 44
-  %67 = load i32, ptr %66, align 4
-  %68 = and i32 %67, 15
-  %69 = icmp eq i32 %68, 12
-  br i1 %69, label %70, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26
+64:                                               ; preds = %.lr.ph
+  %65 = getelementptr inbounds i8, ptr %28, i64 44
+  %66 = load i32, ptr %65, align 4
+  %67 = and i32 %66, 15
+  %68 = icmp eq i32 %67, 12
+  br i1 %68, label %69, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26
 
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %28, i64 8
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds i8, ptr %28, i64 8
+  %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, %11
-  br i1 %74, label %75, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26
+  %73 = icmp eq ptr %72, %11
+  br i1 %73, label %74, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26
 
-75:                                               ; preds = %70
+74:                                               ; preds = %69
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %28, ptr noundef null) #14
   br label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26
 
-_ZN14MergeMemStream14next_non_emptyEv.exit.thread26: ; preds = %62, %.thread5.preheader.i.i, %.thread5.i.i, %30, %75, %70, %65
+_ZN14MergeMemStream14next_non_emptyEv.exit.thread26: ; preds = %61, %.thread5.preheader.i.i, %.thread5.i.i, %30, %74, %69, %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = load i32, ptr %23, align 8
-  %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !43
+  %75 = load i32, ptr %23, align 8
+  %76 = zext i32 %75 to i64
+  %77 = icmp ult i64 %indvars.iv.next, %76
+  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26, %20, %16, %4
   %.0 = phi i32 [ %19, %16 ], [ %7, %4 ], [ %22, %20 ], [ %22, %_ZN14MergeMemStream14next_non_emptyEv.exit.thread26 ]

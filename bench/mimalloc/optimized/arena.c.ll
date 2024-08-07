@@ -764,13 +764,12 @@ while.cond17.preheader.i:                         ; preds = %if.end42.i, %while.
   %full_purge.153.i = phi i1 [ %full_purge.057.i, %while.cond.preheader.i ], [ %full_purge.2.i, %if.end42.i ]
   %bitidx.051.i = phi i64 [ 0, %while.cond.preheader.i ], [ %add44.i, %if.end42.i ]
   %purge.050.i = phi i64 [ %12, %while.cond.preheader.i ], [ %purge.1.i, %if.end42.i ]
-  %invariant.op.i = add nuw nsw i64 %bitidx.051.i, 1
   %13 = sub nuw nsw i64 64, %bitidx.051.i
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body21.i, %while.cond17.preheader.i
-  %add47.i = phi i64 [ %bitidx.051.i, %while.cond17.preheader.i ], [ %add.reass.i, %while.body21.i ]
   %bitlen.046.i = phi i64 [ 0, %while.cond17.preheader.i ], [ %inc.i, %while.body21.i ]
+  %add47.i = add nuw nsw i64 %bitlen.046.i, %bitidx.051.i
   %shl.i = shl nuw i64 1, %add47.i
   %and.i = and i64 %shl.i, %purge.050.i
   %cmp20.not.i = icmp eq i64 %and.i, 0
@@ -778,7 +777,6 @@ land.rhs.i:                                       ; preds = %while.body21.i, %wh
 
 while.body21.i:                                   ; preds = %land.rhs.i
   %inc.i = add nuw nsw i64 %bitlen.046.i, 1
-  %add.reass.i = add nuw nsw i64 %bitlen.046.i, %invariant.op.i
   %exitcond.not.i = icmp eq i64 %inc.i, %13
   br i1 %exitcond.not.i, label %while.body24.preheader.i, label %land.rhs.i, !llvm.loop !7
 
@@ -813,12 +811,11 @@ if.then31.i:                                      ; preds = %while.body24.i
 while.cond1.preheader.i.i:                        ; preds = %if.then31.i, %if.end10.i.i
   %bitidx.018.i.i = phi i64 [ %add12.i.i, %if.end10.i.i ], [ %bitidx.051.i, %if.then31.i ]
   %all_purged.017.i.i = phi i1 [ %cond.fr.i, %if.end10.i.i ], [ false, %if.then31.i ]
-  %invariant.op.i.i = add nuw i64 %bitidx.018.i.i, 1
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body6.i.i, %while.cond1.preheader.i.i
-  %add215.i.i = phi i64 [ %bitidx.018.i.i, %while.cond1.preheader.i.i ], [ %add2.reass.i.i, %while.body6.i.i ]
   %count.014.i.i = phi i64 [ 0, %while.cond1.preheader.i.i ], [ %inc.i.i, %while.body6.i.i ]
+  %add215.i.i = add i64 %count.014.i.i, %bitidx.018.i.i
   %shl.i.i = shl nuw i64 1, %add215.i.i
   %and.i.i = and i64 %shl.i.i, %16
   %cmp5.not.i.i = icmp eq i64 %and.i.i, 0
@@ -826,8 +823,8 @@ land.rhs.i.i:                                     ; preds = %while.body6.i.i, %w
 
 while.body6.i.i:                                  ; preds = %land.rhs.i.i
   %inc.i.i = add i64 %count.014.i.i, 1
-  %add2.reass.i.i = add nuw i64 %count.014.i.i, %invariant.op.i.i
-  %cmp3.i.i = icmp ult i64 %add2.reass.i.i, %add.i38.i
+  %add2.i.i = add i64 %inc.i.i, %bitidx.018.i.i
+  %cmp3.i.i = icmp ult i64 %add2.i.i, %add.i38.i
   br i1 %cmp3.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !9
 
 while.end.i.i:                                    ; preds = %while.body6.i.i, %land.rhs.i.i
@@ -876,7 +873,8 @@ mi_arena_purge.exit.i:                            ; preds = %if.then8.i.i, %if.e
 if.end10.i.i:                                     ; preds = %mi_arena_purge.exit.i, %while.end.i.i
   %all_purged.1.i.i = phi i1 [ %all_purged.017.i.i, %while.end.i.i ], [ %spec.select.i.i, %mi_arena_purge.exit.i ]
   %cond.fr.i = freeze i1 %all_purged.1.i.i
-  %add12.i.i = add i64 %count.0.lcssa.i.i, %invariant.op.i.i
+  %add11.i.i = add i64 %bitidx.018.i.i, 1
+  %add12.i.i = add i64 %add11.i.i, %count.0.lcssa.i.i
   %cmp.i.i = icmp ult i64 %add12.i.i, %add.i38.i
   br i1 %cmp.i.i, label %while.cond1.preheader.i.i, label %mi_arena_purge_range.exit.i, !llvm.loop !10
 
@@ -895,7 +893,8 @@ if.end42.i:                                       ; preds = %if.end28.i, %mi_are
   %purge.1.i = phi i64 [ %16, %mi_arena_purge_range.exit.thread.i ], [ %purge.050.i, %while.end.i ], [ %purge.050.i, %if.end28.i ]
   %full_purge.2.i = phi i1 [ %26, %mi_arena_purge_range.exit.thread.i ], [ %full_purge.153.i, %while.end.i ], [ %full_purge.153.i, %if.end28.i ]
   %any_purged.2.i = phi i1 [ true, %mi_arena_purge_range.exit.thread.i ], [ %any_purged.154.i, %while.end.i ], [ %any_purged.154.i, %if.end28.i ]
-  %add44.i = add i64 %bitlen.145.i, %invariant.op.i
+  %add43.i = add nuw nsw i64 %bitidx.051.i, 1
+  %add44.i = add i64 %add43.i, %bitlen.145.i
   %cmp16.i = icmp ult i64 %add44.i, 64
   br i1 %cmp16.i, label %while.cond17.preheader.i, label %for.inc.loopexit.i, !llvm.loop !11
 

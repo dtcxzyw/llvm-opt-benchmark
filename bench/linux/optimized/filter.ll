@@ -4584,7 +4584,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pull_data(i64 noundef %0
   %40 = icmp ne i8 %38, 0
   %41 = icmp ugt i32 %35, %24
   %42 = or i1 %41, %40
-  br i1 %42, label %.preheader, label %179
+  br i1 %42, label %.preheader, label %181
 
 .preheader:                                       ; preds = %33, %53
   %43 = phi i32 [ %48, %53 ], [ 0, %33 ]
@@ -4747,106 +4747,105 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pull_data(i64 noundef %0
   %150 = add i32 %reass.sub, 17
   %151 = select i1 %147, i32 %149, i32 %150
   %152 = icmp eq i32 %151, 0
-  br i1 %152, label %179, label %153
+  br i1 %152, label %181, label %153
 
 153:                                              ; preds = %146
   %154 = add i32 %19, 1
   %155 = icmp eq i32 %154, 18
   %156 = select i1 %155, i32 0, i32 %154
-  %invariant.op = add i32 %151, -18
   %157 = add i32 %156, %151
   %158 = icmp ugt i32 %157, 17
-  %.reass23 = add i32 %156, %invariant.op
-  %159 = select i1 %158, i32 %.reass23, i32 %157
-  %160 = load i32, ptr %16, align 8
-  %161 = icmp eq i32 %159, %160
-  br i1 %161, label %._crit_edge, label %.lr.ph
+  %159 = add i32 %157, -18
+  %160 = select i1 %158, i32 %159, i32 %157
+  %161 = load i32, ptr %16, align 8
+  %162 = icmp eq i32 %160, %161
+  br i1 %162, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %153, %.lr.ph
-  %162 = phi i32 [ %173, %.lr.ph ], [ %159, %153 ]
-  %163 = phi i32 [ %170, %.lr.ph ], [ %156, %153 ]
-  %164 = zext i32 %163 to i64
-  %165 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %164
-  %166 = zext i32 %162 to i64
-  %167 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %166
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %165, ptr noundef align 8 dereferenceable(32) %167, i64 32, i1 false)
-  %168 = add i32 %163, 1
-  %169 = icmp eq i32 %168, 18
-  %170 = select i1 %169, i32 0, i32 %168
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %167, i8 0, i64 16, i1 false)
-  %171 = add i32 %170, %151
-  %172 = icmp ugt i32 %171, 17
-  %.reass = add i32 %170, %invariant.op
-  %173 = select i1 %172, i32 %.reass, i32 %171
-  %174 = icmp eq i32 %173, %160
-  br i1 %174, label %._crit_edge, label %.lr.ph
+  %163 = phi i32 [ %175, %.lr.ph ], [ %160, %153 ]
+  %164 = phi i32 [ %171, %.lr.ph ], [ %156, %153 ]
+  %165 = zext i32 %164 to i64
+  %166 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %165
+  %167 = zext i32 %163 to i64
+  %168 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %167
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %166, ptr noundef align 8 dereferenceable(32) %168, i64 32, i1 false)
+  %169 = add i32 %164, 1
+  %170 = icmp eq i32 %169, 18
+  %171 = select i1 %170, i32 0, i32 %169
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %168, i8 0, i64 16, i1 false)
+  %172 = add i32 %171, %151
+  %173 = icmp ugt i32 %172, 17
+  %174 = add i32 %172, -18
+  %175 = select i1 %173, i32 %174, i32 %172
+  %176 = icmp eq i32 %175, %161
+  br i1 %176, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %153
-  %175 = sub i32 %160, %151
-  %176 = icmp ugt i32 %151, %160
-  %177 = add i32 %175, 18
-  %178 = select i1 %176, i32 %177, i32 %175
-  store i32 %178, ptr %16, align 8
-  br label %179
+  %177 = sub i32 %161, %151
+  %178 = icmp ugt i32 %151, %161
+  %179 = add i32 %177, 18
+  %180 = select i1 %178, i32 %179, i32 %177
+  store i32 %180, ptr %16, align 8
+  br label %181
 
-179:                                              ; preds = %._crit_edge, %146, %33
-  %180 = load i32, ptr %6, align 8
-  %181 = getelementptr inbounds i8, ptr %6, i64 12
-  %182 = load i32, ptr %181, align 4
-  br label %183
+181:                                              ; preds = %._crit_edge, %146, %33
+  %182 = load i32, ptr %6, align 8
+  %183 = getelementptr inbounds i8, ptr %6, i64 12
+  %184 = load i32, ptr %183, align 4
+  br label %185
 
-183:                                              ; preds = %194, %179
-  %184 = phi i32 [ %180, %179 ], [ %192, %194 ]
-  %185 = phi i32 [ 0, %179 ], [ %189, %194 ]
-  %186 = sext i32 %184 to i64
-  %187 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %186, i32 2
-  %188 = load i32, ptr %187, align 4
-  %189 = add i32 %188, %185
-  %190 = add i32 %184, 1
-  %191 = icmp eq i32 %190, 18
-  %192 = select i1 %191, i32 0, i32 %190
-  %193 = icmp ult i32 %189, %182
-  br i1 %193, label %194, label %197
+185:                                              ; preds = %196, %181
+  %186 = phi i32 [ %182, %181 ], [ %194, %196 ]
+  %187 = phi i32 [ 0, %181 ], [ %191, %196 ]
+  %188 = sext i32 %186 to i64
+  %189 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %188, i32 2
+  %190 = load i32, ptr %189, align 4
+  %191 = add i32 %190, %187
+  %192 = add i32 %186, 1
+  %193 = icmp eq i32 %192, 18
+  %194 = select i1 %193, i32 0, i32 %192
+  %195 = icmp ult i32 %191, %184
+  br i1 %195, label %196, label %199
 
-194:                                              ; preds = %183
-  %195 = load i32, ptr %16, align 8
-  %196 = icmp eq i32 %192, %195
-  br i1 %196, label %197, label %183, !llvm.loop !66
+196:                                              ; preds = %185
+  %197 = load i32, ptr %16, align 8
+  %198 = icmp eq i32 %194, %197
+  br i1 %198, label %199, label %185, !llvm.loop !66
 
-197:                                              ; preds = %194, %183
-  %198 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %192, ptr %198, align 4
-  %199 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 0, ptr %199, align 8
-  %200 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %37
-  %201 = load i64, ptr %200, align 8
-  %202 = and i64 %201, 288230376151711740
-  %203 = load i64, ptr @vmemmap_base, align 8
-  %204 = sub i64 %202, %203
-  %205 = shl i64 %204, 6
-  %206 = load i64, ptr @page_offset_base, align 8
-  %207 = add i64 %205, %206
-  %208 = inttoptr i64 %207 to ptr
-  %209 = getelementptr inbounds i8, ptr %200, i64 8
-  %210 = load i32, ptr %209, align 8
-  %211 = zext i32 %210 to i64
-  %212 = getelementptr i8, ptr %208, i64 %211
-  %213 = and i64 %1, 4294967295
-  %214 = getelementptr i8, ptr %212, i64 %213
-  %215 = zext i32 %21 to i64
-  %216 = sub nsw i64 0, %215
-  %217 = getelementptr i8, ptr %214, i64 %216
-  %218 = getelementptr inbounds i8, ptr %6, i64 640
-  store ptr %217, ptr %218, align 8
-  %219 = zext i32 %9 to i64
-  %220 = getelementptr i8, ptr %217, i64 %219
-  %221 = getelementptr inbounds i8, ptr %6, i64 648
-  store ptr %220, ptr %221, align 8
+199:                                              ; preds = %196, %185
+  %200 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %194, ptr %200, align 4
+  %201 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 0, ptr %201, align 8
+  %202 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %37
+  %203 = load i64, ptr %202, align 8
+  %204 = and i64 %203, 288230376151711740
+  %205 = load i64, ptr @vmemmap_base, align 8
+  %206 = sub i64 %204, %205
+  %207 = shl i64 %206, 6
+  %208 = load i64, ptr @page_offset_base, align 8
+  %209 = add i64 %207, %208
+  %210 = inttoptr i64 %209 to ptr
+  %211 = getelementptr inbounds i8, ptr %202, i64 8
+  %212 = load i32, ptr %211, align 8
+  %213 = zext i32 %212 to i64
+  %214 = getelementptr i8, ptr %210, i64 %213
+  %215 = and i64 %1, 4294967295
+  %216 = getelementptr i8, ptr %214, i64 %215
+  %217 = zext i32 %21 to i64
+  %218 = sub nsw i64 0, %217
+  %219 = getelementptr i8, ptr %216, i64 %218
+  %220 = getelementptr inbounds i8, ptr %6, i64 640
+  store ptr %219, ptr %220, align 8
+  %221 = zext i32 %9 to i64
+  %222 = getelementptr i8, ptr %219, i64 %221
+  %223 = getelementptr inbounds i8, ptr %6, i64 648
+  store ptr %222, ptr %223, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %53, %197, %56, %5
-  %222 = phi i64 [ 0, %197 ], [ -22, %5 ], [ -12, %56 ], [ -22, %53 ], [ -22, %27 ]
-  ret i64 %222
+.loopexit:                                        ; preds = %27, %53, %199, %56, %5
+  %224 = phi i64 [ 0, %199 ], [ -22, %5 ], [ -12, %56 ], [ -22, %53 ], [ -22, %27 ]
+  ret i64 %224
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

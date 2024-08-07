@@ -4332,75 +4332,72 @@ declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN2cvL17findLocalMaximumsEiiiPKiRSt6vectorIiSaIiEE(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #3 {
-  %invariant.op31 = add i32 %0, 1
   %6 = icmp sgt i32 %0, 0
-  br i1 %6, label %.preheader.lr.ph, label %._crit_edge33
+  br i1 %6, label %.preheader.lr.ph, label %._crit_edge30
 
 .preheader.lr.ph:                                 ; preds = %5
   %invariant.gep = getelementptr i8, ptr %3, i64 -8
-  %invariant.gep28 = getelementptr i8, ptr %3, i64 8
+  %invariant.gep26 = getelementptr i8, ptr %3, i64 8
   %7 = icmp sgt i32 %1, 0
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
-  br i1 %7, label %.preheader.us.preheader, label %._crit_edge33
+  br i1 %7, label %.preheader.us.preheader, label %._crit_edge30
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %10 = add nuw nsw i32 %0, 2
   %11 = zext nneg i32 %10 to i64
-  %wide.trip.count39 = zext nneg i32 %0 to i64
+  %wide.trip.count36 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv36 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next37, %._crit_edge.us ]
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %12 = trunc nuw nsw i64 %indvars.iv36 to i32
-  %invariant.op26.reass.us = add i32 %invariant.op31, %12
-  %13 = trunc nuw nsw i64 %indvars.iv.next37 to i32
-  %invariant.gep41 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv36
-  br label %14
+  %indvars.iv33 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next34, %._crit_edge.us ]
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %12 = trunc nuw nsw i64 %indvars.iv.next34 to i32
+  %invariant.gep38 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv33
+  br label %13
 
-14:                                               ; preds = %.preheader.us, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
+13:                                               ; preds = %.preheader.us, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = mul nuw nsw i64 %indvars.iv.next, %11
-  %16 = trunc nsw i64 %15 to i32
-  %.reass.us = add i32 %16, %13
-  %17 = sext i32 %.reass.us to i64
-  %18 = getelementptr inbounds i32, ptr %3, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, %2
-  br i1 %20, label %21, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
+  %14 = mul nuw nsw i64 %indvars.iv.next, %11
+  %15 = trunc nsw i64 %14 to i32
+  %.reass.us = add i32 %15, %12
+  %16 = sext i32 %.reass.us to i64
+  %17 = getelementptr inbounds i32, ptr %3, i64 %16
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp sgt i32 %18, %2
+  br i1 %19, label %20, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
 
-21:                                               ; preds = %14
-  %gep = getelementptr inbounds i32, ptr %invariant.gep41, i64 %15
-  %22 = load i32, ptr %gep, align 4
-  %23 = icmp sgt i32 %19, %22
-  br i1 %23, label %24, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
+20:                                               ; preds = %13
+  %gep = getelementptr inbounds i32, ptr %invariant.gep38, i64 %14
+  %21 = load i32, ptr %gep, align 4
+  %22 = icmp sgt i32 %18, %21
+  br i1 %22, label %23, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
 
-24:                                               ; preds = %21
-  %25 = getelementptr i8, ptr %gep, i64 8
-  %26 = load i32, ptr %25, align 4
-  %.not.us = icmp slt i32 %19, %26
-  br i1 %.not.us, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us, label %27
+23:                                               ; preds = %20
+  %24 = getelementptr i8, ptr %gep, i64 8
+  %25 = load i32, ptr %24, align 4
+  %.not.us = icmp slt i32 %18, %25
+  br i1 %.not.us, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us, label %26
 
-27:                                               ; preds = %24
-  %28 = sub nsw i32 %.reass.us, %0
-  %29 = sext i32 %28 to i64
-  %gep.us = getelementptr i32, ptr %invariant.gep, i64 %29
-  %30 = load i32, ptr %gep.us, align 4
-  %31 = icmp sgt i32 %19, %30
-  br i1 %31, label %32, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
+26:                                               ; preds = %23
+  %27 = sub nsw i32 %.reass.us, %0
+  %28 = sext i32 %27 to i64
+  %gep.us = getelementptr i32, ptr %invariant.gep, i64 %28
+  %29 = load i32, ptr %gep.us, align 4
+  %30 = icmp sgt i32 %18, %29
+  br i1 %30, label %31, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
 
-32:                                               ; preds = %27
-  %.reass27.us = add i32 %invariant.op26.reass.us, %16
-  %33 = sext i32 %.reass27.us to i64
-  %gep29.us = getelementptr i32, ptr %invariant.gep28, i64 %33
-  %34 = load i32, ptr %gep29.us, align 4
-  %.not24.us = icmp slt i32 %19, %34
+31:                                               ; preds = %26
+  %32 = add nsw i32 %.reass.us, %0
+  %33 = sext i32 %32 to i64
+  %gep27.us = getelementptr i32, ptr %invariant.gep26, i64 %33
+  %34 = load i32, ptr %gep27.us, align 4
+  %.not24.us = icmp slt i32 %18, %34
   br i1 %.not24.us, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us, label %35
 
-35:                                               ; preds = %32
+35:                                               ; preds = %31
   %36 = load ptr, ptr %8, align 8
   %37 = load ptr, ptr %9, align 8
   %.not.i.us = icmp eq ptr %36, %37
@@ -4464,19 +4461,19 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   store ptr %62, ptr %9, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us:       ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.us, %38, %32, %27, %24, %21, %14
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us:       ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.us, %38, %31, %26, %23, %20, %13
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !76
 
 ._crit_edge.us:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
-  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !77
+  %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
+  br i1 %exitcond37.not, label %._crit_edge30, label %.preheader.us, !llvm.loop !77
 
 .split.us:                                        ; preds = %41
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #20
   unreachable
 
-._crit_edge33:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
+._crit_edge30:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
 }
 

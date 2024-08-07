@@ -88846,7 +88846,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i83: ; preds = %56, %51
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .preheader:                                       ; preds = %63
-  %66 = add nuw i32 %52, 1
+  %66 = add nuw nsw i32 %52, 1
   %67 = load i32, ptr %1, align 8
   %68 = icmp slt i32 %66, %67
   br i1 %68, label %.lr.ph194, label %._crit_edge195
@@ -88858,7 +88858,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i83: ; preds = %56, %51
 70:                                               ; preds = %.lr.ph194, %110
   %indvars.iv238 = phi i64 [ 1, %.lr.ph194 ], [ %indvars.iv.next239, %110 ]
   %71 = phi i32 [ %66, %.lr.ph194 ], [ %113, %110 ]
-  %indvars241 = trunc i64 %indvars.iv238 to i32
+  %indvars240 = trunc i64 %indvars.iv238 to i32
   %72 = load ptr, ptr %30, align 8
   %73 = load ptr, ptr %31, align 8
   %74 = icmp eq ptr %72, %73
@@ -88942,7 +88942,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i93: ; preds = %91, %87
 
 105:                                              ; preds = %101
   %106 = load i32, ptr %69, align 8
-  %107 = add nsw i32 %106, %indvars241
+  %107 = add nsw i32 %106, %indvars240
   %108 = getelementptr inbounds i8, ptr %100, i64 8
   %109 = load i32, ptr %108, align 8
   %.not75 = icmp eq i32 %107, %109
@@ -88950,19 +88950,19 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i93: ; preds = %91, %87
 
 110:                                              ; preds = %105
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %111 = load i32, ptr %1, align 8
-  %112 = trunc i64 %indvars.iv238 to i32
-  %113 = add i32 %66, %112
-  %114 = icmp slt i32 %113, %111
-  br i1 %114, label %70, label %._crit_edge195.loopexit.split.loop.exit279, !llvm.loop !784
+  %111 = add nuw i64 %indvars.iv.next239, %indvars.iv
+  %112 = load i32, ptr %1, align 8
+  %113 = trunc i64 %111 to i32
+  %114 = icmp sgt i32 %112, %113
+  br i1 %114, label %70, label %._crit_edge195.loopexit.split.loop.exit278, !llvm.loop !784
 
-._crit_edge195.loopexit.split.loop.exit279:       ; preds = %110
+._crit_edge195.loopexit.split.loop.exit278:       ; preds = %110
   %indvars.le = trunc i64 %indvars.iv.next239 to i32
   br label %._crit_edge195.loopexit
 
-._crit_edge195.loopexit:                          ; preds = %86, %101, %105, %._crit_edge195.loopexit.split.loop.exit279
-  %.064.lcssa.ph = phi i32 [ %indvars.le, %._crit_edge195.loopexit.split.loop.exit279 ], [ %indvars241, %105 ], [ %indvars241, %101 ], [ %indvars241, %86 ]
-  %.lcssa146.ph = phi i32 [ %113, %._crit_edge195.loopexit.split.loop.exit279 ], [ %71, %105 ], [ %71, %101 ], [ %71, %86 ]
+._crit_edge195.loopexit:                          ; preds = %86, %101, %105, %._crit_edge195.loopexit.split.loop.exit278
+  %.064.lcssa.ph = phi i32 [ %indvars.le, %._crit_edge195.loopexit.split.loop.exit278 ], [ %indvars240, %105 ], [ %indvars240, %101 ], [ %indvars240, %86 ]
+  %.lcssa146.ph = phi i32 [ %113, %._crit_edge195.loopexit.split.loop.exit278 ], [ %71, %105 ], [ %71, %101 ], [ %71, %86 ]
   %.pre = load i32, ptr %1, align 8
   br label %._crit_edge195
 
@@ -89356,9 +89356,9 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit114:         ; preds = %238, %241
   br label %276
 
 276:                                              ; preds = %287, %271
-  %indvars.iv242 = phi i64 [ %277, %287 ], [ %275, %271 ]
-  %277 = add nsw i64 %indvars.iv242, -1
-  %278 = trunc nuw i64 %indvars.iv242 to i32
+  %indvars.iv241 = phi i64 [ %277, %287 ], [ %275, %271 ]
+  %277 = add nsw i64 %indvars.iv241, -1
+  %278 = trunc nuw i64 %indvars.iv241 to i32
   %279 = icmp sgt i32 %278, 0
   br i1 %279, label %280, label %293
 
@@ -89476,9 +89476,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit110:              ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %.sink.split unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .sink.split:                                      ; preds = %314, %310, %307, %306, %305
-  %.sink282 = phi ptr [ %19, %305 ], [ %20, %306 ], [ %21, %307 ], [ %22, %310 ], [ %23, %314 ]
-  %316 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sink282) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink282) #22
+  %.sink281 = phi ptr [ %19, %305 ], [ %20, %306 ], [ %21, %307 ], [ %22, %310 ], [ %23, %314 ]
+  %316 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sink281) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink281) #22
   br label %317
 
 317:                                              ; preds = %.sink.split, %312

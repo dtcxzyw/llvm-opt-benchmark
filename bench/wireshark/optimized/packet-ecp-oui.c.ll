@@ -218,7 +218,7 @@ define internal i32 @dissect_ecp(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %.not.i.i, label %dissect_vdp_fi_macvid.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i
-  %.0214.i.i = phi i32 [ %.021.reass.i.i, %.lr.ph.i.i ], [ %.0211.i.i, %58 ]
+  %.0214.i.i = phi i32 [ %.021.i.i, %.lr.ph.i.i ], [ %.0211.i.i, %58 ]
   %.03.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 0, %58 ]
   %.021.in2.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ %57, %58 ]
   %65 = load i32, ptr @hf_ecp_vdp_mac, align 4
@@ -227,12 +227,12 @@ define internal i32 @dissect_ecp(ptr noundef %0, ptr nocapture noundef readonly 
   %68 = load i32, ptr @hf_ecp_vdp_vlan, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0) #2
   %70 = add nuw nsw i32 %.03.i.i, 1
-  %.021.reass.i.i = add i32 %.021.in2.i.i, 10
+  %.021.i.i = add i32 %.021.in2.i.i, 10
   %exitcond.not.i.i = icmp eq i32 %70, %61
   br i1 %exitcond.not.i.i, label %dissect_vdp_fi_macvid.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
 dissect_vdp_fi_macvid.exit.i:                     ; preds = %.lr.ph.i.i, %58
-  %.021.lcssa.i.i = phi i32 [ %.0211.i.i, %58 ], [ %.021.reass.i.i, %.lr.ph.i.i ]
+  %.021.lcssa.i.i = phi i32 [ %.0211.i.i, %58 ], [ %.021.i.i, %.lr.ph.i.i ]
   %71 = sub i32 %.021.lcssa.i.i, %57
   %72 = and i32 %71, 65535
   %73 = add nuw nsw i32 %72, 30

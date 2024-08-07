@@ -2033,8 +2033,6 @@ determine_fanout.exit:                            ; preds = %for.body.i, %entry,
   %and10 = and i32 %flags, 2
   %tobool.not = icmp eq i32 %and10, 0
   %or.cond = or i1 %tobool.not, %cmp8
-  %invariant.op = add nsw i32 %conv7, -1
-  %invariant.op72 = add nuw nsw i32 %conv7, 1
   %and37 = and i32 %flags, 1
   %tobool38.not = icmp eq i32 %and37, 0
   %or.cond38 = or i1 %tobool38.not, %cmp8
@@ -2046,8 +2044,8 @@ determine_fanout.exit.split.us:                   ; preds = %determine_fanout.ex
   br i1 %or.cond38, label %redo.preheader.us.us, label %redo.preheader.us
 
 redo.preheader.us.us:                             ; preds = %determine_fanout.exit.split.us, %for.cond.us.us
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %for.cond.us.us ], [ 0, %determine_fanout.exit.split.us ]
-  %arrayidx.us.us = getelementptr inbounds [16 x ptr], ptr %tree, i64 0, i64 %indvars.iv101
+  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %for.cond.us.us ], [ 0, %determine_fanout.exit.split.us ]
+  %arrayidx.us.us = getelementptr inbounds [16 x ptr], ptr %tree, i64 0, i64 %indvars.iv100
   br label %redo.us.us.us.us
 
 while.body.i46.us.us:                             ; preds = %sw.bb45.split.us.split.us.us.us, %while.body.i46.us.us
@@ -2095,9 +2093,9 @@ sw.epilog.us.us:                                  ; preds = %sw.bb.split.us.spli
   br i1 %tobool53.not.us.us, label %for.cond.us.us, label %return
 
 for.cond.us.us:                                   ; preds = %redo.us.us.us.us, %sw.epilog.us.us
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next102, 16
-  br i1 %exitcond104.not, label %return, label %redo.preheader.us.us, !llvm.loop !15
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+  %exitcond103.not = icmp eq i64 %indvars.iv.next101, 16
+  br i1 %exitcond103.not, label %return, label %redo.preheader.us.us, !llvm.loop !15
 
 redo.us.us.us.us:                                 ; preds = %sw.bb4.us.us.us.us, %redo.preheader.us.us
   %7 = load ptr, ptr %arrayidx.us.us, align 8
@@ -2137,22 +2135,22 @@ default.unreachable:                              ; preds = %redo, %redo.prehead
   unreachable
 
 redo.preheader.us:                                ; preds = %determine_fanout.exit.split.us, %for.cond.us
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %for.cond.us ], [ 0, %determine_fanout.exit.split.us ]
-  %arrayidx.us = getelementptr inbounds [16 x ptr], ptr %tree, i64 0, i64 %indvars.iv97
+  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %for.cond.us ], [ 0, %determine_fanout.exit.split.us ]
+  %arrayidx.us = getelementptr inbounds [16 x ptr], ptr %tree, i64 0, i64 %indvars.iv96
   %12 = load ptr, ptr %arrayidx.us, align 8
   %13 = ptrtoint ptr %12 to i64
-  %and.us.us84 = and i64 %13, 3
-  switch i64 %and.us.us84, label %default.unreachable [
-    i64 1, label %sw.bb.split.us.split.us80
+  %and.us.us83 = and i64 %13, 3
+  switch i64 %and.us.us83, label %default.unreachable [
+    i64 1, label %sw.bb.split.us.split.us79
     i64 3, label %for.cond.us
-    i64 2, label %sw.bb45.split.us.split.us81
+    i64 2, label %sw.bb45.split.us.split.us80
     i64 0, label %for.cond.us
   ]
 
-while.body.i46.us:                                ; preds = %sw.bb45.split.us.split.us81, %while.body.i46.us
-  %indvars.iv7.i47.us = phi i64 [ %indvars.iv.next8.i55.us, %while.body.i46.us ], [ 0, %sw.bb45.split.us.split.us81 ]
-  %indvars.iv.i48.us = phi i64 [ %indvars.iv.next.i52.us, %while.body.i46.us ], [ 0, %sw.bb45.split.us.split.us81 ]
-  %fanout.addr.04.i49.us = phi i8 [ %dec.i57.us, %while.body.i46.us ], [ %retval.0.i, %sw.bb45.split.us.split.us81 ]
+while.body.i46.us:                                ; preds = %sw.bb45.split.us.split.us80, %while.body.i46.us
+  %indvars.iv7.i47.us = phi i64 [ %indvars.iv.next8.i55.us, %while.body.i46.us ], [ 0, %sw.bb45.split.us.split.us80 ]
+  %indvars.iv.i48.us = phi i64 [ %indvars.iv.next.i52.us, %while.body.i46.us ], [ 0, %sw.bb45.split.us.split.us80 ]
+  %fanout.addr.04.i49.us = phi i8 [ %dec.i57.us, %while.body.i46.us ], [ %retval.0.i, %sw.bb45.split.us.split.us80 ]
   %14 = or disjoint i64 %indvars.iv.i48.us, 1
   %arrayidx.i50.us = getelementptr inbounds i8, ptr %call.i44.us, i64 %indvars.iv.i48.us
   %15 = load i8, ptr %arrayidx.i50.us, align 1
@@ -2175,9 +2173,9 @@ while.end.loopexit.i59.us:                        ; preds = %while.body.i46.us
   %18 = and i64 %indvars.iv.next.i52.us, 4294967294
   br label %construct_path_with_fanout.exit68.us
 
-construct_path_with_fanout.exit68.us:             ; preds = %sw.bb45.split.us.split.us81, %while.end.loopexit.i59.us
-  %i.0.lcssa.i60.us = phi i32 [ 0, %sw.bb45.split.us.split.us81 ], [ %17, %while.end.loopexit.i59.us ]
-  %j.0.lcssa.i61.us = phi i64 [ 0, %sw.bb45.split.us.split.us81 ], [ %18, %while.end.loopexit.i59.us ]
+construct_path_with_fanout.exit68.us:             ; preds = %sw.bb45.split.us.split.us80, %while.end.loopexit.i59.us
+  %i.0.lcssa.i60.us = phi i32 [ 0, %sw.bb45.split.us.split.us80 ], [ %17, %while.end.loopexit.i59.us ]
+  %j.0.lcssa.i61.us = phi i64 [ 0, %sw.bb45.split.us.split.us80 ], [ %18, %while.end.loopexit.i59.us ]
   %idx.ext.i62.us = zext i32 %i.0.lcssa.i60.us to i64
   %add.ptr.i63.us = getelementptr inbounds i8, ptr @for_each_note_helper.path, i64 %idx.ext.i62.us
   %sub.i64.us = sub i32 96, %i.0.lcssa.i60.us
@@ -2188,23 +2186,23 @@ construct_path_with_fanout.exit68.us:             ; preds = %sw.bb45.split.us.sp
   %call52.us = tail call i32 %fn(ptr noundef %20, ptr noundef nonnull %val_oid51.us, ptr noundef nonnull @for_each_note_helper.path, ptr noundef %cb_data) #16
   br label %sw.epilog.us
 
-sw.epilog.us:                                     ; preds = %sw.bb.split.us.split.us80, %construct_path_with_fanout.exit68.us
-  %ret.2.us = phi i32 [ %call52.us, %construct_path_with_fanout.exit68.us ], [ %call3.us, %sw.bb.split.us.split.us80 ]
+sw.epilog.us:                                     ; preds = %sw.bb.split.us.split.us79, %construct_path_with_fanout.exit68.us
+  %ret.2.us = phi i32 [ %call52.us, %construct_path_with_fanout.exit68.us ], [ %call3.us, %sw.bb.split.us.split.us79 ]
   %tobool53.not.us = icmp eq i32 %ret.2.us, 0
   br i1 %tobool53.not.us, label %for.cond.us, label %return
 
 for.cond.us:                                      ; preds = %redo.preheader.us, %redo.preheader.us, %sw.epilog.us
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 16
-  br i1 %exitcond100.not, label %return, label %redo.preheader.us, !llvm.loop !15
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond99.not = icmp eq i64 %indvars.iv.next97, 16
+  br i1 %exitcond99.not, label %return, label %redo.preheader.us, !llvm.loop !15
 
-sw.bb.split.us.split.us80:                        ; preds = %redo.preheader.us
+sw.bb.split.us.split.us79:                        ; preds = %redo.preheader.us
   %and1.us = and i64 %13, -4
   %19 = inttoptr i64 %and1.us to ptr
   %call3.us = tail call fastcc i32 @for_each_note_helper(ptr noundef %t, ptr noundef %19, i8 noundef zeroext %add, i8 noundef zeroext %retval.0.i, i32 noundef %flags, ptr noundef %fn, ptr noundef %cb_data)
   br label %sw.epilog.us
 
-sw.bb45.split.us.split.us81:                      ; preds = %redo.preheader.us
+sw.bb45.split.us.split.us80:                      ; preds = %redo.preheader.us
   %and46.us = and i64 %13, -4
   %20 = inttoptr i64 %and46.us to ptr
   %call.i44.us = tail call ptr @hash_to_hex(ptr noundef %20) #16
@@ -2284,22 +2282,22 @@ while.end.loopexit.i:                             ; preds = %while.body.i
   %conv.i43 = and i64 %sub.i, 4294967295
   %add.ptr14.i = getelementptr inbounds i8, ptr %call.i, i64 %32
   %call15.i = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i43, ptr noundef nonnull @.str.22, ptr noundef %add.ptr14.i) #16
-  %sub18.reass = add nsw i32 %mul13, %invariant.op
-  %idxprom19 = zext i32 %sub18.reass to i64
+  %sub18 = add nsw i32 %add15, -1
+  %idxprom19 = zext i32 %sub18 to i64
   %arrayidx20 = getelementptr inbounds [96 x i8], ptr @for_each_note_helper.path, i64 0, i64 %idxprom19
   %33 = load i8, ptr %arrayidx20, align 1
   %cmp22.not = icmp eq i8 %33, 47
   br i1 %cmp22.not, label %if.end, label %if.then24
 
 if.then24:                                        ; preds = %while.end.loopexit.i
-  %inc.reass = add nuw nsw i32 %mul13, %invariant.op72
+  %inc = add nuw nsw i32 %add15, 1
   %idxprom25 = zext nneg i32 %add15 to i64
   %arrayidx26 = getelementptr inbounds [96 x i8], ptr @for_each_note_helper.path, i64 0, i64 %idxprom25
   store i8 47, ptr %arrayidx26, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then24, %while.end.loopexit.i
-  %path_len.0 = phi i32 [ %inc.reass, %if.then24 ], [ %add15, %while.end.loopexit.i ]
+  %path_len.0 = phi i32 [ %inc, %if.then24 ], [ %add15, %while.end.loopexit.i ]
   %idxprom27 = zext nneg i32 %path_len.0 to i64
   %arrayidx28 = getelementptr inbounds [96 x i8], ptr @for_each_note_helper.path, i64 0, i64 %idxprom27
   store i8 0, ptr %arrayidx28, align 1
@@ -2364,8 +2362,8 @@ sw.epilog:                                        ; preds = %if.end, %redo, %con
   br i1 %tobool53.not, label %for.cond, label %return
 
 return:                                           ; preds = %sw.epilog, %for.cond, %for.cond.us, %sw.epilog.us, %for.cond.us.us, %sw.epilog.us.us
-  %.us-phi85 = phi i32 [ %ret.2.us.us, %sw.epilog.us.us ], [ 0, %for.cond.us.us ], [ %ret.2.us, %sw.epilog.us ], [ 0, %for.cond.us ], [ %ret.2, %sw.epilog ], [ 0, %for.cond ]
-  ret i32 %.us-phi85
+  %.us-phi84 = phi i32 [ %ret.2.us.us, %sw.epilog.us.us ], [ 0, %for.cond.us.us ], [ %ret.2.us, %sw.epilog.us ], [ 0, %for.cond.us ], [ %ret.2, %sw.epilog ], [ 0, %for.cond ]
+  ret i32 %.us-phi84
 }
 
 ; Function Attrs: nounwind uwtable

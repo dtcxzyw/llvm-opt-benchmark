@@ -339,10 +339,6 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %140 = insertelement <8 x i64> poison, i64 %92, i64 0
   %141 = shufflevector <8 x i64> %140, <8 x i64> poison, <8 x i32> zeroinitializer
   %142 = icmp eq i64 %126, 0
-  %invariant.op = add nuw nsw i64 %90, 1
-  %invariant.op21 = or disjoint i64 %94, 1
-  %invariant.op23 = add nuw nsw i64 %95, 1
-  %invariant.op25 = add nuw nsw i64 %91, 1
   call void @llvm.assume(i1 %97)
   br label %143
 
@@ -351,7 +347,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   ret void
 
 143:                                              ; preds = %.loopexit, %84
-  %144 = phi i64 [ 0, %84 ], [ %909, %.loopexit ]
+  %144 = phi i64 [ 0, %84 ], [ %913, %.loopexit ]
   %145 = mul i64 %144, %86
   %146 = getelementptr i8, ptr %33, i64 %145
   %147 = add i64 %145, 1
@@ -382,7 +378,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %167 = zext i32 %166 to i64
   %168 = add nuw nsw i64 %167, 1
   %169 = icmp ult i32 %166, 15
-  br i1 %169, label %.preheader38, label %170
+  br i1 %169, label %.preheader32, label %170
 
 170:                                              ; preds = %162
   %171 = getelementptr i8, ptr %146, i64 %163
@@ -392,7 +388,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %175 = icmp ult ptr %171, %174
   %176 = icmp ult ptr %146, %173
   %177 = and i1 %175, %176
-  br i1 %177, label %.preheader38, label %178
+  br i1 %177, label %.preheader32, label %178
 
 178:                                              ; preds = %170
   %179 = icmp ult i32 %166, 31
@@ -630,7 +626,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %306 = add nuw nsw i64 %181, %163
   %307 = and i64 %168, 16
   %308 = icmp eq i64 %307, 0
-  br i1 %308, label %.preheader38, label %309
+  br i1 %308, label %.preheader32, label %309
 
 309:                                              ; preds = %305, %178
   %310 = phi i64 [ %306, %305 ], [ %163, %178 ]
@@ -768,14 +764,14 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
 389:                                              ; preds = %322
   %390 = add nuw nsw i64 %312, %163
   %391 = icmp eq i64 %168, %312
-  br i1 %391, label %.loopexit19, label %.preheader38
+  br i1 %391, label %.loopexit19, label %.preheader32
 
-.preheader38:                                     ; preds = %389, %305, %170, %162
-  %.ph39 = phi i64 [ %390, %389 ], [ %306, %305 ], [ %163, %170 ], [ %163, %162 ]
+.preheader32:                                     ; preds = %389, %305, %170, %162
+  %.ph33 = phi i64 [ %390, %389 ], [ %306, %305 ], [ %163, %170 ], [ %163, %162 ]
   br label %392
 
-392:                                              ; preds = %.preheader38, %392
-  %393 = phi i64 [ %403, %392 ], [ %.ph39, %.preheader38 ]
+392:                                              ; preds = %.preheader32, %392
+  %393 = phi i64 [ %403, %392 ], [ %.ph33, %.preheader32 ]
   %394 = trunc i64 %393 to i32
   %395 = icmp sgt i32 %34, %394
   call void @llvm.assume(i1 %395)
@@ -804,14 +800,14 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   call void @llvm.assume(i1 %411)
   %412 = zext nneg i32 %409 to i64
   %413 = getelementptr inbounds float, ptr %53, i64 %412
-  switch i32 %18, label %908 [
+  switch i32 %18, label %912 [
     i32 2, label %414
     i32 3, label %545
     i32 4, label %703
   ]
 
 414:                                              ; preds = %.loopexit19
-  br i1 %125, label %.preheader33, label %415
+  br i1 %125, label %.preheader27, label %415
 
 415:                                              ; preds = %414
   %416 = icmp ult ptr %154, %109
@@ -821,7 +817,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %420 = icmp ult ptr %33, %155
   %421 = and i1 %419, %420
   %422 = or i1 %418, %421
-  br i1 %422, label %.preheader33, label %.preheader
+  br i1 %422, label %.preheader27, label %.preheader
 
 .preheader:                                       ; preds = %415, %.preheader
   %423 = phi i64 [ %495, %.preheader ], [ 0, %415 ]
@@ -927,14 +923,14 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   br i1 %497, label %498, label %.preheader, !llvm.loop !128
 
 498:                                              ; preds = %.preheader
-  br i1 %142, label %.loopexit, label %.preheader33
+  br i1 %142, label %.loopexit, label %.preheader27
 
-.preheader33:                                     ; preds = %498, %415, %414
+.preheader27:                                     ; preds = %498, %415, %414
   %.ph = phi i64 [ %127, %498 ], [ 0, %414 ], [ 0, %415 ]
   br label %499
 
-499:                                              ; preds = %.preheader33, %532
-  %500 = phi i64 [ %543, %532 ], [ %.ph, %.preheader33 ]
+499:                                              ; preds = %.preheader27, %532
+  %500 = phi i64 [ %543, %532 ], [ %.ph, %.preheader27 ]
   %501 = icmp ult i64 %500, %86
   call void @llvm.assume(i1 %501)
   %502 = getelementptr inbounds i8, ptr %146, i64 %500
@@ -995,7 +991,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
 
 545:                                              ; preds = %.loopexit19
   call void @llvm.assume(i1 %98)
-  br i1 %125, label %.preheader34, label %546
+  br i1 %125, label %.preheader28, label %546
 
 546:                                              ; preds = %545
   %547 = icmp ult ptr %154, %113
@@ -1009,7 +1005,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %555 = icmp ult ptr %33, %155
   %556 = and i1 %554, %555
   %557 = or i1 %556, %553
-  br i1 %557, label %.preheader34, label %.preheader15
+  br i1 %557, label %.preheader28, label %.preheader15
 
 .preheader15:                                     ; preds = %546, %.preheader15
   %558 = phi i64 [ %646, %.preheader15 ], [ 0, %546 ]
@@ -1139,14 +1135,14 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   br i1 %648, label %649, label %.preheader15, !llvm.loop !140
 
 649:                                              ; preds = %.preheader15
-  br i1 %142, label %.loopexit, label %.preheader34
+  br i1 %142, label %.loopexit, label %.preheader28
 
-.preheader34:                                     ; preds = %649, %546, %545
-  %.ph35 = phi i64 [ %127, %649 ], [ 0, %545 ], [ 0, %546 ]
+.preheader28:                                     ; preds = %649, %546, %545
+  %.ph29 = phi i64 [ %127, %649 ], [ 0, %545 ], [ 0, %546 ]
   br label %650
 
-650:                                              ; preds = %.preheader34, %691
-  %651 = phi i64 [ %701, %691 ], [ %.ph35, %.preheader34 ]
+650:                                              ; preds = %.preheader28, %691
+  %651 = phi i64 [ %701, %691 ], [ %.ph29, %.preheader28 ]
   %652 = icmp ult i64 %651, %86
   call void @llvm.assume(i1 %652)
   %653 = getelementptr inbounds i8, ptr %146, i64 %651
@@ -1418,7 +1414,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   br i1 %843, label %.loopexit, label %.preheader16
 
 .preheader16:                                     ; preds = %841, %.preheader16
-  %844 = phi i64 [ %906, %.preheader16 ], [ %842, %841 ]
+  %844 = phi i64 [ %910, %.preheader16 ], [ %842, %841 ]
   %845 = icmp ult i64 %844, %86
   call void @llvm.assume(i1 %845)
   %846 = getelementptr inbounds i8, ptr %146, i64 %844
@@ -1462,51 +1458,51 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   call void @llvm.assume(i1 %878)
   %879 = getelementptr inbounds i8, ptr %146, i64 %877
   %880 = load i8, ptr %879, align 1, !tbaa !88
-  %.reass = add nuw i64 %844, %invariant.op
-  %881 = trunc nuw i64 %.reass to i32
-  %882 = icmp ugt i32 %34, %881
-  call void @llvm.assume(i1 %882)
-  %883 = getelementptr inbounds i8, ptr %146, i64 %.reass
-  %884 = load i8, ptr %883, align 1, !tbaa !88
-  %.reass22 = add nuw i64 %844, %invariant.op21
-  %885 = trunc i64 %.reass22 to i32
-  %886 = icmp ugt i32 %34, %885
-  call void @llvm.assume(i1 %886)
-  %887 = getelementptr inbounds i8, ptr %146, i64 %.reass22
-  %888 = load i8, ptr %887, align 1, !tbaa !88
-  %.reass24 = add nuw i64 %844, %invariant.op23
-  %889 = trunc i64 %.reass24 to i32
-  %890 = icmp ugt i32 %34, %889
-  call void @llvm.assume(i1 %890)
-  %891 = getelementptr inbounds i8, ptr %146, i64 %.reass24
-  %892 = load i8, ptr %891, align 1, !tbaa !88
-  %893 = zext i8 %892 to i32
-  %894 = shl nuw i32 %893, 24
-  %895 = zext i8 %888 to i32
-  %896 = shl nuw nsw i32 %895, 16
-  %897 = zext i8 %884 to i32
-  %898 = shl nuw nsw i32 %897, 8
-  %899 = zext i8 %880 to i32
-  %900 = or disjoint i32 %898, %899
-  %901 = or disjoint i32 %900, %896
-  %902 = or disjoint i32 %901, %894
-  %903 = call noundef i32 @llvm.bswap.i32(i32 %902)
-  %.reass26 = add nuw i64 %844, %invariant.op25
-  %904 = icmp ule i64 %.reass26, %92
-  call void @llvm.assume(i1 %904)
-  %905 = getelementptr inbounds float, ptr %413, i64 %.reass26
-  store i32 %903, ptr %905, align 4, !tbaa !123
-  %906 = add nuw nsw i64 %844, 2
-  %907 = icmp eq i64 %906, %93
-  br i1 %907, label %.loopexit, label %.preheader16, !llvm.loop !155
+  %881 = add nuw nsw i64 %877, %90
+  %882 = trunc nuw i64 %881 to i32
+  %883 = icmp ugt i32 %34, %882
+  call void @llvm.assume(i1 %883)
+  %884 = getelementptr inbounds i8, ptr %146, i64 %881
+  %885 = load i8, ptr %884, align 1, !tbaa !88
+  %886 = add nuw nsw i64 %877, %94
+  %887 = trunc i64 %886 to i32
+  %888 = icmp ugt i32 %34, %887
+  call void @llvm.assume(i1 %888)
+  %889 = getelementptr inbounds i8, ptr %146, i64 %886
+  %890 = load i8, ptr %889, align 1, !tbaa !88
+  %891 = add nuw nsw i64 %877, %95
+  %892 = trunc i64 %891 to i32
+  %893 = icmp ugt i32 %34, %892
+  call void @llvm.assume(i1 %893)
+  %894 = getelementptr inbounds i8, ptr %146, i64 %891
+  %895 = load i8, ptr %894, align 1, !tbaa !88
+  %896 = zext i8 %895 to i32
+  %897 = shl nuw i32 %896, 24
+  %898 = zext i8 %890 to i32
+  %899 = shl nuw nsw i32 %898, 16
+  %900 = zext i8 %885 to i32
+  %901 = shl nuw nsw i32 %900, 8
+  %902 = zext i8 %880 to i32
+  %903 = or disjoint i32 %901, %902
+  %904 = or disjoint i32 %903, %899
+  %905 = or disjoint i32 %904, %897
+  %906 = call noundef i32 @llvm.bswap.i32(i32 %905)
+  %907 = add nuw nsw i64 %877, %91
+  %908 = icmp ule i64 %907, %92
+  call void @llvm.assume(i1 %908)
+  %909 = getelementptr inbounds float, ptr %413, i64 %907
+  store i32 %906, ptr %909, align 4, !tbaa !123
+  %910 = add nuw nsw i64 %844, 2
+  %911 = icmp eq i64 %910, %93
+  br i1 %911, label %.loopexit, label %.preheader16, !llvm.loop !155
 
-908:                                              ; preds = %.loopexit19
+912:                                              ; preds = %.loopexit19
   unreachable
 
 .loopexit:                                        ; preds = %.preheader16, %691, %532, %841, %801, %649, %498
-  %909 = add nuw nsw i64 %144, 1
-  %910 = icmp eq i64 %909, %11
-  br i1 %910, label %.loopexit20, label %143, !llvm.loop !156
+  %913 = add nuw nsw i64 %144, 1
+  %914 = icmp eq i64 %913, %11
+  br i1 %914, label %.loopexit20, label %143, !llvm.loop !156
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

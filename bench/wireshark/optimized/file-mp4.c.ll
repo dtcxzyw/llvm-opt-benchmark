@@ -1142,13 +1142,10 @@ define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %
   %24 = getelementptr inbounds i8, ptr %2, i64 408
   %25 = getelementptr inbounds i8, ptr %6, i64 8
   %26 = getelementptr inbounds i8, ptr %5, i64 8
-  %invariant.op = select i1 %22, i32 16, i32 8
-  %invariant.op62 = or disjoint i32 %invariant.op, 2
-  %invariant.op64 = or disjoint i32 %invariant.op, 4
   br label %27
 
 27:                                               ; preds = %.lr.ph, %timescaled_val_to_str.exit58
-  %.061 = phi i32 [ %21, %.lr.ph ], [ %.reass65, %timescaled_val_to_str.exit58 ]
+  %.061 = phi i32 [ %21, %.lr.ph ], [ %80, %timescaled_val_to_str.exit58 ]
   %.05560 = phi i32 [ 0, %.lr.ph ], [ %29, %timescaled_val_to_str.exit58 ]
   %28 = load i32, ptr @ett_mp4_entry, align 4
   %29 = add nuw i32 %.05560, 1
@@ -1234,20 +1231,20 @@ timescaled_val_to_str.exit58:                     ; preds = %62, %64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %72 = load i32, ptr @hf_mp4_elst_media_time, align 4
   %73 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format(ptr noundef %30, i32 noundef %72, ptr noundef %0, i32 noundef %52, i32 noundef %23, i64 noundef %.054, ptr noundef nonnull @.str.178, ptr noundef %.0.i57, i64 noundef %.054) #5
-  %.reass = add i32 %.061, %invariant.op
-  %74 = load i32, ptr @hf_mp4_elst_media_rate_integer, align 4
-  %75 = call ptr @proto_tree_add_item_ret_int(ptr noundef %30, i32 noundef %74, ptr noundef %0, i32 noundef %.reass, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #5
-  %.reass63 = add i32 %.061, %invariant.op62
-  %76 = load i32, ptr @hf_mp4_elst_media_rate_fraction, align 4
-  %77 = call ptr @proto_tree_add_item_ret_int(ptr noundef %30, i32 noundef %76, ptr noundef %0, i32 noundef %.reass63, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #5
-  %.reass65 = add i32 %.061, %invariant.op64
-  %78 = load ptr, ptr %8, align 8
-  %79 = load i32, ptr %9, align 4
-  %80 = load i32, ptr %10, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.179, ptr noundef %.0.i, ptr noundef %.0.i57, i32 noundef %79, i32 noundef %80) #5
-  %81 = load i32, ptr %7, align 4
-  %82 = icmp ult i32 %29, %81
-  br i1 %82, label %27, label %._crit_edge, !llvm.loop !15
+  %74 = add i32 %52, %23
+  %75 = load i32, ptr @hf_mp4_elst_media_rate_integer, align 4
+  %76 = call ptr @proto_tree_add_item_ret_int(ptr noundef %30, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #5
+  %77 = add i32 %74, 2
+  %78 = load i32, ptr @hf_mp4_elst_media_rate_fraction, align 4
+  %79 = call ptr @proto_tree_add_item_ret_int(ptr noundef %30, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #5
+  %80 = add i32 %74, 4
+  %81 = load ptr, ptr %8, align 8
+  %82 = load i32, ptr %9, align 4
+  %83 = load i32, ptr %10, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %81, ptr noundef nonnull @.str.179, ptr noundef %.0.i, ptr noundef %.0.i57, i32 noundef %82, i32 noundef %83) #5
+  %84 = load i32, ptr %7, align 4
+  %85 = icmp ult i32 %29, %84
+  br i1 %85, label %27, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %timescaled_val_to_str.exit58, %4
   ret void
@@ -1271,18 +1268,18 @@ define internal fastcc void @dissect_mp4_sidx_body(ptr noundef %0, i32 noundef %
   %17 = add i32 %1, 12
   %18 = icmp eq i8 %5, 0
   %. = select i1 %18, i32 4, i32 8
-  %.12 = select i1 %18, i32 16, i32 20
-  %.13 = select i1 %18, i32 20, i32 28
+  %.14 = select i1 %18, i32 16, i32 20
+  %.16 = select i1 %18, i32 20, i32 28
   %hf_mp4_sidx_earliest_presentation_time_v0.val = load i32, ptr @hf_mp4_sidx_earliest_presentation_time_v0, align 4
   %hf_mp4_sidx_earliest_presentation_time.val = load i32, ptr @hf_mp4_sidx_earliest_presentation_time, align 4
   %19 = select i1 %18, i32 %hf_mp4_sidx_earliest_presentation_time_v0.val, i32 %hf_mp4_sidx_earliest_presentation_time.val
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %17, i32 noundef %., i32 noundef 0) #5
-  %21 = add i32 %.12, %1
+  %21 = add i32 %.14, %1
   %hf_mp4_sidx_first_offset_v0.val = load i32, ptr @hf_mp4_sidx_first_offset_v0, align 4
   %hf_mp4_sidx_first_offset.val = load i32, ptr @hf_mp4_sidx_first_offset, align 4
   %22 = select i1 %18, i32 %hf_mp4_sidx_first_offset_v0.val, i32 %hf_mp4_sidx_first_offset.val
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef %., i32 noundef 0) #5
-  %24 = add i32 %.13, %1
+  %24 = add i32 %.16, %1
   %25 = load i32, ptr @hf_mp4_sidx_reserved, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef 0) #5
   %27 = add i32 %24, 2
@@ -1297,7 +1294,7 @@ define internal fastcc void @dissect_mp4_sidx_body(ptr noundef %0, i32 noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.15 = phi i32 [ %.1.reass, %.lr.ph ], [ %.11, %.lr.ph.preheader ]
+  %.15 = phi i32 [ %.1, %.lr.ph ], [ %.11, %.lr.ph.preheader ]
   %.1.in4 = phi i32 [ %41, %.lr.ph ], [ %24, %.lr.ph.preheader ]
   %.0683 = phi i16 [ %48, %.lr.ph ], [ 1, %.lr.ph.preheader ]
   %31 = zext i16 %.0683 to i32
@@ -1318,7 +1315,7 @@ define internal fastcc void @dissect_mp4_sidx_body(ptr noundef %0, i32 noundef %
   %46 = load i32, ptr @hf_mp4_sidx_sap_delta_time, align 4
   %47 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %46, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #5
   %48 = add i16 %.0683, 1
-  %.1.reass = add i32 %.1.in4, 16
+  %.1 = add i32 %.1.in4, 16
   %.not = icmp ugt i16 %48, %28
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 

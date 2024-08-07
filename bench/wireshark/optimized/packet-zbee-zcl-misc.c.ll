@@ -530,8 +530,8 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   %12 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_mode_sequence, align 4
   %13 = load i32, ptr @ett_zbee_zcl_thermostat_schedule_mode, align 4
   %14 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef 3, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @dissect_zcl_thermostat_schedule_mode.thermostat_schedule_modes, i32 noundef 0) #2
-  %.not57 = icmp eq i8 %4, 0
-  br i1 %.not57, label %._crit_edge, label %.lr.ph
+  %.not55 = icmp eq i8 %4, 0
+  br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %15 = getelementptr inbounds i8, ptr %3, i64 8
@@ -562,8 +562,8 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !4
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %.047.us = phi i32 [ %.reass54, %.lr.ph.split.us.split ], [ 4, %.lr.ph.split.us ]
-  %.04446.us = phi i32 [ %37, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %.047.us = phi i32 [ %37, %.lr.ph.split.us.split ], [ 4, %.lr.ph.split.us ]
+  %.04446.us = phi i32 [ %38, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
   %26 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.047.us) #2
   %27 = zext i16 %26 to i64
   %28 = mul nuw nsw i64 %27, 60
@@ -577,60 +577,60 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   %34 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_cool, align 4
   %35 = fdiv float %33, 1.000000e+02
   %36 = call ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %34, ptr noundef %1, i32 noundef %31, i32 noundef 2, float noundef %35) #2
-  %.reass54 = add nuw nsw i32 %.047.us, 4
-  %37 = add nuw nsw i32 %.04446.us, 1
-  %exitcond64.not = icmp eq i32 %37, %6
+  %37 = add nuw nsw i32 %.047.us, 4
+  %38 = add nuw nsw i32 %.04446.us, 1
+  %exitcond64.not = icmp eq i32 %38, %6
   br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not45, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %.047.us48 = phi i32 [ %49, %.lr.ph.split.split.us ], [ 4, %.lr.ph.split ]
-  %.04446.us49 = phi i32 [ %50, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %38 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.047.us48) #2
-  %39 = zext i16 %38 to i64
-  %40 = mul nuw nsw i64 %39, 60
-  store i64 %40, ptr %3, align 8
+  %.047.us48 = phi i32 [ %50, %.lr.ph.split.split.us ], [ 4, %.lr.ph.split ]
+  %.04446.us49 = phi i32 [ %51, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %39 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.047.us48) #2
+  %40 = zext i16 %39 to i64
+  %41 = mul nuw nsw i64 %40, 60
+  store i64 %41, ptr %3, align 8
   store i32 0, ptr %15, align 8
-  %41 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_time, align 4
-  %42 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %41, ptr noundef %1, i32 noundef %.047.us48, i32 noundef 2, ptr noundef nonnull %3) #2
-  %43 = or disjoint i32 %.047.us48, 2
-  %44 = call signext i16 @tvb_get_letohis(ptr noundef %1, i32 noundef %43) #2
-  %45 = sitofp i16 %44 to float
-  %46 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_heat, align 4
-  %47 = fdiv float %45, 1.000000e+02
-  %48 = call ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %46, ptr noundef %1, i32 noundef %43, i32 noundef 2, float noundef %47) #2
-  %49 = add nuw nsw i32 %.047.us48, 4
-  %50 = add nuw nsw i32 %.04446.us49, 1
-  %exitcond63.not = icmp eq i32 %50, %6
+  %42 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_time, align 4
+  %43 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %42, ptr noundef %1, i32 noundef %.047.us48, i32 noundef 2, ptr noundef nonnull %3) #2
+  %44 = or disjoint i32 %.047.us48, 2
+  %45 = call signext i16 @tvb_get_letohis(ptr noundef %1, i32 noundef %44) #2
+  %46 = sitofp i16 %45 to float
+  %47 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_heat, align 4
+  %48 = fdiv float %46, 1.000000e+02
+  %49 = call ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %47, ptr noundef %1, i32 noundef %44, i32 noundef 2, float noundef %48) #2
+  %50 = add nuw nsw i32 %.047.us48, 4
+  %51 = add nuw nsw i32 %.04446.us49, 1
+  %exitcond63.not = icmp eq i32 %51, %6
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !4
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
-  %.047 = phi i32 [ %.reass, %.lr.ph.split.split ], [ 4, %.lr.ph.split ]
-  %.04446 = phi i32 [ %68, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %51 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.047) #2
-  %52 = zext i16 %51 to i64
-  %53 = mul nuw nsw i64 %52, 60
-  store i64 %53, ptr %3, align 8
+  %.047 = phi i32 [ %69, %.lr.ph.split.split ], [ 4, %.lr.ph.split ]
+  %.04446 = phi i32 [ %70, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
+  %52 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.047) #2
+  %53 = zext i16 %52 to i64
+  %54 = mul nuw nsw i64 %53, 60
+  store i64 %54, ptr %3, align 8
   store i32 0, ptr %15, align 8
-  %54 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_time, align 4
-  %55 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %54, ptr noundef %1, i32 noundef %.047, i32 noundef 2, ptr noundef nonnull %3) #2
-  %56 = add nuw nsw i32 %.047, 2
-  %57 = call signext i16 @tvb_get_letohis(ptr noundef %1, i32 noundef %56) #2
-  %58 = sitofp i16 %57 to float
-  %59 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_heat, align 4
-  %60 = fdiv float %58, 1.000000e+02
-  %61 = call ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %59, ptr noundef %1, i32 noundef %56, i32 noundef 2, float noundef %60) #2
-  %62 = add nuw nsw i32 %.047, 4
-  %63 = call signext i16 @tvb_get_letohis(ptr noundef %1, i32 noundef %62) #2
-  %64 = sitofp i16 %63 to float
-  %65 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_cool, align 4
-  %66 = fdiv float %64, 1.000000e+02
-  %67 = call ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef %62, i32 noundef 2, float noundef %66) #2
-  %.reass = add nuw nsw i32 %.047, 6
-  %68 = add nuw nsw i32 %.04446, 1
-  %exitcond.not = icmp eq i32 %68, %6
+  %55 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_time, align 4
+  %56 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %55, ptr noundef %1, i32 noundef %.047, i32 noundef 2, ptr noundef nonnull %3) #2
+  %57 = add nuw nsw i32 %.047, 2
+  %58 = call signext i16 @tvb_get_letohis(ptr noundef %1, i32 noundef %57) #2
+  %59 = sitofp i16 %58 to float
+  %60 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_heat, align 4
+  %61 = fdiv float %59, 1.000000e+02
+  %62 = call ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %60, ptr noundef %1, i32 noundef %57, i32 noundef 2, float noundef %61) #2
+  %63 = add nuw nsw i32 %.047, 4
+  %64 = call signext i16 @tvb_get_letohis(ptr noundef %1, i32 noundef %63) #2
+  %65 = sitofp i16 %64 to float
+  %66 = load i32, ptr @hf_zbee_zcl_thermostat_schedule_cool, align 4
+  %67 = fdiv float %65, 1.000000e+02
+  %68 = call ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %66, ptr noundef %1, i32 noundef %63, i32 noundef 2, float noundef %67) #2
+  %69 = add nuw nsw i32 %.047, 6
+  %70 = add nuw nsw i32 %.04446, 1
+  %exitcond.not = icmp eq i32 %70, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %2

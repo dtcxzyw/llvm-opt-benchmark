@@ -932,7 +932,7 @@ define internal fastcc noundef i32 @dissect_struct_rdma_desc(ptr noundef %0, ptr
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.034 = phi i32 [ %.0.reass, %.lr.ph ], [ %.031, %3 ]
+  %.034 = phi i32 [ %.0, %.lr.ph ], [ %.031, %3 ]
   %.0.in33 = phi i32 [ %19, %.lr.ph ], [ %2, %3 ]
   %.03032 = phi i32 [ %22, %.lr.ph ], [ 0, %3 ]
   %15 = load i32, ptr @ett_lnet_rdma_frag, align 4
@@ -943,13 +943,13 @@ define internal fastcc noundef i32 @dissect_struct_rdma_desc(ptr noundef %0, ptr
   %20 = load i32, ptr @hf_lnet_rdma_frag_addr, align 4
   %21 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 8, i32 noundef -2147483648) #5
   %22 = add nuw i32 %.03032, 1
-  %.0.reass = add i32 %.0.in33, 20
+  %.0 = add i32 %.0.in33, 20
   %23 = load i32, ptr %4, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0.lcssa = phi i32 [ %.031, %3 ], [ %.0.reass, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %.031, %3 ], [ %.0, %.lr.ph ]
   %25 = sub i32 %.0.lcssa, %2
   call void @proto_item_set_len(ptr noundef %6, i32 noundef %25) #5
   ret i32 %.0.lcssa

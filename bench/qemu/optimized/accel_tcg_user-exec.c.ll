@@ -152,7 +152,6 @@ if.then6:                                         ; preds = %if.else
 if.else11:                                        ; preds = %if.else
   %2 = load i64, ptr @qemu_host_page_mask, align 8
   %and12 = and i64 %2, %address
-  %invariant.op = add i64 %and12, 4095
   br label %for.body
 
 for.body:                                         ; preds = %if.else11, %if.end29
@@ -177,8 +176,8 @@ if.then17:                                        ; preds = %for.body
 
 if.then23:                                        ; preds = %if.then17
   %or24 = or i32 %or19, 2
-  %sub26.reass = add i64 %i.035, %invariant.op
-  %call27 = tail call fastcc zeroext i1 @pageflags_set_clear(i64 noundef %add14, i64 noundef %sub26.reass, i32 noundef 2, i32 noundef 0)
+  %sub26 = add i64 %add14, 4095
+  %call27 = tail call fastcc zeroext i1 @pageflags_set_clear(i64 noundef %add14, i64 noundef %sub26, i32 noundef 2, i32 noundef 0)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then17, %if.then23, %for.body

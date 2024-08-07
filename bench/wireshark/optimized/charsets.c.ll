@@ -456,72 +456,72 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr nocapture noundef readonly %1,
   %.3.us = phi i32 [ %.173.us, %51 ], [ %35, %42 ], [ %.173.us, %.lr.ph.split.us ], [ %35, %37 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink) #6
   %53 = add i32 %.3.us, 2
-  %.reass.us = add i32 %.3.us, 3
-  %54 = icmp slt i32 %.reass.us, %2
-  br i1 %54, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !10
+  %54 = add i32 %.3.us, 3
+  %55 = icmp slt i32 %54, %2
+  br i1 %55, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !10
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %72
-  %.173 = phi i32 [ %73, %72 ], [ %.173.ph, %.lr.ph.split.preheader ]
-  %55 = sext i32 %.173 to i64
-  %56 = getelementptr i8, ptr %1, i64 %55
-  %.val62 = load i16, ptr %56, align 1
-  %57 = zext i16 %.val62 to i32
-  %58 = and i16 %.val62, -1024
-  switch i16 %58, label %71 [
-    i16 -10240, label %59
-    i16 -9216, label %72
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %73
+  %.173 = phi i32 [ %74, %73 ], [ %.173.ph, %.lr.ph.split.preheader ]
+  %56 = sext i32 %.173 to i64
+  %57 = getelementptr i8, ptr %1, i64 %56
+  %.val62 = load i16, ptr %57, align 1
+  %58 = zext i16 %.val62 to i32
+  %59 = and i16 %.val62, -1024
+  switch i16 %59, label %72 [
+    i16 -10240, label %60
+    i16 -9216, label %73
   ]
 
-59:                                               ; preds = %.lr.ph.split
-  %60 = add i32 %.173, 2
-  %61 = add i32 %.173, 3
-  %.not = icmp slt i32 %61, %2
-  br i1 %.not, label %62, label %.split.us
+60:                                               ; preds = %.lr.ph.split
+  %61 = add i32 %.173, 2
+  %62 = add i32 %.173, 3
+  %.not = icmp slt i32 %62, %2
+  br i1 %.not, label %63, label %.split.us
 
-.split.us:                                        ; preds = %34, %59
-  %.us-phi = phi i32 [ %60, %59 ], [ %35, %34 ]
+.split.us:                                        ; preds = %34, %60
+  %.us-phi = phi i32 [ %61, %60 ], [ %35, %34 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef 65533) #6
   br label %.loopexit
 
-62:                                               ; preds = %59
-  %63 = sext i32 %60 to i64
-  %64 = getelementptr i8, ptr %1, i64 %63
-  %.val = load i16, ptr %64, align 1
-  %65 = and i16 %.val, -1024
-  %or.cond7 = icmp eq i16 %65, -9216
-  br i1 %or.cond7, label %66, label %72
+63:                                               ; preds = %60
+  %64 = sext i32 %61 to i64
+  %65 = getelementptr i8, ptr %1, i64 %64
+  %.val = load i16, ptr %65, align 1
+  %66 = and i16 %.val, -1024
+  %or.cond7 = icmp eq i16 %66, -9216
+  br i1 %or.cond7, label %67, label %73
 
-66:                                               ; preds = %62
-  %67 = zext i16 %.val to i32
-  %68 = shl nuw nsw i32 %57, 10
-  %69 = add nsw i32 %68, -56613888
-  %70 = add nsw i32 %69, %67
-  br label %72
+67:                                               ; preds = %63
+  %68 = zext i16 %.val to i32
+  %69 = shl nuw nsw i32 %58, 10
+  %70 = add nsw i32 %69, -56613888
+  %71 = add nsw i32 %70, %68
+  br label %73
 
-71:                                               ; preds = %.lr.ph.split
-  br label %72
+72:                                               ; preds = %.lr.ph.split
+  br label %73
 
-72:                                               ; preds = %.lr.ph.split, %62, %66, %71
-  %.sink92 = phi i32 [ %70, %66 ], [ %57, %71 ], [ 65533, %62 ], [ 65533, %.lr.ph.split ]
-  %.3 = phi i32 [ %60, %66 ], [ %.173, %71 ], [ %60, %62 ], [ %.173, %.lr.ph.split ]
+73:                                               ; preds = %.lr.ph.split, %63, %67, %72
+  %.sink92 = phi i32 [ %71, %67 ], [ %58, %72 ], [ 65533, %63 ], [ 65533, %.lr.ph.split ]
+  %.3 = phi i32 [ %61, %67 ], [ %.173, %72 ], [ %61, %63 ], [ %.173, %.lr.ph.split ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink92) #6
-  %73 = add i32 %.3, 2
-  %.reass = add i32 %.3, 3
-  %74 = icmp slt i32 %.reass, %2
-  br i1 %74, label %.lr.ph.split, label %.loopexit, !llvm.loop !10
+  %74 = add i32 %.3, 2
+  %75 = add i32 %.3, 3
+  %76 = icmp slt i32 %75, %2
+  br i1 %76, label %.lr.ph.split, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %52, %72, %.thread, %20, %.split.us
-  %.2 = phi i32 [ %.us-phi, %.split.us ], [ %.0, %20 ], [ 2, %.thread ], [ %73, %72 ], [ %53, %52 ]
-  %75 = icmp slt i32 %.2, %2
-  br i1 %75, label %76, label %77
+.loopexit:                                        ; preds = %52, %73, %.thread, %20, %.split.us
+  %.2 = phi i32 [ %.us-phi, %.split.us ], [ %.0, %20 ], [ 2, %.thread ], [ %74, %73 ], [ %53, %52 ]
+  %77 = icmp slt i32 %.2, %2
+  br i1 %77, label %78, label %79
 
-76:                                               ; preds = %.loopexit
+78:                                               ; preds = %.loopexit
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef 65533) #6
-  br label %77
+  br label %79
 
-77:                                               ; preds = %76, %.loopexit
-  %78 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7) #6
-  ret ptr %78
+79:                                               ; preds = %78, %.loopexit
+  %80 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7) #6
+  ret ptr %80
 }
 
 ; Function Attrs: nounwind uwtable

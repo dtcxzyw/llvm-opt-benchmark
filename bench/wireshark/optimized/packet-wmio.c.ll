@@ -572,252 +572,246 @@ define internal fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr nounde
   %26 = shl i32 %25, 3
   %27 = add i32 %1, 9
   %28 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %27, i32 noundef -2147483648) #4
-  %29 = add i32 %24, 4
+  %29 = add i32 %24, 8
   %30 = add i32 %29, %26
   %31 = add i32 %30, %28
-  %32 = add i32 %31, 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  %33 = load i32, ptr @hf_wmio_class_header, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %33, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #4
-  %35 = load i32, ptr @ett_wmio_class_header, align 4
-  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #4
-  %37 = load i32, ptr @hf_wmio_class_header_partlength, align 4
-  %38 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
-  %39 = load i32, ptr %12, align 4
-  %40 = add i32 %1, 5
-  %41 = load i32, ptr @hf_wmio_class_header_nameref, align 4
-  %42 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %40, i32 noundef %41, ptr noundef readonly %2, ptr noundef %36, i32 noundef 0, i32 noundef %32)
-  %43 = load i32, ptr @hf_wmio_class_header_ndtablevaluetablelength, align 4
-  %44 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13) #4
-  %45 = load i32, ptr %13, align 4
-  call void @proto_item_set_len(ptr noundef %34, i32 noundef 13) #4
+  %32 = load i32, ptr @hf_wmio_class_header, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %32, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #4
+  %34 = load i32, ptr @ett_wmio_class_header, align 4
+  %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #4
+  %36 = load i32, ptr @hf_wmio_class_header_partlength, align 4
+  %37 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
+  %38 = load i32, ptr %12, align 4
+  %39 = add i32 %1, 5
+  %40 = load i32, ptr @hf_wmio_class_header_nameref, align 4
+  %41 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %39, i32 noundef %40, ptr noundef readonly %2, ptr noundef %35, i32 noundef 0, i32 noundef %31)
+  %42 = load i32, ptr @hf_wmio_class_header_ndtablevaluetablelength, align 4
+  %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %35, i32 noundef %42, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13) #4
+  %44 = load i32, ptr %13, align 4
+  call void @proto_item_set_len(ptr noundef %33, i32 noundef 13) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %46 = load i32, ptr @hf_wmio_class_derivation, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %46, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef 0) #4
-  %48 = load i32, ptr @ett_wmio_class_derivation, align 4
-  %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #4
-  %50 = load i32, ptr @hf_wmio_class_derivation_length, align 4
-  %51 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #4
-  %52 = add i32 %1, 17
-  %53 = load i32, ptr %11, align 4
-  %54 = add i32 %53, %20
-  %55 = icmp ult i32 %52, %54
-  br i1 %55, label %.lr.ph.i.i, label %dissect_wmio_encoding_derivationlist.exit.i
+  %45 = load i32, ptr @hf_wmio_class_derivation, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %45, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef 0) #4
+  %47 = load i32, ptr @ett_wmio_class_derivation, align 4
+  %48 = call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #4
+  %49 = load i32, ptr @hf_wmio_class_derivation_length, align 4
+  %50 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #4
+  %51 = add i32 %1, 17
+  %52 = load i32, ptr %11, align 4
+  %53 = add i32 %52, %20
+  %54 = icmp ult i32 %51, %53
+  br i1 %54, label %.lr.ph.i.i, label %dissect_wmio_encoding_derivationlist.exit.i
 
 .lr.ph.i.i:                                       ; preds = %6, %.lr.ph.i.i
-  %.016.i.i = phi i32 [ %57, %.lr.ph.i.i ], [ %52, %6 ]
-  %56 = load i32, ptr @hf_wmio_derivation_classname, align 4
-  %57 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.016.i.i, i32 noundef %56, ptr noundef readonly %2, ptr noundef %49, i32 noundef 1, i32 noundef 0)
-  %58 = load i32, ptr %11, align 4
-  %59 = add i32 %58, %20
-  %60 = icmp ult i32 %57, %59
-  br i1 %60, label %.lr.ph.i.i, label %dissect_wmio_encoding_derivationlist.exit.i, !llvm.loop !4
+  %.016.i.i = phi i32 [ %56, %.lr.ph.i.i ], [ %51, %6 ]
+  %55 = load i32, ptr @hf_wmio_derivation_classname, align 4
+  %56 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.016.i.i, i32 noundef %55, ptr noundef readonly %2, ptr noundef %48, i32 noundef 1, i32 noundef 0)
+  %57 = load i32, ptr %11, align 4
+  %58 = add i32 %57, %20
+  %59 = icmp ult i32 %56, %58
+  br i1 %59, label %.lr.ph.i.i, label %dissect_wmio_encoding_derivationlist.exit.i, !llvm.loop !4
 
 dissect_wmio_encoding_derivationlist.exit.i:      ; preds = %.lr.ph.i.i, %6
-  %.0.lcssa.i.i = phi i32 [ %52, %6 ], [ %57, %.lr.ph.i.i ]
-  %.lcssa.i.i = phi i32 [ %53, %6 ], [ %58, %.lr.ph.i.i ]
-  call void @proto_item_set_len(ptr noundef %47, i32 noundef %.lcssa.i.i) #4
+  %.0.lcssa.i.i = phi i32 [ %51, %6 ], [ %56, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i32 [ %52, %6 ], [ %57, %.lr.ph.i.i ]
+  call void @proto_item_set_len(ptr noundef %46, i32 noundef %.lcssa.i.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %61 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %.0.lcssa.i.i, ptr noundef readonly %2, ptr noundef %19, i32 noundef %32)
+  %60 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %.0.lcssa.i.i, ptr noundef readonly %2, ptr noundef %19, i32 noundef %31)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %62 = load i32, ptr @hf_wmio_propertylookuptable, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef -1, i32 noundef 0) #4
-  %64 = load i32, ptr @ett_wmio_propertylookuptable, align 4
-  %65 = call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64) #4
-  %66 = load i32, ptr @hf_wmio_propertylookuptable_count, align 4
-  %67 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %66, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
-  %68 = add i32 %61, 4
-  %invariant.op.i.i = add i32 %31, 8
-  %invariant.op22.i.i = add i32 %31, 10
-  %invariant.op24.i.i = add i32 %31, 14
-  %invariant.op26.i.i = add i32 %31, 18
-  %69 = load i32, ptr %10, align 4
-  %.not.i.i = icmp eq i32 %69, 0
+  %61 = load i32, ptr @hf_wmio_propertylookuptable, align 4
+  %62 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef -1, i32 noundef 0) #4
+  %63 = load i32, ptr @ett_wmio_propertylookuptable, align 4
+  %64 = call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %63) #4
+  %65 = load i32, ptr @hf_wmio_propertylookuptable_count, align 4
+  %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %64, i32 noundef %65, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
+  %67 = add i32 %60, 4
+  %68 = load i32, ptr %10, align 4
+  %.not.i.i = icmp eq i32 %68, 0
   br i1 %.not.i.i, label %dissect_wmio_encoding_propertylookuptable.exit.i, label %.lr.ph.i58.i
 
 .lr.ph.i58.i:                                     ; preds = %dissect_wmio_encoding_derivationlist.exit.i, %.lr.ph.i58.i
-  %.029.i.i = phi i32 [ %101, %.lr.ph.i58.i ], [ 0, %dissect_wmio_encoding_derivationlist.exit.i ]
-  %.02028.i.i = phi i32 [ %100, %.lr.ph.i58.i ], [ %68, %dissect_wmio_encoding_derivationlist.exit.i ]
-  %70 = load i32, ptr @hf_wmio_propertylookup, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %70, ptr noundef %0, i32 noundef %.02028.i.i, i32 noundef -1, i32 noundef 0) #4
-  %72 = load i32, ptr @ett_wmio_propertylookup, align 4
-  %73 = call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72) #4
-  %74 = load i32, ptr @hf_wmio_propertynameref, align 4
-  %75 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.02028.i.i, i32 noundef %74, ptr noundef readonly %2, ptr noundef %73, i32 noundef 0, i32 noundef %32)
-  %76 = add i32 %.02028.i.i, 4
+  %.023.i.i = phi i32 [ %104, %.lr.ph.i58.i ], [ 0, %dissect_wmio_encoding_derivationlist.exit.i ]
+  %.02022.i.i = phi i32 [ %103, %.lr.ph.i58.i ], [ %67, %dissect_wmio_encoding_derivationlist.exit.i ]
+  %69 = load i32, ptr @hf_wmio_propertylookup, align 4
+  %70 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %69, ptr noundef %0, i32 noundef %.02022.i.i, i32 noundef -1, i32 noundef 0) #4
+  %71 = load i32, ptr @ett_wmio_propertylookup, align 4
+  %72 = call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71) #4
+  %73 = load i32, ptr @hf_wmio_propertynameref, align 4
+  %74 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.02022.i.i, i32 noundef %73, ptr noundef readonly %2, ptr noundef %72, i32 noundef 0, i32 noundef %31)
+  %75 = add i32 %.02022.i.i, 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %77 = load i32, ptr @hf_property_info, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %77, ptr noundef %0, i32 noundef %76, i32 noundef -1, i32 noundef 0) #4
-  %79 = load i32, ptr @ett_property_info, align 4
-  %80 = call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %79) #4
-  %81 = load i32, ptr @hf_wmio_propertyinforef, align 4
-  %82 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %80, i32 noundef %81, ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #4
-  %83 = load i32, ptr %9, align 4
-  %84 = add i32 %83, %32
-  %85 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %84, i32 noundef -2147483648) #4
-  %86 = load i32, ptr @hf_wmio_cimtype, align 4
-  %87 = and i32 %85, 16383
-  %88 = call ptr @proto_tree_add_uint(ptr noundef %80, i32 noundef %86, ptr noundef %0, i32 noundef %84, i32 noundef 4, i32 noundef %87) #4
-  %89 = load i32, ptr @hf_propertyinfo_inherited, align 4
-  %90 = sext i32 %85 to i64
-  %91 = call ptr @proto_tree_add_boolean(ptr noundef %80, i32 noundef %89, ptr noundef %0, i32 noundef %84, i32 noundef 4, i64 noundef %90) #4
-  %.reass.i.i = add i32 %invariant.op.i.i, %83
+  %76 = load i32, ptr @hf_property_info, align 4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef -1, i32 noundef 0) #4
+  %78 = load i32, ptr @ett_property_info, align 4
+  %79 = call ptr @proto_item_add_subtree(ptr noundef %77, i32 noundef %78) #4
+  %80 = load i32, ptr @hf_wmio_propertyinforef, align 4
+  %81 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %79, i32 noundef %80, ptr noundef %0, i32 noundef %75, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #4
+  %82 = load i32, ptr %9, align 4
+  %83 = add i32 %82, %31
+  %84 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %83, i32 noundef -2147483648) #4
+  %85 = load i32, ptr @hf_wmio_cimtype, align 4
+  %86 = and i32 %84, 16383
+  %87 = call ptr @proto_tree_add_uint(ptr noundef %79, i32 noundef %85, ptr noundef %0, i32 noundef %83, i32 noundef 4, i32 noundef %86) #4
+  %88 = load i32, ptr @hf_propertyinfo_inherited, align 4
+  %89 = sext i32 %84 to i64
+  %90 = call ptr @proto_tree_add_boolean(ptr noundef %79, i32 noundef %88, ptr noundef %0, i32 noundef %83, i32 noundef 4, i64 noundef %89) #4
+  %91 = add i32 %83, 4
   %92 = load i32, ptr @hf_declaration_order, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %92, ptr noundef %0, i32 noundef %.reass.i.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %.reass23.i.i = add i32 %invariant.op22.i.i, %83
-  %94 = load i32, ptr @hf_propertyinfo_valuetableoffset, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %94, ptr noundef %0, i32 noundef %.reass23.i.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %.reass25.i.i = add i32 %invariant.op24.i.i, %83
-  %96 = load i32, ptr @hf_propertyinfo_classoforigin, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %96, ptr noundef %0, i32 noundef %.reass25.i.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %.reass27.i.i = add i32 %invariant.op26.i.i, %83
-  %98 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %.reass27.i.i, ptr noundef readonly %2, ptr noundef %80, i32 noundef %32)
-  %99 = sub i32 %98, %84
-  call void @proto_item_set_len(ptr noundef %78, i32 noundef %99) #4
+  %93 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 2, i32 noundef -2147483648) #4
+  %94 = add i32 %83, 6
+  %95 = load i32, ptr @hf_propertyinfo_valuetableoffset, align 4
+  %96 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 4, i32 noundef -2147483648) #4
+  %97 = add i32 %83, 10
+  %98 = load i32, ptr @hf_propertyinfo_classoforigin, align 4
+  %99 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 4, i32 noundef -2147483648) #4
+  %100 = add i32 %83, 14
+  %101 = call fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i32 noundef %100, ptr noundef readonly %2, ptr noundef %79, i32 noundef %31)
+  %102 = sub i32 %101, %83
+  call void @proto_item_set_len(ptr noundef %77, i32 noundef %102) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %100 = add i32 %.02028.i.i, 8
-  call void @proto_item_set_len(ptr noundef %71, i32 noundef 8) #4
-  %101 = add nuw i32 %.029.i.i, 1
-  %102 = load i32, ptr %10, align 4
-  %103 = icmp ult i32 %101, %102
-  br i1 %103, label %.lr.ph.i58.i, label %dissect_wmio_encoding_propertylookuptable.exit.i, !llvm.loop !6
+  %103 = add i32 %.02022.i.i, 8
+  call void @proto_item_set_len(ptr noundef %70, i32 noundef 8) #4
+  %104 = add nuw i32 %.023.i.i, 1
+  %105 = load i32, ptr %10, align 4
+  %106 = icmp ult i32 %104, %105
+  br i1 %106, label %.lr.ph.i58.i, label %dissect_wmio_encoding_propertylookuptable.exit.i, !llvm.loop !6
 
 dissect_wmio_encoding_propertylookuptable.exit.i: ; preds = %.lr.ph.i58.i, %dissect_wmio_encoding_derivationlist.exit.i
-  %.020.lcssa.i.i = phi i32 [ %68, %dissect_wmio_encoding_derivationlist.exit.i ], [ %100, %.lr.ph.i58.i ]
-  %104 = sub i32 %.020.lcssa.i.i, %61
-  call void @proto_item_set_len(ptr noundef %63, i32 noundef %104) #4
+  %.020.lcssa.i.i = phi i32 [ %67, %dissect_wmio_encoding_derivationlist.exit.i ], [ %103, %.lr.ph.i58.i ]
+  %107 = sub i32 %.020.lcssa.i.i, %60
+  call void @proto_item_set_len(ptr noundef %62, i32 noundef %107) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %dissect_wmio_encoding_classpart.exit, label %105
+  %.not.i = icmp eq i32 %44, 0
+  br i1 %.not.i, label %dissect_wmio_encoding_classpart.exit, label %108
 
-105:                                              ; preds = %dissect_wmio_encoding_propertylookuptable.exit.i
-  %106 = load i32, ptr @hf_wmio_ndtable, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %106, ptr noundef %0, i32 noundef %.020.lcssa.i.i, i32 noundef %45, i32 noundef 0) #4
-  %108 = add i32 %.020.lcssa.i.i, %45
+108:                                              ; preds = %dissect_wmio_encoding_propertylookuptable.exit.i
+  %109 = load i32, ptr @hf_wmio_ndtable, align 4
+  %110 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %109, ptr noundef %0, i32 noundef %.020.lcssa.i.i, i32 noundef %44, i32 noundef 0) #4
+  %111 = add i32 %.020.lcssa.i.i, %44
   br label %dissect_wmio_encoding_classpart.exit
 
-dissect_wmio_encoding_classpart.exit:             ; preds = %dissect_wmio_encoding_propertylookuptable.exit.i, %105
-  %.0.i = phi i32 [ %108, %105 ], [ %.020.lcssa.i.i, %dissect_wmio_encoding_propertylookuptable.exit.i ]
-  %109 = load i32, ptr @hf_wmio_heap, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %109, ptr noundef %0, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #4
-  %111 = load i32, ptr @ett_wmio_heap, align 4
-  %112 = call ptr @proto_item_add_subtree(ptr noundef %110, i32 noundef %111) #4
-  %113 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0.i, i32 noundef -2147483648) #4
-  %114 = and i32 %113, 2147483647
-  %115 = load i32, ptr @hf_wmio_heap_length, align 4
-  %116 = call ptr @proto_tree_add_uint(ptr noundef %112, i32 noundef %115, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef %114) #4
-  call void @proto_item_set_len(ptr noundef %110, i32 noundef %114) #4
-  call void @proto_item_set_len(ptr noundef %17, i32 noundef %39) #4
-  %117 = add i32 %39, %1
+dissect_wmio_encoding_classpart.exit:             ; preds = %dissect_wmio_encoding_propertylookuptable.exit.i, %108
+  %.0.i = phi i32 [ %111, %108 ], [ %.020.lcssa.i.i, %dissect_wmio_encoding_propertylookuptable.exit.i ]
+  %112 = load i32, ptr @hf_wmio_heap, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %112, ptr noundef %0, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #4
+  %114 = load i32, ptr @ett_wmio_heap, align 4
+  %115 = call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #4
+  %116 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0.i, i32 noundef -2147483648) #4
+  %117 = and i32 %116, 2147483647
+  %118 = load i32, ptr @hf_wmio_heap_length, align 4
+  %119 = call ptr @proto_tree_add_uint(ptr noundef %115, i32 noundef %118, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef %117) #4
+  call void @proto_item_set_len(ptr noundef %113, i32 noundef %117) #4
+  call void @proto_item_set_len(ptr noundef %17, i32 noundef %38) #4
+  %120 = add i32 %38, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %118 = load i32, ptr @hf_methodspart, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef -1, i32 noundef 0) #4
-  %120 = load i32, ptr @ett_methodspart, align 4
-  %121 = call ptr @proto_item_add_subtree(ptr noundef %119, i32 noundef %120) #4
-  %122 = load i32, ptr @hf_methodspart_length, align 4
-  %123 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %117, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #4
-  %124 = add i32 %117, 4
-  %125 = load i32, ptr @hf_methodspart_methodcount, align 4
-  %126 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %121, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %8) #4
-  %127 = add i32 %117, 8
-  %128 = load i32, ptr %8, align 4
-  %.not.i19 = icmp eq i32 %128, 0
-  br i1 %.not.i19, label %dissect_wmio_encoding_methodpart.exit, label %129
+  %121 = load i32, ptr @hf_methodspart, align 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef -1, i32 noundef 0) #4
+  %123 = load i32, ptr @ett_methodspart, align 4
+  %124 = call ptr @proto_item_add_subtree(ptr noundef %122, i32 noundef %123) #4
+  %125 = load i32, ptr @hf_methodspart_length, align 4
+  %126 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %124, i32 noundef %125, ptr noundef %0, i32 noundef %120, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #4
+  %127 = add i32 %120, 4
+  %128 = load i32, ptr @hf_methodspart_methodcount, align 4
+  %129 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %124, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %8) #4
+  %130 = add i32 %120, 8
+  %131 = load i32, ptr %8, align 4
+  %.not.i19 = icmp eq i32 %131, 0
+  br i1 %.not.i19, label %dissect_wmio_encoding_methodpart.exit, label %132
 
-129:                                              ; preds = %dissect_wmio_encoding_classpart.exit
-  %130 = mul i32 %128, 24
-  %131 = add i32 %117, 12
-  %132 = add i32 %131, %130
-  %133 = load i32, ptr @hf_methodspart_methods, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %133, ptr noundef %0, i32 noundef %127, i32 noundef -1, i32 noundef 0) #4
-  %135 = load i32, ptr @ett_methodspart_methods, align 4
-  %136 = call ptr @proto_item_add_subtree(ptr noundef %134, i32 noundef %135) #4
-  %invariant.op = add i32 %132, 4
-  br label %137
+132:                                              ; preds = %dissect_wmio_encoding_classpart.exit
+  %133 = mul i32 %131, 24
+  %134 = add i32 %120, 12
+  %135 = add i32 %134, %133
+  %136 = load i32, ptr @hf_methodspart_methods, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %136, ptr noundef %0, i32 noundef %130, i32 noundef -1, i32 noundef 0) #4
+  %138 = load i32, ptr @ett_methodspart_methods, align 4
+  %139 = call ptr @proto_item_add_subtree(ptr noundef %137, i32 noundef %138) #4
+  br label %140
 
-137:                                              ; preds = %129, %137
-  %.0.i2127 = phi i32 [ 0, %129 ], [ %180, %137 ]
-  %.016.i26 = phi i32 [ %127, %129 ], [ %179, %137 ]
-  %138 = load i32, ptr @hf_methodspart_methoddescription, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %138, ptr noundef %0, i32 noundef %.016.i26, i32 noundef -1, i32 noundef 0) #4
-  %140 = load i32, ptr @ett_methodspart_methoddescription, align 4
-  %141 = call ptr @proto_item_add_subtree(ptr noundef %139, i32 noundef %140) #4
-  %142 = load i32, ptr @hf_methoddescription_methodname, align 4
-  %143 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.016.i26, i32 noundef %142, ptr noundef %2, ptr noundef %141, i32 noundef 0, i32 noundef %132)
-  %144 = add i32 %.016.i26, 4
-  %145 = load i32, ptr @hf_methoddescription_methodflags, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef 1, i32 noundef -2147483648) #4
-  %147 = add i32 %.016.i26, 8
-  %148 = load i32, ptr @hf_methoddescription_methodorigin, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %148, ptr noundef %0, i32 noundef %147, i32 noundef 4, i32 noundef -2147483648) #4
-  %150 = add i32 %.016.i26, 12
-  %151 = load i32, ptr @hf_methoddescription_methodqualifiers, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef -2147483648) #4
-  %153 = add i32 %.016.i26, 16
-  %154 = load i32, ptr @hf_methoddescription_inputsignature, align 4
-  %155 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %153, i32 noundef -2147483648) #4
-  %156 = add i32 %155, %132
-  %157 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %154, ptr noundef %0, i32 noundef %156, i32 noundef -1, i32 noundef 0) #4
-  %158 = load i32, ptr @ett_methodsignature, align 4
-  %159 = call ptr @proto_item_add_subtree(ptr noundef %157, i32 noundef %158) #4
-  %160 = load i32, ptr @hf_methodsignature_offset, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %160, ptr noundef %0, i32 noundef %153, i32 noundef 4, i32 noundef -2147483648) #4
-  %162 = load i32, ptr @hf_wmio_objectencodinglength, align 4
-  %163 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %162, ptr noundef %0, i32 noundef %156, i32 noundef 4, i32 noundef -2147483648) #4
-  %.reass = add i32 %155, %invariant.op
-  %164 = call fastcc i32 @dissect_wmio_objectblock(ptr noundef %0, i32 noundef %.reass, ptr noundef %2, ptr noundef %159)
-  %165 = sub i32 %164, %156
-  call void @proto_item_set_len(ptr noundef %157, i32 noundef %165) #4
-  %166 = add i32 %.016.i26, 20
-  %167 = load i32, ptr @hf_methoddescription_outputsignature, align 4
-  %168 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %166, i32 noundef -2147483648) #4
-  %169 = add i32 %168, %132
-  %170 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %167, ptr noundef %0, i32 noundef %169, i32 noundef -1, i32 noundef 0) #4
-  %171 = load i32, ptr @ett_methodsignature, align 4
-  %172 = call ptr @proto_item_add_subtree(ptr noundef %170, i32 noundef %171) #4
-  %173 = load i32, ptr @hf_methodsignature_offset, align 4
-  %174 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %173, ptr noundef %0, i32 noundef %166, i32 noundef 4, i32 noundef -2147483648) #4
-  %175 = load i32, ptr @hf_wmio_objectencodinglength, align 4
-  %176 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %175, ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef -2147483648) #4
-  %.reass25 = add i32 %168, %invariant.op
-  %177 = call fastcc i32 @dissect_wmio_objectblock(ptr noundef %0, i32 noundef %.reass25, ptr noundef %2, ptr noundef %172)
-  %178 = sub i32 %177, %169
-  call void @proto_item_set_len(ptr noundef %170, i32 noundef %178) #4
-  %179 = add i32 %.016.i26, 24
-  call void @proto_item_set_len(ptr noundef %139, i32 noundef 24) #4
-  %180 = add nuw i32 %.0.i2127, 1
-  %exitcond.not = icmp eq i32 %180, %128
-  br i1 %exitcond.not, label %dissect_wmio_encoding_methodpart_methods.exit, label %137, !llvm.loop !7
+140:                                              ; preds = %132, %140
+  %.0.i2125 = phi i32 [ 0, %132 ], [ %185, %140 ]
+  %.016.i24 = phi i32 [ %130, %132 ], [ %184, %140 ]
+  %141 = load i32, ptr @hf_methodspart_methoddescription, align 4
+  %142 = call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %141, ptr noundef %0, i32 noundef %.016.i24, i32 noundef -1, i32 noundef 0) #4
+  %143 = load i32, ptr @ett_methodspart_methoddescription, align 4
+  %144 = call ptr @proto_item_add_subtree(ptr noundef %142, i32 noundef %143) #4
+  %145 = load i32, ptr @hf_methoddescription_methodname, align 4
+  %146 = call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %.016.i24, i32 noundef %145, ptr noundef %2, ptr noundef %144, i32 noundef 0, i32 noundef %135)
+  %147 = add i32 %.016.i24, 4
+  %148 = load i32, ptr @hf_methoddescription_methodflags, align 4
+  %149 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %148, ptr noundef %0, i32 noundef %147, i32 noundef 1, i32 noundef -2147483648) #4
+  %150 = add i32 %.016.i24, 8
+  %151 = load i32, ptr @hf_methoddescription_methodorigin, align 4
+  %152 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef -2147483648) #4
+  %153 = add i32 %.016.i24, 12
+  %154 = load i32, ptr @hf_methoddescription_methodqualifiers, align 4
+  %155 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %154, ptr noundef %0, i32 noundef %153, i32 noundef 4, i32 noundef -2147483648) #4
+  %156 = add i32 %.016.i24, 16
+  %157 = load i32, ptr @hf_methoddescription_inputsignature, align 4
+  %158 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %156, i32 noundef -2147483648) #4
+  %159 = add i32 %158, %135
+  %160 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %157, ptr noundef %0, i32 noundef %159, i32 noundef -1, i32 noundef 0) #4
+  %161 = load i32, ptr @ett_methodsignature, align 4
+  %162 = call ptr @proto_item_add_subtree(ptr noundef %160, i32 noundef %161) #4
+  %163 = load i32, ptr @hf_methodsignature_offset, align 4
+  %164 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %0, i32 noundef %156, i32 noundef 4, i32 noundef -2147483648) #4
+  %165 = load i32, ptr @hf_wmio_objectencodinglength, align 4
+  %166 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %165, ptr noundef %0, i32 noundef %159, i32 noundef 4, i32 noundef -2147483648) #4
+  %167 = add i32 %159, 4
+  %168 = call fastcc i32 @dissect_wmio_objectblock(ptr noundef %0, i32 noundef %167, ptr noundef %2, ptr noundef %162)
+  %169 = sub i32 %168, %159
+  call void @proto_item_set_len(ptr noundef %160, i32 noundef %169) #4
+  %170 = add i32 %.016.i24, 20
+  %171 = load i32, ptr @hf_methoddescription_outputsignature, align 4
+  %172 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %170, i32 noundef -2147483648) #4
+  %173 = add i32 %172, %135
+  %174 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %171, ptr noundef %0, i32 noundef %173, i32 noundef -1, i32 noundef 0) #4
+  %175 = load i32, ptr @ett_methodsignature, align 4
+  %176 = call ptr @proto_item_add_subtree(ptr noundef %174, i32 noundef %175) #4
+  %177 = load i32, ptr @hf_methodsignature_offset, align 4
+  %178 = call ptr @proto_tree_add_item(ptr noundef %176, i32 noundef %177, ptr noundef %0, i32 noundef %170, i32 noundef 4, i32 noundef -2147483648) #4
+  %179 = load i32, ptr @hf_wmio_objectencodinglength, align 4
+  %180 = call ptr @proto_tree_add_item(ptr noundef %176, i32 noundef %179, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef -2147483648) #4
+  %181 = add i32 %173, 4
+  %182 = call fastcc i32 @dissect_wmio_objectblock(ptr noundef %0, i32 noundef %181, ptr noundef %2, ptr noundef %176)
+  %183 = sub i32 %182, %173
+  call void @proto_item_set_len(ptr noundef %174, i32 noundef %183) #4
+  %184 = add i32 %.016.i24, 24
+  call void @proto_item_set_len(ptr noundef %142, i32 noundef 24) #4
+  %185 = add nuw i32 %.0.i2125, 1
+  %exitcond.not = icmp eq i32 %185, %131
+  br i1 %exitcond.not, label %dissect_wmio_encoding_methodpart_methods.exit, label %140, !llvm.loop !7
 
-dissect_wmio_encoding_methodpart_methods.exit:    ; preds = %137
-  %181 = sub i32 %179, %127
-  call void @proto_item_set_len(ptr noundef %134, i32 noundef %181) #4
+dissect_wmio_encoding_methodpart_methods.exit:    ; preds = %140
+  %186 = sub i32 %184, %130
+  call void @proto_item_set_len(ptr noundef %137, i32 noundef %186) #4
   br label %dissect_wmio_encoding_methodpart.exit
 
 dissect_wmio_encoding_methodpart.exit:            ; preds = %dissect_wmio_encoding_classpart.exit, %dissect_wmio_encoding_methodpart_methods.exit
-  %.0.i20 = phi i32 [ %179, %dissect_wmio_encoding_methodpart_methods.exit ], [ %127, %dissect_wmio_encoding_classpart.exit ]
-  %182 = load i32, ptr @hf_wmio_heap, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %182, ptr noundef %0, i32 noundef %.0.i20, i32 noundef -1, i32 noundef 0) #4
-  %184 = load i32, ptr @ett_wmio_heap, align 4
-  %185 = call ptr @proto_item_add_subtree(ptr noundef %183, i32 noundef %184) #4
-  %186 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0.i20, i32 noundef -2147483648) #4
-  %187 = and i32 %186, 2147483647
-  %188 = load i32, ptr @hf_wmio_heap_length, align 4
-  %189 = call ptr @proto_tree_add_uint(ptr noundef %185, i32 noundef %188, ptr noundef %0, i32 noundef %.0.i20, i32 noundef 4, i32 noundef %187) #4
-  call void @proto_item_set_len(ptr noundef %183, i32 noundef %187) #4
-  %190 = load i32, ptr %7, align 4
-  call void @proto_item_set_len(ptr noundef %119, i32 noundef %190) #4
-  %191 = load i32, ptr %7, align 4
-  %192 = add i32 %191, %117
+  %.0.i20 = phi i32 [ %184, %dissect_wmio_encoding_methodpart_methods.exit ], [ %130, %dissect_wmio_encoding_classpart.exit ]
+  %187 = load i32, ptr @hf_wmio_heap, align 4
+  %188 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %187, ptr noundef %0, i32 noundef %.0.i20, i32 noundef -1, i32 noundef 0) #4
+  %189 = load i32, ptr @ett_wmio_heap, align 4
+  %190 = call ptr @proto_item_add_subtree(ptr noundef %188, i32 noundef %189) #4
+  %191 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0.i20, i32 noundef -2147483648) #4
+  %192 = and i32 %191, 2147483647
+  %193 = load i32, ptr @hf_wmio_heap_length, align 4
+  %194 = call ptr @proto_tree_add_uint(ptr noundef %190, i32 noundef %193, ptr noundef %0, i32 noundef %.0.i20, i32 noundef 4, i32 noundef %192) #4
+  call void @proto_item_set_len(ptr noundef %188, i32 noundef %192) #4
+  %195 = load i32, ptr %7, align 4
+  call void @proto_item_set_len(ptr noundef %122, i32 noundef %195) #4
+  %196 = load i32, ptr %7, align 4
+  %197 = add i32 %196, %120
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %193 = sub i32 %192, %1
-  call void @proto_item_set_len(ptr noundef %14, i32 noundef %193) #4
-  ret i32 %192
+  %198 = sub i32 %197, %1
+  call void @proto_item_set_len(ptr noundef %14, i32 noundef %198) #4
+  ret i32 %197
 }
 
 ; Function Attrs: nounwind uwtable

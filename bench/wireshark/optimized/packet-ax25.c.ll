@@ -238,52 +238,52 @@ define internal i32 @dissect_ax25(ptr noundef %0, ptr noundef %1, ptr noundef %2
 60:                                               ; preds = %54, %.lr.ph
   %.1 = phi i32 [ %59, %54 ], [ %.08386, %.lr.ph ]
   %61 = add i32 %.087, 7
-  %.reass = add i32 %.087, 6
-  %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass) #2
-  %63 = and i8 %62, 1
-  %64 = icmp eq i8 %63, 0
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  %62 = add i32 %.087, 6
+  %63 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %62) #2
+  %64 = and i8 %63, 1
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %60, %49
   %.0.lcssa = phi i32 [ 14, %49 ], [ %61, %60 ]
-  %65 = load i32, ptr @hf_ax25_ctl, align 4
-  %66 = load i32, ptr @ett_ax25_ctl, align 4
-  %67 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef %1, ptr noundef %14, i32 noundef %65, i32 noundef %66, ptr noundef nonnull @ax25_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.085, i32 noundef 0, i32 noundef 0) #2
-  %68 = and i32 %67, 255
-  %69 = add i32 %.0.lcssa, 1
-  %70 = and i32 %67, 1
-  %71 = icmp eq i32 %70, 0
-  %72 = icmp eq i32 %68, 3
-  %or.cond = or i1 %71, %72
-  br i1 %or.cond, label %73, label %86
+  %66 = load i32, ptr @hf_ax25_ctl, align 4
+  %67 = load i32, ptr @ett_ax25_ctl, align 4
+  %68 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef %1, ptr noundef %14, i32 noundef %66, i32 noundef %67, ptr noundef nonnull @ax25_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.085, i32 noundef 0, i32 noundef 0) #2
+  %69 = and i32 %68, 255
+  %70 = add i32 %.0.lcssa, 1
+  %71 = and i32 %68, 1
+  %72 = icmp eq i32 %71, 0
+  %73 = icmp eq i32 %69, 3
+  %or.cond = or i1 %72, %73
+  br i1 %or.cond, label %74, label %87
 
-73:                                               ; preds = %._crit_edge
-  %74 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %69) #2
-  %75 = load ptr, ptr %8, align 8
-  %76 = zext i8 %74 to i32
-  %77 = tail call ptr @val_to_str(i32 noundef %76, ptr noundef nonnull @pid_vals, ptr noundef nonnull @.str.75) #2
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %75, i32 noundef 25, ptr noundef nonnull @.str.74, ptr noundef %77) #2
-  %78 = load i32, ptr @hf_ax25_pid, align 4
-  %79 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %78, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef %76) #2
-  %80 = add i32 %.0.lcssa, 2
-  tail call void @proto_item_set_end(ptr noundef %12, ptr noundef %0, i32 noundef %80) #2
-  %81 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %80) #2
-  %82 = load ptr, ptr @ax25_dissector_table, align 8
-  %83 = tail call i32 @dissector_try_uint(ptr noundef %82, i32 noundef %76, ptr noundef %81, ptr noundef %1, ptr noundef %2) #2
-  %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %84, label %87
+74:                                               ; preds = %._crit_edge
+  %75 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %70) #2
+  %76 = load ptr, ptr %8, align 8
+  %77 = zext i8 %75 to i32
+  %78 = tail call ptr @val_to_str(i32 noundef %77, ptr noundef nonnull @pid_vals, ptr noundef nonnull @.str.75) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.74, ptr noundef %78) #2
+  %79 = load i32, ptr @hf_ax25_pid, align 4
+  %80 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %79, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef %77) #2
+  %81 = add i32 %.0.lcssa, 2
+  tail call void @proto_item_set_end(ptr noundef %12, ptr noundef %0, i32 noundef %81) #2
+  %82 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %81) #2
+  %83 = load ptr, ptr @ax25_dissector_table, align 8
+  %84 = tail call i32 @dissector_try_uint(ptr noundef %83, i32 noundef %77, ptr noundef %82, ptr noundef %1, ptr noundef %2) #2
+  %.not = icmp eq i32 %84, 0
+  br i1 %.not, label %85, label %88
 
-84:                                               ; preds = %73
-  %85 = tail call i32 @call_data_dissector(ptr noundef %81, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %87
+85:                                               ; preds = %74
+  %86 = tail call i32 @call_data_dissector(ptr noundef %82, ptr noundef nonnull %1, ptr noundef %2) #2
+  br label %88
 
-86:                                               ; preds = %._crit_edge
-  tail call void @proto_item_set_end(ptr noundef %12, ptr noundef %0, i32 noundef %69) #2
-  br label %87
+87:                                               ; preds = %._crit_edge
+  tail call void @proto_item_set_end(ptr noundef %12, ptr noundef %0, i32 noundef %70) #2
+  br label %88
 
-87:                                               ; preds = %73, %84, %86
-  %88 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %88
+88:                                               ; preds = %74, %85, %87
+  %89 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %89
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

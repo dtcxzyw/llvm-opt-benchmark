@@ -1912,10 +1912,10 @@ define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr 
   br label %26
 
 26:                                               ; preds = %.lr.ph, %91
-  %.077 = phi i32 [ %22, %.lr.ph ], [ %.1, %91 ]
+  %.075 = phi i32 [ %22, %.lr.ph ], [ %.1, %91 ]
   %27 = load i32, ptr @hf_mqtt_property_id, align 4
-  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %27, ptr noundef %0, i32 noundef %.077, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #6
-  %29 = add nuw i32 %.077, 1
+  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %27, ptr noundef %0, i32 noundef %.075, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #6
+  %29 = add nuw i32 %.075, 1
   %30 = load i32, ptr %10, align 4
   switch i32 %30, label %.thread [
     i32 1, label %31
@@ -1950,31 +1950,31 @@ define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr 
 31:                                               ; preds = %26, %26, %26, %26, %26, %26, %26
   %32 = load i32, ptr @hf_mqtt_prop_num, align 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %32, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef 0) #6
-  %34 = add i32 %.077, 2
+  %34 = add i32 %.075, 2
   br label %91
 
 35:                                               ; preds = %26
   %36 = load i32, ptr @hf_mqtt_prop_max_qos, align 4
   %37 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %36, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef 0) #6
-  %38 = add i32 %.077, 2
+  %38 = add i32 %.075, 2
   br label %91
 
 39:                                               ; preds = %26
   %40 = load i32, ptr @hf_mqtt_prop_topic_alias, align 4
   %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %40, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %25) #6
-  %42 = add i32 %.077, 3
+  %42 = add i32 %.075, 3
   br label %91
 
 43:                                               ; preds = %26, %26, %26
   %44 = load i32, ptr @hf_mqtt_prop_num, align 4
   %45 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %44, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef 0) #6
-  %46 = add i32 %.077, 3
+  %46 = add i32 %.075, 3
   br label %91
 
 47:                                               ; preds = %26, %26, %26, %26
   %48 = load i32, ptr @hf_mqtt_prop_num, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %48, ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #6
-  %50 = add i32 %.077, 5
+  %50 = add i32 %.075, 5
   br label %91
 
 51:                                               ; preds = %26
@@ -1997,7 +1997,7 @@ define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr 
   %64 = load i32, ptr @hf_mqtt_prop_string, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %65 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %63, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
-  %66 = add i32 %.077, 3
+  %66 = add i32 %.075, 3
   %67 = load i32, ptr %8, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %64, ptr noundef %0, i32 noundef %66, i32 noundef %67, i32 noundef 2) #6
   %69 = load i32, ptr %8, align 4
@@ -2010,7 +2010,7 @@ define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr 
   %73 = load i32, ptr @hf_mqtt_prop_key, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %74 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %72, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #6
-  %75 = add i32 %.077, 3
+  %75 = add i32 %.075, 3
   %76 = load i32, ptr %7, align 4
   %77 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %73, ptr noundef %0, i32 noundef %75, i32 noundef %76, i32 noundef 2) #6
   %78 = load i32, ptr %7, align 4

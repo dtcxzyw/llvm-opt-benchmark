@@ -952,15 +952,11 @@ if.end.i:                                         ; preds = %if.end
   %2 = load i8, ptr %arrayidx50.i, align 1, !tbaa !11
   %tobool.not51.i = icmp eq i8 %2, 0
   %.pre.i = load ptr, ptr %ext0, align 8, !tbaa !12
-  br i1 %tobool.not51.i, label %_ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit, label %land.rhs.i.preheader
+  br i1 %tobool.not51.i, label %_ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit, label %land.rhs.i
 
-land.rhs.i.preheader:                             ; preds = %if.end.i
-  %invariant.op = add nuw i32 %conv.i4.i, 2
-  br label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %for.inc.i
-  %3 = phi i8 [ %7, %for.inc.i ], [ %2, %land.rhs.i.preheader ]
-  %i.052.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %land.rhs.i.preheader ]
+land.rhs.i:                                       ; preds = %if.end.i, %for.inc.i
+  %3 = phi i8 [ %7, %for.inc.i ], [ %2, %if.end.i ]
+  %i.052.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.end.i ]
   %conv.i40.i = zext i32 %i.052.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 %conv.i40.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !11
@@ -983,8 +979,8 @@ for.body.i:                                       ; preds = %land.rhs.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add i32 %i.052.i, 1
-  %add3.i.reass = add i32 %i.052.i, %invariant.op
-  %idxprom.i = zext i32 %add3.i.reass to i64
+  %add3.i = add i32 %inc.i, %add
+  %idxprom.i = zext i32 %add3.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1, !tbaa !11
   %tobool.not.i = icmp eq i8 %7, 0
@@ -1003,15 +999,11 @@ _ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit: ; preds = %la
 
 if.end.i22:                                       ; preds = %for.body.i, %land.rhs.i, %_ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit
   %.pre.i26 = load ptr, ptr %ext1, align 8, !tbaa !12
-  br i1 %tobool.not51.i, label %_ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit53, label %land.rhs.i27.preheader
+  br i1 %tobool.not51.i, label %_ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit53, label %land.rhs.i27
 
-land.rhs.i27.preheader:                           ; preds = %if.end.i22
-  %invariant.op7 = add nuw i32 %conv.i4.i, 2
-  br label %land.rhs.i27
-
-land.rhs.i27:                                     ; preds = %land.rhs.i27.preheader, %for.inc.i42
-  %10 = phi i8 [ %14, %for.inc.i42 ], [ %2, %land.rhs.i27.preheader ]
-  %i.052.i28 = phi i32 [ %inc.i43, %for.inc.i42 ], [ 0, %land.rhs.i27.preheader ]
+land.rhs.i27:                                     ; preds = %if.end.i22, %for.inc.i42
+  %10 = phi i8 [ %14, %for.inc.i42 ], [ %2, %if.end.i22 ]
+  %i.052.i28 = phi i32 [ %inc.i43, %for.inc.i42 ], [ 0, %if.end.i22 ]
   %conv.i40.i29 = zext i32 %i.052.i28 to i64
   %arrayidx.i.i.i30 = getelementptr inbounds i8, ptr %.pre.i26, i64 %conv.i40.i29
   %11 = load i8, ptr %arrayidx.i.i.i30, align 1, !tbaa !11
@@ -1034,8 +1026,8 @@ for.body.i32:                                     ; preds = %land.rhs.i27
 
 for.inc.i42:                                      ; preds = %for.body.i32
   %inc.i43 = add i32 %i.052.i28, 1
-  %add3.i44.reass = add i32 %i.052.i28, %invariant.op7
-  %idxprom.i45 = zext i32 %add3.i44.reass to i64
+  %add3.i44 = add i32 %inc.i43, %add
+  %idxprom.i45 = zext i32 %add3.i44 to i64
   %arrayidx.i46 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i45
   %14 = load i8, ptr %arrayidx.i46, align 1, !tbaa !11
   %tobool.not.i47 = icmp eq i8 %14, 0
@@ -1054,15 +1046,11 @@ _ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit53: ; preds = %
 
 if.end.i59:                                       ; preds = %for.body.i32, %land.rhs.i27, %_ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit53
   %.pre.i63 = load ptr, ptr %ext2, align 8, !tbaa !12
-  br i1 %tobool.not51.i, label %_ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit90, label %land.rhs.i64.preheader
+  br i1 %tobool.not51.i, label %_ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit90, label %land.rhs.i64
 
-land.rhs.i64.preheader:                           ; preds = %if.end.i59
-  %invariant.op8 = add nuw i32 %conv.i4.i, 2
-  br label %land.rhs.i64
-
-land.rhs.i64:                                     ; preds = %land.rhs.i64.preheader, %for.inc.i79
-  %17 = phi i8 [ %21, %for.inc.i79 ], [ %2, %land.rhs.i64.preheader ]
-  %i.052.i65 = phi i32 [ %inc.i80, %for.inc.i79 ], [ 0, %land.rhs.i64.preheader ]
+land.rhs.i64:                                     ; preds = %if.end.i59, %for.inc.i79
+  %17 = phi i8 [ %21, %for.inc.i79 ], [ %2, %if.end.i59 ]
+  %i.052.i65 = phi i32 [ %inc.i80, %for.inc.i79 ], [ 0, %if.end.i59 ]
   %conv.i40.i66 = zext i32 %i.052.i65 to i64
   %arrayidx.i.i.i67 = getelementptr inbounds i8, ptr %.pre.i63, i64 %conv.i40.i66
   %18 = load i8, ptr %arrayidx.i.i.i67, align 1, !tbaa !11
@@ -1085,8 +1073,8 @@ for.body.i69:                                     ; preds = %land.rhs.i64
 
 for.inc.i79:                                      ; preds = %for.body.i69
   %inc.i80 = add i32 %i.052.i65, 1
-  %add3.i81.reass = add i32 %i.052.i65, %invariant.op8
-  %idxprom.i82 = zext i32 %add3.i81.reass to i64
+  %add3.i81 = add i32 %inc.i80, %add
+  %idxprom.i82 = zext i32 %add3.i81 to i64
   %arrayidx.i83 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i82
   %21 = load i8, ptr %arrayidx.i83, align 1, !tbaa !11
   %tobool.not.i84 = icmp eq i8 %21, 0

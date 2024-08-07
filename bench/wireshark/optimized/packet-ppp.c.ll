@@ -7855,29 +7855,27 @@ define internal i32 @dissect_iphc_crtp_cs(ptr noundef %0, ptr nocapture noundef 
   %hf_iphc_crtp_cid8.val = load i32, ptr @hf_iphc_crtp_cid8, align 4
   %hf_iphc_crtp_cid16.val = load i32, ptr @hf_iphc_crtp_cid16, align 4
   %.0 = select i1 %19, i32 %hf_iphc_crtp_cid8.val, i32 %hf_iphc_crtp_cid16.val
-  %invariant.op = add nuw nsw i32 %.035, 1
-  %invariant.op37 = add nuw nsw i32 %.035, 2
   %23 = icmp ugt i32 %.036, 2
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.03439 = phi i32 [ %.reass38, %.lr.ph ], [ 2, %4 ]
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %.0, ptr noundef %0, i32 noundef %.03439, i32 noundef %.035, i32 noundef 0) #6
-  %25 = add nuw nsw i32 %.03439, %.035
+  %.03437 = phi i32 [ %33, %.lr.ph ], [ 2, %4 ]
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %.0, ptr noundef %0, i32 noundef %.03437, i32 noundef %.035, i32 noundef 0) #6
+  %25 = add nuw nsw i32 %.03437, %.035
   %26 = load i32, ptr @hf_iphc_crtp_cs_invalid, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #6
   %28 = load i32, ptr @hf_iphc_crtp_seq, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %28, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #6
-  %.reass = add nuw nsw i32 %.03439, %invariant.op
-  %30 = load i32, ptr @hf_iphc_crtp_gen, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %30, ptr noundef %0, i32 noundef %.reass, i32 noundef 1, i32 noundef 0) #6
-  %.reass38 = add nuw nsw i32 %.03439, %invariant.op37
-  %32 = icmp ult i32 %.reass38, %.036
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  %30 = add nuw nsw i32 %25, 1
+  %31 = load i32, ptr @hf_iphc_crtp_gen, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0) #6
+  %33 = add nuw nsw i32 %25, 2
+  %34 = icmp ult i32 %33, %.036
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %33 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  ret i32 %33
+  %35 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable

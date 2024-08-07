@@ -4429,7 +4429,7 @@ _Py_NewRef.exit57:                                ; preds = %if.then36, %if.end.
   br i1 %tobool41.not91, label %if.end48, label %for.body42
 
 for.body42:                                       ; preds = %_Py_NewRef.exit57, %_Py_NewRef.exit69
-  %key_pos.293 = phi i64 [ %key_pos.2.reass, %_Py_NewRef.exit69 ], [ %key_pos.289, %_Py_NewRef.exit57 ]
+  %key_pos.293 = phi i64 [ %key_pos.2, %_Py_NewRef.exit69 ], [ %key_pos.289, %_Py_NewRef.exit57 ]
   %key_pos.2.in92 = phi i64 [ %inc43, %_Py_NewRef.exit69 ], [ %key_pos.0.lcssa, %_Py_NewRef.exit57 ]
   %inc43 = add i64 %key_pos.2.in92, 2
   %10 = load ptr, ptr %keyword, align 8
@@ -4458,13 +4458,13 @@ if.end.i.i68:                                     ; preds = %_Py_NewRef.exit63
 _Py_NewRef.exit69:                                ; preds = %_Py_NewRef.exit63, %if.end.i.i68
   %arrayidx.i71 = getelementptr [1 x ptr], ptr %ob_item.i58, i64 0, i64 %inc43
   store ptr %12, ptr %arrayidx.i71, align 8
-  %key_pos.2.reass = add i64 %key_pos.2.in92, 3
+  %key_pos.2 = add i64 %key_pos.2.in92, 3
   %call40 = call i32 @PyDict_Next(ptr noundef %kwds, ptr noundef nonnull %pos, ptr noundef nonnull %keyword, ptr noundef nonnull %value) #6
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.end48, label %for.body42, !llvm.loop !11
 
 if.end48:                                         ; preds = %_Py_NewRef.exit69, %_Py_NewRef.exit57, %for.end
-  %key_pos.1 = phi i64 [ %key_pos.0.lcssa, %for.end ], [ %key_pos.289, %_Py_NewRef.exit57 ], [ %key_pos.2.reass, %_Py_NewRef.exit69 ]
+  %key_pos.1 = phi i64 [ %key_pos.0.lcssa, %for.end ], [ %key_pos.289, %_Py_NewRef.exit57 ], [ %key_pos.2, %_Py_NewRef.exit69 ]
   br i1 %tobool1, label %for.cond51.preheader, label %return
 
 for.cond51.preheader:                             ; preds = %if.end48

@@ -10269,7 +10269,6 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %if.then.i, %if.else
   br i1 %cmp.not.i.i.i.i, label %cleanup, label %for.cond46.preheader.lr.ph
 
 for.cond46.preheader.lr.ph:                       ; preds = %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
-  %invariant.op = add nuw nsw i64 %sub.ptr.div.i, 1
   %sub54 = add nsw i64 %sub.ptr.div.i, -2
   %umax169 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   %.pre171 = load ptr, ptr %bitlen, align 8
@@ -10332,8 +10331,8 @@ if.then67:                                        ; preds = %if.then63
 
 if.else:                                          ; preds = %if.then63
   %inc72 = add i64 %nodefilled.1157, 1
-  %add73.reass = add i64 %nodefilled.1157, %invariant.op
-  store i64 %add73.reass, ptr %add.ptr.i96, align 8
+  %add73 = add i64 %inc72, %sub.ptr.div.i
+  store i64 %add73, ptr %add.ptr.i96, align 8
   br label %for.inc86
 
 if.else79:                                        ; preds = %if.end57

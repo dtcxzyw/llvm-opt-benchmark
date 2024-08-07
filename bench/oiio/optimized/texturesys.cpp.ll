@@ -13215,7 +13215,6 @@ for.end151:                                       ; preds = %for.body145
   %44 = load float, ptr %minorlength, align 4
   %mul152 = fmul float %44, 1.000000e+02
   %conv153 = fptosi float %mul152 to i32
-  %invariant.op = add i32 %conv153, 128
   br i1 %cmp144126, label %for.body156.lr.ph, label %for.end208
 
 for.body156.lr.ph:                                ; preds = %for.end151
@@ -13245,7 +13244,7 @@ for.body156:                                      ; preds = %for.body156.lr.ph, 
   %48 = load float, ptr %arrayidx172, align 4
   %sub176 = sub nsw i32 %add166, %conv153
   %sub177 = sub nsw i32 %sub170, %conv153
-  %add178.reass = add i32 %invariant.op, %conv165
+  %add178 = add nsw i32 %add166, %conv153
   %add179 = add nsw i32 %sub170, %conv153
   store <2 x float> <float 0x3FE4CCCCC0000000, float 0x3FE4CCCCC0000000>, ptr %ref.tmp182, align 8
   store float 0x3FE4CCCCC0000000, ptr %arrayinit.element185, align 8
@@ -13253,7 +13252,7 @@ for.body156:                                      ; preds = %for.body156.lr.ph, 
   store i64 3, ptr %m_size.i.i93, align 8
   store i32 -2147483648, ptr %agg.tmp190, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %xend.i94, i8 0, i64 28, i1 false)
-  %call192 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10render_boxERNS_8ImageBufEiiiiNS_4spanIKfLln1EEEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %ib, i32 noundef %sub176, i32 noundef %sub177, i32 noundef %add178.reass, i32 noundef %add179, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::span") align 8 %agg.tmp180, i1 noundef zeroext false, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp190, i32 noundef 0)
+  %call192 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10render_boxERNS_8ImageBufEiiiiNS_4spanIKfLln1EEEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %ib, i32 noundef %sub176, i32 noundef %sub177, i32 noundef %add178, i32 noundef %add179, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::span") align 8 %agg.tmp180, i1 noundef zeroext false, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp190, i32 noundef 0)
           to label %invoke.cont191 unwind label %lpad41.loopexit
 
 invoke.cont191:                                   ; preds = %for.body156

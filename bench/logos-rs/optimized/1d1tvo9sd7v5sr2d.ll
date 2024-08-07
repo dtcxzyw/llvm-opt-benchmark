@@ -382,12 +382,12 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3fix17h802
   %37 = invoke { ptr, i64 } @"_ZN74_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb1405fbd21f22b62E"(ptr nonnull align 8 %18, i64 %.sroa.07.0, ptr nonnull align 8 @anon.aa30e0ffefef3d2e1254ff7d80e5cea3.5)
           to label %39 unwind label %.loopexit
 
-38:                                               ; preds = %.loopexit, %.loopexit.split-lp, %121, %102, %76
-  %.pn44 = phi { ptr, i32 } [ %.pn42, %76 ], [ %.pn, %102 ], [ %.pn, %121 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+38:                                               ; preds = %.loopexit, %.loopexit.split-lp, %122, %103, %76
+  %.pn44 = phi { ptr, i32 } [ %.pn42, %76 ], [ %.pn, %103 ], [ %.pn, %122 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %18) #4
-          to label %122 unwind label %98
+          to label %123 unwind label %98
 
-.loopexit:                                        ; preds = %.backedge, %39, %46, %50, %52, %59, %64, %95, %118
+.loopexit:                                        ; preds = %.backedge, %39, %46, %50, %52, %59, %64, %95, %119
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %38
@@ -466,7 +466,7 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3fix17h802
   store ptr %10, ptr %27, align 8
   store i64 1, ptr %28, align 8
   invoke void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr nonnull sret([24 x i8]) align 8 %12, ptr nonnull align 8 %11)
-          to label %107 unwind label %105
+          to label %108 unwind label %106
 
 71:                                               ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
@@ -530,12 +530,12 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3fix17h802
   br label %95
 
 95:                                               ; preds = %100, %93
-  %.sroa.07.1 = phi i64 [ %94, %93 ], [ %101, %100 ]
+  %.sroa.07.1 = phi i64 [ %94, %93 ], [ %102, %100 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %15)
           to label %.backedge.backedge unwind label %.loopexit
 
-.backedge.backedge:                               ; preds = %95, %114, %118
-  %.sroa.07.0.be = phi i64 [ %.sroa.07.1, %95 ], [ %115, %114 ], [ %115, %118 ]
+.backedge.backedge:                               ; preds = %95, %115, %119
+  %.sroa.07.0.be = phi i64 [ %.sroa.07.1, %95 ], [ %116, %115 ], [ %116, %119 ]
   br label %.backedge
 
 96:                                               ; preds = %87
@@ -544,67 +544,67 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3fix17h802
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %8) #4
           to label %76 unwind label %98
 
-98:                                               ; preds = %121, %119, %96, %76, %38
+98:                                               ; preds = %122, %120, %96, %76, %38
   %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #5
   unreachable
 
 100:                                              ; preds = %82
-  %.reass = add i64 %48, 4
-  %101 = add i64 %.reass, %86
+  %101 = add i64 %48, 4
+  %102 = add i64 %101, %86
   br label %95
 
-102:                                              ; preds = %109, %119, %105
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %120, %119 ], [ %110, %109 ]
-  %103 = load i64, ptr %14, align 8
-  %104 = icmp eq i64 %103, 0
-  br i1 %104, label %38, label %121
+103:                                              ; preds = %110, %120, %106
+  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %121, %120 ], [ %111, %110 ]
+  %104 = load i64, ptr %14, align 8
+  %105 = icmp eq i64 %104, 0
+  br i1 %105, label %38, label %122
 
-105:                                              ; preds = %113, %70
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %114, %70
+  %107 = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %103
 
-107:                                              ; preds = %70
+108:                                              ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
-  %108 = invoke i32 @_ZN13logos_codegen6parser10definition7Literal4span17h35d684fb5a0cd4deE(ptr nonnull align 8 %2)
-          to label %111 unwind label %119
+  %109 = invoke i32 @_ZN13logos_codegen6parser10definition7Literal4span17h35d684fb5a0cd4deE(ptr nonnull align 8 %2)
+          to label %112 unwind label %120
 
-109:                                              ; preds = %111
-  %110 = landingpad { ptr, i32 }
+110:                                              ; preds = %112
+  %111 = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %103
 
-111:                                              ; preds = %107
-  %112 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %13, i32 %108)
-          to label %113 unwind label %109
+112:                                              ; preds = %108
+  %113 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %13, i32 %109)
+          to label %114 unwind label %110
 
-113:                                              ; preds = %111
+114:                                              ; preds = %112
   invoke void @_ZN5alloc6string6String13replace_range17ha73eb89c51540df1E(ptr nonnull align 8 %18, i64 %49, i64 %61, ptr nonnull align 1 @anon.aa30e0ffefef3d2e1254ff7d80e5cea3.15, i64 1)
-          to label %114 unwind label %105
+          to label %115 unwind label %106
 
-114:                                              ; preds = %113
-  %115 = add i64 %48, 5
-  %116 = load i64, ptr %14, align 8
-  %117 = icmp eq i64 %116, 0
-  br i1 %117, label %.backedge.backedge, label %118
+115:                                              ; preds = %114
+  %116 = add i64 %48, 5
+  %117 = load i64, ptr %14, align 8
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %.backedge.backedge, label %119
 
-118:                                              ; preds = %114
+119:                                              ; preds = %115
   invoke void @"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$proc_macro2..Ident$C$syn..error..Error$GT$$GT$17h333c478fb570877fE"(ptr nonnull align 8 %14)
           to label %.backedge.backedge unwind label %.loopexit
 
-119:                                              ; preds = %107
-  %120 = landingpad { ptr, i32 }
+120:                                              ; preds = %108
+  %121 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %13) #4
-          to label %102 unwind label %98
+          to label %103 unwind label %98
 
-121:                                              ; preds = %102
+122:                                              ; preds = %103
   invoke void @"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$proc_macro2..Ident$C$syn..error..Error$GT$$GT$17h333c478fb570877fE"(ptr nonnull align 8 %14) #4
           to label %38 unwind label %98
 
-122:                                              ; preds = %38
+123:                                              ; preds = %38
   resume { ptr, i32 } %.pn44
 }
 

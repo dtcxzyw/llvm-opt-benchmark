@@ -13140,10 +13140,6 @@ for.cond.preheader:                               ; preds = %entry
   %10 = getelementptr inbounds i8, ptr %ref.tmp38.i, i64 8
   %11 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %12 = getelementptr inbounds i8, ptr %ref.tmp7.i69, i64 8
-  %invariant.op = add nuw nsw i32 %conv, 65408
-  %invariant.op4 = add nuw nsw i32 %conv, 65440
-  %invariant.op5 = add nuw nsw i32 %conv, 65472
-  %invariant.op6 = add nuw nsw i32 %conv, 65504
   br label %for.body
 
 sw.bb:                                            ; preds = %entry
@@ -13657,11 +13653,11 @@ if.then21.i:                                      ; preds = %land.lhs.true.i
   br i1 %cmp32.not.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_9hugeint_tEtt.exit, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.then21.i
-  %conv37.i.reass = add nuw nsw i32 %conv7, %invariant.op6
+  %conv37.i = add nuw nsw i32 %add.i72, 65504
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp38.i) #29, !noalias !476
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp39.i) #29, !noalias !476
   %71 = load i32, ptr %incdec.ptr.i, align 4, !tbaa !116, !noalias !476
-  %conv40.i76 = and i32 %conv37.i.reass, 65535
+  %conv40.i76 = and i32 %conv37.i, 65535
   %notmask316.i = shl nsw i32 -1, %conv40.i76
   %72 = xor i32 %notmask316.i, -1
   %rem.i77 = and i32 %71, %72
@@ -13726,11 +13722,11 @@ if.then58.i:                                      ; preds = %land.lhs.true53.i
   br i1 %cmp79.not.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_9hugeint_tEtt.exit, label %if.then80.i
 
 if.then80.i:                                      ; preds = %if.then58.i
-  %conv86.i.reass = add nuw nsw i32 %conv7, %invariant.op5
+  %conv86.i = add nuw nsw i32 %add.i72, 65472
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp87.i) #29, !noalias !476
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp88.i) #29, !noalias !476
   %81 = load i32, ptr %add.ptr.i, align 4, !tbaa !116
-  %conv89.i = and i32 %conv86.i.reass, 65535
+  %conv89.i = and i32 %conv86.i, 65535
   %notmask315.i = shl nsw i32 -1, %conv89.i
   %82 = xor i32 %notmask315.i, -1
   %rem91.i = and i32 %81, %82
@@ -13814,11 +13810,11 @@ if.then110.i:                                     ; preds = %land.lhs.true105.i
   br i1 %cmp142.not.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_9hugeint_tEtt.exit, label %if.then143.i
 
 if.then143.i:                                     ; preds = %if.then110.i
-  %conv149.i.reass = add nuw nsw i32 %conv7, %invariant.op4
+  %conv149.i = add nuw nsw i32 %add.i72, 65440
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp150.i) #29, !noalias !476
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp151.i) #29, !noalias !476
   %94 = load i32, ptr %add.ptr138.i, align 4, !tbaa !116
-  %conv152.i = and i32 %conv149.i.reass, 65535
+  %conv152.i = and i32 %conv149.i, 65535
   %notmask314.i = shl nsw i32 -1, %conv152.i
   %95 = xor i32 %notmask314.i, -1
   %rem154.i = and i32 %94, %95
@@ -13912,11 +13908,11 @@ if.then168.i:                                     ; preds = %land.lhs.true105.i
   br i1 %cmp210.not.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_9hugeint_tEtt.exit, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.then168.i
-  %conv217.i.reass = add nuw nsw i32 %conv7, %invariant.op
+  %conv217.i = add nuw nsw i32 %add.i72, 65408
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp218.i) #29, !noalias !476
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp219.i) #29, !noalias !476
   %110 = load i32, ptr %add.ptr206.i, align 4, !tbaa !116
-  %conv220.i = and i32 %conv217.i.reass, 65535
+  %conv220.i = and i32 %conv217.i, 65535
   %notmask.i = shl nsw i32 -1, %conv220.i
   %111 = xor i32 %notmask.i, -1
   %rem222.i = and i32 %110, %111

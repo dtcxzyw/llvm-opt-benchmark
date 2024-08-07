@@ -15918,10 +15918,10 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
   %11 = getelementptr inbounds i8, ptr %0, i64 26
   %12 = load i8, ptr %11, align 2, !range !1028, !alias.scope !3299, !noalias !3300, !noundef !13
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i", label %.lr.ph105.i
+  br i1 %13, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i", label %.lr.ph106.i
 
-.lr.ph105.i:                                      ; preds = %.critedge.i
-  %.promoted104.i = load i64, ptr %10, align 8, !alias.scope !3299, !noalias !3300
+.lr.ph106.i:                                      ; preds = %.critedge.i
+  %.promoted105.i = load i64, ptr %10, align 8, !alias.scope !3299, !noalias !3300
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %.pre.i = load i8, ptr %14, align 8, !range !1028, !alias.scope !3299, !noalias !3300
   br label %16
@@ -15932,9 +15932,9 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
   store i64 %15, ptr %10, align 8, !alias.scope !3299, !noalias !3300
   br label %16
 
-16:                                               ; preds = %.loopexit.i, %.lr.ph105.i
-  %17 = phi i8 [ %.pre.i, %.lr.ph105.i ], [ %20, %.loopexit.i ]
-  %18 = phi i64 [ %.promoted104.i, %.lr.ph105.i ], [ %15, %.loopexit.i ]
+16:                                               ; preds = %.loopexit.i, %.lr.ph106.i
+  %17 = phi i8 [ %.pre.i, %.lr.ph106.i ], [ %20, %.loopexit.i ]
+  %18 = phi i64 [ %.promoted105.i, %.lr.ph106.i ], [ %15, %.loopexit.i ]
   %19 = trunc nuw i8 %17 to i1
   %20 = xor i8 %17, 1
   %21 = icmp eq i64 %18, 0
@@ -16204,31 +16204,30 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1459e4f
   %.014 = select i1 %6, i64 %13, i64 %.0.sroa.speculated.i
   br label %37
 
-.sink.split:                                      ; preds = %30, %73, %60
-  %.sink = phi i64 [ %17, %60 ], [ 0, %73 ], [ 0, %30 ]
-  %.ph81 = phi i64 [ %61, %60 ], [ %76, %73 ], [ %31, %30 ]
+.sink.split:                                      ; preds = %30, %74, %61
+  %.sink = phi i64 [ %17, %61 ], [ 0, %74 ], [ 0, %30 ]
+  %.ph83 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
   store i64 %.sink, ptr %14, align 8
   br label %33
 
-33:                                               ; preds = %.sink.split, %60, %73, %30
-  %34 = phi i64 [ %19, %60 ], [ %19, %73 ], [ %19, %30 ], [ %.sink, %.sink.split ]
-  %35 = phi i64 [ %61, %60 ], [ %76, %73 ], [ %31, %30 ], [ %.ph81, %.sink.split ]
+33:                                               ; preds = %.sink.split, %61, %74, %30
+  %34 = phi i64 [ %19, %61 ], [ %19, %74 ], [ %19, %30 ], [ %.sink, %.sink.split ]
+  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph83, %.sink.split ]
   %36 = add i64 %9, %35
   %.not37 = icmp ult i64 %36, %3
   br i1 %.not37, label %18, label %._crit_edge
 
-37:                                               ; preds = %65, %32
-  %.sroa.04.0 = phi i64 [ %.014, %32 ], [ %66, %65 ]
+37:                                               ; preds = %66, %32
+  %.sroa.04.0 = phi i64 [ %.014, %32 ], [ %67, %66 ]
   %38 = icmp ult i64 %.sroa.04.0, %5
-  br i1 %38, label %62, label %39
+  br i1 %38, label %63, label %39
 
 39:                                               ; preds = %37
   %.015 = select i1 %6, i64 0, i64 %19
-  %invariant.op = add i64 %21, -1
   br label %40
 
-40:                                               ; preds = %54, %39
-  %.sroa.5.0 = phi i64 [ %13, %39 ], [ %45, %54 ]
+40:                                               ; preds = %55, %39
+  %.sroa.5.0 = phi i64 [ %13, %39 ], [ %45, %55 ]
   %41 = icmp ult i64 %.015, %.sroa.5.0
   br i1 %41, label %44, label %42
 
@@ -16240,7 +16239,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1459e4f
 44:                                               ; preds = %40
   %45 = add i64 %.sroa.5.0, -1
   %46 = icmp ult i64 %45, %5
-  br i1 %46, label %51, label %53, !prof !3314
+  br i1 %46, label %51, label %54, !prof !3314
 
 47:                                               ; preds = %42
   store i64 0, ptr %14, align 8
@@ -16254,56 +16253,56 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1459e4f
   br label %29
 
 51:                                               ; preds = %44
-  %.reass = add i64 %.sroa.5.0, %invariant.op
-  %52 = icmp ult i64 %.reass, %3
-  br i1 %52, label %54, label %59, !prof !3314
+  %52 = add i64 %45, %21
+  %53 = icmp ult i64 %52, %3
+  br i1 %53, label %55, label %60, !prof !3314
 
-53:                                               ; preds = %44
+54:                                               ; preds = %44
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %45, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7bbb14fc9841fea9b9688bd70a4e67f.113) #39
   unreachable
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %45
-  %56 = load i8, ptr %55, align 1, !noundef !13
-  %57 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %.reass
-  %58 = load i8, ptr %57, align 1, !noundef !13
-  %.not28 = icmp eq i8 %56, %58
-  br i1 %.not28, label %40, label %60
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %45
+  %57 = load i8, ptr %56, align 1, !noundef !13
+  %58 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %52
+  %59 = load i8, ptr %58, align 1, !noundef !13
+  %.not28 = icmp eq i8 %57, %59
+  br i1 %.not28, label %40, label %61
 
-59:                                               ; preds = %51
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.reass, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7bbb14fc9841fea9b9688bd70a4e67f.114) #39
+60:                                               ; preds = %51
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %52, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7bbb14fc9841fea9b9688bd70a4e67f.114) #39
   unreachable
 
-60:                                               ; preds = %54
-  %61 = add i64 %16, %21
-  store i64 %61, ptr %8, align 8
+61:                                               ; preds = %55
+  %62 = add i64 %16, %21
+  store i64 %62, ptr %8, align 8
   br i1 %6, label %33, label %.sink.split
 
-62:                                               ; preds = %37
-  %63 = add i64 %.sroa.04.0, %21
-  %64 = icmp ult i64 %63, %3
-  br i1 %64, label %65, label %71, !prof !3314
+63:                                               ; preds = %37
+  %64 = add i64 %.sroa.04.0, %21
+  %65 = icmp ult i64 %64, %3
+  br i1 %65, label %66, label %72, !prof !3314
 
-65:                                               ; preds = %62
-  %66 = add nuw i64 %.sroa.04.0, 1
-  %67 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.04.0
-  %68 = load i8, ptr %67, align 1, !noundef !13
-  %69 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %63
-  %70 = load i8, ptr %69, align 1, !noundef !13
-  %.not = icmp eq i8 %68, %70
-  br i1 %.not, label %37, label %73
+66:                                               ; preds = %63
+  %67 = add nuw i64 %.sroa.04.0, 1
+  %68 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.04.0
+  %69 = load i8, ptr %68, align 1, !noundef !13
+  %70 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %64
+  %71 = load i8, ptr %70, align 1, !noundef !13
+  %.not = icmp eq i8 %69, %71
+  br i1 %.not, label %37, label %74
 
-71:                                               ; preds = %62
-  %72 = add i64 %.014, %21
-  %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 %72)
+72:                                               ; preds = %63
+  %73 = add i64 %.014, %21
+  %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 %73)
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %umax, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7bbb14fc9841fea9b9688bd70a4e67f.116) #39
   unreachable
 
-73:                                               ; preds = %65
-  %74 = add i64 %21, 1
-  %75 = add i64 %74, %.sroa.04.0
-  %76 = sub i64 %75, %13
-  store i64 %76, ptr %8, align 8
+74:                                               ; preds = %66
+  %75 = add i64 %21, 1
+  %76 = add i64 %75, %.sroa.04.0
+  %77 = sub i64 %76, %13
+  store i64 %77, ptr %8, align 8
   br i1 %6, label %33, label %.sink.split
 }
 

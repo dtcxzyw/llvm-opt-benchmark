@@ -23486,7 +23486,6 @@ if.end37.i:                                       ; preds = %for.end.i
   %arrayidx39.i = getelementptr inbounds i32, ptr %retval.0.i.i105.i, i64 %first_i.0.lcssa.i
   %69 = load i32, ptr %arrayidx39.i, align 4
   %add.i = add nsw i32 %69, %68
-  %invariant.op.i = add i64 %1, 1
   %i.0339.i = add nuw nsw i64 %first_i.0.lcssa.i, 1
   %cmp42340.i = icmp slt i64 %i.0339.i, %2
   br i1 %cmp42340.i, label %for.body43.lr.ph.i, label %for.end68.i
@@ -23498,16 +23497,15 @@ for.body43.lr.ph.i:                               ; preds = %if.end37.i
   br label %for.body43.i
 
 for.body43.i:                                     ; preds = %for.inc66.i, %for.body43.lr.ph.i
-  %i.0344.i = phi i64 [ %i.0339.i, %for.body43.lr.ph.i ], [ %i.0.i, %for.inc66.i ]
-  %end_offset.0343.i = phi i32 [ %add.i, %for.body43.lr.ph.i ], [ %end_offset.1.i, %for.inc66.i ]
-  %begin_offset.0342.i = phi i32 [ %68, %for.body43.lr.ph.i ], [ %begin_offset.1.i, %for.inc66.i ]
-  %i.0.in341.i = phi i64 [ %first_i.0.lcssa.i, %for.body43.lr.ph.i ], [ %i.0344.i, %for.inc66.i ]
-  %add.i151.reass.i = add i64 %invariant.op.i, %i.0.in341.i
-  %shr.i.i152.i = lshr i64 %add.i151.reass.i, 3
+  %i.0343.i = phi i64 [ %i.0339.i, %for.body43.lr.ph.i ], [ %i.0.i, %for.inc66.i ]
+  %end_offset.0342.i = phi i32 [ %add.i, %for.body43.lr.ph.i ], [ %end_offset.1.i, %for.inc66.i ]
+  %begin_offset.0341.i = phi i32 [ %68, %for.body43.lr.ph.i ], [ %begin_offset.1.i, %for.inc66.i ]
+  %add.i151.i = add nsw i64 %i.0343.i, %1
+  %shr.i.i152.i = lshr i64 %add.i151.i, 3
   %arrayidx.i.i153.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %shr.i.i152.i
   %70 = load i8, ptr %arrayidx.i.i153.i, align 1
   %conv.i.i154.i = zext i8 %70 to i32
-  %71 = trunc i64 %add.i151.reass.i to i32
+  %71 = trunc i64 %add.i151.i to i32
   %sh_prom.i.i155.i = and i32 %71, 7
   %72 = shl nuw nsw i32 1, %sh_prom.i.i155.i
   %73 = and i32 %72, %conv.i.i154.i
@@ -23515,7 +23513,7 @@ for.body43.i:                                     ; preds = %for.inc66.i, %for.b
   br i1 %tobool.i.not.i156.i, label %for.inc66.i, label %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_13ListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i
 
 _ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_13ListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i: ; preds = %for.body43.i
-  %arrayidx.i158.i = getelementptr inbounds i32, ptr %retval.0.i.i105.i, i64 %i.0344.i
+  %arrayidx.i158.i = getelementptr inbounds i32, ptr %retval.0.i.i105.i, i64 %i.0343.i
   %74 = load i32, ptr %arrayidx.i158.i, align 4
   %cmp.i159.i = icmp eq i32 %74, 0
   br i1 %cmp.i159.i, label %for.inc66.i, label %if.else.i
@@ -23531,19 +23529,19 @@ lpad44.loopexit.split-lp.i:                       ; preds = %sw.epilog.i, %for.e
   br label %ehcleanup.i
 
 if.else.i:                                        ; preds = %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_13ListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i
-  %arrayidx48.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %i.0344.i
+  %arrayidx48.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %i.0343.i
   %75 = load i32, ptr %arrayidx48.i, align 4
-  %cmp49.i = icmp eq i32 %75, %end_offset.0343.i
+  %cmp49.i = icmp eq i32 %75, %end_offset.0342.i
   br i1 %cmp49.i, label %if.then50.i, label %if.else53.i
 
 if.then50.i:                                      ; preds = %if.else.i
-  %add52.i = add nsw i32 %74, %end_offset.0343.i
+  %add52.i = add nsw i32 %74, %end_offset.0342.i
   br label %for.inc66.i
 
 if.else53.i:                                      ; preds = %if.else.i
   %76 = load ptr, ptr %value_array.i, align 16, !noalias !291
-  %conv.i = sext i32 %begin_offset.0342.i to i64
-  %conv56.i = sext i32 %end_offset.0343.i to i64
+  %conv.i = sext i32 %begin_offset.0341.i to i64
+  %conv56.i = sext i32 %end_offset.0342.i to i64
   %sub.i.i = sub nsw i64 %conv56.i, %conv.i
   invoke void @_ZNK5arrow5Array5SliceEll(ptr nonnull sret(%"class.std::shared_ptr.0") align 8 %ref.tmp54.i, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 noundef %conv.i, i64 noundef %sub.i.i)
           to label %invoke.cont57.i unwind label %lpad44.loopexit.i
@@ -23658,11 +23656,11 @@ lpad58.i:                                         ; preds = %if.else.i.i.i
   br label %ehcleanup.i
 
 for.inc66.i:                                      ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i, %if.then50.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_13ListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i, %for.body43.i
-  %begin_offset.1.i = phi i32 [ %begin_offset.0342.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_13ListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i ], [ %begin_offset.0342.i, %if.then50.i ], [ %93, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i ], [ %begin_offset.0342.i, %for.body43.i ]
-  %end_offset.1.i = phi i32 [ %end_offset.0343.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_13ListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i ], [ %add52.i, %if.then50.i ], [ %add63.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i ], [ %end_offset.0343.i, %for.body43.i ]
-  %i.0.i = add i64 %i.0344.i, 1
-  %exitcond347.not.i = icmp eq i64 %i.0.i, %2
-  br i1 %exitcond347.not.i, label %for.end68.i, label %for.body43.i, !llvm.loop !295
+  %begin_offset.1.i = phi i32 [ %begin_offset.0341.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_13ListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i ], [ %begin_offset.0341.i, %if.then50.i ], [ %93, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i ], [ %begin_offset.0341.i, %for.body43.i ]
+  %end_offset.1.i = phi i32 [ %end_offset.0342.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_13ListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i ], [ %add52.i, %if.then50.i ], [ %add63.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i ], [ %end_offset.0342.i, %for.body43.i ]
+  %i.0.i = add i64 %i.0343.i, 1
+  %exitcond346.not.i = icmp eq i64 %i.0.i, %2
+  br i1 %exitcond346.not.i, label %for.end68.i, label %for.body43.i, !llvm.loop !295
 
 for.end68.i:                                      ; preds = %for.inc66.i, %if.end37.i
   %begin_offset.0.lcssa.i = phi i32 [ %68, %if.end37.i ], [ %begin_offset.1.i, %for.inc66.i ]
@@ -29465,7 +29463,6 @@ if.end37.i:                                       ; preds = %for.end.i
   %arrayidx39.i = getelementptr inbounds i64, ptr %retval.0.i.i105.i, i64 %first_i.0.lcssa.i
   %69 = load i64, ptr %arrayidx39.i, align 8
   %add.i = add nsw i64 %69, %68
-  %invariant.op.i = add i64 %1, 1
   %i.0339.i = add nuw nsw i64 %first_i.0.lcssa.i, 1
   %cmp42340.i = icmp slt i64 %i.0339.i, %2
   br i1 %cmp42340.i, label %for.body43.lr.ph.i, label %for.end67.i
@@ -29477,16 +29474,15 @@ for.body43.lr.ph.i:                               ; preds = %if.end37.i
   br label %for.body43.i
 
 for.body43.i:                                     ; preds = %for.inc65.i, %for.body43.lr.ph.i
-  %i.0344.i = phi i64 [ %i.0339.i, %for.body43.lr.ph.i ], [ %i.0.i, %for.inc65.i ]
-  %end_offset.0343.i = phi i64 [ %add.i, %for.body43.lr.ph.i ], [ %end_offset.1.i, %for.inc65.i ]
-  %begin_offset.0342.i = phi i64 [ %68, %for.body43.lr.ph.i ], [ %begin_offset.1.i, %for.inc65.i ]
-  %i.0.in341.i = phi i64 [ %first_i.0.lcssa.i, %for.body43.lr.ph.i ], [ %i.0344.i, %for.inc65.i ]
-  %add.i151.reass.i = add i64 %invariant.op.i, %i.0.in341.i
-  %shr.i.i152.i = lshr i64 %add.i151.reass.i, 3
+  %i.0343.i = phi i64 [ %i.0339.i, %for.body43.lr.ph.i ], [ %i.0.i, %for.inc65.i ]
+  %end_offset.0342.i = phi i64 [ %add.i, %for.body43.lr.ph.i ], [ %end_offset.1.i, %for.inc65.i ]
+  %begin_offset.0341.i = phi i64 [ %68, %for.body43.lr.ph.i ], [ %begin_offset.1.i, %for.inc65.i ]
+  %add.i151.i = add nsw i64 %i.0343.i, %1
+  %shr.i.i152.i = lshr i64 %add.i151.i, 3
   %arrayidx.i.i153.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %shr.i.i152.i
   %70 = load i8, ptr %arrayidx.i.i153.i, align 1
   %conv.i.i154.i = zext i8 %70 to i32
-  %71 = trunc i64 %add.i151.reass.i to i32
+  %71 = trunc i64 %add.i151.i to i32
   %sh_prom.i.i155.i = and i32 %71, 7
   %72 = shl nuw nsw i32 1, %sh_prom.i.i155.i
   %73 = and i32 %72, %conv.i.i154.i
@@ -29494,7 +29490,7 @@ for.body43.i:                                     ; preds = %for.inc65.i, %for.b
   br i1 %tobool.i.not.i156.i, label %for.inc65.i, label %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_18LargeListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i
 
 _ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_18LargeListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i: ; preds = %for.body43.i
-  %arrayidx.i158.i = getelementptr inbounds i64, ptr %retval.0.i.i105.i, i64 %i.0344.i
+  %arrayidx.i158.i = getelementptr inbounds i64, ptr %retval.0.i.i105.i, i64 %i.0343.i
   %74 = load i64, ptr %arrayidx.i158.i, align 8
   %cmp.i159.i = icmp eq i64 %74, 0
   br i1 %cmp.i159.i, label %for.inc65.i, label %if.else.i
@@ -29510,19 +29506,19 @@ lpad44.loopexit.split-lp.i:                       ; preds = %sw.epilog.i, %for.e
   br label %ehcleanup.i
 
 if.else.i:                                        ; preds = %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_18LargeListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i
-  %arrayidx48.i = getelementptr inbounds i64, ptr %retval.0.i.i.i, i64 %i.0344.i
+  %arrayidx48.i = getelementptr inbounds i64, ptr %retval.0.i.i.i, i64 %i.0343.i
   %75 = load i64, ptr %arrayidx48.i, align 8
-  %cmp49.i = icmp eq i64 %75, %end_offset.0343.i
+  %cmp49.i = icmp eq i64 %75, %end_offset.0342.i
   br i1 %cmp49.i, label %if.then50.i, label %if.else53.i
 
 if.then50.i:                                      ; preds = %if.else.i
-  %add52.i = add nsw i64 %74, %end_offset.0343.i
+  %add52.i = add nsw i64 %74, %end_offset.0342.i
   br label %for.inc65.i
 
 if.else53.i:                                      ; preds = %if.else.i
   %76 = load ptr, ptr %value_array.i, align 16, !noalias !307
-  %sub.i.i = sub nsw i64 %end_offset.0343.i, %begin_offset.0342.i
-  invoke void @_ZNK5arrow5Array5SliceEll(ptr nonnull sret(%"class.std::shared_ptr.0") align 8 %ref.tmp54.i, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 noundef %begin_offset.0342.i, i64 noundef %sub.i.i)
+  %sub.i.i = sub nsw i64 %end_offset.0342.i, %begin_offset.0341.i
+  invoke void @_ZNK5arrow5Array5SliceEll(ptr nonnull sret(%"class.std::shared_ptr.0") align 8 %ref.tmp54.i, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 noundef %begin_offset.0341.i, i64 noundef %sub.i.i)
           to label %invoke.cont56.i unwind label %lpad44.loopexit.i
 
 invoke.cont56.i:                                  ; preds = %if.else53.i
@@ -29635,11 +29631,11 @@ lpad57.i:                                         ; preds = %if.else.i.i.i
   br label %ehcleanup.i
 
 for.inc65.i:                                      ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i, %if.then50.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_18LargeListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i, %for.body43.i
-  %begin_offset.1.i = phi i64 [ %begin_offset.0342.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_18LargeListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i ], [ %begin_offset.0342.i, %if.then50.i ], [ %93, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i ], [ %begin_offset.0342.i, %for.body43.i ]
-  %end_offset.1.i = phi i64 [ %end_offset.0343.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_18LargeListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i ], [ %add52.i, %if.then50.i ], [ %add62.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i ], [ %end_offset.0343.i, %for.body43.i ]
-  %i.0.i = add i64 %i.0344.i, 1
-  %exitcond347.not.i = icmp eq i64 %i.0.i, %2
-  br i1 %exitcond347.not.i, label %for.end67.i, label %for.body43.i, !llvm.loop !311
+  %begin_offset.1.i = phi i64 [ %begin_offset.0341.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_18LargeListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i ], [ %begin_offset.0341.i, %if.then50.i ], [ %93, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i ], [ %begin_offset.0341.i, %for.body43.i ]
+  %end_offset.1.i = phi i64 [ %end_offset.0342.i, %_ZZN5arrow12_GLOBAL__N_120FlattenListViewArrayINS_18LargeListViewArrayELb1EEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKT_PNS_10MemoryPoolEENKUllE_clEl.exit161.i ], [ %add52.i, %if.then50.i ], [ %add62.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit195.i ], [ %end_offset.0342.i, %for.body43.i ]
+  %i.0.i = add i64 %i.0343.i, 1
+  %exitcond346.not.i = icmp eq i64 %i.0.i, %2
+  br i1 %exitcond346.not.i, label %for.end67.i, label %for.body43.i, !llvm.loop !311
 
 for.end67.i:                                      ; preds = %for.inc65.i, %if.end37.i
   %begin_offset.0.lcssa.i = phi i64 [ %68, %if.end37.i ], [ %begin_offset.1.i, %for.inc65.i ]

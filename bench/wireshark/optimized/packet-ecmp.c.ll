@@ -1540,10 +1540,10 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
   %11 = getelementptr inbounds i8, ptr %0, i64 408
   br i1 %.not, label %.lr.ph116.split.us, label %.lr.ph116.split
 
-.lr.ph116.split.us:                               ; preds = %.lr.ph116, %83
-  %.0114.us = phi i32 [ %.0.us, %83 ], [ %.0111, %.lr.ph116 ]
-  %.0.in113.us = phi i32 [ %.2.us, %83 ], [ %1, %.lr.ph116 ]
-  %.0103112.us = phi i8 [ %84, %83 ], [ 0, %.lr.ph116 ]
+.lr.ph116.split.us:                               ; preds = %.lr.ph116, %84
+  %.0114.us = phi i32 [ %.0.us, %84 ], [ %.0111, %.lr.ph116 ]
+  %.0.in113.us = phi i32 [ %.2.us, %84 ], [ %1, %.lr.ph116 ]
+  %.0103112.us = phi i8 [ %85, %84 ], [ 0, %.lr.ph116 ]
   %12 = load i32, ptr @hf_ecmp_attribute, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %12, ptr noundef %2, i32 noundef %.0114.us, i32 noundef 1, i32 noundef 0) #4
   %14 = load i32, ptr @ett_ecmp_attribute_data, align 4
@@ -1561,7 +1561,7 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
   %21 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %20, ptr noundef nonnull @.str.602) #4
   %22 = add i32 %.0.in113.us, 4
   %.not106.us = icmp eq ptr %21, null
-  br i1 %.not106.us, label %83, label %.preheader.us
+  br i1 %.not106.us, label %84, label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %37, %.preheader.us
   %.1.lcssa.us = phi i32 [ %22, %.preheader.us ], [ %39, %37 ]
@@ -1569,7 +1569,7 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
   %24 = tail call ptr @wmem_strbuf_get_str(ptr noundef nonnull %21) #4
   %25 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %23, ptr noundef %2, i32 noundef %.1.lcssa.us, i32 noundef 0, ptr noundef %24) #4
   %26 = add i32 %.1.lcssa.us, -1
-  br label %83
+  br label %84
 
 .lr.ph.us:                                        ; preds = %.preheader.us, %37
   %.1110.us = phi i32 [ %39, %37 ], [ %22, %.preheader.us ]
@@ -1656,7 +1656,7 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
 
 74:                                               ; preds = %72, %58
   %75 = add i32 %.0.in113.us, 12
-  br label %83
+  br label %84
 
 76:                                               ; preds = %.lr.ph116.split.us
   %77 = load i32, ptr @hf_ecmp_attribute_string, align 4
@@ -1664,15 +1664,15 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
   %79 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %77, ptr noundef %2, i32 noundef %78, i32 noundef 2, i32 noundef 0) #4
   %80 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %78) #4
   %81 = zext i16 %80 to i32
-  %.reass.us = add i32 %.0.in113.us, 3
-  %82 = add i32 %.reass.us, %81
-  br label %83
+  %82 = add i32 %.0114.us, 2
+  %83 = add i32 %82, %81
+  br label %84
 
-83:                                               ; preds = %76, %74, %._crit_edge.us, %17
-  %.2.us = phi i32 [ %82, %76 ], [ %26, %._crit_edge.us ], [ %22, %17 ], [ %75, %74 ]
-  %84 = add nuw i8 %.0103112.us, 1
+84:                                               ; preds = %76, %74, %._crit_edge.us, %17
+  %.2.us = phi i32 [ %83, %76 ], [ %26, %._crit_edge.us ], [ %22, %17 ], [ %75, %74 ]
+  %85 = add nuw i8 %.0103112.us, 1
   %.0.us = add i32 %.2.us, 1
-  %exitcond123.not = icmp eq i8 %84, %10
+  %exitcond123.not = icmp eq i8 %85, %10
   br i1 %exitcond123.not, label %._crit_edge117, label %.lr.ph116.split.us, !llvm.loop !7
 
 .preheader.us:                                    ; preds = %17
@@ -1681,20 +1681,20 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph116.split:                                  ; preds = %.lr.ph116, %.lr.ph116.split
   %.0114 = phi i32 [ %.0, %.lr.ph116.split ], [ %.0111, %.lr.ph116 ]
-  %.0103112 = phi i8 [ %89, %.lr.ph116.split ], [ 0, %.lr.ph116 ]
-  %85 = load i32, ptr @hf_ecmp_attribute, align 4
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %85, ptr noundef %2, i32 noundef %.0114, i32 noundef 1, i32 noundef 0) #4
-  %87 = load i32, ptr @ett_ecmp_attribute_data, align 4
-  %88 = tail call ptr @proto_item_add_subtree(ptr noundef %86, i32 noundef %87) #4
-  %89 = add nuw i8 %.0103112, 1
+  %.0103112 = phi i8 [ %90, %.lr.ph116.split ], [ 0, %.lr.ph116 ]
+  %86 = load i32, ptr @hf_ecmp_attribute, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %86, ptr noundef %2, i32 noundef %.0114, i32 noundef 1, i32 noundef 0) #4
+  %88 = load i32, ptr @ett_ecmp_attribute_data, align 4
+  %89 = tail call ptr @proto_item_add_subtree(ptr noundef %87, i32 noundef %88) #4
+  %90 = add nuw i8 %.0103112, 1
   %.0 = add i32 %.0114, 1
-  %exitcond.not = icmp eq i8 %89, %10
+  %exitcond.not = icmp eq i8 %90, %10
   br i1 %exitcond.not, label %._crit_edge117, label %.lr.ph116.split, !llvm.loop !7
 
-._crit_edge117:                                   ; preds = %.lr.ph116.split, %83, %5
-  %.0.lcssa = phi i32 [ %.0111, %5 ], [ %.0.us, %83 ], [ %.0, %.lr.ph116.split ]
-  %90 = sub i32 %.0.lcssa, %1
-  tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %90) #4
+._crit_edge117:                                   ; preds = %.lr.ph116.split, %84, %5
+  %.0.lcssa = phi i32 [ %.0111, %5 ], [ %.0.us, %84 ], [ %.0, %.lr.ph116.split ]
+  %91 = sub i32 %.0.lcssa, %1
+  tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %91) #4
   ret void
 }
 
@@ -2868,7 +2868,7 @@ define internal fastcc void @get_parameter_responses(ptr noundef %0, i32 noundef
   %76 = call fastcc i32 @get_data_type(ptr noundef %0, i32 noundef %75, i8 noundef zeroext %74, ptr noundef %3, ptr noundef %68)
   %77 = icmp ne i8 %.0120138, 1
   %or.cond = select i1 %23, i1 %77, i1 false
-  br i1 %or.cond, label %78, label %101
+  br i1 %or.cond, label %78, label %102
 
 78:                                               ; preds = %67
   %79 = add i32 %76, 1
@@ -2893,7 +2893,7 @@ define internal fastcc void @get_parameter_responses(ptr noundef %0, i32 noundef
   %91 = load i32, ptr @hf_ecmp_display_unit_id, align 4
   %92 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %91, ptr noundef %3, i32 noundef %89, i32 noundef 1, i32 noundef 0) #4
   %93 = icmp eq i8 %90, -1
-  br i1 %93, label %94, label %101
+  br i1 %93, label %94, label %102
 
 94:                                               ; preds = %88
   %95 = add i32 %76, 3
@@ -2901,20 +2901,20 @@ define internal fastcc void @get_parameter_responses(ptr noundef %0, i32 noundef
   %97 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %96, ptr noundef %3, i32 noundef %95, i32 noundef 2, i32 noundef 0) #4
   %98 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %95) #4
   %99 = zext i16 %98 to i32
-  %.reass = add i32 %76, 5
-  %100 = add i32 %.reass, %99
-  br label %101
+  %100 = add i32 %76, 5
+  %101 = add i32 %100, %99
+  br label %102
 
-101:                                              ; preds = %88, %94, %67
-  %.4 = phi i32 [ %100, %94 ], [ %89, %88 ], [ %76, %67 ]
-  %102 = load ptr, ptr %6, align 8
-  %103 = sub i32 %.4, %55
-  call void @proto_item_set_len(ptr noundef %102, i32 noundef %103) #4
+102:                                              ; preds = %88, %94, %67
+  %.4 = phi i32 [ %101, %94 ], [ %89, %88 ], [ %76, %67 ]
+  %103 = load ptr, ptr %6, align 8
+  %104 = sub i32 %.4, %55
+  call void @proto_item_set_len(ptr noundef %103, i32 noundef %104) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %101, %60
-  %.1121 = phi i8 [ %.0120138, %101 ], [ 1, %60 ], [ 1, %.preheader ]
-  %.5 = phi i32 [ %.4, %101 ], [ %55, %60 ], [ %.3, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %102, %60
+  %.1121 = phi i8 [ %.0120138, %102 ], [ 1, %60 ], [ 1, %.preheader ]
+  %.5 = phi i32 [ %.4, %102 ], [ %55, %60 ], [ %.3, %.preheader ]
   %exitcond.not = icmp eq i32 %59, %20
   br i1 %exitcond.not, label %.loopexit135, label %.preheader134.split.split, !llvm.loop !19
 

@@ -1489,133 +1489,132 @@ jv_copy.exit73:                                   ; preds = %19, %.lr.ph143
 
 jv_copy.exit79:                                   ; preds = %31, %32
   tail call void @jv_free(i64 %2, ptr %3)
-  %35 = add nuw nsw i64 %indvars.iv155, %18
   br i1 %.not68127, label %.lr.ph.preheader, label %.loopexit.thread
 
 .lr.ph.preheader:                                 ; preds = %jv_copy.exit79
-  %36 = trunc nuw nsw i64 %indvars.iv155 to i32
+  %invariant.op = add nuw i64 %indvars.iv155, %18
+  %35 = trunc nuw nsw i64 %indvars.iv155 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %jv_copy.exit111
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %jv_copy.exit111 ]
   %.3129 = phi i32 [ -1, %.lr.ph.preheader ], [ %.4, %jv_copy.exit111 ]
-  br i1 %.not.i76, label %jv_copy.exit85, label %37
+  br i1 %.not.i76, label %jv_copy.exit85, label %36
 
-37:                                               ; preds = %.lr.ph
-  %38 = load i32, ptr %3, align 4
-  %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %3, align 4
+36:                                               ; preds = %.lr.ph
+  %37 = load i32, ptr %3, align 4
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %3, align 4
   br label %jv_copy.exit85
 
-jv_copy.exit85:                                   ; preds = %37, %.lr.ph
-  %40 = add nuw nsw i64 %indvars.iv, %17
-  %41 = getelementptr inbounds [0 x %struct.jv], ptr %14, i64 0, i64 %40
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = and i64 %42, 128
-  %.not.i.i89 = icmp eq i64 %45, 0
-  br i1 %.not.i.i89, label %49, label %46
+jv_copy.exit85:                                   ; preds = %36, %.lr.ph
+  %39 = add nuw nsw i64 %indvars.iv, %17
+  %40 = getelementptr inbounds [0 x %struct.jv], ptr %14, i64 0, i64 %39
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = and i64 %41, 128
+  %.not.i.i89 = icmp eq i64 %44, 0
+  br i1 %.not.i.i89, label %48, label %45
 
-46:                                               ; preds = %jv_copy.exit85
-  %47 = load i32, ptr %44, align 4
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %44, align 4
-  br label %49
+45:                                               ; preds = %jv_copy.exit85
+  %46 = load i32, ptr %43, align 4
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %43, align 4
+  br label %48
 
-49:                                               ; preds = %46, %jv_copy.exit85
+48:                                               ; preds = %45, %jv_copy.exit85
   tail call void @jv_free(i64 %2, ptr nonnull %3)
-  br i1 %.not.i, label %jv_copy.exit98, label %50
+  br i1 %.not.i, label %jv_copy.exit98, label %49
 
-50:                                               ; preds = %49
-  %51 = load i32, ptr %1, align 4
-  %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %1, align 4
+49:                                               ; preds = %48
+  %50 = load i32, ptr %1, align 4
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %1, align 4
   br label %jv_copy.exit98
 
-jv_copy.exit98:                                   ; preds = %49, %50
-  %53 = add nuw nsw i64 %indvars.iv, %indvars.iv155
-  %54 = trunc nuw i64 %53 to i32
-  %.not = icmp slt i32 %54, %.sroa.1.0.extract.trunc.i.i
-  br i1 %.not, label %55, label %jv_array_get.exit107
+jv_copy.exit98:                                   ; preds = %48, %49
+  %52 = add nuw nsw i64 %indvars.iv, %indvars.iv155
+  %53 = trunc nuw i64 %52 to i32
+  %.not = icmp slt i32 %53, %.sroa.1.0.extract.trunc.i.i
+  br i1 %.not, label %54, label %jv_array_get.exit107
 
-55:                                               ; preds = %jv_copy.exit98
-  %.reass = add nuw i64 %indvars.iv, %35
-  %56 = and i64 %.reass, 4294967295
-  %57 = getelementptr inbounds [0 x %struct.jv], ptr %12, i64 0, i64 %56
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = and i64 %58, 128
-  %.not.i.i102 = icmp eq i64 %61, 0
-  br i1 %.not.i.i102, label %jv_array_get.exit107, label %62
+54:                                               ; preds = %jv_copy.exit98
+  %.reass = add nuw i64 %indvars.iv, %invariant.op
+  %55 = getelementptr inbounds [0 x %struct.jv], ptr %12, i64 0, i64 %.reass
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = and i64 %56, 128
+  %.not.i.i102 = icmp eq i64 %59, 0
+  br i1 %.not.i.i102, label %jv_array_get.exit107, label %60
 
-62:                                               ; preds = %55
-  %63 = load i32, ptr %60, align 4
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %60, align 4
+60:                                               ; preds = %54
+  %61 = load i32, ptr %58, align 4
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %58, align 4
   br label %jv_array_get.exit107
 
-jv_array_get.exit107:                             ; preds = %jv_copy.exit98, %55, %62
-  %.sroa.07.0.i103 = phi i64 [ 0, %jv_copy.exit98 ], [ %58, %55 ], [ %58, %62 ]
-  %.sroa.38.0.i104 = phi ptr [ null, %jv_copy.exit98 ], [ %60, %55 ], [ %60, %62 ]
+jv_array_get.exit107:                             ; preds = %jv_copy.exit98, %54, %60
+  %.sroa.07.0.i103 = phi i64 [ 0, %jv_copy.exit98 ], [ %56, %54 ], [ %56, %60 ]
+  %.sroa.38.0.i104 = phi ptr [ null, %jv_copy.exit98 ], [ %58, %54 ], [ %58, %60 ]
   tail call void @jv_free(i64 %0, ptr %1)
-  %65 = and i64 %42, 128
-  %.not.i108 = icmp eq i64 %65, 0
-  br i1 %.not.i108, label %jv_copy.exit111, label %66
+  %63 = and i64 %41, 128
+  %.not.i108 = icmp eq i64 %63, 0
+  br i1 %.not.i108, label %jv_copy.exit111, label %64
 
-66:                                               ; preds = %jv_array_get.exit107
-  %67 = load i32, ptr %44, align 4
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %44, align 4
+64:                                               ; preds = %jv_array_get.exit107
+  %65 = load i32, ptr %43, align 4
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %43, align 4
   br label %jv_copy.exit111
 
-jv_copy.exit111:                                  ; preds = %jv_array_get.exit107, %66
-  %69 = tail call i32 @jv_equal(i64 %.sroa.07.0.i103, ptr %.sroa.38.0.i104, i64 %42, ptr %44)
-  %.not69 = icmp eq i32 %69, 0
-  %70 = icmp eq i64 %indvars.iv, 0
-  %71 = icmp eq i32 %.3129, -1
-  %or.cond = select i1 %70, i1 %71, i1 false
-  %spec.select = select i1 %or.cond, i32 %36, i32 %.3129
+jv_copy.exit111:                                  ; preds = %jv_array_get.exit107, %64
+  %67 = tail call i32 @jv_equal(i64 %.sroa.07.0.i103, ptr %.sroa.38.0.i104, i64 %41, ptr %43)
+  %.not69 = icmp eq i32 %67, 0
+  %68 = icmp eq i64 %indvars.iv, 0
+  %69 = icmp eq i32 %.3129, -1
+  %or.cond = select i1 %68, i1 %69, i1 false
+  %spec.select = select i1 %or.cond, i32 %35, i32 %.3129
   %.4 = select i1 %.not69, i32 -1, i32 %spec.select
-  tail call void @jv_free(i64 %42, ptr %44)
+  tail call void @jv_free(i64 %41, ptr %43)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.1.0.extract.shift.i.i80
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %jv_copy.exit111
-  %72 = icmp sgt i32 %.4, -1
-  br i1 %72, label %73, label %.loopexit.thread
+  %70 = icmp sgt i32 %.4, -1
+  br i1 %70, label %71, label %.loopexit.thread
 
-73:                                               ; preds = %.loopexit
-  %74 = uitofp nneg i32 %.4 to double
-  %75 = bitcast double %74 to i64
-  %76 = inttoptr i64 %75 to ptr
-  %77 = and i64 %.sroa.055.1141, 128
-  %.not.i.i113 = icmp eq i64 %77, 0
-  br i1 %.not.i.i113, label %jv_array_append.exit, label %78
+71:                                               ; preds = %.loopexit
+  %72 = uitofp nneg i32 %.4 to double
+  %73 = bitcast double %72 to i64
+  %74 = inttoptr i64 %73 to ptr
+  %75 = and i64 %.sroa.055.1141, 128
+  %.not.i.i113 = icmp eq i64 %75, 0
+  br i1 %.not.i.i113, label %jv_array_append.exit, label %76
 
-78:                                               ; preds = %73
-  %79 = load i32, ptr %.sroa.457.1142, align 4
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %.sroa.457.1142, align 4
+76:                                               ; preds = %71
+  %77 = load i32, ptr %.sroa.457.1142, align 4
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %.sroa.457.1142, align 4
   br label %jv_array_append.exit
 
-jv_array_append.exit:                             ; preds = %73, %78
+jv_array_append.exit:                             ; preds = %71, %76
   %.sroa.1.0.extract.shift.i.i.i114 = lshr i64 %.sroa.055.1141, 32
   %.sroa.1.0.extract.trunc.i.i.i115 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i114 to i32
   tail call void @jv_free(i64 %.sroa.055.1141, ptr %.sroa.457.1142)
-  %81 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.055.1141, ptr %.sroa.457.1142, i32 noundef %.sroa.1.0.extract.trunc.i.i.i115, i64 4, ptr %76)
-  %82 = extractvalue { i64, ptr } %81, 0
-  %83 = extractvalue { i64, ptr } %81, 1
+  %79 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.055.1141, ptr %.sroa.457.1142, i32 noundef %.sroa.1.0.extract.trunc.i.i.i115, i64 4, ptr %74)
+  %80 = extractvalue { i64, ptr } %79, 0
+  %81 = extractvalue { i64, ptr } %79, 1
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %jv_copy.exit79, %jv_array_append.exit, %.loopexit
-  %.sroa.055.2 = phi i64 [ %82, %jv_array_append.exit ], [ %.sroa.055.1141, %.loopexit ], [ %.sroa.055.1141, %jv_copy.exit79 ]
-  %.sroa.457.2 = phi ptr [ %83, %jv_array_append.exit ], [ %.sroa.457.1142, %.loopexit ], [ %.sroa.457.1142, %jv_copy.exit79 ]
+  %.sroa.055.2 = phi i64 [ %80, %jv_array_append.exit ], [ %.sroa.055.1141, %.loopexit ], [ %.sroa.055.1141, %jv_copy.exit79 ]
+  %.sroa.457.2 = phi ptr [ %81, %jv_array_append.exit ], [ %.sroa.457.1142, %.loopexit ], [ %.sroa.457.1142, %jv_copy.exit79 ]
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next156, %.sroa.1.0.extract.shift.i.i
-  br i1 %exitcond160.not, label %.loopexit126, label %.lr.ph143, !llvm.loop !13
+  %exitcond159.not = icmp eq i64 %indvars.iv.next156, %.sroa.1.0.extract.shift.i.i
+  br i1 %exitcond159.not, label %.loopexit126, label %.lr.ph143, !llvm.loop !13
 
 .loopexit126:                                     ; preds = %.loopexit.thread, %jv_copy.exit
   %.sroa.055.0.lcssa = phi i64 [ 134, %jv_copy.exit ], [ %.sroa.055.2, %.loopexit.thread ]

@@ -5907,7 +5907,6 @@ if.end:                                           ; preds = %lor.end8
 do.body.preheader:                                ; preds = %if.end
   %8 = add i64 %pathpos.0, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %0, i64 %8)
-  %invariant.op6 = add i64 %prefixpos.0, 1
   br label %do.body
 
 while.cond.preheader:                             ; preds = %if.end, %lor.end.lor.end8_crit_edge, %lor.end.thread.lor.end8_crit_edge, %lor.end.thread
@@ -5963,29 +5962,29 @@ do.body:                                          ; preds = %land.rhs51, %do.bod
   br i1 %cmp38.not, label %do.cond, label %cleanup66
 
 do.cond:                                          ; preds = %do.body
-  %add43.reass = add nuw i64 %len.0, %8
-  %cmp44 = icmp ult i64 %add43.reass, %0
+  %add43 = add i64 %inc41, %pathpos.0
+  %cmp44 = icmp ult i64 %add43, %0
   br i1 %cmp44, label %land.lhs.true, label %cleanup58.thread
 
 land.lhs.true:                                    ; preds = %do.cond
-  %arrayidx.i124 = getelementptr inbounds i8, ptr %2, i64 %add43.reass
+  %arrayidx.i124 = getelementptr inbounds i8, ptr %2, i64 %add43
   %13 = load i8, ptr %arrayidx.i124, align 1, !tbaa !13
   %cmp.i125 = icmp eq i8 %13, 47
   br i1 %cmp.i125, label %cleanup58.thread, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %land.lhs.true
-  %add49.reass = add nuw i64 %len.0, %invariant.op6
-  %cmp50 = icmp ult i64 %add49.reass, %1
+  %add49 = add i64 %inc41, %prefixpos.0
+  %cmp50 = icmp ult i64 %add49, %1
   br i1 %cmp50, label %land.rhs51, label %cleanup58.thread
 
 land.rhs51:                                       ; preds = %land.lhs.true48
-  %arrayidx.i126 = getelementptr inbounds i8, ptr %3, i64 %add49.reass
+  %arrayidx.i126 = getelementptr inbounds i8, ptr %3, i64 %add49
   %14 = load i8, ptr %arrayidx.i126, align 1, !tbaa !13
   %cmp.i127 = icmp eq i8 %14, 47
   br i1 %cmp.i127, label %cleanup58.thread, label %do.body, !llvm.loop !141
 
 cleanup58.thread:                                 ; preds = %land.rhs51, %land.lhs.true48, %land.lhs.true, %do.cond
-  %add43.lcssa = phi i64 [ %add43.reass, %land.rhs51 ], [ %umax, %do.cond ], [ %add43.reass, %land.lhs.true ], [ %add43.reass, %land.lhs.true48 ]
+  %add43.lcssa = phi i64 [ %add43, %land.rhs51 ], [ %umax, %do.cond ], [ %add43, %land.lhs.true ], [ %add43, %land.lhs.true48 ]
   %add57 = add i64 %inc41, %prefixpos.0
   br label %for.cond.backedge
 

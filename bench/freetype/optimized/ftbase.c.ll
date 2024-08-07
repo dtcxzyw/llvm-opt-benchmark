@@ -19736,8 +19736,8 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %62, %70
   %86 = icmp eq i16 %83, 0
   br i1 %86, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %76, %161
-  %.02122 = phi i32 [ %162, %161 ], [ 0, %76 ]
+.preheader:                                       ; preds = %76, %162
+  %.02122 = phi i32 [ %163, %162 ], [ 0, %76 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %87 = load i64, ptr %10, align 8
   %88 = add i64 %87, 3
@@ -19769,8 +19769,8 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %62, %70
   %98 = add i64 %87, 4
   store i64 %98, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %.reass30 = add i64 %87, 12
-  br label %157
+  %.reass = add i64 %87, 12
+  br label %158
 
 FT_Stream_ReadULong.exit68.thread:                ; preds = %.preheader, %93
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -19854,7 +19854,7 @@ FT_Stream_ReadULong.exit68.thread:                ; preds = %.preheader, %93
 FT_Stream_ReadULong.exit80.thread:                ; preds = %119, %125
   store i32 85, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %161
+  br label %162
 
 147:                                              ; preds = %.thread.i75, %127
   %148 = phi i64 [ %.pre.i76, %.thread.i75 ], [ %117, %127 ]
@@ -19866,7 +19866,7 @@ FT_Stream_ReadULong.exit80.thread:                ; preds = %119, %125
   %150 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %151 = load i32, ptr %9, align 4
   %.not36 = icmp eq i32 %151, 0
-  br i1 %.not36, label %152, label %161
+  br i1 %.not36, label %152, label %162
 
 152:                                              ; preds = %147
   %153 = sext i32 %.0.i78 to i64
@@ -19875,34 +19875,34 @@ FT_Stream_ReadULong.exit80.thread:                ; preds = %119, %125
 
 154:                                              ; preds = %99
   %.pre25 = load ptr, ptr %17, align 8
-  %.reass = add i64 %.pre.i64, 12
+  %155 = add i64 %.pre.i64, 12
   %.not.i.i81 = icmp eq ptr %.pre25, null
-  br i1 %.not.i.i81, label %157, label %155
+  br i1 %.not.i.i81, label %158, label %156
 
-155:                                              ; preds = %154
-  %156 = call i64 %.pre25(ptr noundef nonnull %0, i64 noundef %.reass, ptr noundef null, i64 noundef 0) #34
-  %.not10.i.i82 = icmp eq i64 %156, 0
+156:                                              ; preds = %154
+  %157 = call i64 %.pre25(ptr noundef nonnull %0, i64 noundef %155, ptr noundef null, i64 noundef 0) #34
+  %.not10.i.i82 = icmp eq i64 %157, 0
   br i1 %.not10.i.i82, label %FT_Stream_Skip.exit85, label %.loopexit
 
-157:                                              ; preds = %.thread27, %154
-  %158 = phi i64 [ %.reass30, %.thread27 ], [ %.reass, %154 ]
-  %159 = load i64, ptr %13, align 8
-  %.not17.i.i84 = icmp ult i64 %159, %158
+158:                                              ; preds = %.thread27, %154
+  %159 = phi i64 [ %.reass, %.thread27 ], [ %155, %154 ]
+  %160 = load i64, ptr %13, align 8
+  %.not17.i.i84 = icmp ult i64 %160, %159
   br i1 %.not17.i.i84, label %.loopexit, label %FT_Stream_Skip.exit85
 
-FT_Stream_Skip.exit85:                            ; preds = %155, %157
-  %160 = phi i64 [ %.reass, %155 ], [ %158, %157 ]
-  store i64 %160, ptr %10, align 8
+FT_Stream_Skip.exit85:                            ; preds = %156, %158
+  %161 = phi i64 [ %155, %156 ], [ %159, %158 ]
+  store i64 %161, ptr %10, align 8
   store i32 0, ptr %9, align 4
-  br label %161
+  br label %162
 
-161:                                              ; preds = %FT_Stream_Skip.exit85, %FT_Stream_ReadULong.exit80.thread, %147
-  %162 = add nuw nsw i32 %.02122, 1
-  %exitcond.not = icmp eq i32 %162, %85
+162:                                              ; preds = %FT_Stream_Skip.exit85, %FT_Stream_ReadULong.exit80.thread, %147
+  %163 = add nuw nsw i32 %.02122, 1
+  %exitcond.not = icmp eq i32 %163, %85
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !83
 
-.loopexit:                                        ; preds = %161, %157, %155, %58, %56, %FT_Stream_ReadULong.exit68.thread, %.thread, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %FT_Stream_ReadULong.exit.thread, %76, %41, %152
-  %.0 = phi i32 [ 0, %152 ], [ 2, %41 ], [ 2, %76 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %.thread ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 85, %56 ], [ 85, %58 ], [ 85, %155 ], [ 85, %157 ], [ 2, %161 ]
+.loopexit:                                        ; preds = %162, %158, %156, %58, %56, %FT_Stream_ReadULong.exit68.thread, %.thread, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %FT_Stream_ReadULong.exit.thread, %76, %41, %152
+  %.0 = phi i32 [ 0, %152 ], [ 2, %41 ], [ 2, %76 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %.thread ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 85, %56 ], [ 85, %58 ], [ 85, %156 ], [ 85, %158 ], [ 2, %162 ]
   ret i32 %.0
 }
 

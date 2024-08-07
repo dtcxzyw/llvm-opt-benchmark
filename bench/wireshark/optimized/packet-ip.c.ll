@@ -2863,18 +2863,18 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %10 = load i32, ptr @hf_ip_cipso_doi, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #8
   %12 = icmp sgt i32 %6, 6
-  br i1 %12, label %.lr.ph286, label %.loopexit
+  br i1 %12, label %.lr.ph284, label %.loopexit
 
-.lr.ph286:                                        ; preds = %4
+.lr.ph284:                                        ; preds = %4
   %13 = getelementptr inbounds i8, ptr %1, i64 408
   br label %14
 
-14:                                               ; preds = %.lr.ph286, %.backedge
-  %.0213284 = phi i32 [ 6, %.lr.ph286 ], [ %.0213.be, %.backedge ]
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0213284) #8
+14:                                               ; preds = %.lr.ph284, %.backedge
+  %.0213282 = phi i32 [ 6, %.lr.ph284 ], [ %.0213.be, %.backedge ]
+  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0213282) #8
   %16 = load i32, ptr @hf_ip_cipso_tag_type, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %16, ptr noundef %0, i32 noundef %.0213284, i32 noundef 1, i32 noundef 0) #8
-  %18 = add nsw i32 %.0213284, 1
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %16, ptr noundef %0, i32 noundef %.0213282, i32 noundef 1, i32 noundef 0) #8
+  %18 = add nsw i32 %.0213282, 1
   %19 = icmp slt i32 %18, %6
   br i1 %19, label %20, label %23
 
@@ -2885,13 +2885,13 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
 
 23:                                               ; preds = %14, %20
   %.0212 = phi i32 [ %22, %20 ], [ 1, %14 ]
-  switch i8 %15, label %180 [
+  switch i8 %15, label %182 [
     i8 0, label %.backedge
     i8 1, label %24
     i8 2, label %79
-    i8 5, label %112
-    i8 6, label %154
-    i8 7, label %167
+    i8 5, label %113
+    i8 6, label %156
+    i8 7, label %169
   ]
 
 24:                                               ; preds = %23
@@ -2900,7 +2900,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond, label %30, label %26
 
 26:                                               ; preds = %24
-  %27 = add i32 %.0212, %.0213284
+  %27 = add i32 %.0212, %.0213282
   %28 = add i32 %27, -1
   %29 = icmp sgt i32 %28, %6
   br i1 %29, label %30, label %32
@@ -2910,10 +2910,10 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 32:                                               ; preds = %26
-  %33 = add i32 %.0213284, 3
+  %33 = add i32 %.0213282, 3
   %34 = load i32, ptr @hf_ip_cipso_sensitivity_level, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0) #8
-  %36 = add i32 %.0213284, 4
+  %36 = add i32 %.0213282, 4
   %37 = icmp ugt i32 %.0212, 4
   br i1 %37, label %.preheader246.preheader, label %.backedge
 
@@ -2995,8 +2995,8 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
 
 73:                                               ; preds = %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond311.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond311.not, label %._crit_edge280, label %.preheader246, !llvm.loop !11
+  %exitcond309.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond309.not, label %._crit_edge280, label %.preheader246, !llvm.loop !11
 
 ._crit_edge280:                                   ; preds = %73
   %.not242 = icmp eq ptr %.2220, null
@@ -3017,7 +3017,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond3, label %85, label %81
 
 81:                                               ; preds = %79
-  %82 = add i32 %.0212, %.0213284
+  %82 = add i32 %.0212, %.0213282
   %83 = add i32 %82, -1
   %84 = icmp sgt i32 %83, %6
   br i1 %84, label %85, label %87
@@ -3027,10 +3027,10 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 87:                                               ; preds = %81
-  %88 = add i32 %.0213284, 3
+  %88 = add i32 %.0213282, 3
   %89 = load i32, ptr @hf_ip_cipso_sensitivity_level, align 4
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0) #8
-  %91 = add i32 %.0213284, 4
+  %91 = add i32 %.0213282, 4
   %92 = icmp ugt i32 %.0212, 4
   br i1 %92, label %93, label %.backedge
 
@@ -3039,180 +3039,180 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %95 = tail call noalias ptr @wmem_alloc0(ptr noundef %94, i64 noundef 90) #8
   %96 = load ptr, ptr %13, align 8
   %97 = tail call noalias ptr @wmem_alloc(ptr noundef %96, i64 noundef 6) #8
-  %.reass283 = add i32 %.0213284, 6
-  %.not240267 = icmp sgt i32 %.reass283, %82
+  %98 = add i32 %.0213282, 6
+  %.not240267 = icmp sgt i32 %98, %82
   br i1 %.not240267, label %._crit_edge271, label %.lr.ph270
 
-.lr.ph270:                                        ; preds = %93, %105
-  %98 = phi i32 [ %107, %105 ], [ %.reass283, %93 ]
-  %.2268 = phi i32 [ %98, %105 ], [ %91, %93 ]
-  %99 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2268) #8
-  %100 = zext i16 %99 to i32
-  %101 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %97, i64 noundef 6, ptr noundef nonnull @.str.540, i32 noundef %100) #8
-  %102 = load i8, ptr %95, align 1
-  %.not241 = icmp eq i8 %102, 0
-  br i1 %.not241, label %105, label %103
+.lr.ph270:                                        ; preds = %93, %106
+  %99 = phi i32 [ %108, %106 ], [ %98, %93 ]
+  %.2268 = phi i32 [ %99, %106 ], [ %91, %93 ]
+  %100 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2268) #8
+  %101 = zext i16 %100 to i32
+  %102 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %97, i64 noundef 6, ptr noundef nonnull @.str.540, i32 noundef %101) #8
+  %103 = load i8, ptr %95, align 1
+  %.not241 = icmp eq i8 %103, 0
+  br i1 %.not241, label %106, label %104
 
-103:                                              ; preds = %.lr.ph270
-  %104 = tail call i64 @g_strlcat(ptr noundef nonnull %95, ptr noundef nonnull @.str.587, i64 noundef 90) #8
-  br label %105
+104:                                              ; preds = %.lr.ph270
+  %105 = tail call i64 @g_strlcat(ptr noundef nonnull %95, ptr noundef nonnull @.str.587, i64 noundef 90) #8
+  br label %106
 
-105:                                              ; preds = %103, %.lr.ph270
-  %106 = tail call i64 @g_strlcat(ptr noundef nonnull %95, ptr noundef %97, i64 noundef 90) #8
-  %107 = add i32 %98, 2
-  %.not240 = icmp sgt i32 %107, %82
+106:                                              ; preds = %104, %.lr.ph270
+  %107 = tail call i64 @g_strlcat(ptr noundef nonnull %95, ptr noundef %97, i64 noundef 90) #8
+  %108 = add i32 %99, 2
+  %.not240 = icmp sgt i32 %108, %82
   br i1 %.not240, label %._crit_edge271, label %.lr.ph270, !llvm.loop !12
 
-._crit_edge271:                                   ; preds = %105, %93
-  %.2.lcssa = phi i32 [ %91, %93 ], [ %98, %105 ]
-  %108 = load i32, ptr @hf_ip_cipso_categories, align 4
-  %reass.sub288 = sub i32 %.2.lcssa, %.0212
-  %109 = add i32 %reass.sub288, 4
-  %110 = add nsw i32 %.0212, -4
-  %111 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef %110, ptr noundef %95) #8
+._crit_edge271:                                   ; preds = %106, %93
+  %.2.lcssa = phi i32 [ %91, %93 ], [ %99, %106 ]
+  %109 = load i32, ptr @hf_ip_cipso_categories, align 4
+  %reass.sub286 = sub i32 %.2.lcssa, %.0212
+  %110 = add i32 %reass.sub286, 4
+  %111 = add nsw i32 %.0212, -4
+  %112 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %109, ptr noundef %0, i32 noundef %110, i32 noundef %111, ptr noundef %95) #8
   br label %.backedge
 
-112:                                              ; preds = %23
-  %113 = add nsw i32 %.0212, -35
-  %or.cond5 = icmp ult i32 %113, -31
-  br i1 %or.cond5, label %118, label %114
+113:                                              ; preds = %23
+  %114 = add nsw i32 %.0212, -35
+  %or.cond5 = icmp ult i32 %114, -31
+  br i1 %or.cond5, label %119, label %115
 
-114:                                              ; preds = %112
-  %115 = add i32 %.0212, %.0213284
-  %116 = add i32 %115, -1
-  %117 = icmp sgt i32 %116, %6
-  br i1 %117, label %118, label %120
+115:                                              ; preds = %113
+  %116 = add i32 %.0212, %.0213282
+  %117 = add i32 %116, -1
+  %118 = icmp sgt i32 %117, %6
+  br i1 %118, label %119, label %121
 
-118:                                              ; preds = %114, %112
-  %119 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_ip_cipso_tag) #8
+119:                                              ; preds = %115, %113
+  %120 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_ip_cipso_tag) #8
   br label %.loopexit
 
-120:                                              ; preds = %114
-  %121 = add i32 %.0213284, 3
-  %122 = load i32, ptr @hf_ip_cipso_sensitivity_level, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %122, ptr noundef %0, i32 noundef %121, i32 noundef 1, i32 noundef 0) #8
-  %124 = add i32 %.0213284, 4
-  %125 = icmp ugt i32 %.0212, 4
-  br i1 %125, label %126, label %.backedge
+121:                                              ; preds = %115
+  %122 = add i32 %.0213282, 3
+  %123 = load i32, ptr @hf_ip_cipso_sensitivity_level, align 4
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %123, ptr noundef %0, i32 noundef %122, i32 noundef 1, i32 noundef 0) #8
+  %125 = add i32 %.0213282, 4
+  %126 = icmp ugt i32 %.0212, 4
+  br i1 %126, label %127, label %.backedge
 
-126:                                              ; preds = %120
-  %127 = load ptr, ptr %13, align 8
-  %128 = tail call noalias ptr @wmem_alloc0(ptr noundef %127, i64 noundef 96) #8
-  %129 = load ptr, ptr %13, align 8
-  %130 = tail call noalias ptr @wmem_alloc(ptr noundef %129, i64 noundef 12) #8
-  %.reass = add i32 %.0213284, 6
-  %.not265 = icmp sgt i32 %.reass, %115
+127:                                              ; preds = %121
+  %128 = load ptr, ptr %13, align 8
+  %129 = tail call noalias ptr @wmem_alloc0(ptr noundef %128, i64 noundef 96) #8
+  %130 = load ptr, ptr %13, align 8
+  %131 = tail call noalias ptr @wmem_alloc(ptr noundef %130, i64 noundef 12) #8
+  %132 = add i32 %.0213282, 6
+  %.not265 = icmp sgt i32 %132, %116
   br i1 %.not265, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %126, %147
-  %131 = phi i32 [ %149, %147 ], [ %.reass, %126 ]
-  %.3266 = phi i32 [ %.4, %147 ], [ %124, %126 ]
-  %132 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3266) #8
-  %133 = add i32 %.3266, 4
-  %.not237 = icmp sgt i32 %133, %115
-  br i1 %.not237, label %136, label %134
+.lr.ph:                                           ; preds = %127, %149
+  %133 = phi i32 [ %151, %149 ], [ %132, %127 ]
+  %.3266 = phi i32 [ %.4, %149 ], [ %125, %127 ]
+  %134 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3266) #8
+  %135 = add i32 %.3266, 4
+  %.not237 = icmp sgt i32 %135, %116
+  br i1 %.not237, label %138, label %136
 
-134:                                              ; preds = %.lr.ph
-  %135 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %131) #8
-  br label %136
+136:                                              ; preds = %.lr.ph
+  %137 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %133) #8
+  br label %138
 
-136:                                              ; preds = %.lr.ph, %134
-  %.0215 = phi i16 [ %135, %134 ], [ 0, %.lr.ph ]
-  %.4 = phi i32 [ %133, %134 ], [ %131, %.lr.ph ]
-  %137 = zext i16 %132 to i32
-  %.not238 = icmp eq i16 %.0215, %132
-  br i1 %.not238, label %141, label %138
+138:                                              ; preds = %.lr.ph, %136
+  %.0215 = phi i16 [ %137, %136 ], [ 0, %.lr.ph ]
+  %.4 = phi i32 [ %135, %136 ], [ %133, %.lr.ph ]
+  %139 = zext i16 %134 to i32
+  %.not238 = icmp eq i16 %.0215, %134
+  br i1 %.not238, label %143, label %140
 
-138:                                              ; preds = %136
-  %139 = zext i16 %.0215 to i32
-  %140 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %130, i64 noundef 12, ptr noundef nonnull @.str.589, i32 noundef %137, i32 noundef %139) #8
-  br label %143
+140:                                              ; preds = %138
+  %141 = zext i16 %.0215 to i32
+  %142 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %131, i64 noundef 12, ptr noundef nonnull @.str.589, i32 noundef %139, i32 noundef %141) #8
+  br label %145
 
-141:                                              ; preds = %136
-  %142 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %130, i64 noundef 12, ptr noundef nonnull @.str.540, i32 noundef %137) #8
-  br label %143
+143:                                              ; preds = %138
+  %144 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %131, i64 noundef 12, ptr noundef nonnull @.str.540, i32 noundef %139) #8
+  br label %145
 
-143:                                              ; preds = %141, %138
-  %144 = load i8, ptr %128, align 1
-  %.not239 = icmp eq i8 %144, 0
-  br i1 %.not239, label %147, label %145
+145:                                              ; preds = %143, %140
+  %146 = load i8, ptr %129, align 1
+  %.not239 = icmp eq i8 %146, 0
+  br i1 %.not239, label %149, label %147
 
-145:                                              ; preds = %143
-  %146 = tail call i64 @g_strlcat(ptr noundef nonnull %128, ptr noundef nonnull @.str.587, i64 noundef 96) #8
-  br label %147
+147:                                              ; preds = %145
+  %148 = tail call i64 @g_strlcat(ptr noundef nonnull %129, ptr noundef nonnull @.str.587, i64 noundef 96) #8
+  br label %149
 
-147:                                              ; preds = %145, %143
-  %148 = tail call i64 @g_strlcat(ptr noundef nonnull %128, ptr noundef %130, i64 noundef 96) #8
-  %149 = add i32 %.4, 2
-  %.not = icmp sgt i32 %149, %115
+149:                                              ; preds = %147, %145
+  %150 = tail call i64 @g_strlcat(ptr noundef nonnull %129, ptr noundef %131, i64 noundef 96) #8
+  %151 = add i32 %.4, 2
+  %.not = icmp sgt i32 %151, %116
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %147, %126
-  %.3.lcssa = phi i32 [ %124, %126 ], [ %.4, %147 ]
-  %150 = load i32, ptr @hf_ip_cipso_categories, align 4
+._crit_edge:                                      ; preds = %149, %127
+  %.3.lcssa = phi i32 [ %125, %127 ], [ %.4, %149 ]
+  %152 = load i32, ptr @hf_ip_cipso_categories, align 4
   %reass.sub = sub i32 %.3.lcssa, %.0212
-  %151 = add i32 %reass.sub, 4
-  %152 = add nsw i32 %.0212, -4
-  %153 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %150, ptr noundef %0, i32 noundef %151, i32 noundef %152, ptr noundef %128) #8
+  %153 = add i32 %reass.sub, 4
+  %154 = add nsw i32 %.0212, -4
+  %155 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %152, ptr noundef %0, i32 noundef %153, i32 noundef %154, ptr noundef %129) #8
   br label %.backedge
 
-154:                                              ; preds = %23
-  %155 = add nsw i32 %.0212, -35
-  %or.cond7 = icmp ult i32 %155, -31
-  br i1 %or.cond7, label %160, label %156
+156:                                              ; preds = %23
+  %157 = add nsw i32 %.0212, -35
+  %or.cond7 = icmp ult i32 %157, -31
+  br i1 %or.cond7, label %162, label %158
 
-156:                                              ; preds = %154
-  %157 = add i32 %.0212, %.0213284
-  %158 = add i32 %157, -1
-  %159 = icmp sgt i32 %158, %6
-  br i1 %159, label %160, label %162
+158:                                              ; preds = %156
+  %159 = add i32 %.0212, %.0213282
+  %160 = add i32 %159, -1
+  %161 = icmp sgt i32 %160, %6
+  br i1 %161, label %162, label %164
 
-160:                                              ; preds = %156, %154
-  %161 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_ip_cipso_tag) #8
+162:                                              ; preds = %158, %156
+  %163 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_ip_cipso_tag) #8
   br label %.loopexit
 
-162:                                              ; preds = %156
-  %163 = load i32, ptr @hf_ip_cipso_tag_data, align 4
-  %164 = add i32 %.0213284, 2
-  %165 = add nsw i32 %.0212, -2
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %163, ptr noundef %0, i32 noundef %164, i32 noundef %165, i32 noundef 0) #8
+164:                                              ; preds = %158
+  %165 = load i32, ptr @hf_ip_cipso_tag_data, align 4
+  %166 = add i32 %.0213282, 2
+  %167 = add nsw i32 %.0212, -2
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %165, ptr noundef %0, i32 noundef %166, i32 noundef %167, i32 noundef 0) #8
   br label %.backedge
 
-167:                                              ; preds = %23
-  %168 = add nsw i32 %.0212, -35
-  %or.cond9 = icmp ult i32 %168, -33
-  br i1 %or.cond9, label %173, label %169
+169:                                              ; preds = %23
+  %170 = add nsw i32 %.0212, -35
+  %or.cond9 = icmp ult i32 %170, -33
+  br i1 %or.cond9, label %175, label %171
 
-169:                                              ; preds = %167
-  %170 = add i32 %.0212, %.0213284
-  %171 = add i32 %170, -1
-  %172 = icmp sgt i32 %171, %6
-  br i1 %172, label %173, label %175
+171:                                              ; preds = %169
+  %172 = add i32 %.0212, %.0213282
+  %173 = add i32 %172, -1
+  %174 = icmp sgt i32 %173, %6
+  br i1 %174, label %175, label %177
 
-173:                                              ; preds = %169, %167
-  %174 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_ip_cipso_tag) #8
+175:                                              ; preds = %171, %169
+  %176 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_ip_cipso_tag) #8
   br label %.loopexit
 
-175:                                              ; preds = %169
-  %176 = load i32, ptr @hf_ip_cipso_tag_data, align 4
-  %177 = add i32 %.0213284, 2
-  %178 = add nsw i32 %.0212, -2
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %176, ptr noundef %0, i32 noundef %177, i32 noundef %178, i32 noundef 0) #8
+177:                                              ; preds = %171
+  %178 = load i32, ptr @hf_ip_cipso_tag_data, align 4
+  %179 = add i32 %.0213282, 2
+  %180 = add nsw i32 %.0212, -2
+  %181 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %178, ptr noundef %0, i32 noundef %179, i32 noundef %180, i32 noundef 0) #8
   br label %.backedge
 
-180:                                              ; preds = %23
-  %181 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #8
-  %182 = zext i8 %181 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.579, i32 noundef %182) #8
+182:                                              ; preds = %23
+  %183 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #8
+  %184 = zext i8 %183 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.579, i32 noundef %184) #8
   br label %.loopexit
 
-.backedge:                                        ; preds = %162, %175, %32, %._crit_edge271, %87, %._crit_edge, %120, %77, %75, %23
-  %.0213.be = phi i32 [ %18, %23 ], [ %170, %175 ], [ %157, %162 ], [ %.3.lcssa, %._crit_edge ], [ %124, %120 ], [ %.2.lcssa, %._crit_edge271 ], [ %91, %87 ], [ %36, %32 ], [ %27, %77 ], [ %27, %75 ]
-  %183 = icmp slt i32 %.0213.be, %6
-  br i1 %183, label %14, label %.loopexit, !llvm.loop !14
+.backedge:                                        ; preds = %164, %177, %32, %._crit_edge271, %87, %._crit_edge, %121, %77, %75, %23
+  %.0213.be = phi i32 [ %18, %23 ], [ %172, %177 ], [ %159, %164 ], [ %.3.lcssa, %._crit_edge ], [ %125, %121 ], [ %.2.lcssa, %._crit_edge271 ], [ %91, %87 ], [ %36, %32 ], [ %27, %77 ], [ %27, %75 ]
+  %185 = icmp slt i32 %.0213.be, %6
+  br i1 %185, label %14, label %.loopexit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.backedge, %4, %180, %173, %160, %118, %85, %30
-  %.0213253 = phi i32 [ %.0213284, %180 ], [ %.0213284, %173 ], [ %.0213284, %160 ], [ %.0213284, %118 ], [ %.0213284, %85 ], [ %.0213284, %30 ], [ 6, %4 ], [ %.0213.be, %.backedge ]
+.loopexit:                                        ; preds = %.backedge, %4, %182, %175, %162, %119, %85, %30
+  %.0213253 = phi i32 [ %.0213282, %182 ], [ %.0213282, %175 ], [ %.0213282, %162 ], [ %.0213282, %119 ], [ %.0213282, %85 ], [ %.0213282, %30 ], [ 6, %4 ], [ %.0213.be, %.backedge ]
   ret i32 %.0213253
 }
 

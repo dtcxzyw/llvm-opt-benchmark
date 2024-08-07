@@ -219,24 +219,24 @@ vaarg.in_reg51:                                   ; preds = %vaarg.end45
   %reg_save_area52 = load ptr, ptr %3, align 16
   %20 = zext nneg i32 %18 to i64
   %21 = getelementptr i8, ptr %reg_save_area52, i64 %20
-  %.reass = add nuw nsw i32 %gp_offset37, 16
-  store i32 %.reass, ptr %va, align 16
+  %22 = add nuw nsw i32 %gp_offset37, 16
+  store i32 %22, ptr %va, align 16
   br label %vaarg.end57
 
 vaarg.in_mem53:                                   ; preds = %vaarg.end45.thread, %vaarg.end45
-  %22 = phi i64 [ %15, %vaarg.end45.thread ], [ %19, %vaarg.end45 ]
+  %23 = phi i64 [ %15, %vaarg.end45.thread ], [ %19, %vaarg.end45 ]
   %overflow_arg_area55 = load ptr, ptr %overflow_arg_area_p42, align 8
   %overflow_arg_area.next56 = getelementptr i8, ptr %overflow_arg_area55, i64 8
   store ptr %overflow_arg_area.next56, ptr %overflow_arg_area_p42, align 8
   br label %vaarg.end57
 
 vaarg.end57:                                      ; preds = %vaarg.in_mem53, %vaarg.in_reg51
-  %23 = phi i64 [ %19, %vaarg.in_reg51 ], [ %22, %vaarg.in_mem53 ]
+  %24 = phi i64 [ %19, %vaarg.in_reg51 ], [ %23, %vaarg.in_mem53 ]
   %vaarg.addr58 = phi ptr [ %21, %vaarg.in_reg51 ], [ %overflow_arg_area55, %vaarg.in_mem53 ]
-  %24 = load i32, ptr %vaarg.addr58, align 4
+  %25 = load i32, ptr %vaarg.addr58, align 4
   %sub.ptr.rhs.cast60 = ptrtoint ptr %p.0.ph to i64
   %sub.ptr.sub61 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256) to i64), %sub.ptr.rhs.cast60
-  %call62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %p.0.ph, i64 noundef %sub.ptr.sub61, ptr noundef nonnull @.str.2, i64 noundef %23, i32 noundef %24) #5
+  %call62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %p.0.ph, i64 noundef %sub.ptr.sub61, ptr noundef nonnull @.str.2, i64 noundef %24, i32 noundef %25) #5
   %idx.ext63 = sext i32 %call62 to i64
   %add.ptr64 = getelementptr i8, ptr %p.0.ph, i64 %idx.ext63
   br label %while.cond.outer.backedge

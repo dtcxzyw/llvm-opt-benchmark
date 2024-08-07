@@ -828,9 +828,9 @@ define range(i32 -1, -2147483648) i32 @fdt_next_subnode(ptr noundef %0, i32 noun
   %19 = getelementptr inbounds i8, ptr %0, i64 39
   br label %20
 
-20:                                               ; preds = %163, %2
-  %.017 = phi i32 [ 1, %2 ], [ %164, %163 ]
-  %.0 = phi i32 [ %1, %2 ], [ %74, %163 ]
+20:                                               ; preds = %161, %2
+  %.017 = phi i32 [ 1, %2 ], [ %162, %161 ]
+  %.0 = phi i32 [ %1, %2 ], [ %74, %161 ]
   %21 = icmp sgt i32 %.0, -1
   br i1 %21, label %22, label %28
 
@@ -904,12 +904,11 @@ fdt_check_node_offset_.exit.i:                    ; preds = %24
   %69 = zext i8 %41 to i64
   %70 = or disjoint i64 %68, %69
   %71 = getelementptr inbounds i8, ptr %0, i64 %70
-  %invariant.op = add i32 %43, 1
   br label %72
 
 72:                                               ; preds = %.lr.ph, %.backedge.i
-  %73 = phi i32 [ %44, %.lr.ph ], [ %155, %.backedge.i ]
-  %74 = phi i32 [ %29, %.lr.ph ], [ %154, %.backedge.i ]
+  %73 = phi i32 [ %44, %.lr.ph ], [ %153, %.backedge.i ]
+  %74 = phi i32 [ %29, %.lr.ph ], [ %152, %.backedge.i ]
   %.142 = phi i32 [ %.017, %.lr.ph ], [ %.2, %.backedge.i ]
   %75 = add nuw i32 %73, 4
   %76 = icmp ugt i32 %75, %60
@@ -960,7 +959,7 @@ fdt_offset_ptr.exit11._crit_edge:                 ; preds = %77, %94
   %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %112)
   switch i32 %rev.i.i, label %fdt_next_node.exit.thread [
     i32 1, label %.preheader.i.preheader
-    i32 3, label %139
+    i32 3, label %137
     i32 9, label %.critedge.i
     i32 2, label %.critedge.i
     i32 4, label %.critedge.i
@@ -974,114 +973,111 @@ fdt_offset_ptr.exit11._crit_edge:                 ; preds = %77, %94
   %indvars.iv = phi i64 [ %113, %.preheader.i.preheader ], [ %indvars.iv.next, %fdt_offset_ptr.exit ]
   %114 = trunc nsw i64 %indvars.iv to i32
   %115 = add i32 %43, %114
-  %116 = icmp ult i32 %115, %114
-  %117 = icmp eq i32 %115, -1
-  %or.cond33 = or i1 %116, %117
-  %.reass = add i32 %invariant.op, %114
-  %118 = icmp ugt i32 %.reass, %60
-  %or.cond63 = or i1 %or.cond33, %118
-  br i1 %or.cond63, label %fdt_next_node.exit.thread, label %119
+  %116 = icmp uge i32 %115, %114
+  %.not56 = icmp ult i32 %115, %60
+  %or.cond64 = and i1 %116, %.not56
+  br i1 %or.cond64, label %117, label %fdt_next_node.exit.thread
 
-119:                                              ; preds = %.preheader.i
-  br i1 %92, label %120, label %fdt_offset_ptr.exit
+117:                                              ; preds = %.preheader.i
+  br i1 %92, label %118, label %fdt_offset_ptr.exit
 
-120:                                              ; preds = %119
-  %121 = icmp eq i64 %indvars.iv, -1
-  br i1 %121, label %fdt_next_node.exit.thread, label %122
+118:                                              ; preds = %117
+  %119 = icmp eq i64 %indvars.iv, -1
+  br i1 %119, label %fdt_next_node.exit.thread, label %120
 
-122:                                              ; preds = %120
-  %123 = load i8, ptr %16, align 1
-  %124 = zext i8 %123 to i32
-  %125 = shl nuw i32 %124, 24
-  %126 = load i8, ptr %17, align 1
-  %127 = zext i8 %126 to i32
-  %128 = shl nuw nsw i32 %127, 16
-  %129 = or disjoint i32 %128, %125
-  %130 = load i8, ptr %18, align 1
-  %131 = zext i8 %130 to i32
-  %132 = shl nuw nsw i32 %131, 8
-  %133 = or disjoint i32 %129, %132
-  %134 = load i8, ptr %19, align 1
-  %135 = zext i8 %134 to i32
-  %136 = or disjoint i32 %133, %135
-  %.not56 = icmp ugt i32 %136, %114
-  br i1 %.not56, label %fdt_offset_ptr.exit, label %fdt_next_node.exit.thread
+120:                                              ; preds = %118
+  %121 = load i8, ptr %16, align 1
+  %122 = zext i8 %121 to i32
+  %123 = shl nuw i32 %122, 24
+  %124 = load i8, ptr %17, align 1
+  %125 = zext i8 %124 to i32
+  %126 = shl nuw nsw i32 %125, 16
+  %127 = or disjoint i32 %126, %123
+  %128 = load i8, ptr %18, align 1
+  %129 = zext i8 %128 to i32
+  %130 = shl nuw nsw i32 %129, 8
+  %131 = or disjoint i32 %127, %130
+  %132 = load i8, ptr %19, align 1
+  %133 = zext i8 %132 to i32
+  %134 = or disjoint i32 %131, %133
+  %.not57 = icmp ugt i32 %134, %114
+  br i1 %.not57, label %fdt_offset_ptr.exit, label %fdt_next_node.exit.thread
 
-fdt_offset_ptr.exit:                              ; preds = %122, %119
-  %137 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv
+fdt_offset_ptr.exit:                              ; preds = %120, %117
+  %135 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %138 = load i8, ptr %137, align 1
-  %.not38.i = icmp eq i8 %138, 0
+  %136 = load i8, ptr %135, align 1
+  %.not38.i = icmp eq i8 %136, 0
   br i1 %.not38.i, label %.critedge.i.loopexit, label %.preheader.i, !llvm.loop !4
 
-139:                                              ; preds = %fdt_offset_ptr.exit11._crit_edge
-  %140 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %93, i32 noundef 4)
-  %.not35.i = icmp eq ptr %140, null
-  br i1 %.not35.i, label %fdt_next_node.exit.thread, label %141
+137:                                              ; preds = %fdt_offset_ptr.exit11._crit_edge
+  %138 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %93, i32 noundef 4)
+  %.not35.i = icmp eq ptr %138, null
+  br i1 %.not35.i, label %fdt_next_node.exit.thread, label %139
 
-141:                                              ; preds = %139
-  %142 = load i32, ptr %140, align 4
-  %rev.i41.i = tail call noundef i32 @llvm.bswap.i32(i32 %142)
-  %143 = add i32 %74, 12
-  %144 = add i32 %rev.i41.i, %143
-  %145 = icmp ult i32 %91, 16
-  %146 = icmp ugt i32 %rev.i41.i, 7
-  %or.cond.i = and i1 %146, %145
-  br i1 %or.cond.i, label %147, label %.critedge.i
+139:                                              ; preds = %137
+  %140 = load i32, ptr %138, align 4
+  %rev.i41.i = tail call noundef i32 @llvm.bswap.i32(i32 %140)
+  %141 = add i32 %74, 12
+  %142 = add i32 %rev.i41.i, %141
+  %143 = icmp ult i32 %91, 16
+  %144 = icmp ugt i32 %rev.i41.i, 7
+  %or.cond.i = and i1 %144, %143
+  br i1 %or.cond.i, label %145, label %.critedge.i
 
-147:                                              ; preds = %141
-  %148 = and i32 %143, 7
-  %.not36.i = icmp eq i32 %148, 0
-  %149 = add nsw i32 %144, 4
-  %spec.select.i = select i1 %.not36.i, i32 %144, i32 %149
+145:                                              ; preds = %139
+  %146 = and i32 %141, 7
+  %.not36.i = icmp eq i32 %146, 0
+  %147 = add nsw i32 %142, 4
+  %spec.select.i = select i1 %.not36.i, i32 %142, i32 %147
   br label %.critedge.i
 
 .critedge.i.loopexit:                             ; preds = %fdt_offset_ptr.exit
-  %150 = trunc nsw i64 %indvars.iv.next to i32
+  %148 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.i.loopexit, %147, %141, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge
-  %.1.i = phi i32 [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %144, %141 ], [ %spec.select.i, %147 ], [ %150, %.critedge.i.loopexit ]
-  %151 = sub nsw i32 %.1.i, %74
-  %152 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %74, i32 noundef %151)
-  %.not39.i = icmp eq ptr %152, null
+.critedge.i:                                      ; preds = %.critedge.i.loopexit, %145, %139, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge
+  %.1.i = phi i32 [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %142, %139 ], [ %spec.select.i, %145 ], [ %148, %.critedge.i.loopexit ]
+  %149 = sub nsw i32 %.1.i, %74
+  %150 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %74, i32 noundef %149)
+  %.not39.i = icmp eq ptr %150, null
   br i1 %.not39.i, label %fdt_next_node.exit.thread, label %fdt_next_tag.exit
 
 fdt_next_tag.exit:                                ; preds = %.critedge.i
-  %153 = add i32 %.1.i, 3
-  %154 = and i32 %153, -4
+  %151 = add i32 %.1.i, 3
+  %152 = and i32 %151, -4
   switch i32 %rev.i.i, label %.backedge.i [
     i32 9, label %fdt_next_node.exit.thread
-    i32 2, label %158
+    i32 2, label %156
     i32 1, label %fdt_next_node.exit
   ]
 
-.backedge.i:                                      ; preds = %158, %fdt_next_tag.exit
-  %.2 = phi i32 [ %.142, %fdt_next_tag.exit ], [ %159, %158 ]
-  %155 = add i32 %43, %154
-  %156 = icmp ult i32 %155, %154
-  %157 = icmp ugt i32 %155, -5
-  %or.cond31 = or i1 %156, %157
+.backedge.i:                                      ; preds = %156, %fdt_next_tag.exit
+  %.2 = phi i32 [ %.142, %fdt_next_tag.exit ], [ %157, %156 ]
+  %153 = add i32 %43, %152
+  %154 = icmp ult i32 %153, %152
+  %155 = icmp ugt i32 %153, -5
+  %or.cond31 = or i1 %154, %155
   br i1 %or.cond31, label %fdt_next_node.exit.thread, label %72, !llvm.loop !6
 
-158:                                              ; preds = %fdt_next_tag.exit
-  %159 = add nsw i32 %.142, -1
-  %160 = icmp slt i32 %.142, 1
-  br i1 %160, label %fdt_next_node.exit.thread, label %.backedge.i
+156:                                              ; preds = %fdt_next_tag.exit
+  %157 = add nsw i32 %.142, -1
+  %158 = icmp slt i32 %.142, 1
+  br i1 %158, label %fdt_next_node.exit.thread, label %.backedge.i
 
 fdt_next_node.exit:                               ; preds = %fdt_next_tag.exit
-  %161 = icmp slt i32 %74, 0
-  %162 = icmp slt i32 %.142, 0
-  %or.cond = select i1 %161, i1 true, i1 %162
-  br i1 %or.cond, label %fdt_next_node.exit.thread, label %163
+  %159 = icmp slt i32 %74, 0
+  %160 = icmp slt i32 %.142, 0
+  %or.cond = select i1 %159, i1 true, i1 %160
+  br i1 %or.cond, label %fdt_next_node.exit.thread, label %161
 
-163:                                              ; preds = %fdt_next_node.exit
-  %164 = add nuw nsw i32 %.142, 1
+161:                                              ; preds = %fdt_next_node.exit
+  %162 = add nuw nsw i32 %.142, 1
   %.not = icmp eq i32 %.142, 0
   br i1 %.not, label %fdt_next_node.exit.thread, label %20, !llvm.loop !7
 
-fdt_next_node.exit.thread:                        ; preds = %fdt_check_node_offset_.exit.i, %163, %fdt_next_node.exit, %28, %158, %94, %.backedge.i, %72, %.critedge.i, %fdt_offset_ptr.exit11._crit_edge, %139, %fdt_next_tag.exit, %.preheader.i, %122, %120, %fdt_check_node_offset_.exit.thread.i
-  %.05 = phi i32 [ -1, %fdt_check_node_offset_.exit.thread.i ], [ -1, %120 ], [ -1, %122 ], [ -1, %.preheader.i ], [ -1, %fdt_next_tag.exit ], [ -1, %139 ], [ -1, %fdt_offset_ptr.exit11._crit_edge ], [ -1, %.critedge.i ], [ -1, %72 ], [ -1, %.backedge.i ], [ -1, %94 ], [ -1, %158 ], [ -1, %28 ], [ -1, %fdt_check_node_offset_.exit.i ], [ %74, %163 ], [ -1, %fdt_next_node.exit ]
+fdt_next_node.exit.thread:                        ; preds = %fdt_check_node_offset_.exit.i, %161, %fdt_next_node.exit, %28, %156, %94, %.backedge.i, %72, %.critedge.i, %fdt_offset_ptr.exit11._crit_edge, %137, %fdt_next_tag.exit, %.preheader.i, %120, %118, %fdt_check_node_offset_.exit.thread.i
+  %.05 = phi i32 [ -1, %fdt_check_node_offset_.exit.thread.i ], [ -1, %118 ], [ -1, %120 ], [ -1, %.preheader.i ], [ -1, %fdt_next_tag.exit ], [ -1, %137 ], [ -1, %fdt_offset_ptr.exit11._crit_edge ], [ -1, %.critedge.i ], [ -1, %72 ], [ -1, %.backedge.i ], [ -1, %94 ], [ -1, %156 ], [ -1, %28 ], [ -1, %fdt_check_node_offset_.exit.i ], [ %74, %161 ], [ -1, %fdt_next_node.exit ]
   ret i32 %.05
 }
 

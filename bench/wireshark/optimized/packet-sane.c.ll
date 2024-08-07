@@ -536,7 +536,7 @@ tvb_read_sane_word.exit65:                        ; preds = %79
   %89 = extractelement <2 x i32> %88, i64 0
   %90 = tail call i32 @tvb_captured_length_remaining(ptr noundef %45, i32 noundef %89) #4
   %91 = icmp slt i32 %90, 4
-  br i1 %91, label %tvb_read_sane_word.exit.thread.loopexit291, label %92
+  br i1 %91, label %tvb_read_sane_word.exit.thread.loopexit289, label %92
 
 92:                                               ; preds = %86
   %93 = add <2 x i32> %88, <i32 4, i32 4>
@@ -622,24 +622,24 @@ tvb_read_sane_string.exit72:                      ; preds = %126
     i32 4, label %159
     i32 5, label %.preheader178.preheader
     i32 1, label %287
-    i32 3, label %356
+    i32 3, label %357
     i32 7, label %.preheader181.preheader
     i32 6, label %.preheader183.preheader
-    i32 8, label %381
-    i32 9, label %381
+    i32 8, label %382
+    i32 9, label %382
   ]
 
 .preheader183.preheader:                          ; preds = %138
-  %.promoted296 = load i32, ptr %12, align 1
+  %.promoted294 = load i32, ptr %12, align 1
   br label %.preheader183
 
 .preheader181.preheader:                          ; preds = %138
-  %.promoted299 = load i32, ptr %11, align 1
-  %.promoted302 = load i32, ptr %12, align 1
+  %.promoted297 = load i32, ptr %11, align 1
+  %.promoted300 = load i32, ptr %12, align 1
   br label %.preheader181
 
 .preheader178.preheader:                          ; preds = %138
-  %.promoted309 = load i32, ptr %11, align 1
+  %.promoted307 = load i32, ptr %11, align 1
   br label %.preheader178
 
 .preheader:                                       ; preds = %138, %145
@@ -686,17 +686,17 @@ tvb_read_sane_word.exit80:                        ; preds = %159
   store i32 %163, ptr %11, align 8
   store i32 4, ptr %12, align 4
   %164 = icmp sgt i32 %162, 0
-  br i1 %164, label %.lr.ph212, label %.loopexit
+  br i1 %164, label %.lr.ph210, label %.loopexit
 
-.lr.ph212:                                        ; preds = %tvb_read_sane_word.exit80, %.loopexit165
-  %.051211 = phi i32 [ %259, %.loopexit165 ], [ 0, %tvb_read_sane_word.exit80 ]
+.lr.ph210:                                        ; preds = %tvb_read_sane_word.exit80, %.loopexit165
+  %.051209 = phi i32 [ %259, %.loopexit165 ], [ 0, %tvb_read_sane_word.exit80 ]
   %165 = load ptr, ptr %5, align 8
   %166 = load i32, ptr %11, align 8
   %167 = call i32 @tvb_captured_length_remaining(ptr noundef %165, i32 noundef %166) #4
   %168 = icmp slt i32 %167, 4
   br i1 %168, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_word.exit82
 
-tvb_read_sane_word.exit82:                        ; preds = %.lr.ph212
+tvb_read_sane_word.exit82:                        ; preds = %.lr.ph210
   %169 = load <2 x i32>, ptr %11, align 8
   %170 = add <2 x i32> %169, <i32 4, i32 4>
   store <2 x i32> %170, ptr %11, align 8
@@ -704,13 +704,13 @@ tvb_read_sane_word.exit82:                        ; preds = %.lr.ph212
   br label %174
 
 172:                                              ; preds = %tvb_read_sane_string.exit84
-  %173 = add nuw nsw i32 %.050204, 1
-  %exitcond235.not = icmp eq i32 %173, 3
-  br i1 %exitcond235.not, label %.preheader173, label %174, !llvm.loop !7
+  %173 = add nuw nsw i32 %.050202, 1
+  %exitcond233.not = icmp eq i32 %173, 3
+  br i1 %exitcond233.not, label %.preheader173, label %174, !llvm.loop !7
 
 174:                                              ; preds = %tvb_read_sane_word.exit82, %172
   %175 = phi i32 [ %171, %tvb_read_sane_word.exit82 ], [ %189, %172 ]
-  %.050204 = phi i32 [ 0, %tvb_read_sane_word.exit82 ], [ %173, %172 ]
+  %.050202 = phi i32 [ 0, %tvb_read_sane_word.exit82 ], [ %173, %172 ]
   %176 = load ptr, ptr %5, align 8
   %177 = call i32 @tvb_captured_length_remaining(ptr noundef %176, i32 noundef %175) #4
   %178 = icmp slt i32 %177, 4
@@ -740,7 +740,7 @@ tvb_read_sane_string.exit84:                      ; preds = %179
 
 .preheader173:                                    ; preds = %172, %197
   %193 = phi i32 [ %201, %197 ], [ %189, %172 ]
-  %.049205 = phi i32 [ %200, %197 ], [ 0, %172 ]
+  %.049203 = phi i32 [ %200, %197 ], [ 0, %172 ]
   %194 = load ptr, ptr %5, align 8
   %195 = call i32 @tvb_captured_length_remaining(ptr noundef %194, i32 noundef %193) #4
   %196 = icmp slt i32 %195, 4
@@ -750,10 +750,10 @@ tvb_read_sane_string.exit84:                      ; preds = %179
   %198 = load <2 x i32>, ptr %11, align 8
   %199 = add <2 x i32> %198, <i32 4, i32 4>
   store <2 x i32> %199, ptr %11, align 8
-  %200 = add nuw nsw i32 %.049205, 1
-  %exitcond236.not = icmp eq i32 %200, 4
+  %200 = add nuw nsw i32 %.049203, 1
+  %exitcond234.not = icmp eq i32 %200, 4
   %201 = extractelement <2 x i32> %199, i64 0
-  br i1 %exitcond236.not, label %202, label %.preheader173, !llvm.loop !8
+  br i1 %exitcond234.not, label %202, label %.preheader173, !llvm.loop !8
 
 202:                                              ; preds = %197
   %203 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %7)
@@ -780,27 +780,27 @@ tvb_read_sane_string.exit84:                      ; preds = %179
 .preheader164:                                    ; preds = %207
   %210 = load i32, ptr %8, align 4
   %211 = icmp sgt i32 %210, 0
-  br i1 %211, label %.lr.ph210.preheader, label %.loopexit165
+  br i1 %211, label %.lr.ph208.preheader, label %.loopexit165
 
-.lr.ph210.preheader:                              ; preds = %.preheader164
-  %.pre240 = load i32, ptr %11, align 8
-  br label %.lr.ph210
+.lr.ph208.preheader:                              ; preds = %.preheader164
+  %.pre238 = load i32, ptr %11, align 8
+  br label %.lr.ph208
 
 212:                                              ; preds = %tvb_read_sane_string.exit88
-  %213 = add nuw nsw i32 %.048209, 1
+  %213 = add nuw nsw i32 %.048207, 1
   %214 = load i32, ptr %8, align 4
   %215 = icmp slt i32 %213, %214
-  br i1 %215, label %.lr.ph210, label %.loopexit165, !llvm.loop !9
+  br i1 %215, label %.lr.ph208, label %.loopexit165, !llvm.loop !9
 
-.lr.ph210:                                        ; preds = %.lr.ph210.preheader, %212
-  %216 = phi i32 [ %230, %212 ], [ %.pre240, %.lr.ph210.preheader ]
-  %.048209 = phi i32 [ %213, %212 ], [ 0, %.lr.ph210.preheader ]
+.lr.ph208:                                        ; preds = %.lr.ph208.preheader, %212
+  %216 = phi i32 [ %230, %212 ], [ %.pre238, %.lr.ph208.preheader ]
+  %.048207 = phi i32 [ %213, %212 ], [ 0, %.lr.ph208.preheader ]
   %217 = load ptr, ptr %5, align 8
   %218 = call i32 @tvb_captured_length_remaining(ptr noundef %217, i32 noundef %216) #4
   %219 = icmp slt i32 %218, 4
   br i1 %219, label %tvb_read_sane_word.exit.thread, label %220
 
-220:                                              ; preds = %.lr.ph210
+220:                                              ; preds = %.lr.ph208
   %221 = load ptr, ptr %5, align 8
   %222 = load i32, ptr %11, align 8
   %223 = call i32 @tvb_get_ntohl(ptr noundef %221, i32 noundef %222) #4
@@ -830,33 +830,33 @@ tvb_read_sane_string.exit88:                      ; preds = %220
 .preheader167:                                    ; preds = %234
   %237 = load i32, ptr %9, align 4
   %238 = icmp sgt i32 %237, 0
-  br i1 %238, label %.lr.ph208.preheader, label %.loopexit165
+  br i1 %238, label %.lr.ph206.preheader, label %.loopexit165
 
-.lr.ph208.preheader:                              ; preds = %.preheader167
-  %.pre239 = load i32, ptr %11, align 8
-  br label %.lr.ph208
+.lr.ph206.preheader:                              ; preds = %.preheader167
+  %.pre237 = load i32, ptr %11, align 8
+  br label %.lr.ph206
 
-.lr.ph208:                                        ; preds = %.lr.ph208.preheader, %243
-  %239 = phi i32 [ %249, %243 ], [ %.pre239, %.lr.ph208.preheader ]
-  %.047207 = phi i32 [ %246, %243 ], [ 0, %.lr.ph208.preheader ]
+.lr.ph206:                                        ; preds = %.lr.ph206.preheader, %243
+  %239 = phi i32 [ %249, %243 ], [ %.pre237, %.lr.ph206.preheader ]
+  %.047205 = phi i32 [ %246, %243 ], [ 0, %.lr.ph206.preheader ]
   %240 = load ptr, ptr %5, align 8
   %241 = call i32 @tvb_captured_length_remaining(ptr noundef %240, i32 noundef %239) #4
   %242 = icmp slt i32 %241, 4
   br i1 %242, label %tvb_read_sane_word.exit.thread, label %243
 
-243:                                              ; preds = %.lr.ph208
+243:                                              ; preds = %.lr.ph206
   %244 = load <2 x i32>, ptr %11, align 8
   %245 = add <2 x i32> %244, <i32 4, i32 4>
   store <2 x i32> %245, ptr %11, align 8
-  %246 = add nuw nsw i32 %.047207, 1
+  %246 = add nuw nsw i32 %.047205, 1
   %247 = load i32, ptr %9, align 4
   %248 = icmp slt i32 %246, %247
   %249 = extractelement <2 x i32> %245, i64 0
-  br i1 %248, label %.lr.ph208, label %.loopexit165, !llvm.loop !10
+  br i1 %248, label %.lr.ph206, label %.loopexit165, !llvm.loop !10
 
 .preheader170:                                    ; preds = %.preheader170.preheader, %254
   %250 = phi i32 [ %258, %254 ], [ %.pre, %.preheader170.preheader ]
-  %.046206 = phi i32 [ %257, %254 ], [ 0, %.preheader170.preheader ]
+  %.046204 = phi i32 [ %257, %254 ], [ 0, %.preheader170.preheader ]
   %251 = load ptr, ptr %5, align 8
   %252 = call i32 @tvb_captured_length_remaining(ptr noundef %251, i32 noundef %250) #4
   %253 = icmp slt i32 %252, 4
@@ -866,32 +866,32 @@ tvb_read_sane_string.exit88:                      ; preds = %220
   %255 = load <2 x i32>, ptr %11, align 8
   %256 = add <2 x i32> %255, <i32 4, i32 4>
   store <2 x i32> %256, ptr %11, align 8
-  %257 = add nuw nsw i32 %.046206, 1
-  %exitcond237.not = icmp eq i32 %257, 4
+  %257 = add nuw nsw i32 %.046204, 1
+  %exitcond235.not = icmp eq i32 %257, 4
   %258 = extractelement <2 x i32> %256, i64 0
-  br i1 %exitcond237.not, label %.loopexit165, label %.preheader170, !llvm.loop !11
+  br i1 %exitcond235.not, label %.loopexit165, label %.preheader170, !llvm.loop !11
 
 .loopexit165:                                     ; preds = %254, %243, %212, %.preheader167, %.preheader164, %205
-  %259 = add nuw nsw i32 %.051211, 1
-  %exitcond238.not = icmp eq i32 %259, %162
-  br i1 %exitcond238.not, label %.loopexit, label %.lr.ph212, !llvm.loop !12
+  %259 = add nuw nsw i32 %.051209, 1
+  %exitcond236.not = icmp eq i32 %259, %162
+  br i1 %exitcond236.not, label %.loopexit, label %.lr.ph210, !llvm.loop !12
 
 .preheader178:                                    ; preds = %.preheader178.preheader, %265
-  %260 = phi i32 [ %266, %265 ], [ %.promoted309, %.preheader178.preheader ]
-  %.045203 = phi i32 [ %268, %265 ], [ 0, %.preheader178.preheader ]
+  %260 = phi i32 [ %266, %265 ], [ %.promoted307, %.preheader178.preheader ]
+  %.045201 = phi i32 [ %268, %265 ], [ 0, %.preheader178.preheader ]
   %261 = phi i32 [ %266, %265 ], [ %2, %.preheader178.preheader ]
   %262 = phi i32 [ %267, %265 ], [ 0, %.preheader178.preheader ]
   %263 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %261) #4
   %264 = icmp slt i32 %263, 4
-  br i1 %264, label %tvb_read_sane_word.exit.thread.loopexit284, label %265
+  br i1 %264, label %tvb_read_sane_word.exit.thread.loopexit282, label %265
 
 265:                                              ; preds = %.preheader178
   %266 = add i32 %261, 4
   %267 = add i32 %262, 4
   store i32 %267, ptr %12, align 4
-  %268 = add nuw nsw i32 %.045203, 1
-  %exitcond234.not = icmp eq i32 %268, 3
-  br i1 %exitcond234.not, label %269, label %.preheader178, !llvm.loop !13
+  %268 = add nuw nsw i32 %.045201, 1
+  %exitcond232.not = icmp eq i32 %268, 3
+  br i1 %exitcond232.not, label %269, label %.preheader178, !llvm.loop !13
 
 269:                                              ; preds = %265
   store i32 %266, ptr %11, align 1
@@ -941,199 +941,199 @@ tvb_read_sane_word.exit100:                       ; preds = %290
   br i1 %297, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %tvb_read_sane_word.exit100
-  %.promoted305 = load i32, ptr %12, align 1
+  %.promoted303 = load i32, ptr %12, align 1
   br label %.lr.ph
 
 298:                                              ; preds = %tvb_read_sane_string.exit110
-  %299 = add i32 %345, %344
+  %299 = add i32 %346, %345
   %300 = add nuw nsw i32 %.044198, 1
-  %exitcond233.not = icmp eq i32 %300, %296
-  br i1 %exitcond233.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  %exitcond231.not = icmp eq i32 %300, %296
+  br i1 %exitcond231.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %298
-  %.reass200306 = phi i32 [ %349, %298 ], [ %.promoted305, %.lr.ph.preheader ]
+  %.reass304 = phi i32 [ %350, %298 ], [ %.promoted303, %.lr.ph.preheader ]
   %.044198 = phi i32 [ %300, %298 ], [ 0, %.lr.ph.preheader ]
   %301 = phi i32 [ %299, %298 ], [ %295, %.lr.ph.preheader ]
-  %302 = phi i32 [ %349, %298 ], [ 8, %.lr.ph.preheader ]
+  %302 = phi i32 [ %350, %298 ], [ 8, %.lr.ph.preheader ]
   %303 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %301) #4
   %304 = icmp slt i32 %303, 4
-  br i1 %304, label %tvb_read_sane_word.exit.thread.loopexit285, label %305
+  br i1 %304, label %tvb_read_sane_word.exit.thread.loopexit283, label %305
 
 305:                                              ; preds = %.lr.ph
   %306 = add i32 %301, 4
   %307 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %306) #4
   %308 = icmp slt i32 %307, 4
-  br i1 %308, label %tvb_read_sane_word.exit.thread.loopexit285, label %309
+  br i1 %308, label %tvb_read_sane_word.exit.thread.loopexit283, label %309
 
 309:                                              ; preds = %305
   %310 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %306) #4
-  %.reass = add i32 %301, 8
-  %.reass200 = add i32 %302, 8
-  %311 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.reass) #4
-  %312 = icmp slt i32 %311, %310
-  br i1 %312, label %tvb_read_sane_word.exit.thread.loopexit285, label %tvb_read_sane_string.exit104
+  %311 = add i32 %301, 8
+  %.reass = add i32 %302, 8
+  %312 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %311) #4
+  %313 = icmp slt i32 %312, %310
+  br i1 %313, label %tvb_read_sane_word.exit.thread.loopexit283, label %tvb_read_sane_string.exit104
 
 tvb_read_sane_string.exit104:                     ; preds = %309
-  %313 = add i32 %.reass, %310
-  %314 = add i32 %.reass200, %310
-  %315 = icmp eq i32 %310, -4
-  br i1 %315, label %tvb_read_sane_word.exit.thread.loopexit285, label %316
+  %314 = add i32 %311, %310
+  %315 = add i32 %.reass, %310
+  %316 = icmp eq i32 %310, -4
+  br i1 %316, label %tvb_read_sane_word.exit.thread.loopexit283, label %317
 
-316:                                              ; preds = %tvb_read_sane_string.exit104
-  %317 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %313) #4
-  %318 = icmp slt i32 %317, 4
-  br i1 %318, label %tvb_read_sane_word.exit.thread.loopexit285, label %319
+317:                                              ; preds = %tvb_read_sane_string.exit104
+  %318 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %314) #4
+  %319 = icmp slt i32 %318, 4
+  br i1 %319, label %tvb_read_sane_word.exit.thread.loopexit283, label %320
 
-319:                                              ; preds = %316
-  %320 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %313) #4
-  %321 = add i32 %313, 4
-  %322 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %321) #4
-  %323 = icmp slt i32 %322, %320
-  br i1 %323, label %tvb_read_sane_word.exit.thread.loopexit285, label %tvb_read_sane_string.exit106
+320:                                              ; preds = %317
+  %321 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %314) #4
+  %322 = add i32 %314, 4
+  %323 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %322) #4
+  %324 = icmp slt i32 %323, %321
+  br i1 %324, label %tvb_read_sane_word.exit.thread.loopexit283, label %tvb_read_sane_string.exit106
 
-tvb_read_sane_string.exit106:                     ; preds = %319
-  %324 = add i32 %314, 4
-  %325 = add i32 %321, %320
-  %326 = add i32 %324, %320
-  %327 = icmp eq i32 %320, -4
-  br i1 %327, label %tvb_read_sane_word.exit.thread.loopexit285, label %328
+tvb_read_sane_string.exit106:                     ; preds = %320
+  %325 = add i32 %315, 4
+  %326 = add i32 %322, %321
+  %327 = add i32 %325, %321
+  %328 = icmp eq i32 %321, -4
+  br i1 %328, label %tvb_read_sane_word.exit.thread.loopexit283, label %329
 
-328:                                              ; preds = %tvb_read_sane_string.exit106
-  %329 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %325) #4
-  %330 = icmp slt i32 %329, 4
-  br i1 %330, label %tvb_read_sane_word.exit.thread.loopexit285, label %331
+329:                                              ; preds = %tvb_read_sane_string.exit106
+  %330 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %326) #4
+  %331 = icmp slt i32 %330, 4
+  br i1 %331, label %tvb_read_sane_word.exit.thread.loopexit283, label %332
 
-331:                                              ; preds = %328
-  %332 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %325) #4
-  %333 = add i32 %325, 4
-  %334 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %333) #4
-  %335 = icmp slt i32 %334, %332
-  br i1 %335, label %tvb_read_sane_word.exit.thread.loopexit285, label %tvb_read_sane_string.exit108
+332:                                              ; preds = %329
+  %333 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %326) #4
+  %334 = add i32 %326, 4
+  %335 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %334) #4
+  %336 = icmp slt i32 %335, %333
+  br i1 %336, label %tvb_read_sane_word.exit.thread.loopexit283, label %tvb_read_sane_string.exit108
 
-tvb_read_sane_string.exit108:                     ; preds = %331
-  %336 = add i32 %326, 4
-  %337 = add i32 %333, %332
-  %338 = add i32 %336, %332
-  %339 = icmp eq i32 %332, -4
-  br i1 %339, label %tvb_read_sane_word.exit.thread.loopexit285, label %340
+tvb_read_sane_string.exit108:                     ; preds = %332
+  %337 = add i32 %327, 4
+  %338 = add i32 %334, %333
+  %339 = add i32 %337, %333
+  %340 = icmp eq i32 %333, -4
+  br i1 %340, label %tvb_read_sane_word.exit.thread.loopexit283, label %341
 
-340:                                              ; preds = %tvb_read_sane_string.exit108
-  %341 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %337) #4
-  %342 = icmp slt i32 %341, 4
-  br i1 %342, label %tvb_read_sane_word.exit.thread.loopexit285, label %343
+341:                                              ; preds = %tvb_read_sane_string.exit108
+  %342 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %338) #4
+  %343 = icmp slt i32 %342, 4
+  br i1 %343, label %tvb_read_sane_word.exit.thread.loopexit283, label %344
 
-343:                                              ; preds = %340
-  %344 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %337) #4
-  %345 = add i32 %337, 4
-  %346 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %345) #4
-  %347 = icmp slt i32 %346, %344
-  br i1 %347, label %tvb_read_sane_word.exit.thread.loopexit285, label %tvb_read_sane_string.exit110
+344:                                              ; preds = %341
+  %345 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %338) #4
+  %346 = add i32 %338, 4
+  %347 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %346) #4
+  %348 = icmp slt i32 %347, %345
+  br i1 %348, label %tvb_read_sane_word.exit.thread.loopexit283, label %tvb_read_sane_string.exit110
 
-tvb_read_sane_string.exit110:                     ; preds = %343
-  %348 = add i32 %338, 4
-  %349 = add i32 %348, %344
-  %350 = icmp eq i32 %344, -4
-  br i1 %350, label %tvb_read_sane_word.exit.thread.loopexit285, label %298
+tvb_read_sane_string.exit110:                     ; preds = %344
+  %349 = add i32 %339, 4
+  %350 = add i32 %349, %345
+  %351 = icmp eq i32 %345, -4
+  br i1 %351, label %tvb_read_sane_word.exit.thread.loopexit283, label %298
 
 ._crit_edge.loopexit:                             ; preds = %298
-  store i32 %349, ptr %12, align 1
-  %351 = add i32 %349, 4
+  store i32 %350, ptr %12, align 1
+  %352 = add i32 %350, 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %tvb_read_sane_word.exit100
-  %352 = phi i32 [ %351, %._crit_edge.loopexit ], [ 12, %tvb_read_sane_word.exit100 ]
-  %353 = phi i32 [ %299, %._crit_edge.loopexit ], [ %295, %tvb_read_sane_word.exit100 ]
-  %354 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %353) #4
-  %355 = icmp slt i32 %354, 4
-  br i1 %355, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
+  %353 = phi i32 [ %352, %._crit_edge.loopexit ], [ 12, %tvb_read_sane_word.exit100 ]
+  %354 = phi i32 [ %299, %._crit_edge.loopexit ], [ %295, %tvb_read_sane_word.exit100 ]
+  %355 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %354) #4
+  %356 = icmp slt i32 %355, 4
+  br i1 %356, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
 
-356:                                              ; preds = %138
-  %357 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
-  %358 = icmp slt i32 %357, 4
-  br i1 %358, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
+357:                                              ; preds = %138
+  %358 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
+  %359 = icmp slt i32 %358, 4
+  br i1 %359, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
 
-.preheader181:                                    ; preds = %.preheader181.preheader, %365
-  %359 = phi i32 [ %367, %365 ], [ %.promoted302, %.preheader181.preheader ]
-  %360 = phi i32 [ %366, %365 ], [ %.promoted299, %.preheader181.preheader ]
-  %.043195 = phi i32 [ %368, %365 ], [ 0, %.preheader181.preheader ]
-  %361 = phi i32 [ %366, %365 ], [ %2, %.preheader181.preheader ]
-  %362 = phi i32 [ %367, %365 ], [ 0, %.preheader181.preheader ]
-  %363 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %361) #4
-  %364 = icmp slt i32 %363, 4
-  br i1 %364, label %tvb_read_sane_word.exit.thread.loopexit288, label %365
+.preheader181:                                    ; preds = %.preheader181.preheader, %366
+  %360 = phi i32 [ %368, %366 ], [ %.promoted300, %.preheader181.preheader ]
+  %361 = phi i32 [ %367, %366 ], [ %.promoted297, %.preheader181.preheader ]
+  %.043195 = phi i32 [ %369, %366 ], [ 0, %.preheader181.preheader ]
+  %362 = phi i32 [ %367, %366 ], [ %2, %.preheader181.preheader ]
+  %363 = phi i32 [ %368, %366 ], [ 0, %.preheader181.preheader ]
+  %364 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %362) #4
+  %365 = icmp slt i32 %364, 4
+  br i1 %365, label %tvb_read_sane_word.exit.thread.loopexit286, label %366
 
-365:                                              ; preds = %.preheader181
-  %366 = add i32 %361, 4
+366:                                              ; preds = %.preheader181
   %367 = add i32 %362, 4
-  %368 = add nuw nsw i32 %.043195, 1
-  %exitcond232.not = icmp eq i32 %368, 3
-  br i1 %exitcond232.not, label %369, label %.preheader181, !llvm.loop !15
+  %368 = add i32 %363, 4
+  %369 = add nuw nsw i32 %.043195, 1
+  %exitcond230.not = icmp eq i32 %369, 3
+  br i1 %exitcond230.not, label %370, label %.preheader181, !llvm.loop !15
 
-369:                                              ; preds = %365
-  store i32 %366, ptr %11, align 1
-  store i32 %367, ptr %12, align 1
-  %370 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
-  %371 = icmp eq i32 %370, 0
-  br i1 %371, label %tvb_read_sane_word.exit.thread, label %.loopexit
+370:                                              ; preds = %366
+  store i32 %367, ptr %11, align 1
+  store i32 %368, ptr %12, align 1
+  %371 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %372 = icmp eq i32 %371, 0
+  br i1 %372, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
-.preheader183:                                    ; preds = %.preheader183.preheader, %377
-  %372 = phi i32 [ %379, %377 ], [ %.promoted296, %.preheader183.preheader ]
-  %.0192 = phi i32 [ %380, %377 ], [ 0, %.preheader183.preheader ]
-  %373 = phi i32 [ %378, %377 ], [ %2, %.preheader183.preheader ]
-  %374 = phi i32 [ %379, %377 ], [ 0, %.preheader183.preheader ]
-  %375 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %373) #4
-  %376 = icmp slt i32 %375, 4
-  br i1 %376, label %tvb_read_sane_word.exit.thread.loopexit289, label %377
+.preheader183:                                    ; preds = %.preheader183.preheader, %378
+  %373 = phi i32 [ %380, %378 ], [ %.promoted294, %.preheader183.preheader ]
+  %.0192 = phi i32 [ %381, %378 ], [ 0, %.preheader183.preheader ]
+  %374 = phi i32 [ %379, %378 ], [ %2, %.preheader183.preheader ]
+  %375 = phi i32 [ %380, %378 ], [ 0, %.preheader183.preheader ]
+  %376 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %374) #4
+  %377 = icmp slt i32 %376, 4
+  br i1 %377, label %tvb_read_sane_word.exit.thread.loopexit287, label %378
 
-377:                                              ; preds = %.preheader183
-  %378 = add i32 %373, 4
+378:                                              ; preds = %.preheader183
   %379 = add i32 %374, 4
-  %380 = add nuw nsw i32 %.0192, 1
-  %exitcond231.not = icmp eq i32 %380, 7
-  br i1 %exitcond231.not, label %.loopexit.loopexit290, label %.preheader183, !llvm.loop !16
+  %380 = add i32 %375, 4
+  %381 = add nuw nsw i32 %.0192, 1
+  %exitcond229.not = icmp eq i32 %381, 7
+  br i1 %exitcond229.not, label %.loopexit.loopexit288, label %.preheader183, !llvm.loop !16
 
-381:                                              ; preds = %138, %138
-  %382 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
-  %383 = icmp slt i32 %382, 4
-  br i1 %383, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
+382:                                              ; preds = %138, %138
+  %383 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
+  %384 = icmp slt i32 %383, 4
+  br i1 %384, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %381, %356, %._crit_edge, %tvb_read_sane_word.exit65
-  %.sink = phi i32 [ %85, %tvb_read_sane_word.exit65 ], [ %352, %._crit_edge ], [ 4, %356 ], [ 4, %381 ]
+.loopexit.sink.split:                             ; preds = %382, %357, %._crit_edge, %tvb_read_sane_word.exit65
+  %.sink = phi i32 [ %85, %tvb_read_sane_word.exit65 ], [ %353, %._crit_edge ], [ 4, %357 ], [ 4, %382 ]
   store i32 %.sink, ptr %12, align 4
   br label %.loopexit
 
-.loopexit.loopexit290:                            ; preds = %377
-  store i32 %379, ptr %12, align 1
+.loopexit.loopexit288:                            ; preds = %378
+  store i32 %380, ptr %12, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit165, %145, %.loopexit.loopexit290, %.loopexit.sink.split, %tvb_read_sane_word.exit80, %155, %284, %369, %138, %44, %tvb_read_sane_string.exit, %tvb_read_sane_string.exit63, %tvb_skip_bytes.exit, %135
-  %384 = load i32, ptr %12, align 4
+.loopexit:                                        ; preds = %.loopexit165, %145, %.loopexit.loopexit288, %.loopexit.sink.split, %tvb_read_sane_word.exit80, %155, %284, %370, %138, %44, %tvb_read_sane_string.exit, %tvb_read_sane_string.exit63, %tvb_skip_bytes.exit, %135
+  %385 = load i32, ptr %12, align 4
   br label %tvb_read_sane_word.exit.thread
 
-tvb_read_sane_word.exit.thread.loopexit284:       ; preds = %.preheader178
+tvb_read_sane_word.exit.thread.loopexit282:       ; preds = %.preheader178
   store i32 %260, ptr %11, align 1
   br label %tvb_read_sane_word.exit.thread
 
-tvb_read_sane_word.exit.thread.loopexit285:       ; preds = %tvb_read_sane_string.exit104, %tvb_read_sane_string.exit106, %tvb_read_sane_string.exit108, %tvb_read_sane_string.exit110, %.lr.ph, %309, %305, %319, %316, %331, %328, %343, %340
-  %.reass200307 = phi i32 [ %.reass200, %tvb_read_sane_string.exit104 ], [ %.reass200, %tvb_read_sane_string.exit106 ], [ %.reass200, %tvb_read_sane_string.exit108 ], [ %349, %tvb_read_sane_string.exit110 ], [ %.reass200306, %.lr.ph ], [ %.reass200, %309 ], [ %.reass200306, %305 ], [ %.reass200, %319 ], [ %.reass200, %316 ], [ %.reass200, %331 ], [ %.reass200, %328 ], [ %.reass200, %343 ], [ %.reass200, %340 ]
-  store i32 %.reass200307, ptr %12, align 1
+tvb_read_sane_word.exit.thread.loopexit283:       ; preds = %tvb_read_sane_string.exit104, %tvb_read_sane_string.exit106, %tvb_read_sane_string.exit108, %tvb_read_sane_string.exit110, %.lr.ph, %309, %305, %320, %317, %332, %329, %344, %341
+  %.reass305 = phi i32 [ %.reass, %tvb_read_sane_string.exit104 ], [ %.reass, %tvb_read_sane_string.exit106 ], [ %.reass, %tvb_read_sane_string.exit108 ], [ %350, %tvb_read_sane_string.exit110 ], [ %.reass304, %.lr.ph ], [ %.reass, %309 ], [ %.reass304, %305 ], [ %.reass, %320 ], [ %.reass, %317 ], [ %.reass, %332 ], [ %.reass, %329 ], [ %.reass, %344 ], [ %.reass, %341 ]
+  store i32 %.reass305, ptr %12, align 1
   br label %tvb_read_sane_word.exit.thread
 
-tvb_read_sane_word.exit.thread.loopexit288:       ; preds = %.preheader181
-  store i32 %360, ptr %11, align 1
-  store i32 %359, ptr %12, align 1
+tvb_read_sane_word.exit.thread.loopexit286:       ; preds = %.preheader181
+  store i32 %361, ptr %11, align 1
+  store i32 %360, ptr %12, align 1
   br label %tvb_read_sane_word.exit.thread
 
-tvb_read_sane_word.exit.thread.loopexit289:       ; preds = %.preheader183
-  store i32 %372, ptr %12, align 1
+tvb_read_sane_word.exit.thread.loopexit287:       ; preds = %.preheader183
+  store i32 %373, ptr %12, align 1
   br label %tvb_read_sane_word.exit.thread
 
-tvb_read_sane_word.exit.thread.loopexit291:       ; preds = %86
+tvb_read_sane_word.exit.thread.loopexit289:       ; preds = %86
   store <2 x i32> %87, ptr %11, align 1
   br label %tvb_read_sane_word.exit.thread
 
-tvb_read_sane_word.exit.thread:                   ; preds = %.lr.ph212, %234, %207, %202, %174, %179, %tvb_read_sane_string.exit84, %.preheader173, %.preheader170, %.lr.ph208, %.lr.ph210, %220, %tvb_read_sane_string.exit88, %.preheader, %tvb_read_sane_word.exit.thread.loopexit291, %tvb_read_sane_word.exit.thread.loopexit289, %tvb_read_sane_word.exit.thread.loopexit288, %tvb_read_sane_word.exit.thread.loopexit285, %tvb_read_sane_word.exit.thread.loopexit284, %381, %356, %._crit_edge, %290, %287, %272, %159, %151, %148, %123, %126, %108, %113, %98, %79, %65, %70, %52, %57, %47, %25, %369, %284, %tvb_skip_bytes.exit96, %269, %155, %135, %tvb_read_sane_string.exit72, %tvb_read_sane_string.exit70, %tvb_skip_bytes.exit, %95, %tvb_read_sane_string.exit63, %tvb_read_sane_string.exit, %.loopexit
-  %.053 = phi i32 [ %384, %.loopexit ], [ 0, %tvb_read_sane_string.exit ], [ 0, %tvb_read_sane_string.exit63 ], [ 0, %95 ], [ 0, %tvb_skip_bytes.exit ], [ 0, %tvb_read_sane_string.exit70 ], [ 0, %tvb_read_sane_string.exit72 ], [ 0, %135 ], [ 0, %155 ], [ 0, %269 ], [ 0, %tvb_skip_bytes.exit96 ], [ 0, %284 ], [ 0, %369 ], [ 0, %25 ], [ 0, %47 ], [ 0, %57 ], [ 0, %52 ], [ 0, %70 ], [ 0, %65 ], [ 0, %79 ], [ 0, %98 ], [ 0, %113 ], [ 0, %108 ], [ 0, %126 ], [ 0, %123 ], [ 0, %148 ], [ 0, %151 ], [ 0, %159 ], [ 0, %272 ], [ 0, %287 ], [ 0, %290 ], [ 0, %._crit_edge ], [ 0, %356 ], [ 0, %381 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit284 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit285 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit288 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit289 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit291 ], [ 0, %.preheader ], [ 0, %tvb_read_sane_string.exit88 ], [ 0, %220 ], [ 0, %.lr.ph210 ], [ 0, %.lr.ph208 ], [ 0, %.preheader170 ], [ 0, %.preheader173 ], [ 0, %tvb_read_sane_string.exit84 ], [ 0, %179 ], [ 0, %174 ], [ 0, %202 ], [ 0, %207 ], [ 0, %234 ], [ 0, %.lr.ph212 ]
+tvb_read_sane_word.exit.thread:                   ; preds = %.lr.ph210, %234, %207, %202, %174, %179, %tvb_read_sane_string.exit84, %.preheader173, %.preheader170, %.lr.ph206, %.lr.ph208, %220, %tvb_read_sane_string.exit88, %.preheader, %tvb_read_sane_word.exit.thread.loopexit289, %tvb_read_sane_word.exit.thread.loopexit287, %tvb_read_sane_word.exit.thread.loopexit286, %tvb_read_sane_word.exit.thread.loopexit283, %tvb_read_sane_word.exit.thread.loopexit282, %382, %357, %._crit_edge, %290, %287, %272, %159, %151, %148, %123, %126, %108, %113, %98, %79, %65, %70, %52, %57, %47, %25, %370, %284, %tvb_skip_bytes.exit96, %269, %155, %135, %tvb_read_sane_string.exit72, %tvb_read_sane_string.exit70, %tvb_skip_bytes.exit, %95, %tvb_read_sane_string.exit63, %tvb_read_sane_string.exit, %.loopexit
+  %.053 = phi i32 [ %385, %.loopexit ], [ 0, %tvb_read_sane_string.exit ], [ 0, %tvb_read_sane_string.exit63 ], [ 0, %95 ], [ 0, %tvb_skip_bytes.exit ], [ 0, %tvb_read_sane_string.exit70 ], [ 0, %tvb_read_sane_string.exit72 ], [ 0, %135 ], [ 0, %155 ], [ 0, %269 ], [ 0, %tvb_skip_bytes.exit96 ], [ 0, %284 ], [ 0, %370 ], [ 0, %25 ], [ 0, %47 ], [ 0, %57 ], [ 0, %52 ], [ 0, %70 ], [ 0, %65 ], [ 0, %79 ], [ 0, %98 ], [ 0, %113 ], [ 0, %108 ], [ 0, %126 ], [ 0, %123 ], [ 0, %148 ], [ 0, %151 ], [ 0, %159 ], [ 0, %272 ], [ 0, %287 ], [ 0, %290 ], [ 0, %._crit_edge ], [ 0, %357 ], [ 0, %382 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit282 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit283 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit286 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit287 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit289 ], [ 0, %.preheader ], [ 0, %tvb_read_sane_string.exit88 ], [ 0, %220 ], [ 0, %.lr.ph208 ], [ 0, %.lr.ph206 ], [ 0, %.preheader170 ], [ 0, %.preheader173 ], [ 0, %tvb_read_sane_string.exit84 ], [ 0, %179 ], [ 0, %174 ], [ 0, %202 ], [ 0, %207 ], [ 0, %234 ], [ 0, %.lr.ph210 ]
   ret i32 %.053
 }
 

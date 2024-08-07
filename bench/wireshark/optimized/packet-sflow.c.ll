@@ -2895,8 +2895,8 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef 0) #7
   %39 = add i32 %.08896.us, 4
   %40 = add nuw nsw i32 %.08995.us, 1
-  %exitcond114.not = icmp eq i32 %40, %29
-  br i1 %exitcond114.not, label %._crit_edge99, label %.lr.ph.us, !llvm.loop !14
+  %exitcond113.not = icmp eq i32 %40, %29
+  br i1 %exitcond113.not, label %._crit_edge99, label %.lr.ph.us, !llvm.loop !14
 
 .lr.ph98.split:                                   ; preds = %.lr.ph98, %._crit_edge
   %.08896 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 16, %.lr.ph98 ]
@@ -2928,13 +2928,13 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph98.split
   %.2.lcssa = phi i32 [ %45, %.lr.ph98.split ], [ %55, %.lr.ph ]
   %57 = add nuw nsw i32 %.08995, 1
-  %exitcond113.not = icmp eq i32 %57, %29
-  br i1 %exitcond113.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !14
+  %exitcond112.not = icmp eq i32 %57, %29
+  br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !14
 
 ._crit_edge99:                                    ; preds = %._crit_edge, %.lr.ph.us, %19
   %.088.lcssa = phi i32 [ 16, %19 ], [ %39, %.lr.ph.us ], [ %.2.lcssa, %._crit_edge ]
   %58 = icmp ugt i32 %5, 3
-  br i1 %58, label %59, label %74
+  br i1 %58, label %59, label %75
 
 59:                                               ; preds = %._crit_edge99
   %60 = add i32 %.088.lcssa, %.087
@@ -2945,33 +2945,32 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64) #7
   %.4101 = add i32 %.088.lcssa, 4
   %66 = icmp sgt i32 %61, 0
-  br i1 %66, label %.lr.ph106, label %._crit_edge107
+  br i1 %66, label %.lr.ph105, label %._crit_edge106
 
-.lr.ph106:                                        ; preds = %59, %.lr.ph106
-  %.4104 = phi i32 [ %.4, %.lr.ph106 ], [ %.4101, %59 ]
-  %.4.in103 = phi i32 [ %.4104, %.lr.ph106 ], [ %.088.lcssa, %59 ]
-  %.190102 = phi i32 [ %69, %.lr.ph106 ], [ 0, %59 ]
+.lr.ph105:                                        ; preds = %59, %.lr.ph105
+  %.4103 = phi i32 [ %.4, %.lr.ph105 ], [ %.4101, %59 ]
+  %.190102 = phi i32 [ %70, %.lr.ph105 ], [ 0, %59 ]
   %67 = load i32, ptr @hf_sflow_245_dst_as, align 4
-  %.reass = add i32 %.4.in103, %23
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %67, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef 0) #7
-  %69 = add nuw nsw i32 %.190102, 1
-  %.4 = add i32 %.4104, 4
-  %exitcond115.not = icmp eq i32 %69, %61
-  br i1 %exitcond115.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !16
+  %68 = add i32 %.4103, %.087
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %67, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0) #7
+  %70 = add nuw nsw i32 %.190102, 1
+  %.4 = add i32 %.4103, 4
+  %exitcond114.not = icmp eq i32 %70, %61
+  br i1 %exitcond114.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !16
 
-._crit_edge107:                                   ; preds = %.lr.ph106, %59
-  %.4.in.lcssa = phi i32 [ %.088.lcssa, %59 ], [ %.4104, %.lr.ph106 ]
-  %.4.lcssa = phi i32 [ %.4101, %59 ], [ %.4, %.lr.ph106 ]
-  %70 = load i32, ptr @hf_sflow_245_localpref, align 4
-  %71 = add i32 %.4.lcssa, %.087
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef 0) #7
-  %73 = add i32 %.4.in.lcssa, 8
-  br label %74
+._crit_edge106:                                   ; preds = %.lr.ph105, %59
+  %.4.in.lcssa = phi i32 [ %.088.lcssa, %59 ], [ %.4103, %.lr.ph105 ]
+  %.4.lcssa = phi i32 [ %.4101, %59 ], [ %.4, %.lr.ph105 ]
+  %71 = load i32, ptr @hf_sflow_245_localpref, align 4
+  %72 = add i32 %.4.lcssa, %.087
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0) #7
+  %74 = add i32 %.4.in.lcssa, 8
+  br label %75
 
-74:                                               ; preds = %._crit_edge107, %._crit_edge99
-  %.3 = phi i32 [ %73, %._crit_edge107 ], [ %.088.lcssa, %._crit_edge99 ]
-  %75 = add i32 %.3, %.087
-  ret i32 %75
+75:                                               ; preds = %._crit_edge106, %._crit_edge99
+  %.3 = phi i32 [ %74, %._crit_edge106 ], [ %.088.lcssa, %._crit_edge99 ]
+  %76 = add i32 %.3, %.087
+  ret i32 %76
 }
 
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

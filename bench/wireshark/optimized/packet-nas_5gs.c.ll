@@ -3290,24 +3290,24 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  %.not228 = icmp eq i32 %4, 0
-  br i1 %.not228, label %._crit_edge227, label %.lr.ph226
+  %.not224 = icmp eq i32 %4, 0
+  br i1 %.not224, label %._crit_edge223, label %.lr.ph222
 
-.lr.ph226:                                        ; preds = %7
+.lr.ph222:                                        ; preds = %7
   %14 = getelementptr inbounds i8, ptr %2, i64 384
   br label %15
 
-15:                                               ; preds = %.lr.ph226, %.backedge
-  %.0224 = phi i32 [ 1, %.lr.ph226 ], [ %.0.be, %.backedge ]
-  %.0203223 = phi i32 [ %3, %.lr.ph226 ], [ %.0203.be, %.backedge ]
+15:                                               ; preds = %.lr.ph222, %.backedge
+  %.0220 = phi i32 [ 1, %.lr.ph222 ], [ %.0.be, %.backedge ]
+  %.0203219 = phi i32 [ %3, %.lr.ph222 ], [ %.0203.be, %.backedge ]
   %16 = load i32, ptr @ett_nas_5gs_sm_qos_rules, align 4
-  %17 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.0203223, i32 noundef -1, i32 noundef %16, ptr noundef nonnull %8, ptr noundef nonnull @.str.51, i32 noundef %.0224) #12
+  %17 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.0203219, i32 noundef -1, i32 noundef %16, ptr noundef nonnull %8, ptr noundef nonnull @.str.51, i32 noundef %.0220) #12
   %18 = load i32, ptr @hf_nas_5gs_sm_qos_rule_id, align 4
-  %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef %.0203223, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #12
-  %20 = add i32 %.0203223, 1
+  %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef %.0203219, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #12
+  %20 = add i32 %.0203219, 1
   %21 = load i32, ptr @hf_nas_5gs_sm_length, align 4
   %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #12
-  %23 = add i32 %.0203223, 3
+  %23 = add i32 %.0203219, 3
   %24 = load ptr, ptr %8, align 8
   %25 = load i32, ptr %13, align 4
   %26 = add i32 %25, 3
@@ -3317,7 +3317,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   %28 = lshr i8 %.fr, 5
   %29 = and i8 %.fr, 15
   call void @proto_tree_add_bitmask_list(ptr noundef %17, ptr noundef %0, i32 noundef %23, i32 noundef 1, ptr noundef nonnull @de_nas_5gs_sm_qos_rules.pkt_flt_flags, i32 noundef 0) #12
-  %30 = add i32 %.0203223, 4
+  %30 = add i32 %.0203219, 4
   %31 = icmp ult i8 %.fr, 32
   %32 = icmp eq i8 %28, 7
   %or.cond = or i1 %31, %32
@@ -3333,10 +3333,10 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
 
 .backedge:                                        ; preds = %._crit_edge, %170, %181, %174, %33, %46, %62
   %.0203.be = phi i32 [ %38, %33 ], [ %50, %46 ], [ %66, %62 ], [ %190, %181 ], [ %177, %174 ], [ %.1.lcssa, %170 ], [ %.1.lcssa, %._crit_edge ]
-  %.0.be = add i32 %.0224, 1
+  %.0.be = add i32 %.0220, 1
   %39 = sub i32 %.0203.be, %3
   %40 = icmp ult i32 %39, %4
-  br i1 %40, label %15, label %._crit_edge227, !llvm.loop !7
+  br i1 %40, label %15, label %._crit_edge223, !llvm.loop !7
 
 41:                                               ; preds = %15
   %42 = icmp eq i8 %28, 2
@@ -3603,7 +3603,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   %190 = add i32 %.1.lcssa, 2
   br label %.backedge
 
-._crit_edge227:                                   ; preds = %.backedge, %7
+._crit_edge223:                                   ; preds = %.backedge, %7
   %191 = trunc i32 %4 to i16
   ret i16 %191
 }

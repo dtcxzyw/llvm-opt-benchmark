@@ -13389,8 +13389,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i.i: ; preds =
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #56, !noalias !4180
   unreachable
 
-common.resume:                                    ; preds = %100, %95, %21, %27
-  %common.resume.op = phi { ptr, i32 } [ %22, %27 ], [ %22, %21 ], [ %lpad.phi, %100 ], [ %lpad.phi, %95 ]
+common.resume:                                    ; preds = %101, %96, %21, %27
+  %common.resume.op = phi { ptr, i32 } [ %22, %27 ], [ %22, %21 ], [ %lpad.phi, %101 ], [ %lpad.phi, %96 ]
   resume { ptr, i32 } %common.resume.op
 
 30:                                               ; preds = %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i.i, %11
@@ -13417,7 +13417,7 @@ common.resume:                                    ; preds = %100, %95, %21, %27
 ._crit_edge.i:                                    ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i", %36
   %.031.lcssa.i = phi i64 [ 1, %36 ], [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i" ]
   %.0.lcssa.i = phi i64 [ 0, %36 ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i" ]
-  %.lcssa.i = phi i64 [ 2, %36 ], [ %.reass.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i" ]
+  %.lcssa.i = phi i64 [ 2, %36 ], [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i" ]
   %39 = icmp eq i64 %.lcssa.i, %37
   br i1 %39, label %40, label %_ZN9itertools11kmerge_impl9sift_down17hc9090b58eea6a0cdE.exit
 
@@ -13471,7 +13471,7 @@ common.resume:                                    ; preds = %100, %95, %21, %27
   br label %_ZN9itertools11kmerge_impl9sift_down17hc9090b58eea6a0cdE.exit
 
 .lr.ph.i:                                         ; preds = %36, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i"
-  %59 = phi i64 [ %.reass.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i" ], [ 2, %36 ]
+  %59 = phi i64 [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i" ], [ 2, %36 ]
   %.062.i = phi i64 [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i" ], [ 0, %36 ]
   %.03161.i = phi i64 [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4fe402d78e0515c9E.exit45.i" ], [ 1, %36 ]
   %60 = icmp ult i64 %.03161.i, %37
@@ -13540,35 +13540,35 @@ common.resume:                                    ; preds = %100, %95, %21, %27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i44.i)
   %92 = shl i64 %75, 1
   %93 = or disjoint i64 %92, 1
-  %.reass.i = add i64 %92, 2
-  %94 = icmp ult i64 %.reass.i, %37
-  br i1 %94, label %.lr.ph.i, label %._crit_edge.i
+  %94 = add i64 %92, 2
+  %95 = icmp ult i64 %94, %37
+  br i1 %95, label %.lr.ph.i, label %._crit_edge.i
 
 .loopexit:                                        ; preds = %61, %.noexc20, %79, %.noexc24
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %96
 
 .loopexit.split-lp:                               ; preds = %.invoke, %46, %.noexc17
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %96
 
-95:                                               ; preds = %.loopexit.split-lp, %.loopexit
+96:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %96 = getelementptr inbounds i8, ptr %.033, i64 48
-  %97 = load i32, ptr %96, align 4, !noalias !4208, !noundef !9
-  %98 = add i32 %97, -1
-  store i32 %98, ptr %96, align 4, !noalias !4208
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %common.resume
+  %97 = getelementptr inbounds i8, ptr %.033, i64 48
+  %98 = load i32, ptr %97, align 4, !noalias !4208, !noundef !9
+  %99 = add i32 %98, -1
+  store i32 %99, ptr %97, align 4, !noalias !4208
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %common.resume
 
-100:                                              ; preds = %95
+101:                                              ; preds = %96
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.033)
-          to label %common.resume unwind label %101
+          to label %common.resume unwind label %102
 
-101:                                              ; preds = %100
-  %102 = landingpad { ptr, i32 }
+102:                                              ; preds = %101
+  %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #56
   unreachable

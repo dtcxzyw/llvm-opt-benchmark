@@ -317,7 +317,7 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   br label %41
 
 41:                                               ; preds = %dissect_control_message.exit.i, %.lr.ph.i
-  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %243, %dissect_control_message.exit.i ]
+  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %254, %dissect_control_message.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %42 = add i32 %.09.i, 2
@@ -497,8 +497,8 @@ proto_item_set_generated.exit145.i.i:             ; preds = %130, %127, %124
   br i1 %.not5.i147.i.i, label %proto_item_set_generated.exit.i.i, label %proto_item_set_generated.exit.sink.split.i.i
 
 proto_item_set_generated.exit.sink.split.i.i:     ; preds = %137, %119
-  %.sink204.i.i = phi ptr [ %121, %119 ], [ %139, %137 ]
-  %140 = getelementptr inbounds i8, ptr %.sink204.i.i, i64 28
+  %.sink184.i.i = phi ptr [ %121, %119 ], [ %139, %137 ]
+  %140 = getelementptr inbounds i8, ptr %.sink184.i.i, i64 28
   %141 = load i32, ptr %140, align 4
   %142 = or i32 %141, 2
   store i32 %142, ptr %140, align 4
@@ -509,233 +509,227 @@ proto_item_set_generated.exit.i.i:                ; preds = %proto_item_set_gene
   %144 = zext i16 %59 to i32
   %145 = load i32, ptr @ett_rtitcp_attributes_list, align 4
   %146 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %50, ptr noundef %0, i32 noundef %143, i32 noundef %144, i32 noundef %145, ptr noundef null, ptr noundef nonnull @.str.111) #4
-  %invariant.op.i.i = add i32 %.0122.i.i, 22
-  %invariant.op171.i.i = add i32 %.0122.i.i, 24
-  %invariant.op173.i.i = add i32 %.0122.i.i, 28
-  %invariant.op183.i.i = add i32 %.0122.i.i, 32
-  %invariant.op185.i.i = add i32 %.0122.i.i, 34
-  %invariant.op187.i.i = add i32 %.0122.i.i, 36
-  %.not195.i.i = icmp eq i16 %59, 0
-  br i1 %.not195.i.i, label %.thread199.i.i, label %.lr.ph.i.i
+  %.not175.i.i = icmp eq i16 %59, 0
+  br i1 %.not175.i.i, label %.thread179.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %proto_item_set_generated.exit.i.i, %dissect_attribute.exit.i.i
-  %.0127193.i.i = phi i32 [ %234, %dissect_attribute.exit.i.i ], [ 0, %proto_item_set_generated.exit.i.i ]
-  %.0128192.i.i = phi i32 [ %147, %dissect_attribute.exit.i.i ], [ 0, %proto_item_set_generated.exit.i.i ]
-  %.0191.i.i = phi i32 [ %.1165.i.i, %dissect_attribute.exit.i.i ], [ 1, %proto_item_set_generated.exit.i.i ]
-  %147 = add i32 %.0128192.i.i, 1
-  %148 = add i32 %.0127193.i.i, %143
+  %.0127173.i.i = phi i32 [ %245, %dissect_attribute.exit.i.i ], [ 0, %proto_item_set_generated.exit.i.i ]
+  %.0128172.i.i = phi i32 [ %147, %dissect_attribute.exit.i.i ], [ 0, %proto_item_set_generated.exit.i.i ]
+  %.0171.i.i = phi i32 [ %.1165.i.i, %dissect_attribute.exit.i.i ], [ 1, %proto_item_set_generated.exit.i.i ]
+  %147 = add i32 %.0128172.i.i, 1
+  %148 = add i32 %.0127173.i.i, %143
   %149 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %148, i32 noundef 0) #4
-  %.reass.i.i = add i32 %invariant.op.i.i, %.0127193.i.i
-  %150 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.reass.i.i, i32 noundef 0) #4
-  %151 = zext i16 %150 to i32
-  %152 = add nuw nsw i32 %151, 4
-  %153 = load i32, ptr @ett_rtitcp_attribute, align 4
-  %154 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %146, ptr noundef %0, i32 noundef %148, i32 noundef %152, i32 noundef %153, ptr noundef null, ptr noundef nonnull @.str.117) #4
-  %155 = load i32, ptr @hf_rtitcp_control_attribute_type, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %155, ptr noundef %0, i32 noundef %148, i32 noundef 2, i32 noundef 0) #4
-  %157 = load i32, ptr @hf_rtitcp_control_attribute_length, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %157, ptr noundef %0, i32 noundef %.reass.i.i, i32 noundef 2, i32 noundef 0) #4
-  %159 = zext i16 %149 to i32
-  %160 = call ptr @val_to_str_const(i32 noundef %159, ptr noundef nonnull @attribute_types_vals, ptr noundef nonnull @.str.81) #4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %154, ptr noundef nonnull @.str.118, ptr noundef %160) #4
+  %150 = add i32 %148, 2
+  %151 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %150, i32 noundef 0) #4
+  %152 = zext i16 %151 to i32
+  %153 = add nuw nsw i32 %152, 4
+  %154 = load i32, ptr @ett_rtitcp_attribute, align 4
+  %155 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %146, ptr noundef %0, i32 noundef %148, i32 noundef %153, i32 noundef %154, ptr noundef null, ptr noundef nonnull @.str.117) #4
+  %156 = load i32, ptr @hf_rtitcp_control_attribute_type, align 4
+  %157 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %0, i32 noundef %148, i32 noundef 2, i32 noundef 0) #4
+  %158 = load i32, ptr @hf_rtitcp_control_attribute_length, align 4
+  %159 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %158, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #4
+  %160 = zext i16 %149 to i32
+  %161 = call ptr @val_to_str_const(i32 noundef %160, ptr noundef nonnull @attribute_types_vals, ptr noundef nonnull @.str.81) #4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %155, ptr noundef nonnull @.str.118, ptr noundef %161) #4
   switch i16 %149, label %dissect_attribute.exit.i.i [
-    i16 15618, label %161
-    i16 15617, label %169
-    i16 15620, label %200
-    i16 15619, label %211
-    i16 15623, label %222
-    i16 9, label %225
+    i16 15618, label %162
+    i16 15617, label %171
+    i16 15620, label %206
+    i16 15619, label %218
+    i16 15623, label %230
+    i16 9, label %234
   ]
 
-161:                                              ; preds = %.lr.ph.i.i
-  %.reass190.i.i = add i32 %.0127193.i.i, %invariant.op171.i.i
-  %162 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.reass190.i.i, i32 noundef 0) #4
-  %.not106.i.i.i = icmp eq i32 %.0191.i.i, 0
-  br i1 %.not106.i.i.i, label %165, label %163
+162:                                              ; preds = %.lr.ph.i.i
+  %163 = add i32 %148, 4
+  %164 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %163, i32 noundef 0) #4
+  %.not106.i.i.i = icmp eq i32 %.0171.i.i, 0
+  br i1 %.not106.i.i.i, label %167, label %165
 
-163:                                              ; preds = %161
+165:                                              ; preds = %162
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.119) #4
-  %164 = load ptr, ptr %9, align 8
-  call void @col_append_str(ptr noundef %164, i32 noundef 25, ptr noundef nonnull @.str.119) #4
-  br label %165
-
-165:                                              ; preds = %163, %161
-  %.not107.i.i.i = phi ptr [ @.str.121, %163 ], [ @.str.108, %161 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.120, ptr noundef nonnull %.not107.i.i.i, i32 noundef %162) #4
   %166 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %166, i32 noundef 25, ptr noundef nonnull @.str.120, ptr noundef nonnull %.not107.i.i.i, i32 noundef %162) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %154, ptr noundef nonnull @.str.122, i32 noundef %162) #4
-  %167 = load i32, ptr @hf_rtitcp_control_attribute_port, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %167, ptr noundef %0, i32 noundef %.reass190.i.i, i32 noundef %151, i32 noundef 0) #4
+  call void @col_append_str(ptr noundef %166, i32 noundef 25, ptr noundef nonnull @.str.119) #4
+  br label %167
+
+167:                                              ; preds = %165, %162
+  %.not107.i.i.i = phi ptr [ @.str.121, %165 ], [ @.str.108, %162 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.120, ptr noundef nonnull %.not107.i.i.i, i32 noundef %164) #4
+  %168 = load ptr, ptr %9, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %168, i32 noundef 25, ptr noundef nonnull @.str.120, ptr noundef nonnull %.not107.i.i.i, i32 noundef %164) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %155, ptr noundef nonnull @.str.122, i32 noundef %164) #4
+  %169 = load i32, ptr @hf_rtitcp_control_attribute_port, align 4
+  %170 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %169, ptr noundef %0, i32 noundef %163, i32 noundef %152, i32 noundef 0) #4
   br label %dissect_attribute.exit.i.i
 
-169:                                              ; preds = %.lr.ph.i.i
-  %.reass182.i.i = add i32 %.0127193.i.i, %invariant.op171.i.i
-  %.reass184.i.i = add i32 %invariant.op183.i.i, %.0127193.i.i
-  %170 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.reass184.i.i, i32 noundef 0) #4
-  %171 = icmp eq i16 %170, -1
-  %..i.i.i.i = select i1 %171, i32 1, i32 2
-  %172 = load i32, ptr @hf_rtitcp_locator_kind, align 4
-  %173 = call ptr @proto_tree_add_uint(ptr noundef %154, i32 noundef %172, ptr noundef %0, i32 noundef %.reass184.i.i, i32 noundef 2, i32 noundef %..i.i.i.i) #4
-  br i1 %171, label %174, label %189
+171:                                              ; preds = %.lr.ph.i.i
+  %172 = add i32 %148, 4
+  %173 = add i32 %148, 12
+  %174 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %173, i32 noundef 0) #4
+  %175 = icmp eq i16 %174, -1
+  %..i.i.i.i = select i1 %175, i32 1, i32 2
+  %176 = load i32, ptr @hf_rtitcp_locator_kind, align 4
+  %177 = call ptr @proto_tree_add_uint(ptr noundef %155, i32 noundef %176, ptr noundef %0, i32 noundef %173, i32 noundef 2, i32 noundef %..i.i.i.i) #4
+  br i1 %175, label %178, label %195
 
-174:                                              ; preds = %169
-  %175 = load i32, ptr @hf_rtitcp_locator_port, align 4
-  %.reass186.i.i = add i32 %invariant.op185.i.i, %.0127193.i.i
-  %176 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %175, ptr noundef %0, i32 noundef %.reass186.i.i, i32 noundef 2, i32 noundef 0) #4
-  %177 = load i32, ptr @hf_rtitcp_locator_ipv4, align 4
-  %.reass188.i.i = add i32 %invariant.op187.i.i, %.0127193.i.i
-  %178 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %177, ptr noundef %0, i32 noundef %.reass188.i.i, i32 noundef 4, i32 noundef 0) #4
-  %179 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.reass186.i.i, i32 noundef 0) #4
-  %.not50.i.i.i.i = icmp eq i32 %.0191.i.i, 0
-  br i1 %.not50.i.i.i.i, label %182, label %180
+178:                                              ; preds = %171
+  %179 = load i32, ptr @hf_rtitcp_locator_port, align 4
+  %180 = add i32 %148, 14
+  %181 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %179, ptr noundef %0, i32 noundef %180, i32 noundef 2, i32 noundef 0) #4
+  %182 = load i32, ptr @hf_rtitcp_locator_ipv4, align 4
+  %183 = add i32 %148, 16
+  %184 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %182, ptr noundef %0, i32 noundef %183, i32 noundef 4, i32 noundef 0) #4
+  %185 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %180, i32 noundef 0) #4
+  %.not50.i.i.i.i = icmp eq i32 %.0171.i.i, 0
+  br i1 %.not50.i.i.i.i, label %188, label %186
 
-180:                                              ; preds = %174
+186:                                              ; preds = %178
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.119) #4
-  %181 = load ptr, ptr %9, align 8
-  call void @col_append_str(ptr noundef %181, i32 noundef 25, ptr noundef nonnull @.str.119) #4
-  br label %182
+  %187 = load ptr, ptr %9, align 8
+  call void @col_append_str(ptr noundef %187, i32 noundef 25, ptr noundef nonnull @.str.119) #4
+  br label %188
 
-182:                                              ; preds = %180, %174
-  %.not51.i.i.i.i = phi ptr [ @.str.121, %180 ], [ @.str.108, %174 ]
-  %183 = load ptr, ptr %37, align 8
-  %184 = call ptr @tvb_address_to_str(ptr noundef %183, ptr noundef %0, i32 noundef 2, i32 noundef %.reass188.i.i) #4
-  %185 = zext i16 %179 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.124, ptr noundef nonnull %.not51.i.i.i.i, ptr noundef %184, i32 noundef %185) #4
-  %186 = load ptr, ptr %9, align 8
-  %187 = load ptr, ptr %37, align 8
-  %188 = call ptr @tvb_address_to_str(ptr noundef %187, ptr noundef %0, i32 noundef 2, i32 noundef %.reass188.i.i) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %186, i32 noundef 25, ptr noundef nonnull @.str.124, ptr noundef nonnull %.not51.i.i.i.i, ptr noundef %188, i32 noundef %185) #4
+188:                                              ; preds = %186, %178
+  %.not51.i.i.i.i = phi ptr [ @.str.121, %186 ], [ @.str.108, %178 ]
+  %189 = load ptr, ptr %37, align 8
+  %190 = call ptr @tvb_address_to_str(ptr noundef %189, ptr noundef %0, i32 noundef 2, i32 noundef %183) #4
+  %191 = zext i16 %185 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.124, ptr noundef nonnull %.not51.i.i.i.i, ptr noundef %190, i32 noundef %191) #4
+  %192 = load ptr, ptr %9, align 8
+  %193 = load ptr, ptr %37, align 8
+  %194 = call ptr @tvb_address_to_str(ptr noundef %193, ptr noundef %0, i32 noundef 2, i32 noundef %183) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %192, i32 noundef 25, ptr noundef nonnull @.str.124, ptr noundef nonnull %.not51.i.i.i.i, ptr noundef %194, i32 noundef %191) #4
   br label %dissect_attribute.exit.i.i
 
-189:                                              ; preds = %169
-  %190 = load i32, ptr @hf_rtitcp_locator_ipv6, align 4
-  %191 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %190, ptr noundef %0, i32 noundef %.reass182.i.i, i32 noundef 16, i32 noundef 0) #4
-  %.not.i.i.i.i = icmp eq i32 %.0191.i.i, 0
-  br i1 %.not.i.i.i.i, label %194, label %192
+195:                                              ; preds = %171
+  %196 = load i32, ptr @hf_rtitcp_locator_ipv6, align 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %196, ptr noundef %0, i32 noundef %172, i32 noundef 16, i32 noundef 0) #4
+  %.not.i.i.i.i = icmp eq i32 %.0171.i.i, 0
+  br i1 %.not.i.i.i.i, label %200, label %198
 
-192:                                              ; preds = %189
+198:                                              ; preds = %195
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.119) #4
-  %193 = load ptr, ptr %9, align 8
-  call void @col_append_str(ptr noundef %193, i32 noundef 25, ptr noundef nonnull @.str.119) #4
-  br label %194
+  %199 = load ptr, ptr %9, align 8
+  call void @col_append_str(ptr noundef %199, i32 noundef 25, ptr noundef nonnull @.str.119) #4
+  br label %200
 
-194:                                              ; preds = %192, %189
-  %.not48.i.i.i.i = phi ptr [ @.str.121, %192 ], [ @.str.108, %189 ]
-  %195 = load ptr, ptr %37, align 8
-  %196 = call ptr @tvb_address_to_str(ptr noundef %195, ptr noundef %0, i32 noundef 3, i32 noundef %.reass182.i.i) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not48.i.i.i.i, ptr noundef %196) #4
-  %197 = load ptr, ptr %9, align 8
-  %198 = load ptr, ptr %37, align 8
-  %199 = call ptr @tvb_address_to_str(ptr noundef %198, ptr noundef %0, i32 noundef 3, i32 noundef %.reass182.i.i) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %197, i32 noundef 25, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not48.i.i.i.i, ptr noundef %199) #4
+200:                                              ; preds = %198, %195
+  %.not48.i.i.i.i = phi ptr [ @.str.121, %198 ], [ @.str.108, %195 ]
+  %201 = load ptr, ptr %37, align 8
+  %202 = call ptr @tvb_address_to_str(ptr noundef %201, ptr noundef %0, i32 noundef 3, i32 noundef %172) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not48.i.i.i.i, ptr noundef %202) #4
+  %203 = load ptr, ptr %9, align 8
+  %204 = load ptr, ptr %37, align 8
+  %205 = call ptr @tvb_address_to_str(ptr noundef %204, ptr noundef %0, i32 noundef 3, i32 noundef %172) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %203, i32 noundef 25, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not48.i.i.i.i, ptr noundef %205) #4
   br label %dissect_attribute.exit.i.i
 
-200:                                              ; preds = %.lr.ph.i.i
-  %201 = load i32, ptr @hf_rtitcp_control_attribute_connection_cookie, align 4
-  %.reass180.i.i = add i32 %.0127193.i.i, %invariant.op171.i.i
-  %202 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %201, ptr noundef %0, i32 noundef %.reass180.i.i, i32 noundef %151, i32 noundef 0) #4
-  %.not103.i.i.i = icmp eq i32 %.0191.i.i, 0
-  br i1 %.not103.i.i.i, label %205, label %203
+206:                                              ; preds = %.lr.ph.i.i
+  %207 = load i32, ptr @hf_rtitcp_control_attribute_connection_cookie, align 4
+  %208 = add i32 %148, 4
+  %209 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %207, ptr noundef %0, i32 noundef %208, i32 noundef %152, i32 noundef 0) #4
+  %.not103.i.i.i = icmp eq i32 %.0171.i.i, 0
+  br i1 %.not103.i.i.i, label %212, label %210
 
-203:                                              ; preds = %200
+210:                                              ; preds = %206
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.119) #4
-  %204 = load ptr, ptr %9, align 8
-  call void @col_append_str(ptr noundef %204, i32 noundef 25, ptr noundef nonnull @.str.119) #4
-  br label %205
+  %211 = load ptr, ptr %9, align 8
+  call void @col_append_str(ptr noundef %211, i32 noundef 25, ptr noundef nonnull @.str.119) #4
+  br label %212
 
-205:                                              ; preds = %203, %200
-  %.not104.i.i.i = phi ptr [ @.str.121, %203 ], [ @.str.108, %200 ]
-  %206 = load ptr, ptr %37, align 8
-  %207 = call ptr @tvb_bytes_to_str(ptr noundef %206, ptr noundef %0, i32 noundef %.reass180.i.i, i32 noundef 16) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not104.i.i.i, ptr noundef %207) #4
-  %208 = load ptr, ptr %9, align 8
-  %209 = load ptr, ptr %37, align 8
-  %210 = call ptr @tvb_bytes_to_str(ptr noundef %209, ptr noundef %0, i32 noundef %.reass180.i.i, i32 noundef 16) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %208, i32 noundef 25, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not104.i.i.i, ptr noundef %210) #4
+212:                                              ; preds = %210, %206
+  %.not104.i.i.i = phi ptr [ @.str.121, %210 ], [ @.str.108, %206 ]
+  %213 = load ptr, ptr %37, align 8
+  %214 = call ptr @tvb_bytes_to_str(ptr noundef %213, ptr noundef %0, i32 noundef %208, i32 noundef 16) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not104.i.i.i, ptr noundef %214) #4
+  %215 = load ptr, ptr %9, align 8
+  %216 = load ptr, ptr %37, align 8
+  %217 = call ptr @tvb_bytes_to_str(ptr noundef %216, ptr noundef %0, i32 noundef %208, i32 noundef 16) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %215, i32 noundef 25, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not104.i.i.i, ptr noundef %217) #4
   br label %dissect_attribute.exit.i.i
 
-211:                                              ; preds = %.lr.ph.i.i
-  %.reass178.i.i = add i32 %.0127193.i.i, %invariant.op171.i.i
-  %212 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass178.i.i) #4
-  %213 = load i32, ptr @hf_rtitcp_control_attribute_connection_type, align 4
-  %214 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %213, ptr noundef %0, i32 noundef %.reass178.i.i, i32 noundef %151, i32 noundef 0) #4
-  %.not.i149.i.i = icmp eq i32 %.0191.i.i, 0
-  br i1 %.not.i149.i.i, label %217, label %215
+218:                                              ; preds = %.lr.ph.i.i
+  %219 = add i32 %148, 4
+  %220 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %219) #4
+  %221 = load i32, ptr @hf_rtitcp_control_attribute_connection_type, align 4
+  %222 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %221, ptr noundef %0, i32 noundef %219, i32 noundef %152, i32 noundef 0) #4
+  %.not.i149.i.i = icmp eq i32 %.0171.i.i, 0
+  br i1 %.not.i149.i.i, label %225, label %223
 
-215:                                              ; preds = %211
+223:                                              ; preds = %218
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.119) #4
-  %216 = load ptr, ptr %9, align 8
-  call void @col_append_str(ptr noundef %216, i32 noundef 25, ptr noundef nonnull @.str.119) #4
-  br label %217
+  %224 = load ptr, ptr %9, align 8
+  call void @col_append_str(ptr noundef %224, i32 noundef 25, ptr noundef nonnull @.str.119) #4
+  br label %225
 
-217:                                              ; preds = %215, %211
-  %.not101.i.i.i = phi ptr [ @.str.121, %215 ], [ @.str.108, %211 ]
-  %218 = zext i8 %212 to i32
-  %219 = call ptr @val_to_str_const(i32 noundef %218, ptr noundef nonnull @rtitcp_attribute_connection_type_vals, ptr noundef nonnull @.str.81) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not101.i.i.i, ptr noundef %219) #4
-  %220 = load ptr, ptr %9, align 8
-  %221 = call ptr @val_to_str_const(i32 noundef %218, ptr noundef nonnull @rtitcp_attribute_connection_type_vals, ptr noundef nonnull @.str.81) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %220, i32 noundef 25, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not101.i.i.i, ptr noundef %221) #4
+225:                                              ; preds = %223, %218
+  %.not101.i.i.i = phi ptr [ @.str.121, %223 ], [ @.str.108, %218 ]
+  %226 = zext i8 %220 to i32
+  %227 = call ptr @val_to_str_const(i32 noundef %226, ptr noundef nonnull @rtitcp_attribute_connection_type_vals, ptr noundef nonnull @.str.81) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not101.i.i.i, ptr noundef %227) #4
+  %228 = load ptr, ptr %9, align 8
+  %229 = call ptr @val_to_str_const(i32 noundef %226, ptr noundef nonnull @rtitcp_attribute_connection_type_vals, ptr noundef nonnull @.str.81) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %228, i32 noundef 25, ptr noundef nonnull @.str.123, ptr noundef nonnull %.not101.i.i.i, ptr noundef %229) #4
   br label %dissect_attribute.exit.i.i
 
-222:                                              ; preds = %.lr.ph.i.i
-  %223 = load i32, ptr @hf_rtitcp_control_attribute_session_id, align 4
-  %.reass176.i.i = add i32 %.0127193.i.i, %invariant.op171.i.i
-  %224 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %223, ptr noundef %0, i32 noundef %.reass176.i.i, i32 noundef %151, i32 noundef 0) #4
+230:                                              ; preds = %.lr.ph.i.i
+  %231 = load i32, ptr @hf_rtitcp_control_attribute_session_id, align 4
+  %232 = add i32 %148, 4
+  %233 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %231, ptr noundef %0, i32 noundef %232, i32 noundef %152, i32 noundef 0) #4
   br label %dissect_attribute.exit.i.i
 
-225:                                              ; preds = %.lr.ph.i.i
-  %.reass172.i.i = add i32 %.0127193.i.i, %invariant.op171.i.i
-  %226 = load i32, ptr @hf_rtitcp_control_attribute_error_code_value, align 4
-  %227 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %226, ptr noundef %0, i32 noundef %.reass172.i.i, i32 noundef 4, i32 noundef 0) #4
-  %228 = load i32, ptr @hf_rtitcp_control_attribute_error_code_description, align 4
-  %.reass174.i.i = add i32 %invariant.op173.i.i, %.0127193.i.i
-  %229 = add nsw i32 %151, -4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %228, ptr noundef %0, i32 noundef %.reass174.i.i, i32 noundef %229, i32 noundef 0) #4
+234:                                              ; preds = %.lr.ph.i.i
+  %235 = add i32 %148, 4
+  %236 = load i32, ptr @hf_rtitcp_control_attribute_error_code_value, align 4
+  %237 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %236, ptr noundef %0, i32 noundef %235, i32 noundef 4, i32 noundef 0) #4
+  %238 = load i32, ptr @hf_rtitcp_control_attribute_error_code_description, align 4
+  %239 = add i32 %148, 8
+  %240 = add nsw i32 %152, -4
+  %241 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %238, ptr noundef %0, i32 noundef %239, i32 noundef %240, i32 noundef 0) #4
   br label %dissect_attribute.exit.i.i
 
-dissect_attribute.exit.i.i:                       ; preds = %225, %222, %217, %205, %194, %182, %165, %.lr.ph.i.i
-  %.1165.i.i = phi i32 [ %.0191.i.i, %.lr.ph.i.i ], [ %.0191.i.i, %225 ], [ %.0191.i.i, %222 ], [ 0, %217 ], [ 0, %205 ], [ 0, %165 ], [ 0, %194 ], [ 0, %182 ]
-  %231 = sub nsw i32 0, %151
-  %232 = and i32 %231, 3
-  %233 = add nuw nsw i32 %232, %.0127193.i.i
-  %234 = add nuw nsw i32 %233, %152
-  %235 = icmp ult i32 %234, %144
-  br i1 %235, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
+dissect_attribute.exit.i.i:                       ; preds = %234, %230, %225, %212, %200, %188, %167, %.lr.ph.i.i
+  %.1165.i.i = phi i32 [ %.0171.i.i, %.lr.ph.i.i ], [ %.0171.i.i, %234 ], [ %.0171.i.i, %230 ], [ 0, %225 ], [ 0, %212 ], [ 0, %167 ], [ 0, %200 ], [ 0, %188 ]
+  %242 = sub nsw i32 0, %152
+  %243 = and i32 %242, 3
+  %244 = add nuw nsw i32 %243, %.0127173.i.i
+  %245 = add nuw nsw i32 %244, %153
+  %246 = icmp ult i32 %245, %144
+  br i1 %246, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
 
 ._crit_edge.i.i:                                  ; preds = %dissect_attribute.exit.i.i
-  %236 = icmp eq i32 %.1165.i.i, 0
-  br i1 %236, label %237, label %239
+  %247 = icmp eq i32 %.1165.i.i, 0
+  br i1 %247, label %248, label %250
 
-237:                                              ; preds = %._crit_edge.i.i
+248:                                              ; preds = %._crit_edge.i.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.112) #4
-  %238 = load ptr, ptr %9, align 8
-  call void @col_append_str(ptr noundef %238, i32 noundef 25, ptr noundef nonnull @.str.112) #4
-  br label %239
+  %249 = load ptr, ptr %9, align 8
+  call void @col_append_str(ptr noundef %249, i32 noundef 25, ptr noundef nonnull @.str.112) #4
+  br label %250
 
-239:                                              ; preds = %237, %._crit_edge.i.i
-  %240 = icmp ugt i32 %147, 1
-  %spec.select.i.i = select i1 %240, ptr @.str.114, ptr @.str.115
-  br label %.thread199.i.i
+250:                                              ; preds = %248, %._crit_edge.i.i
+  %251 = icmp ugt i32 %147, 1
+  %spec.select.i.i = select i1 %251, ptr @.str.114, ptr @.str.115
+  br label %.thread179.i.i
 
-.thread199.i.i:                                   ; preds = %239, %proto_item_set_generated.exit.i.i
-  %.0128.lcssa198201.i.i = phi i32 [ 0, %proto_item_set_generated.exit.i.i ], [ %147, %239 ]
-  %241 = phi ptr [ @.str.115, %proto_item_set_generated.exit.i.i ], [ %spec.select.i.i, %239 ]
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %146, ptr noundef nonnull @.str.113, i32 noundef %.0128.lcssa198201.i.i, ptr noundef nonnull %241) #4
+.thread179.i.i:                                   ; preds = %250, %proto_item_set_generated.exit.i.i
+  %.0128.lcssa178181.i.i = phi i32 [ 0, %proto_item_set_generated.exit.i.i ], [ %147, %250 ]
+  %252 = phi ptr [ @.str.115, %proto_item_set_generated.exit.i.i ], [ %spec.select.i.i, %250 ]
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %146, ptr noundef nonnull @.str.113, i32 noundef %.0128.lcssa178181.i.i, ptr noundef nonnull %252) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.116, ptr noundef %71, i32 noundef %48) #4
   br label %dissect_control_message.exit.i
 
-dissect_control_message.exit.i:                   ; preds = %.thread199.i.i, %41
+dissect_control_message.exit.i:                   ; preds = %.thread179.i.i, %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %242 = zext i16 %49 to i32
-  %243 = add i32 %.09.i, %242
-  %244 = icmp ult i32 %243, %36
-  br i1 %244, label %41, label %dissect_rtitcp_control_protocol.exit, !llvm.loop !6
+  %253 = zext i16 %49 to i32
+  %254 = add i32 %.09.i, %253
+  %255 = icmp ult i32 %254, %36
+  br i1 %255, label %41, label %dissect_rtitcp_control_protocol.exit, !llvm.loop !6
 
 dissect_rtitcp_control_protocol.exit:             ; preds = %dissect_control_message.exit.i, %35, %25
-  %.0 = phi i32 [ %34, %25 ], [ 0, %35 ], [ %243, %dissect_control_message.exit.i ]
+  %.0 = phi i32 [ %34, %25 ], [ 0, %35 ], [ %254, %dissect_control_message.exit.i ]
   ret i32 %.0
 }
 

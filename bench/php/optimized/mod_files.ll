@@ -359,7 +359,7 @@ define hidden range(i32 -1, 1) i32 @ps_delete_files(ptr nocapture noundef readon
   br i1 %25, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
-  %.045.i = phi i64 [ %.0.reass.i, %.lr.ph.i ], [ %.041.i, %20 ]
+  %.045.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %.041.i, %20 ]
   %.0.in44.i = phi i64 [ %28, %.lr.ph.i ], [ %14, %20 ]
   %.03443.i = phi i32 [ %31, %.lr.ph.i ], [ 0, %20 ]
   %.03542.i = phi ptr [ %26, %.lr.ph.i ], [ %21, %20 ]
@@ -371,13 +371,13 @@ define hidden range(i32 -1, 1) i32 @ps_delete_files(ptr nocapture noundef readon
   %30 = getelementptr inbounds i8, ptr %3, i64 %28
   store i8 47, ptr %30, align 1
   %31 = add nuw nsw i32 %.03443.i, 1
-  %.0.reass.i = add i64 %.0.in44.i, 3
+  %.0.i = add i64 %.0.in44.i, 3
   %exitcond.not = icmp eq i32 %31, %24
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %.lr.ph.i, %20
   %.0.in.lcssa.i = phi i64 [ %14, %20 ], [ %28, %.lr.ph.i ]
-  %.0.lcssa.i = phi i64 [ %.041.i, %20 ], [ %.0.reass.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %.041.i, %20 ], [ %.0.i, %.lr.ph.i ]
   %32 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %32, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %33 = getelementptr i8, ptr %3, i64 %.0.in.lcssa.i
@@ -593,7 +593,7 @@ define hidden ptr @ps_create_sid_files(ptr nocapture noundef readonly %0) #0 {
   br i1 %33, label %.lr.ph.i.i, label %ps_files_key_exists.exit
 
 .lr.ph.i.i:                                       ; preds = %28, %.lr.ph.i.i
-  %.045.i.i = phi i64 [ %.0.reass.i.i, %.lr.ph.i.i ], [ %.041.i.i, %28 ]
+  %.045.i.i = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.041.i.i, %28 ]
   %.0.in44.i.i = phi i64 [ %36, %.lr.ph.i.i ], [ %22, %28 ]
   %.03443.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %28 ]
   %.03542.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %29, %28 ]
@@ -605,7 +605,7 @@ define hidden ptr @ps_create_sid_files(ptr nocapture noundef readonly %0) #0 {
   %38 = getelementptr inbounds i8, ptr %2, i64 %36
   store i8 47, ptr %38, align 1
   %39 = add nuw nsw i32 %.03443.i.i, 1
-  %.0.reass.i.i = add i64 %.0.in44.i.i, 3
+  %.0.i.i = add i64 %.0.in44.i.i, 3
   %exitcond.not.i = icmp eq i32 %39, %32
   br i1 %exitcond.not.i, label %ps_files_key_exists.exit, label %.lr.ph.i.i
 
@@ -616,7 +616,7 @@ ps_files_key_exists.exit.thread:                  ; preds = %18, %13
 
 ps_files_key_exists.exit:                         ; preds = %.lr.ph.i.i, %28
   %.0.in.lcssa.i.i = phi i64 [ %22, %28 ], [ %36, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi i64 [ %.041.i.i, %28 ], [ %.0.reass.i.i, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi i64 [ %.041.i.i, %28 ], [ %.0.i.i, %.lr.ph.i.i ]
   %40 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %40, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.in.lcssa.i.i
@@ -710,7 +710,7 @@ define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr nocapture noundef 
   br i1 %26, label %.lr.ph.i.i, label %.loopexit.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
-  %.045.i.i = phi i64 [ %.0.reass.i.i, %.lr.ph.i.i ], [ %.041.i.i, %21 ]
+  %.045.i.i = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.041.i.i, %21 ]
   %.0.in44.i.i = phi i64 [ %29, %.lr.ph.i.i ], [ %15, %21 ]
   %.03443.i.i = phi i32 [ %32, %.lr.ph.i.i ], [ 0, %21 ]
   %.03542.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %22, %21 ]
@@ -722,13 +722,13 @@ define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr nocapture noundef 
   %31 = getelementptr inbounds i8, ptr %3, i64 %29
   store i8 47, ptr %31, align 1
   %32 = add nuw nsw i32 %.03443.i.i, 1
-  %.0.reass.i.i = add i64 %.0.in44.i.i, 3
+  %.0.i.i = add i64 %.0.in44.i.i, 3
   %exitcond.not.i = icmp eq i32 %32, %25
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %21
   %.0.in.lcssa.i.i = phi i64 [ %15, %21 ], [ %29, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi i64 [ %.041.i.i, %21 ], [ %.0.reass.i.i, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi i64 [ %.041.i.i, %21 ], [ %.0.i.i, %.lr.ph.i.i ]
   %33 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %33, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %34 = getelementptr i8, ptr %3, i64 %.0.in.lcssa.i.i
@@ -787,7 +787,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_files(ptr nocapture noun
   br i1 %27, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
-  %.045.i = phi i64 [ %.0.reass.i, %.lr.ph.i ], [ %.041.i, %22 ]
+  %.045.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %.041.i, %22 ]
   %.0.in44.i = phi i64 [ %30, %.lr.ph.i ], [ %16, %22 ]
   %.03443.i = phi i32 [ %33, %.lr.ph.i ], [ 0, %22 ]
   %.03542.i = phi ptr [ %28, %.lr.ph.i ], [ %23, %22 ]
@@ -799,13 +799,13 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_files(ptr nocapture noun
   %32 = getelementptr inbounds i8, ptr %5, i64 %30
   store i8 47, ptr %32, align 1
   %33 = add nuw nsw i32 %.03443.i, 1
-  %.0.reass.i = add i64 %.0.in44.i, 3
+  %.0.i = add i64 %.0.in44.i, 3
   %exitcond.not = icmp eq i32 %33, %26
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %.lr.ph.i, %22
   %.0.in.lcssa.i = phi i64 [ %16, %22 ], [ %30, %.lr.ph.i ]
-  %.0.lcssa.i = phi i64 [ %.041.i, %22 ], [ %.0.reass.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %.041.i, %22 ], [ %.0.i, %.lr.ph.i ]
   %34 = getelementptr inbounds i8, ptr %5, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %34, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %35 = getelementptr i8, ptr %5, i64 %.0.in.lcssa.i
@@ -969,7 +969,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
   br i1 %54, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.i
-  %.045.i = phi i64 [ %.0.reass.i, %.lr.ph.i ], [ %.041.i, %50 ]
+  %.045.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %.041.i, %50 ]
   %.0.in44.i = phi i64 [ %57, %.lr.ph.i ], [ %44, %50 ]
   %.03443.i = phi i32 [ %60, %.lr.ph.i ], [ 0, %50 ]
   %.03542.i = phi ptr [ %55, %.lr.ph.i ], [ %31, %50 ]
@@ -981,7 +981,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
   %59 = getelementptr inbounds i8, ptr %3, i64 %57
   store i8 47, ptr %59, align 1
   %60 = add nuw nsw i32 %.03443.i, 1
-  %.0.reass.i = add i64 %.0.in44.i, 3
+  %.0.i = add i64 %.0.in44.i, 3
   %exitcond.not = icmp eq i32 %60, %53
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i
 
@@ -991,7 +991,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
 
 .loopexit:                                        ; preds = %.lr.ph.i, %50
   %.0.in.lcssa.i = phi i64 [ %44, %50 ], [ %57, %.lr.ph.i ]
-  %.0.lcssa.i = phi i64 [ %.041.i, %50 ], [ %.0.reass.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %.041.i, %50 ], [ %.0.i, %.lr.ph.i ]
   %62 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %62, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %63 = getelementptr i8, ptr %3, i64 %.0.in.lcssa.i

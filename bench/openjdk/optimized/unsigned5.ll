@@ -23,8 +23,8 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8pr
   %spec.store.select = select i1 %6, ptr @.str, ptr %3
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %spec.store.select) #2
   %7 = icmp slt i32 %2, 0
-  %or.cond41.not = icmp eq i32 %2, 0
-  br i1 %or.cond41.not, label %.thread32, label %.lr.ph
+  %or.cond42.not = icmp eq i32 %2, 0
+  br i1 %or.cond42.not, label %.thread32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 12
@@ -32,7 +32,7 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8pr
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %11 = load ptr, ptr %0, align 8
   %12 = load i32, ptr %8, align 4
   %13 = load i32, ptr %9, align 8
@@ -114,7 +114,7 @@ _ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit: ; preds = %10
   %44 = load i32, ptr %8, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %8, align 4
-  %46 = add nsw i32 %.042, 1
+  %46 = add nsw i32 %.043, 1
   %47 = load i32, ptr %9, align 8
   %.not21 = icmp eq i32 %47, 0
   br i1 %.not21, label %.thread32, label %.backedge
@@ -126,7 +126,7 @@ _ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27: ; pre
   br i1 %50, label %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27
-  %51 = add i32 %12, 1
+  %51 = add nsw i32 %12, 1
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %11, i64 %52
   %54 = load i8, ptr %53, align 1
@@ -139,33 +139,35 @@ _ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27: ; pre
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 1, %.preheader.i.i ]
-  %60 = phi i32 [ %69, %.lr.ph.i.i ], [ %58, %.preheader.i.i ]
+  %60 = phi i32 [ %68, %.lr.ph.i.i ], [ %58, %.preheader.i.i ]
   %.02428.i.i = phi i32 [ %61, %.lr.ph.i.i ], [ 6, %.preheader.i.i ]
   %61 = add nuw nsw i32 %.02428.i.i, 6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %62 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.reass.i.i = add i32 %51, %62
-  %63 = sext i32 %.reass.i.i to i64
-  %64 = getelementptr inbounds i8, ptr %11, i64 %63
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = add nsw i32 %66, -1
-  %68 = shl i32 %67, %61
-  %69 = add i32 %68, %60
-  %70 = icmp ult i8 %65, -64
-  %71 = icmp eq i64 %indvars.iv.next.i.i, 4
-  %or.cond.i.i = or i1 %71, %70
-  br i1 %or.cond.i.i, label %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit, label %.lr.ph.i.i, !llvm.loop !8
+  %62 = add nsw i64 %indvars.iv.next.i.i, %14
+  %63 = getelementptr inbounds i8, ptr %11, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = add nsw i32 %65, -1
+  %67 = shl i32 %66, %61
+  %68 = add i32 %67, %60
+  %69 = icmp ult i8 %64, -64
+  %70 = icmp eq i64 %indvars.iv.next.i.i, 4
+  %or.cond.i.i = or i1 %70, %69
+  br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
-_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit: ; preds = %.lr.ph.i.i, %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27, %.preheader.i.i
-  %storemerge.in.i.i = phi i32 [ %12, %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27 ], [ %51, %.preheader.i.i ], [ %.reass.i.i, %.lr.ph.i.i ]
-  %.0.i.i = phi i32 [ %49, %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27 ], [ %58, %.preheader.i.i ], [ %69, %.lr.ph.i.i ]
+.loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i.i
+  %71 = trunc nsw i64 %62 to i32
+  br label %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit
+
+_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit: ; preds = %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27, %.preheader.i.i, %.loopexit.loopexit.i.i
+  %storemerge.in.i.i = phi i32 [ %12, %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27 ], [ %51, %.preheader.i.i ], [ %71, %.loopexit.loopexit.i.i ]
+  %.0.i.i = phi i32 [ %49, %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27 ], [ %58, %.preheader.i.i ], [ %68, %.loopexit.loopexit.i.i ]
   %storemerge.i.i = add nsw i32 %storemerge.in.i.i, 1
   store i32 %storemerge.i.i, ptr %8, align 4
-  %72 = icmp eq i32 %.042, 0
+  %72 = icmp eq i32 %.043, 0
   %.str.7..str.8 = select i1 %72, ptr @.str.7, ptr @.str.8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.7..str.8, i32 noundef %.0.i.i) #2
-  %73 = add nsw i32 %.042, 1
+  %73 = add nsw i32 %.043, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit, %.thread30
@@ -175,7 +177,7 @@ _ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit: ; preds = %.l
   br i1 %or.cond, label %10, label %.thread32, !llvm.loop !9
 
 .thread32:                                        ; preds = %.thread30, %.backedge, %.thread, %.lr.ph.split.us.i.i.i, %.preheader.i.i.i, %.lr.ph.split.i.i.i, %40, %26, %5
-  %.1 = phi i32 [ 0, %5 ], [ %.042, %26 ], [ %.042, %40 ], [ %.042, %.lr.ph.split.i.i.i ], [ %46, %.thread30 ], [ %.0.be, %.backedge ], [ %.042, %.thread ], [ %.042, %.lr.ph.split.us.i.i.i ], [ %.042, %.preheader.i.i.i ]
+  %.1 = phi i32 [ 0, %5 ], [ %.043, %26 ], [ %.043, %40 ], [ %.043, %.lr.ph.split.i.i.i ], [ %46, %.thread30 ], [ %.0.be, %.backedge ], [ %.043, %.thread ], [ %.043, %.lr.ph.split.us.i.i.i ], [ %.043, %.preheader.i.i.i ]
   %74 = icmp eq ptr %4, null
   %spec.store.select1 = select i1 %74, ptr @.str.4, ptr %4
   %75 = getelementptr inbounds i8, ptr %0, i64 12
@@ -192,8 +194,8 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8pr
   %spec.store.select = select i1 %6, ptr @.str, ptr %3
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %spec.store.select) #2
   %7 = icmp slt i32 %2, 0
-  %or.cond41.not = icmp eq i32 %2, 0
-  br i1 %or.cond41.not, label %.thread32, label %.lr.ph
+  %or.cond42.not = icmp eq i32 %2, 0
+  br i1 %or.cond42.not, label %.thread32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 12
@@ -201,7 +203,7 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8pr
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %11 = load ptr, ptr %0, align 8
   %12 = load i32, ptr %8, align 4
   %13 = load i32, ptr %9, align 8
@@ -283,7 +285,7 @@ _ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit: ; preds = %10
   %44 = load i32, ptr %8, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %8, align 4
-  %46 = add nsw i32 %.042, 1
+  %46 = add nsw i32 %.043, 1
   %47 = load i32, ptr %9, align 8
   %.not21 = icmp eq i32 %47, 0
   br i1 %.not21, label %.thread32, label %.backedge
@@ -295,7 +297,7 @@ _ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27: ; pre
   br i1 %50, label %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27
-  %51 = add i32 %12, 1
+  %51 = add nsw i32 %12, 1
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %11, i64 %52
   %54 = load i8, ptr %53, align 1
@@ -308,33 +310,35 @@ _ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27: ; pre
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 1, %.preheader.i.i ]
-  %60 = phi i32 [ %69, %.lr.ph.i.i ], [ %58, %.preheader.i.i ]
+  %60 = phi i32 [ %68, %.lr.ph.i.i ], [ %58, %.preheader.i.i ]
   %.02428.i.i = phi i32 [ %61, %.lr.ph.i.i ], [ 6, %.preheader.i.i ]
   %61 = add nuw nsw i32 %.02428.i.i, 6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %62 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.reass.i.i = add i32 %51, %62
-  %63 = sext i32 %.reass.i.i to i64
-  %64 = getelementptr inbounds i8, ptr %11, i64 %63
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = add nsw i32 %66, -1
-  %68 = shl i32 %67, %61
-  %69 = add i32 %68, %60
-  %70 = icmp ult i8 %65, -64
-  %71 = icmp eq i64 %indvars.iv.next.i.i, 4
-  %or.cond.i.i = or i1 %71, %70
-  br i1 %or.cond.i.i, label %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit, label %.lr.ph.i.i, !llvm.loop !11
+  %62 = add nsw i64 %indvars.iv.next.i.i, %14
+  %63 = getelementptr inbounds i8, ptr %11, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = add nsw i32 %65, -1
+  %67 = shl i32 %66, %61
+  %68 = add i32 %67, %60
+  %69 = icmp ult i8 %64, -64
+  %70 = icmp eq i64 %indvars.iv.next.i.i, 4
+  %or.cond.i.i = or i1 %70, %69
+  br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
-_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit: ; preds = %.lr.ph.i.i, %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27, %.preheader.i.i
-  %storemerge.in.i.i = phi i32 [ %12, %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27 ], [ %51, %.preheader.i.i ], [ %.reass.i.i, %.lr.ph.i.i ]
-  %.0.i.i = phi i32 [ %49, %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27 ], [ %58, %.preheader.i.i ], [ %69, %.lr.ph.i.i ]
+.loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i.i
+  %71 = trunc nsw i64 %62 to i32
+  br label %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit
+
+_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit: ; preds = %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27, %.preheader.i.i, %.loopexit.loopexit.i.i
+  %storemerge.in.i.i = phi i32 [ %12, %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27 ], [ %51, %.preheader.i.i ], [ %71, %.loopexit.loopexit.i.i ]
+  %.0.i.i = phi i32 [ %49, %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8has_nextEv.exit.thread27 ], [ %58, %.preheader.i.i ], [ %68, %.loopexit.loopexit.i.i ]
   %storemerge.i.i = add nsw i32 %storemerge.in.i.i, 1
   store i32 %storemerge.i.i, ptr %8, align 4
-  %72 = icmp eq i32 %.042, 0
+  %72 = icmp eq i32 %.043, 0
   %.str.7..str.8 = select i1 %72, ptr @.str.7, ptr @.str.8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.7..str.8, i32 noundef %.0.i.i) #2
-  %73 = add nsw i32 %.042, 1
+  %73 = add nsw i32 %.043, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit, %.thread30
@@ -344,7 +348,7 @@ _ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit: ; preds = %.l
   br i1 %or.cond, label %10, label %.thread32, !llvm.loop !12
 
 .thread32:                                        ; preds = %.thread30, %.backedge, %.thread, %.lr.ph.split.us.i.i.i, %.preheader.i.i.i, %.lr.ph.split.i.i.i, %40, %26, %5
-  %.1 = phi i32 [ 0, %5 ], [ %.042, %26 ], [ %.042, %40 ], [ %.042, %.lr.ph.split.i.i.i ], [ %46, %.thread30 ], [ %.0.be, %.backedge ], [ %.042, %.thread ], [ %.042, %.lr.ph.split.us.i.i.i ], [ %.042, %.preheader.i.i.i ]
+  %.1 = phi i32 [ 0, %5 ], [ %.043, %26 ], [ %.043, %40 ], [ %.043, %.lr.ph.split.i.i.i ], [ %46, %.thread30 ], [ %.0.be, %.backedge ], [ %.043, %.thread ], [ %.043, %.lr.ph.split.us.i.i.i ], [ %.043, %.preheader.i.i.i ]
   %74 = icmp eq ptr %4, null
   %spec.store.select1 = select i1 %74, ptr @.str.4, ptr %4
   %75 = getelementptr inbounds i8, ptr %0, i64 12
@@ -359,8 +363,8 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8pr
   %spec.store.select = select i1 %6, ptr @.str, ptr %3
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %spec.store.select) #2
   %7 = icmp slt i32 %2, 0
-  %or.cond35.not = icmp eq i32 %2, 0
-  br i1 %or.cond35.not, label %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread, label %.lr.ph
+  %or.cond36.not = icmp eq i32 %2, 0
+  br i1 %or.cond36.not, label %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -368,7 +372,7 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8pr
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
-  %.036 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
+  %.037 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %11 = load ptr, ptr %0, align 8
   %12 = load i64, ptr %8, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
@@ -418,7 +422,7 @@ _ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit: ; preds = %10
   %29 = load i64, ptr %8, align 8
   %30 = add i64 %29, 1
   store i64 %30, ptr %8, align 8
-  %31 = add nsw i32 %.036, 1
+  %31 = add nsw i32 %.037, 1
   %32 = load i64, ptr %9, align 8
   %.not21 = icmp eq i64 %32, 0
   br i1 %.not21, label %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread, label %.backedge
@@ -442,47 +446,47 @@ _ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread26: ; pre
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 1, %.preheader.i.i ]
-  %44 = phi i32 [ %51, %.lr.ph.i.i ], [ %42, %.preheader.i.i ]
+  %44 = phi i32 [ %52, %.lr.ph.i.i ], [ %42, %.preheader.i.i ]
   %.02428.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 6, %.preheader.i.i ]
   %45 = add nuw nsw i32 %.02428.i.i, 6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.reass.i = add i64 %indvars.iv.i.i, %36
-  %46 = getelementptr inbounds i8, ptr %11, i64 %.reass.i
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = add nsw i32 %48, -1
-  %50 = shl i32 %49, %45
-  %51 = add i32 %50, %44
-  %52 = icmp ult i8 %47, -64
-  %53 = icmp eq i64 %indvars.iv.next.i.i, 4
-  %or.cond.i.i = or i1 %53, %52
+  %46 = add i64 %indvars.iv.next.i.i, %12
+  %47 = getelementptr inbounds i8, ptr %11, i64 %46
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = add nsw i32 %49, -1
+  %51 = shl i32 %50, %45
+  %52 = add i32 %51, %44
+  %53 = icmp ult i8 %48, -64
+  %54 = icmp eq i64 %indvars.iv.next.i.i, 4
+  %or.cond.i.i = or i1 %54, %53
   br i1 %or.cond.i.i, label %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE9next_uintEv.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE9next_uintEv.exit: ; preds = %.lr.ph.i.i, %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread26, %.preheader.i.i
-  %storemerge.in.i.i = phi i64 [ %12, %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread26 ], [ %36, %.preheader.i.i ], [ %.reass.i, %.lr.ph.i.i ]
-  %.0.i.i = phi i32 [ %34, %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread26 ], [ %42, %.preheader.i.i ], [ %51, %.lr.ph.i.i ]
+  %storemerge.in.i.i = phi i64 [ %12, %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread26 ], [ %36, %.preheader.i.i ], [ %46, %.lr.ph.i.i ]
+  %.0.i.i = phi i32 [ %34, %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread26 ], [ %42, %.preheader.i.i ], [ %52, %.lr.ph.i.i ]
   %storemerge.i.i = add i64 %storemerge.in.i.i, 1
   store i64 %storemerge.i.i, ptr %8, align 8
-  %54 = icmp eq i32 %.036, 0
-  %.str.7..str.8 = select i1 %54, ptr @.str.7, ptr @.str.8
+  %55 = icmp eq i32 %.037, 0
+  %.str.7..str.8 = select i1 %55, ptr @.str.7, ptr @.str.8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.7..str.8, i32 noundef %.0.i.i) #2
-  %55 = add nsw i32 %.036, 1
+  %56 = add nsw i32 %.037, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE9next_uintEv.exit, %.thread29
-  %.0.be = phi i32 [ %55, %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE9next_uintEv.exit ], [ %31, %.thread29 ]
+  %.0.be = phi i32 [ %56, %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE9next_uintEv.exit ], [ %31, %.thread29 ]
   %.not = icmp slt i32 %.0.be, %2
   %or.cond = select i1 %7, i1 true, i1 %.not
   br i1 %or.cond, label %10, label %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread, !llvm.loop !15
 
 _ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread: ; preds = %.thread29, %.backedge, %.thread, %.preheader.i.i.i, %.lr.ph.i.i.i, %26, %5
-  %.1 = phi i32 [ 0, %5 ], [ %.036, %26 ], [ %.036, %.lr.ph.i.i.i ], [ %31, %.thread29 ], [ %.0.be, %.backedge ], [ %.036, %.thread ], [ %.036, %.preheader.i.i.i ]
-  %56 = icmp eq ptr %4, null
-  %spec.store.select1 = select i1 %56, ptr @.str.4, ptr %4
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
-  %58 = load i64, ptr %57, align 8
-  %59 = trunc i64 %58 to i32
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %spec.store.select1, i32 noundef %.1, i32 noundef %59) #2
+  %.1 = phi i32 [ 0, %5 ], [ %.037, %26 ], [ %.037, %.lr.ph.i.i.i ], [ %31, %.thread29 ], [ %.0.be, %.backedge ], [ %.037, %.thread ], [ %.037, %.preheader.i.i.i ]
+  %57 = icmp eq ptr %4, null
+  %spec.store.select1 = select i1 %57, ptr @.str.4, ptr %4
+  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = load i64, ptr %58, align 8
+  %60 = trunc i64 %59 to i32
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %spec.store.select1, i32 noundef %.1, i32 noundef %60) #2
   ret void
 }
 

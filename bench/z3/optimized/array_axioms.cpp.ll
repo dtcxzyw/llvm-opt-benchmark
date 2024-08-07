@@ -7861,9 +7861,9 @@ for.cond.loopexit:                                ; preds = %invoke.cont44, %for
   br i1 %cmp10.not3438.wide, label %for.end49, label %for.body, !llvm.loop !25
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.loopexit
-  %indvars.iv57 = phi i64 [ %2, %for.body.lr.ph ], [ %3, %for.cond.loopexit ]
-  %prop.045 = phi i1 [ false, %for.body.lr.ph ], [ %prop.1.ph.lcssa30, %for.cond.loopexit ]
-  %3 = add nsw i64 %indvars.iv57, -1
+  %indvars.iv56 = phi i64 [ %2, %for.body.lr.ph ], [ %3, %for.cond.loopexit ]
+  %prop.044 = phi i1 [ false, %for.body.lr.ph ], [ %prop.1.ph.lcssa30, %for.cond.loopexit ]
+  %3 = add nsw i64 %indvars.iv56, -1
   %4 = load ptr, ptr %roots, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %4, i64 %3
   %5 = load i32, ptr %arrayidx.i, align 4
@@ -7876,12 +7876,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp10.not3438.wide, label %for.end49, label %invoke.cont14.lr.ph.preheader
 
 invoke.cont14.lr.ph.preheader:                    ; preds = %for.body
-  %dec93337.reass = add i64 %indvars.iv57, 4294967294
+  %dec93337 = add i64 %indvars.iv56, 4294967294
   br label %invoke.cont14.lr.ph
 
 invoke.cont14.lr.ph:                              ; preds = %invoke.cont14.lr.ph.preheader, %invoke.cont44
-  %dec93340 = phi i64 [ %dec933, %invoke.cont44 ], [ %dec93337.reass, %invoke.cont14.lr.ph.preheader ]
-  %prop.1.ph39 = phi i1 [ %spec.select, %invoke.cont44 ], [ %prop.045, %invoke.cont14.lr.ph.preheader ]
+  %dec93340 = phi i64 [ %dec933, %invoke.cont44 ], [ %dec93337, %invoke.cont14.lr.ph.preheader ]
+  %prop.1.ph39 = phi i1 [ %spec.select, %invoke.cont44 ], [ %prop.044, %invoke.cont14.lr.ph.preheader ]
   %9 = and i64 %dec93340, 4294967295
   br label %invoke.cont14
 
@@ -7976,7 +7976,7 @@ invoke.cont44:                                    ; preds = %invoke.cont35
   br i1 %cmp10.not34, label %for.cond.loopexit, label %invoke.cont14.lr.ph, !llvm.loop !26
 
 for.end49:                                        ; preds = %for.cond.loopexit, %for.body, %invoke.cont2
-  %prop.0.lcssa = phi i1 [ false, %invoke.cont2 ], [ %prop.045, %for.body ], [ %prop.1.ph.lcssa30, %for.cond.loopexit ]
+  %prop.0.lcssa = phi i1 [ false, %invoke.cont2 ], [ %prop.044, %for.body ], [ %prop.1.ph.lcssa30, %for.cond.loopexit ]
   %23 = load ptr, ptr %roots, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %23, %0
   %cmp.i.i.i.i.i = icmp eq ptr %23, null

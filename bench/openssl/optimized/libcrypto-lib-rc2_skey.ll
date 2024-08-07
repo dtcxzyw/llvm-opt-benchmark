@@ -77,24 +77,22 @@ for.end30:                                        ; preds = %for.body17, %for.en
   %arrayidx41 = getelementptr inbounds [256 x i8], ptr @key_table, i64 0, i64 %idxprom40
   %10 = load i8, ptr %arrayidx41, align 1
   store i8 %10, ptr %arrayidx37, align 1
-  %invariant.op = add nsw i32 %shr, -1
   %tobool.not49 = icmp eq i32 %shr, 128
   br i1 %tobool.not49, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %for.end30
   %narrow = sub nsw i32 128, %shr
   %11 = sext i32 %narrow to i64
+  %12 = zext nneg i32 %shr to i64
+  %invariant.gep68 = getelementptr i8, ptr %key, i64 %12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %indvars.iv61 = phi i64 [ %11, %while.body.preheader ], [ %indvars.iv.next62, %while.body ]
   %d.1.in51 = phi i8 [ %10, %while.body.preheader ], [ %14, %while.body ]
   %indvars.iv.next62 = add nsw i64 %indvars.iv61, -1
-  %12 = trunc nsw i64 %indvars.iv61 to i32
-  %add46.reass = add i32 %invariant.op, %12
-  %idxprom47 = sext i32 %add46.reass to i64
-  %arrayidx48 = getelementptr inbounds i8, ptr %key, i64 %idxprom47
-  %13 = load i8, ptr %arrayidx48, align 1
+  %gep69 = getelementptr i8, ptr %invariant.gep68, i64 %indvars.iv.next62
+  %13 = load i8, ptr %gep69, align 1
   %xor42 = xor i8 %13, %d.1.in51
   %idxprom50 = zext i8 %xor42 to i64
   %arrayidx51 = getelementptr inbounds [256 x i8], ptr @key_table, i64 0, i64 %idxprom50
@@ -110,15 +108,15 @@ while.end:                                        ; preds = %while.body, %for.en
   br label %for.body61
 
 for.body61:                                       ; preds = %while.end, %for.body61
-  %indvars.iv63 = phi i64 [ 127, %while.end ], [ %indvars.iv.next64, %for.body61 ]
+  %indvars.iv64 = phi i64 [ 127, %while.end ], [ %indvars.iv.next65, %for.body61 ]
   %ki.053 = phi ptr [ %arrayidx57, %while.end ], [ %incdec.ptr, %for.body61 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv63
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv64
   %16 = load i16, ptr %gep, align 1
   %17 = zext i16 %16 to i32
   %incdec.ptr = getelementptr inbounds i8, ptr %ki.053, i64 -4
   store i32 %17, ptr %ki.053, align 4
-  %indvars.iv.next64 = add nsw i64 %indvars.iv63, -2
-  %cmp59 = icmp ugt i64 %indvars.iv63, 1
+  %indvars.iv.next65 = add nsw i64 %indvars.iv64, -2
+  %cmp59 = icmp ugt i64 %indvars.iv64, 1
   br i1 %cmp59, label %for.body61, label %for.end72, !llvm.loop !8
 
 for.end72:                                        ; preds = %for.body61

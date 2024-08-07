@@ -452,7 +452,7 @@ dissect_basic_paramset.exit:                      ; preds = %mka_add_ckn_info.ex
   %94 = call ptr @val_to_str_const(i32 noundef %93, ptr noundef nonnull @param_set_type_vals, ptr noundef nonnull @.str.164) #8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %91, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.163, ptr noundef %94) #8
   %95 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08689) #8
-  switch i8 %95, label %417 [
+  switch i8 %95, label %421 [
     i8 1, label %96
     i8 2, label %96
     i8 3, label %130
@@ -460,8 +460,8 @@ dissect_basic_paramset.exit:                      ; preds = %mka_add_ckn_info.ex
     i8 5, label %236
     i8 6, label %286
     i8 7, label %304
-    i8 8, label %379
-    i8 -1, label %403
+    i8 8, label %383
+    i8 -1, label %407
   ]
 
 96:                                               ; preds = %90, %90
@@ -499,7 +499,7 @@ dissect_basic_paramset.exit:                      ; preds = %mka_add_ckn_info.ex
   br i1 %118, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %115, %.lr.ph.i
-  %.04655.i = phi i32 [ %.046.reass.i, %.lr.ph.i ], [ %.04652.i, %115 ]
+  %.04655.i = phi i32 [ %.046.i, %.lr.ph.i ], [ %.04652.i, %115 ]
   %.054.i = phi i16 [ %124, %.lr.ph.i ], [ %101, %115 ]
   %.046.in53.i = phi i32 [ %121, %.lr.ph.i ], [ %.08689, %115 ]
   %119 = load i32, ptr @hf_mka_peer_mi, align 4
@@ -508,13 +508,13 @@ dissect_basic_paramset.exit:                      ; preds = %mka_add_ckn_info.ex
   %122 = load i32, ptr @hf_mka_peer_mn, align 4
   %123 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %122, ptr noundef %0, i32 noundef %121, i32 noundef 4, i32 noundef 0) #8
   %124 = add i16 %.054.i, -16
-  %.046.reass.i = add i32 %.046.in53.i, 20
+  %.046.i = add i32 %.046.in53.i, 20
   %125 = icmp ugt i16 %124, 15
   br i1 %125, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %115
   %.0.lcssa51.i = phi i16 [ %101, %115 ], [ %124, %.lr.ph.i ]
-  %.046.lcssa.i = phi i32 [ %.04652.i, %115 ], [ %.046.reass.i, %.lr.ph.i ]
+  %.046.lcssa.i = phi i32 [ %.04652.i, %115 ], [ %.046.i, %.lr.ph.i ]
   %.not49.i = icmp eq i16 %.0.lcssa51.i, 0
   br i1 %.not49.i, label %dissect_peer_list.exit, label %126
 
@@ -779,15 +779,13 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
   %316 = load i32, ptr @hf_mka_param_body_length, align 4
   %317 = call ptr @proto_tree_add_uint(ptr noundef %313, i32 noundef %316, ptr noundef %0, i32 noundef %305, i32 noundef 2, i32 noundef %309) #8
   %318 = add i32 %.08689, 4
-  %invariant.op117.i = add i32 %.08689, 6
-  %invariant.op121.i = add i32 %.08689, 8
-  %.not123.i = icmp ult i16 %307, 2
-  br i1 %.not123.i, label %._crit_edge.i65, label %.lr.ph125.i
+  %.not117.i = icmp ult i16 %307, 2
+  br i1 %.not117.i, label %._crit_edge.i65, label %.lr.ph119.i
 
-.lr.ph125.i:                                      ; preds = %304, %.loopexit.i
-  %319 = phi i32 [ %371, %.loopexit.i ], [ 2, %304 ]
-  %.0105124.i = phi i32 [ %.1.i63, %.loopexit.i ], [ 0, %304 ]
-  %320 = add i32 %.0105124.i, %318
+.lr.ph119.i:                                      ; preds = %304, %.loopexit.i
+  %319 = phi i32 [ %375, %.loopexit.i ], [ 2, %304 ]
+  %.0105118.i = phi i32 [ %.1.i63, %.loopexit.i ], [ 0, %304 ]
+  %320 = add i32 %.0105118.i, %318
   %321 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %320) #8
   %322 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %320) #8
   %323 = and i16 %322, 511
@@ -796,7 +794,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
   %326 = icmp sgt i32 %325, %309
   br i1 %326, label %._crit_edge.i65, label %327
 
-327:                                              ; preds = %.lr.ph125.i
+327:                                              ; preds = %.lr.ph119.i
   %328 = lshr i8 %321, 1
   %329 = load i32, ptr @hf_mka_tlv_entry, align 4
   %330 = add nuw nsw i32 %324, 2
@@ -813,11 +811,11 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
   br i1 %.not112.i, label %.loopexit.i, label %340
 
 340:                                              ; preds = %327
-  switch i8 %328, label %368 [
+  switch i8 %328, label %371 [
     i8 112, label %.preheader.i
-    i8 111, label %364
-    i8 113, label %364
-    i8 114, label %364
+    i8 111, label %366
+    i8 113, label %366
+    i8 114, label %366
   ]
 
 .preheader.i:                                     ; preds = %340
@@ -825,156 +823,155 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
   br i1 %.not113115.i, label %.loopexit.i, label %.lr.ph.i67
 
 .lr.ph.i67:                                       ; preds = %.preheader.i
-  %.reass120.i = add i32 %.0105124.i, %invariant.op117.i
-  %invariant.op.reass.i = add i32 %invariant.op121.i, %.0105124.i
-  br label %341
+  %341 = add i32 %319, %318
+  br label %342
 
-341:                                              ; preds = %341, %.lr.ph.i67
-  %342 = phi i32 [ 0, %.lr.ph.i67 ], [ %362, %341 ]
-  %.0106116.i = phi i32 [ 0, %.lr.ph.i67 ], [ %361, %341 ]
-  %343 = add i32 %342, %.reass120.i
-  %.reass.i = add i32 %invariant.op.reass.i, %342
-  %344 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.reass.i, i32 noundef 0) #8
-  %345 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %343, i32 noundef 0) #8
-  %346 = and i16 %345, 3
-  %347 = load i32, ptr @hf_mka_tlv_entry, align 4
-  %348 = call ptr @val64_to_str(i64 noundef %344, ptr noundef nonnull @macsec_cipher_suite_vals, ptr noundef nonnull @.str.168) #8
-  %349 = zext nneg i16 %346 to i32
-  %350 = call ptr @val_to_str(i32 noundef %349, ptr noundef nonnull @macsec_capability_type_vals, ptr noundef nonnull @.str.169) #8
-  %351 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %335, i32 noundef %347, ptr noundef %0, i32 noundef %.reass120.i, i32 noundef %330, ptr noundef nonnull @.str.167, ptr noundef %348, ptr noundef %350) #8
-  %352 = load i32, ptr @ett_mka_cipher_suite_entry, align 4
-  %353 = call ptr @proto_item_add_subtree(ptr noundef %351, i32 noundef %352) #8
-  %354 = load i32, ptr @hf_mka_tlv_cipher_suite_impl_cap, align 4
-  %355 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %354, ptr noundef %0, i32 noundef %343, i32 noundef 2, i32 noundef 0) #8
-  %356 = add nsw i32 %.0106116.i, 2
-  %357 = load i32, ptr @hf_mka_macsec_cipher_suite, align 4
-  %358 = and i32 %356, 65535
-  %359 = add i32 %358, %.reass120.i
-  %360 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %357, ptr noundef %0, i32 noundef %359, i32 noundef 8, i32 noundef 0) #8
-  %361 = add nuw nsw i32 %358, 8
-  %362 = and i32 %361, 65535
-  %363 = add nuw nsw i32 %362, 10
-  %.not113.i = icmp ugt i32 %363, %324
-  br i1 %.not113.i, label %.loopexit.i, label %341, !llvm.loop !6
+342:                                              ; preds = %342, %.lr.ph.i67
+  %343 = phi i32 [ 0, %.lr.ph.i67 ], [ %364, %342 ]
+  %.0106116.i = phi i32 [ 0, %.lr.ph.i67 ], [ %363, %342 ]
+  %344 = add i32 %343, %341
+  %345 = add i32 %344, 2
+  %346 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %345, i32 noundef 0) #8
+  %347 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %344, i32 noundef 0) #8
+  %348 = and i16 %347, 3
+  %349 = load i32, ptr @hf_mka_tlv_entry, align 4
+  %350 = call ptr @val64_to_str(i64 noundef %346, ptr noundef nonnull @macsec_cipher_suite_vals, ptr noundef nonnull @.str.168) #8
+  %351 = zext nneg i16 %348 to i32
+  %352 = call ptr @val_to_str(i32 noundef %351, ptr noundef nonnull @macsec_capability_type_vals, ptr noundef nonnull @.str.169) #8
+  %353 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %335, i32 noundef %349, ptr noundef %0, i32 noundef %341, i32 noundef %330, ptr noundef nonnull @.str.167, ptr noundef %350, ptr noundef %352) #8
+  %354 = load i32, ptr @ett_mka_cipher_suite_entry, align 4
+  %355 = call ptr @proto_item_add_subtree(ptr noundef %353, i32 noundef %354) #8
+  %356 = load i32, ptr @hf_mka_tlv_cipher_suite_impl_cap, align 4
+  %357 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %356, ptr noundef %0, i32 noundef %344, i32 noundef 2, i32 noundef 0) #8
+  %358 = add nsw i32 %.0106116.i, 2
+  %359 = load i32, ptr @hf_mka_macsec_cipher_suite, align 4
+  %360 = and i32 %358, 65535
+  %361 = add i32 %360, %341
+  %362 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %359, ptr noundef %0, i32 noundef %361, i32 noundef 8, i32 noundef 0) #8
+  %363 = add nuw nsw i32 %360, 8
+  %364 = and i32 %363, 65535
+  %365 = add nuw nsw i32 %364, 10
+  %.not113.i = icmp ugt i32 %365, %324
+  br i1 %.not113.i, label %.loopexit.i, label %342, !llvm.loop !6
 
-364:                                              ; preds = %340, %340, %340
-  %.reass118.i = add i32 %.0105124.i, %invariant.op117.i
-  %365 = call ptr @proto_tree_add_expert(ptr noundef %335, ptr noundef %1, ptr noundef nonnull @ei_mka_unimplemented, ptr noundef %0, i32 noundef %.reass118.i, i32 noundef %324) #8
-  %366 = load i32, ptr @hf_mka_tlv_data, align 4
-  %367 = call ptr @proto_tree_add_item(ptr noundef %335, i32 noundef %366, ptr noundef %0, i32 noundef %.reass118.i, i32 noundef %324, i32 noundef 0) #8
-  br label %.loopexit.i
-
-368:                                              ; preds = %340
+366:                                              ; preds = %340, %340, %340
+  %367 = add i32 %319, %318
+  %368 = call ptr @proto_tree_add_expert(ptr noundef %335, ptr noundef %1, ptr noundef nonnull @ei_mka_unimplemented, ptr noundef %0, i32 noundef %367, i32 noundef %324) #8
   %369 = load i32, ptr @hf_mka_tlv_data, align 4
-  %.reass122.i = add i32 %.0105124.i, %invariant.op117.i
-  %370 = call ptr @proto_tree_add_item(ptr noundef %335, i32 noundef %369, ptr noundef %0, i32 noundef %.reass122.i, i32 noundef %324, i32 noundef 0) #8
+  %370 = call ptr @proto_tree_add_item(ptr noundef %335, i32 noundef %369, ptr noundef %0, i32 noundef %367, i32 noundef %324, i32 noundef 0) #8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %341, %368, %364, %.preheader.i, %327
-  %.1.i63 = phi i32 [ %319, %327 ], [ %325, %368 ], [ %325, %364 ], [ %325, %.preheader.i ], [ %325, %341 ]
-  %371 = add i32 %.1.i63, 2
-  %.not.i64 = icmp sgt i32 %371, %309
-  br i1 %.not.i64, label %._crit_edge.i65, label %.lr.ph125.i, !llvm.loop !7
+371:                                              ; preds = %340
+  %372 = load i32, ptr @hf_mka_tlv_data, align 4
+  %373 = add i32 %319, %318
+  %374 = call ptr @proto_tree_add_item(ptr noundef %335, i32 noundef %372, ptr noundef %0, i32 noundef %373, i32 noundef %324, i32 noundef 0) #8
+  br label %.loopexit.i
 
-._crit_edge.i65:                                  ; preds = %.loopexit.i, %.lr.ph125.i, %304
-  %372 = add i32 %318, %309
-  %373 = and i32 %309, 3
-  %.not114.i = icmp eq i32 %373, 0
-  br i1 %.not114.i, label %dissect_peer_list.exit, label %374
+.loopexit.i:                                      ; preds = %342, %371, %366, %.preheader.i, %327
+  %.1.i63 = phi i32 [ %319, %327 ], [ %325, %371 ], [ %325, %366 ], [ %325, %.preheader.i ], [ %325, %342 ]
+  %375 = add i32 %.1.i63, 2
+  %.not.i64 = icmp sgt i32 %375, %309
+  br i1 %.not.i64, label %._crit_edge.i65, label %.lr.ph119.i, !llvm.loop !7
 
-374:                                              ; preds = %._crit_edge.i65
-  %375 = sub nuw nsw i32 4, %373
-  %376 = load i32, ptr @hf_mka_padding, align 4
-  %377 = call ptr @proto_tree_add_item(ptr noundef %313, i32 noundef %376, ptr noundef %0, i32 noundef %372, i32 noundef %375, i32 noundef 0) #8
-  %378 = add i32 %375, %372
+._crit_edge.i65:                                  ; preds = %.loopexit.i, %.lr.ph119.i, %304
+  %376 = add i32 %318, %309
+  %377 = and i32 %309, 3
+  %.not114.i = icmp eq i32 %377, 0
+  br i1 %.not114.i, label %dissect_peer_list.exit, label %378
+
+378:                                              ; preds = %._crit_edge.i65
+  %379 = sub nuw nsw i32 4, %377
+  %380 = load i32, ptr @hf_mka_padding, align 4
+  %381 = call ptr @proto_tree_add_item(ptr noundef %313, i32 noundef %380, ptr noundef %0, i32 noundef %376, i32 noundef %379, i32 noundef 0) #8
+  %382 = add i32 %379, %376
   br label %dissect_peer_list.exit
 
-379:                                              ; preds = %90
-  %380 = add i32 %.08689, 2
-  %381 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %380) #8
-  %382 = and i16 %381, 4095
-  %383 = load i32, ptr @hf_mka_xpn_set, align 4
-  %384 = zext nneg i16 %382 to i32
-  %385 = add nuw nsw i32 %384, 4
-  %386 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %383, ptr noundef %0, i32 noundef %.08689, i32 noundef %385, i32 noundef 0) #8
-  %387 = load i32, ptr @ett_mka_xpn_set, align 4
-  %388 = call ptr @proto_item_add_subtree(ptr noundef %386, i32 noundef %387) #8
-  %389 = load i32, ptr @hf_mka_param_set_type, align 4
-  %390 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %389, ptr noundef %0, i32 noundef %.08689, i32 noundef 1, i32 noundef 0) #8
-  %391 = add i32 %.08689, 1
-  %392 = load i32, ptr @hf_mka_suspension_time, align 4
-  %393 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %392, ptr noundef %0, i32 noundef %391, i32 noundef 1, i32 noundef 0) #8
-  %394 = load i32, ptr @hf_mka_param_body_length, align 4
-  %395 = call ptr @proto_tree_add_uint(ptr noundef %388, i32 noundef %394, ptr noundef %0, i32 noundef %380, i32 noundef 2, i32 noundef %384) #8
-  %396 = add i32 %.08689, 4
-  %397 = load i32, ptr @hf_mka_latest_lowest_acceptable_pn, align 4
-  %398 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %397, ptr noundef %0, i32 noundef %396, i32 noundef 4, i32 noundef 0) #8
-  %399 = add i32 %.08689, 8
-  %400 = load i32, ptr @hf_mka_old_lowest_acceptable_pn, align 4
-  %401 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %400, ptr noundef %0, i32 noundef %399, i32 noundef 4, i32 noundef 0) #8
-  %402 = add i32 %.08689, 12
+383:                                              ; preds = %90
+  %384 = add i32 %.08689, 2
+  %385 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %384) #8
+  %386 = and i16 %385, 4095
+  %387 = load i32, ptr @hf_mka_xpn_set, align 4
+  %388 = zext nneg i16 %386 to i32
+  %389 = add nuw nsw i32 %388, 4
+  %390 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %387, ptr noundef %0, i32 noundef %.08689, i32 noundef %389, i32 noundef 0) #8
+  %391 = load i32, ptr @ett_mka_xpn_set, align 4
+  %392 = call ptr @proto_item_add_subtree(ptr noundef %390, i32 noundef %391) #8
+  %393 = load i32, ptr @hf_mka_param_set_type, align 4
+  %394 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %393, ptr noundef %0, i32 noundef %.08689, i32 noundef 1, i32 noundef 0) #8
+  %395 = add i32 %.08689, 1
+  %396 = load i32, ptr @hf_mka_suspension_time, align 4
+  %397 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %396, ptr noundef %0, i32 noundef %395, i32 noundef 1, i32 noundef 0) #8
+  %398 = load i32, ptr @hf_mka_param_body_length, align 4
+  %399 = call ptr @proto_tree_add_uint(ptr noundef %392, i32 noundef %398, ptr noundef %0, i32 noundef %384, i32 noundef 2, i32 noundef %388) #8
+  %400 = add i32 %.08689, 4
+  %401 = load i32, ptr @hf_mka_latest_lowest_acceptable_pn, align 4
+  %402 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %401, ptr noundef %0, i32 noundef %400, i32 noundef 4, i32 noundef 0) #8
+  %403 = add i32 %.08689, 8
+  %404 = load i32, ptr @hf_mka_old_lowest_acceptable_pn, align 4
+  %405 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %404, ptr noundef %0, i32 noundef %403, i32 noundef 4, i32 noundef 0) #8
+  %406 = add i32 %.08689, 12
   br label %dissect_peer_list.exit
 
-403:                                              ; preds = %90
-  %404 = add i32 %.08689, 2
-  %405 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %404) #8
-  %406 = and i16 %405, 4095
-  %407 = load i32, ptr @hf_mka_icv_set, align 4
-  %408 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %407, ptr noundef %0, i32 noundef %.08689, i32 noundef 4, i32 noundef 0) #8
-  %409 = load i32, ptr @ett_mka_icv_set, align 4
-  %410 = call ptr @proto_item_add_subtree(ptr noundef %408, i32 noundef %409) #8
-  %411 = load i32, ptr @hf_mka_param_set_type, align 4
-  %412 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %411, ptr noundef %0, i32 noundef %.08689, i32 noundef 1, i32 noundef 0) #8
-  %413 = load i32, ptr @hf_mka_param_body_length, align 4
-  %414 = zext nneg i16 %406 to i32
-  %415 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %413, ptr noundef %0, i32 noundef %404, i32 noundef 2, i32 noundef %414) #8
-  %416 = add i32 %.08689, 4
+407:                                              ; preds = %90
+  %408 = add i32 %.08689, 2
+  %409 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %408) #8
+  %410 = and i16 %409, 4095
+  %411 = load i32, ptr @hf_mka_icv_set, align 4
+  %412 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %411, ptr noundef %0, i32 noundef %.08689, i32 noundef 4, i32 noundef 0) #8
+  %413 = load i32, ptr @ett_mka_icv_set, align 4
+  %414 = call ptr @proto_item_add_subtree(ptr noundef %412, i32 noundef %413) #8
+  %415 = load i32, ptr @hf_mka_param_set_type, align 4
+  %416 = call ptr @proto_tree_add_item(ptr noundef %414, i32 noundef %415, ptr noundef %0, i32 noundef %.08689, i32 noundef 1, i32 noundef 0) #8
+  %417 = load i32, ptr @hf_mka_param_body_length, align 4
+  %418 = zext nneg i16 %410 to i32
+  %419 = call ptr @proto_tree_add_uint(ptr noundef %414, i32 noundef %417, ptr noundef %0, i32 noundef %408, i32 noundef 2, i32 noundef %418) #8
+  %420 = add i32 %.08689, 4
   br label %dissect_peer_list.exit
 
-417:                                              ; preds = %90
-  %418 = add i32 %.08689, 2
-  %419 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %418) #8
-  %420 = and i16 %419, 4095
-  %421 = load i32, ptr @hf_mka_unknown_set, align 4
-  %422 = zext nneg i16 %420 to i32
-  %423 = add nuw nsw i32 %422, 4
-  %424 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %421, ptr noundef %0, i32 noundef %.08689, i32 noundef %423, i32 noundef 0) #8
-  %425 = load i32, ptr @ett_mka_unknown_set, align 4
-  %426 = call ptr @proto_item_add_subtree(ptr noundef %424, i32 noundef %425) #8
-  %427 = load i32, ptr @hf_mka_param_set_type, align 4
-  %428 = call ptr @proto_tree_add_item(ptr noundef %426, i32 noundef %427, ptr noundef %0, i32 noundef %.08689, i32 noundef 1, i32 noundef 0) #8
-  %429 = load i32, ptr @hf_mka_param_body_length, align 4
-  %430 = call ptr @proto_tree_add_uint(ptr noundef %426, i32 noundef %429, ptr noundef %0, i32 noundef %418, i32 noundef 2, i32 noundef %422) #8
-  %431 = add i32 %.08689, 4
-  %432 = load i32, ptr @hf_mka_unknown_param_set, align 4
-  %433 = call ptr @proto_tree_add_item(ptr noundef %426, i32 noundef %432, ptr noundef %0, i32 noundef %431, i32 noundef %422, i32 noundef 0) #8
-  %434 = add i32 %431, %422
-  %435 = and i32 %422, 3
-  %.not.i68 = icmp eq i32 %435, 0
-  br i1 %.not.i68, label %dissect_peer_list.exit, label %436
+421:                                              ; preds = %90
+  %422 = add i32 %.08689, 2
+  %423 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %422) #8
+  %424 = and i16 %423, 4095
+  %425 = load i32, ptr @hf_mka_unknown_set, align 4
+  %426 = zext nneg i16 %424 to i32
+  %427 = add nuw nsw i32 %426, 4
+  %428 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %425, ptr noundef %0, i32 noundef %.08689, i32 noundef %427, i32 noundef 0) #8
+  %429 = load i32, ptr @ett_mka_unknown_set, align 4
+  %430 = call ptr @proto_item_add_subtree(ptr noundef %428, i32 noundef %429) #8
+  %431 = load i32, ptr @hf_mka_param_set_type, align 4
+  %432 = call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %431, ptr noundef %0, i32 noundef %.08689, i32 noundef 1, i32 noundef 0) #8
+  %433 = load i32, ptr @hf_mka_param_body_length, align 4
+  %434 = call ptr @proto_tree_add_uint(ptr noundef %430, i32 noundef %433, ptr noundef %0, i32 noundef %422, i32 noundef 2, i32 noundef %426) #8
+  %435 = add i32 %.08689, 4
+  %436 = load i32, ptr @hf_mka_unknown_param_set, align 4
+  %437 = call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %436, ptr noundef %0, i32 noundef %435, i32 noundef %426, i32 noundef 0) #8
+  %438 = add i32 %435, %426
+  %439 = and i32 %426, 3
+  %.not.i68 = icmp eq i32 %439, 0
+  br i1 %.not.i68, label %dissect_peer_list.exit, label %440
 
-436:                                              ; preds = %417
-  %437 = sub nuw nsw i32 4, %435
-  %438 = load i32, ptr @hf_mka_padding, align 4
-  %439 = call ptr @proto_tree_add_item(ptr noundef %426, i32 noundef %438, ptr noundef %0, i32 noundef %434, i32 noundef %437, i32 noundef 0) #8
-  %440 = add i32 %437, %434
+440:                                              ; preds = %421
+  %441 = sub nuw nsw i32 4, %439
+  %442 = load i32, ptr @hf_mka_padding, align 4
+  %443 = call ptr @proto_tree_add_item(ptr noundef %430, i32 noundef %442, ptr noundef %0, i32 noundef %438, i32 noundef %441, i32 noundef 0) #8
+  %444 = add i32 %441, %438
   br label %dissect_peer_list.exit
 
-dissect_peer_list.exit:                           ; preds = %436, %417, %374, %._crit_edge.i65, %281, %mka_add_ckn_info.exit.i55, %231, %229, %206, %186, %183, %164, %130, %126, %._crit_edge.i, %403, %379, %286
-  %.187 = phi i32 [ %416, %403 ], [ %402, %379 ], [ %303, %286 ], [ %129, %126 ], [ %.046.lcssa.i, %._crit_edge.i ], [ %163, %130 ], [ %182, %164 ], [ %185, %183 ], [ %235, %231 ], [ %.0.i52, %229 ], [ %212, %206 ], [ %205, %186 ], [ %285, %281 ], [ %279, %mka_add_ckn_info.exit.i55 ], [ %378, %374 ], [ %372, %._crit_edge.i65 ], [ %440, %436 ], [ %434, %417 ]
-  %.1 = phi i16 [ %406, %403 ], [ %.090, %379 ], [ %.090, %286 ], [ %.090, %126 ], [ %.090, %._crit_edge.i ], [ %.090, %130 ], [ %.090, %164 ], [ %.090, %183 ], [ %.090, %231 ], [ %.090, %229 ], [ %.090, %206 ], [ %.090, %186 ], [ %.090, %281 ], [ %.090, %mka_add_ckn_info.exit.i55 ], [ %.090, %374 ], [ %.090, %._crit_edge.i65 ], [ %.090, %436 ], [ %.090, %417 ]
-  %441 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.187) #8
-  %442 = zext nneg i16 %.1 to i32
-  %443 = icmp sgt i32 %441, %442
-  br i1 %443, label %90, label %._crit_edge, !llvm.loop !8
+dissect_peer_list.exit:                           ; preds = %440, %421, %378, %._crit_edge.i65, %281, %mka_add_ckn_info.exit.i55, %231, %229, %206, %186, %183, %164, %130, %126, %._crit_edge.i, %407, %383, %286
+  %.187 = phi i32 [ %420, %407 ], [ %406, %383 ], [ %303, %286 ], [ %129, %126 ], [ %.046.lcssa.i, %._crit_edge.i ], [ %163, %130 ], [ %182, %164 ], [ %185, %183 ], [ %235, %231 ], [ %.0.i52, %229 ], [ %212, %206 ], [ %205, %186 ], [ %285, %281 ], [ %279, %mka_add_ckn_info.exit.i55 ], [ %382, %378 ], [ %376, %._crit_edge.i65 ], [ %444, %440 ], [ %438, %421 ]
+  %.1 = phi i16 [ %410, %407 ], [ %.090, %383 ], [ %.090, %286 ], [ %.090, %126 ], [ %.090, %._crit_edge.i ], [ %.090, %130 ], [ %.090, %164 ], [ %.090, %183 ], [ %.090, %231 ], [ %.090, %229 ], [ %.090, %206 ], [ %.090, %186 ], [ %.090, %281 ], [ %.090, %mka_add_ckn_info.exit.i55 ], [ %.090, %378 ], [ %.090, %._crit_edge.i65 ], [ %.090, %440 ], [ %.090, %421 ]
+  %445 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.187) #8
+  %446 = zext nneg i16 %.1 to i32
+  %447 = icmp sgt i32 %445, %446
+  br i1 %447, label %90, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_peer_list.exit, %dissect_basic_paramset.exit
   %.086.lcssa = phi i32 [ %.0.i, %dissect_basic_paramset.exit ], [ %.187, %dissect_peer_list.exit ]
-  %.lcssa88 = phi i32 [ 16, %dissect_basic_paramset.exit ], [ %442, %dissect_peer_list.exit ]
-  %444 = load i32, ptr @hf_mka_icv, align 4
-  %445 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %444, ptr noundef %0, i32 noundef %.086.lcssa, i32 noundef %.lcssa88, i32 noundef 0) #8
-  %446 = call i32 @tvb_captured_length(ptr noundef %0) #8
-  ret i32 %446
+  %.lcssa88 = phi i32 [ 16, %dissect_basic_paramset.exit ], [ %446, %dissect_peer_list.exit ]
+  %448 = load i32, ptr @hf_mka_icv, align 4
+  %449 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %448, ptr noundef %0, i32 noundef %.086.lcssa, i32 noundef %.lcssa88, i32 noundef 0) #8
+  %450 = call i32 @tvb_captured_length(ptr noundef %0) #8
+  ret i32 %450
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

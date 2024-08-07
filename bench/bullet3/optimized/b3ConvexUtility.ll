@@ -1076,8 +1076,8 @@ invoke.cont167:                                   ; preds = %.noexc710, %call.i.
   br i1 %cmp175953, label %invoke.cont188.preheader, label %for.body412.preheader
 
 invoke.cont188.preheader:                         ; preds = %invoke.cont167
-  %j.0952.reass = add nsw i32 %108, -2
-  %117 = zext nneg i32 %j.0952.reass to i64
+  %j.0952 = add nsw i32 %108, -2
+  %117 = zext nneg i32 %j.0952 to i64
   br label %invoke.cont188
 
 invoke.cont188:                                   ; preds = %invoke.cont188.preheader, %for.inc199

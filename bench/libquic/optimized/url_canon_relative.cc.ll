@@ -23,8 +23,8 @@ entry:
 
 land.rhs.i.preheader.i:                           ; preds = %entry
   %0 = load i8, ptr %fragment, align 1
-  %cmp.i.i68.i = icmp ult i8 %0, 33
-  br i1 %cmp.i.i68.i, label %while.body.i.lr.ph.i, label %while.end.i.i
+  %cmp.i.i70.i = icmp ult i8 %0, 33
+  br i1 %cmp.i.i70.i, label %while.body.i.lr.ph.i, label %while.end.i.i
 
 while.body.i.lr.ph.i:                             ; preds = %land.rhs.i.preheader.i
   %1 = zext nneg i32 %fragment_len to i64
@@ -32,15 +32,15 @@ while.body.i.lr.ph.i:                             ; preds = %land.rhs.i.preheade
   br label %while.body.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i69.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i71.i, 1
   %arrayidx.i.i = getelementptr inbounds i8, ptr %fragment, i64 %indvars.iv.next.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i.i = icmp ult i8 %3, 33
   br i1 %cmp.i.i.i, label %while.body.i.i, label %while.end.i.loopexit.i, !llvm.loop !5
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i, %while.body.i.lr.ph.i
-  %indvars.iv.i69.i = phi i64 [ 0, %while.body.i.lr.ph.i ], [ %indvars.iv.next.i.i, %land.rhs.i.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i69.i, %2
+  %indvars.iv.i71.i = phi i64 [ 0, %while.body.i.lr.ph.i ], [ %indvars.iv.next.i.i, %land.rhs.i.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i71.i, %2
   br i1 %exitcond.not.i, label %if.then.i, label %land.rhs.i.i, !llvm.loop !5
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
@@ -55,10 +55,10 @@ while.end.i.i:                                    ; preds = %while.end.i.loopexi
 
 land.rhs3.preheader.i.i:                          ; preds = %while.end.i.i
   %5 = zext nneg i32 %fragment_len to i64
-  %gep.i71.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %5
-  %6 = load i8, ptr %gep.i71.i, align 1
-  %cmp.i9.i72.i = icmp ult i8 %6, 33
-  br i1 %cmp.i9.i72.i, label %while.body9.i.lr.ph.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
+  %gep.i73.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %5
+  %6 = load i8, ptr %gep.i73.i, align 1
+  %cmp.i9.i74.i = icmp ult i8 %6, 33
+  br i1 %cmp.i9.i74.i, label %while.body9.i.lr.ph.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 while.body9.i.lr.ph.i:                            ; preds = %land.rhs3.preheader.i.i
   %7 = sext i32 %begin.0.i to i64
@@ -71,8 +71,8 @@ land.rhs3.i.i:                                    ; preds = %while.body9.i.i
   br i1 %cmp.i9.i.i, label %while.body9.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, !llvm.loop !7
 
 while.body9.i.i:                                  ; preds = %land.rhs3.i.i, %while.body9.i.lr.ph.i
-  %indvars.iv13.i73.i = phi i64 [ %5, %while.body9.i.lr.ph.i ], [ %indvars.iv.next14.i.i, %land.rhs3.i.i ]
-  %indvars.iv.next14.i.i = add nsw i64 %indvars.iv13.i73.i, -1
+  %indvars.iv13.i75.i = phi i64 [ %5, %while.body9.i.lr.ph.i ], [ %indvars.iv.next14.i.i, %land.rhs3.i.i ]
+  %indvars.iv.next14.i.i = add nsw i64 %indvars.iv13.i75.i, -1
   %cmp2.i.i = icmp sgt i64 %indvars.iv.next14.i.i, %7
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %if.then.i, !llvm.loop !7
 
@@ -81,17 +81,17 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
-  %begin.060.i = phi i32 [ %begin.0.i, %while.end.i.i ], [ 0, %entry ], [ %begin.0.i, %land.rhs3.preheader.i.i ], [ %begin.0.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %begin.062.i = phi i32 [ %begin.0.i, %while.end.i.i ], [ 0, %entry ], [ %begin.0.i, %land.rhs3.preheader.i.i ], [ %begin.0.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
   %url_len.addr.1.i = phi i32 [ %fragment_len, %while.end.i.i ], [ %fragment_len, %entry ], [ %fragment_len, %land.rhs3.preheader.i.i ], [ %9, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %cmp.not.i = icmp slt i32 %begin.060.i, %url_len.addr.1.i
+  %cmp.not.i = icmp slt i32 %begin.062.i, %url_len.addr.1.i
   br i1 %cmp.not.i, label %if.end2.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i.i, %while.body9.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
-  %begin.06089.i = phi i32 [ %begin.060.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %begin.0.i, %while.body9.i.i ], [ %fragment_len, %while.body.i.i ]
+  %begin.06291.i = phi i32 [ %begin.062.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %begin.0.i, %while.body9.i.i ], [ %fragment_len, %while.body.i.i ]
   br i1 %is_base_hierarchical, label %if.end.i, label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %begin.06089.i to i64
+  %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %begin.06291.i to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext.i, ptr %relative_component, align 4
   store i8 1, ptr %is_relative, align 1
   br label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
@@ -107,7 +107,7 @@ if.end2.i:                                        ; preds = %_ZN3url7TrimURLIcEE
   br i1 %.not.i, label %if.end15.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end2.i
-  %idxprom.i = sext i32 %begin.060.i to i64
+  %idxprom.i = sext i32 %begin.062.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %fragment, i64 %idxprom.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %cmp7.i = icmp eq i8 %11, 35
@@ -115,18 +115,18 @@ if.then6.i:                                       ; preds = %if.end2.i
   br i1 %brmerge.i, label %if.end12.i, label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.end12.i:                                       ; preds = %if.then6.i
-  %sub.i.i = sub nsw i32 %url_len.addr.1.i, %begin.060.i
+  %sub.i.i = sub nsw i32 %url_len.addr.1.i, %begin.062.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
-  %retval.sroa.0.0.insert.ext.i.i = zext i32 %begin.060.i to i64
+  %retval.sroa.0.0.insert.ext.i.i = zext i32 %begin.062.i to i64
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %relative_component, align 4
   store i8 1, ptr %is_relative, align 1
   br label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.end15.i:                                       ; preds = %if.end2.i
-  %cmp1876.i = icmp sgt i32 %10, 0
-  br i1 %cmp1876.i, label %for.body.preheader.i, label %for.end.i
+  %cmp1878.i = icmp sgt i32 %10, 0
+  br i1 %cmp1878.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.end15.i
   %12 = load i32, ptr %scheme.i, align 4
@@ -153,10 +153,10 @@ if.then24.i:                                      ; preds = %for.body.i
   br i1 %is_base_hierarchical, label %if.end27.i, label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.end27.i:                                       ; preds = %if.then24.i
-  %sub.i24.i = sub nsw i32 %url_len.addr.1.i, %begin.060.i
+  %sub.i24.i = sub nsw i32 %url_len.addr.1.i, %begin.062.i
   %retval.sroa.2.0.insert.ext.i25.i = zext i32 %sub.i24.i to i64
   %retval.sroa.2.0.insert.shift.i26.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i25.i, 32
-  %retval.sroa.0.0.insert.ext.i27.i = zext i32 %begin.060.i to i64
+  %retval.sroa.0.0.insert.ext.i27.i = zext i32 %begin.062.i to i64
   %retval.sroa.0.0.insert.insert.i28.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i26.i, %retval.sroa.0.0.insert.ext.i27.i
   store i64 %retval.sroa.0.0.insert.insert.i28.i, ptr %relative_component, align 4
   store i8 1, ptr %is_relative, align 1
@@ -213,51 +213,50 @@ if.end41.i:                                       ; preds = %if.end37.i
   %add.i33.i = add i32 %23, 1
   %add.i = add i32 %add.i33.i, %24
   %cmp5.i.i = icmp slt i32 %add.i, %url_len.addr.1.i
-  br i1 %cmp5.i.i, label %land.rhs.lr.ph.i.i, label %if.end41.if.then45_crit_edge.i
+  br i1 %cmp5.i.i, label %land.rhs.preheader.i35.i, label %if.end41.if.then45_crit_edge.i
 
 if.end41.if.then45_crit_edge.i:                   ; preds = %if.end41.i
-  %.pre81.i = sub nsw i32 %url_len.addr.1.i, %add.i
-  %.pre82.i = zext i32 %.pre81.i to i64
+  %.pre83.i = sub nsw i32 %url_len.addr.1.i, %add.i
+  %.pre84.i = zext i32 %.pre83.i to i64
   br label %if.then45.i
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end41.i
+land.rhs.preheader.i35.i:                         ; preds = %if.end41.i
   %25 = sext i32 %add.i to i64
   %26 = sub i32 %url_len.addr.1.i, %add.i
   %wide.trip.count.i.i = zext i32 %26 to i64
-  br label %land.rhs.i35.i
+  %invariant.gep.i36.i = getelementptr i8, ptr %fragment, i64 %25
+  br label %land.rhs.i37.i
 
-land.rhs.i35.i:                                   ; preds = %while.body.i38.i, %land.rhs.lr.ph.i.i
-  %indvars.iv9.i.i = phi i64 [ 0, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next10.i.i, %while.body.i38.i ]
-  %indvars.iv.i36.i = phi i64 [ %25, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next.i39.i, %while.body.i38.i ]
-  %arrayidx.i37.i = getelementptr inbounds i8, ptr %fragment, i64 %indvars.iv.i36.i
-  %27 = load i8, ptr %arrayidx.i37.i, align 1
+land.rhs.i37.i:                                   ; preds = %while.body.i40.i, %land.rhs.preheader.i35.i
+  %indvars.iv.i38.i = phi i64 [ 0, %land.rhs.preheader.i35.i ], [ %indvars.iv.next.i41.i, %while.body.i40.i ]
+  %gep.i39.i = getelementptr i8, ptr %invariant.gep.i36.i, i64 %indvars.iv.i38.i
+  %27 = load i8, ptr %gep.i39.i, align 1
   switch i8 %27, label %while.end.loopexit.split.loop.exit.i.i [
-    i8 92, label %while.body.i38.i
-    i8 47, label %while.body.i38.i
+    i8 92, label %while.body.i40.i
+    i8 47, label %while.body.i40.i
   ]
 
-while.body.i38.i:                                 ; preds = %land.rhs.i35.i, %land.rhs.i35.i
-  %indvars.iv.next10.i.i = add nuw nsw i64 %indvars.iv9.i.i, 1
-  %indvars.iv.next.i39.i = add nsw i64 %indvars.iv.i36.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next10.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, label %land.rhs.i35.i, !llvm.loop !10
+while.body.i40.i:                                 ; preds = %land.rhs.i37.i, %land.rhs.i37.i
+  %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i38.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i41.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, label %land.rhs.i37.i, !llvm.loop !10
 
-while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i35.i
-  %28 = trunc nuw nsw i64 %indvars.iv9.i.i to i32
+while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i37.i
+  %28 = trunc nuw nsw i64 %indvars.iv.i38.i to i32
   br label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i
 
-_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i: ; preds = %while.body.i38.i, %while.end.loopexit.split.loop.exit.i.i
-  %count.0.lcssa.i.i = phi i32 [ %28, %while.end.loopexit.split.loop.exit.i.i ], [ %26, %while.body.i38.i ]
+_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i: ; preds = %while.body.i40.i, %while.end.loopexit.split.loop.exit.i.i
+  %count.0.lcssa.i.i = phi i32 [ %28, %while.end.loopexit.split.loop.exit.i.i ], [ %26, %while.body.i40.i ]
   %or.cond.i = icmp ult i32 %count.0.lcssa.i.i, 2
   br i1 %or.cond.i, label %if.then45.i, label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.then45.i:                                      ; preds = %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, %if.end41.if.then45_crit_edge.i
-  %retval.sroa.2.0.insert.ext.i41.pre-phi.i = phi i64 [ %.pre82.i, %if.end41.if.then45_crit_edge.i ], [ %wide.trip.count.i.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
+  %retval.sroa.2.0.insert.ext.i43.pre-phi.i = phi i64 [ %.pre84.i, %if.end41.if.then45_crit_edge.i ], [ %wide.trip.count.i.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
   store i8 1, ptr %is_relative, align 1
-  %retval.sroa.2.0.insert.shift.i42.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i41.pre-phi.i, 32
-  %retval.sroa.0.0.insert.ext.i43.i = zext i32 %add.i to i64
-  %retval.sroa.0.0.insert.insert.i44.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i42.i, %retval.sroa.0.0.insert.ext.i43.i
-  store i64 %retval.sroa.0.0.insert.insert.i44.i, ptr %relative_component, align 4
+  %retval.sroa.2.0.insert.shift.i44.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i43.pre-phi.i, 32
+  %retval.sroa.0.0.insert.ext.i45.i = zext i32 %add.i to i64
+  %retval.sroa.0.0.insert.insert.i46.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i44.i, %retval.sroa.0.0.insert.ext.i45.i
+  store i64 %retval.sroa.0.0.insert.insert.i46.i, ptr %relative_component, align 4
   br label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 _ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit: ; preds = %for.body.i.i, %if.then.i, %if.end.i, %if.then6.i, %if.end12.i, %if.then24.i, %if.end27.i, %for.end.i, %_ZN3url12_GLOBAL__N_115AreSchemesEqualIcEEbPKcRKNS_9ComponentEPKT_S6_.exit.i, %if.end37.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, %if.then45.i
@@ -277,8 +276,8 @@ entry:
 
 land.rhs.i.preheader.i:                           ; preds = %entry
   %0 = load i16, ptr %fragment, align 2
-  %cmp.i.i68.i = icmp ult i16 %0, 33
-  br i1 %cmp.i.i68.i, label %while.body.i.lr.ph.i, label %while.end.i.i
+  %cmp.i.i70.i = icmp ult i16 %0, 33
+  br i1 %cmp.i.i70.i, label %while.body.i.lr.ph.i, label %while.end.i.i
 
 while.body.i.lr.ph.i:                             ; preds = %land.rhs.i.preheader.i
   %1 = zext nneg i32 %fragment_len to i64
@@ -286,15 +285,15 @@ while.body.i.lr.ph.i:                             ; preds = %land.rhs.i.preheade
   br label %while.body.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i69.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i71.i, 1
   %arrayidx.i.i = getelementptr inbounds i16, ptr %fragment, i64 %indvars.iv.next.i.i
   %3 = load i16, ptr %arrayidx.i.i, align 2
   %cmp.i.i.i = icmp ult i16 %3, 33
   br i1 %cmp.i.i.i, label %while.body.i.i, label %while.end.i.loopexit.i, !llvm.loop !11
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i, %while.body.i.lr.ph.i
-  %indvars.iv.i69.i = phi i64 [ 0, %while.body.i.lr.ph.i ], [ %indvars.iv.next.i.i, %land.rhs.i.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i69.i, %2
+  %indvars.iv.i71.i = phi i64 [ 0, %while.body.i.lr.ph.i ], [ %indvars.iv.next.i.i, %land.rhs.i.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i71.i, %2
   br i1 %exitcond.not.i, label %if.then.i, label %land.rhs.i.i, !llvm.loop !11
 
 while.end.i.loopexit.i:                           ; preds = %land.rhs.i.i
@@ -309,10 +308,10 @@ while.end.i.i:                                    ; preds = %while.end.i.loopexi
 
 land.rhs3.preheader.i.i:                          ; preds = %while.end.i.i
   %5 = zext nneg i32 %fragment_len to i64
-  %gep.i71.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %5
-  %6 = load i16, ptr %gep.i71.i, align 2
-  %cmp.i9.i72.i = icmp ult i16 %6, 33
-  br i1 %cmp.i9.i72.i, label %while.body8.i.lr.ph.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
+  %gep.i73.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %5
+  %6 = load i16, ptr %gep.i73.i, align 2
+  %cmp.i9.i74.i = icmp ult i16 %6, 33
+  br i1 %cmp.i9.i74.i, label %while.body8.i.lr.ph.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 while.body8.i.lr.ph.i:                            ; preds = %land.rhs3.preheader.i.i
   %7 = sext i32 %begin.0.i to i64
@@ -325,8 +324,8 @@ land.rhs3.i.i:                                    ; preds = %while.body8.i.i
   br i1 %cmp.i9.i.i, label %while.body8.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, !llvm.loop !12
 
 while.body8.i.i:                                  ; preds = %land.rhs3.i.i, %while.body8.i.lr.ph.i
-  %indvars.iv13.i73.i = phi i64 [ %5, %while.body8.i.lr.ph.i ], [ %indvars.iv.next14.i.i, %land.rhs3.i.i ]
-  %indvars.iv.next14.i.i = add nsw i64 %indvars.iv13.i73.i, -1
+  %indvars.iv13.i75.i = phi i64 [ %5, %while.body8.i.lr.ph.i ], [ %indvars.iv.next14.i.i, %land.rhs3.i.i ]
+  %indvars.iv.next14.i.i = add nsw i64 %indvars.iv13.i75.i, -1
   %cmp2.i.i = icmp sgt i64 %indvars.iv.next14.i.i, %7
   br i1 %cmp2.i.i, label %land.rhs3.i.i, label %if.then.i, !llvm.loop !12
 
@@ -335,17 +334,17 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
-  %begin.060.i = phi i32 [ %begin.0.i, %while.end.i.i ], [ 0, %entry ], [ %begin.0.i, %land.rhs3.preheader.i.i ], [ %begin.0.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %begin.062.i = phi i32 [ %begin.0.i, %while.end.i.i ], [ 0, %entry ], [ %begin.0.i, %land.rhs3.preheader.i.i ], [ %begin.0.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
   %url_len.addr.1.i = phi i32 [ %fragment_len, %while.end.i.i ], [ %fragment_len, %entry ], [ %fragment_len, %land.rhs3.preheader.i.i ], [ %9, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %cmp.not.i = icmp slt i32 %begin.060.i, %url_len.addr.1.i
+  %cmp.not.i = icmp slt i32 %begin.062.i, %url_len.addr.1.i
   br i1 %cmp.not.i, label %if.end2.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i.i, %while.body8.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
-  %begin.06089.i = phi i32 [ %begin.060.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %begin.0.i, %while.body8.i.i ], [ %fragment_len, %while.body.i.i ]
+  %begin.06291.i = phi i32 [ %begin.062.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %begin.0.i, %while.body8.i.i ], [ %fragment_len, %while.body.i.i ]
   br i1 %is_base_hierarchical, label %if.end.i, label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLItEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %begin.06089.i to i64
+  %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %begin.06291.i to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext.i, ptr %relative_component, align 4
   store i8 1, ptr %is_relative, align 1
   br label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLItEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
@@ -361,7 +360,7 @@ if.end2.i:                                        ; preds = %_ZN3url7TrimURLItEE
   br i1 %.not.i, label %if.end15.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end2.i
-  %idxprom.i = sext i32 %begin.060.i to i64
+  %idxprom.i = sext i32 %begin.062.i to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %fragment, i64 %idxprom.i
   %11 = load i16, ptr %arrayidx.i, align 2
   %cmp7.i = icmp eq i16 %11, 35
@@ -369,18 +368,18 @@ if.then6.i:                                       ; preds = %if.end2.i
   br i1 %brmerge.i, label %if.end12.i, label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLItEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.end12.i:                                       ; preds = %if.then6.i
-  %sub.i.i = sub nsw i32 %url_len.addr.1.i, %begin.060.i
+  %sub.i.i = sub nsw i32 %url_len.addr.1.i, %begin.062.i
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
-  %retval.sroa.0.0.insert.ext.i.i = zext i32 %begin.060.i to i64
+  %retval.sroa.0.0.insert.ext.i.i = zext i32 %begin.062.i to i64
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %relative_component, align 4
   store i8 1, ptr %is_relative, align 1
   br label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLItEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.end15.i:                                       ; preds = %if.end2.i
-  %cmp1876.i = icmp sgt i32 %10, 0
-  br i1 %cmp1876.i, label %for.body.preheader.i, label %for.end.i
+  %cmp1878.i = icmp sgt i32 %10, 0
+  br i1 %cmp1878.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.end15.i
   %12 = load i32, ptr %scheme.i, align 4
@@ -406,10 +405,10 @@ if.then23.i:                                      ; preds = %for.body.i
   br i1 %is_base_hierarchical, label %if.end26.i, label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLItEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.end26.i:                                       ; preds = %if.then23.i
-  %sub.i24.i = sub nsw i32 %url_len.addr.1.i, %begin.060.i
+  %sub.i24.i = sub nsw i32 %url_len.addr.1.i, %begin.062.i
   %retval.sroa.2.0.insert.ext.i25.i = zext i32 %sub.i24.i to i64
   %retval.sroa.2.0.insert.shift.i26.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i25.i, 32
-  %retval.sroa.0.0.insert.ext.i27.i = zext i32 %begin.060.i to i64
+  %retval.sroa.0.0.insert.ext.i27.i = zext i32 %begin.062.i to i64
   %retval.sroa.0.0.insert.insert.i28.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i26.i, %retval.sroa.0.0.insert.ext.i27.i
   store i64 %retval.sroa.0.0.insert.insert.i28.i, ptr %relative_component, align 4
   store i8 1, ptr %is_relative, align 1
@@ -465,51 +464,50 @@ if.end40.i:                                       ; preds = %if.end36.i
   %add.i33.i = add i32 %23, 1
   %add.i = add i32 %add.i33.i, %24
   %cmp5.i.i = icmp slt i32 %add.i, %url_len.addr.1.i
-  br i1 %cmp5.i.i, label %land.rhs.lr.ph.i.i, label %if.end40.if.then44_crit_edge.i
+  br i1 %cmp5.i.i, label %land.rhs.preheader.i35.i, label %if.end40.if.then44_crit_edge.i
 
 if.end40.if.then44_crit_edge.i:                   ; preds = %if.end40.i
-  %.pre81.i = sub nsw i32 %url_len.addr.1.i, %add.i
-  %.pre82.i = zext i32 %.pre81.i to i64
+  %.pre83.i = sub nsw i32 %url_len.addr.1.i, %add.i
+  %.pre84.i = zext i32 %.pre83.i to i64
   br label %if.then44.i
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end40.i
+land.rhs.preheader.i35.i:                         ; preds = %if.end40.i
   %25 = sext i32 %add.i to i64
   %26 = sub i32 %url_len.addr.1.i, %add.i
   %wide.trip.count.i.i = zext i32 %26 to i64
-  br label %land.rhs.i35.i
+  %invariant.gep.i36.i = getelementptr i16, ptr %fragment, i64 %25
+  br label %land.rhs.i37.i
 
-land.rhs.i35.i:                                   ; preds = %while.body.i38.i, %land.rhs.lr.ph.i.i
-  %indvars.iv9.i.i = phi i64 [ 0, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next10.i.i, %while.body.i38.i ]
-  %indvars.iv.i36.i = phi i64 [ %25, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next.i39.i, %while.body.i38.i ]
-  %arrayidx.i37.i = getelementptr inbounds i16, ptr %fragment, i64 %indvars.iv.i36.i
-  %27 = load i16, ptr %arrayidx.i37.i, align 2
+land.rhs.i37.i:                                   ; preds = %while.body.i40.i, %land.rhs.preheader.i35.i
+  %indvars.iv.i38.i = phi i64 [ 0, %land.rhs.preheader.i35.i ], [ %indvars.iv.next.i41.i, %while.body.i40.i ]
+  %gep.i39.i = getelementptr i16, ptr %invariant.gep.i36.i, i64 %indvars.iv.i38.i
+  %27 = load i16, ptr %gep.i39.i, align 2
   switch i16 %27, label %while.end.loopexit.split.loop.exit.i.i [
-    i16 92, label %while.body.i38.i
-    i16 47, label %while.body.i38.i
+    i16 92, label %while.body.i40.i
+    i16 47, label %while.body.i40.i
   ]
 
-while.body.i38.i:                                 ; preds = %land.rhs.i35.i, %land.rhs.i35.i
-  %indvars.iv.next10.i.i = add nuw nsw i64 %indvars.iv9.i.i, 1
-  %indvars.iv.next.i39.i = add nsw i64 %indvars.iv.i36.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next10.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, label %land.rhs.i35.i, !llvm.loop !15
+while.body.i40.i:                                 ; preds = %land.rhs.i37.i, %land.rhs.i37.i
+  %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i38.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i41.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, label %land.rhs.i37.i, !llvm.loop !15
 
-while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i35.i
-  %28 = trunc nuw nsw i64 %indvars.iv9.i.i to i32
+while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i37.i
+  %28 = trunc nuw nsw i64 %indvars.iv.i38.i to i32
   br label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i
 
-_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i: ; preds = %while.body.i38.i, %while.end.loopexit.split.loop.exit.i.i
-  %count.0.lcssa.i.i = phi i32 [ %28, %while.end.loopexit.split.loop.exit.i.i ], [ %26, %while.body.i38.i ]
+_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i: ; preds = %while.body.i40.i, %while.end.loopexit.split.loop.exit.i.i
+  %count.0.lcssa.i.i = phi i32 [ %28, %while.end.loopexit.split.loop.exit.i.i ], [ %26, %while.body.i40.i ]
   %or.cond.i = icmp ult i32 %count.0.lcssa.i.i, 2
   br i1 %or.cond.i, label %if.then44.i, label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLItEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 if.then44.i:                                      ; preds = %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, %if.end40.if.then44_crit_edge.i
-  %retval.sroa.2.0.insert.ext.i41.pre-phi.i = phi i64 [ %.pre82.i, %if.end40.if.then44_crit_edge.i ], [ %wide.trip.count.i.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
+  %retval.sroa.2.0.insert.ext.i43.pre-phi.i = phi i64 [ %.pre84.i, %if.end40.if.then44_crit_edge.i ], [ %wide.trip.count.i.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
   store i8 1, ptr %is_relative, align 1
-  %retval.sroa.2.0.insert.shift.i42.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i41.pre-phi.i, 32
-  %retval.sroa.0.0.insert.ext.i43.i = zext i32 %add.i to i64
-  %retval.sroa.0.0.insert.insert.i44.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i42.i, %retval.sroa.0.0.insert.ext.i43.i
-  store i64 %retval.sroa.0.0.insert.insert.i44.i, ptr %relative_component, align 4
+  %retval.sroa.2.0.insert.shift.i44.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i43.pre-phi.i, 32
+  %retval.sroa.0.0.insert.ext.i45.i = zext i32 %add.i to i64
+  %retval.sroa.0.0.insert.insert.i46.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i44.i, %retval.sroa.0.0.insert.ext.i45.i
+  store i64 %retval.sroa.0.0.insert.insert.i46.i, ptr %relative_component, align 4
   br label %_ZN3url12_GLOBAL__N_115DoIsRelativeURLItEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit
 
 _ZN3url12_GLOBAL__N_115DoIsRelativeURLItEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9ComponentE.exit: ; preds = %for.body.i.i, %if.then.i, %if.end.i, %if.then6.i, %if.end12.i, %if.then23.i, %if.end26.i, %for.end.i, %_ZN3url12_GLOBAL__N_115AreSchemesEqualItEEbPKcRKNS_9ComponentEPKT_S6_.exit.i, %if.end36.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, %if.then44.i
@@ -521,10 +519,10 @@ _ZN3url12_GLOBAL__N_115DoIsRelativeURLItEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9Componen
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3url18ResolveRelativeURLEPKcRKNS_6ParsedEbS1_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %base_url, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed, i1 noundef zeroext %base_is_file, ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %relative_component, ptr noundef %query_converter, ptr noundef %output, ptr noundef nonnull %out_parsed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %path.i60.i = alloca %"struct.url::Component", align 4
-  %query.i61.i = alloca %"struct.url::Component", align 4
-  %ref.i62.i = alloca %"struct.url::Component", align 4
-  %relative_parsed.i57.i = alloca %"struct.url::Parsed", align 8
+  %path.i59.i = alloca %"struct.url::Component", align 4
+  %query.i60.i = alloca %"struct.url::Component", align 4
+  %ref.i61.i = alloca %"struct.url::Component", align 4
+  %relative_parsed.i56.i = alloca %"struct.url::Parsed", align 8
   %replacements.i.i = alloca %"class.url::Replacements", align 8
   %relative_parsed.i.i = alloca %"struct.url::Parsed", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN3url6ParsedaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %out_parsed, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
@@ -535,8 +533,8 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call noundef i32 @_ZNK3url6Parsed6LengthEv(ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
-  %cmp292.i = icmp sgt i32 %call1.i, 0
-  br i1 %cmp292.i, label %for.body.lr.ph.i, label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
+  %cmp291.i = icmp sgt i32 %call1.i, 0
+  br i1 %cmp291.i, label %for.body.lr.ph.i, label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
   %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
@@ -599,7 +597,7 @@ if.end.i:                                         ; preds = %entry
   %len3.i = getelementptr inbounds i8, ptr %relative_component, i64 4
   %8 = load i32, ptr %len3.i, align 4
   %cmp4.i = icmp slt i32 %8, 1
-  br i1 %cmp4.i, label %if.then5.i, label %land.rhs.lr.ph.i.i
+  br i1 %cmp4.i, label %if.then5.i, label %land.rhs.preheader.i.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %call7.i = tail call noundef i32 @_ZNK3url6Parsed6LengthEv(ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
@@ -671,30 +669,29 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   store i32 %add13.i.i, ptr %cur_len_.i35.i, align 4
   br label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end.i
+land.rhs.preheader.i.i:                           ; preds = %if.end.i
   %18 = load i32, ptr %relative_component, align 4
   %19 = sext i32 %18 to i64
   %wide.trip.count.i50.i = zext nneg i32 %8 to i64
+  %invariant.gep.i.i = getelementptr i8, ptr %relative_url, i64 %19
   br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %indvars.iv9.i.i = phi i64 [ 0, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next10.i.i, %while.body.i.i ]
-  %indvars.iv.i51.i = phi i64 [ %19, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next.i53.i, %while.body.i.i ]
-  %arrayidx.i52.i = getelementptr inbounds i8, ptr %relative_url, i64 %indvars.iv.i51.i
-  %20 = load i8, ptr %arrayidx.i52.i, align 1
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.preheader.i.i
+  %indvars.iv.i51.i = phi i64 [ 0, %land.rhs.preheader.i.i ], [ %indvars.iv.next.i52.i, %while.body.i.i ]
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv.i51.i
+  %20 = load i8, ptr %gep.i.i, align 1
   switch i8 %20, label %while.end.loopexit.split.loop.exit.i.i [
     i8 92, label %while.body.i.i
     i8 47, label %while.body.i.i
   ]
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i, %land.rhs.i.i
-  %indvars.iv.next10.i.i = add nuw nsw i64 %indvars.iv9.i.i, 1
-  %indvars.iv.next.i53.i = add nsw i64 %indvars.iv.i51.i, 1
-  %exitcond.not.i54.i = icmp eq i64 %indvars.iv.next10.i.i, %wide.trip.count.i50.i
-  br i1 %exitcond.not.i54.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, label %land.rhs.i.i, !llvm.loop !10
+  %indvars.iv.next.i52.i = add nuw nsw i64 %indvars.iv.i51.i, 1
+  %exitcond.not.i53.i = icmp eq i64 %indvars.iv.next.i52.i, %wide.trip.count.i50.i
+  br i1 %exitcond.not.i53.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, label %land.rhs.i.i, !llvm.loop !10
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i.i
-  %21 = trunc nuw nsw i64 %indvars.iv9.i.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i51.i to i32
   br label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i
 
 _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i: ; preds = %while.body.i.i, %while.end.loopexit.split.loop.exit.i.i
@@ -712,9 +709,9 @@ if.then16.i:                                      ; preds = %land.lhs.true.i
   call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i.i)
   %22 = load i32, ptr %relative_component, align 4
   %idxprom.i.i = sext i32 %22 to i64
-  %arrayidx.i55.i = getelementptr inbounds i8, ptr %relative_url, i64 %idxprom.i.i
+  %arrayidx.i54.i = getelementptr inbounds i8, ptr %relative_url, i64 %idxprom.i.i
   %23 = load i32, ptr %len3.i, align 4
-  invoke void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef %arrayidx.i55.i, i32 noundef %23, ptr noundef nonnull %relative_parsed.i.i)
+  invoke void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef %arrayidx.i54.i, i32 noundef %23, ptr noundef nonnull %relative_parsed.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then16.i
@@ -725,10 +722,10 @@ invoke.cont.i.i:                                  ; preds = %if.then16.i
   %call.i.i = invoke noundef zeroext i1 @_ZN3url19CanonicalizeFileURLEPKciRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %arrayidx3.i.i, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i.i, ptr noundef %query_converter, ptr noundef %output, ptr noundef nonnull %out_parsed)
           to label %_ZN3url12_GLOBAL__N_121DoResolveAbsoluteFileIcEEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPNS_6ParsedE.exit.i unwind label %lpad.i.i
 
-common.resume.i:                                  ; preds = %lpad2.i.i, %lpad.i58.i, %lpad.i.i
-  %relative_parsed.i57.sink.i = phi ptr [ %relative_parsed.i.i, %lpad.i.i ], [ %relative_parsed.i57.i, %lpad2.i.i ], [ %relative_parsed.i57.i, %lpad.i58.i ]
-  %common.resume.op.i = phi { ptr, i32 } [ %26, %lpad.i.i ], [ %34, %lpad2.i.i ], [ %33, %lpad.i58.i ]
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i57.sink.i) #5
+common.resume.i:                                  ; preds = %lpad2.i.i, %lpad.i57.i, %lpad.i.i
+  %relative_parsed.i56.sink.i = phi ptr [ %relative_parsed.i.i, %lpad.i.i ], [ %relative_parsed.i56.i, %lpad2.i.i ], [ %relative_parsed.i56.i, %lpad.i57.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %26, %lpad.i.i ], [ %34, %lpad2.i.i ], [ %33, %lpad.i57.i ]
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i56.sink.i) #5
   resume { ptr, i32 } %common.resume.op.i
 
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %if.then16.i
@@ -745,23 +742,23 @@ if.end18.i:                                       ; preds = %_ZN3url23CountConse
   br i1 %cmp13.i, label %if.then20.i, label %if.end22.i
 
 if.then20.i:                                      ; preds = %if.end18.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %relative_parsed.i57.i)
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %relative_parsed.i56.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %replacements.i.i)
-  call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i57.i)
+  call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i56.i)
   %27 = load i32, ptr %relative_component, align 4
   %28 = load i32, ptr %len3.i, align 4
   %add.i.i.i = add nsw i32 %28, %27
-  invoke void @_ZN3url16ParseAfterSchemeEPKciiPNS_6ParsedE(ptr noundef nonnull %relative_url, i32 noundef %add.i.i.i, i32 noundef %27, ptr noundef nonnull %relative_parsed.i57.i)
-          to label %invoke.cont.i59.i unwind label %lpad.i58.i
+  invoke void @_ZN3url16ParseAfterSchemeEPKciiPNS_6ParsedE(ptr noundef nonnull %relative_url, i32 noundef %add.i.i.i, i32 noundef %27, ptr noundef nonnull %relative_parsed.i56.i)
+          to label %invoke.cont.i58.i unwind label %lpad.i57.i
 
-invoke.cont.i59.i:                                ; preds = %if.then20.i
+invoke.cont.i58.i:                                ; preds = %if.then20.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %replacements.i.i, i8 0, i64 64, i1 false)
   %components_.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 64
   invoke void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %components_.i.i.i)
-          to label %invoke.cont1.i.i unwind label %lpad.i58.i
+          to label %invoke.cont1.i.i unwind label %lpad.i57.i
 
-invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
-  %username.i.i = getelementptr inbounds i8, ptr %relative_parsed.i57.i, i64 8
+invoke.cont1.i.i:                                 ; preds = %invoke.cont.i58.i
+  %username.i.i = getelementptr inbounds i8, ptr %relative_parsed.i56.i, i64 8
   %username.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 8
   store ptr %relative_url, ptr %username.i.i.i, align 8
   %username2.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 72
@@ -769,7 +766,7 @@ invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
   store ptr %relative_url, ptr %password.i.i.i, align 8
   %29 = load <2 x i64>, ptr %username.i.i, align 8
   store <2 x i64> %29, ptr %username2.i.i.i, align 8
-  %host.i.i = getelementptr inbounds i8, ptr %relative_parsed.i57.i, i64 24
+  %host.i.i = getelementptr inbounds i8, ptr %relative_parsed.i56.i, i64 24
   %host.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 24
   store ptr %relative_url, ptr %host.i.i.i, align 8
   %host2.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 88
@@ -777,7 +774,7 @@ invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
   store ptr %relative_url, ptr %port.i.i.i, align 8
   %30 = load <2 x i64>, ptr %host.i.i, align 8
   store <2 x i64> %30, ptr %host2.i.i.i, align 8
-  %path.i.i = getelementptr inbounds i8, ptr %relative_parsed.i57.i, i64 40
+  %path.i.i = getelementptr inbounds i8, ptr %relative_parsed.i56.i, i64 40
   %path.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 40
   store ptr %relative_url, ptr %path.i.i.i, align 8
   %path2.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 104
@@ -785,7 +782,7 @@ invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
   store ptr %relative_url, ptr %query.i.i.i, align 8
   %31 = load <2 x i64>, ptr %path.i.i, align 8
   store <2 x i64> %31, ptr %path2.i.i.i, align 8
-  %ref.i.i = getelementptr inbounds i8, ptr %relative_parsed.i57.i, i64 56
+  %ref.i.i = getelementptr inbounds i8, ptr %relative_parsed.i56.i, i64 56
   %ref.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 56
   store ptr %relative_url, ptr %ref.i.i.i, align 8
   %ref2.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 120
@@ -794,7 +791,7 @@ invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
   %call11.i.i = invoke noundef zeroext i1 @_ZN3url18ReplaceStandardURLEPKcRKNS_6ParsedERKNS_12ReplacementsIcEEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %base_url, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements.i.i, ptr noundef %query_converter, ptr noundef %output, ptr noundef nonnull %out_parsed)
           to label %_ZN3url12_GLOBAL__N_121DoResolveRelativeHostIcEEbPKcRKNS_6ParsedEPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i unwind label %lpad2.i.i
 
-lpad.i58.i:                                       ; preds = %invoke.cont.i59.i, %if.then20.i
+lpad.i57.i:                                       ; preds = %invoke.cont.i58.i, %if.then20.i
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
@@ -807,34 +804,34 @@ lpad2.i.i:                                        ; preds = %invoke.cont1.i.i
 
 _ZN3url12_GLOBAL__N_121DoResolveRelativeHostIcEEbPKcRKNS_6ParsedEPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i: ; preds = %invoke.cont1.i.i
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %components_.i.i.i) #5
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i57.i) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %relative_parsed.i57.i)
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i56.i) #5
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %relative_parsed.i56.i)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %replacements.i.i)
   br label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
 
 if.end22.i:                                       ; preds = %if.end18.i, %land.lhs.true.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.i60.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %query.i61.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.i62.i)
-  store i32 0, ptr %path.i60.i, align 4
-  %len.i.i63.i = getelementptr inbounds i8, ptr %path.i60.i, i64 4
-  store i32 -1, ptr %len.i.i63.i, align 4
-  store i32 0, ptr %query.i61.i, align 4
-  %len.i48.i.i = getelementptr inbounds i8, ptr %query.i61.i, i64 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.i59.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %query.i60.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.i61.i)
+  store i32 0, ptr %path.i59.i, align 4
+  %len.i.i62.i = getelementptr inbounds i8, ptr %path.i59.i, i64 4
+  store i32 -1, ptr %len.i.i62.i, align 4
+  store i32 0, ptr %query.i60.i, align 4
+  %len.i48.i.i = getelementptr inbounds i8, ptr %query.i60.i, i64 4
   store i32 -1, ptr %len.i48.i.i, align 4
-  store i32 0, ptr %ref.i62.i, align 4
-  %len.i49.i.i = getelementptr inbounds i8, ptr %ref.i62.i, i64 4
+  store i32 0, ptr %ref.i61.i, align 4
+  %len.i49.i.i = getelementptr inbounds i8, ptr %ref.i61.i, i64 4
   store i32 -1, ptr %len.i49.i.i, align 4
-  call void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %relative_component, ptr noundef nonnull %path.i60.i, ptr noundef nonnull %query.i61.i, ptr noundef nonnull %ref.i62.i)
+  call void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %relative_component, ptr noundef nonnull %path.i59.i, ptr noundef nonnull %query.i60.i, ptr noundef nonnull %ref.i61.i)
   %path1.i.i = getelementptr inbounds i8, ptr %base_parsed, i64 40
   %35 = load i32, ptr %path1.i.i, align 8
   %cur_len_.i.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %36 = load i32, ptr %cur_len_.i.i.i, align 4
-  %add.i.i64.i = add nsw i32 %36, %35
+  %add.i.i63.i = add nsw i32 %36, %35
   %buffer_len_.i.i.i = getelementptr inbounds i8, ptr %output, i64 16
   %37 = load i32, ptr %buffer_len_.i.i.i, align 8
-  %cmp.i.i65.i = icmp sgt i32 %add.i.i64.i, %37
-  br i1 %cmp.i.i65.i, label %if.then.i.i.i, label %if.end6.i.i.i
+  %cmp.i.i64.i = icmp sgt i32 %add.i.i63.i, %37
+  br i1 %cmp.i.i64.i, label %if.then.i.i.i, label %if.end6.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end22.i
   %cmp.i.i.i.i = icmp eq i32 %37, 0
@@ -848,7 +845,7 @@ do.body.i.i.i.i:                                  ; preds = %if.then.i.i.i, %if.
 
 if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
   %mul.i.i.i.i = shl nsw i32 %new_len.0.i.i.i.i, 1
-  %cmp5.i.i.i.i = icmp slt i32 %mul.i.i.i.i, %add.i.i64.i
+  %cmp5.i.i.i.i = icmp slt i32 %mul.i.i.i.i, %add.i.i63.i
   br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i.i.i, !llvm.loop !16
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i.i.i: ; preds = %if.end.i.i.i.i
@@ -890,27 +887,27 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %if
 
 _ZN3url12CanonOutputTIcE6AppendEPKci.exit.i.i:    ; preds = %do.body.i.i.i.i, %for.end.i.i.i
   %44 = phi i32 [ %add13.i.i.i, %for.end.i.i.i ], [ %36, %do.body.i.i.i.i ]
-  %45 = load i32, ptr %len.i.i63.i, align 4
-  %cmp.i66.i = icmp sgt i32 %45, 0
-  br i1 %cmp.i66.i, label %if.then.i69.i, label %if.end34.i.i
+  %45 = load i32, ptr %len.i.i62.i, align 4
+  %cmp.i65.i = icmp sgt i32 %45, 0
+  br i1 %cmp.i65.i, label %if.then.i68.i, label %if.end34.i.i
 
-if.then.i69.i:                                    ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i.i
-  %46 = load i32, ptr %path.i60.i, align 4
-  %idxprom.i70.i = sext i32 %46 to i64
-  %arrayidx.i71.i = getelementptr inbounds i8, ptr %relative_url, i64 %idxprom.i70.i
-  %47 = load i8, ptr %arrayidx.i71.i, align 1
+if.then.i68.i:                                    ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i.i
+  %46 = load i32, ptr %path.i59.i, align 4
+  %idxprom.i69.i = sext i32 %46 to i64
+  %arrayidx.i70.i = getelementptr inbounds i8, ptr %relative_url, i64 %idxprom.i69.i
+  %47 = load i8, ptr %arrayidx.i70.i, align 1
   switch i8 %47, label %if.else.i.i [
     i8 92, label %if.then6.i.i
     i8 47, label %if.then6.i.i
   ]
 
-if.then6.i.i:                                     ; preds = %if.then.i69.i, %if.then.i69.i
+if.then6.i.i:                                     ; preds = %if.then.i68.i, %if.then.i68.i
   %path7.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 40
-  %call8.i.i = call noundef zeroext i1 @_ZN3url16CanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i60.i, ptr noundef nonnull %output, ptr noundef nonnull %path7.i.i)
+  %call8.i.i = call noundef zeroext i1 @_ZN3url16CanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i59.i, ptr noundef nonnull %output, ptr noundef nonnull %path7.i.i)
   %.pre.i.i = zext i32 %44 to i64
-  br label %if.end.i72.i
+  br label %if.end.i71.i
 
-if.else.i.i:                                      ; preds = %if.then.i69.i
+if.else.i.i:                                      ; preds = %if.then.i68.i
   %48 = load i32, ptr %path1.i.i, align 8
   %49 = load i32, ptr %len.i, align 4
   %add.i54.i.i = add nsw i32 %49, %48
@@ -992,7 +989,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i:  ; preds = %do.body.i.i.i.i.i, 
   br i1 %cmp11.not.not.i.i.i, label %for.body12.i.i.i, label %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, !llvm.loop !20
 
 _ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i: ; preds = %for.cond.i.i.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i, %for.end.i59.i.i
-  %call16.i.i = call noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKcRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i60.i, i32 noundef %44, ptr noundef nonnull %output)
+  %call16.i.i = call noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKcRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i59.i, i32 noundef %44, ptr noundef nonnull %output)
   %61 = load i32, ptr %cur_len_.i.i.i, align 4
   %sub.i.i.i = sub nsw i32 %61, %44
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
@@ -1001,15 +998,15 @@ _ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i: ; p
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   %path25.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 40
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %path25.i.i, align 8
-  br label %if.end.i72.i
+  br label %if.end.i71.i
 
-if.end.i72.i:                                     ; preds = %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, %if.then6.i.i
+if.end.i71.i:                                     ; preds = %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, %if.then6.i.i
   %retval.sroa.0.0.insert.ext.i69.pre-phi.i.i = phi i64 [ %retval.sroa.0.0.insert.ext.i.i.i, %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i ], [ %.pre.i.i, %if.then6.i.i ]
   %success.0.in.i.i = phi i1 [ %call16.i.i, %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i ], [ %call8.i.i, %if.then6.i.i ]
   %query26.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 48
-  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i61.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query26.i.i)
+  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query26.i.i)
   %ref27.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i62.i, ptr noundef nonnull %output, ptr noundef nonnull %ref27.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref27.i.i)
   %path29.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 40
   %62 = load i32, ptr %path29.i.i, align 4
   %len.i64.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 44
@@ -1026,19 +1023,19 @@ if.end34.i.i:                                     ; preds = %_ZN3url12CanonOutpu
   %path36.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 40
   %64 = load i32, ptr %len.i, align 4
   %cmp.i72.i.i = icmp slt i32 %64, 0
-  br i1 %cmp.i72.i.i, label %if.then.i104.i.i, label %if.end.i.i67.i
+  br i1 %cmp.i72.i.i, label %if.then.i104.i.i, label %if.end.i.i66.i
 
 if.then.i104.i.i:                                 ; preds = %if.end34.i.i
   store i64 -4294967296, ptr %path36.i.i, align 4
   br label %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
 
-if.end.i.i67.i:                                   ; preds = %if.end34.i.i
+if.end.i.i66.i:                                   ; preds = %if.end34.i.i
   store i32 %44, ptr %path36.i.i, align 4
   %65 = load i32, ptr %len.i, align 4
   %cmp313.i.i.i = icmp sgt i32 %65, 0
   br i1 %cmp313.i.i.i, label %for.body.lr.ph.i76.i.i, label %for.end.i74.i.i
 
-for.body.lr.ph.i76.i.i:                           ; preds = %if.end.i.i67.i
+for.body.lr.ph.i76.i.i:                           ; preds = %if.end.i.i66.i
   %66 = load i32, ptr %path1.i.i, align 8
   %add.i.i.i.i = add nsw i32 %66, %65
   %.sink.in.i.i78.i.i = getelementptr inbounds i8, ptr %output, i64 8
@@ -1092,16 +1089,16 @@ return.sink.split.i.i98.i.i:                      ; preds = %if.end5.i.i95.i.i, 
 _ZN3url12CanonOutputTIcE9push_backEc.exit.i89.i.i: ; preds = %do.body.i.i.i86.i.i, %return.sink.split.i.i98.i.i
   %75 = phi i32 [ %inc11.i.i103.i.i, %return.sink.split.i.i98.i.i ], [ %69, %do.body.i.i.i86.i.i ]
   %indvars.iv.next.i90.i.i = add nsw i64 %indvars.iv.i80.i.i, 1
-  %cmp3.i.i68.i = icmp slt i64 %indvars.iv.next.i90.i.i, %68
-  br i1 %cmp3.i.i68.i, label %for.body.i79.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !21
+  %cmp3.i.i67.i = icmp slt i64 %indvars.iv.next.i90.i.i, %68
+  br i1 %cmp3.i.i67.i, label %for.body.i79.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !21
 
 for.end.loopexit.i.i.i:                           ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i89.i.i
   %.pre.i91.i.i = load i32, ptr %path36.i.i, align 4
   br label %for.end.i74.i.i
 
-for.end.i74.i.i:                                  ; preds = %for.end.loopexit.i.i.i, %if.end.i.i67.i
-  %76 = phi i32 [ %.pre.i91.i.i, %for.end.loopexit.i.i.i ], [ %44, %if.end.i.i67.i ]
-  %77 = phi i32 [ %75, %for.end.loopexit.i.i.i ], [ %44, %if.end.i.i67.i ]
+for.end.i74.i.i:                                  ; preds = %for.end.loopexit.i.i.i, %if.end.i.i66.i
+  %76 = phi i32 [ %.pre.i91.i.i, %for.end.loopexit.i.i.i ], [ %44, %if.end.i.i66.i ]
+  %77 = phi i32 [ %75, %for.end.loopexit.i.i.i ], [ %44, %if.end.i.i66.i ]
   %sub.i75.i.i = sub nsw i32 %77, %76
   %len6.i.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 44
   store i32 %sub.i75.i.i, ptr %len6.i.i.i, align 4
@@ -1114,9 +1111,9 @@ _ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcE
 
 if.then38.i.i:                                    ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
   %query39.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 48
-  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i61.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query39.i.i)
+  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query39.i.i)
   %ref40.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i62.i, ptr noundef nonnull %output, ptr noundef nonnull %ref40.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref40.i.i)
   br label %_ZN3url12_GLOBAL__N_121DoResolveRelativePathIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i
 
 if.end42.i.i:                                     ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
@@ -1266,14 +1263,14 @@ _ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcE
 
 if.then50.i.i:                                    ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i
   %ref51.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i62.i, ptr noundef nonnull %output, ptr noundef nonnull %ref51.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref51.i.i)
   br label %_ZN3url12_GLOBAL__N_121DoResolveRelativePathIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i
 
-_ZN3url12_GLOBAL__N_121DoResolveRelativePathIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i: ; preds = %if.then50.i.i, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i, %if.then38.i.i, %if.end.i72.i
-  %retval.0.i.i = phi i1 [ %success.0.in.i.i, %if.end.i72.i ], [ true, %if.then38.i.i ], [ true, %if.then50.i.i ], [ true, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %path.i60.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %query.i61.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.i62.i)
+_ZN3url12_GLOBAL__N_121DoResolveRelativePathIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i: ; preds = %if.then50.i.i, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i, %if.then38.i.i, %if.end.i71.i
+  %retval.0.i.i = phi i1 [ %success.0.in.i.i, %if.end.i71.i ], [ true, %if.then38.i.i ], [ true, %if.then50.i.i ], [ true, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %path.i59.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %query.i60.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.i61.i)
   br label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
 
 _ZN3url12_GLOBAL__N_120DoResolveRelativeURLIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit: ; preds = %do.body.i.i41.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i, %if.then.i, %for.end.i.i, %_ZN3url12_GLOBAL__N_121DoResolveAbsoluteFileIcEEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPNS_6ParsedE.exit.i, %_ZN3url12_GLOBAL__N_121DoResolveRelativeHostIcEEbPKcRKNS_6ParsedEPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i, %_ZN3url12_GLOBAL__N_121DoResolveRelativePathIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i
@@ -1284,10 +1281,10 @@ _ZN3url12_GLOBAL__N_120DoResolveRelativeURLIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9Compo
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3url18ResolveRelativeURLEPKcRKNS_6ParsedEbPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %base_url, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed, i1 noundef zeroext %base_is_file, ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %relative_component, ptr noundef %query_converter, ptr noundef %output, ptr noundef nonnull %out_parsed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %path.i60.i = alloca %"struct.url::Component", align 4
-  %query.i61.i = alloca %"struct.url::Component", align 4
-  %ref.i62.i = alloca %"struct.url::Component", align 4
-  %relative_parsed.i57.i = alloca %"struct.url::Parsed", align 8
+  %path.i59.i = alloca %"struct.url::Component", align 4
+  %query.i60.i = alloca %"struct.url::Component", align 4
+  %ref.i61.i = alloca %"struct.url::Component", align 4
+  %relative_parsed.i56.i = alloca %"struct.url::Parsed", align 8
   %replacements.i.i = alloca %"class.url::Replacements.0", align 8
   %relative_parsed.i.i = alloca %"struct.url::Parsed", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN3url6ParsedaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %out_parsed, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
@@ -1298,8 +1295,8 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call noundef i32 @_ZNK3url6Parsed6LengthEv(ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
-  %cmp292.i = icmp sgt i32 %call1.i, 0
-  br i1 %cmp292.i, label %for.body.lr.ph.i, label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
+  %cmp291.i = icmp sgt i32 %call1.i, 0
+  br i1 %cmp291.i, label %for.body.lr.ph.i, label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
   %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
@@ -1362,7 +1359,7 @@ if.end.i:                                         ; preds = %entry
   %len3.i = getelementptr inbounds i8, ptr %relative_component, i64 4
   %8 = load i32, ptr %len3.i, align 4
   %cmp4.i = icmp slt i32 %8, 1
-  br i1 %cmp4.i, label %if.then5.i, label %land.rhs.lr.ph.i.i
+  br i1 %cmp4.i, label %if.then5.i, label %land.rhs.preheader.i.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %call7.i = tail call noundef i32 @_ZNK3url6Parsed6LengthEv(ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
@@ -1434,30 +1431,29 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   store i32 %add13.i.i, ptr %cur_len_.i35.i, align 4
   br label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end.i
+land.rhs.preheader.i.i:                           ; preds = %if.end.i
   %18 = load i32, ptr %relative_component, align 4
   %19 = sext i32 %18 to i64
   %wide.trip.count.i50.i = zext nneg i32 %8 to i64
+  %invariant.gep.i.i = getelementptr i16, ptr %relative_url, i64 %19
   br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %indvars.iv9.i.i = phi i64 [ 0, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next10.i.i, %while.body.i.i ]
-  %indvars.iv.i51.i = phi i64 [ %19, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next.i53.i, %while.body.i.i ]
-  %arrayidx.i52.i = getelementptr inbounds i16, ptr %relative_url, i64 %indvars.iv.i51.i
-  %20 = load i16, ptr %arrayidx.i52.i, align 2
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.preheader.i.i
+  %indvars.iv.i51.i = phi i64 [ 0, %land.rhs.preheader.i.i ], [ %indvars.iv.next.i52.i, %while.body.i.i ]
+  %gep.i.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i51.i
+  %20 = load i16, ptr %gep.i.i, align 2
   switch i16 %20, label %while.end.loopexit.split.loop.exit.i.i [
     i16 92, label %while.body.i.i
     i16 47, label %while.body.i.i
   ]
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i, %land.rhs.i.i
-  %indvars.iv.next10.i.i = add nuw nsw i64 %indvars.iv9.i.i, 1
-  %indvars.iv.next.i53.i = add nsw i64 %indvars.iv.i51.i, 1
-  %exitcond.not.i54.i = icmp eq i64 %indvars.iv.next10.i.i, %wide.trip.count.i50.i
-  br i1 %exitcond.not.i54.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, label %land.rhs.i.i, !llvm.loop !15
+  %indvars.iv.next.i52.i = add nuw nsw i64 %indvars.iv.i51.i, 1
+  %exitcond.not.i53.i = icmp eq i64 %indvars.iv.next.i52.i, %wide.trip.count.i50.i
+  br i1 %exitcond.not.i53.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, label %land.rhs.i.i, !llvm.loop !15
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i.i
-  %21 = trunc nuw nsw i64 %indvars.iv9.i.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i51.i to i32
   br label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i
 
 _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i: ; preds = %while.body.i.i, %while.end.loopexit.split.loop.exit.i.i
@@ -1475,9 +1471,9 @@ if.then16.i:                                      ; preds = %land.lhs.true.i
   call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i.i)
   %22 = load i32, ptr %relative_component, align 4
   %idxprom.i.i = sext i32 %22 to i64
-  %arrayidx.i55.i = getelementptr inbounds i16, ptr %relative_url, i64 %idxprom.i.i
+  %arrayidx.i54.i = getelementptr inbounds i16, ptr %relative_url, i64 %idxprom.i.i
   %23 = load i32, ptr %len3.i, align 4
-  invoke void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %arrayidx.i55.i, i32 noundef %23, ptr noundef nonnull %relative_parsed.i.i)
+  invoke void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %arrayidx.i54.i, i32 noundef %23, ptr noundef nonnull %relative_parsed.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then16.i
@@ -1488,10 +1484,10 @@ invoke.cont.i.i:                                  ; preds = %if.then16.i
   %call.i.i = invoke noundef zeroext i1 @_ZN3url19CanonicalizeFileURLEPKtiRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %arrayidx3.i.i, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i.i, ptr noundef %query_converter, ptr noundef %output, ptr noundef nonnull %out_parsed)
           to label %_ZN3url12_GLOBAL__N_121DoResolveAbsoluteFileItEEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPNS_6ParsedE.exit.i unwind label %lpad.i.i
 
-common.resume.i:                                  ; preds = %lpad2.i.i, %lpad.i58.i, %lpad.i.i
-  %relative_parsed.i57.sink.i = phi ptr [ %relative_parsed.i.i, %lpad.i.i ], [ %relative_parsed.i57.i, %lpad2.i.i ], [ %relative_parsed.i57.i, %lpad.i58.i ]
-  %common.resume.op.i = phi { ptr, i32 } [ %26, %lpad.i.i ], [ %34, %lpad2.i.i ], [ %33, %lpad.i58.i ]
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i57.sink.i) #5
+common.resume.i:                                  ; preds = %lpad2.i.i, %lpad.i57.i, %lpad.i.i
+  %relative_parsed.i56.sink.i = phi ptr [ %relative_parsed.i.i, %lpad.i.i ], [ %relative_parsed.i56.i, %lpad2.i.i ], [ %relative_parsed.i56.i, %lpad.i57.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %26, %lpad.i.i ], [ %34, %lpad2.i.i ], [ %33, %lpad.i57.i ]
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i56.sink.i) #5
   resume { ptr, i32 } %common.resume.op.i
 
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %if.then16.i
@@ -1508,23 +1504,23 @@ if.end18.i:                                       ; preds = %_ZN3url23CountConse
   br i1 %cmp13.i, label %if.then20.i, label %if.end22.i
 
 if.then20.i:                                      ; preds = %if.end18.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %relative_parsed.i57.i)
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %relative_parsed.i56.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %replacements.i.i)
-  call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i57.i)
+  call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i56.i)
   %27 = load i32, ptr %relative_component, align 4
   %28 = load i32, ptr %len3.i, align 4
   %add.i.i.i = add nsw i32 %28, %27
-  invoke void @_ZN3url16ParseAfterSchemeEPKtiiPNS_6ParsedE(ptr noundef nonnull %relative_url, i32 noundef %add.i.i.i, i32 noundef %27, ptr noundef nonnull %relative_parsed.i57.i)
-          to label %invoke.cont.i59.i unwind label %lpad.i58.i
+  invoke void @_ZN3url16ParseAfterSchemeEPKtiiPNS_6ParsedE(ptr noundef nonnull %relative_url, i32 noundef %add.i.i.i, i32 noundef %27, ptr noundef nonnull %relative_parsed.i56.i)
+          to label %invoke.cont.i58.i unwind label %lpad.i57.i
 
-invoke.cont.i59.i:                                ; preds = %if.then20.i
+invoke.cont.i58.i:                                ; preds = %if.then20.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %replacements.i.i, i8 0, i64 64, i1 false)
   %components_.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 64
   invoke void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %components_.i.i.i)
-          to label %invoke.cont1.i.i unwind label %lpad.i58.i
+          to label %invoke.cont1.i.i unwind label %lpad.i57.i
 
-invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
-  %username.i.i = getelementptr inbounds i8, ptr %relative_parsed.i57.i, i64 8
+invoke.cont1.i.i:                                 ; preds = %invoke.cont.i58.i
+  %username.i.i = getelementptr inbounds i8, ptr %relative_parsed.i56.i, i64 8
   %username.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 8
   store ptr %relative_url, ptr %username.i.i.i, align 8
   %username2.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 72
@@ -1532,7 +1528,7 @@ invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
   store ptr %relative_url, ptr %password.i.i.i, align 8
   %29 = load <2 x i64>, ptr %username.i.i, align 8
   store <2 x i64> %29, ptr %username2.i.i.i, align 8
-  %host.i.i = getelementptr inbounds i8, ptr %relative_parsed.i57.i, i64 24
+  %host.i.i = getelementptr inbounds i8, ptr %relative_parsed.i56.i, i64 24
   %host.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 24
   store ptr %relative_url, ptr %host.i.i.i, align 8
   %host2.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 88
@@ -1540,7 +1536,7 @@ invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
   store ptr %relative_url, ptr %port.i.i.i, align 8
   %30 = load <2 x i64>, ptr %host.i.i, align 8
   store <2 x i64> %30, ptr %host2.i.i.i, align 8
-  %path.i.i = getelementptr inbounds i8, ptr %relative_parsed.i57.i, i64 40
+  %path.i.i = getelementptr inbounds i8, ptr %relative_parsed.i56.i, i64 40
   %path.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 40
   store ptr %relative_url, ptr %path.i.i.i, align 8
   %path2.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 104
@@ -1548,7 +1544,7 @@ invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
   store ptr %relative_url, ptr %query.i.i.i, align 8
   %31 = load <2 x i64>, ptr %path.i.i, align 8
   store <2 x i64> %31, ptr %path2.i.i.i, align 8
-  %ref.i.i = getelementptr inbounds i8, ptr %relative_parsed.i57.i, i64 56
+  %ref.i.i = getelementptr inbounds i8, ptr %relative_parsed.i56.i, i64 56
   %ref.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 56
   store ptr %relative_url, ptr %ref.i.i.i, align 8
   %ref2.i.i.i = getelementptr inbounds i8, ptr %replacements.i.i, i64 120
@@ -1557,7 +1553,7 @@ invoke.cont1.i.i:                                 ; preds = %invoke.cont.i59.i
   %call11.i.i = invoke noundef zeroext i1 @_ZN3url18ReplaceStandardURLEPKcRKNS_6ParsedERKNS_12ReplacementsItEEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %base_url, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed, ptr noundef nonnull align 8 dereferenceable(136) %replacements.i.i, ptr noundef %query_converter, ptr noundef %output, ptr noundef nonnull %out_parsed)
           to label %_ZN3url12_GLOBAL__N_121DoResolveRelativeHostItEEbPKcRKNS_6ParsedEPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i unwind label %lpad2.i.i
 
-lpad.i58.i:                                       ; preds = %invoke.cont.i59.i, %if.then20.i
+lpad.i57.i:                                       ; preds = %invoke.cont.i58.i, %if.then20.i
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
@@ -1570,34 +1566,34 @@ lpad2.i.i:                                        ; preds = %invoke.cont1.i.i
 
 _ZN3url12_GLOBAL__N_121DoResolveRelativeHostItEEbPKcRKNS_6ParsedEPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i: ; preds = %invoke.cont1.i.i
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %components_.i.i.i) #5
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i57.i) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %relative_parsed.i57.i)
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %relative_parsed.i56.i) #5
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %relative_parsed.i56.i)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %replacements.i.i)
   br label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
 
 if.end22.i:                                       ; preds = %if.end18.i, %land.lhs.true.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.i60.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %query.i61.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.i62.i)
-  store i32 0, ptr %path.i60.i, align 4
-  %len.i.i63.i = getelementptr inbounds i8, ptr %path.i60.i, i64 4
-  store i32 -1, ptr %len.i.i63.i, align 4
-  store i32 0, ptr %query.i61.i, align 4
-  %len.i48.i.i = getelementptr inbounds i8, ptr %query.i61.i, i64 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.i59.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %query.i60.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.i61.i)
+  store i32 0, ptr %path.i59.i, align 4
+  %len.i.i62.i = getelementptr inbounds i8, ptr %path.i59.i, i64 4
+  store i32 -1, ptr %len.i.i62.i, align 4
+  store i32 0, ptr %query.i60.i, align 4
+  %len.i48.i.i = getelementptr inbounds i8, ptr %query.i60.i, i64 4
   store i32 -1, ptr %len.i48.i.i, align 4
-  store i32 0, ptr %ref.i62.i, align 4
-  %len.i49.i.i = getelementptr inbounds i8, ptr %ref.i62.i, i64 4
+  store i32 0, ptr %ref.i61.i, align 4
+  %len.i49.i.i = getelementptr inbounds i8, ptr %ref.i61.i, i64 4
   store i32 -1, ptr %len.i49.i.i, align 4
-  call void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %relative_component, ptr noundef nonnull %path.i60.i, ptr noundef nonnull %query.i61.i, ptr noundef nonnull %ref.i62.i)
+  call void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %relative_component, ptr noundef nonnull %path.i59.i, ptr noundef nonnull %query.i60.i, ptr noundef nonnull %ref.i61.i)
   %path1.i.i = getelementptr inbounds i8, ptr %base_parsed, i64 40
   %35 = load i32, ptr %path1.i.i, align 8
   %cur_len_.i.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %36 = load i32, ptr %cur_len_.i.i.i, align 4
-  %add.i.i64.i = add nsw i32 %36, %35
+  %add.i.i63.i = add nsw i32 %36, %35
   %buffer_len_.i.i.i = getelementptr inbounds i8, ptr %output, i64 16
   %37 = load i32, ptr %buffer_len_.i.i.i, align 8
-  %cmp.i.i65.i = icmp sgt i32 %add.i.i64.i, %37
-  br i1 %cmp.i.i65.i, label %if.then.i.i.i, label %if.end6.i.i.i
+  %cmp.i.i64.i = icmp sgt i32 %add.i.i63.i, %37
+  br i1 %cmp.i.i64.i, label %if.then.i.i.i, label %if.end6.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end22.i
   %cmp.i.i.i.i = icmp eq i32 %37, 0
@@ -1611,7 +1607,7 @@ do.body.i.i.i.i:                                  ; preds = %if.then.i.i.i, %if.
 
 if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
   %mul.i.i.i.i = shl nsw i32 %new_len.0.i.i.i.i, 1
-  %cmp5.i.i.i.i = icmp slt i32 %mul.i.i.i.i, %add.i.i64.i
+  %cmp5.i.i.i.i = icmp slt i32 %mul.i.i.i.i, %add.i.i63.i
   br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i.i.i, !llvm.loop !16
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i.i.i: ; preds = %if.end.i.i.i.i
@@ -1653,27 +1649,27 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %if
 
 _ZN3url12CanonOutputTIcE6AppendEPKci.exit.i.i:    ; preds = %do.body.i.i.i.i, %for.end.i.i.i
   %44 = phi i32 [ %add13.i.i.i, %for.end.i.i.i ], [ %36, %do.body.i.i.i.i ]
-  %45 = load i32, ptr %len.i.i63.i, align 4
-  %cmp.i66.i = icmp sgt i32 %45, 0
-  br i1 %cmp.i66.i, label %if.then.i69.i, label %if.end33.i.i
+  %45 = load i32, ptr %len.i.i62.i, align 4
+  %cmp.i65.i = icmp sgt i32 %45, 0
+  br i1 %cmp.i65.i, label %if.then.i68.i, label %if.end33.i.i
 
-if.then.i69.i:                                    ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i.i
-  %46 = load i32, ptr %path.i60.i, align 4
-  %idxprom.i70.i = sext i32 %46 to i64
-  %arrayidx.i71.i = getelementptr inbounds i16, ptr %relative_url, i64 %idxprom.i70.i
-  %47 = load i16, ptr %arrayidx.i71.i, align 2
+if.then.i68.i:                                    ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit.i.i
+  %46 = load i32, ptr %path.i59.i, align 4
+  %idxprom.i69.i = sext i32 %46 to i64
+  %arrayidx.i70.i = getelementptr inbounds i16, ptr %relative_url, i64 %idxprom.i69.i
+  %47 = load i16, ptr %arrayidx.i70.i, align 2
   switch i16 %47, label %if.else.i.i [
     i16 92, label %if.then6.i.i
     i16 47, label %if.then6.i.i
   ]
 
-if.then6.i.i:                                     ; preds = %if.then.i69.i, %if.then.i69.i
+if.then6.i.i:                                     ; preds = %if.then.i68.i, %if.then.i68.i
   %path7.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 40
-  %call8.i.i = call noundef zeroext i1 @_ZN3url16CanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i60.i, ptr noundef nonnull %output, ptr noundef nonnull %path7.i.i)
+  %call8.i.i = call noundef zeroext i1 @_ZN3url16CanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i59.i, ptr noundef nonnull %output, ptr noundef nonnull %path7.i.i)
   %.pre.i.i = zext i32 %44 to i64
-  br label %if.end.i72.i
+  br label %if.end.i71.i
 
-if.else.i.i:                                      ; preds = %if.then.i69.i
+if.else.i.i:                                      ; preds = %if.then.i68.i
   %48 = load i32, ptr %path1.i.i, align 8
   %49 = load i32, ptr %len.i, align 4
   %add.i54.i.i = add nsw i32 %49, %48
@@ -1755,7 +1751,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i:  ; preds = %do.body.i.i.i.i.i, 
   br i1 %cmp11.not.not.i.i.i, label %for.body12.i.i.i, label %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, !llvm.loop !20
 
 _ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i: ; preds = %for.cond.i.i.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i, %for.end.i59.i.i
-  %call15.i.i = call noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKtRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i60.i, i32 noundef %44, ptr noundef nonnull %output)
+  %call15.i.i = call noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKtRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i59.i, i32 noundef %44, ptr noundef nonnull %output)
   %61 = load i32, ptr %cur_len_.i.i.i, align 4
   %sub.i.i.i = sub nsw i32 %61, %44
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
@@ -1764,15 +1760,15 @@ _ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i: ; p
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   %path24.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 40
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %path24.i.i, align 8
-  br label %if.end.i72.i
+  br label %if.end.i71.i
 
-if.end.i72.i:                                     ; preds = %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, %if.then6.i.i
+if.end.i71.i:                                     ; preds = %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, %if.then6.i.i
   %retval.sroa.0.0.insert.ext.i69.pre-phi.i.i = phi i64 [ %retval.sroa.0.0.insert.ext.i.i.i, %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i ], [ %.pre.i.i, %if.then6.i.i ]
   %success.0.in.i.i = phi i1 [ %call15.i.i, %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i ], [ %call8.i.i, %if.then6.i.i ]
   %query25.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 48
-  call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i61.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query25.i.i)
+  call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query25.i.i)
   %ref26.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i62.i, ptr noundef nonnull %output, ptr noundef nonnull %ref26.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref26.i.i)
   %path28.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 40
   %62 = load i32, ptr %path28.i.i, align 4
   %len.i64.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 44
@@ -1789,19 +1785,19 @@ if.end33.i.i:                                     ; preds = %_ZN3url12CanonOutpu
   %path35.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 40
   %64 = load i32, ptr %len.i, align 4
   %cmp.i72.i.i = icmp slt i32 %64, 0
-  br i1 %cmp.i72.i.i, label %if.then.i104.i.i, label %if.end.i.i67.i
+  br i1 %cmp.i72.i.i, label %if.then.i104.i.i, label %if.end.i.i66.i
 
 if.then.i104.i.i:                                 ; preds = %if.end33.i.i
   store i64 -4294967296, ptr %path35.i.i, align 4
   br label %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
 
-if.end.i.i67.i:                                   ; preds = %if.end33.i.i
+if.end.i.i66.i:                                   ; preds = %if.end33.i.i
   store i32 %44, ptr %path35.i.i, align 4
   %65 = load i32, ptr %len.i, align 4
   %cmp313.i.i.i = icmp sgt i32 %65, 0
   br i1 %cmp313.i.i.i, label %for.body.lr.ph.i76.i.i, label %for.end.i74.i.i
 
-for.body.lr.ph.i76.i.i:                           ; preds = %if.end.i.i67.i
+for.body.lr.ph.i76.i.i:                           ; preds = %if.end.i.i66.i
   %66 = load i32, ptr %path1.i.i, align 8
   %add.i.i.i.i = add nsw i32 %66, %65
   %.sink.in.i.i78.i.i = getelementptr inbounds i8, ptr %output, i64 8
@@ -1855,16 +1851,16 @@ return.sink.split.i.i98.i.i:                      ; preds = %if.end5.i.i95.i.i, 
 _ZN3url12CanonOutputTIcE9push_backEc.exit.i89.i.i: ; preds = %do.body.i.i.i86.i.i, %return.sink.split.i.i98.i.i
   %75 = phi i32 [ %inc11.i.i103.i.i, %return.sink.split.i.i98.i.i ], [ %69, %do.body.i.i.i86.i.i ]
   %indvars.iv.next.i90.i.i = add nsw i64 %indvars.iv.i80.i.i, 1
-  %cmp3.i.i68.i = icmp slt i64 %indvars.iv.next.i90.i.i, %68
-  br i1 %cmp3.i.i68.i, label %for.body.i79.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !21
+  %cmp3.i.i67.i = icmp slt i64 %indvars.iv.next.i90.i.i, %68
+  br i1 %cmp3.i.i67.i, label %for.body.i79.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !21
 
 for.end.loopexit.i.i.i:                           ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i89.i.i
   %.pre.i91.i.i = load i32, ptr %path35.i.i, align 4
   br label %for.end.i74.i.i
 
-for.end.i74.i.i:                                  ; preds = %for.end.loopexit.i.i.i, %if.end.i.i67.i
-  %76 = phi i32 [ %.pre.i91.i.i, %for.end.loopexit.i.i.i ], [ %44, %if.end.i.i67.i ]
-  %77 = phi i32 [ %75, %for.end.loopexit.i.i.i ], [ %44, %if.end.i.i67.i ]
+for.end.i74.i.i:                                  ; preds = %for.end.loopexit.i.i.i, %if.end.i.i66.i
+  %76 = phi i32 [ %.pre.i91.i.i, %for.end.loopexit.i.i.i ], [ %44, %if.end.i.i66.i ]
+  %77 = phi i32 [ %75, %for.end.loopexit.i.i.i ], [ %44, %if.end.i.i66.i ]
   %sub.i75.i.i = sub nsw i32 %77, %76
   %len6.i.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 44
   store i32 %sub.i75.i.i, ptr %len6.i.i.i, align 4
@@ -1877,9 +1873,9 @@ _ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcE
 
 if.then37.i.i:                                    ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
   %query38.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 48
-  call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i61.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query38.i.i)
+  call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query38.i.i)
   %ref39.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i62.i, ptr noundef nonnull %output, ptr noundef nonnull %ref39.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref39.i.i)
   br label %_ZN3url12_GLOBAL__N_121DoResolveRelativePathItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i
 
 if.end41.i.i:                                     ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
@@ -2029,14 +2025,14 @@ _ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcE
 
 if.then49.i.i:                                    ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i
   %ref50.i.i = getelementptr inbounds i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i62.i, ptr noundef nonnull %output, ptr noundef nonnull %ref50.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref50.i.i)
   br label %_ZN3url12_GLOBAL__N_121DoResolveRelativePathItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i
 
-_ZN3url12_GLOBAL__N_121DoResolveRelativePathItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i: ; preds = %if.then49.i.i, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i, %if.then37.i.i, %if.end.i72.i
-  %retval.0.i.i = phi i1 [ %success.0.in.i.i, %if.end.i72.i ], [ true, %if.then37.i.i ], [ true, %if.then49.i.i ], [ true, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %path.i60.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %query.i61.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.i62.i)
+_ZN3url12_GLOBAL__N_121DoResolveRelativePathItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i: ; preds = %if.then49.i.i, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i, %if.then37.i.i, %if.end.i71.i
+  %retval.0.i.i = phi i1 [ %success.0.in.i.i, %if.end.i71.i ], [ true, %if.then37.i.i ], [ true, %if.then49.i.i ], [ true, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %path.i59.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %query.i60.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.i61.i)
   br label %_ZN3url12_GLOBAL__N_120DoResolveRelativeURLItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit
 
 _ZN3url12_GLOBAL__N_120DoResolveRelativeURLItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit: ; preds = %do.body.i.i41.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i, %if.then.i, %for.end.i.i, %_ZN3url12_GLOBAL__N_121DoResolveAbsoluteFileItEEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPNS_6ParsedE.exit.i, %_ZN3url12_GLOBAL__N_121DoResolveRelativeHostItEEbPKcRKNS_6ParsedEPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i, %_ZN3url12_GLOBAL__N_121DoResolveRelativePathItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i

@@ -6675,7 +6675,6 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr nocapture noundef %0, 
   %17 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.061, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %7, i64 428
-  %invariant.op = add i64 %.061, 32
   %19 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -6686,9 +6685,9 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr nocapture noundef %0, 
   %21 = ashr exact i64 %sext66, 32
   br label %22
 
-22:                                               ; preds = %.lr.ph, %81
-  %23 = phi i32 [ %19, %.lr.ph ], [ %82, %81 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
+22:                                               ; preds = %.lr.ph, %82
+  %23 = phi i32 [ %19, %.lr.ph ], [ %83, %82 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %24 = getelementptr inbounds [8 x %struct.AF_CJKBlueRec_], ptr %20, i64 0, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
   %sext = shl i64 %25, 32
@@ -6734,48 +6733,48 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr nocapture noundef %0, 
   %58 = trunc i64 %57 to i32
   %59 = add i32 %58, 48
   %or.cond = icmp ult i32 %59, 97
-  br i1 %or.cond, label %60, label %81
+  br i1 %or.cond, label %60, label %82
 
 60:                                               ; preds = %22
-  %.reass = add i64 %32, %invariant.op
-  %61 = and i64 %.reass, -64
-  store i64 %61, ptr %35, align 8
-  %62 = tail call i64 @FT_DivFix(i64 noundef %61, i64 noundef %.060) #20
-  %63 = load i64, ptr %36, align 8
-  %64 = sub nsw i64 %62, %63
-  %65 = icmp slt i64 %64, 0
-  %spec.select = tail call i64 @llvm.abs.i64(i64 %64, i1 true)
+  %61 = add nsw i64 %33, 32
+  %62 = and i64 %61, -64
+  store i64 %62, ptr %35, align 8
+  %63 = tail call i64 @FT_DivFix(i64 noundef %62, i64 noundef %.060) #20
+  %64 = load i64, ptr %36, align 8
+  %65 = sub nsw i64 %63, %64
+  %66 = icmp slt i64 %65, 0
+  %spec.select = tail call i64 @llvm.abs.i64(i64 %65, i1 true)
   %sext71 = shl i64 %spec.select, 32
-  %66 = ashr exact i64 %sext71, 32
-  %67 = mul nsw i64 %66, %21
-  %68 = ashr i64 %67, 63
-  %69 = add nsw i64 %67, 32768
-  %70 = add nsw i64 %69, %68
-  %71 = lshr i64 %70, 16
-  %72 = trunc i64 %71 to i32
-  %73 = icmp slt i32 %72, 32
-  %narrow = add nuw nsw i64 %71, 32
-  %74 = and i64 %narrow, 4294967232
-  %.1 = select i1 %73, i64 0, i64 %74
-  %75 = sub nsw i64 0, %.1
-  %76 = select i1 %65, i64 %.1, i64 %75
-  %77 = load i64, ptr %35, align 8
-  %78 = add i64 %76, %77
-  store i64 %78, ptr %47, align 8
-  %79 = load i32, ptr %48, align 8
-  %80 = or i32 %79, 1
-  store i32 %80, ptr %48, align 8
+  %67 = ashr exact i64 %sext71, 32
+  %68 = mul nsw i64 %67, %21
+  %69 = ashr i64 %68, 63
+  %70 = add nsw i64 %68, 32768
+  %71 = add nsw i64 %70, %69
+  %72 = lshr i64 %71, 16
+  %73 = trunc i64 %72 to i32
+  %74 = icmp slt i32 %73, 32
+  %narrow = add nuw nsw i64 %72, 32
+  %75 = and i64 %narrow, 4294967232
+  %.1 = select i1 %74, i64 0, i64 %75
+  %76 = sub nsw i64 0, %.1
+  %77 = select i1 %66, i64 %.1, i64 %76
+  %78 = load i64, ptr %35, align 8
+  %79 = add i64 %77, %78
+  store i64 %79, ptr %47, align 8
+  %80 = load i32, ptr %48, align 8
+  %81 = or i32 %80, 1
+  store i32 %81, ptr %48, align 8
   %.pre = load i32, ptr %18, align 4
-  br label %81
+  br label %82
 
-81:                                               ; preds = %22, %60
-  %82 = phi i32 [ %23, %22 ], [ %.pre, %60 ]
+82:                                               ; preds = %22, %60
+  %83 = phi i32 [ %23, %22 ], [ %.pre, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %indvars.iv.next, %83
-  br i1 %84, label %22, label %.loopexit, !llvm.loop !85
+  %84 = zext i32 %83 to i64
+  %85 = icmp ult i64 %indvars.iv.next, %84
+  br i1 %85, label %22, label %.loopexit, !llvm.loop !85
 
-.loopexit:                                        ; preds = %81, %15, %11
+.loopexit:                                        ; preds = %82, %15, %11
   ret void
 }
 
@@ -9548,7 +9547,6 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr nocapture noundef %0
 
 .preheader198:                                    ; preds = %._crit_edge209
   %114 = getelementptr inbounds i8, ptr %7, i64 428
-  %invariant.op = add i64 %.0151, 32
   %115 = load i32, ptr %114, align 4
   %.not218 = icmp eq i32 %115, 0
   br i1 %.not218, label %.loopexit197, label %.lr.ph211
@@ -9558,17 +9556,17 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr nocapture noundef %0
   %117 = zext i32 %115 to i64
   br label %120
 
-.preheader196:                                    ; preds = %168
+.preheader196:                                    ; preds = %169
   br i1 %.not218, label %.loopexit197, label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %.preheader196
   %118 = getelementptr inbounds i8, ptr %7, i64 432
   %wide.trip.count237 = zext i32 %115 to i64
   %119 = zext i32 %115 to i64
-  br label %170
+  br label %171
 
-120:                                              ; preds = %.lr.ph211, %168
-  %indvars.iv231 = phi i64 [ 0, %.lr.ph211 ], [ %indvars.iv.next232, %168 ]
+120:                                              ; preds = %.lr.ph211, %169
+  %indvars.iv231 = phi i64 [ 0, %.lr.ph211 ], [ %indvars.iv.next232, %169 ]
   %121 = getelementptr inbounds [8 x %struct.AF_LatinBlueRec_], ptr %116, i64 0, i64 %indvars.iv231
   %122 = load i64, ptr %121, align 8
   %sext187 = shl i64 %122, 32
@@ -9614,7 +9612,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr nocapture noundef %0
   %155 = trunc i64 %154 to i32
   %156 = add i32 %155, 48
   %or.cond5 = icmp ult i32 %156, 97
-  br i1 %or.cond5, label %157, label %168
+  br i1 %or.cond5, label %157, label %169
 
 157:                                              ; preds = %120
   %sext192 = shl i64 %154, 32
@@ -9628,71 +9626,71 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr nocapture noundef %0
   %.1153 = select i1 %161, i64 0, i64 %.
   %163 = sub nsw i64 0, %.1153
   %164 = select i1 %159, i64 %.1153, i64 %163
-  %.reass = add i64 %129, %invariant.op
-  %165 = and i64 %.reass, -64
-  store i64 %165, ptr %132, align 8
-  %166 = add i64 %164, %165
-  store i64 %166, ptr %144, align 8
-  %167 = or i32 %146, 1
-  store i32 %167, ptr %145, align 8
-  br label %168
+  %165 = add nsw i64 %130, 32
+  %166 = and i64 %165, -64
+  store i64 %166, ptr %132, align 8
+  %167 = add i64 %164, %166
+  store i64 %167, ptr %144, align 8
+  %168 = or i32 %146, 1
+  store i32 %168, ptr %145, align 8
+  br label %169
 
-168:                                              ; preds = %120, %157
+169:                                              ; preds = %120, %157
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %169 = icmp ult i64 %indvars.iv.next232, %117
-  br i1 %169, label %120, label %.preheader196, !llvm.loop !126
+  %170 = icmp ult i64 %indvars.iv.next232, %117
+  br i1 %170, label %120, label %.preheader196, !llvm.loop !126
 
-170:                                              ; preds = %.lr.ph214, %.loopexit
+171:                                              ; preds = %.lr.ph214, %.loopexit
   %indvars.iv239 = phi i64 [ 0, %.lr.ph214 ], [ %indvars.iv.next240, %.loopexit ]
-  %171 = getelementptr inbounds [8 x %struct.AF_LatinBlueRec_], ptr %118, i64 0, i64 %indvars.iv239
-  %172 = getelementptr inbounds i8, ptr %171, i64 64
-  %173 = load i32, ptr %172, align 8
-  %174 = and i32 %173, 5
-  %or.cond177.not = icmp eq i32 %174, 5
+  %172 = getelementptr inbounds [8 x %struct.AF_LatinBlueRec_], ptr %118, i64 0, i64 %indvars.iv239
+  %173 = getelementptr inbounds i8, ptr %172, i64 64
+  %174 = load i32, ptr %173, align 8
+  %175 = and i32 %174, 5
+  %or.cond177.not = icmp eq i32 %175, 5
   br i1 %or.cond177.not, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %170
-  %175 = getelementptr inbounds i8, ptr %171, i64 40
-  %176 = getelementptr inbounds i8, ptr %171, i64 16
-  br label %177
+.preheader:                                       ; preds = %171
+  %176 = getelementptr inbounds i8, ptr %172, i64 40
+  %177 = getelementptr inbounds i8, ptr %172, i64 16
+  br label %178
 
-177:                                              ; preds = %.preheader, %192
-  %indvars.iv234 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next235, %192 ]
-  %178 = getelementptr inbounds [8 x %struct.AF_LatinBlueRec_], ptr %118, i64 0, i64 %indvars.iv234
-  %179 = getelementptr inbounds i8, ptr %178, i64 64
-  %180 = load i32, ptr %179, align 8
-  %181 = and i32 %180, 5
-  %or.cond178.not = icmp eq i32 %181, 1
-  br i1 %or.cond178.not, label %182, label %192
+178:                                              ; preds = %.preheader, %193
+  %indvars.iv234 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next235, %193 ]
+  %179 = getelementptr inbounds [8 x %struct.AF_LatinBlueRec_], ptr %118, i64 0, i64 %indvars.iv234
+  %180 = getelementptr inbounds i8, ptr %179, i64 64
+  %181 = load i32, ptr %180, align 8
+  %182 = and i32 %181, 5
+  %or.cond178.not = icmp eq i32 %182, 1
+  br i1 %or.cond178.not, label %183, label %193
 
-182:                                              ; preds = %177
-  %183 = getelementptr inbounds i8, ptr %178, i64 16
-  %184 = load i64, ptr %183, align 8
-  %185 = load i64, ptr %175, align 8
-  %.not173 = icmp sgt i64 %184, %185
-  br i1 %.not173, label %192, label %186
+183:                                              ; preds = %178
+  %184 = getelementptr inbounds i8, ptr %179, i64 16
+  %185 = load i64, ptr %184, align 8
+  %186 = load i64, ptr %176, align 8
+  %.not173 = icmp sgt i64 %185, %186
+  br i1 %.not173, label %193, label %187
 
-186:                                              ; preds = %182
-  %187 = getelementptr inbounds i8, ptr %178, i64 40
-  %188 = load i64, ptr %187, align 8
-  %189 = load i64, ptr %176, align 8
-  %.not174 = icmp slt i64 %188, %189
-  br i1 %.not174, label %192, label %190
+187:                                              ; preds = %183
+  %188 = getelementptr inbounds i8, ptr %179, i64 40
+  %189 = load i64, ptr %188, align 8
+  %190 = load i64, ptr %177, align 8
+  %.not174 = icmp slt i64 %189, %190
+  br i1 %.not174, label %193, label %191
 
-190:                                              ; preds = %186
-  %191 = and i32 %173, -2
-  store i32 %191, ptr %172, align 8
+191:                                              ; preds = %187
+  %192 = and i32 %174, -2
+  store i32 %192, ptr %173, align 8
   br label %.loopexit
 
-192:                                              ; preds = %182, %186, %177
+193:                                              ; preds = %183, %187, %178
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count237
-  br i1 %exitcond238.not, label %.loopexit, label %177, !llvm.loop !127
+  br i1 %exitcond238.not, label %.loopexit, label %178, !llvm.loop !127
 
-.loopexit:                                        ; preds = %192, %190, %170
+.loopexit:                                        ; preds = %193, %191, %171
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
-  %193 = icmp ult i64 %indvars.iv.next240, %119
-  br i1 %193, label %170, label %.loopexit197, !llvm.loop !128
+  %194 = icmp ult i64 %indvars.iv.next240, %119
+  br i1 %194, label %171, label %.loopexit197, !llvm.loop !128
 
 .loopexit197:                                     ; preds = %.loopexit, %.preheader198, %.preheader196, %11, %._crit_edge209
   ret void

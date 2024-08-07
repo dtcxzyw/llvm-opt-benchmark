@@ -1192,8 +1192,8 @@ if.then32:                                        ; preds = %if.else
           to label %if.end39 unwind label %lpad.loopexit
 
 if.else38:                                        ; preds = %for.body
-  %sub.reass = add i32 %i.067, -255
-  %add = add i32 %sub.reass, %conv
+  %sub = add i32 %i.067, -255
+  %add = add i32 %sub, %conv
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then23, %if.then19, %if.else, %if.then32, %if.else38

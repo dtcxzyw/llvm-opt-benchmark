@@ -7706,7 +7706,6 @@ cond.end:                                         ; preds = %entry, %cond.true
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %invariant.op = add i64 %9, 2
   %cmp10191045.not = icmp ult i64 %9, 4294967296
   br i1 %cmp10191045.not, label %for.end260.thread, label %for.body.lr.ph.lr.ph
 
@@ -9213,8 +9212,8 @@ if.else187:                                       ; preds = %for.end
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   store i32 32, ptr %Capacity2.i.i.i.i.i, align 4
   %sub192 = sub i64 %.us-phi, %add164
-  %add.i.reass = add i64 %i.01020, %invariant.op
-  %bf.value.i835 = and i64 %add.i.reass, 1073741823
+  %add.i = add i64 %add164, %9
+  %bf.value.i835 = and i64 %add.i, 1073741823
   %bf.set.i837 = or disjoint i64 %bf.clear3.i836, %bf.value.i835
   %retval.sroa.2.12.insert.ext.i839 = shl i64 %sub192, 32
   %retval.sroa.2.12.insert.insert.i841 = or disjoint i64 %retval.sroa.2.12.insert.ext.i839, %bf.set.i837

@@ -14994,7 +14994,7 @@ define internal fastcc ptr @ft_var_readpackeddeltas(ptr noundef %0, i64 noundef 
   %8 = call ptr @ft_mem_qrealloc(ptr noundef %6, i64 noundef 8, i64 noundef 0, i64 noundef %7, ptr noundef null, ptr noundef nonnull %4) #22
   %9 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.preheader66, label %61
+  br i1 %.not, label %.preheader66, label %63
 
 .preheader66:                                     ; preds = %3, %.loopexit
   %.053 = phi i32 [ %.255, %.loopexit ], [ 0, %3 ]
@@ -15003,7 +15003,7 @@ define internal fastcc ptr @ft_var_readpackeddeltas(ptr noundef %0, i64 noundef 
   %11 = zext i32 %.050 to i64
   %12 = icmp ult i64 %11, %1
   %13 = select i1 %10, i1 %12, i1 false
-  br i1 %13, label %14, label %60
+  br i1 %13, label %14, label %62
 
 14:                                               ; preds = %.preheader66
   %15 = call zeroext i8 @FT_Stream_GetByte(ptr noundef %0) #22
@@ -15040,78 +15040,78 @@ define internal fastcc ptr @ft_var_readpackeddeltas(ptr noundef %0, i64 noundef 
 
 32:                                               ; preds = %14
   %.not60 = icmp ult i8 %15, 64
-  br i1 %.not60, label %47, label %33
+  br i1 %.not60, label %48, label %33
 
 33:                                               ; preds = %32
   %34 = shl nuw nsw i32 %17, 1
-  %.reass = add i32 %.050, 3
-  %35 = add i32 %.reass, %34
-  %36 = zext i32 %35 to i64
-  %37 = icmp ugt i64 %36, %1
-  br i1 %37, label %.loopexit67, label %.lr.ph74.preheader
+  %35 = add i32 %.050, 3
+  %36 = add i32 %35, %34
+  %37 = zext i32 %36 to i64
+  %38 = icmp ugt i64 %37, %1
+  br i1 %38, label %.loopexit67, label %.lr.ph74.preheader
 
 .lr.ph74.preheader:                               ; preds = %33
-  %38 = zext i32 %.053 to i64
+  %39 = zext i32 %.053 to i64
   br label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
-  %indvars.iv94 = phi i64 [ %38, %.lr.ph74.preheader ], [ %indvars.iv.next95, %.lr.ph74 ]
-  %.273 = phi i32 [ 0, %.lr.ph74.preheader ], [ %43, %.lr.ph74 ]
-  %39 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %0) #22
-  %40 = sext i16 %39 to i64
-  %41 = shl nsw i64 %40, 16
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %42 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv94
-  store i64 %41, ptr %42, align 8
-  %43 = add nuw nsw i32 %.273, 1
-  %44 = icmp ult i32 %.273, %17
-  %45 = icmp ult i64 %indvars.iv.next95, %7
-  %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %.lr.ph74, label %.loopexit, !llvm.loop !99
+  %indvars.iv92 = phi i64 [ %39, %.lr.ph74.preheader ], [ %indvars.iv.next93, %.lr.ph74 ]
+  %.273 = phi i32 [ 0, %.lr.ph74.preheader ], [ %44, %.lr.ph74 ]
+  %40 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %0) #22
+  %41 = sext i16 %40 to i64
+  %42 = shl nsw i64 %41, 16
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %43 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv92
+  store i64 %42, ptr %43, align 8
+  %44 = add nuw nsw i32 %.273, 1
+  %45 = icmp ult i32 %.273, %17
+  %46 = icmp ult i64 %indvars.iv.next93, %7
+  %47 = select i1 %45, i1 %46, i1 false
+  br i1 %47, label %.lr.ph74, label %.loopexit, !llvm.loop !99
 
-47:                                               ; preds = %32
-  %.reass83 = add i32 %.050, 2
-  %48 = add i32 %.reass83, %17
-  %49 = zext i32 %48 to i64
-  %50 = icmp ugt i64 %49, %1
-  br i1 %50, label %.loopexit67, label %.lr.ph79.preheader
+48:                                               ; preds = %32
+  %49 = add i32 %.050, 2
+  %50 = add i32 %49, %17
+  %51 = zext i32 %50 to i64
+  %52 = icmp ugt i64 %51, %1
+  br i1 %52, label %.loopexit67, label %.lr.ph79.preheader
 
-.lr.ph79.preheader:                               ; preds = %47
-  %51 = zext i32 %.053 to i64
+.lr.ph79.preheader:                               ; preds = %48
+  %53 = zext i32 %.053 to i64
   br label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
-  %indvars.iv97 = phi i64 [ %51, %.lr.ph79.preheader ], [ %indvars.iv.next98, %.lr.ph79 ]
-  %.378 = phi i32 [ 0, %.lr.ph79.preheader ], [ %56, %.lr.ph79 ]
-  %52 = call zeroext i8 @FT_Stream_GetByte(ptr noundef %0) #22
-  %53 = sext i8 %52 to i64
-  %54 = shl nsw i64 %53, 16
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %55 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv97
-  store i64 %54, ptr %55, align 8
-  %56 = add nuw nsw i32 %.378, 1
-  %57 = icmp ult i32 %.378, %17
-  %58 = icmp ult i64 %indvars.iv.next98, %7
-  %59 = select i1 %57, i1 %58, i1 false
-  br i1 %59, label %.lr.ph79, label %.loopexit, !llvm.loop !100
+  %indvars.iv95 = phi i64 [ %53, %.lr.ph79.preheader ], [ %indvars.iv.next96, %.lr.ph79 ]
+  %.378 = phi i32 [ 0, %.lr.ph79.preheader ], [ %58, %.lr.ph79 ]
+  %54 = call zeroext i8 @FT_Stream_GetByte(ptr noundef %0) #22
+  %55 = sext i8 %54 to i64
+  %56 = shl nsw i64 %55, 16
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+  %57 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv95
+  store i64 %56, ptr %57, align 8
+  %58 = add nuw nsw i32 %.378, 1
+  %59 = icmp ult i32 %.378, %17
+  %60 = icmp ult i64 %indvars.iv.next96, %7
+  %61 = select i1 %59, i1 %60, i1 false
+  br i1 %61, label %.lr.ph79, label %.loopexit, !llvm.loop !100
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %.lr.ph79
-  %.255.in = phi i64 [ %indvars.iv.next98, %.lr.ph79 ], [ %indvars.iv.next95, %.lr.ph74 ], [ %indvars.iv.next, %.lr.ph ]
-  %.152 = phi i32 [ %56, %.lr.ph79 ], [ %43, %.lr.ph74 ], [ %28, %.lr.ph ]
-  %.1 = phi i32 [ %48, %.lr.ph79 ], [ %35, %.lr.ph74 ], [ %18, %.lr.ph ]
+  %.255.in = phi i64 [ %indvars.iv.next96, %.lr.ph79 ], [ %indvars.iv.next93, %.lr.ph74 ], [ %indvars.iv.next, %.lr.ph ]
+  %.152 = phi i32 [ %58, %.lr.ph79 ], [ %44, %.lr.ph74 ], [ %28, %.lr.ph ]
+  %.1 = phi i32 [ %50, %.lr.ph79 ], [ %36, %.lr.ph74 ], [ %18, %.lr.ph ]
   %.255 = trunc i64 %.255.in to i32
   %.not61 = icmp ugt i32 %.152, %17
   br i1 %.not61, label %.preheader66, label %.loopexit67, !llvm.loop !101
 
-60:                                               ; preds = %.preheader66
-  br i1 %10, label %.loopexit67, label %61
+62:                                               ; preds = %.preheader66
+  br i1 %10, label %.loopexit67, label %63
 
-.loopexit67:                                      ; preds = %33, %47, %.loopexit, %60
+.loopexit67:                                      ; preds = %33, %48, %.loopexit, %62
   call void @ft_mem_free(ptr noundef %6, ptr noundef %8) #22
-  br label %61
+  br label %63
 
-61:                                               ; preds = %60, %3, %.loopexit67
-  %.0 = phi ptr [ null, %.loopexit67 ], [ null, %3 ], [ %8, %60 ]
+63:                                               ; preds = %62, %3, %.loopexit67
+  %.0 = phi ptr [ null, %.loopexit67 ], [ null, %3 ], [ %8, %62 ]
   ret ptr %.0
 }
 

@@ -6515,7 +6515,6 @@ define internal fastcc i32 @dissect_write_single_structured_field(ptr noundef %0
   %125 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %124) #5
   %126 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @__const.dissect_write_structured_field.standard_fields)
   %127 = add i32 %126, %2
-  %invariant.op = add i32 %2, 1
   %128 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %127) #5
   %129 = icmp sgt i32 %128, 0
   br i1 %129, label %.lr.ph, label %._crit_edge
@@ -6740,18 +6739,18 @@ dissect_write_single_structured_field_minor_fields.exit.us: ; preds = %tn5250_ad
   %242 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %241, ptr noundef %1, i32 noundef %.0104.us130, i32 noundef 1, i32 noundef 0) #5
   %243 = add i32 %.0104.us130, 1
   %244 = load i32, ptr @hf_tn5250_wssf_ttw_data, align 4
-  %.reass.us = add i32 %.0104.us130, %invariant.op
-  %245 = sub i32 %123, %.reass.us
-  %246 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %244, ptr noundef %1, i32 noundef %243, i32 noundef %245, i32 noundef 0) #5
-  %247 = icmp slt i32 %.reass.us, %123
-  %248 = select i1 %247, i32 %245, i32 0
-  %spec.select98.us = add i32 %248, %243
-  %249 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %spec.select98.us) #5
-  %250 = icmp sgt i32 %249, 0
-  br i1 %250, label %.lr.ph.split.us129, label %._crit_edge, !llvm.loop !19
+  %245 = add i32 %243, %2
+  %246 = sub i32 %123, %245
+  %247 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %244, ptr noundef %1, i32 noundef %243, i32 noundef %246, i32 noundef 0) #5
+  %248 = icmp slt i32 %245, %123
+  %249 = select i1 %248, i32 %246, i32 0
+  %spec.select98.us = add i32 %249, %243
+  %250 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %spec.select98.us) #5
+  %251 = icmp sgt i32 %250, 0
+  br i1 %251, label %.lr.ph.split.us129, label %._crit_edge, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %251 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %127) #5
+  %252 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %127) #5
   br label %._crit_edge
 
 .split.us:                                        ; preds = %192
@@ -6761,20 +6760,20 @@ dissect_write_single_structured_field_minor_fields.exit.us: ; preds = %tn5250_ad
 ._crit_edge:                                      ; preds = %.lr.ph.split.us129, %.lr.ph.split.us121, %.lr.ph.split.us113, %.lr.ph.split.us105, %dissect_write_single_structured_field_minor_fields.exit.us, %.lr.ph.split, %3
   %.0.lcssa = phi i32 [ %127, %3 ], [ %127, %.lr.ph.split ], [ %.016.lcssa.i.us, %dissect_write_single_structured_field_minor_fields.exit.us ], [ %spec.select.us, %.lr.ph.split.us105 ], [ %spec.select97.us, %.lr.ph.split.us113 ], [ %238, %.lr.ph.split.us121 ], [ %spec.select98.us, %.lr.ph.split.us129 ]
   %.neg.i = sub i32 %2, %.0.lcssa
-  %252 = add i32 %.neg.i, %123
-  %253 = icmp sgt i32 %252, 0
-  br i1 %253, label %254, label %dissect_unknown_data.exit
+  %253 = add i32 %.neg.i, %123
+  %254 = icmp sgt i32 %253, 0
+  br i1 %254, label %255, label %dissect_unknown_data.exit
 
-254:                                              ; preds = %._crit_edge
-  %255 = load i32, ptr @hf_tn5250_unknown_data, align 4
-  %256 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %255, ptr noundef %1, i32 noundef %.0.lcssa, i32 noundef %252, i32 noundef 0) #5
+255:                                              ; preds = %._crit_edge
+  %256 = load i32, ptr @hf_tn5250_unknown_data, align 4
+  %257 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %256, ptr noundef %1, i32 noundef %.0.lcssa, i32 noundef %253, i32 noundef 0) #5
   br label %dissect_unknown_data.exit
 
-dissect_unknown_data.exit:                        ; preds = %._crit_edge, %254
-  %.0.i = phi i32 [ %252, %254 ], [ 0, %._crit_edge ]
-  %257 = sub i32 %.0.lcssa, %2
-  %258 = add i32 %257, %.0.i
-  ret i32 %258
+dissect_unknown_data.exit:                        ; preds = %._crit_edge, %255
+  %.0.i = phi i32 [ %253, %255 ], [ 0, %._crit_edge ]
+  %258 = sub i32 %.0.lcssa, %2
+  %259 = add i32 %258, %.0.i
+  ret i32 %259
 }
 
 ; Function Attrs: nounwind uwtable

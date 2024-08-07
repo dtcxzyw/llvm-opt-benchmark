@@ -208,10 +208,10 @@ define dso_local i64 @mpihelp_mod_1(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @mpihelp_divrem(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 align 16 {
-  switch i32 %5, label %280 [
+  switch i32 %5, label %287 [
     i32 0, label %.loopexit58
     i32 1, label %7
-    i32 2, label %121
+    i32 2, label %125
   ]
 
 7:                                                ; preds = %6
@@ -234,11 +234,10 @@ define dso_local i64 @mpihelp_divrem(ptr nocapture noundef writeonly %0, i32 nou
   %22 = lshr i64 %8, 32
   %23 = and i64 %8, 4294967295
   %24 = zext nneg i32 %19 to i64
-  %invariant.op70 = shl i64 %8, 1
   br label %32
 
-.loopexit60:                                      ; preds = %69, %7
-  %25 = phi i64 [ %15, %7 ], [ %72, %69 ]
+.loopexit60:                                      ; preds = %71, %7
+  %25 = phi i64 [ %15, %7 ], [ %74, %71 ]
   %26 = add i32 %1, -1
   %27 = icmp sgt i32 %26, -1
   br i1 %27, label %28, label %.loopexit59
@@ -247,12 +246,11 @@ define dso_local i64 @mpihelp_divrem(ptr nocapture noundef writeonly %0, i32 nou
   %29 = lshr i64 %8, 32
   %30 = and i64 %8, 4294967295
   %31 = zext nneg i32 %26 to i64
-  %invariant.op74 = shl i64 %8, 1
-  br label %78
+  br label %80
 
-32:                                               ; preds = %69, %21
-  %33 = phi i64 [ %24, %21 ], [ %76, %69 ]
-  %34 = phi i64 [ %15, %21 ], [ %72, %69 ]
+32:                                               ; preds = %71, %21
+  %33 = phi i64 [ %24, %21 ], [ %78, %71 ]
+  %34 = phi i64 [ %15, %21 ], [ %74, %71 ]
   %35 = urem i64 %34, %22
   %36 = udiv i64 %34, %22
   %37 = mul i64 %36, %23
@@ -260,7 +258,7 @@ define dso_local i64 @mpihelp_divrem(ptr nocapture noundef writeonly %0, i32 nou
   %39 = load i64, ptr %38, align 8
   %40 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %39, i64 32)
   %41 = icmp ult i64 %40, %37
-  br i1 %41, label %42, label %50
+  br i1 %41, label %42, label %51
 
 42:                                               ; preds = %32
   %43 = add i64 %36, -1
@@ -268,553 +266,550 @@ define dso_local i64 @mpihelp_divrem(ptr nocapture noundef writeonly %0, i32 nou
   %45 = icmp uge i64 %44, %8
   %46 = icmp ult i64 %44, %37
   %47 = and i1 %45, %46
-  br i1 %47, label %48, label %50
+  br i1 %47, label %48, label %51
 
 48:                                               ; preds = %42
   %49 = add i64 %36, -2
-  %.reass71 = add i64 %40, %invariant.op70
-  br label %50
+  %50 = add i64 %44, %8
+  br label %51
 
-50:                                               ; preds = %48, %42, %32
-  %51 = phi i64 [ %.reass71, %48 ], [ %44, %42 ], [ %40, %32 ]
-  %52 = phi i64 [ %49, %48 ], [ %43, %42 ], [ %36, %32 ]
-  %53 = sub i64 %51, %37
-  %54 = urem i64 %53, %22
-  %55 = udiv i64 %53, %22
-  %56 = mul i64 %55, %23
-  %57 = shl nuw i64 %54, 32
-  %58 = and i64 %39, 4294967295
-  %59 = or disjoint i64 %57, %58
-  %60 = icmp ult i64 %59, %56
-  br i1 %60, label %61, label %69
+51:                                               ; preds = %48, %42, %32
+  %52 = phi i64 [ %50, %48 ], [ %44, %42 ], [ %40, %32 ]
+  %53 = phi i64 [ %49, %48 ], [ %43, %42 ], [ %36, %32 ]
+  %54 = sub i64 %52, %37
+  %55 = urem i64 %54, %22
+  %56 = udiv i64 %54, %22
+  %57 = mul i64 %56, %23
+  %58 = shl nuw i64 %55, 32
+  %59 = and i64 %39, 4294967295
+  %60 = or disjoint i64 %58, %59
+  %61 = icmp ult i64 %60, %57
+  br i1 %61, label %62, label %71
 
-61:                                               ; preds = %50
-  %62 = add i64 %55, -1
-  %63 = add i64 %59, %8
-  %64 = icmp uge i64 %63, %8
-  %65 = icmp ult i64 %63, %56
-  %66 = and i1 %64, %65
-  br i1 %66, label %67, label %69
+62:                                               ; preds = %51
+  %63 = add i64 %56, -1
+  %64 = add i64 %60, %8
+  %65 = icmp uge i64 %64, %8
+  %66 = icmp ult i64 %64, %57
+  %67 = and i1 %65, %66
+  br i1 %67, label %68, label %71
 
-67:                                               ; preds = %61
-  %68 = add i64 %55, -2
-  %.reass73 = add i64 %59, %invariant.op70
-  br label %69
+68:                                               ; preds = %62
+  %69 = add i64 %56, -2
+  %70 = add i64 %64, %8
+  br label %71
 
-69:                                               ; preds = %67, %61, %50
-  %70 = phi i64 [ %.reass73, %67 ], [ %63, %61 ], [ %59, %50 ]
-  %71 = phi i64 [ %68, %67 ], [ %62, %61 ], [ %55, %50 ]
-  %72 = sub i64 %70, %56
-  %73 = shl i64 %52, 32
-  %74 = or i64 %71, %73
-  %75 = getelementptr i64, ptr %18, i64 %33
-  store i64 %74, ptr %75, align 8
-  %76 = add nsw i64 %33, -1
-  %77 = icmp sgt i64 %33, 0
-  br i1 %77, label %32, label %.loopexit60, !llvm.loop !10
+71:                                               ; preds = %68, %62, %51
+  %72 = phi i64 [ %70, %68 ], [ %64, %62 ], [ %60, %51 ]
+  %73 = phi i64 [ %69, %68 ], [ %63, %62 ], [ %56, %51 ]
+  %74 = sub i64 %72, %57
+  %75 = shl i64 %53, 32
+  %76 = or i64 %73, %75
+  %77 = getelementptr i64, ptr %18, i64 %33
+  store i64 %76, ptr %77, align 8
+  %78 = add nsw i64 %33, -1
+  %79 = icmp sgt i64 %33, 0
+  br i1 %79, label %32, label %.loopexit60, !llvm.loop !10
 
-78:                                               ; preds = %111, %28
-  %79 = phi i64 [ %31, %28 ], [ %118, %111 ]
-  %80 = phi i64 [ %25, %28 ], [ %114, %111 ]
-  %81 = urem i64 %80, %29
-  %82 = udiv i64 %80, %29
-  %83 = mul i64 %82, %30
-  %84 = shl nuw i64 %81, 32
-  %85 = icmp ult i64 %84, %83
-  br i1 %85, label %86, label %94
+80:                                               ; preds = %115, %28
+  %81 = phi i64 [ %31, %28 ], [ %122, %115 ]
+  %82 = phi i64 [ %25, %28 ], [ %118, %115 ]
+  %83 = urem i64 %82, %29
+  %84 = udiv i64 %82, %29
+  %85 = mul i64 %84, %30
+  %86 = shl nuw i64 %83, 32
+  %87 = icmp ult i64 %86, %85
+  br i1 %87, label %88, label %97
 
-86:                                               ; preds = %78
-  %87 = add i64 %82, -1
-  %88 = add i64 %84, %8
-  %89 = icmp uge i64 %88, %8
-  %90 = icmp ult i64 %88, %83
-  %91 = and i1 %89, %90
-  br i1 %91, label %92, label %94
+88:                                               ; preds = %80
+  %89 = add i64 %84, -1
+  %90 = add i64 %86, %8
+  %91 = icmp uge i64 %90, %8
+  %92 = icmp ult i64 %90, %85
+  %93 = and i1 %91, %92
+  br i1 %93, label %94, label %97
 
-92:                                               ; preds = %86
-  %93 = add i64 %82, -2
-  %.reass75 = add i64 %84, %invariant.op74
-  br label %94
+94:                                               ; preds = %88
+  %95 = add i64 %84, -2
+  %96 = add i64 %90, %8
+  br label %97
 
-94:                                               ; preds = %92, %86, %78
-  %95 = phi i64 [ %.reass75, %92 ], [ %88, %86 ], [ %84, %78 ]
-  %96 = phi i64 [ %93, %92 ], [ %87, %86 ], [ %82, %78 ]
-  %97 = sub i64 %95, %83
-  %98 = urem i64 %97, %29
-  %99 = udiv i64 %97, %29
-  %100 = mul i64 %99, %30
-  %101 = shl nuw i64 %98, 32
-  %102 = icmp ult i64 %101, %100
-  br i1 %102, label %103, label %111
+97:                                               ; preds = %94, %88, %80
+  %98 = phi i64 [ %96, %94 ], [ %90, %88 ], [ %86, %80 ]
+  %99 = phi i64 [ %95, %94 ], [ %89, %88 ], [ %84, %80 ]
+  %100 = sub i64 %98, %85
+  %101 = urem i64 %100, %29
+  %102 = udiv i64 %100, %29
+  %103 = mul i64 %102, %30
+  %104 = shl nuw i64 %101, 32
+  %105 = icmp ult i64 %104, %103
+  br i1 %105, label %106, label %115
 
-103:                                              ; preds = %94
-  %104 = add i64 %99, -1
-  %105 = add i64 %101, %8
-  %106 = icmp uge i64 %105, %8
-  %107 = icmp ult i64 %105, %100
-  %108 = and i1 %106, %107
-  br i1 %108, label %109, label %111
+106:                                              ; preds = %97
+  %107 = add i64 %102, -1
+  %108 = add i64 %104, %8
+  %109 = icmp uge i64 %108, %8
+  %110 = icmp ult i64 %108, %103
+  %111 = and i1 %109, %110
+  br i1 %111, label %112, label %115
 
-109:                                              ; preds = %103
-  %110 = add i64 %99, -2
-  %.reass77 = add i64 %101, %invariant.op74
-  br label %111
+112:                                              ; preds = %106
+  %113 = add i64 %102, -2
+  %114 = add i64 %108, %8
+  br label %115
 
-111:                                              ; preds = %109, %103, %94
-  %112 = phi i64 [ %110, %109 ], [ %104, %103 ], [ %99, %94 ]
-  %113 = phi i64 [ %.reass77, %109 ], [ %105, %103 ], [ %101, %94 ]
-  %114 = sub i64 %113, %100
-  %115 = shl i64 %96, 32
-  %116 = or i64 %112, %115
-  %117 = getelementptr i64, ptr %0, i64 %79
-  store i64 %116, ptr %117, align 8
-  %118 = add nsw i64 %79, -1
-  %119 = icmp sgt i64 %79, 0
-  br i1 %119, label %78, label %.loopexit59, !llvm.loop !11
+115:                                              ; preds = %112, %106, %97
+  %116 = phi i64 [ %113, %112 ], [ %107, %106 ], [ %102, %97 ]
+  %117 = phi i64 [ %114, %112 ], [ %108, %106 ], [ %104, %97 ]
+  %118 = sub i64 %117, %103
+  %119 = shl i64 %99, 32
+  %120 = or i64 %116, %119
+  %121 = getelementptr i64, ptr %0, i64 %81
+  store i64 %120, ptr %121, align 8
+  %122 = add nsw i64 %81, -1
+  %123 = icmp sgt i64 %81, 0
+  br i1 %123, label %80, label %.loopexit59, !llvm.loop !11
 
-.loopexit59:                                      ; preds = %111, %.loopexit60
-  %120 = phi i64 [ %25, %.loopexit60 ], [ %114, %111 ]
-  store i64 %120, ptr %2, align 8
+.loopexit59:                                      ; preds = %115, %.loopexit60
+  %124 = phi i64 [ %25, %.loopexit60 ], [ %118, %115 ]
+  store i64 %124, ptr %2, align 8
   br label %.loopexit58
 
-121:                                              ; preds = %6
-  %122 = add i32 %3, -2
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr i64, ptr %2, i64 %123
-  %125 = getelementptr i8, ptr %4, i64 8
-  %126 = load i64, ptr %125, align 8
-  %127 = load i64, ptr %4, align 8
-  %128 = sub i64 0, %127
-  %129 = getelementptr i8, ptr %124, i64 8
+125:                                              ; preds = %6
+  %126 = add i32 %3, -2
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr i64, ptr %2, i64 %127
+  %129 = getelementptr i8, ptr %4, i64 8
   %130 = load i64, ptr %129, align 8
-  %131 = load i64, ptr %124, align 8
-  %132 = icmp ult i64 %130, %126
-  br i1 %132, label %142, label %133
+  %131 = load i64, ptr %4, align 8
+  %132 = sub i64 0, %131
+  %133 = getelementptr i8, ptr %128, i64 8
+  %134 = load i64, ptr %133, align 8
+  %135 = load i64, ptr %128, align 8
+  %136 = icmp ult i64 %134, %130
+  br i1 %136, label %146, label %137
 
-133:                                              ; preds = %121
-  %134 = icmp ule i64 %130, %126
-  %135 = icmp ult i64 %131, %127
-  %136 = select i1 %134, i1 %135, i1 false
-  br i1 %136, label %142, label %137
+137:                                              ; preds = %125
+  %138 = icmp ule i64 %134, %130
+  %139 = icmp ult i64 %135, %131
+  %140 = select i1 %138, i1 %139, i1 false
+  br i1 %140, label %146, label %141
 
-137:                                              ; preds = %133
-  %138 = sub i64 %131, %127
-  %139 = sub i64 %130, %126
-  %140 = sext i1 %135 to i64
-  %141 = add i64 %139, %140
-  br label %142
+141:                                              ; preds = %137
+  %142 = sub i64 %135, %131
+  %143 = sub i64 %134, %130
+  %144 = sext i1 %139 to i64
+  %145 = add i64 %143, %144
+  br label %146
 
-142:                                              ; preds = %137, %133, %121
-  %143 = phi i64 [ %141, %137 ], [ %130, %121 ], [ %130, %133 ]
-  %144 = phi i64 [ %138, %137 ], [ %131, %121 ], [ %131, %133 ]
-  %145 = phi i64 [ 1, %137 ], [ 0, %121 ], [ 0, %133 ]
-  %146 = add i32 %3, %1
-  %147 = add i32 %146, -3
-  %148 = icmp sgt i32 %147, -1
-  br i1 %148, label %149, label %.loopexit61
+146:                                              ; preds = %141, %137, %125
+  %147 = phi i64 [ %145, %141 ], [ %134, %125 ], [ %134, %137 ]
+  %148 = phi i64 [ %142, %141 ], [ %135, %125 ], [ %135, %137 ]
+  %149 = phi i64 [ 1, %141 ], [ 0, %125 ], [ 0, %137 ]
+  %150 = add i32 %3, %1
+  %151 = add i32 %150, -3
+  %152 = icmp sgt i32 %151, -1
+  br i1 %152, label %153, label %.loopexit61
 
-149:                                              ; preds = %142
-  %150 = lshr i64 %126, 32
-  %151 = and i64 %126, 4294967295
-  %152 = lshr i64 %127, 32
-  %153 = and i64 %127, 4294967295
-  %154 = icmp ne i64 %127, 0
-  %155 = sext i1 %154 to i64
-  %156 = add i64 %127, %155
-  %157 = zext nneg i32 %147 to i64
-  %invariant.op = shl i64 %126, 1
-  %invariant.op68 = sub i64 %126, %127
-  br label %158
+153:                                              ; preds = %146
+  %154 = lshr i64 %130, 32
+  %155 = and i64 %130, 4294967295
+  %156 = lshr i64 %131, 32
+  %157 = and i64 %131, 4294967295
+  %158 = icmp ne i64 %131, 0
+  %159 = sext i1 %158 to i64
+  %160 = add i64 %131, %159
+  %161 = zext nneg i32 %151 to i64
+  br label %162
 
-158:                                              ; preds = %271, %149
-  %159 = phi i64 [ %157, %149 ], [ %274, %271 ]
-  %160 = phi ptr [ %124, %149 ], [ %169, %271 ]
-  %161 = phi i64 [ %144, %149 ], [ %273, %271 ]
-  %162 = phi i64 [ %143, %149 ], [ %272, %271 ]
-  %163 = trunc i64 %159 to i32
-  %164 = icmp slt i32 %163, %1
-  br i1 %164, label %167, label %165
+162:                                              ; preds = %278, %153
+  %163 = phi i64 [ %161, %153 ], [ %281, %278 ]
+  %164 = phi ptr [ %128, %153 ], [ %173, %278 ]
+  %165 = phi i64 [ %148, %153 ], [ %280, %278 ]
+  %166 = phi i64 [ %147, %153 ], [ %279, %278 ]
+  %167 = trunc i64 %163 to i32
+  %168 = icmp slt i32 %167, %1
+  br i1 %168, label %171, label %169
 
-165:                                              ; preds = %158
-  %166 = getelementptr i8, ptr %160, i64 -8
-  br label %168
+169:                                              ; preds = %162
+  %170 = getelementptr i8, ptr %164, i64 -8
+  br label %172
 
-167:                                              ; preds = %158
-  store i64 0, ptr %160, align 8
-  br label %168
+171:                                              ; preds = %162
+  store i64 0, ptr %164, align 8
+  br label %172
 
-168:                                              ; preds = %167, %165
-  %169 = phi ptr [ %166, %165 ], [ %160, %167 ]
-  %170 = icmp eq i64 %162, %126
-  br i1 %170, label %171, label %180
+172:                                              ; preds = %171, %169
+  %173 = phi ptr [ %170, %169 ], [ %164, %171 ]
+  %174 = icmp eq i64 %166, %130
+  br i1 %174, label %175, label %185
 
-171:                                              ; preds = %168
-  %172 = add i64 %161, %126
-  %173 = icmp ult i64 %172, %126
-  %.pre86 = load i64, ptr %169, align 8
-  br i1 %173, label %174, label %236
+175:                                              ; preds = %172
+  %176 = add i64 %165, %130
+  %177 = icmp ult i64 %176, %130
+  %.pre70 = load i64, ptr %173, align 8
+  br i1 %177, label %178, label %243
 
-174:                                              ; preds = %171
-  %175 = add i64 %.pre86, %127
-  %.reass69 = add i64 %161, %invariant.op68
-  %176 = icmp ult i64 %175, %.pre86
-  %177 = zext i1 %176 to i64
-  %178 = add i64 %.reass69, %177
-  %179 = getelementptr i64, ptr %0, i64 %159
-  store i64 -1, ptr %179, align 8
-  br label %271
+178:                                              ; preds = %175
+  %179 = add i64 %.pre70, %131
+  %180 = sub i64 %176, %131
+  %181 = icmp ult i64 %179, %.pre70
+  %182 = zext i1 %181 to i64
+  %183 = add i64 %180, %182
+  %184 = getelementptr i64, ptr %0, i64 %163
+  store i64 -1, ptr %184, align 8
+  br label %278
 
-180:                                              ; preds = %168
-  %181 = urem i64 %162, %150
-  %182 = udiv i64 %162, %150
-  %183 = mul i64 %182, %151
-  %184 = tail call i64 @llvm.fshl.i64(i64 %181, i64 %161, i64 32)
-  %185 = icmp ult i64 %184, %183
-  br i1 %185, label %186, label %194
+185:                                              ; preds = %172
+  %186 = urem i64 %166, %154
+  %187 = udiv i64 %166, %154
+  %188 = mul i64 %187, %155
+  %189 = tail call i64 @llvm.fshl.i64(i64 %186, i64 %165, i64 32)
+  %190 = icmp ult i64 %189, %188
+  br i1 %190, label %191, label %200
 
-186:                                              ; preds = %180
-  %187 = add i64 %182, -1
-  %188 = add i64 %184, %126
-  %189 = icmp uge i64 %188, %126
-  %190 = icmp ult i64 %188, %183
-  %191 = and i1 %189, %190
-  br i1 %191, label %192, label %194
+191:                                              ; preds = %185
+  %192 = add i64 %187, -1
+  %193 = add i64 %189, %130
+  %194 = icmp uge i64 %193, %130
+  %195 = icmp ult i64 %193, %188
+  %196 = and i1 %194, %195
+  br i1 %196, label %197, label %200
 
-192:                                              ; preds = %186
-  %193 = add i64 %182, -2
-  %.reass = add i64 %184, %invariant.op
-  br label %194
+197:                                              ; preds = %191
+  %198 = add i64 %187, -2
+  %199 = add i64 %193, %130
+  br label %200
 
-194:                                              ; preds = %192, %186, %180
-  %195 = phi i64 [ %193, %192 ], [ %187, %186 ], [ %182, %180 ]
-  %196 = phi i64 [ %.reass, %192 ], [ %188, %186 ], [ %184, %180 ]
-  %197 = sub i64 %196, %183
-  %198 = urem i64 %197, %150
-  %199 = udiv i64 %197, %150
-  %200 = mul i64 %199, %151
-  %201 = shl nuw i64 %198, 32
-  %202 = and i64 %161, 4294967295
-  %203 = or disjoint i64 %201, %202
-  %204 = icmp ult i64 %203, %200
-  br i1 %204, label %205, label %213
+200:                                              ; preds = %197, %191, %185
+  %201 = phi i64 [ %198, %197 ], [ %192, %191 ], [ %187, %185 ]
+  %202 = phi i64 [ %199, %197 ], [ %193, %191 ], [ %189, %185 ]
+  %203 = sub i64 %202, %188
+  %204 = urem i64 %203, %154
+  %205 = udiv i64 %203, %154
+  %206 = mul i64 %205, %155
+  %207 = shl nuw i64 %204, 32
+  %208 = and i64 %165, 4294967295
+  %209 = or disjoint i64 %207, %208
+  %210 = icmp ult i64 %209, %206
+  br i1 %210, label %211, label %220
 
-205:                                              ; preds = %194
-  %206 = add i64 %199, -1
-  %207 = add i64 %203, %126
-  %208 = icmp uge i64 %207, %126
-  %209 = icmp ult i64 %207, %200
-  %210 = and i1 %208, %209
-  br i1 %210, label %211, label %213
+211:                                              ; preds = %200
+  %212 = add i64 %205, -1
+  %213 = add i64 %209, %130
+  %214 = icmp uge i64 %213, %130
+  %215 = icmp ult i64 %213, %206
+  %216 = and i1 %214, %215
+  br i1 %216, label %217, label %220
 
-211:                                              ; preds = %205
-  %212 = add i64 %199, -2
-  %.reass67 = add i64 %203, %invariant.op
-  br label %213
+217:                                              ; preds = %211
+  %218 = add i64 %205, -2
+  %219 = add i64 %213, %130
+  br label %220
 
-213:                                              ; preds = %211, %205, %194
-  %214 = phi i64 [ %212, %211 ], [ %206, %205 ], [ %199, %194 ]
-  %215 = phi i64 [ %.reass67, %211 ], [ %207, %205 ], [ %203, %194 ]
-  %216 = sub i64 %215, %200
-  %217 = shl i64 %195, 32
-  %218 = or i64 %214, %217
-  %219 = lshr i64 %218, 32
-  %220 = and i64 %214, 4294967295
-  %221 = mul nuw i64 %220, %153
-  %222 = mul nuw i64 %219, %153
-  %223 = mul nuw i64 %220, %152
-  %224 = mul nuw i64 %219, %152
-  %225 = lshr i64 %221, 32
-  %226 = add nuw i64 %225, %223
-  %227 = add i64 %226, %222
-  %228 = icmp ult i64 %227, %223
-  %229 = add nuw i64 %224, 4294967296
-  %230 = select i1 %228, i64 %229, i64 %224
-  %231 = lshr i64 %227, 32
-  %232 = add i64 %230, %231
-  %233 = shl i64 %227, 32
-  %234 = and i64 %221, 4294967295
-  %235 = or disjoint i64 %233, %234
-  %.pre = load i64, ptr %169, align 8
-  br label %236
+220:                                              ; preds = %217, %211, %200
+  %221 = phi i64 [ %218, %217 ], [ %212, %211 ], [ %205, %200 ]
+  %222 = phi i64 [ %219, %217 ], [ %213, %211 ], [ %209, %200 ]
+  %223 = sub i64 %222, %206
+  %224 = shl i64 %201, 32
+  %225 = or i64 %221, %224
+  %226 = lshr i64 %225, 32
+  %227 = and i64 %221, 4294967295
+  %228 = mul nuw i64 %227, %157
+  %229 = mul nuw i64 %226, %157
+  %230 = mul nuw i64 %227, %156
+  %231 = mul nuw i64 %226, %156
+  %232 = lshr i64 %228, 32
+  %233 = add nuw i64 %232, %230
+  %234 = add i64 %233, %229
+  %235 = icmp ult i64 %234, %230
+  %236 = add nuw i64 %231, 4294967296
+  %237 = select i1 %235, i64 %236, i64 %231
+  %238 = lshr i64 %234, 32
+  %239 = add i64 %237, %238
+  %240 = shl i64 %234, 32
+  %241 = and i64 %228, 4294967295
+  %242 = or disjoint i64 %240, %241
+  %.pre = load i64, ptr %173, align 8
+  br label %243
 
-236:                                              ; preds = %213, %171
-  %237 = phi i64 [ %.pre, %213 ], [ %.pre86, %171 ]
-  %238 = phi i64 [ %232, %213 ], [ %156, %171 ]
-  %239 = phi i64 [ %235, %213 ], [ %128, %171 ]
-  %240 = phi i64 [ %218, %213 ], [ -1, %171 ]
-  %241 = phi i64 [ %216, %213 ], [ %172, %171 ]
-  br label %242
+243:                                              ; preds = %220, %175
+  %244 = phi i64 [ %.pre, %220 ], [ %.pre70, %175 ]
+  %245 = phi i64 [ %239, %220 ], [ %160, %175 ]
+  %246 = phi i64 [ %242, %220 ], [ %132, %175 ]
+  %247 = phi i64 [ %225, %220 ], [ -1, %175 ]
+  %248 = phi i64 [ %223, %220 ], [ %176, %175 ]
+  br label %249
 
-242:                                              ; preds = %252, %236
-  %243 = phi i64 [ %238, %236 ], [ %257, %252 ]
-  %244 = phi i64 [ %239, %236 ], [ %254, %252 ]
-  %245 = phi i64 [ %240, %236 ], [ %253, %252 ]
-  %246 = phi i64 [ %241, %236 ], [ %258, %252 ]
-  %247 = icmp ugt i64 %243, %246
-  br i1 %247, label %252, label %248
+249:                                              ; preds = %259, %243
+  %250 = phi i64 [ %245, %243 ], [ %264, %259 ]
+  %251 = phi i64 [ %246, %243 ], [ %261, %259 ]
+  %252 = phi i64 [ %247, %243 ], [ %260, %259 ]
+  %253 = phi i64 [ %248, %243 ], [ %265, %259 ]
+  %254 = icmp ugt i64 %250, %253
+  br i1 %254, label %259, label %255
 
-248:                                              ; preds = %242
-  %249 = icmp eq i64 %243, %246
-  %250 = icmp ugt i64 %244, %237
-  %251 = select i1 %249, i1 %250, i1 false
-  br i1 %251, label %252, label %260
+255:                                              ; preds = %249
+  %256 = icmp eq i64 %250, %253
+  %257 = icmp ugt i64 %251, %244
+  %258 = select i1 %256, i1 %257, i1 false
+  br i1 %258, label %259, label %267
 
-252:                                              ; preds = %248, %242
-  %253 = add i64 %245, -1
-  %254 = sub i64 %244, %127
-  %255 = icmp ugt i64 %127, %244
-  %256 = sext i1 %255 to i64
-  %257 = add i64 %243, %256
-  %258 = add i64 %246, %126
-  %259 = icmp ult i64 %258, %126
-  br i1 %259, label %260, label %242
+259:                                              ; preds = %255, %249
+  %260 = add i64 %252, -1
+  %261 = sub i64 %251, %131
+  %262 = icmp ugt i64 %131, %251
+  %263 = sext i1 %262 to i64
+  %264 = add i64 %250, %263
+  %265 = add i64 %253, %130
+  %266 = icmp ult i64 %265, %130
+  br i1 %266, label %267, label %249
 
-260:                                              ; preds = %252, %248
-  %261 = phi i64 [ %257, %252 ], [ %243, %248 ]
-  %262 = phi i64 [ %254, %252 ], [ %244, %248 ]
-  %263 = phi i64 [ %253, %252 ], [ %245, %248 ]
-  %264 = phi i64 [ %258, %252 ], [ %246, %248 ]
-  %265 = getelementptr i64, ptr %0, i64 %159
-  store i64 %263, ptr %265, align 8
-  %266 = sub i64 %237, %262
-  %267 = sub i64 %264, %261
-  %268 = icmp ugt i64 %262, %237
-  %269 = sext i1 %268 to i64
-  %270 = add i64 %267, %269
-  br label %271
+267:                                              ; preds = %259, %255
+  %268 = phi i64 [ %264, %259 ], [ %250, %255 ]
+  %269 = phi i64 [ %261, %259 ], [ %251, %255 ]
+  %270 = phi i64 [ %260, %259 ], [ %252, %255 ]
+  %271 = phi i64 [ %265, %259 ], [ %253, %255 ]
+  %272 = getelementptr i64, ptr %0, i64 %163
+  store i64 %270, ptr %272, align 8
+  %273 = sub i64 %244, %269
+  %274 = sub i64 %271, %268
+  %275 = icmp ugt i64 %269, %244
+  %276 = sext i1 %275 to i64
+  %277 = add i64 %274, %276
+  br label %278
 
-271:                                              ; preds = %260, %174
-  %272 = phi i64 [ %178, %174 ], [ %270, %260 ]
-  %273 = phi i64 [ %175, %174 ], [ %266, %260 ]
-  %274 = add nsw i64 %159, -1
-  %275 = icmp sgt i32 %163, 0
-  br i1 %275, label %158, label %.loopexit61, !llvm.loop !12
+278:                                              ; preds = %267, %178
+  %279 = phi i64 [ %183, %178 ], [ %277, %267 ]
+  %280 = phi i64 [ %179, %178 ], [ %273, %267 ]
+  %281 = add nsw i64 %163, -1
+  %282 = icmp sgt i32 %167, 0
+  br i1 %282, label %162, label %.loopexit61, !llvm.loop !12
 
-.loopexit61:                                      ; preds = %271, %142
-  %276 = phi i64 [ %143, %142 ], [ %272, %271 ]
-  %277 = phi i64 [ %144, %142 ], [ %273, %271 ]
-  %278 = phi ptr [ %124, %142 ], [ %169, %271 ]
-  %279 = getelementptr i8, ptr %278, i64 8
-  store i64 %276, ptr %279, align 8
-  store i64 %277, ptr %278, align 8
+.loopexit61:                                      ; preds = %278, %146
+  %283 = phi i64 [ %147, %146 ], [ %279, %278 ]
+  %284 = phi i64 [ %148, %146 ], [ %280, %278 ]
+  %285 = phi ptr [ %128, %146 ], [ %173, %278 ]
+  %286 = getelementptr i8, ptr %285, i64 8
+  store i64 %283, ptr %286, align 8
+  store i64 %284, ptr %285, align 8
   br label %.loopexit58
 
-280:                                              ; preds = %6
-  %281 = sub i32 %3, %5
-  %282 = sext i32 %281 to i64
-  %283 = getelementptr i64, ptr %2, i64 %282
-  %284 = add i32 %5, -1
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr i64, ptr %4, i64 %285
-  %287 = load i64, ptr %286, align 8
-  %288 = add i32 %5, -2
+287:                                              ; preds = %6
+  %288 = sub i32 %3, %5
   %289 = sext i32 %288 to i64
-  %290 = getelementptr i64, ptr %4, i64 %289
-  %291 = load i64, ptr %290, align 8
-  %292 = getelementptr i64, ptr %283, i64 %285
-  %293 = load i64, ptr %292, align 8
-  %294 = icmp ult i64 %293, %287
-  br i1 %294, label %303, label %295
+  %290 = getelementptr i64, ptr %2, i64 %289
+  %291 = add i32 %5, -1
+  %292 = sext i32 %291 to i64
+  %293 = getelementptr i64, ptr %4, i64 %292
+  %294 = load i64, ptr %293, align 8
+  %295 = add i32 %5, -2
+  %296 = sext i32 %295 to i64
+  %297 = getelementptr i64, ptr %4, i64 %296
+  %298 = load i64, ptr %297, align 8
+  %299 = getelementptr i64, ptr %290, i64 %292
+  %300 = load i64, ptr %299, align 8
+  %301 = icmp ult i64 %300, %294
+  br i1 %301, label %310, label %302
 
-295:                                              ; preds = %280
-  %296 = icmp ugt i64 %293, %287
-  br i1 %296, label %300, label %297
+302:                                              ; preds = %287
+  %303 = icmp ugt i64 %300, %294
+  br i1 %303, label %307, label %304
 
-297:                                              ; preds = %295
-  %298 = tail call i32 @mpihelp_cmp(ptr noundef %283, ptr noundef %4, i32 noundef %284) #7
-  %299 = icmp sgt i32 %298, -1
-  br i1 %299, label %300, label %303
+304:                                              ; preds = %302
+  %305 = tail call i32 @mpihelp_cmp(ptr noundef %290, ptr noundef %4, i32 noundef %291) #7
+  %306 = icmp sgt i32 %305, -1
+  br i1 %306, label %307, label %310
 
-300:                                              ; preds = %297, %295
-  %301 = tail call i64 @mpihelp_sub_n(ptr noundef %283, ptr noundef %283, ptr noundef %4, i32 noundef %5) #7
-  %302 = load i64, ptr %292, align 8
-  br label %303
+307:                                              ; preds = %304, %302
+  %308 = tail call i64 @mpihelp_sub_n(ptr noundef %290, ptr noundef %290, ptr noundef %4, i32 noundef %5) #7
+  %309 = load i64, ptr %299, align 8
+  br label %310
 
-303:                                              ; preds = %300, %297, %280
-  %304 = phi i64 [ %302, %300 ], [ %293, %297 ], [ %293, %280 ]
-  %305 = phi i64 [ 1, %300 ], [ 0, %297 ], [ 0, %280 ]
-  %306 = add i32 %3, %1
-  %307 = xor i32 %5, -1
-  %308 = add i32 %306, %307
-  %309 = icmp sgt i32 %308, -1
-  br i1 %309, label %310, label %.loopexit58
+310:                                              ; preds = %307, %304, %287
+  %311 = phi i64 [ %309, %307 ], [ %300, %304 ], [ %300, %287 ]
+  %312 = phi i64 [ 1, %307 ], [ 0, %304 ], [ 0, %287 ]
+  %313 = add i32 %3, %1
+  %314 = xor i32 %5, -1
+  %315 = add i32 %313, %314
+  %316 = icmp sgt i32 %315, -1
+  br i1 %316, label %317, label %.loopexit58
 
-310:                                              ; preds = %303
-  %311 = sext i32 %5 to i64
-  %312 = icmp sgt i32 %288, -1
-  %313 = lshr i64 %287, 32
-  %314 = and i64 %287, 4294967295
-  %315 = lshr i64 %291, 32
-  %316 = and i64 %291, 4294967295
-  %317 = zext i32 %284 to i64
-  %318 = shl nuw nsw i64 %317, 3
-  %319 = zext nneg i32 %308 to i64
-  %invariant.op78 = shl i64 %287, 1
-  br label %320
+317:                                              ; preds = %310
+  %318 = sext i32 %5 to i64
+  %319 = icmp sgt i32 %295, -1
+  %320 = lshr i64 %294, 32
+  %321 = and i64 %294, 4294967295
+  %322 = lshr i64 %298, 32
+  %323 = and i64 %298, 4294967295
+  %324 = zext i32 %291 to i64
+  %325 = shl nuw nsw i64 %324, 3
+  %326 = zext nneg i32 %315 to i64
+  br label %327
 
-320:                                              ; preds = %425, %310
-  %321 = phi i64 [ %319, %310 ], [ %430, %425 ]
-  %322 = phi ptr [ %283, %310 ], [ %338, %425 ]
-  %323 = phi i64 [ %304, %310 ], [ %429, %425 ]
-  %324 = trunc i64 %321 to i32
-  %325 = icmp slt i32 %324, %1
-  br i1 %325, label %330, label %326
+327:                                              ; preds = %434, %317
+  %328 = phi i64 [ %326, %317 ], [ %439, %434 ]
+  %329 = phi ptr [ %290, %317 ], [ %345, %434 ]
+  %330 = phi i64 [ %311, %317 ], [ %438, %434 ]
+  %331 = trunc i64 %328 to i32
+  %332 = icmp slt i32 %331, %1
+  br i1 %332, label %337, label %333
 
-326:                                              ; preds = %320
-  %327 = getelementptr i8, ptr %322, i64 -8
-  %328 = getelementptr i64, ptr %327, i64 %311
-  %329 = load i64, ptr %328, align 8
-  br label %336
+333:                                              ; preds = %327
+  %334 = getelementptr i8, ptr %329, i64 -8
+  %335 = getelementptr i64, ptr %334, i64 %318
+  %336 = load i64, ptr %335, align 8
+  br label %343
 
-330:                                              ; preds = %320
-  %331 = getelementptr i64, ptr %322, i64 %285
-  %332 = load i64, ptr %331, align 8
-  br i1 %312, label %333, label %335
+337:                                              ; preds = %327
+  %338 = getelementptr i64, ptr %329, i64 %292
+  %339 = load i64, ptr %338, align 8
+  br i1 %319, label %340, label %342
 
-333:                                              ; preds = %330
-  %334 = getelementptr i8, ptr %322, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %334, ptr align 8 %322, i64 %318, i1 false)
-  br label %335
+340:                                              ; preds = %337
+  %341 = getelementptr i8, ptr %329, i64 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %341, ptr align 8 %329, i64 %325, i1 false)
+  br label %342
 
-335:                                              ; preds = %333, %330
-  store i64 0, ptr %322, align 8
-  br label %336
+342:                                              ; preds = %340, %337
+  store i64 0, ptr %329, align 8
+  br label %343
 
-336:                                              ; preds = %335, %326
-  %337 = phi i64 [ %329, %326 ], [ %332, %335 ]
-  %338 = phi ptr [ %327, %326 ], [ %322, %335 ]
-  %339 = icmp eq i64 %323, %287
-  br i1 %339, label %.loopexit, label %340
+343:                                              ; preds = %342, %333
+  %344 = phi i64 [ %336, %333 ], [ %339, %342 ]
+  %345 = phi ptr [ %334, %333 ], [ %329, %342 ]
+  %346 = icmp eq i64 %330, %294
+  br i1 %346, label %.loopexit, label %347
 
-340:                                              ; preds = %336
-  %341 = urem i64 %323, %313
-  %342 = udiv i64 %323, %313
-  %343 = mul i64 %342, %314
-  %344 = getelementptr i64, ptr %338, i64 %285
-  %345 = load i64, ptr %344, align 8
-  %346 = tail call i64 @llvm.fshl.i64(i64 %341, i64 %345, i64 32)
-  %347 = icmp ult i64 %346, %343
-  br i1 %347, label %348, label %356
+347:                                              ; preds = %343
+  %348 = urem i64 %330, %320
+  %349 = udiv i64 %330, %320
+  %350 = mul i64 %349, %321
+  %351 = getelementptr i64, ptr %345, i64 %292
+  %352 = load i64, ptr %351, align 8
+  %353 = tail call i64 @llvm.fshl.i64(i64 %348, i64 %352, i64 32)
+  %354 = icmp ult i64 %353, %350
+  br i1 %354, label %355, label %364
 
-348:                                              ; preds = %340
-  %349 = add i64 %342, -1
-  %350 = add i64 %346, %287
-  %351 = icmp uge i64 %350, %287
-  %352 = icmp ult i64 %350, %343
-  %353 = and i1 %351, %352
-  br i1 %353, label %354, label %356
+355:                                              ; preds = %347
+  %356 = add i64 %349, -1
+  %357 = add i64 %353, %294
+  %358 = icmp uge i64 %357, %294
+  %359 = icmp ult i64 %357, %350
+  %360 = and i1 %358, %359
+  br i1 %360, label %361, label %364
 
-354:                                              ; preds = %348
-  %355 = add i64 %342, -2
-  %.reass79 = add i64 %346, %invariant.op78
-  br label %356
+361:                                              ; preds = %355
+  %362 = add i64 %349, -2
+  %363 = add i64 %357, %294
+  br label %364
 
-356:                                              ; preds = %354, %348, %340
-  %357 = phi i64 [ %355, %354 ], [ %349, %348 ], [ %342, %340 ]
-  %358 = phi i64 [ %.reass79, %354 ], [ %350, %348 ], [ %346, %340 ]
-  %359 = sub i64 %358, %343
-  %360 = urem i64 %359, %313
-  %361 = udiv i64 %359, %313
-  %362 = mul i64 %361, %314
-  %363 = shl nuw i64 %360, 32
-  %364 = and i64 %345, 4294967295
-  %365 = or disjoint i64 %363, %364
-  %366 = icmp ult i64 %365, %362
-  br i1 %366, label %367, label %375
+364:                                              ; preds = %361, %355, %347
+  %365 = phi i64 [ %362, %361 ], [ %356, %355 ], [ %349, %347 ]
+  %366 = phi i64 [ %363, %361 ], [ %357, %355 ], [ %353, %347 ]
+  %367 = sub i64 %366, %350
+  %368 = urem i64 %367, %320
+  %369 = udiv i64 %367, %320
+  %370 = mul i64 %369, %321
+  %371 = shl nuw i64 %368, 32
+  %372 = and i64 %352, 4294967295
+  %373 = or disjoint i64 %371, %372
+  %374 = icmp ult i64 %373, %370
+  br i1 %374, label %375, label %384
 
-367:                                              ; preds = %356
-  %368 = add i64 %361, -1
-  %369 = add i64 %365, %287
-  %370 = icmp uge i64 %369, %287
-  %371 = icmp ult i64 %369, %362
-  %372 = and i1 %370, %371
-  br i1 %372, label %373, label %375
+375:                                              ; preds = %364
+  %376 = add i64 %369, -1
+  %377 = add i64 %373, %294
+  %378 = icmp uge i64 %377, %294
+  %379 = icmp ult i64 %377, %370
+  %380 = and i1 %378, %379
+  br i1 %380, label %381, label %384
 
-373:                                              ; preds = %367
-  %374 = add i64 %361, -2
-  %.reass81 = add i64 %365, %invariant.op78
-  br label %375
+381:                                              ; preds = %375
+  %382 = add i64 %369, -2
+  %383 = add i64 %377, %294
+  br label %384
 
-375:                                              ; preds = %373, %367, %356
-  %376 = phi i64 [ %374, %373 ], [ %368, %367 ], [ %361, %356 ]
-  %377 = phi i64 [ %.reass81, %373 ], [ %369, %367 ], [ %365, %356 ]
-  %378 = sub i64 %377, %362
-  %379 = shl i64 %357, 32
-  %380 = or i64 %376, %379
-  %381 = lshr i64 %380, 32
-  %382 = and i64 %376, 4294967295
-  %383 = mul nuw i64 %382, %316
-  %384 = mul nuw i64 %381, %316
-  %385 = mul nuw i64 %382, %315
-  %386 = mul nuw i64 %381, %315
-  %387 = lshr i64 %383, 32
-  %388 = add nuw i64 %387, %385
-  %389 = add i64 %388, %384
-  %390 = icmp ult i64 %389, %385
-  %391 = add nuw i64 %386, 4294967296
-  %392 = select i1 %390, i64 %391, i64 %386
-  %393 = lshr i64 %389, 32
-  %394 = add i64 %392, %393
-  %395 = shl i64 %389, 32
-  %396 = and i64 %383, 4294967295
-  %397 = or disjoint i64 %395, %396
-  %398 = getelementptr i64, ptr %338, i64 %289
-  br label %399
+384:                                              ; preds = %381, %375, %364
+  %385 = phi i64 [ %382, %381 ], [ %376, %375 ], [ %369, %364 ]
+  %386 = phi i64 [ %383, %381 ], [ %377, %375 ], [ %373, %364 ]
+  %387 = sub i64 %386, %370
+  %388 = shl i64 %365, 32
+  %389 = or i64 %385, %388
+  %390 = lshr i64 %389, 32
+  %391 = and i64 %385, 4294967295
+  %392 = mul nuw i64 %391, %323
+  %393 = mul nuw i64 %390, %323
+  %394 = mul nuw i64 %391, %322
+  %395 = mul nuw i64 %390, %322
+  %396 = lshr i64 %392, 32
+  %397 = add nuw i64 %396, %394
+  %398 = add i64 %397, %393
+  %399 = icmp ult i64 %398, %394
+  %400 = add nuw i64 %395, 4294967296
+  %401 = select i1 %399, i64 %400, i64 %395
+  %402 = lshr i64 %398, 32
+  %403 = add i64 %401, %402
+  %404 = shl i64 %398, 32
+  %405 = and i64 %392, 4294967295
+  %406 = or disjoint i64 %404, %405
+  %407 = getelementptr i64, ptr %345, i64 %296
+  br label %408
 
-399:                                              ; preds = %414, %375
-  %400 = phi i64 [ %397, %375 ], [ %418, %414 ]
-  %401 = phi i64 [ %380, %375 ], [ %411, %414 ]
-  %402 = phi i64 [ %394, %375 ], [ %417, %414 ]
-  %403 = phi i64 [ %378, %375 ], [ %412, %414 ]
-  %404 = icmp ugt i64 %402, %403
-  br i1 %404, label %410, label %405
+408:                                              ; preds = %423, %384
+  %409 = phi i64 [ %406, %384 ], [ %427, %423 ]
+  %410 = phi i64 [ %389, %384 ], [ %420, %423 ]
+  %411 = phi i64 [ %403, %384 ], [ %426, %423 ]
+  %412 = phi i64 [ %387, %384 ], [ %421, %423 ]
+  %413 = icmp ugt i64 %411, %412
+  br i1 %413, label %419, label %414
 
-405:                                              ; preds = %399
-  %406 = icmp eq i64 %402, %403
-  br i1 %406, label %407, label %.loopexit
+414:                                              ; preds = %408
+  %415 = icmp eq i64 %411, %412
+  br i1 %415, label %416, label %.loopexit
 
-407:                                              ; preds = %405
-  %408 = load i64, ptr %398, align 8
-  %409 = icmp ugt i64 %400, %408
-  br i1 %409, label %410, label %.loopexit
+416:                                              ; preds = %414
+  %417 = load i64, ptr %407, align 8
+  %418 = icmp ugt i64 %409, %417
+  br i1 %418, label %419, label %.loopexit
 
-410:                                              ; preds = %407, %399
-  %411 = add i64 %401, -1
-  %412 = add i64 %403, %287
-  %413 = icmp ult i64 %412, %287
-  br i1 %413, label %.loopexit, label %414
+419:                                              ; preds = %416, %408
+  %420 = add i64 %410, -1
+  %421 = add i64 %412, %294
+  %422 = icmp ult i64 %421, %294
+  br i1 %422, label %.loopexit, label %423
 
-414:                                              ; preds = %410
-  %415 = icmp ult i64 %400, %291
-  %416 = sext i1 %415 to i64
-  %417 = add i64 %402, %416
-  %418 = sub i64 %400, %291
-  br label %399, !llvm.loop !13
+423:                                              ; preds = %419
+  %424 = icmp ult i64 %409, %298
+  %425 = sext i1 %424 to i64
+  %426 = add i64 %411, %425
+  %427 = sub i64 %409, %298
+  br label %408, !llvm.loop !13
 
-.loopexit:                                        ; preds = %410, %407, %405, %336
-  %419 = phi i64 [ -1, %336 ], [ %401, %405 ], [ %401, %407 ], [ %411, %410 ]
-  %420 = tail call i64 @mpihelp_submul_1(ptr noundef %338, ptr noundef %4, i32 noundef %5, i64 noundef %419) #7
-  %421 = icmp eq i64 %337, %420
-  br i1 %421, label %425, label %422
+.loopexit:                                        ; preds = %419, %416, %414, %343
+  %428 = phi i64 [ -1, %343 ], [ %410, %414 ], [ %410, %416 ], [ %420, %419 ]
+  %429 = tail call i64 @mpihelp_submul_1(ptr noundef %345, ptr noundef %4, i32 noundef %5, i64 noundef %428) #7
+  %430 = icmp eq i64 %344, %429
+  br i1 %430, label %434, label %431
 
-422:                                              ; preds = %.loopexit
-  %423 = tail call i64 @mpihelp_add_n(ptr noundef %338, ptr noundef %338, ptr noundef %4, i32 noundef %5) #7
-  %424 = add i64 %419, -1
-  br label %425
+431:                                              ; preds = %.loopexit
+  %432 = tail call i64 @mpihelp_add_n(ptr noundef %345, ptr noundef %345, ptr noundef %4, i32 noundef %5) #7
+  %433 = add i64 %428, -1
+  br label %434
 
-425:                                              ; preds = %422, %.loopexit
-  %426 = phi i64 [ %424, %422 ], [ %419, %.loopexit ]
-  %427 = getelementptr i64, ptr %0, i64 %321
-  store i64 %426, ptr %427, align 8
-  %428 = getelementptr i64, ptr %338, i64 %285
-  %429 = load i64, ptr %428, align 8
-  %430 = add nsw i64 %321, -1
-  %431 = icmp sgt i32 %324, 0
-  br i1 %431, label %320, label %.loopexit58, !llvm.loop !14
+434:                                              ; preds = %431, %.loopexit
+  %435 = phi i64 [ %433, %431 ], [ %428, %.loopexit ]
+  %436 = getelementptr i64, ptr %0, i64 %328
+  store i64 %435, ptr %436, align 8
+  %437 = getelementptr i64, ptr %345, i64 %292
+  %438 = load i64, ptr %437, align 8
+  %439 = add nsw i64 %328, -1
+  %440 = icmp sgt i32 %331, 0
+  br i1 %440, label %327, label %.loopexit58, !llvm.loop !14
 
-.loopexit58:                                      ; preds = %425, %303, %.loopexit61, %.loopexit59, %6
-  %432 = phi i64 [ poison, %6 ], [ %145, %.loopexit61 ], [ %16, %.loopexit59 ], [ %305, %303 ], [ %305, %425 ]
-  ret i64 %432
+.loopexit58:                                      ; preds = %434, %310, %.loopexit61, %.loopexit59, %6
+  %441 = phi i64 [ poison, %6 ], [ %149, %.loopexit61 ], [ %16, %.loopexit59 ], [ %312, %310 ], [ %312, %434 ]
+  ret i64 %441
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -858,13 +853,12 @@ define dso_local i64 @mpihelp_divmod_1(ptr nocapture noundef writeonly %0, ptr n
 
 24:                                               ; preds = %9
   %25 = zext nneg i32 %20 to i64
-  %invariant.op = shl i64 %13, 1
   br label %26
 
-26:                                               ; preds = %67, %24
-  %27 = phi i64 [ %25, %24 ], [ %77, %67 ]
-  %28 = phi i64 [ %19, %24 ], [ %70, %67 ]
-  %29 = phi i64 [ %17, %24 ], [ %31, %67 ]
+26:                                               ; preds = %69, %24
+  %27 = phi i64 [ %25, %24 ], [ %79, %69 ]
+  %28 = phi i64 [ %19, %24 ], [ %72, %69 ]
+  %29 = phi i64 [ %17, %24 ], [ %31, %69 ]
   %30 = getelementptr i64, ptr %1, i64 %27
   %31 = load i64, ptr %30, align 8
   %32 = urem i64 %28, %22
@@ -875,7 +869,7 @@ define dso_local i64 @mpihelp_divmod_1(ptr nocapture noundef writeonly %0, ptr n
   %37 = or i64 %36, %35
   %38 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %37, i64 32)
   %39 = icmp ult i64 %38, %34
-  br i1 %39, label %40, label %48
+  br i1 %39, label %40, label %49
 
 40:                                               ; preds = %26
   %41 = add i64 %33, -1
@@ -883,207 +877,206 @@ define dso_local i64 @mpihelp_divmod_1(ptr nocapture noundef writeonly %0, ptr n
   %43 = icmp uge i64 %42, %13
   %44 = icmp ult i64 %42, %34
   %45 = and i1 %43, %44
-  br i1 %45, label %46, label %48
+  br i1 %45, label %46, label %49
 
 46:                                               ; preds = %40
   %47 = add i64 %33, -2
-  %.reass = add i64 %38, %invariant.op
-  br label %48
+  %48 = add i64 %42, %13
+  br label %49
 
-48:                                               ; preds = %46, %40, %26
-  %49 = phi i64 [ %47, %46 ], [ %41, %40 ], [ %33, %26 ]
-  %50 = phi i64 [ %.reass, %46 ], [ %42, %40 ], [ %38, %26 ]
-  %51 = sub i64 %50, %34
-  %52 = urem i64 %51, %22
-  %53 = udiv i64 %51, %22
-  %54 = mul i64 %53, %23
-  %55 = shl nuw i64 %52, 32
-  %56 = and i64 %37, 4294967295
-  %57 = or disjoint i64 %55, %56
-  %58 = icmp ult i64 %57, %54
-  br i1 %58, label %59, label %67
+49:                                               ; preds = %46, %40, %26
+  %50 = phi i64 [ %47, %46 ], [ %41, %40 ], [ %33, %26 ]
+  %51 = phi i64 [ %48, %46 ], [ %42, %40 ], [ %38, %26 ]
+  %52 = sub i64 %51, %34
+  %53 = urem i64 %52, %22
+  %54 = udiv i64 %52, %22
+  %55 = mul i64 %54, %23
+  %56 = shl nuw i64 %53, 32
+  %57 = and i64 %37, 4294967295
+  %58 = or disjoint i64 %56, %57
+  %59 = icmp ult i64 %58, %55
+  br i1 %59, label %60, label %69
 
-59:                                               ; preds = %48
-  %60 = add i64 %53, -1
-  %61 = add i64 %57, %13
-  %62 = icmp uge i64 %61, %13
-  %63 = icmp ult i64 %61, %54
-  %64 = and i1 %62, %63
-  br i1 %64, label %65, label %67
+60:                                               ; preds = %49
+  %61 = add i64 %54, -1
+  %62 = add i64 %58, %13
+  %63 = icmp uge i64 %62, %13
+  %64 = icmp ult i64 %62, %55
+  %65 = and i1 %63, %64
+  br i1 %65, label %66, label %69
 
-65:                                               ; preds = %59
-  %66 = add i64 %53, -2
-  %.reass36 = add i64 %57, %invariant.op
-  br label %67
+66:                                               ; preds = %60
+  %67 = add i64 %54, -2
+  %68 = add i64 %62, %13
+  br label %69
 
-67:                                               ; preds = %65, %59, %48
-  %68 = phi i64 [ %66, %65 ], [ %60, %59 ], [ %53, %48 ]
-  %69 = phi i64 [ %.reass36, %65 ], [ %61, %59 ], [ %57, %48 ]
-  %70 = sub i64 %69, %54
-  %71 = shl i64 %49, 32
-  %72 = or i64 %68, %71
-  %73 = shl i64 %27, 32
-  %74 = add i64 %73, 4294967296
-  %75 = ashr exact i64 %74, 29
-  %76 = getelementptr i8, ptr %0, i64 %75
-  store i64 %72, ptr %76, align 8
-  %77 = add nsw i64 %27, -1
-  %78 = icmp sgt i64 %27, 0
-  br i1 %78, label %26, label %.loopexit32, !llvm.loop !15
+69:                                               ; preds = %66, %60, %49
+  %70 = phi i64 [ %67, %66 ], [ %61, %60 ], [ %54, %49 ]
+  %71 = phi i64 [ %68, %66 ], [ %62, %60 ], [ %58, %49 ]
+  %72 = sub i64 %71, %55
+  %73 = shl i64 %50, 32
+  %74 = or i64 %70, %73
+  %75 = shl i64 %27, 32
+  %76 = add i64 %75, 4294967296
+  %77 = ashr exact i64 %76, 29
+  %78 = getelementptr i8, ptr %0, i64 %77
+  store i64 %74, ptr %78, align 8
+  %79 = add nsw i64 %27, -1
+  %80 = icmp sgt i64 %27, 0
+  br i1 %80, label %26, label %.loopexit32, !llvm.loop !15
 
-.loopexit32:                                      ; preds = %67, %9
-  %79 = phi i64 [ %17, %9 ], [ %31, %67 ]
-  %80 = phi i64 [ %19, %9 ], [ %70, %67 ]
-  %81 = urem i64 %80, %22
-  %82 = udiv i64 %80, %22
-  %83 = mul i64 %82, %23
-  %84 = shl i64 %79, %12
-  %85 = tail call i64 @llvm.fshl.i64(i64 %81, i64 %84, i64 32)
-  %86 = icmp ult i64 %85, %83
-  br i1 %86, label %87, label %96
+.loopexit32:                                      ; preds = %69, %9
+  %81 = phi i64 [ %17, %9 ], [ %31, %69 ]
+  %82 = phi i64 [ %19, %9 ], [ %72, %69 ]
+  %83 = urem i64 %82, %22
+  %84 = udiv i64 %82, %22
+  %85 = mul i64 %84, %23
+  %86 = shl i64 %81, %12
+  %87 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %86, i64 32)
+  %88 = icmp ult i64 %87, %85
+  br i1 %88, label %89, label %98
 
-87:                                               ; preds = %.loopexit32
-  %88 = add i64 %82, -1
-  %89 = add i64 %85, %13
-  %90 = icmp uge i64 %89, %13
-  %91 = icmp ult i64 %89, %83
-  %92 = and i1 %90, %91
-  br i1 %92, label %93, label %96
+89:                                               ; preds = %.loopexit32
+  %90 = add i64 %84, -1
+  %91 = add i64 %87, %13
+  %92 = icmp uge i64 %91, %13
+  %93 = icmp ult i64 %91, %85
+  %94 = and i1 %92, %93
+  br i1 %94, label %95, label %98
 
-93:                                               ; preds = %87
-  %94 = add i64 %82, -2
-  %95 = add i64 %89, %13
-  br label %96
+95:                                               ; preds = %89
+  %96 = add i64 %84, -2
+  %97 = add i64 %91, %13
+  br label %98
 
-96:                                               ; preds = %93, %87, %.loopexit32
-  %97 = phi i64 [ %94, %93 ], [ %88, %87 ], [ %82, %.loopexit32 ]
-  %98 = phi i64 [ %95, %93 ], [ %89, %87 ], [ %85, %.loopexit32 ]
-  %99 = sub i64 %98, %83
-  %100 = urem i64 %99, %22
-  %101 = udiv i64 %99, %22
-  %102 = mul i64 %101, %23
-  %103 = shl nuw i64 %100, 32
-  %104 = and i64 %84, 4294967295
-  %105 = or disjoint i64 %103, %104
-  %106 = icmp ult i64 %105, %102
-  br i1 %106, label %107, label %116
+98:                                               ; preds = %95, %89, %.loopexit32
+  %99 = phi i64 [ %96, %95 ], [ %90, %89 ], [ %84, %.loopexit32 ]
+  %100 = phi i64 [ %97, %95 ], [ %91, %89 ], [ %87, %.loopexit32 ]
+  %101 = sub i64 %100, %85
+  %102 = urem i64 %101, %22
+  %103 = udiv i64 %101, %22
+  %104 = mul i64 %103, %23
+  %105 = shl nuw i64 %102, 32
+  %106 = and i64 %86, 4294967295
+  %107 = or disjoint i64 %105, %106
+  %108 = icmp ult i64 %107, %104
+  br i1 %108, label %109, label %118
 
-107:                                              ; preds = %96
-  %108 = add i64 %101, -1
-  %109 = add i64 %105, %13
-  %110 = icmp uge i64 %109, %13
-  %111 = icmp ult i64 %109, %102
-  %112 = and i1 %110, %111
-  br i1 %112, label %113, label %116
+109:                                              ; preds = %98
+  %110 = add i64 %103, -1
+  %111 = add i64 %107, %13
+  %112 = icmp uge i64 %111, %13
+  %113 = icmp ult i64 %111, %104
+  %114 = and i1 %112, %113
+  br i1 %114, label %115, label %118
 
-113:                                              ; preds = %107
-  %114 = add i64 %101, -2
-  %115 = add i64 %109, %13
-  br label %116
+115:                                              ; preds = %109
+  %116 = add i64 %103, -2
+  %117 = add i64 %111, %13
+  br label %118
 
-116:                                              ; preds = %96, %107, %113
-  %117 = phi i64 [ %114, %113 ], [ %108, %107 ], [ %101, %96 ]
-  %118 = phi i64 [ %115, %113 ], [ %109, %107 ], [ %105, %96 ]
-  %119 = sub i64 %118, %102
-  %120 = shl i64 %97, 32
-  %121 = or i64 %117, %120
-  store i64 %121, ptr %0, align 8
-  %122 = lshr i64 %119, %12
+118:                                              ; preds = %98, %109, %115
+  %119 = phi i64 [ %116, %115 ], [ %110, %109 ], [ %103, %98 ]
+  %120 = phi i64 [ %117, %115 ], [ %111, %109 ], [ %107, %98 ]
+  %121 = sub i64 %120, %104
+  %122 = shl i64 %99, 32
+  %123 = or i64 %119, %122
+  store i64 %123, ptr %0, align 8
+  %124 = lshr i64 %121, %12
   br label %.loopexit
 
 .thread:                                          ; preds = %6
   %.pre = add i32 %2, -1
-  %.pre44 = sext i32 %.pre to i64
-  %123 = getelementptr i64, ptr %1, i64 %.pre44
-  %124 = load i64, ptr %123, align 8
-  %125 = icmp ult i64 %124, %3
-  br i1 %125, label %126, label %129
+  %.pre38 = sext i32 %.pre to i64
+  %125 = getelementptr i64, ptr %1, i64 %.pre38
+  %126 = load i64, ptr %125, align 8
+  %127 = icmp ult i64 %126, %3
+  br i1 %127, label %128, label %131
 
-126:                                              ; preds = %.thread
-  %127 = add i32 %2, -2
-  %128 = getelementptr i64, ptr %0, i64 %.pre44
-  store i64 0, ptr %128, align 8
-  br label %129
+128:                                              ; preds = %.thread
+  %129 = add i32 %2, -2
+  %130 = getelementptr i64, ptr %0, i64 %.pre38
+  store i64 0, ptr %130, align 8
+  br label %131
 
-129:                                              ; preds = %126, %.thread
-  %130 = phi i32 [ %127, %126 ], [ %.pre, %.thread ]
-  %131 = phi i64 [ %124, %126 ], [ 0, %.thread ]
-  %132 = icmp sgt i32 %130, -1
-  br i1 %132, label %133, label %.loopexit
+131:                                              ; preds = %128, %.thread
+  %132 = phi i32 [ %129, %128 ], [ %.pre, %.thread ]
+  %133 = phi i64 [ %126, %128 ], [ 0, %.thread ]
+  %134 = icmp sgt i32 %132, -1
+  br i1 %134, label %135, label %.loopexit
 
-133:                                              ; preds = %129
-  %134 = lshr i64 %3, 32
-  %135 = and i64 %3, 4294967295
-  %136 = zext nneg i32 %130 to i64
-  %invariant.op37 = shl i64 %3, 1
-  br label %137
+135:                                              ; preds = %131
+  %136 = lshr i64 %3, 32
+  %137 = and i64 %3, 4294967295
+  %138 = zext nneg i32 %132 to i64
+  br label %139
 
-137:                                              ; preds = %174, %133
-  %138 = phi i64 [ %136, %133 ], [ %181, %174 ]
-  %139 = phi i64 [ %131, %133 ], [ %177, %174 ]
-  %140 = getelementptr i64, ptr %1, i64 %138
-  %141 = load i64, ptr %140, align 8
-  %142 = urem i64 %139, %134
-  %143 = udiv i64 %139, %134
-  %144 = mul i64 %143, %135
-  %145 = tail call i64 @llvm.fshl.i64(i64 %142, i64 %141, i64 32)
-  %146 = icmp ult i64 %145, %144
-  br i1 %146, label %147, label %155
+139:                                              ; preds = %178, %135
+  %140 = phi i64 [ %138, %135 ], [ %185, %178 ]
+  %141 = phi i64 [ %133, %135 ], [ %181, %178 ]
+  %142 = getelementptr i64, ptr %1, i64 %140
+  %143 = load i64, ptr %142, align 8
+  %144 = urem i64 %141, %136
+  %145 = udiv i64 %141, %136
+  %146 = mul i64 %145, %137
+  %147 = tail call i64 @llvm.fshl.i64(i64 %144, i64 %143, i64 32)
+  %148 = icmp ult i64 %147, %146
+  br i1 %148, label %149, label %158
 
-147:                                              ; preds = %137
-  %148 = add i64 %143, -1
-  %149 = add i64 %145, %3
-  %150 = icmp uge i64 %149, %3
-  %151 = icmp ult i64 %149, %144
-  %152 = and i1 %150, %151
-  br i1 %152, label %153, label %155
+149:                                              ; preds = %139
+  %150 = add i64 %145, -1
+  %151 = add i64 %147, %3
+  %152 = icmp uge i64 %151, %3
+  %153 = icmp ult i64 %151, %146
+  %154 = and i1 %152, %153
+  br i1 %154, label %155, label %158
 
-153:                                              ; preds = %147
-  %154 = add i64 %143, -2
-  %.reass38 = add i64 %145, %invariant.op37
-  br label %155
+155:                                              ; preds = %149
+  %156 = add i64 %145, -2
+  %157 = add i64 %151, %3
+  br label %158
 
-155:                                              ; preds = %153, %147, %137
-  %156 = phi i64 [ %154, %153 ], [ %148, %147 ], [ %143, %137 ]
-  %157 = phi i64 [ %.reass38, %153 ], [ %149, %147 ], [ %145, %137 ]
-  %158 = sub i64 %157, %144
-  %159 = urem i64 %158, %134
-  %160 = udiv i64 %158, %134
-  %161 = mul i64 %160, %135
-  %162 = shl nuw i64 %159, 32
-  %163 = and i64 %141, 4294967295
-  %164 = or disjoint i64 %162, %163
-  %165 = icmp ult i64 %164, %161
-  br i1 %165, label %166, label %174
+158:                                              ; preds = %155, %149, %139
+  %159 = phi i64 [ %156, %155 ], [ %150, %149 ], [ %145, %139 ]
+  %160 = phi i64 [ %157, %155 ], [ %151, %149 ], [ %147, %139 ]
+  %161 = sub i64 %160, %146
+  %162 = urem i64 %161, %136
+  %163 = udiv i64 %161, %136
+  %164 = mul i64 %163, %137
+  %165 = shl nuw i64 %162, 32
+  %166 = and i64 %143, 4294967295
+  %167 = or disjoint i64 %165, %166
+  %168 = icmp ult i64 %167, %164
+  br i1 %168, label %169, label %178
 
-166:                                              ; preds = %155
-  %167 = add i64 %160, -1
-  %168 = add i64 %164, %3
-  %169 = icmp uge i64 %168, %3
-  %170 = icmp ult i64 %168, %161
-  %171 = and i1 %169, %170
-  br i1 %171, label %172, label %174
+169:                                              ; preds = %158
+  %170 = add i64 %163, -1
+  %171 = add i64 %167, %3
+  %172 = icmp uge i64 %171, %3
+  %173 = icmp ult i64 %171, %164
+  %174 = and i1 %172, %173
+  br i1 %174, label %175, label %178
 
-172:                                              ; preds = %166
-  %173 = add i64 %160, -2
-  %.reass40 = add i64 %164, %invariant.op37
-  br label %174
+175:                                              ; preds = %169
+  %176 = add i64 %163, -2
+  %177 = add i64 %171, %3
+  br label %178
 
-174:                                              ; preds = %172, %166, %155
-  %175 = phi i64 [ %173, %172 ], [ %167, %166 ], [ %160, %155 ]
-  %176 = phi i64 [ %.reass40, %172 ], [ %168, %166 ], [ %164, %155 ]
-  %177 = sub i64 %176, %161
-  %178 = shl i64 %156, 32
-  %179 = or i64 %175, %178
-  %180 = getelementptr i64, ptr %0, i64 %138
-  store i64 %179, ptr %180, align 8
-  %181 = add nsw i64 %138, -1
-  %182 = icmp sgt i64 %138, 0
-  br i1 %182, label %137, label %.loopexit, !llvm.loop !16
+178:                                              ; preds = %175, %169, %158
+  %179 = phi i64 [ %176, %175 ], [ %170, %169 ], [ %163, %158 ]
+  %180 = phi i64 [ %177, %175 ], [ %171, %169 ], [ %167, %158 ]
+  %181 = sub i64 %180, %164
+  %182 = shl i64 %159, 32
+  %183 = or i64 %179, %182
+  %184 = getelementptr i64, ptr %0, i64 %140
+  store i64 %183, ptr %184, align 8
+  %185 = add nsw i64 %140, -1
+  %186 = icmp sgt i64 %140, 0
+  br i1 %186, label %139, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %174, %116, %129, %4
-  %183 = phi i64 [ %122, %116 ], [ 0, %4 ], [ %131, %129 ], [ %177, %174 ]
-  ret i64 %183
+.loopexit:                                        ; preds = %178, %118, %131, %4
+  %187 = phi i64 [ %124, %118 ], [ 0, %4 ], [ %133, %131 ], [ %181, %178 ]
+  ret i64 %187
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

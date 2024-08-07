@@ -877,16 +877,16 @@ define noundef i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %1, ptr nocap
   %8 = add i32 %.promoted.i, %4
   %9 = and i32 %8, 3
   %.not10.i = icmp eq i32 %9, 0
-  br i1 %.not10.i, label %11, label %.lr.ph.i
+  br i1 %.not10.i, label %11, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %7
+.lr.ph.preheader.i:                               ; preds = %7
   %10 = or i32 %8, -4
   %sub = sub i32 %.promoted.i, %10
   store i32 %sub, ptr %2, align 4
   br label %11
 
-11:                                               ; preds = %.lr.ph.i, %7
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %7 ]
+11:                                               ; preds = %.lr.ph.preheader.i, %7
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %7 ]
   %.not9.i = icmp eq i32 %3, 0
   br i1 %.not9.i, label %14, label %12
 
@@ -940,9 +940,9 @@ define i32 @get_CDR_ulong(ptr noundef %0, ptr nocapture noundef %1, i32 noundef 
   %5 = add i32 %.promoted, %3
   %6 = and i32 %5, 3
   %.not10 = icmp eq i32 %6, 0
-  br i1 %.not10, label %10, label %.lr.ph
+  br i1 %.not10, label %10, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %4
+.lr.ph.preheader:                                 ; preds = %4
   %.neg = and i32 %5, 3
   %7 = xor i32 %.neg, 3
   %8 = add i32 %.promoted, %7
@@ -950,8 +950,8 @@ define i32 @get_CDR_ulong(ptr noundef %0, ptr nocapture noundef %1, i32 noundef 
   store i32 %9, ptr %1, align 4
   br label %10
 
-10:                                               ; preds = %.lr.ph, %4
-  %.lcssa = phi i32 [ %9, %.lr.ph ], [ %.promoted, %4 ]
+10:                                               ; preds = %.lr.ph.preheader, %4
+  %.lcssa = phi i32 [ %9, %.lr.ph.preheader ], [ %.promoted, %4 ]
   %.not9 = icmp eq i32 %2, 0
   br i1 %.not9, label %13, label %11
 
@@ -1001,16 +1001,16 @@ define internal fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr nou
   %9 = add i32 %.promoted.i, %5
   %10 = and i32 %9, 3
   %.not10.i = icmp eq i32 %10, 0
-  br i1 %.not10.i, label %12, label %.lr.ph.i
+  br i1 %.not10.i, label %12, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %8
+.lr.ph.preheader.i:                               ; preds = %8
   %11 = or i32 %9, -4
   %sub = sub i32 %.promoted.i, %11
   store i32 %sub, ptr %3, align 4
   br label %12
 
-12:                                               ; preds = %.lr.ph.i, %8
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %8 ]
+12:                                               ; preds = %.lr.ph.preheader.i, %8
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %8 ]
   %.not9.i = icmp eq i32 %4, 0
   br i1 %.not9.i, label %15, label %13
 
@@ -1783,9 +1783,9 @@ define double @get_CDR_double(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   %5 = add i32 %.promoted, %3
   %6 = and i32 %5, 7
   %.not10 = icmp eq i32 %6, 0
-  br i1 %.not10, label %10, label %.lr.ph
+  br i1 %.not10, label %10, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %4
+.lr.ph.preheader:                                 ; preds = %4
   %.neg = and i32 %5, 7
   %7 = xor i32 %.neg, 7
   %8 = add i32 %.promoted, %7
@@ -1793,8 +1793,8 @@ define double @get_CDR_double(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   store i32 %9, ptr %1, align 4
   br label %10
 
-10:                                               ; preds = %.lr.ph, %4
-  %.lcssa = phi i32 [ %9, %.lr.ph ], [ %.promoted, %4 ]
+10:                                               ; preds = %.lr.ph.preheader, %4
+  %.lcssa = phi i32 [ %9, %.lr.ph.preheader ], [ %.promoted, %4 ]
   %.not9 = icmp eq i32 %2, 0
   br i1 %.not9, label %13, label %11
 
@@ -1824,16 +1824,16 @@ define i32 @get_CDR_enum(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %
   %5 = add i32 %.promoted.i, %3
   %6 = and i32 %5, 3
   %.not10.i = icmp eq i32 %6, 0
-  br i1 %.not10.i, label %8, label %.lr.ph.i
+  br i1 %.not10.i, label %8, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %4
+.lr.ph.preheader.i:                               ; preds = %4
   %7 = or i32 %5, -4
   %sub = sub i32 %.promoted.i, %7
   store i32 %sub, ptr %1, align 4
   br label %8
 
-8:                                                ; preds = %.lr.ph.i, %4
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %4 ]
+8:                                                ; preds = %.lr.ph.preheader.i, %4
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %4 ]
   %.not9.i = icmp eq i32 %2, 0
   br i1 %.not9.i, label %11, label %9
 
@@ -2074,9 +2074,9 @@ define float @get_CDR_float(ptr noundef %0, ptr nocapture noundef %1, i32 nounde
   %5 = add i32 %.promoted, %3
   %6 = and i32 %5, 3
   %.not10 = icmp eq i32 %6, 0
-  br i1 %.not10, label %10, label %.lr.ph
+  br i1 %.not10, label %10, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %4
+.lr.ph.preheader:                                 ; preds = %4
   %.neg = and i32 %5, 3
   %7 = xor i32 %.neg, 3
   %8 = add i32 %.promoted, %7
@@ -2084,8 +2084,8 @@ define float @get_CDR_float(ptr noundef %0, ptr nocapture noundef %1, i32 nounde
   store i32 %9, ptr %1, align 4
   br label %10
 
-10:                                               ; preds = %.lr.ph, %4
-  %.lcssa = phi i32 [ %9, %.lr.ph ], [ %.promoted, %4 ]
+10:                                               ; preds = %.lr.ph.preheader, %4
+  %.lcssa = phi i32 [ %9, %.lr.ph.preheader ], [ %.promoted, %4 ]
   %.not9 = icmp eq i32 %2, 0
   br i1 %.not9, label %13, label %11
 
@@ -2124,16 +2124,16 @@ define internal fastcc void @decode_IOR(ptr noundef %0, ptr noundef %1, ptr noun
   %10 = add i32 %.promoted.i.i, %4
   %11 = and i32 %10, 3
   %.not10.i.i = icmp eq i32 %11, 0
-  br i1 %.not10.i.i, label %13, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %13, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %6
+.lr.ph.preheader.i.i:                             ; preds = %6
   %12 = or i32 %10, -4
   %sub.i = sub i32 %.promoted.i.i, %12
   store i32 %sub.i, ptr %3, align 4
   br label %13
 
-13:                                               ; preds = %.lr.ph.i.i, %6
-  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.i.i ], [ %.promoted.i.i, %6 ]
+13:                                               ; preds = %.lr.ph.preheader.i.i, %6
+  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.preheader.i.i ], [ %.promoted.i.i, %6 ]
   %.not9.i.i = icmp eq i32 %5, 0
   br i1 %.not9.i.i, label %16, label %14
 
@@ -2176,16 +2176,16 @@ get_CDR_string.exit:                              ; preds = %14, %16
   %36 = add i32 %.promoted.i, %4
   %37 = and i32 %36, 3
   %.not10.i = icmp eq i32 %37, 0
-  br i1 %.not10.i, label %39, label %.lr.ph.i
+  br i1 %.not10.i, label %39, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %35
+.lr.ph.preheader.i:                               ; preds = %35
   %38 = or i32 %36, -4
   %sub = sub i32 %.promoted.i, %38
   store i32 %sub, ptr %3, align 4
   br label %39
 
-39:                                               ; preds = %.lr.ph.i, %35
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %35 ]
+39:                                               ; preds = %.lr.ph.preheader.i, %35
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %35 ]
   br i1 %.not9.i.i, label %42, label %40
 
 40:                                               ; preds = %39
@@ -2223,9 +2223,9 @@ define i32 @get_CDR_long(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %
   %5 = add i32 %.promoted, %3
   %6 = and i32 %5, 3
   %.not10 = icmp eq i32 %6, 0
-  br i1 %.not10, label %10, label %.lr.ph
+  br i1 %.not10, label %10, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %4
+.lr.ph.preheader:                                 ; preds = %4
   %.neg = and i32 %5, 3
   %7 = xor i32 %.neg, 3
   %8 = add i32 %.promoted, %7
@@ -2233,8 +2233,8 @@ define i32 @get_CDR_long(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %
   store i32 %9, ptr %1, align 4
   br label %10
 
-10:                                               ; preds = %.lr.ph, %4
-  %.lcssa = phi i32 [ %9, %.lr.ph ], [ %.promoted, %4 ]
+10:                                               ; preds = %.lr.ph.preheader, %4
+  %.lcssa = phi i32 [ %9, %.lr.ph.preheader ], [ %.promoted, %4 ]
   %.not9 = icmp eq i32 %2, 0
   br i1 %.not9, label %13, label %11
 
@@ -2264,9 +2264,9 @@ define i64 @get_CDR_long_long(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   %5 = add i32 %.promoted, %3
   %6 = and i32 %5, 7
   %.not10 = icmp eq i32 %6, 0
-  br i1 %.not10, label %10, label %.lr.ph
+  br i1 %.not10, label %10, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %4
+.lr.ph.preheader:                                 ; preds = %4
   %.neg = and i32 %5, 7
   %7 = xor i32 %.neg, 7
   %8 = add i32 %.promoted, %7
@@ -2274,8 +2274,8 @@ define i64 @get_CDR_long_long(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   store i32 %9, ptr %1, align 4
   br label %10
 
-10:                                               ; preds = %.lr.ph, %4
-  %.lcssa = phi i32 [ %9, %.lr.ph ], [ %.promoted, %4 ]
+10:                                               ; preds = %.lr.ph.preheader, %4
+  %.lcssa = phi i32 [ %9, %.lr.ph.preheader ], [ %.promoted, %4 ]
   %.not9 = icmp eq i32 %2, 0
   br i1 %.not9, label %13, label %11
 
@@ -2332,38 +2332,31 @@ define signext i16 @get_CDR_short(ptr noundef %0, ptr nocapture noundef %1, i32 
   %5 = add i32 %.promoted, %3
   %6 = and i32 %5, 1
   %.not10 = icmp eq i32 %6, 0
-  br i1 %.not10, label %11, label %.lr.ph
+  br i1 %.not10, label %8, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %4, %.lr.ph
-  %7 = phi i32 [ %8, %.lr.ph ], [ %.promoted, %4 ]
-  %8 = add i32 %7, 1
-  %9 = sub i32 %3, %7
-  %10 = and i32 %9, 1
-  %.not.not = icmp eq i32 %10, 0
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+.lr.ph.preheader:                                 ; preds = %4
+  %7 = add i32 %.promoted, 1
+  store i32 %7, ptr %1, align 4
+  br label %8
 
-._crit_edge:                                      ; preds = %.lr.ph
-  store i32 %8, ptr %1, align 4
-  br label %11
-
-11:                                               ; preds = %._crit_edge, %4
-  %.lcssa = phi i32 [ %8, %._crit_edge ], [ %.promoted, %4 ]
+8:                                                ; preds = %.lr.ph.preheader, %4
+  %.lcssa = phi i32 [ %7, %.lr.ph.preheader ], [ %.promoted, %4 ]
   %.not9 = icmp eq i32 %2, 0
-  br i1 %.not9, label %14, label %12
+  br i1 %.not9, label %11, label %9
 
-12:                                               ; preds = %11
-  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa) #14
-  br label %16
+9:                                                ; preds = %8
+  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa) #14
+  br label %13
 
-14:                                               ; preds = %11
-  %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa) #14
-  br label %16
+11:                                               ; preds = %8
+  %12 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa) #14
+  br label %13
 
-16:                                               ; preds = %14, %12
-  %.in = phi i16 [ %13, %12 ], [ %15, %14 ]
-  %17 = load i32, ptr %1, align 4
-  %18 = add i32 %17, 2
-  store i32 %18, ptr %1, align 4
+13:                                               ; preds = %11, %9
+  %.in = phi i16 [ %10, %9 ], [ %12, %11 ]
+  %14 = load i32, ptr %1, align 4
+  %15 = add i32 %14, 2
+  store i32 %15, ptr %1, align 4
   ret i16 %.in
 }
 
@@ -2377,16 +2370,16 @@ define void @giop_add_CDR_string(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %7 = add i32 %.promoted.i.i, %4
   %8 = and i32 %7, 3
   %.not10.i.i = icmp eq i32 %8, 0
-  br i1 %.not10.i.i, label %10, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %10, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %6
+.lr.ph.preheader.i.i:                             ; preds = %6
   %9 = or i32 %7, -4
   %sub.i = sub i32 %.promoted.i.i, %9
   store i32 %sub.i, ptr %2, align 4
   br label %10
 
-10:                                               ; preds = %.lr.ph.i.i, %6
-  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.i.i ], [ %.promoted.i.i, %6 ]
+10:                                               ; preds = %.lr.ph.preheader.i.i, %6
+  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.preheader.i.i ], [ %.promoted.i.i, %6 ]
   %.not9.i.i = icmp eq i32 %3, 0
   br i1 %.not9.i.i, label %13, label %11
 
@@ -2423,16 +2416,16 @@ define i32 @get_CDR_string(ptr noundef %0, ptr nocapture noundef writeonly %1, p
   %6 = add i32 %.promoted.i, %4
   %7 = and i32 %6, 3
   %.not10.i = icmp eq i32 %7, 0
-  br i1 %.not10.i, label %9, label %.lr.ph.i
+  br i1 %.not10.i, label %9, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %5
+.lr.ph.preheader.i:                               ; preds = %5
   %8 = or i32 %6, -4
   %sub = sub i32 %.promoted.i, %8
   store i32 %sub, ptr %2, align 4
   br label %9
 
-9:                                                ; preds = %.lr.ph.i, %5
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %5 ]
+9:                                                ; preds = %.lr.ph.preheader.i, %5
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %5 ]
   %.not9.i = icmp eq i32 %3, 0
   br i1 %.not9.i, label %12, label %10
 
@@ -2487,9 +2480,9 @@ define i64 @get_CDR_ulong_long(ptr noundef %0, ptr nocapture noundef %1, i32 nou
   %5 = add i32 %.promoted, %3
   %6 = and i32 %5, 7
   %.not10 = icmp eq i32 %6, 0
-  br i1 %.not10, label %10, label %.lr.ph
+  br i1 %.not10, label %10, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %4
+.lr.ph.preheader:                                 ; preds = %4
   %.neg = and i32 %5, 7
   %7 = xor i32 %.neg, 7
   %8 = add i32 %.promoted, %7
@@ -2497,8 +2490,8 @@ define i64 @get_CDR_ulong_long(ptr noundef %0, ptr nocapture noundef %1, i32 nou
   store i32 %9, ptr %1, align 4
   br label %10
 
-10:                                               ; preds = %.lr.ph, %4
-  %.lcssa = phi i32 [ %9, %.lr.ph ], [ %.promoted, %4 ]
+10:                                               ; preds = %.lr.ph.preheader, %4
+  %.lcssa = phi i32 [ %9, %.lr.ph.preheader ], [ %.promoted, %4 ]
   %.not9 = icmp eq i32 %2, 0
   br i1 %.not9, label %13, label %11
 
@@ -2524,38 +2517,31 @@ define zeroext i16 @get_CDR_ushort(ptr noundef %0, ptr nocapture noundef %1, i32
   %5 = add i32 %.promoted, %3
   %6 = and i32 %5, 1
   %.not10 = icmp eq i32 %6, 0
-  br i1 %.not10, label %11, label %.lr.ph
+  br i1 %.not10, label %8, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %4, %.lr.ph
-  %7 = phi i32 [ %8, %.lr.ph ], [ %.promoted, %4 ]
-  %8 = add i32 %7, 1
-  %9 = sub i32 %3, %7
-  %10 = and i32 %9, 1
-  %.not.not = icmp eq i32 %10, 0
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+.lr.ph.preheader:                                 ; preds = %4
+  %7 = add i32 %.promoted, 1
+  store i32 %7, ptr %1, align 4
+  br label %8
 
-._crit_edge:                                      ; preds = %.lr.ph
-  store i32 %8, ptr %1, align 4
-  br label %11
-
-11:                                               ; preds = %._crit_edge, %4
-  %.lcssa = phi i32 [ %8, %._crit_edge ], [ %.promoted, %4 ]
+8:                                                ; preds = %.lr.ph.preheader, %4
+  %.lcssa = phi i32 [ %7, %.lr.ph.preheader ], [ %.promoted, %4 ]
   %.not9 = icmp eq i32 %2, 0
-  br i1 %.not9, label %14, label %12
+  br i1 %.not9, label %11, label %9
 
-12:                                               ; preds = %11
-  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa) #14
-  br label %16
+9:                                                ; preds = %8
+  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa) #14
+  br label %13
 
-14:                                               ; preds = %11
-  %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa) #14
-  br label %16
+11:                                               ; preds = %8
+  %12 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa) #14
+  br label %13
 
-16:                                               ; preds = %14, %12
-  %.in = phi i16 [ %13, %12 ], [ %15, %14 ]
-  %17 = load i32, ptr %1, align 4
-  %18 = add i32 %17, 2
-  store i32 %18, ptr %1, align 4
+13:                                               ; preds = %11, %9
+  %.in = phi i16 [ %10, %9 ], [ %12, %11 ]
+  %14 = load i32, ptr %1, align 4
+  %15 = add i32 %14, 2
+  store i32 %15, ptr %1, align 4
   ret i16 %.in
 }
 
@@ -2635,16 +2621,16 @@ define range(i32 0, 401) i32 @get_CDR_wstring(ptr noundef %0, ptr noundef %1, pt
   %8 = add i32 %.promoted.i, %5
   %9 = and i32 %8, 3
   %.not10.i = icmp eq i32 %9, 0
-  br i1 %.not10.i, label %11, label %.lr.ph.i
+  br i1 %.not10.i, label %11, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %7
+.lr.ph.preheader.i:                               ; preds = %7
   %10 = or i32 %8, -4
   %sub = sub i32 %.promoted.i, %10
   store i32 %sub, ptr %3, align 4
   br label %11
 
-11:                                               ; preds = %.lr.ph.i, %7
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %7 ]
+11:                                               ; preds = %.lr.ph.preheader.i, %7
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %7 ]
   %.not9.i = icmp eq i32 %4, 0
   br i1 %.not9.i, label %14, label %12
 
@@ -2682,9 +2668,9 @@ get_CDR_ulong.exit:                               ; preds = %12, %14
   %30 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %25) #14
   %.2 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %30)
   %.not = icmp eq i32 %.2, 0
-  br i1 %.not, label %51, label %.lr.ph.i25
+  br i1 %.not, label %51, label %.lr.ph.i
 
-.lr.ph.i25:                                       ; preds = %24
+.lr.ph.i:                                         ; preds = %24
   %31 = load i32, ptr %3, align 4
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %31, i32 noundef %.2) #14
   %32 = add nuw nsw i32 %.2, 1
@@ -2701,8 +2687,8 @@ get_CDR_ulong.exit:                               ; preds = %12, %14
   %41 = load ptr, ptr @g_ascii_table, align 8
   br label %42
 
-42:                                               ; preds = %50, %.lr.ph.i25
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i25 ], [ %indvars.iv.next.i, %50 ]
+42:                                               ; preds = %50, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
   %43 = getelementptr i8, ptr %40, i64 %indvars.iv.i
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
@@ -2985,7 +2971,7 @@ giop_getline.exit.i:                              ; preds = %string_to_IOR.exit.
   store i8 %56, ptr %59, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %60 = icmp ult i64 %indvars.iv.next.i.i, %26
-  br i1 %60, label %27, label %string_to_IOR.exit.i, !llvm.loop !17
+  br i1 %60, label %27, label %string_to_IOR.exit.i, !llvm.loop !15
 
 string_to_IOR.exit.i:                             ; preds = %53, %34, %27
   %.0.lcssa.ph.in.i.i = phi i64 [ %indvars.iv.next.i.i, %53 ], [ %indvars.iv.i.i, %34 ], [ %indvars.iv.i.i, %27 ]
@@ -3009,7 +2995,7 @@ string_to_IOR.exit.thread.i:                      ; preds = %62, %string_to_IOR.
   tail call void @wmem_free(ptr noundef null, ptr noundef %22) #14
   %67 = tail call ptr @fgets(ptr noundef %13, i32 noundef 601, ptr noundef nonnull %5)
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %giop_getline.exit.thread.i, label %giop_getline.exit.i, !llvm.loop !18
+  br i1 %68, label %giop_getline.exit.thread.i, label %giop_getline.exit.i, !llvm.loop !16
 
 giop_getline.exit.thread.i:                       ; preds = %string_to_IOR.exit.thread.i, %giop_getline.exit.i, %12
   %69 = tail call i32 @fclose(ptr noundef nonnull %5)
@@ -3069,7 +3055,7 @@ define internal i32 @giop_hash_module_hash(ptr nocapture noundef readonly %0) #5
   %9 = add i32 %.089, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.08.lcssa = phi i32 [ 0, %1 ], [ %9, %.lr.ph ]
@@ -3192,16 +3178,16 @@ define internal fastcc void @dissect_tk_struct_params(ptr noundef %0, ptr nounde
   %22 = add i32 %.promoted.i, %17
   %23 = and i32 %22, 3
   %.not10.i = icmp eq i32 %23, 0
-  br i1 %.not10.i, label %25, label %.lr.ph.i
+  br i1 %.not10.i, label %25, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %8
+.lr.ph.preheader.i:                               ; preds = %8
   %24 = or i32 %22, -4
   %sub = sub i32 %.promoted.i, %24
   store i32 %sub, ptr %3, align 4
   br label %25
 
-25:                                               ; preds = %.lr.ph.i, %8
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %8 ]
+25:                                               ; preds = %.lr.ph.preheader.i, %8
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %8 ]
   %.not9.i = icmp eq i32 %16, 0
   br i1 %.not9.i, label %28, label %26
 
@@ -3253,7 +3239,7 @@ get_CDR_ulong.exit:                               ; preds = %26, %28
   %48 = add nuw i32 %.044, 1
   %49 = load i32, ptr %14, align 4
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
   ret void
@@ -3280,16 +3266,16 @@ define internal fastcc void @dissect_tk_union_params(ptr noundef %0, ptr noundef
   %21 = add i32 %.promoted.i, %14
   %22 = and i32 %21, 3
   %.not10.i = icmp eq i32 %22, 0
-  br i1 %.not10.i, label %24, label %.lr.ph.i
+  br i1 %.not10.i, label %24, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %8
+.lr.ph.preheader.i:                               ; preds = %8
   %23 = or i32 %21, -4
   %sub = sub i32 %.promoted.i, %23
   store i32 %sub, ptr %4, align 4
   br label %24
 
-24:                                               ; preds = %.lr.ph.i, %8
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %8 ]
+24:                                               ; preds = %.lr.ph.preheader.i, %8
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %8 ]
   %.not9.i = icmp eq i32 %13, 0
   br i1 %.not9.i, label %27, label %25
 
@@ -3312,16 +3298,16 @@ get_CDR_long.exit:                                ; preds = %25, %27
   %34 = add i32 %.promoted.i54, %14
   %35 = and i32 %34, 3
   %.not10.i55 = icmp eq i32 %35, 0
-  br i1 %.not10.i55, label %37, label %.lr.ph.i56
+  br i1 %.not10.i55, label %37, label %.lr.ph.preheader.i56
 
-.lr.ph.i56:                                       ; preds = %get_CDR_long.exit
+.lr.ph.preheader.i56:                             ; preds = %get_CDR_long.exit
   %36 = or i32 %34, -4
   %sub61 = sub i32 %.promoted.i54, %36
   store i32 %sub61, ptr %4, align 4
   br label %37
 
-37:                                               ; preds = %.lr.ph.i56, %get_CDR_long.exit
-  %.lcssa.i58 = phi i32 [ %sub61, %.lr.ph.i56 ], [ %.promoted.i54, %get_CDR_long.exit ]
+37:                                               ; preds = %.lr.ph.preheader.i56, %get_CDR_long.exit
+  %.lcssa.i58 = phi i32 [ %sub61, %.lr.ph.preheader.i56 ], [ %.promoted.i54, %get_CDR_long.exit ]
   br i1 %.not9.i, label %40, label %38
 
 38:                                               ; preds = %37
@@ -3364,7 +3350,7 @@ get_CDR_ulong.exit:                               ; preds = %38, %40
   tail call void @wmem_destroy_list(ptr noundef %55) #14
   %57 = add nuw i32 %.060, 1
   %exitcond.not = icmp eq i32 %57, %42
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %52, %get_CDR_ulong.exit, %50
   ret void
@@ -3392,16 +3378,16 @@ define internal fastcc void @dissect_tk_enum_params(ptr noundef %0, ptr %.408.va
   %18 = add i32 %.promoted.i, %13
   %19 = and i32 %18, 3
   %.not10.i = icmp eq i32 %19, 0
-  br i1 %.not10.i, label %21, label %.lr.ph.i
+  br i1 %.not10.i, label %21, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %6
+.lr.ph.preheader.i:                               ; preds = %6
   %20 = or i32 %18, -4
   %sub = sub i32 %.promoted.i, %20
   store i32 %sub, ptr %2, align 4
   br label %21
 
-21:                                               ; preds = %.lr.ph.i, %6
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %6 ]
+21:                                               ; preds = %.lr.ph.preheader.i, %6
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %6 ]
   %.not9.i = icmp eq i32 %12, 0
   br i1 %.not9.i, label %24, label %22
 
@@ -3435,7 +3421,7 @@ get_CDR_ulong.exit:                               ; preds = %22, %24
   %34 = add nuw i32 %.01, 1
   %35 = load i32, ptr %10, align 4
   %36 = icmp ult i32 %34, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %get_CDR_ulong.exit
   ret void
@@ -3461,16 +3447,16 @@ define internal fastcc void @dissect_tk_sequence_params(ptr noundef %0, ptr noun
   %22 = add i32 %.promoted.i, %5
   %23 = and i32 %22, 3
   %.not10.i = icmp eq i32 %23, 0
-  br i1 %.not10.i, label %25, label %.lr.ph.i
+  br i1 %.not10.i, label %25, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %8
+.lr.ph.preheader.i:                               ; preds = %8
   %24 = or i32 %22, -4
   %sub = sub i32 %.promoted.i, %24
   store i32 %sub, ptr %3, align 4
   br label %25
 
-25:                                               ; preds = %.lr.ph.i, %8
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %8 ]
+25:                                               ; preds = %.lr.ph.preheader.i, %8
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %8 ]
   %.not9.i = icmp eq i32 %4, 0
   br i1 %.not9.i, label %28, label %26
 
@@ -3516,16 +3502,16 @@ define internal fastcc void @dissect_tk_array_params(ptr noundef %0, ptr noundef
   %22 = add i32 %.promoted.i, %5
   %23 = and i32 %22, 3
   %.not10.i = icmp eq i32 %23, 0
-  br i1 %.not10.i, label %25, label %.lr.ph.i
+  br i1 %.not10.i, label %25, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %8
+.lr.ph.preheader.i:                               ; preds = %8
   %24 = or i32 %22, -4
   %sub = sub i32 %.promoted.i, %24
   store i32 %sub, ptr %3, align 4
   br label %25
 
-25:                                               ; preds = %.lr.ph.i, %8
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %8 ]
+25:                                               ; preds = %.lr.ph.preheader.i, %8
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %8 ]
   %.not9.i = icmp eq i32 %4, 0
   br i1 %.not9.i, label %28, label %26
 
@@ -3596,16 +3582,16 @@ define internal fastcc void @dissect_tk_except_params(ptr noundef %0, ptr nounde
   %16 = add i32 %.promoted.i, %13
   %17 = and i32 %16, 3
   %.not10.i = icmp eq i32 %17, 0
-  br i1 %.not10.i, label %19, label %.lr.ph.i
+  br i1 %.not10.i, label %19, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %7
+.lr.ph.preheader.i:                               ; preds = %7
   %18 = or i32 %16, -4
   %sub = sub i32 %.promoted.i, %18
   store i32 %sub, ptr %3, align 4
   br label %19
 
-19:                                               ; preds = %.lr.ph.i, %7
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %7 ]
+19:                                               ; preds = %.lr.ph.preheader.i, %7
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %7 ]
   %.not9.i = icmp eq i32 %12, 0
   br i1 %.not9.i, label %22, label %20
 
@@ -3648,7 +3634,7 @@ get_CDR_ulong.exit:                               ; preds = %20, %22
   tail call void @wmem_destroy_list(ptr noundef %35) #14
   %37 = add nuw i32 %.029, 1
   %exitcond.not = icmp eq i32 %37, %24
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %32, %30
   ret void
@@ -3670,142 +3656,207 @@ define internal fastcc void @dissect_tk_value_params(ptr noundef %0, ptr noundef
   %16 = add i32 %.promoted.i, %5
   %17 = and i32 %16, 1
   %.not10.i = icmp eq i32 %17, 0
-  br i1 %.not10.i, label %22, label %.lr.ph.i
+  br i1 %.not10.i, label %19, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %18 = phi i32 [ %19, %.lr.ph.i ], [ %.promoted.i, %7 ]
-  %19 = add i32 %18, 1
-  %20 = sub i32 %5, %18
-  %21 = and i32 %20, 1
-  %.not.not.i = icmp eq i32 %21, 0
-  br i1 %.not.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
+.lr.ph.preheader.i:                               ; preds = %7
+  %18 = add i32 %.promoted.i, 1
+  store i32 %18, ptr %3, align 4
+  br label %19
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store i32 %19, ptr %3, align 4
-  br label %22
-
-22:                                               ; preds = %._crit_edge.i, %7
-  %.lcssa.i = phi i32 [ %19, %._crit_edge.i ], [ %.promoted.i, %7 ]
+19:                                               ; preds = %.lr.ph.preheader.i, %7
+  %.lcssa.i = phi i32 [ %18, %.lr.ph.preheader.i ], [ %.promoted.i, %7 ]
   %.not9.i = icmp eq i32 %4, 0
-  br i1 %.not9.i, label %25, label %23
+  br i1 %.not9.i, label %22, label %20
 
-23:                                               ; preds = %22
-  %24 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i) #14
+20:                                               ; preds = %19
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i) #14
   br label %get_CDR_short.exit
 
-25:                                               ; preds = %22
-  %26 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i) #14
+22:                                               ; preds = %19
+  %23 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i) #14
   br label %get_CDR_short.exit
 
-get_CDR_short.exit:                               ; preds = %23, %25
-  %.in.i = phi i16 [ %24, %23 ], [ %26, %25 ]
-  %27 = load i32, ptr %3, align 4
-  %28 = add i32 %27, 2
-  store i32 %28, ptr %3, align 4
-  %29 = load i32, ptr @hf_giop_typecode_ValueModifier, align 4
-  %30 = sext i16 %.in.i to i32
-  %31 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef %30) #14
-  %32 = getelementptr inbounds i8, ptr %1, i64 408
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noalias ptr @wmem_list_new(ptr noundef %33) #14
-  %35 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %34)
-  tail call void @wmem_destroy_list(ptr noundef %34) #14
+get_CDR_short.exit:                               ; preds = %20, %22
+  %.in.i = phi i16 [ %21, %20 ], [ %23, %22 ]
+  %24 = load i32, ptr %3, align 4
+  %25 = add i32 %24, 2
+  store i32 %25, ptr %3, align 4
+  %26 = load i32, ptr @hf_giop_typecode_ValueModifier, align 4
+  %27 = sext i16 %.in.i to i32
+  %28 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef %27) #14
+  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noalias ptr @wmem_list_new(ptr noundef %30) #14
+  %32 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %31)
+  tail call void @wmem_destroy_list(ptr noundef %31) #14
   %.promoted.i50 = load i32, ptr %3, align 4
-  %36 = add i32 %.promoted.i50, %13
-  %37 = and i32 %36, 3
-  %.not10.i51 = icmp eq i32 %37, 0
-  br i1 %.not10.i51, label %39, label %.lr.ph.i52
+  %33 = add i32 %.promoted.i50, %13
+  %34 = and i32 %33, 3
+  %.not10.i51 = icmp eq i32 %34, 0
+  br i1 %.not10.i51, label %36, label %.lr.ph.preheader.i52
 
-.lr.ph.i52:                                       ; preds = %get_CDR_short.exit
-  %38 = or i32 %36, -4
-  %sub = sub i32 %.promoted.i50, %38
+.lr.ph.preheader.i52:                             ; preds = %get_CDR_short.exit
+  %35 = or i32 %33, -4
+  %sub = sub i32 %.promoted.i50, %35
   store i32 %sub, ptr %3, align 4
-  br label %39
+  br label %36
 
-39:                                               ; preds = %.lr.ph.i52, %get_CDR_short.exit
-  %.lcssa.i53 = phi i32 [ %sub, %.lr.ph.i52 ], [ %.promoted.i50, %get_CDR_short.exit ]
+36:                                               ; preds = %.lr.ph.preheader.i52, %get_CDR_short.exit
+  %.lcssa.i53 = phi i32 [ %sub, %.lr.ph.preheader.i52 ], [ %.promoted.i50, %get_CDR_short.exit ]
   %.not9.i54 = icmp eq i32 %12, 0
-  br i1 %.not9.i54, label %42, label %40
+  br i1 %.not9.i54, label %39, label %37
 
-40:                                               ; preds = %39
-  %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i53) #14
+37:                                               ; preds = %36
+  %38 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i53) #14
   br label %get_CDR_ulong.exit
 
-42:                                               ; preds = %39
-  %43 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i53) #14
+39:                                               ; preds = %36
+  %40 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i53) #14
   br label %get_CDR_ulong.exit
 
-get_CDR_ulong.exit:                               ; preds = %40, %42
-  %44 = phi i32 [ %41, %40 ], [ %43, %42 ]
-  %45 = load i32, ptr %3, align 4
-  %46 = add i32 %45, 4
-  store i32 %46, ptr %3, align 4
-  %47 = load i32, ptr @hf_giop_typecode_count, align 4
-  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %44) #14
-  %.not66 = icmp eq i32 %44, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+get_CDR_ulong.exit:                               ; preds = %37, %39
+  %41 = phi i32 [ %38, %37 ], [ %40, %39 ]
+  %42 = load i32, ptr %3, align 4
+  %43 = add i32 %42, 4
+  store i32 %43, ptr %3, align 4
+  %44 = load i32, ptr @hf_giop_typecode_count, align 4
+  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %41) #14
+  %.not70 = icmp eq i32 %41, 0
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %get_CDR_ulong.exit
   %.not = icmp eq ptr %2, null
-  br label %49
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-49:                                               ; preds = %.lr.ph, %71
-  %.065 = phi i32 [ 0, %.lr.ph ], [ %72, %71 ]
-  %50 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %50, ptr noundef nonnull %10)
-  %51 = load ptr, ptr %32, align 8
-  %52 = tail call noalias ptr @wmem_list_new(ptr noundef %51) #14
-  %53 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %52)
-  tail call void @wmem_destroy_list(ptr noundef %52) #14
-  %.promoted.i55 = load i32, ptr %3, align 4
-  %54 = add i32 %.promoted.i55, %5
-  %55 = and i32 %54, 1
-  %.not10.i56 = icmp eq i32 %55, 0
-  br i1 %.not10.i56, label %60, label %.lr.ph.i57
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not9.i, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-.lr.ph.i57:                                       ; preds = %49, %.lr.ph.i57
-  %56 = phi i32 [ %57, %.lr.ph.i57 ], [ %.promoted.i55, %49 ]
-  %57 = add i32 %56, 1
-  %58 = sub i32 %5, %56
-  %59 = and i32 %58, 1
-  %.not.not.i58 = icmp eq i32 %59, 0
-  br i1 %.not.not.i58, label %.lr.ph.i57, label %._crit_edge.i59, !llvm.loop !15
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %get_CDR_short.exit61.us.us
+  %.062.us.us = phi i32 [ %56, %get_CDR_short.exit61.us.us ], [ 0, %.lr.ph.split.us ]
+  %46 = load i32, ptr @hf_giop_typecode_member_name, align 4
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %46, ptr noundef nonnull %10)
+  %47 = load ptr, ptr %29, align 8
+  %48 = tail call noalias ptr @wmem_list_new(ptr noundef %47) #14
+  %49 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %48)
+  tail call void @wmem_destroy_list(ptr noundef %48) #14
+  %.promoted.i55.us.us = load i32, ptr %3, align 4
+  %50 = add i32 %.promoted.i55.us.us, %5
+  %51 = and i32 %50, 1
+  %.not10.i56.us.us = icmp eq i32 %51, 0
+  br i1 %.not10.i56.us.us, label %get_CDR_short.exit61.us.us, label %.lr.ph.preheader.i57.us.us
 
-._crit_edge.i59:                                  ; preds = %.lr.ph.i57
-  store i32 %57, ptr %3, align 4
-  br label %60
+.lr.ph.preheader.i57.us.us:                       ; preds = %.lr.ph.split.us.split.us
+  %52 = add i32 %.promoted.i55.us.us, 1
+  store i32 %52, ptr %3, align 4
+  br label %get_CDR_short.exit61.us.us
 
-60:                                               ; preds = %._crit_edge.i59, %49
-  %.lcssa.i60 = phi i32 [ %57, %._crit_edge.i59 ], [ %.promoted.i55, %49 ]
-  br i1 %.not9.i, label %63, label %61
+get_CDR_short.exit61.us.us:                       ; preds = %.lr.ph.preheader.i57.us.us, %.lr.ph.split.us.split.us
+  %.lcssa.i58.us.us = phi i32 [ %52, %.lr.ph.preheader.i57.us.us ], [ %.promoted.i55.us.us, %.lr.ph.split.us.split.us ]
+  %53 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i58.us.us) #14
+  %54 = load i32, ptr %3, align 4
+  %55 = add i32 %54, 2
+  store i32 %55, ptr %3, align 4
+  %56 = add nuw i32 %.062.us.us, 1
+  %exitcond76.not = icmp eq i32 %56, %41
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !22
 
-61:                                               ; preds = %60
-  %62 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i60) #14
-  br label %get_CDR_short.exit63
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %get_CDR_short.exit61.us
+  %.062.us = phi i32 [ %67, %get_CDR_short.exit61.us ], [ 0, %.lr.ph.split.us ]
+  %57 = load i32, ptr @hf_giop_typecode_member_name, align 4
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %57, ptr noundef nonnull %10)
+  %58 = load ptr, ptr %29, align 8
+  %59 = tail call noalias ptr @wmem_list_new(ptr noundef %58) #14
+  %60 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %59)
+  tail call void @wmem_destroy_list(ptr noundef %59) #14
+  %.promoted.i55.us = load i32, ptr %3, align 4
+  %61 = add i32 %.promoted.i55.us, %5
+  %62 = and i32 %61, 1
+  %.not10.i56.us = icmp eq i32 %62, 0
+  br i1 %.not10.i56.us, label %get_CDR_short.exit61.us, label %.lr.ph.preheader.i57.us
 
-63:                                               ; preds = %60
-  %64 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i60) #14
-  br label %get_CDR_short.exit63
+.lr.ph.preheader.i57.us:                          ; preds = %.lr.ph.split.us.split
+  %63 = add i32 %.promoted.i55.us, 1
+  store i32 %63, ptr %3, align 4
+  br label %get_CDR_short.exit61.us
 
-get_CDR_short.exit63:                             ; preds = %61, %63
-  %.in.i62 = phi i16 [ %62, %61 ], [ %64, %63 ]
+get_CDR_short.exit61.us:                          ; preds = %.lr.ph.preheader.i57.us, %.lr.ph.split.us.split
+  %.lcssa.i58.us = phi i32 [ %63, %.lr.ph.preheader.i57.us ], [ %.promoted.i55.us, %.lr.ph.split.us.split ]
+  %64 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i58.us) #14
   %65 = load i32, ptr %3, align 4
   %66 = add i32 %65, 2
   store i32 %66, ptr %3, align 4
-  br i1 %.not, label %71, label %67
+  %67 = add nuw i32 %.062.us, 1
+  %exitcond75.not = icmp eq i32 %67, %41
+  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !22
 
-67:                                               ; preds = %get_CDR_short.exit63
-  %68 = load i32, ptr @hf_giop_typecode_Visibility, align 4
-  %69 = sext i16 %.in.i62 to i32
-  %70 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %2, i32 noundef %68, ptr noundef %0, i32 noundef %65, i32 noundef 2, i32 noundef %69) #14
-  br label %71
+.lr.ph.split:                                     ; preds = %.lr.ph
+  br i1 %.not9.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-71:                                               ; preds = %get_CDR_short.exit63, %67
-  %72 = add nuw i32 %.065, 1
-  %exitcond.not = icmp eq i32 %72, %44
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !24
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %get_CDR_short.exit61.us68
+  %.062.us63 = phi i32 [ %81, %get_CDR_short.exit61.us68 ], [ 0, %.lr.ph.split ]
+  %68 = load i32, ptr @hf_giop_typecode_member_name, align 4
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %68, ptr noundef nonnull %10)
+  %69 = load ptr, ptr %29, align 8
+  %70 = tail call noalias ptr @wmem_list_new(ptr noundef %69) #14
+  %71 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %70)
+  tail call void @wmem_destroy_list(ptr noundef %70) #14
+  %.promoted.i55.us64 = load i32, ptr %3, align 4
+  %72 = add i32 %.promoted.i55.us64, %5
+  %73 = and i32 %72, 1
+  %.not10.i56.us65 = icmp eq i32 %73, 0
+  br i1 %.not10.i56.us65, label %get_CDR_short.exit61.us68, label %.lr.ph.preheader.i57.us66
 
-._crit_edge:                                      ; preds = %71, %get_CDR_ulong.exit
+.lr.ph.preheader.i57.us66:                        ; preds = %.lr.ph.split.split.us
+  %74 = add i32 %.promoted.i55.us64, 1
+  store i32 %74, ptr %3, align 4
+  br label %get_CDR_short.exit61.us68
+
+get_CDR_short.exit61.us68:                        ; preds = %.lr.ph.preheader.i57.us66, %.lr.ph.split.split.us
+  %.lcssa.i58.us67 = phi i32 [ %74, %.lr.ph.preheader.i57.us66 ], [ %.promoted.i55.us64, %.lr.ph.split.split.us ]
+  %75 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i58.us67) #14
+  %76 = load i32, ptr %3, align 4
+  %77 = add i32 %76, 2
+  store i32 %77, ptr %3, align 4
+  %78 = load i32, ptr @hf_giop_typecode_Visibility, align 4
+  %79 = sext i16 %75 to i32
+  %80 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %2, i32 noundef %78, ptr noundef %0, i32 noundef %76, i32 noundef 2, i32 noundef %79) #14
+  %81 = add nuw i32 %.062.us63, 1
+  %exitcond74.not = icmp eq i32 %81, %41
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !22
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %get_CDR_short.exit61
+  %.062 = phi i32 [ %95, %get_CDR_short.exit61 ], [ 0, %.lr.ph.split ]
+  %82 = load i32, ptr @hf_giop_typecode_member_name, align 4
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %82, ptr noundef nonnull %10)
+  %83 = load ptr, ptr %29, align 8
+  %84 = tail call noalias ptr @wmem_list_new(ptr noundef %83) #14
+  %85 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %84)
+  tail call void @wmem_destroy_list(ptr noundef %84) #14
+  %.promoted.i55 = load i32, ptr %3, align 4
+  %86 = add i32 %.promoted.i55, %5
+  %87 = and i32 %86, 1
+  %.not10.i56 = icmp eq i32 %87, 0
+  br i1 %.not10.i56, label %get_CDR_short.exit61, label %.lr.ph.preheader.i57
+
+.lr.ph.preheader.i57:                             ; preds = %.lr.ph.split.split
+  %88 = add i32 %.promoted.i55, 1
+  store i32 %88, ptr %3, align 4
+  br label %get_CDR_short.exit61
+
+get_CDR_short.exit61:                             ; preds = %.lr.ph.preheader.i57, %.lr.ph.split.split
+  %.lcssa.i58 = phi i32 [ %88, %.lr.ph.preheader.i57 ], [ %.promoted.i55, %.lr.ph.split.split ]
+  %89 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i58) #14
+  %90 = load i32, ptr %3, align 4
+  %91 = add i32 %90, 2
+  store i32 %91, ptr %3, align 4
+  %92 = load i32, ptr @hf_giop_typecode_Visibility, align 4
+  %93 = sext i16 %89 to i32
+  %94 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %2, i32 noundef %92, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef %93) #14
+  %95 = add nuw i32 %.062, 1
+  %exitcond.not = icmp eq i32 %95, %41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !22
+
+._crit_edge:                                      ; preds = %get_CDR_short.exit61, %get_CDR_short.exit61.us68, %get_CDR_short.exit61.us, %get_CDR_short.exit61.us.us, %get_CDR_ulong.exit
   ret void
 }
 
@@ -3865,16 +3916,16 @@ define internal fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr n
   %8 = add i32 %.promoted.i.i, %4
   %9 = and i32 %8, 3
   %.not10.i.i = icmp eq i32 %9, 0
-  br i1 %.not10.i.i, label %11, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %11, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %7
+.lr.ph.preheader.i.i:                             ; preds = %7
   %10 = or i32 %8, -4
   %sub.i = sub i32 %.promoted.i.i, %10
   store i32 %sub.i, ptr %2, align 4
   br label %11
 
-11:                                               ; preds = %.lr.ph.i.i, %7
-  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.i.i ], [ %.promoted.i.i, %7 ]
+11:                                               ; preds = %.lr.ph.preheader.i.i, %7
+  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.preheader.i.i ], [ %.promoted.i.i, %7 ]
   %.not9.i.i = icmp eq i32 %3, 0
   br i1 %.not9.i.i, label %14, label %12
 
@@ -4303,16 +4354,16 @@ define internal fastcc void @dissect_giop_request_1_1(ptr noundef %0, ptr nounde
   %.promoted.i = load i32, ptr %7, align 4
   %11 = and i32 %.promoted.i, 3
   %.not10.i = icmp eq i32 %11, 0
-  br i1 %.not10.i, label %13, label %.lr.ph.i
+  br i1 %.not10.i, label %13, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %5
+.lr.ph.preheader.i:                               ; preds = %5
   %12 = or i32 %.promoted.i, -4
   %sub = sub i32 %.promoted.i, %12
   store i32 %sub, ptr %7, align 4
   br label %13
 
-13:                                               ; preds = %.lr.ph.i, %5
-  %14 = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %5 ]
+13:                                               ; preds = %.lr.ph.preheader.i, %5
+  %14 = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %5 ]
   %.not9.i = icmp eq i32 %4, 0
   br i1 %.not9.i, label %17, label %15
 
@@ -4387,8 +4438,8 @@ get_CDR_ulong.exit:                               ; preds = %15, %17
   %59 = and i32 %42, 3
   %.not10.i146 = icmp eq i32 %59, 0
   %60 = or i32 %42, -4
-  %sub183 = select i1 %.not10.i146, i32 0, i32 %60
-  %.lcssa.i149 = sub i32 %42, %sub183
+  %sub182 = select i1 %.not10.i146, i32 0, i32 %60
+  %.lcssa.i149 = sub i32 %42, %sub182
   store i32 %.lcssa.i149, ptr %7, align 4
   br i1 %.not9.i, label %63, label %61
 
@@ -4435,20 +4486,20 @@ get_CDR_ulong.exit151:                            ; preds = %61, %63
 
 86:                                               ; preds = %74, %75, %55
   %.promoted.i.i = phi i32 [ %.promoted.i.i.pre, %55 ], [ %66, %74 ], [ %83, %75 ]
-  %.0177 = phi ptr [ null, %55 ], [ null, %74 ], [ %80, %75 ]
+  %.0176 = phi ptr [ null, %55 ], [ null, %74 ], [ %80, %75 ]
   %.0 = phi i32 [ 0, %55 ], [ 0, %74 ], [ %65, %75 ]
   %87 = and i32 %.promoted.i.i, 3
   %.not10.i.i = icmp eq i32 %87, 0
-  br i1 %.not10.i.i, label %89, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %89, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %86
+.lr.ph.preheader.i.i:                             ; preds = %86
   %88 = or i32 %.promoted.i.i, -4
   %sub.i = sub i32 %.promoted.i.i, %88
   store i32 %sub.i, ptr %7, align 4
   br label %89
 
-89:                                               ; preds = %.lr.ph.i.i, %86
-  %90 = phi i32 [ %sub.i, %.lr.ph.i.i ], [ %.promoted.i.i, %86 ]
+89:                                               ; preds = %.lr.ph.preheader.i.i, %86
+  %90 = phi i32 [ %sub.i, %.lr.ph.preheader.i.i ], [ %.promoted.i.i, %86 ]
   br i1 %.not9.i, label %93, label %91
 
 91:                                               ; preds = %89
@@ -4487,8 +4538,8 @@ get_CDR_string.exit:                              ; preds = %91, %93
   %112 = and i32 %100, 3
   %.not10.i153 = icmp eq i32 %112, 0
   %113 = or i32 %100, -4
-  %sub181 = select i1 %.not10.i153, i32 0, i32 %113
-  %114 = sub i32 %100, %sub181
+  %sub180 = select i1 %.not10.i153, i32 0, i32 %113
+  %114 = sub i32 %100, %sub180
   br i1 %.not9.i, label %117, label %115
 
 115:                                              ; preds = %111
@@ -4517,9 +4568,9 @@ get_CDR_ulong.exit158:                            ; preds = %115, %117
 
 128:                                              ; preds = %get_CDR_ulong.exit158
   %.not138 = icmp eq i32 %119, 0
-  br i1 %.not138, label %151, label %.lr.ph.i159
+  br i1 %.not138, label %151, label %.lr.ph.i
 
-.lr.ph.i159:                                      ; preds = %128
+.lr.ph.i:                                         ; preds = %128
   %129 = getelementptr inbounds i8, ptr %1, i64 408
   %130 = load ptr, ptr %129, align 8
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %120, i32 noundef %119) #14
@@ -4537,8 +4588,8 @@ get_CDR_ulong.exit158:                            ; preds = %115, %117
   %140 = load ptr, ptr @g_ascii_table, align 8
   br label %141
 
-141:                                              ; preds = %149, %.lr.ph.i159
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i159 ], [ %indvars.iv.next.i, %149 ]
+141:                                              ; preds = %149, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %149 ]
   %142 = getelementptr i8, ptr %139, i64 %indvars.iv.i
   %143 = load i8, ptr %142, align 1
   %144 = zext i8 %143 to i64
@@ -4588,10 +4639,10 @@ make_printable_string.exit:                       ; preds = %149
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %168 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %.0, ptr %168, align 8
-  store ptr %.0177, ptr %6, align 8
+  store ptr %.0176, ptr %6, align 8
   %169 = call ptr @g_hash_table_lookup(ptr noundef %167, ptr noundef nonnull %6) #14
-  %.not.i160 = icmp eq ptr %169, null
-  br i1 %.not.i160, label %get_repoid_from_objkey.exit.thread, label %get_repoid_from_objkey.exit
+  %.not.i159 = icmp eq ptr %169, null
+  br i1 %.not.i159, label %get_repoid_from_objkey.exit.thread, label %get_repoid_from_objkey.exit
 
 get_repoid_from_objkey.exit.thread:               ; preds = %165
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -4621,52 +4672,52 @@ get_repoid_from_objkey.exit:                      ; preds = %165
   br i1 %or.cond13, label %181, label %205
 
 181:                                              ; preds = %177
-  %.promoted.i.i161 = load i32, ptr %7, align 4
-  %182 = and i32 %.promoted.i.i161, 3
-  %.not10.i.i162 = icmp eq i32 %182, 0
-  br i1 %.not10.i.i162, label %184, label %.lr.ph.i.i163
+  %.promoted.i.i160 = load i32, ptr %7, align 4
+  %182 = and i32 %.promoted.i.i160, 3
+  %.not10.i.i161 = icmp eq i32 %182, 0
+  br i1 %.not10.i.i161, label %184, label %.lr.ph.preheader.i.i162
 
-.lr.ph.i.i163:                                    ; preds = %181
-  %183 = or i32 %.promoted.i.i161, -4
-  %sub.i164 = sub i32 %.promoted.i.i161, %183
-  store i32 %sub.i164, ptr %7, align 4
+.lr.ph.preheader.i.i162:                          ; preds = %181
+  %183 = or i32 %.promoted.i.i160, -4
+  %sub.i163 = sub i32 %.promoted.i.i160, %183
+  store i32 %sub.i163, ptr %7, align 4
   br label %184
 
-184:                                              ; preds = %.lr.ph.i.i163, %181
-  %.lcssa.i.i165 = phi i32 [ %sub.i164, %.lr.ph.i.i163 ], [ %.promoted.i.i161, %181 ]
+184:                                              ; preds = %.lr.ph.preheader.i.i162, %181
+  %.lcssa.i.i164 = phi i32 [ %sub.i163, %.lr.ph.preheader.i.i162 ], [ %.promoted.i.i160, %181 ]
   br i1 %.not9.i, label %187, label %185
 
 185:                                              ; preds = %184
-  %186 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i.i165) #14
-  br label %get_CDR_string.exit168
+  %186 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i.i164) #14
+  br label %get_CDR_string.exit167
 
 187:                                              ; preds = %184
-  %188 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i.i165) #14
-  br label %get_CDR_string.exit168
+  %188 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i.i164) #14
+  br label %get_CDR_string.exit167
 
-get_CDR_string.exit168:                           ; preds = %185, %187
+get_CDR_string.exit167:                           ; preds = %185, %187
   %189 = phi i32 [ %186, %185 ], [ %188, %187 ]
   %190 = load i32, ptr %7, align 4
   %191 = add i32 %190, 4
   store i32 %191, ptr %7, align 4
   %192 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %190) #14
-  %spec.select.i167 = call i32 @llvm.umin.i32(i32 %189, i32 %192)
+  %spec.select.i166 = call i32 @llvm.umin.i32(i32 %189, i32 %192)
   %193 = call ptr @wmem_packet_scope() #14
   %194 = load i32, ptr %7, align 4
-  %195 = call ptr @tvb_get_string_enc(ptr noundef %193, ptr noundef %0, i32 noundef %194, i32 noundef %spec.select.i167, i32 noundef 10) #14
+  %195 = call ptr @tvb_get_string_enc(ptr noundef %193, ptr noundef %0, i32 noundef %194, i32 noundef %spec.select.i166, i32 noundef 10) #14
   %196 = load i32, ptr %7, align 4
-  %197 = add i32 %196, %spec.select.i167
+  %197 = add i32 %196, %spec.select.i166
   store i32 %197, ptr %7, align 4
   %198 = load i32, ptr @hf_giop_type_id_len, align 4
   %199 = add i32 %196, -4
-  %200 = call ptr @proto_tree_add_uint(ptr noundef nonnull %10, i32 noundef %198, ptr noundef %0, i32 noundef %199, i32 noundef 4, i32 noundef %spec.select.i167) #14
+  %200 = call ptr @proto_tree_add_uint(ptr noundef nonnull %10, i32 noundef %198, ptr noundef %0, i32 noundef %199, i32 noundef 4, i32 noundef %spec.select.i166) #14
   %201 = load i32, ptr @hf_giop_type_id, align 4
   %202 = load i32, ptr %7, align 4
-  %203 = sub i32 %202, %spec.select.i167
-  %204 = call ptr @proto_tree_add_string(ptr noundef nonnull %10, i32 noundef %201, ptr noundef %0, i32 noundef %203, i32 noundef %spec.select.i167, ptr noundef %195) #14
+  %203 = sub i32 %202, %spec.select.i166
+  %204 = call ptr @proto_tree_add_string(ptr noundef nonnull %10, i32 noundef %201, ptr noundef %0, i32 noundef %203, i32 noundef %spec.select.i166, ptr noundef %195) #14
   br label %205
 
-205:                                              ; preds = %177, %get_CDR_string.exit168
+205:                                              ; preds = %177, %get_CDR_string.exit167
   %206 = load i32, ptr %7, align 4
   %207 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %206) #14
   %208 = load i32, ptr @hf_giop_stub_data, align 4
@@ -4792,17 +4843,17 @@ get_CDR_string.exit:                              ; preds = %42, %44
   %64 = icmp slt i32 %63, 1
   %65 = and i32 %62, 7
   %.not3.i = icmp eq i32 %65, 4
-  %or.cond104 = or i1 %64, %.not3.i
-  br i1 %or.cond104, label %set_new_alignment.exit, label %.lr.ph.i87
+  %or.cond103 = or i1 %64, %.not3.i
+  br i1 %or.cond103, label %set_new_alignment.exit, label %.lr.ph.i
 
-.lr.ph.i87:                                       ; preds = %61, %.lr.ph.i87
-  %66 = phi i32 [ %67, %.lr.ph.i87 ], [ %62, %61 ]
+.lr.ph.i:                                         ; preds = %61, %.lr.ph.i
+  %66 = phi i32 [ %67, %.lr.ph.i ], [ %62, %61 ]
   %67 = add i32 %66, 1
   %68 = and i32 %67, 7
-  %.not.i88 = icmp eq i32 %68, 4
-  br i1 %.not.i88, label %._crit_edge.i, label %.lr.ph.i87, !llvm.loop !25
+  %.not.i87 = icmp eq i32 %68, 4
+  br i1 %.not.i87, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i87
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   store i32 %67, ptr %7, align 4
   br label %set_new_alignment.exit
 
@@ -4848,52 +4899,52 @@ set_new_alignment.exit:                           ; preds = %._crit_edge.i, %61
   br i1 %or.cond, label %93, label %117
 
 93:                                               ; preds = %89
-  %.promoted.i.i89 = load i32, ptr %7, align 4
-  %94 = and i32 %.promoted.i.i89, 3
-  %.not10.i.i90 = icmp eq i32 %94, 0
-  br i1 %.not10.i.i90, label %96, label %.lr.ph.i.i91
+  %.promoted.i.i88 = load i32, ptr %7, align 4
+  %94 = and i32 %.promoted.i.i88, 3
+  %.not10.i.i89 = icmp eq i32 %94, 0
+  br i1 %.not10.i.i89, label %96, label %.lr.ph.preheader.i.i90
 
-.lr.ph.i.i91:                                     ; preds = %93
-  %95 = or i32 %.promoted.i.i89, -4
-  %sub.i92 = sub i32 %.promoted.i.i89, %95
-  store i32 %sub.i92, ptr %7, align 4
+.lr.ph.preheader.i.i90:                           ; preds = %93
+  %95 = or i32 %.promoted.i.i88, -4
+  %sub.i91 = sub i32 %.promoted.i.i88, %95
+  store i32 %sub.i91, ptr %7, align 4
   br label %96
 
-96:                                               ; preds = %.lr.ph.i.i91, %93
-  %.lcssa.i.i93 = phi i32 [ %sub.i92, %.lr.ph.i.i91 ], [ %.promoted.i.i89, %93 ]
+96:                                               ; preds = %.lr.ph.preheader.i.i90, %93
+  %.lcssa.i.i92 = phi i32 [ %sub.i91, %.lr.ph.preheader.i.i90 ], [ %.promoted.i.i88, %93 ]
   br i1 %.not9.i, label %99, label %97
 
 97:                                               ; preds = %96
-  %98 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i.i93) #14
-  br label %get_CDR_string.exit96
+  %98 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i.i92) #14
+  br label %get_CDR_string.exit95
 
 99:                                               ; preds = %96
-  %100 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i.i93) #14
-  br label %get_CDR_string.exit96
+  %100 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i.i92) #14
+  br label %get_CDR_string.exit95
 
-get_CDR_string.exit96:                            ; preds = %97, %99
+get_CDR_string.exit95:                            ; preds = %97, %99
   %101 = phi i32 [ %98, %97 ], [ %100, %99 ]
   %102 = load i32, ptr %7, align 4
   %103 = add i32 %102, 4
   store i32 %103, ptr %7, align 4
   %104 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %102) #14
-  %spec.select.i95 = call i32 @llvm.umin.i32(i32 %101, i32 %104)
+  %spec.select.i94 = call i32 @llvm.umin.i32(i32 %101, i32 %104)
   %105 = call ptr @wmem_packet_scope() #14
   %106 = load i32, ptr %7, align 4
-  %107 = call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %0, i32 noundef %106, i32 noundef %spec.select.i95, i32 noundef 10) #14
+  %107 = call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %0, i32 noundef %106, i32 noundef %spec.select.i94, i32 noundef 10) #14
   %108 = load i32, ptr %7, align 4
-  %109 = add i32 %108, %spec.select.i95
+  %109 = add i32 %108, %spec.select.i94
   store i32 %109, ptr %7, align 4
   %110 = load i32, ptr @hf_giop_type_id_len, align 4
   %111 = add i32 %108, -4
-  %112 = call ptr @proto_tree_add_uint(ptr noundef nonnull %11, i32 noundef %110, ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef %spec.select.i95) #14
+  %112 = call ptr @proto_tree_add_uint(ptr noundef nonnull %11, i32 noundef %110, ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef %spec.select.i94) #14
   %113 = load i32, ptr @hf_giop_type_id, align 4
   %114 = load i32, ptr %7, align 4
-  %115 = sub i32 %114, %spec.select.i95
-  %116 = call ptr @proto_tree_add_string(ptr noundef nonnull %11, i32 noundef %113, ptr noundef %0, i32 noundef %115, i32 noundef %spec.select.i95, ptr noundef %107) #14
+  %115 = sub i32 %114, %spec.select.i94
+  %116 = call ptr @proto_tree_add_string(ptr noundef nonnull %11, i32 noundef %113, ptr noundef %0, i32 noundef %115, i32 noundef %spec.select.i94, ptr noundef %107) #14
   br label %117
 
-117:                                              ; preds = %89, %get_CDR_string.exit96
+117:                                              ; preds = %89, %get_CDR_string.exit95
   %118 = load i32, ptr %7, align 4
   %119 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %118) #14
   %120 = icmp sgt i32 %119, 0
@@ -4983,15 +5034,15 @@ get_CDR_ulong.exit48:                             ; preds = %28, %30
   %49 = load ptr, ptr @giop_complete_request_list, align 8
   %50 = tail call ptr @g_list_last(ptr noundef %49) #14
   %.not17.i = icmp eq ptr %50, null
-  br i1 %.not17.i, label %get_mfn_from_fn_and_reqid.exit, label %.lr.ph.i49
+  br i1 %.not17.i, label %get_mfn_from_fn_and_reqid.exit, label %.lr.ph.i
 
-.lr.ph.i49:                                       ; preds = %43
+.lr.ph.i:                                         ; preds = %43
   %51 = getelementptr inbounds i8, ptr %1, i64 236
   %52 = getelementptr inbounds i8, ptr %1, i64 240
   br label %53
 
-53:                                               ; preds = %cmp_address.exit.thread.i, %.lr.ph.i49
-  %.018.i = phi ptr [ %50, %.lr.ph.i49 ], [ %79, %cmp_address.exit.thread.i ]
+53:                                               ; preds = %cmp_address.exit.thread.i, %.lr.ph.i
+  %.018.i = phi ptr [ %50, %.lr.ph.i ], [ %79, %cmp_address.exit.thread.i ]
   %54 = load ptr, ptr %.018.i, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 24
   %56 = load i32, ptr %55, align 8
@@ -5039,7 +5090,7 @@ cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.th
   %78 = getelementptr inbounds i8, ptr %.018.i, i64 16
   %79 = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %get_mfn_from_fn_and_reqid.exit, label %53, !llvm.loop !26
+  br i1 %.not.i, label %get_mfn_from_fn_and_reqid.exit, label %53, !llvm.loop !24
 
 get_mfn_from_fn_and_reqid.exit:                   ; preds = %cmp_address.exit.thread.i, %43, %76
   %.012.i = phi i32 [ %77, %76 ], [ %45, %43 ], [ %45, %cmp_address.exit.thread.i ]
@@ -5052,8 +5103,8 @@ get_mfn_from_fn_and_reqid.exit:                   ; preds = %cmp_address.exit.th
   store i32 %80, ptr %6, align 4
   %82 = load ptr, ptr @giop_complete_reply_hash, align 8
   %83 = call ptr @g_hash_table_lookup(ptr noundef %82, ptr noundef nonnull %6) #14
-  %.not.i50 = icmp eq ptr %83, null
-  br i1 %.not.i50, label %84, label %insert_in_complete_reply_hash.exit
+  %.not.i49 = icmp eq ptr %83, null
+  br i1 %.not.i49, label %84, label %insert_in_complete_reply_hash.exit
 
 84:                                               ; preds = %81
   %85 = call ptr @wmem_file_scope() #14
@@ -5133,17 +5184,17 @@ get_CDR_ulong.exit47:                             ; preds = %20, %22
   %.promoted.i48 = load i32, ptr %7, align 4
   %29 = and i32 %.promoted.i48, 7
   %.not3.i = icmp eq i32 %29, 4
-  br i1 %.not3.i, label %set_new_alignment.exit, label %.lr.ph.i49
+  br i1 %.not3.i, label %set_new_alignment.exit, label %.lr.ph.i
 
-.lr.ph.i49:                                       ; preds = %get_CDR_ulong.exit47, %.lr.ph.i49
-  %30 = phi i32 [ %31, %.lr.ph.i49 ], [ %.promoted.i48, %get_CDR_ulong.exit47 ]
+.lr.ph.i:                                         ; preds = %get_CDR_ulong.exit47, %.lr.ph.i
+  %30 = phi i32 [ %31, %.lr.ph.i ], [ %.promoted.i48, %get_CDR_ulong.exit47 ]
   %31 = add i32 %30, 1
   %32 = and i32 %31, 7
   %.not.i = icmp eq i32 %32, 4
-  br i1 %.not.i, label %set_new_alignment.exit, label %.lr.ph.i49, !llvm.loop !25
+  br i1 %.not.i, label %set_new_alignment.exit, label %.lr.ph.i, !llvm.loop !23
 
-set_new_alignment.exit:                           ; preds = %.lr.ph.i49, %get_CDR_ulong.exit47
-  %33 = phi i32 [ %.promoted.i48, %get_CDR_ulong.exit47 ], [ %31, %.lr.ph.i49 ]
+set_new_alignment.exit:                           ; preds = %.lr.ph.i, %get_CDR_ulong.exit47
+  %33 = phi i32 [ %.promoted.i48, %get_CDR_ulong.exit47 ], [ %31, %.lr.ph.i ]
   %34 = getelementptr inbounds i8, ptr %1, i64 80
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 50
@@ -5161,15 +5212,15 @@ set_new_alignment.exit:                           ; preds = %.lr.ph.i49, %get_CD
   %45 = load ptr, ptr @giop_complete_request_list, align 8
   %46 = tail call ptr @g_list_last(ptr noundef %45) #14
   %.not17.i = icmp eq ptr %46, null
-  br i1 %.not17.i, label %get_mfn_from_fn_and_reqid.exit, label %.lr.ph.i50
+  br i1 %.not17.i, label %get_mfn_from_fn_and_reqid.exit, label %.lr.ph.i49
 
-.lr.ph.i50:                                       ; preds = %39
+.lr.ph.i49:                                       ; preds = %39
   %47 = getelementptr inbounds i8, ptr %1, i64 236
   %48 = getelementptr inbounds i8, ptr %1, i64 240
   br label %49
 
-49:                                               ; preds = %cmp_address.exit.thread.i, %.lr.ph.i50
-  %.018.i = phi ptr [ %46, %.lr.ph.i50 ], [ %75, %cmp_address.exit.thread.i ]
+49:                                               ; preds = %cmp_address.exit.thread.i, %.lr.ph.i49
+  %.018.i = phi ptr [ %46, %.lr.ph.i49 ], [ %75, %cmp_address.exit.thread.i ]
   %50 = load ptr, ptr %.018.i, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8
@@ -5216,8 +5267,8 @@ cmp_address.exit.thread14.i:                      ; preds = %cmp_address.exit.i,
 cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.thread14.i, %cmp_address.exit.i, %58, %54, %49
   %74 = getelementptr inbounds i8, ptr %.018.i, i64 16
   %75 = load ptr, ptr %74, align 8
-  %.not.i51 = icmp eq ptr %75, null
-  br i1 %.not.i51, label %get_mfn_from_fn_and_reqid.exit, label %49, !llvm.loop !26
+  %.not.i50 = icmp eq ptr %75, null
+  br i1 %.not.i50, label %get_mfn_from_fn_and_reqid.exit, label %49, !llvm.loop !24
 
 get_mfn_from_fn_and_reqid.exit:                   ; preds = %cmp_address.exit.thread.i, %39, %72
   %.012.i = phi i32 [ %73, %72 ], [ %41, %39 ], [ %41, %cmp_address.exit.thread.i ]
@@ -5230,8 +5281,8 @@ get_mfn_from_fn_and_reqid.exit:                   ; preds = %cmp_address.exit.th
   store i32 %76, ptr %6, align 4
   %78 = load ptr, ptr @giop_complete_reply_hash, align 8
   %79 = call ptr @g_hash_table_lookup(ptr noundef %78, ptr noundef nonnull %6) #14
-  %.not.i52 = icmp eq ptr %79, null
-  br i1 %.not.i52, label %80, label %insert_in_complete_reply_hash.exit
+  %.not.i51 = icmp eq ptr %79, null
+  br i1 %.not.i51, label %80, label %insert_in_complete_reply_hash.exit
 
 80:                                               ; preds = %77
   %81 = call ptr @wmem_file_scope() #14
@@ -5401,7 +5452,7 @@ get_CDR_ulong.exit33:                             ; preds = %19, %21
   %30 = and i32 %29, 7
   %.not = icmp eq i32 %30, 4
   %31 = add i32 %29, 1
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader
   store i32 %29, ptr %6, align 4
@@ -5483,16 +5534,16 @@ define internal fastcc void @decode_ServiceContextList(ptr noundef %0, ptr nocap
   %13 = add i32 %.promoted.i, %5
   %14 = and i32 %13, 3
   %.not10.i = icmp eq i32 %14, 0
-  br i1 %.not10.i, label %16, label %.lr.ph.i
+  br i1 %.not10.i, label %16, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %6
+.lr.ph.preheader.i:                               ; preds = %6
   %15 = or i32 %13, -4
   %sub = sub i32 %.promoted.i, %15
   store i32 %sub, ptr %3, align 4
   br label %16
 
-16:                                               ; preds = %.lr.ph.i, %6
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %6 ]
+16:                                               ; preds = %.lr.ph.preheader.i, %6
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %6 ]
   %.not9.i = icmp eq i32 %4, 0
   br i1 %.not9.i, label %19, label %17
 
@@ -5518,29 +5569,29 @@ get_CDR_ulong.exit:                               ; preds = %17, %19
   %28 = load i32, ptr %3, align 4
   %29 = sub i32 %28, %10
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %135
+  br i1 %30, label %31, label %132
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %7, align 8
   call void @proto_item_set_len(ptr noundef %32, i32 noundef %29) #14
-  br label %135
+  br label %132
 
-.preheader:                                       ; preds = %get_CDR_ulong.exit, %128
-  %.0107 = phi i32 [ %130, %128 ], [ 0, %get_CDR_ulong.exit ]
+.preheader:                                       ; preds = %get_CDR_ulong.exit, %125
+  %.0107 = phi i32 [ %127, %125 ], [ 0, %get_CDR_ulong.exit ]
   %.promoted.i93 = load i32, ptr %3, align 4
   %33 = add i32 %.promoted.i93, %5
   %34 = and i32 %33, 3
   %.not10.i94 = icmp eq i32 %34, 0
-  br i1 %.not10.i94, label %36, label %.lr.ph.i95
+  br i1 %.not10.i94, label %36, label %.lr.ph.preheader.i95
 
-.lr.ph.i95:                                       ; preds = %.preheader
+.lr.ph.preheader.i95:                             ; preds = %.preheader
   %35 = or i32 %33, -4
   %sub108 = sub i32 %.promoted.i93, %35
   store i32 %sub108, ptr %3, align 4
   br label %36
 
-36:                                               ; preds = %.lr.ph.i95, %.preheader
-  %.lcssa.i97 = phi i32 [ %sub108, %.lr.ph.i95 ], [ %.promoted.i93, %.preheader ]
+36:                                               ; preds = %.lr.ph.preheader.i95, %.preheader
+  %.lcssa.i97 = phi i32 [ %sub108, %.lr.ph.preheader.i95 ], [ %.promoted.i93, %.preheader ]
   br i1 %.not9.i, label %39, label %37
 
 37:                                               ; preds = %36
@@ -5577,7 +5628,7 @@ get_CDR_ulong.exit99:                             ; preds = %37, %39
   %60 = load i32, ptr %3, align 4
   %61 = call i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not = icmp eq i32 %61, 0
-  br i1 %.not, label %116, label %67
+  br i1 %.not, label %113, label %67
 
 .thread:                                          ; preds = %get_CDR_ulong.exit99
   %62 = load i32, ptr @hf_giop_iiop_sc_vendor_scid, align 4
@@ -5585,18 +5636,18 @@ get_CDR_ulong.exit99:                             ; preds = %37, %39
   %64 = load i32, ptr %3, align 4
   %65 = call i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not105 = icmp eq i32 %65, 0
-  br i1 %.not105, label %116, label %.thread106
+  br i1 %.not105, label %113, label %.thread106
 
 .thread106:                                       ; preds = %.thread
   %66 = add i32 %65, -1
   call fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef nonnull %3, i32 noundef %66)
-  br label %116
+  br label %113
 
 67:                                               ; preds = %57
   %trunc = trunc nuw i32 %41 to i8
   %68 = load i32, ptr %8, align 4
   %69 = load i32, ptr %9, align 4
-  switch i8 %trunc, label %114 [
+  switch i8 %trunc, label %111 [
     i8 1, label %70
     i8 10, label %97
   ]
@@ -5606,16 +5657,16 @@ get_CDR_ulong.exit99:                             ; preds = %37, %39
   %71 = sub i32 %.promoted.i.i, %69
   %72 = and i32 %71, 3
   %.not10.i.i = icmp eq i32 %72, 0
-  br i1 %.not10.i.i, label %74, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %74, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %70
+.lr.ph.preheader.i.i:                             ; preds = %70
   %73 = or i32 %71, -4
   %sub.i = sub i32 %.promoted.i.i, %73
   store i32 %sub.i, ptr %3, align 4
   br label %74
 
-74:                                               ; preds = %.lr.ph.i.i, %70
-  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.i.i ], [ %.promoted.i.i, %70 ]
+74:                                               ; preds = %.lr.ph.preheader.i.i, %70
+  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.preheader.i.i ], [ %.promoted.i.i, %70 ]
   %.not9.i.i = icmp eq i32 %68, 0
   br i1 %.not9.i.i, label %77, label %75
 
@@ -5638,16 +5689,16 @@ get_CDR_ulong.exit.i:                             ; preds = %77, %75
   %84 = sub i32 %.promoted.i15.i, %69
   %85 = and i32 %84, 3
   %.not10.i16.i = icmp eq i32 %85, 0
-  br i1 %.not10.i16.i, label %87, label %.lr.ph.i17.i
+  br i1 %.not10.i16.i, label %87, label %.lr.ph.preheader.i17.i
 
-.lr.ph.i17.i:                                     ; preds = %get_CDR_ulong.exit.i
+.lr.ph.preheader.i17.i:                           ; preds = %get_CDR_ulong.exit.i
   %86 = or i32 %84, -4
   %sub22.i = sub i32 %.promoted.i15.i, %86
   store i32 %sub22.i, ptr %3, align 4
   br label %87
 
-87:                                               ; preds = %.lr.ph.i17.i, %get_CDR_ulong.exit.i
-  %.lcssa.i19.i = phi i32 [ %sub22.i, %.lr.ph.i17.i ], [ %.promoted.i15.i, %get_CDR_ulong.exit.i ]
+87:                                               ; preds = %.lr.ph.preheader.i17.i, %get_CDR_ulong.exit.i
+  %.lcssa.i19.i = phi i32 [ %sub22.i, %.lr.ph.preheader.i17.i ], [ %.promoted.i15.i, %get_CDR_ulong.exit.i ]
   br i1 %.not9.i.i, label %90, label %88
 
 88:                                               ; preds = %87
@@ -5665,93 +5716,86 @@ decode_CodeSetServiceContext.exit:                ; preds = %88, %90
   store i32 %94, ptr %3, align 4
   %95 = load i32, ptr @hf_giop_wchar_data, align 4
   %96 = call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %95, ptr noundef %0, i32 noundef %93, i32 noundef 4, i32 noundef %92) #14
-  br label %116
+  br label %113
 
 97:                                               ; preds = %67
   %.promoted.i.i100 = load i32, ptr %3, align 4
   %98 = sub i32 %.promoted.i.i100, %69
   %99 = and i32 %98, 1
   %.not10.i.i101 = icmp eq i32 %99, 0
-  br i1 %.not10.i.i101, label %104, label %.lr.ph.i.i102
+  br i1 %.not10.i.i101, label %101, label %.lr.ph.preheader.i.i102
 
-.lr.ph.i.i102:                                    ; preds = %97, %.lr.ph.i.i102
-  %100 = phi i32 [ %101, %.lr.ph.i.i102 ], [ %.promoted.i.i100, %97 ]
-  %101 = add i32 %100, 1
-  %102 = add i32 %100, %69
-  %103 = and i32 %102, 1
-  %.not.not.i.i = icmp eq i32 %103, 0
-  br i1 %.not.not.i.i, label %.lr.ph.i.i102, label %._crit_edge.i.i, !llvm.loop !15
+.lr.ph.preheader.i.i102:                          ; preds = %97
+  %100 = add i32 %.promoted.i.i100, 1
+  store i32 %100, ptr %3, align 4
+  br label %101
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i102
-  store i32 %101, ptr %3, align 4
-  br label %104
-
-104:                                              ; preds = %._crit_edge.i.i, %97
-  %.lcssa.i.i103 = phi i32 [ %101, %._crit_edge.i.i ], [ %.promoted.i.i100, %97 ]
+101:                                              ; preds = %.lr.ph.preheader.i.i102, %97
+  %.lcssa.i.i103 = phi i32 [ %100, %.lr.ph.preheader.i.i102 ], [ %.promoted.i.i100, %97 ]
   %.not9.i.i104 = icmp eq i32 %68, 0
-  br i1 %.not9.i.i104, label %107, label %105
+  br i1 %.not9.i.i104, label %104, label %102
 
-105:                                              ; preds = %104
-  %106 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i.i103) #14
+102:                                              ; preds = %101
+  %103 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i.i103) #14
   br label %decode_RTCorbaPriority.exit
 
-107:                                              ; preds = %104
-  %108 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i.i103) #14
+104:                                              ; preds = %101
+  %105 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i.i103) #14
   br label %decode_RTCorbaPriority.exit
 
-decode_RTCorbaPriority.exit:                      ; preds = %105, %107
-  %.in.i.i = phi i16 [ %106, %105 ], [ %108, %107 ]
-  %109 = load i32, ptr %3, align 4
-  %110 = add i32 %109, 2
-  store i32 %110, ptr %3, align 4
-  %111 = load i32, ptr @hf_giop_rt_corba_priority, align 4
-  %112 = sext i16 %.in.i.i to i32
-  %113 = call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %111, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef %112) #14
-  br label %116
+decode_RTCorbaPriority.exit:                      ; preds = %102, %104
+  %.in.i.i = phi i16 [ %103, %102 ], [ %105, %104 ]
+  %106 = load i32, ptr %3, align 4
+  %107 = add i32 %106, 2
+  store i32 %107, ptr %3, align 4
+  %108 = load i32, ptr @hf_giop_rt_corba_priority, align 4
+  %109 = sext i16 %.in.i.i to i32
+  %110 = call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %108, ptr noundef %0, i32 noundef %106, i32 noundef 2, i32 noundef %109) #14
+  br label %113
 
-114:                                              ; preds = %67
-  %115 = add i32 %61, -1
-  call fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef nonnull %3, i32 noundef %115)
-  br label %116
+111:                                              ; preds = %67
+  %112 = add i32 %61, -1
+  call fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef nonnull %3, i32 noundef %112)
+  br label %113
 
-116:                                              ; preds = %.thread, %.thread106, %114, %decode_RTCorbaPriority.exit, %decode_CodeSetServiceContext.exit, %57
-  %117 = phi i32 [ 0, %.thread ], [ %65, %.thread106 ], [ %61, %114 ], [ %61, %decode_RTCorbaPriority.exit ], [ %61, %decode_CodeSetServiceContext.exit ], [ 0, %57 ]
-  %118 = phi i32 [ %64, %.thread ], [ %64, %.thread106 ], [ %60, %114 ], [ %60, %decode_RTCorbaPriority.exit ], [ %60, %decode_CodeSetServiceContext.exit ], [ %60, %57 ]
-  %119 = load i32, ptr %3, align 4
-  %120 = add i32 %118, 4
-  %121 = sub i32 %119, %120
-  %122 = icmp ugt i32 %121, %117
-  br i1 %122, label %.sink.split, label %123
+113:                                              ; preds = %.thread, %.thread106, %111, %decode_RTCorbaPriority.exit, %decode_CodeSetServiceContext.exit, %57
+  %114 = phi i32 [ 0, %.thread ], [ %65, %.thread106 ], [ %61, %111 ], [ %61, %decode_RTCorbaPriority.exit ], [ %61, %decode_CodeSetServiceContext.exit ], [ 0, %57 ]
+  %115 = phi i32 [ %64, %.thread ], [ %64, %.thread106 ], [ %60, %111 ], [ %60, %decode_RTCorbaPriority.exit ], [ %60, %decode_CodeSetServiceContext.exit ], [ %60, %57 ]
+  %116 = load i32, ptr %3, align 4
+  %117 = add i32 %115, 4
+  %118 = sub i32 %116, %117
+  %119 = icmp ugt i32 %118, %114
+  br i1 %119, label %.sink.split, label %120
 
-123:                                              ; preds = %116
-  %124 = icmp ult i32 %121, %117
-  br i1 %124, label %125, label %128
+120:                                              ; preds = %113
+  %121 = icmp ult i32 %118, %114
+  br i1 %121, label %122, label %125
 
-125:                                              ; preds = %123
-  %126 = sub nuw i32 %117, %121
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %119, i32 noundef %126) #14
+122:                                              ; preds = %120
+  %123 = sub nuw i32 %114, %118
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %116, i32 noundef %123) #14
   br label %.sink.split
 
-.sink.split:                                      ; preds = %116, %125
-  %127 = add i32 %120, %117
-  store i32 %127, ptr %3, align 4
-  br label %128
+.sink.split:                                      ; preds = %113, %122
+  %124 = add i32 %117, %114
+  store i32 %124, ptr %3, align 4
+  br label %125
 
-128:                                              ; preds = %.sink.split, %123
-  %129 = phi i32 [ %119, %123 ], [ %127, %.sink.split ]
-  call void @proto_item_set_end(ptr noundef %45, ptr noundef %0, i32 noundef %129) #14
-  %130 = add nuw i32 %.0107, 1
-  %exitcond.not = icmp eq i32 %130, %21
-  br i1 %exitcond.not, label %131, label %.preheader, !llvm.loop !28
+125:                                              ; preds = %.sink.split, %120
+  %126 = phi i32 [ %116, %120 ], [ %124, %.sink.split ]
+  call void @proto_item_set_end(ptr noundef %45, ptr noundef %0, i32 noundef %126) #14
+  %127 = add nuw i32 %.0107, 1
+  %exitcond.not = icmp eq i32 %127, %21
+  br i1 %exitcond.not, label %128, label %.preheader, !llvm.loop !26
 
-131:                                              ; preds = %128
-  %132 = load ptr, ptr %7, align 8
-  %133 = load i32, ptr %3, align 4
-  %134 = sub i32 %133, %10
-  call void @proto_item_set_len(ptr noundef %132, i32 noundef %134) #14
-  br label %135
+128:                                              ; preds = %125
+  %129 = load ptr, ptr %7, align 8
+  %130 = load i32, ptr %3, align 4
+  %131 = sub i32 %130, %10
+  call void @proto_item_set_len(ptr noundef %129, i32 noundef %131) #14
+  br label %132
 
-135:                                              ; preds = %27, %31, %131
+132:                                              ; preds = %27, %31, %128
   ret void
 }
 
@@ -5766,16 +5810,16 @@ define internal fastcc void @decode_TaggedProfile(ptr noundef %0, ptr noundef %1
   %11 = add i32 %.promoted.i, %4
   %12 = and i32 %11, 3
   %.not10.i = icmp eq i32 %12, 0
-  br i1 %.not10.i, label %14, label %.lr.ph.i
+  br i1 %.not10.i, label %14, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %7
+.lr.ph.preheader.i:                               ; preds = %7
   %13 = or i32 %11, -4
   %sub = sub i32 %.promoted.i, %13
   store i32 %sub, ptr %3, align 4
   br label %14
 
-14:                                               ; preds = %.lr.ph.i, %7
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %7 ]
+14:                                               ; preds = %.lr.ph.preheader.i, %7
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %7 ]
   %.not9.i = icmp eq i32 %5, 0
   br i1 %.not9.i, label %17, label %15
 
@@ -5800,7 +5844,7 @@ get_CDR_ulong.exit:                               ; preds = %15, %17
 
 26:                                               ; preds = %get_CDR_ulong.exit
   %cond = icmp eq i32 %19, 0
-  br i1 %cond, label %27, label %226
+  br i1 %cond, label %27, label %223
 
 27:                                               ; preds = %26
   %28 = load i32, ptr %9, align 4
@@ -5827,16 +5871,16 @@ get_CDR_ulong.exit:                               ; preds = %15, %17
   %46 = add i32 %.promoted.i.i.i, %28
   %47 = and i32 %46, 3
   %.not10.i.i.i = icmp eq i32 %47, 0
-  br i1 %.not10.i.i.i, label %49, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %49, label %.lr.ph.preheader.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %27
+.lr.ph.preheader.i.i.i:                           ; preds = %27
   %48 = or i32 %46, -4
   %sub.i.i = sub i32 %.promoted.i.i.i, %48
   store i32 %sub.i.i, ptr %3, align 4
   br label %49
 
-49:                                               ; preds = %.lr.ph.i.i.i, %27
-  %.lcssa.i.i.i = phi i32 [ %sub.i.i, %.lr.ph.i.i.i ], [ %.promoted.i.i.i, %27 ]
+49:                                               ; preds = %.lr.ph.preheader.i.i.i, %27
+  %.lcssa.i.i.i = phi i32 [ %sub.i.i, %.lr.ph.preheader.i.i.i ], [ %.promoted.i.i.i, %27 ]
   %.not9.i.i.i = icmp eq i32 %29, 0
   br i1 %.not9.i.i.i, label %52, label %50
 
@@ -5879,390 +5923,383 @@ get_CDR_string.exit.i:                            ; preds = %52, %50
   %72 = add i32 %.promoted.i.i, %28
   %73 = and i32 %72, 1
   %.not10.i.i = icmp eq i32 %73, 0
-  br i1 %.not10.i.i, label %78, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %75, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %71, %.lr.ph.i.i
-  %74 = phi i32 [ %75, %.lr.ph.i.i ], [ %.promoted.i.i, %71 ]
-  %75 = add i32 %74, 1
-  %76 = sub i32 %28, %74
-  %77 = and i32 %76, 1
-  %.not.not.i.i = icmp eq i32 %77, 0
-  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !16
+.lr.ph.preheader.i.i:                             ; preds = %71
+  %74 = add i32 %.promoted.i.i, 1
+  store i32 %74, ptr %3, align 4
+  br label %75
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  store i32 %75, ptr %3, align 4
-  br label %78
+75:                                               ; preds = %.lr.ph.preheader.i.i, %71
+  %.lcssa.i.i = phi i32 [ %74, %.lr.ph.preheader.i.i ], [ %.promoted.i.i, %71 ]
+  br i1 %.not9.i.i.i, label %78, label %76
 
-78:                                               ; preds = %._crit_edge.i.i, %71
-  %.lcssa.i.i = phi i32 [ %75, %._crit_edge.i.i ], [ %.promoted.i.i, %71 ]
-  br i1 %.not9.i.i.i, label %81, label %79
-
-79:                                               ; preds = %78
-  %80 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i.i) #14
+76:                                               ; preds = %75
+  %77 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i.i) #14
   br label %get_CDR_ushort.exit.i
 
-81:                                               ; preds = %78
-  %82 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i.i) #14
+78:                                               ; preds = %75
+  %79 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i.i) #14
   br label %get_CDR_ushort.exit.i
 
-get_CDR_ushort.exit.i:                            ; preds = %81, %79
-  %.in.i.i = phi i16 [ %80, %79 ], [ %82, %81 ]
-  %83 = load i32, ptr %3, align 4
-  %84 = add i32 %83, 2
-  store i32 %84, ptr %3, align 4
-  %85 = load i32, ptr @hf_giop_iiop_port, align 4
-  %86 = zext i16 %.in.i.i to i32
-  %87 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %83, i32 noundef 2, i32 noundef %86) #14
+get_CDR_ushort.exit.i:                            ; preds = %78, %76
+  %.in.i.i = phi i16 [ %77, %76 ], [ %79, %78 ]
+  %80 = load i32, ptr %3, align 4
+  %81 = add i32 %80, 2
+  store i32 %81, ptr %3, align 4
+  %82 = load i32, ptr @hf_giop_iiop_port, align 4
+  %83 = zext i16 %.in.i.i to i32
+  %84 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef %80, i32 noundef 2, i32 noundef %83) #14
   %.promoted.i123.i = load i32, ptr %3, align 4
-  %88 = add i32 %.promoted.i123.i, %28
-  %89 = and i32 %88, 3
-  %.not10.i124.i = icmp eq i32 %89, 0
-  br i1 %.not10.i124.i, label %91, label %.lr.ph.i125.i
+  %85 = add i32 %.promoted.i123.i, %28
+  %86 = and i32 %85, 3
+  %.not10.i124.i = icmp eq i32 %86, 0
+  br i1 %.not10.i124.i, label %88, label %.lr.ph.preheader.i125.i
 
-.lr.ph.i125.i:                                    ; preds = %get_CDR_ushort.exit.i
-  %90 = or i32 %88, -4
-  %sub.i = sub i32 %.promoted.i123.i, %90
+.lr.ph.preheader.i125.i:                          ; preds = %get_CDR_ushort.exit.i
+  %87 = or i32 %85, -4
+  %sub.i = sub i32 %.promoted.i123.i, %87
   store i32 %sub.i, ptr %3, align 4
-  br label %91
+  br label %88
 
-91:                                               ; preds = %.lr.ph.i125.i, %get_CDR_ushort.exit.i
-  %.lcssa.i126.i = phi i32 [ %sub.i, %.lr.ph.i125.i ], [ %.promoted.i123.i, %get_CDR_ushort.exit.i ]
-  br i1 %.not9.i.i.i, label %94, label %92
+88:                                               ; preds = %.lr.ph.preheader.i125.i, %get_CDR_ushort.exit.i
+  %.lcssa.i126.i = phi i32 [ %sub.i, %.lr.ph.preheader.i125.i ], [ %.promoted.i123.i, %get_CDR_ushort.exit.i ]
+  br i1 %.not9.i.i.i, label %91, label %89
 
-92:                                               ; preds = %91
-  %93 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i126.i) #14
+89:                                               ; preds = %88
+  %90 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i126.i) #14
   br label %get_CDR_ulong.exit.i
 
-94:                                               ; preds = %91
-  %95 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i126.i) #14
+91:                                               ; preds = %88
+  %92 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i126.i) #14
   br label %get_CDR_ulong.exit.i
 
-get_CDR_ulong.exit.i:                             ; preds = %94, %92
-  %96 = phi i32 [ %93, %92 ], [ %95, %94 ]
-  %97 = load i32, ptr %3, align 4
-  %98 = add i32 %97, 4
-  store i32 %98, ptr %3, align 4
-  %99 = load i32, ptr @hf_giop_sequence_length, align 4
-  %100 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %99, ptr noundef %0, i32 noundef %97, i32 noundef 4, i32 noundef %96) #14
-  %101 = load i32, ptr %3, align 4
-  %102 = add i32 %101, -4
-  %103 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %102) #14
-  %104 = icmp ugt i32 %96, %103
-  br i1 %104, label %105, label %107
+get_CDR_ulong.exit.i:                             ; preds = %91, %89
+  %93 = phi i32 [ %90, %89 ], [ %92, %91 ]
+  %94 = load i32, ptr %3, align 4
+  %95 = add i32 %94, 4
+  store i32 %95, ptr %3, align 4
+  %96 = load i32, ptr @hf_giop_sequence_length, align 4
+  %97 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %94, i32 noundef 4, i32 noundef %93) #14
+  %98 = load i32, ptr %3, align 4
+  %99 = add i32 %98, -4
+  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %99) #14
+  %101 = icmp ugt i32 %93, %100
+  br i1 %101, label %102, label %104
 
-105:                                              ; preds = %get_CDR_ulong.exit.i
-  %106 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %100, ptr noundef nonnull @ei_giop_length_too_big, ptr noundef nonnull @.str.269) #14
+102:                                              ; preds = %get_CDR_ulong.exit.i
+  %103 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %97, ptr noundef nonnull @ei_giop_length_too_big, ptr noundef nonnull @.str.269) #14
   br label %decode_IIOP_IOR_profile.exit
 
-107:                                              ; preds = %get_CDR_ulong.exit.i
-  %.not118.i = icmp eq i32 %96, 0
-  br i1 %.not118.i, label %148, label %108
+104:                                              ; preds = %get_CDR_ulong.exit.i
+  %.not118.i = icmp eq i32 %93, 0
+  br i1 %.not118.i, label %145, label %105
 
-108:                                              ; preds = %107
-  %109 = getelementptr inbounds i8, ptr %1, i64 408
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %3, align 4
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %111, i32 noundef %96) #14
-  %112 = add i32 %96, 1
-  %113 = zext i32 %112 to i64
-  %114 = tail call noalias ptr @wmem_alloc0(ptr noundef %110, i64 noundef %113) #14
+105:                                              ; preds = %104
+  %106 = getelementptr inbounds i8, ptr %1, i64 408
+  %107 = load ptr, ptr %106, align 8
+  %108 = load i32, ptr %3, align 4
+  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %108, i32 noundef %93) #14
+  %109 = add i32 %93, 1
+  %110 = zext i32 %109 to i64
+  %111 = tail call noalias ptr @wmem_alloc0(ptr noundef %107, i64 noundef %110) #14
+  %112 = load i32, ptr %3, align 4
+  %113 = zext i32 %93 to i64
+  %114 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %111, i32 noundef %112, i64 noundef %113) #14
   %115 = load i32, ptr %3, align 4
-  %116 = zext i32 %96 to i64
-  %117 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %114, i32 noundef %115, i64 noundef %116) #14
-  %118 = load i32, ptr %3, align 4
-  %119 = add i32 %118, %96
-  store i32 %119, ptr %3, align 4
+  %116 = add i32 %115, %93
+  store i32 %116, ptr %3, align 4
   %.not119.i = icmp eq ptr %6, null
-  br i1 %.not119.i, label %143, label %120
+  br i1 %.not119.i, label %140, label %117
 
-120:                                              ; preds = %108
-  %121 = getelementptr inbounds i8, ptr %1, i64 80
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 50
-  %124 = load i16, ptr %123, align 2
-  %125 = and i16 %124, 8
-  %.not121.i = icmp eq i16 %125, 0
-  br i1 %.not121.i, label %126, label %143
+117:                                              ; preds = %105
+  %118 = getelementptr inbounds i8, ptr %1, i64 80
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 50
+  %121 = load i16, ptr %120, align 2
+  %122 = and i16 %121, 8
+  %.not121.i = icmp eq i16 %122, 0
+  br i1 %.not121.i, label %123, label %140
 
-126:                                              ; preds = %120
-  %127 = load ptr, ptr @giop_objkey_hash, align 8
+123:                                              ; preds = %117
+  %124 = load ptr, ptr @giop_objkey_hash, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %128 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %96, ptr %128, align 8
-  store ptr %114, ptr %8, align 8
-  %129 = call ptr @g_hash_table_lookup(ptr noundef %127, ptr noundef nonnull %8) #14
-  %.not.i40 = icmp eq ptr %129, null
-  br i1 %.not.i40, label %insert_in_objkey_hash.exit, label %130
+  %125 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %93, ptr %125, align 8
+  store ptr %111, ptr %8, align 8
+  %126 = call ptr @g_hash_table_lookup(ptr noundef %124, ptr noundef nonnull %8) #14
+  %.not.i39 = icmp eq ptr %126, null
+  br i1 %.not.i39, label %insert_in_objkey_hash.exit, label %127
 
-130:                                              ; preds = %126
-  %131 = call i32 @g_hash_table_remove(ptr noundef %127, ptr noundef nonnull %8) #14
+127:                                              ; preds = %123
+  %128 = call i32 @g_hash_table_remove(ptr noundef %124, ptr noundef nonnull %8) #14
   br label %insert_in_objkey_hash.exit
 
-insert_in_objkey_hash.exit:                       ; preds = %126, %130
+insert_in_objkey_hash.exit:                       ; preds = %123, %127
+  %129 = call ptr @wmem_file_scope() #14
+  %130 = call noalias ptr @wmem_alloc(ptr noundef %129, i64 noundef 16) #14
+  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  store i32 %93, ptr %131, align 8
   %132 = call ptr @wmem_file_scope() #14
-  %133 = call noalias ptr @wmem_alloc(ptr noundef %132, i64 noundef 16) #14
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
-  store i32 %96, ptr %134, align 8
-  %135 = call ptr @wmem_file_scope() #14
-  %136 = call noalias ptr @wmem_memdup(ptr noundef %135, ptr noundef %114, i64 noundef %116) #14
-  store ptr %136, ptr %133, align 8
-  %137 = call ptr @wmem_file_scope() #14
-  %138 = call noalias ptr @wmem_alloc(ptr noundef %137, i64 noundef 16) #14
-  %139 = call ptr @wmem_file_scope() #14
-  %140 = call noalias ptr @wmem_strdup(ptr noundef %139, ptr noundef nonnull %6) #14
-  store ptr %140, ptr %138, align 8
-  %141 = getelementptr inbounds i8, ptr %138, i64 8
-  store i32 0, ptr %141, align 8
-  %142 = call i32 @g_hash_table_insert(ptr noundef %127, ptr noundef nonnull %133, ptr noundef nonnull %138) #14
+  %133 = call noalias ptr @wmem_memdup(ptr noundef %132, ptr noundef %111, i64 noundef %113) #14
+  store ptr %133, ptr %130, align 8
+  %134 = call ptr @wmem_file_scope() #14
+  %135 = call noalias ptr @wmem_alloc(ptr noundef %134, i64 noundef 16) #14
+  %136 = call ptr @wmem_file_scope() #14
+  %137 = call noalias ptr @wmem_strdup(ptr noundef %136, ptr noundef nonnull %6) #14
+  store ptr %137, ptr %135, align 8
+  %138 = getelementptr inbounds i8, ptr %135, i64 8
+  store i32 0, ptr %138, align 8
+  %139 = call i32 @g_hash_table_insert(ptr noundef %124, ptr noundef nonnull %130, ptr noundef nonnull %135) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %.pre.i = load i32, ptr %3, align 4
-  br label %143
+  br label %140
 
-143:                                              ; preds = %insert_in_objkey_hash.exit, %120, %108
-  %144 = phi i32 [ %.pre.i, %insert_in_objkey_hash.exit ], [ %119, %120 ], [ %119, %108 ]
-  %145 = load i32, ptr @hf_giop_objekt_key, align 4
-  %146 = sub i32 %144, %96
-  %147 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %145, ptr noundef %0, i32 noundef %146, i32 noundef %96, i32 noundef 0) #14
-  br label %148
+140:                                              ; preds = %insert_in_objkey_hash.exit, %117, %105
+  %141 = phi i32 [ %.pre.i, %insert_in_objkey_hash.exit ], [ %116, %117 ], [ %116, %105 ]
+  %142 = load i32, ptr @hf_giop_objekt_key, align 4
+  %143 = sub i32 %141, %93
+  %144 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %142, ptr noundef %0, i32 noundef %143, i32 noundef %93, i32 noundef 0) #14
+  br label %145
 
-148:                                              ; preds = %143, %107
-  switch i8 %34, label %224 [
+145:                                              ; preds = %140, %104
+  switch i8 %34, label %221 [
     i8 0, label %decode_IIOP_IOR_profile.exit
-    i8 1, label %149
-    i8 2, label %149
+    i8 1, label %146
+    i8 2, label %146
   ]
 
-149:                                              ; preds = %148, %148
+146:                                              ; preds = %145, %145
   %.promoted.i128.i = load i32, ptr %3, align 4
-  %150 = add i32 %.promoted.i128.i, %28
-  %151 = and i32 %150, 3
-  %.not10.i129.i = icmp eq i32 %151, 0
-  br i1 %.not10.i129.i, label %153, label %.lr.ph.i130.i
+  %147 = add i32 %.promoted.i128.i, %28
+  %148 = and i32 %147, 3
+  %.not10.i129.i = icmp eq i32 %148, 0
+  br i1 %.not10.i129.i, label %150, label %.lr.ph.preheader.i130.i
 
-.lr.ph.i130.i:                                    ; preds = %149
-  %152 = or i32 %150, -4
-  %sub156.i = sub i32 %.promoted.i128.i, %152
-  store i32 %sub156.i, ptr %3, align 4
-  br label %153
+.lr.ph.preheader.i130.i:                          ; preds = %146
+  %149 = or i32 %147, -4
+  %sub153.i = sub i32 %.promoted.i128.i, %149
+  store i32 %sub153.i, ptr %3, align 4
+  br label %150
 
-153:                                              ; preds = %.lr.ph.i130.i, %149
-  %.lcssa.i132.i = phi i32 [ %sub156.i, %.lr.ph.i130.i ], [ %.promoted.i128.i, %149 ]
-  br i1 %.not9.i.i.i, label %156, label %154
+150:                                              ; preds = %.lr.ph.preheader.i130.i, %146
+  %.lcssa.i132.i = phi i32 [ %sub153.i, %.lr.ph.preheader.i130.i ], [ %.promoted.i128.i, %146 ]
+  br i1 %.not9.i.i.i, label %153, label %151
 
-154:                                              ; preds = %153
-  %155 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i132.i) #14
+151:                                              ; preds = %150
+  %152 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i132.i) #14
   br label %get_CDR_ulong.exit134.i
 
-156:                                              ; preds = %153
-  %157 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i132.i) #14
+153:                                              ; preds = %150
+  %154 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i132.i) #14
   br label %get_CDR_ulong.exit134.i
 
-get_CDR_ulong.exit134.i:                          ; preds = %156, %154
-  %158 = phi i32 [ %155, %154 ], [ %157, %156 ]
-  %159 = load i32, ptr %3, align 4
-  %160 = add i32 %159, 4
-  store i32 %160, ptr %3, align 4
-  %161 = load i32, ptr @hf_giop_sequence_length, align 4
-  %162 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %161, ptr noundef %0, i32 noundef %159, i32 noundef 4, i32 noundef %158) #14
-  %.not157.i = icmp eq i32 %158, 0
-  br i1 %.not157.i, label %decode_IIOP_IOR_profile.exit, label %.lr.ph.i36
+get_CDR_ulong.exit134.i:                          ; preds = %153, %151
+  %155 = phi i32 [ %152, %151 ], [ %154, %153 ]
+  %156 = load i32, ptr %3, align 4
+  %157 = add i32 %156, 4
+  store i32 %157, ptr %3, align 4
+  %158 = load i32, ptr @hf_giop_sequence_length, align 4
+  %159 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %158, ptr noundef %0, i32 noundef %156, i32 noundef 4, i32 noundef %155) #14
+  %.not154.i = icmp eq i32 %155, 0
+  br i1 %.not154.i, label %decode_IIOP_IOR_profile.exit, label %.lr.ph.i
 
-.lr.ph.i36:                                       ; preds = %get_CDR_ulong.exit134.i
-  %163 = getelementptr inbounds i8, ptr %1, i64 408
-  %164 = load ptr, ptr @g_ascii_table, align 8
-  br label %165
+.lr.ph.i:                                         ; preds = %get_CDR_ulong.exit134.i
+  %160 = getelementptr inbounds i8, ptr %1, i64 408
+  %161 = load ptr, ptr @g_ascii_table, align 8
+  br label %162
 
-165:                                              ; preds = %222, %.lr.ph.i36
-  %.0155.i = phi i32 [ 0, %.lr.ph.i36 ], [ %223, %222 ]
+162:                                              ; preds = %219, %.lr.ph.i
+  %.0152.i = phi i32 [ 0, %.lr.ph.i ], [ %220, %219 ]
   %.promoted.i135.i = load i32, ptr %3, align 4
-  %166 = add i32 %.promoted.i135.i, %28
-  %167 = and i32 %166, 3
-  %.not10.i136.i = icmp eq i32 %167, 0
-  br i1 %.not10.i136.i, label %169, label %.lr.ph.i137.i
+  %163 = add i32 %.promoted.i135.i, %28
+  %164 = and i32 %163, 3
+  %.not10.i136.i = icmp eq i32 %164, 0
+  br i1 %.not10.i136.i, label %166, label %.lr.ph.preheader.i137.i
 
-.lr.ph.i137.i:                                    ; preds = %165
-  %168 = or i32 %166, -4
-  %sub158.i = sub i32 %.promoted.i135.i, %168
-  store i32 %sub158.i, ptr %3, align 4
-  br label %169
+.lr.ph.preheader.i137.i:                          ; preds = %162
+  %165 = or i32 %163, -4
+  %sub155.i = sub i32 %.promoted.i135.i, %165
+  store i32 %sub155.i, ptr %3, align 4
+  br label %166
 
-169:                                              ; preds = %.lr.ph.i137.i, %165
-  %.lcssa.i139.i = phi i32 [ %sub158.i, %.lr.ph.i137.i ], [ %.promoted.i135.i, %165 ]
-  br i1 %.not9.i.i.i, label %172, label %170
+166:                                              ; preds = %.lr.ph.preheader.i137.i, %162
+  %.lcssa.i139.i = phi i32 [ %sub155.i, %.lr.ph.preheader.i137.i ], [ %.promoted.i135.i, %162 ]
+  br i1 %.not9.i.i.i, label %169, label %167
 
-170:                                              ; preds = %169
-  %171 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i139.i) #14
+167:                                              ; preds = %166
+  %168 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i139.i) #14
   br label %get_CDR_ulong.exit141.i
 
-172:                                              ; preds = %169
-  %173 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i139.i) #14
+169:                                              ; preds = %166
+  %170 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i139.i) #14
   br label %get_CDR_ulong.exit141.i
 
-get_CDR_ulong.exit141.i:                          ; preds = %172, %170
-  %174 = phi i32 [ %171, %170 ], [ %173, %172 ]
-  %175 = load i32, ptr %3, align 4
-  %176 = add i32 %175, 4
-  store i32 %176, ptr %3, align 4
-  %177 = load i32, ptr @hf_giop_IIOP_tag, align 4
-  %178 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %177, ptr noundef %0, i32 noundef %175, i32 noundef 4, i32 noundef %174) #14
+get_CDR_ulong.exit141.i:                          ; preds = %169, %167
+  %171 = phi i32 [ %168, %167 ], [ %170, %169 ]
+  %172 = load i32, ptr %3, align 4
+  %173 = add i32 %172, 4
+  store i32 %173, ptr %3, align 4
+  %174 = load i32, ptr @hf_giop_IIOP_tag, align 4
+  %175 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %174, ptr noundef %0, i32 noundef %172, i32 noundef 4, i32 noundef %171) #14
   %.promoted.i142.i = load i32, ptr %3, align 4
-  %179 = add i32 %.promoted.i142.i, %28
-  %180 = and i32 %179, 3
-  %.not10.i143.i = icmp eq i32 %180, 0
-  br i1 %.not10.i143.i, label %182, label %.lr.ph.i144.i
+  %176 = add i32 %.promoted.i142.i, %28
+  %177 = and i32 %176, 3
+  %.not10.i143.i = icmp eq i32 %177, 0
+  br i1 %.not10.i143.i, label %179, label %.lr.ph.preheader.i144.i
 
-.lr.ph.i144.i:                                    ; preds = %get_CDR_ulong.exit141.i
-  %181 = or i32 %179, -4
-  %sub159.i = sub i32 %.promoted.i142.i, %181
-  store i32 %sub159.i, ptr %3, align 4
-  br label %182
+.lr.ph.preheader.i144.i:                          ; preds = %get_CDR_ulong.exit141.i
+  %178 = or i32 %176, -4
+  %sub156.i = sub i32 %.promoted.i142.i, %178
+  store i32 %sub156.i, ptr %3, align 4
+  br label %179
 
-182:                                              ; preds = %.lr.ph.i144.i, %get_CDR_ulong.exit141.i
-  %.lcssa.i146.i = phi i32 [ %sub159.i, %.lr.ph.i144.i ], [ %.promoted.i142.i, %get_CDR_ulong.exit141.i ]
-  br i1 %.not9.i.i.i, label %185, label %183
+179:                                              ; preds = %.lr.ph.preheader.i144.i, %get_CDR_ulong.exit141.i
+  %.lcssa.i146.i = phi i32 [ %sub156.i, %.lr.ph.preheader.i144.i ], [ %.promoted.i142.i, %get_CDR_ulong.exit141.i ]
+  br i1 %.not9.i.i.i, label %182, label %180
 
-183:                                              ; preds = %182
-  %184 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i146.i) #14
+180:                                              ; preds = %179
+  %181 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i146.i) #14
   br label %get_CDR_ulong.exit148.i
 
-185:                                              ; preds = %182
-  %186 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i146.i) #14
+182:                                              ; preds = %179
+  %183 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i146.i) #14
   br label %get_CDR_ulong.exit148.i
 
-get_CDR_ulong.exit148.i:                          ; preds = %185, %183
-  %187 = phi i32 [ %184, %183 ], [ %186, %185 ]
-  %188 = load i32, ptr %3, align 4
-  %189 = add i32 %188, 4
-  store i32 %189, ptr %3, align 4
-  %190 = load i32, ptr @hf_giop_sequence_length, align 4
-  %191 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %190, ptr noundef %0, i32 noundef %188, i32 noundef 4, i32 noundef %187) #14
-  %192 = load i32, ptr %3, align 4
-  %193 = add i32 %192, -4
-  %194 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %193) #14
-  %195 = icmp ugt i32 %187, %194
-  br i1 %195, label %196, label %198
+get_CDR_ulong.exit148.i:                          ; preds = %182, %180
+  %184 = phi i32 [ %181, %180 ], [ %183, %182 ]
+  %185 = load i32, ptr %3, align 4
+  %186 = add i32 %185, 4
+  store i32 %186, ptr %3, align 4
+  %187 = load i32, ptr @hf_giop_sequence_length, align 4
+  %188 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %187, ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef %184) #14
+  %189 = load i32, ptr %3, align 4
+  %190 = add i32 %189, -4
+  %191 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %190) #14
+  %192 = icmp ugt i32 %184, %191
+  br i1 %192, label %193, label %195
 
-196:                                              ; preds = %get_CDR_ulong.exit148.i
-  %197 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %191, ptr noundef nonnull @ei_giop_length_too_big, ptr noundef nonnull @.str.269) #14
+193:                                              ; preds = %get_CDR_ulong.exit148.i
+  %194 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %188, ptr noundef nonnull @ei_giop_length_too_big, ptr noundef nonnull @.str.269) #14
   br label %decode_IIOP_IOR_profile.exit
 
-198:                                              ; preds = %get_CDR_ulong.exit148.i
-  %.not122.i = icmp eq i32 %187, 0
-  br i1 %.not122.i, label %222, label %.lr.ph.i149.i
+195:                                              ; preds = %get_CDR_ulong.exit148.i
+  %.not122.i = icmp eq i32 %184, 0
+  br i1 %.not122.i, label %219, label %.lr.ph.i.i
 
-.lr.ph.i149.i:                                    ; preds = %198
-  %199 = load ptr, ptr %163, align 8
-  %200 = load i32, ptr %3, align 4
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %200, i32 noundef %187) #14
-  %201 = add i32 %187, 1
-  %202 = zext i32 %201 to i64
-  %203 = call noalias ptr @wmem_alloc0(ptr noundef %199, i64 noundef %202) #14
+.lr.ph.i.i:                                       ; preds = %195
+  %196 = load ptr, ptr %160, align 8
+  %197 = load i32, ptr %3, align 4
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %197, i32 noundef %184) #14
+  %198 = add i32 %184, 1
+  %199 = zext i32 %198 to i64
+  %200 = call noalias ptr @wmem_alloc0(ptr noundef %196, i64 noundef %199) #14
+  %201 = load i32, ptr %3, align 4
+  %202 = zext i32 %184 to i64
+  %203 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %200, i32 noundef %201, i64 noundef %202) #14
   %204 = load i32, ptr %3, align 4
-  %205 = zext i32 %187 to i64
-  %206 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %203, i32 noundef %204, i64 noundef %205) #14
-  %207 = load i32, ptr %3, align 4
-  %208 = add i32 %207, %187
-  store i32 %208, ptr %3, align 4
-  %209 = load i32, ptr @hf_giop_component_data, align 4
-  %210 = load ptr, ptr %163, align 8
-  %211 = call noalias ptr @wmem_alloc0(ptr noundef %210, i64 noundef %202) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %211, ptr readonly align 1 %203, i64 %205, i1 false)
-  br label %212
+  %205 = add i32 %204, %184
+  store i32 %205, ptr %3, align 4
+  %206 = load i32, ptr @hf_giop_component_data, align 4
+  %207 = load ptr, ptr %160, align 8
+  %208 = call noalias ptr @wmem_alloc0(ptr noundef %207, i64 noundef %199) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %208, ptr readonly align 1 %200, i64 %202, i1 false)
+  br label %209
 
-212:                                              ; preds = %220, %.lr.ph.i149.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i149.i ], [ %indvars.iv.next.i.i, %220 ]
-  %213 = getelementptr i8, ptr %211, i64 %indvars.iv.i.i
-  %214 = load i8, ptr %213, align 1
-  %215 = zext i8 %214 to i64
-  %216 = getelementptr i16, ptr %164, i64 %215
-  %217 = load i16, ptr %216, align 2
-  %218 = and i16 %217, 64
-  %.not.i.i = icmp eq i16 %218, 0
-  br i1 %.not.i.i, label %219, label %220
+209:                                              ; preds = %217, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %217 ]
+  %210 = getelementptr i8, ptr %208, i64 %indvars.iv.i.i
+  %211 = load i8, ptr %210, align 1
+  %212 = zext i8 %211 to i64
+  %213 = getelementptr i16, ptr %161, i64 %212
+  %214 = load i16, ptr %213, align 2
+  %215 = and i16 %214, 64
+  %.not.i.i = icmp eq i16 %215, 0
+  br i1 %.not.i.i, label %216, label %217
 
-219:                                              ; preds = %212
-  store i8 46, ptr %213, align 1
-  br label %220
+216:                                              ; preds = %209
+  store i8 46, ptr %210, align 1
+  br label %217
 
-220:                                              ; preds = %219, %212
+217:                                              ; preds = %216, %209
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %205
-  br i1 %exitcond.not.i.i, label %make_printable_string.exit.i, label %212, !llvm.loop !4
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %202
+  br i1 %exitcond.not.i.i, label %make_printable_string.exit.i, label %209, !llvm.loop !4
 
-make_printable_string.exit.i:                     ; preds = %220
-  %221 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %209, ptr noundef %0, i32 noundef %207, i32 noundef %187, ptr noundef nonnull %211) #14
-  br label %222
+make_printable_string.exit.i:                     ; preds = %217
+  %218 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %206, ptr noundef %0, i32 noundef %204, i32 noundef %184, ptr noundef nonnull %208) #14
+  br label %219
 
-222:                                              ; preds = %make_printable_string.exit.i, %198
-  %223 = add nuw i32 %.0155.i, 1
-  %exitcond.not.i = icmp eq i32 %223, %158
-  br i1 %exitcond.not.i, label %decode_IIOP_IOR_profile.exit, label %165, !llvm.loop !29
+219:                                              ; preds = %make_printable_string.exit.i, %195
+  %220 = add nuw i32 %.0152.i, 1
+  %exitcond.not.i = icmp eq i32 %220, %155
+  br i1 %exitcond.not.i, label %decode_IIOP_IOR_profile.exit, label %162, !llvm.loop !27
 
-224:                                              ; preds = %148
-  %225 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %45, ptr noundef nonnull @ei_giop_invalid_v_minor, ptr noundef nonnull @.str.270, i32 noundef %44) #14
+221:                                              ; preds = %145
+  %222 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %45, ptr noundef nonnull @ei_giop_invalid_v_minor, ptr noundef nonnull @.str.270, i32 noundef %44) #14
   br label %decode_IIOP_IOR_profile.exit
 
-226:                                              ; preds = %26
-  %227 = add i32 %24, -1
-  %228 = load i32, ptr %3, align 4
-  %229 = add i32 %228, -4
-  %230 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %229) #14
-  %231 = icmp ugt i32 %227, %230
-  br i1 %231, label %232, label %234
+223:                                              ; preds = %26
+  %224 = add i32 %24, -1
+  %225 = load i32, ptr %3, align 4
+  %226 = add i32 %225, -4
+  %227 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %226) #14
+  %228 = icmp ugt i32 %224, %227
+  br i1 %228, label %229, label %231
 
-232:                                              ; preds = %226
-  %233 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %23, ptr noundef nonnull @ei_giop_length_too_big, ptr noundef nonnull @.str.268) #14
+229:                                              ; preds = %223
+  %230 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %23, ptr noundef nonnull @ei_giop_length_too_big, ptr noundef nonnull @.str.268) #14
   br label %decode_IIOP_IOR_profile.exit
 
-234:                                              ; preds = %226
-  %235 = getelementptr inbounds i8, ptr %1, i64 408
-  %236 = load ptr, ptr %235, align 8
+231:                                              ; preds = %223
+  %232 = getelementptr inbounds i8, ptr %1, i64 408
+  %233 = load ptr, ptr %232, align 8
+  %234 = load i32, ptr %3, align 4
+  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %234, i32 noundef %224) #14
+  %235 = zext i32 %24 to i64
+  %236 = tail call noalias ptr @wmem_alloc0(ptr noundef %233, i64 noundef %235) #14
   %237 = load i32, ptr %3, align 4
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %237, i32 noundef %227) #14
-  %238 = zext i32 %24 to i64
-  %239 = tail call noalias ptr @wmem_alloc0(ptr noundef %236, i64 noundef %238) #14
+  %238 = zext i32 %224 to i64
+  %239 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %236, i32 noundef %237, i64 noundef %238) #14
   %240 = load i32, ptr %3, align 4
-  %241 = zext i32 %227 to i64
-  %242 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %239, i32 noundef %240, i64 noundef %241) #14
-  %243 = load i32, ptr %3, align 4
-  %244 = add i32 %243, %227
-  store i32 %244, ptr %3, align 4
-  %245 = load i32, ptr @hf_giop_profile_data, align 4
-  %246 = load ptr, ptr %235, align 8
-  %247 = tail call noalias ptr @wmem_alloc0(ptr noundef %246, i64 noundef %238) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %247, ptr readonly align 1 %239, i64 %241, i1 false)
-  %.not13.i = icmp eq i32 %227, 0
-  br i1 %.not13.i, label %make_printable_string.exit, label %.lr.ph.i37
+  %241 = add i32 %240, %224
+  store i32 %241, ptr %3, align 4
+  %242 = load i32, ptr @hf_giop_profile_data, align 4
+  %243 = load ptr, ptr %232, align 8
+  %244 = tail call noalias ptr @wmem_alloc0(ptr noundef %243, i64 noundef %235) #14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %244, ptr readonly align 1 %236, i64 %238, i1 false)
+  %.not13.i = icmp eq i32 %224, 0
+  br i1 %.not13.i, label %make_printable_string.exit, label %.lr.ph.i36
 
-.lr.ph.i37:                                       ; preds = %234
-  %248 = load ptr, ptr @g_ascii_table, align 8
-  br label %249
+.lr.ph.i36:                                       ; preds = %231
+  %245 = load ptr, ptr @g_ascii_table, align 8
+  br label %246
 
-249:                                              ; preds = %257, %.lr.ph.i37
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i37 ], [ %indvars.iv.next.i, %257 ]
-  %250 = getelementptr i8, ptr %247, i64 %indvars.iv.i
-  %251 = load i8, ptr %250, align 1
-  %252 = zext i8 %251 to i64
-  %253 = getelementptr i16, ptr %248, i64 %252
-  %254 = load i16, ptr %253, align 2
-  %255 = and i16 %254, 64
-  %.not.i38 = icmp eq i16 %255, 0
-  br i1 %.not.i38, label %256, label %257
+246:                                              ; preds = %254, %.lr.ph.i36
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i, %254 ]
+  %247 = getelementptr i8, ptr %244, i64 %indvars.iv.i
+  %248 = load i8, ptr %247, align 1
+  %249 = zext i8 %248 to i64
+  %250 = getelementptr i16, ptr %245, i64 %249
+  %251 = load i16, ptr %250, align 2
+  %252 = and i16 %251, 64
+  %.not.i37 = icmp eq i16 %252, 0
+  br i1 %.not.i37, label %253, label %254
 
-256:                                              ; preds = %249
-  store i8 46, ptr %250, align 1
-  br label %257
+253:                                              ; preds = %246
+  store i8 46, ptr %247, align 1
+  br label %254
 
-257:                                              ; preds = %256, %249
+254:                                              ; preds = %253, %246
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i, %241
-  br i1 %exitcond.not.i39, label %make_printable_string.exit, label %249, !llvm.loop !4
+  %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i, %238
+  br i1 %exitcond.not.i38, label %make_printable_string.exit, label %246, !llvm.loop !4
 
-make_printable_string.exit:                       ; preds = %257, %234
-  %258 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %245, ptr noundef %0, i32 noundef %243, i32 noundef %227, ptr noundef %247) #14
+make_printable_string.exit:                       ; preds = %254, %231
+  %255 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %242, ptr noundef %0, i32 noundef %240, i32 noundef %224, ptr noundef %244) #14
   br label %decode_IIOP_IOR_profile.exit
 
-decode_IIOP_IOR_profile.exit:                     ; preds = %222, %224, %196, %get_CDR_ulong.exit134.i, %148, %105, %get_CDR_ulong.exit, %make_printable_string.exit, %232
+decode_IIOP_IOR_profile.exit:                     ; preds = %219, %221, %193, %get_CDR_ulong.exit134.i, %145, %102, %get_CDR_ulong.exit, %make_printable_string.exit, %229
   ret void
 }
 
@@ -6382,7 +6419,7 @@ get_modname_from_repoid.exit:                     ; preds = %.preheader.i, %.pre
   %43 = getelementptr inbounds i8, ptr %.079.i.i, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i, label %add_sub_handle_repoid_to_comp_req_list.exit, label %.lr.ph.i.i, !llvm.loop !30
+  br i1 %.not.i.i, label %add_sub_handle_repoid_to_comp_req_list.exit, label %.lr.ph.i.i, !llvm.loop !28
 
 find_fn_in_list.exit.i:                           ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds i8, ptr %39, i64 16
@@ -6540,7 +6577,7 @@ is_big_endian.exit.thread:                        ; preds = %11, %is_big_endian.
 69:                                               ; preds = %.lr.ph, %68
   %70 = add nuw nsw i32 %.04354, 1
   %exitcond.not = icmp eq i32 %70, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %69, %.preheader
   %71 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6645,188 +6682,182 @@ define internal fastcc void @dissect_target_address(ptr noundef %0, ptr noundef 
   %.promoted.i = load i32, ptr %2, align 4
   %8 = and i32 %.promoted.i, 1
   %.not10.i = icmp eq i32 %8, 0
-  br i1 %.not10.i, label %12, label %.lr.ph.i
+  br i1 %.not10.i, label %10, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %9 = phi i32 [ %10, %.lr.ph.i ], [ %.promoted.i, %7 ]
-  %10 = add i32 %9, 1
-  %11 = and i32 %9, 1
-  %.not.not.i = icmp eq i32 %11, 0
-  br i1 %.not.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
+.lr.ph.preheader.i:                               ; preds = %7
+  %9 = add i32 %.promoted.i, 1
+  store i32 %9, ptr %2, align 4
+  br label %10
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store i32 %10, ptr %2, align 4
-  br label %12
-
-12:                                               ; preds = %._crit_edge.i, %7
-  %.lcssa.i = phi i32 [ %10, %._crit_edge.i ], [ %.promoted.i, %7 ]
+10:                                               ; preds = %.lr.ph.preheader.i, %7
+  %.lcssa.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %.promoted.i, %7 ]
   %.not9.i = icmp eq i32 %4, 0
-  br i1 %.not9.i, label %15, label %13
+  br i1 %.not9.i, label %13, label %11
 
-13:                                               ; preds = %12
-  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i) #14
+11:                                               ; preds = %10
+  %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i) #14
   br label %get_CDR_ushort.exit
 
-15:                                               ; preds = %12
-  %16 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i) #14
+13:                                               ; preds = %10
+  %14 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i) #14
   br label %get_CDR_ushort.exit
 
-get_CDR_ushort.exit:                              ; preds = %13, %15
-  %.in.i = phi i16 [ %14, %13 ], [ %16, %15 ]
-  %17 = load i32, ptr %2, align 4
-  %18 = add i32 %17, 2
-  store i32 %18, ptr %2, align 4
-  %19 = load i32, ptr @hf_giop_target_address_discriminant, align 4
-  %20 = zext i16 %.in.i to i32
-  %21 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %19, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %20) #14
-  switch i16 %.in.i, label %84 [
-    i16 0, label %22
-    i16 1, label %70
-    i16 2, label %71
+get_CDR_ushort.exit:                              ; preds = %11, %13
+  %.in.i = phi i16 [ %12, %11 ], [ %14, %13 ]
+  %15 = load i32, ptr %2, align 4
+  %16 = add i32 %15, 2
+  store i32 %16, ptr %2, align 4
+  %17 = load i32, ptr @hf_giop_target_address_discriminant, align 4
+  %18 = zext i16 %.in.i to i32
+  %19 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %17, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef %18) #14
+  switch i16 %.in.i, label %82 [
+    i16 0, label %20
+    i16 1, label %68
+    i16 2, label %69
   ]
 
-22:                                               ; preds = %get_CDR_ushort.exit
+20:                                               ; preds = %get_CDR_ushort.exit
   %.promoted.i57 = load i32, ptr %2, align 4
-  %23 = and i32 %.promoted.i57, 3
-  %.not10.i58 = icmp eq i32 %23, 0
-  br i1 %.not10.i58, label %25, label %.lr.ph.i59
+  %21 = and i32 %.promoted.i57, 3
+  %.not10.i58 = icmp eq i32 %21, 0
+  br i1 %.not10.i58, label %23, label %.lr.ph.preheader.i59
 
-.lr.ph.i59:                                       ; preds = %22
-  %24 = or i32 %.promoted.i57, -4
-  %sub72 = sub i32 %.promoted.i57, %24
-  store i32 %sub72, ptr %2, align 4
-  br label %25
+.lr.ph.preheader.i59:                             ; preds = %20
+  %22 = or i32 %.promoted.i57, -4
+  %sub70 = sub i32 %.promoted.i57, %22
+  store i32 %sub70, ptr %2, align 4
+  br label %23
 
-25:                                               ; preds = %.lr.ph.i59, %22
-  %.lcssa.i60 = phi i32 [ %sub72, %.lr.ph.i59 ], [ %.promoted.i57, %22 ]
-  br i1 %.not9.i, label %28, label %26
+23:                                               ; preds = %.lr.ph.preheader.i59, %20
+  %.lcssa.i60 = phi i32 [ %sub70, %.lr.ph.preheader.i59 ], [ %.promoted.i57, %20 ]
+  br i1 %.not9.i, label %26, label %24
 
-26:                                               ; preds = %25
-  %27 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i60) #14
+24:                                               ; preds = %23
+  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i60) #14
   br label %get_CDR_ulong.exit
 
-28:                                               ; preds = %25
-  %29 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i60) #14
+26:                                               ; preds = %23
+  %27 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i60) #14
   br label %get_CDR_ulong.exit
 
-get_CDR_ulong.exit:                               ; preds = %26, %28
-  %30 = phi i32 [ %27, %26 ], [ %29, %28 ]
-  %31 = load i32, ptr %2, align 4
-  %32 = add i32 %31, 4
-  store i32 %32, ptr %2, align 4
-  %33 = load i32, ptr @hf_giop_target_address_key_addr_len, align 4
-  %34 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %33, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef %30) #14
-  %35 = load i32, ptr %2, align 4
-  %36 = add i32 %35, -4
-  %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %36) #14
-  %38 = icmp ugt i32 %30, %37
-  br i1 %38, label %39, label %41
+get_CDR_ulong.exit:                               ; preds = %24, %26
+  %28 = phi i32 [ %25, %24 ], [ %27, %26 ]
+  %29 = load i32, ptr %2, align 4
+  %30 = add i32 %29, 4
+  store i32 %30, ptr %2, align 4
+  %31 = load i32, ptr @hf_giop_target_address_key_addr_len, align 4
+  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %31, ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef %28) #14
+  %33 = load i32, ptr %2, align 4
+  %34 = add i32 %33, -4
+  %35 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %34) #14
+  %36 = icmp ugt i32 %28, %35
+  br i1 %36, label %37, label %39
+
+37:                                               ; preds = %get_CDR_ulong.exit
+  %38 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %32, ptr noundef nonnull @ei_giop_length_too_big, ptr noundef nonnull @.str.272) #14
+  br label %82
 
 39:                                               ; preds = %get_CDR_ulong.exit
-  %40 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_giop_length_too_big, ptr noundef nonnull @.str.272) #14
-  br label %84
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %82, label %.lr.ph.i
 
-41:                                               ; preds = %get_CDR_ulong.exit
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %84, label %.lr.ph.i62
+.lr.ph.i:                                         ; preds = %39
+  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %2, align 4
+  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %42, i32 noundef %28) #14
+  %43 = add i32 %28, 1
+  %44 = zext i32 %43 to i64
+  %45 = tail call noalias ptr @wmem_alloc0(ptr noundef %41, i64 noundef %44) #14
+  %46 = load i32, ptr %2, align 4
+  %47 = zext i32 %28 to i64
+  %48 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %45, i32 noundef %46, i64 noundef %47) #14
+  %49 = load i32, ptr %2, align 4
+  %50 = add i32 %49, %28
+  store i32 %50, ptr %2, align 4
+  %51 = load i32, ptr @hf_giop_target_address_key_addr, align 4
+  %52 = load ptr, ptr %40, align 8
+  %53 = tail call noalias ptr @wmem_alloc0(ptr noundef %52, i64 noundef %44) #14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr readonly align 1 %45, i64 %47, i1 false)
+  %54 = load ptr, ptr @g_ascii_table, align 8
+  br label %55
 
-.lr.ph.i62:                                       ; preds = %41
-  %42 = getelementptr inbounds i8, ptr %1, i64 408
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %2, align 4
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %44, i32 noundef %30) #14
-  %45 = add i32 %30, 1
-  %46 = zext i32 %45 to i64
-  %47 = tail call noalias ptr @wmem_alloc0(ptr noundef %43, i64 noundef %46) #14
-  %48 = load i32, ptr %2, align 4
-  %49 = zext i32 %30 to i64
-  %50 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %47, i32 noundef %48, i64 noundef %49) #14
-  %51 = load i32, ptr %2, align 4
-  %52 = add i32 %51, %30
-  store i32 %52, ptr %2, align 4
-  %53 = load i32, ptr @hf_giop_target_address_key_addr, align 4
-  %54 = load ptr, ptr %42, align 8
-  %55 = tail call noalias ptr @wmem_alloc0(ptr noundef %54, i64 noundef %46) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr readonly align 1 %47, i64 %49, i1 false)
-  %56 = load ptr, ptr @g_ascii_table, align 8
-  br label %57
+55:                                               ; preds = %63, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %63 ]
+  %56 = getelementptr i8, ptr %53, i64 %indvars.iv.i
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i64
+  %59 = getelementptr i16, ptr %54, i64 %58
+  %60 = load i16, ptr %59, align 2
+  %61 = and i16 %60, 64
+  %.not.i = icmp eq i16 %61, 0
+  br i1 %.not.i, label %62, label %63
 
-57:                                               ; preds = %65, %.lr.ph.i62
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i62 ], [ %indvars.iv.next.i, %65 ]
-  %58 = getelementptr i8, ptr %55, i64 %indvars.iv.i
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i64
-  %61 = getelementptr i16, ptr %56, i64 %60
-  %62 = load i16, ptr %61, align 2
-  %63 = and i16 %62, 64
-  %.not.i = icmp eq i16 %63, 0
-  br i1 %.not.i, label %64, label %65
+62:                                               ; preds = %55
+  store i8 46, ptr %56, align 1
+  br label %63
 
-64:                                               ; preds = %57
-  store i8 46, ptr %58, align 1
-  br label %65
-
-65:                                               ; preds = %64, %57
+63:                                               ; preds = %62, %55
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %49
-  br i1 %exitcond.not.i, label %make_printable_string.exit, label %57, !llvm.loop !4
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %47
+  br i1 %exitcond.not.i, label %make_printable_string.exit, label %55, !llvm.loop !4
 
-make_printable_string.exit:                       ; preds = %65
-  %66 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %53, ptr noundef %0, i32 noundef %51, i32 noundef %30, ptr noundef nonnull %55) #14
+make_printable_string.exit:                       ; preds = %63
+  %64 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %51, ptr noundef %0, i32 noundef %49, i32 noundef %28, ptr noundef nonnull %53) #14
   %.not55 = icmp eq ptr %5, null
-  br i1 %.not55, label %68, label %67
+  br i1 %.not55, label %66, label %65
 
-67:                                               ; preds = %make_printable_string.exit
-  store i32 %30, ptr %5, align 4
-  br label %68
+65:                                               ; preds = %make_printable_string.exit
+  store i32 %28, ptr %5, align 4
+  br label %66
 
-68:                                               ; preds = %67, %make_printable_string.exit
+66:                                               ; preds = %65, %make_printable_string.exit
   %.not56 = icmp eq ptr %6, null
-  br i1 %.not56, label %84, label %69
+  br i1 %.not56, label %82, label %67
 
-69:                                               ; preds = %68
-  store ptr %47, ptr %6, align 8
-  br label %84
+67:                                               ; preds = %66
+  store ptr %45, ptr %6, align 8
+  br label %82
 
-70:                                               ; preds = %get_CDR_ushort.exit
+68:                                               ; preds = %get_CDR_ushort.exit
   tail call fastcc void @decode_TaggedProfile(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %2, i32 noundef 12, i32 noundef %4, ptr noundef null)
-  br label %84
+  br label %82
 
-71:                                               ; preds = %get_CDR_ushort.exit
-  %.promoted.i64 = load i32, ptr %2, align 4
-  %72 = and i32 %.promoted.i64, 3
-  %.not10.i65 = icmp eq i32 %72, 0
-  br i1 %.not10.i65, label %74, label %.lr.ph.i66
+69:                                               ; preds = %get_CDR_ushort.exit
+  %.promoted.i62 = load i32, ptr %2, align 4
+  %70 = and i32 %.promoted.i62, 3
+  %.not10.i63 = icmp eq i32 %70, 0
+  br i1 %.not10.i63, label %72, label %.lr.ph.preheader.i64
 
-.lr.ph.i66:                                       ; preds = %71
-  %73 = or i32 %.promoted.i64, -4
-  %sub = sub i32 %.promoted.i64, %73
+.lr.ph.preheader.i64:                             ; preds = %69
+  %71 = or i32 %.promoted.i62, -4
+  %sub = sub i32 %.promoted.i62, %71
   store i32 %sub, ptr %2, align 4
-  br label %74
+  br label %72
 
-74:                                               ; preds = %.lr.ph.i66, %71
-  %.lcssa.i68 = phi i32 [ %sub, %.lr.ph.i66 ], [ %.promoted.i64, %71 ]
-  br i1 %.not9.i, label %77, label %75
+72:                                               ; preds = %.lr.ph.preheader.i64, %69
+  %.lcssa.i66 = phi i32 [ %sub, %.lr.ph.preheader.i64 ], [ %.promoted.i62, %69 ]
+  br i1 %.not9.i, label %75, label %73
 
-75:                                               ; preds = %74
-  %76 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i68) #14
-  br label %get_CDR_ulong.exit70
+73:                                               ; preds = %72
+  %74 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i66) #14
+  br label %get_CDR_ulong.exit68
 
-77:                                               ; preds = %74
-  %78 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i68) #14
-  br label %get_CDR_ulong.exit70
+75:                                               ; preds = %72
+  %76 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.lcssa.i66) #14
+  br label %get_CDR_ulong.exit68
 
-get_CDR_ulong.exit70:                             ; preds = %75, %77
-  %79 = phi i32 [ %76, %75 ], [ %78, %77 ]
-  %80 = load i32, ptr %2, align 4
-  %81 = add i32 %80, 4
-  store i32 %81, ptr %2, align 4
-  %82 = load i32, ptr @hf_giop_target_address_ref_addr_len, align 4
-  %83 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %82, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef %79) #14
+get_CDR_ulong.exit68:                             ; preds = %73, %75
+  %77 = phi i32 [ %74, %73 ], [ %76, %75 ]
+  %78 = load i32, ptr %2, align 4
+  %79 = add i32 %78, 4
+  store i32 %79, ptr %2, align 4
+  %80 = load i32, ptr @hf_giop_target_address_ref_addr_len, align 4
+  %81 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %80, ptr noundef %0, i32 noundef %78, i32 noundef 4, i32 noundef %77) #14
   tail call fastcc void @decode_IOR(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %2, i32 noundef 12, i32 noundef %4)
-  br label %84
+  br label %82
 
-84:                                               ; preds = %get_CDR_ushort.exit, %41, %69, %68, %get_CDR_ulong.exit70, %70, %39
+82:                                               ; preds = %get_CDR_ushort.exit, %39, %67, %66, %get_CDR_ulong.exit68, %68, %37
   ret void
 }
 
@@ -6836,13 +6867,13 @@ define internal fastcc void @dissect_reply_body(ptr noundef %0, i32 noundef %1, 
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   store i32 %1, ptr %10, align 4
-  switch i32 %5, label %104 [
+  switch i32 %5, label %99 [
     i32 2, label %12
     i32 1, label %13
     i32 0, label %37
     i32 3, label %89
     i32 4, label %90
-    i32 5, label %91
+    i32 5, label %.lr.ph.preheader.i82
   ]
 
 12:                                               ; preds = %8
@@ -6916,22 +6947,22 @@ get_mfn_from_fn.exit:                             ; preds = %37, %42
   %47 = load ptr, ptr @giop_complete_request_list, align 8
   %48 = call ptr @g_list_last(ptr noundef %47) #14
   %.not8.i = icmp eq ptr %48, null
-  br i1 %.not8.i, label %.critedge77, label %.lr.ph.i78
+  br i1 %.not8.i, label %.critedge77, label %.lr.ph.i
 
-.lr.ph.i78:                                       ; preds = %46, %52
+.lr.ph.i:                                         ; preds = %46, %52
   %.079.i = phi ptr [ %54, %52 ], [ %48, %46 ]
   %49 = load ptr, ptr %.079.i, align 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, %.0.i
   br i1 %51, label %find_fn_in_list.exit, label %52
 
-52:                                               ; preds = %.lr.ph.i78
+52:                                               ; preds = %.lr.ph.i
   %53 = getelementptr inbounds i8, ptr %.079.i, i64 16
   %54 = load ptr, ptr %53, align 8
-  %.not.i79 = icmp eq ptr %54, null
-  br i1 %.not.i79, label %.critedge77, label %.lr.ph.i78, !llvm.loop !30
+  %.not.i78 = icmp eq ptr %54, null
+  br i1 %.not.i78, label %.critedge77, label %.lr.ph.i, !llvm.loop !28
 
-find_fn_in_list.exit:                             ; preds = %.lr.ph.i78
+find_fn_in_list.exit:                             ; preds = %.lr.ph.i
   %55 = getelementptr inbounds i8, ptr %49, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @giop_op_resolve, ptr noundef nonnull dereferenceable(1) %56) #17
@@ -7001,49 +7032,38 @@ find_fn_in_list.exit:                             ; preds = %.lr.ph.i78
   call fastcc void @decode_IOR(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, i32 noundef 12, i32 noundef %4)
   br label %.critedge77
 
-91:                                               ; preds = %8
-  %92 = and i32 %1, 1
-  %.not10.i82 = icmp eq i32 %92, 0
-  br i1 %.not10.i82, label %._crit_edge.i, label %.lr.ph.i83
+.lr.ph.preheader.i82:                             ; preds = %8
+  %91 = and i32 %1, 1
+  %spec.select = add i32 %91, %1
+  %.not9.i84 = icmp eq i32 %4, 0
+  br i1 %.not9.i84, label %94, label %92
 
-.lr.ph.i83:                                       ; preds = %91, %.lr.ph.i83
-  %93 = phi i32 [ %94, %.lr.ph.i83 ], [ %1, %91 ]
-  %94 = add i32 %93, 1
-  %95 = and i32 %93, 1
-  %.not.not.i = icmp eq i32 %95, 0
-  br i1 %.not.not.i, label %.lr.ph.i83, label %._crit_edge.i, !llvm.loop !16
-
-._crit_edge.i:                                    ; preds = %.lr.ph.i83, %91
-  %96 = phi i32 [ %1, %91 ], [ %94, %.lr.ph.i83 ]
-  %.not9.i85 = icmp eq i32 %4, 0
-  br i1 %.not9.i85, label %99, label %97
-
-97:                                               ; preds = %._crit_edge.i
-  %98 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %96) #14
+92:                                               ; preds = %.lr.ph.preheader.i82
+  %93 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %spec.select) #14
   br label %get_CDR_ushort.exit
 
-99:                                               ; preds = %._crit_edge.i
-  %100 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %96) #14
+94:                                               ; preds = %.lr.ph.preheader.i82
+  %95 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %spec.select) #14
   br label %get_CDR_ushort.exit
 
-get_CDR_ushort.exit:                              ; preds = %97, %99
-  %.in.i = phi i16 [ %98, %97 ], [ %100, %99 ]
-  %101 = load i32, ptr @hf_giop_address_disp, align 4
-  %102 = zext i16 %.in.i to i32
-  %103 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %101, ptr noundef %0, i32 noundef %96, i32 noundef 2, i32 noundef %102) #14
+get_CDR_ushort.exit:                              ; preds = %92, %94
+  %.in.i = phi i16 [ %93, %92 ], [ %95, %94 ]
+  %96 = load i32, ptr @hf_giop_address_disp, align 4
+  %97 = zext i16 %.in.i to i32
+  %98 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %96, ptr noundef %0, i32 noundef %spec.select, i32 noundef 2, i32 noundef %97) #14
   br label %.critedge77
 
-104:                                              ; preds = %8
-  %105 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #14
-  %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %107, label %.critedge77
+99:                                               ; preds = %8
+  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #14
+  %101 = icmp sgt i32 %100, 0
+  br i1 %101, label %102, label %.critedge77
 
-107:                                              ; preds = %104
-  %108 = load i32, ptr @hf_giop_reply_body, align 4
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %108, ptr noundef %0, i32 noundef %1, i32 noundef %105, i32 noundef 0) #14
+102:                                              ; preds = %99
+  %103 = load i32, ptr @hf_giop_reply_body, align 4
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %103, ptr noundef %0, i32 noundef %1, i32 noundef %100, i32 noundef 0) #14
   br label %.critedge77
 
-.critedge77:                                      ; preds = %52, %62, %46, %65, %104, %107, %85, %81, %get_mfn_from_fn.exit, %get_CDR_ushort.exit, %90, %89, %58, %12
+.critedge77:                                      ; preds = %52, %62, %46, %65, %99, %102, %85, %81, %get_mfn_from_fn.exit, %get_CDR_ushort.exit, %90, %89, %58, %12
   ret void
 }
 
@@ -7052,16 +7072,16 @@ define internal fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr
   %.promoted.i.i = load i32, ptr %2, align 4
   %5 = and i32 %.promoted.i.i, 3
   %.not10.i.i = icmp eq i32 %5, 0
-  br i1 %.not10.i.i, label %7, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %7, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %4
+.lr.ph.preheader.i.i:                             ; preds = %4
   %6 = or i32 %.promoted.i.i, -4
   %sub.i = sub i32 %.promoted.i.i, %6
   store i32 %sub.i, ptr %2, align 4
   br label %7
 
-7:                                                ; preds = %.lr.ph.i.i, %4
-  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.i.i ], [ %.promoted.i.i, %4 ]
+7:                                                ; preds = %.lr.ph.preheader.i.i, %4
+  %.lcssa.i.i = phi i32 [ %sub.i, %.lr.ph.preheader.i.i ], [ %.promoted.i.i, %4 ]
   %.not9.i.i = icmp eq i32 %3, 0
   br i1 %.not9.i.i, label %10, label %8
 
@@ -7103,16 +7123,16 @@ get_CDR_string.exit:                              ; preds = %8, %10
   %.promoted.i = load i32, ptr %2, align 4
   %30 = and i32 %.promoted.i, 3
   %.not10.i = icmp eq i32 %30, 0
-  br i1 %.not10.i, label %32, label %.lr.ph.i
+  br i1 %.not10.i, label %32, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %29
+.lr.ph.preheader.i:                               ; preds = %29
   %31 = or i32 %.promoted.i, -4
   %sub = sub i32 %.promoted.i, %31
   store i32 %sub, ptr %2, align 4
   br label %32
 
-32:                                               ; preds = %.lr.ph.i, %29
-  %.lcssa.i = phi i32 [ %sub, %.lr.ph.i ], [ %.promoted.i, %29 ]
+32:                                               ; preds = %.lr.ph.preheader.i, %29
+  %.lcssa.i = phi i32 [ %sub, %.lr.ph.preheader.i ], [ %.promoted.i, %29 ]
   br i1 %.not9.i.i, label %35, label %33
 
 33:                                               ; preds = %32
@@ -7251,7 +7271,7 @@ define internal i32 @giop_hash_objkey_hash(ptr nocapture noundef readonly %0) #9
   %9 = add i32 %.09, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %5, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %9, %5 ]
@@ -7393,5 +7413,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}

@@ -497,7 +497,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30EssentialMinimalSolver5pts
 141:                                              ; preds = %.preheader592.preheader
   %142 = getelementptr inbounds i8, ptr %23, i64 16
   %143 = load ptr, ptr %142, align 8
-  %invariant.gep = getelementptr i8, ptr %143, i64 576
+  %invariant.gep689 = getelementptr i8, ptr %143, i64 576
   br label %.preheader591
 
 .preheader591:                                    ; preds = %141, %.preheader591
@@ -505,16 +505,16 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30EssentialMinimalSolver5pts
   %144 = mul nuw nsw i64 %indvar, 72
   %scevgep = getelementptr i8, ptr %19, i64 %144
   %145 = mul nsw i64 %indvar, -72
-  %gep698 = getelementptr i8, ptr %invariant.gep, i64 %145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep, ptr noundef nonnull align 8 dereferenceable(72) %gep698, i64 72, i1 false)
+  %gep690 = getelementptr i8, ptr %invariant.gep689, i64 %145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep, ptr noundef nonnull align 8 dereferenceable(72) %gep690, i64 72, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond654.not = icmp eq i64 %indvar.next, 4
-  br i1 %exitcond654.not, label %150, label %.preheader591, !llvm.loop !11
+  %exitcond648.not = icmp eq i64 %indvar.next, 4
+  br i1 %exitcond648.not, label %150, label %.preheader591, !llvm.loop !11
 
 146:                                              ; preds = %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit298, %151
   %147 = landingpad { ptr, i32 }
           cleanup
-  br label %2330
+  br label %2329
 
 148:                                              ; preds = %.preheader592.preheader
   %149 = landingpad { ptr, i32 }
@@ -522,7 +522,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30EssentialMinimalSolver5pts
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #19
-  br label %2330
+  br label %2329
 
 150:                                              ; preds = %.preheader591
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #19
@@ -538,250 +538,248 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30EssentialMinimalSolver5pts
   br i1 %152, label %.preheader596, label %.loopexit593
 
 .preheader596:                                    ; preds = %153, %162
-  %indvars.iv630 = phi i64 [ %indvars.iv.next631, %162 ], [ 0, %153 ]
-  %154 = add nuw nsw i64 %indvars.iv630, 5
-  %155 = mul nuw nsw i64 %indvars.iv630, 9
+  %indvars.iv628 = phi i64 [ %indvars.iv.next629, %162 ], [ 0, %153 ]
+  %154 = add nuw nsw i64 %indvars.iv628, 5
+  %155 = mul nuw nsw i64 %indvars.iv628, 9
   br label %157
 
 .preheader594:                                    ; preds = %162
   %156 = load ptr, ptr %18, align 8
-  %invariant.gep697 = getelementptr i8, ptr %156, i64 8
   br label %163
 
 157:                                              ; preds = %.preheader596, %157
-  %indvars.iv626 = phi i64 [ 5, %.preheader596 ], [ %indvars.iv.next627, %157 ]
-  %158 = icmp eq i64 %154, %indvars.iv626
+  %indvars.iv624 = phi i64 [ 5, %.preheader596 ], [ %indvars.iv.next625, %157 ]
+  %158 = icmp eq i64 %154, %indvars.iv624
   %159 = uitofp i1 %158 to double
-  %160 = add nuw nsw i64 %indvars.iv626, %155
+  %160 = add nuw nsw i64 %indvars.iv624, %155
   %161 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %160
   store double %159, ptr %161, align 8
-  %indvars.iv.next627 = add nuw nsw i64 %indvars.iv626, 1
-  %exitcond629.not = icmp eq i64 %indvars.iv.next627, 9
-  br i1 %exitcond629.not, label %162, label %157, !llvm.loop !12
+  %indvars.iv.next625 = add nuw nsw i64 %indvars.iv624, 1
+  %exitcond627.not = icmp eq i64 %indvars.iv.next625, 9
+  br i1 %exitcond627.not, label %162, label %157, !llvm.loop !12
 
 162:                                              ; preds = %157
-  %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
-  %exitcond633.not = icmp eq i64 %indvars.iv.next631, 4
-  br i1 %exitcond633.not, label %.preheader594, label %.preheader596, !llvm.loop !13
+  %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
+  %exitcond631.not = icmp eq i64 %indvars.iv.next629, 4
+  br i1 %exitcond631.not, label %.preheader594, label %.preheader596, !llvm.loop !13
 
-163:                                              ; preds = %.preheader594, %179
-  %indvars.iv644 = phi i64 [ 0, %.preheader594 ], [ %indvars.iv.next645, %179 ]
-  %164 = mul nuw nsw i64 %indvars.iv644, 9
-  %165 = add nuw nsw i64 %164, 1
+163:                                              ; preds = %.preheader594, %178
+  %indvars.iv639 = phi i64 [ 0, %.preheader594 ], [ %indvars.iv.next640, %178 ]
+  %164 = mul nuw nsw i64 %indvars.iv639, 9
   br label %.lr.ph.preheader
 
-166:                                              ; preds = %._crit_edge
-  %indvars.iv.next635 = add nsw i64 %indvars.iv634, -1
-  %.not = icmp eq i64 %indvars.iv634, 0
-  br i1 %.not, label %179, label %.lr.ph.preheader, !llvm.loop !14
+165:                                              ; preds = %._crit_edge
+  %indvars.iv.next633 = add nsw i64 %indvars.iv632, -1
+  %.not = icmp eq i64 %indvars.iv632, 0
+  br i1 %.not, label %178, label %.lr.ph.preheader, !llvm.loop !14
 
-.lr.ph.preheader:                                 ; preds = %166, %163
-  %indvars.iv634 = phi i64 [ 4, %163 ], [ %indvars.iv.next635, %166 ]
-  %.idx = mul i64 %indvars.iv634, 72
-  %gep = getelementptr i8, ptr %invariant.gep697, i64 %.idx
+.lr.ph.preheader:                                 ; preds = %165, %163
+  %indvars.iv632 = phi i64 [ 4, %163 ], [ %indvars.iv.next633, %165 ]
+  %.idx = mul i64 %indvars.iv632, 72
+  %invariant.gep = getelementptr i8, ptr %156, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv636 = phi i64 [ %indvars.iv634, %.lr.ph.preheader ], [ %indvars.iv.next637, %.lr.ph ]
-  %.0231605 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %172, %.lr.ph ]
-  %indvars.iv.next637 = add nuw nsw i64 %indvars.iv636, 1
-  %gep696 = getelementptr double, ptr %gep, i64 %indvars.iv636
-  %167 = load double, ptr %gep696, align 8
-  %168 = add nuw nsw i64 %indvars.iv636, %165
-  %169 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %168
-  %170 = load double, ptr %169, align 8
-  %171 = fneg double %167
-  %172 = call double @llvm.fmuladd.f64(double %171, double %170, double %.0231605)
-  %exitcond641.not = icmp eq i64 %indvars.iv.next637, 8
-  br i1 %exitcond641.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  %indvars.iv634 = phi i64 [ %indvars.iv632, %.lr.ph.preheader ], [ %indvars.iv.next635, %.lr.ph ]
+  %.0231603 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %171, %.lr.ph ]
+  %indvars.iv.next635 = add nuw nsw i64 %indvars.iv634, 1
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv.next635
+  %166 = load double, ptr %gep, align 8
+  %167 = add nuw nsw i64 %indvars.iv.next635, %164
+  %168 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %167
+  %169 = load double, ptr %168, align 8
+  %170 = fneg double %166
+  %171 = call double @llvm.fmuladd.f64(double %170, double %169, double %.0231603)
+  %exitcond637.not = icmp eq i64 %indvars.iv.next635, 8
+  br i1 %exitcond637.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.idx691 = mul i64 %indvars.iv634, 80
-  %173 = getelementptr inbounds i8, ptr %156, i64 %.idx691
-  %174 = load double, ptr %173, align 8
-  %175 = fdiv double %172, %174
-  %176 = add nuw nsw i64 %indvars.iv634, %164
-  %177 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %176
-  store double %175, ptr %177, align 8
-  %178 = fcmp uno double %175, 0.000000e+00
-  br i1 %178, label %.loopexit593, label %166
+  %.idx685 = mul i64 %indvars.iv632, 80
+  %172 = getelementptr inbounds i8, ptr %156, i64 %.idx685
+  %173 = load double, ptr %172, align 8
+  %174 = fdiv double %171, %173
+  %175 = add nuw nsw i64 %indvars.iv632, %164
+  %176 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %175
+  store double %174, ptr %176, align 8
+  %177 = fcmp uno double %174, 0.000000e+00
+  br i1 %177, label %.loopexit593, label %165
 
-179:                                              ; preds = %166
-  %indvars.iv.next645 = add nuw nsw i64 %indvars.iv644, 1
-  %exitcond648.not = icmp eq i64 %indvars.iv.next645, 4
-  br i1 %exitcond648.not, label %.loopexit595, label %163, !llvm.loop !16
+178:                                              ; preds = %165
+  %indvars.iv.next640 = add nuw nsw i64 %indvars.iv639, 1
+  %exitcond642.not = icmp eq i64 %indvars.iv.next640, 4
+  br i1 %exitcond642.not, label %.loopexit595, label %163, !llvm.loop !16
 
-.loopexit595:                                     ; preds = %179, %150
+.loopexit595:                                     ; preds = %178, %150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %28, ptr noundef nonnull align 16 dereferenceable(288) %19, i64 288, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %29, i8 0, i64 32, i1 false), !alias.scope !17
-  br label %180
+  br label %179
 
-180:                                              ; preds = %180, %.loopexit595
-  %indvars.iv.i264 = phi i64 [ 0, %.loopexit595 ], [ %indvars.iv.next.i265, %180 ]
-  %181 = mul nuw nsw i64 %indvars.iv.i264, 9
-  %182 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %181
-  %183 = load double, ptr %182, align 8, !noalias !17
-  %184 = getelementptr inbounds [4 x double], ptr %29, i64 0, i64 %indvars.iv.i264
-  store double %183, ptr %184, align 8, !alias.scope !17
+179:                                              ; preds = %179, %.loopexit595
+  %indvars.iv.i264 = phi i64 [ 0, %.loopexit595 ], [ %indvars.iv.next.i265, %179 ]
+  %180 = mul nuw nsw i64 %indvars.iv.i264, 9
+  %181 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %180
+  %182 = load double, ptr %181, align 8, !noalias !17
+  %183 = getelementptr inbounds [4 x double], ptr %29, i64 0, i64 %indvars.iv.i264
+  store double %182, ptr %183, align 8, !alias.scope !17
   %indvars.iv.next.i265 = add nuw nsw i64 %indvars.iv.i264, 1
   %exitcond.not.i266 = icmp eq i64 %indvars.iv.next.i265, 4
-  br i1 %exitcond.not.i266, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit, label %180, !llvm.loop !20
+  br i1 %exitcond.not.i266, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit, label %179, !llvm.loop !20
 
-_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit:               ; preds = %180
-  %185 = getelementptr inbounds i8, ptr %29, i64 32
+_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit:               ; preds = %179
+  %184 = getelementptr inbounds i8, ptr %29, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %185, i8 0, i64 32, i1 false), !alias.scope !21
-  br label %186
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %184, i8 0, i64 32, i1 false), !alias.scope !21
+  br label %185
 
-186:                                              ; preds = %186, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit
-  %indvars.iv.i267 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit ], [ %indvars.iv.next.i268, %186 ]
-  %187 = mul nuw nsw i64 %indvars.iv.i267, 9
-  %188 = add nuw nsw i64 %187, 3
-  %189 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %188
-  %190 = load double, ptr %189, align 8, !noalias !21
-  %191 = getelementptr inbounds [4 x double], ptr %185, i64 0, i64 %indvars.iv.i267
-  store double %190, ptr %191, align 8, !alias.scope !21
+185:                                              ; preds = %185, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit
+  %indvars.iv.i267 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit ], [ %indvars.iv.next.i268, %185 ]
+  %186 = mul nuw nsw i64 %indvars.iv.i267, 9
+  %187 = add nuw nsw i64 %186, 3
+  %188 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %187
+  %189 = load double, ptr %188, align 8, !noalias !21
+  %190 = getelementptr inbounds [4 x double], ptr %184, i64 0, i64 %indvars.iv.i267
+  store double %189, ptr %190, align 8, !alias.scope !21
   %indvars.iv.next.i268 = add nuw nsw i64 %indvars.iv.i267, 1
   %exitcond.not.i269 = icmp eq i64 %indvars.iv.next.i268, 4
-  br i1 %exitcond.not.i269, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit270, label %186, !llvm.loop !20
+  br i1 %exitcond.not.i269, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit270, label %185, !llvm.loop !20
 
-_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit270:            ; preds = %186
-  %192 = getelementptr inbounds i8, ptr %29, i64 64
+_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit270:            ; preds = %185
+  %191 = getelementptr inbounds i8, ptr %29, i64 64
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %192, i8 0, i64 32, i1 false), !alias.scope !24
-  br label %193
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %191, i8 0, i64 32, i1 false), !alias.scope !24
+  br label %192
 
-193:                                              ; preds = %193, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit270
-  %indvars.iv.i271 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit270 ], [ %indvars.iv.next.i272, %193 ]
-  %194 = mul nuw nsw i64 %indvars.iv.i271, 9
-  %195 = add nuw nsw i64 %194, 6
-  %196 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %195
-  %197 = load double, ptr %196, align 8, !noalias !24
-  %198 = getelementptr inbounds [4 x double], ptr %192, i64 0, i64 %indvars.iv.i271
-  store double %197, ptr %198, align 8, !alias.scope !24
+192:                                              ; preds = %192, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit270
+  %indvars.iv.i271 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit270 ], [ %indvars.iv.next.i272, %192 ]
+  %193 = mul nuw nsw i64 %indvars.iv.i271, 9
+  %194 = add nuw nsw i64 %193, 6
+  %195 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %194
+  %196 = load double, ptr %195, align 8, !noalias !24
+  %197 = getelementptr inbounds [4 x double], ptr %191, i64 0, i64 %indvars.iv.i271
+  store double %196, ptr %197, align 8, !alias.scope !24
   %indvars.iv.next.i272 = add nuw nsw i64 %indvars.iv.i271, 1
   %exitcond.not.i273 = icmp eq i64 %indvars.iv.next.i272, 4
-  br i1 %exitcond.not.i273, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit274, label %193, !llvm.loop !20
+  br i1 %exitcond.not.i273, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit274, label %192, !llvm.loop !20
 
-_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit274:            ; preds = %193
-  %199 = getelementptr inbounds i8, ptr %29, i64 96
+_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit274:            ; preds = %192
+  %198 = getelementptr inbounds i8, ptr %29, i64 96
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %199, i8 0, i64 32, i1 false), !alias.scope !27
-  br label %200
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %198, i8 0, i64 32, i1 false), !alias.scope !27
+  br label %199
 
-200:                                              ; preds = %200, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit274
-  %indvars.iv.i275 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit274 ], [ %indvars.iv.next.i276, %200 ]
-  %201 = mul nuw nsw i64 %indvars.iv.i275, 9
-  %202 = add nuw nsw i64 %201, 1
-  %203 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %202
-  %204 = load double, ptr %203, align 8, !noalias !27
-  %205 = getelementptr inbounds [4 x double], ptr %199, i64 0, i64 %indvars.iv.i275
-  store double %204, ptr %205, align 8, !alias.scope !27
+199:                                              ; preds = %199, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit274
+  %indvars.iv.i275 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit274 ], [ %indvars.iv.next.i276, %199 ]
+  %200 = mul nuw nsw i64 %indvars.iv.i275, 9
+  %201 = add nuw nsw i64 %200, 1
+  %202 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %201
+  %203 = load double, ptr %202, align 8, !noalias !27
+  %204 = getelementptr inbounds [4 x double], ptr %198, i64 0, i64 %indvars.iv.i275
+  store double %203, ptr %204, align 8, !alias.scope !27
   %indvars.iv.next.i276 = add nuw nsw i64 %indvars.iv.i275, 1
   %exitcond.not.i277 = icmp eq i64 %indvars.iv.next.i276, 4
-  br i1 %exitcond.not.i277, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit278, label %200, !llvm.loop !20
+  br i1 %exitcond.not.i277, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit278, label %199, !llvm.loop !20
 
-_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit278:            ; preds = %200
-  %206 = getelementptr inbounds i8, ptr %29, i64 128
+_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit278:            ; preds = %199
+  %205 = getelementptr inbounds i8, ptr %29, i64 128
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %206, i8 0, i64 32, i1 false), !alias.scope !30
-  br label %207
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %205, i8 0, i64 32, i1 false), !alias.scope !30
+  br label %206
 
-207:                                              ; preds = %207, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit278
-  %indvars.iv.i279 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit278 ], [ %indvars.iv.next.i280, %207 ]
-  %208 = mul nuw nsw i64 %indvars.iv.i279, 9
-  %209 = add nuw nsw i64 %208, 4
-  %210 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %209
-  %211 = load double, ptr %210, align 8, !noalias !30
-  %212 = getelementptr inbounds [4 x double], ptr %206, i64 0, i64 %indvars.iv.i279
-  store double %211, ptr %212, align 8, !alias.scope !30
+206:                                              ; preds = %206, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit278
+  %indvars.iv.i279 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit278 ], [ %indvars.iv.next.i280, %206 ]
+  %207 = mul nuw nsw i64 %indvars.iv.i279, 9
+  %208 = add nuw nsw i64 %207, 4
+  %209 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %208
+  %210 = load double, ptr %209, align 8, !noalias !30
+  %211 = getelementptr inbounds [4 x double], ptr %205, i64 0, i64 %indvars.iv.i279
+  store double %210, ptr %211, align 8, !alias.scope !30
   %indvars.iv.next.i280 = add nuw nsw i64 %indvars.iv.i279, 1
   %exitcond.not.i281 = icmp eq i64 %indvars.iv.next.i280, 4
-  br i1 %exitcond.not.i281, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit282, label %207, !llvm.loop !20
+  br i1 %exitcond.not.i281, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit282, label %206, !llvm.loop !20
 
-_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit282:            ; preds = %207
-  %213 = getelementptr inbounds i8, ptr %29, i64 160
+_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit282:            ; preds = %206
+  %212 = getelementptr inbounds i8, ptr %29, i64 160
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %213, i8 0, i64 32, i1 false), !alias.scope !33
-  br label %214
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %212, i8 0, i64 32, i1 false), !alias.scope !33
+  br label %213
 
-214:                                              ; preds = %214, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit282
-  %indvars.iv.i283 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit282 ], [ %indvars.iv.next.i284, %214 ]
-  %215 = mul nuw nsw i64 %indvars.iv.i283, 9
-  %216 = add nuw nsw i64 %215, 7
-  %217 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %216
-  %218 = load double, ptr %217, align 8, !noalias !33
-  %219 = getelementptr inbounds [4 x double], ptr %213, i64 0, i64 %indvars.iv.i283
-  store double %218, ptr %219, align 8, !alias.scope !33
+213:                                              ; preds = %213, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit282
+  %indvars.iv.i283 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit282 ], [ %indvars.iv.next.i284, %213 ]
+  %214 = mul nuw nsw i64 %indvars.iv.i283, 9
+  %215 = add nuw nsw i64 %214, 7
+  %216 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %215
+  %217 = load double, ptr %216, align 8, !noalias !33
+  %218 = getelementptr inbounds [4 x double], ptr %212, i64 0, i64 %indvars.iv.i283
+  store double %217, ptr %218, align 8, !alias.scope !33
   %indvars.iv.next.i284 = add nuw nsw i64 %indvars.iv.i283, 1
   %exitcond.not.i285 = icmp eq i64 %indvars.iv.next.i284, 4
-  br i1 %exitcond.not.i285, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit286, label %214, !llvm.loop !20
+  br i1 %exitcond.not.i285, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit286, label %213, !llvm.loop !20
 
-_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit286:            ; preds = %214
-  %220 = getelementptr inbounds i8, ptr %29, i64 192
+_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit286:            ; preds = %213
+  %219 = getelementptr inbounds i8, ptr %29, i64 192
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %220, i8 0, i64 32, i1 false), !alias.scope !36
-  br label %221
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %219, i8 0, i64 32, i1 false), !alias.scope !36
+  br label %220
 
-221:                                              ; preds = %221, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit286
-  %indvars.iv.i287 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit286 ], [ %indvars.iv.next.i288, %221 ]
-  %222 = mul nuw nsw i64 %indvars.iv.i287, 9
-  %223 = add nuw nsw i64 %222, 2
-  %224 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %223
-  %225 = load double, ptr %224, align 8, !noalias !36
-  %226 = getelementptr inbounds [4 x double], ptr %220, i64 0, i64 %indvars.iv.i287
-  store double %225, ptr %226, align 8, !alias.scope !36
+220:                                              ; preds = %220, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit286
+  %indvars.iv.i287 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit286 ], [ %indvars.iv.next.i288, %220 ]
+  %221 = mul nuw nsw i64 %indvars.iv.i287, 9
+  %222 = add nuw nsw i64 %221, 2
+  %223 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %222
+  %224 = load double, ptr %223, align 8, !noalias !36
+  %225 = getelementptr inbounds [4 x double], ptr %219, i64 0, i64 %indvars.iv.i287
+  store double %224, ptr %225, align 8, !alias.scope !36
   %indvars.iv.next.i288 = add nuw nsw i64 %indvars.iv.i287, 1
   %exitcond.not.i289 = icmp eq i64 %indvars.iv.next.i288, 4
-  br i1 %exitcond.not.i289, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit290, label %221, !llvm.loop !20
+  br i1 %exitcond.not.i289, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit290, label %220, !llvm.loop !20
 
-_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit290:            ; preds = %221
-  %227 = getelementptr inbounds i8, ptr %29, i64 224
+_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit290:            ; preds = %220
+  %226 = getelementptr inbounds i8, ptr %29, i64 224
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %227, i8 0, i64 32, i1 false), !alias.scope !39
-  br label %228
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %226, i8 0, i64 32, i1 false), !alias.scope !39
+  br label %227
 
-228:                                              ; preds = %228, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit290
-  %indvars.iv.i291 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit290 ], [ %indvars.iv.next.i292, %228 ]
-  %229 = mul nuw nsw i64 %indvars.iv.i291, 9
-  %230 = add nuw nsw i64 %229, 5
-  %231 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %230
-  %232 = load double, ptr %231, align 8, !noalias !39
-  %233 = getelementptr inbounds [4 x double], ptr %227, i64 0, i64 %indvars.iv.i291
-  store double %232, ptr %233, align 8, !alias.scope !39
+227:                                              ; preds = %227, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit290
+  %indvars.iv.i291 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit290 ], [ %indvars.iv.next.i292, %227 ]
+  %228 = mul nuw nsw i64 %indvars.iv.i291, 9
+  %229 = add nuw nsw i64 %228, 5
+  %230 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %229
+  %231 = load double, ptr %230, align 8, !noalias !39
+  %232 = getelementptr inbounds [4 x double], ptr %226, i64 0, i64 %indvars.iv.i291
+  store double %231, ptr %232, align 8, !alias.scope !39
   %indvars.iv.next.i292 = add nuw nsw i64 %indvars.iv.i291, 1
   %exitcond.not.i293 = icmp eq i64 %indvars.iv.next.i292, 4
-  br i1 %exitcond.not.i293, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit294, label %228, !llvm.loop !20
+  br i1 %exitcond.not.i293, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit294, label %227, !llvm.loop !20
 
-_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit294:            ; preds = %228
-  %234 = getelementptr inbounds i8, ptr %29, i64 256
+_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit294:            ; preds = %227
+  %233 = getelementptr inbounds i8, ptr %29, i64 256
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %234, i8 0, i64 32, i1 false), !alias.scope !42
-  br label %235
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %233, i8 0, i64 32, i1 false), !alias.scope !42
+  br label %234
 
-235:                                              ; preds = %235, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit294
-  %indvars.iv.i295 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit294 ], [ %indvars.iv.next.i296, %235 ]
-  %236 = mul nuw nsw i64 %indvars.iv.i295, 9
-  %237 = add nuw nsw i64 %236, 8
-  %238 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %237
-  %239 = load double, ptr %238, align 8, !noalias !42
-  %240 = getelementptr inbounds [4 x double], ptr %234, i64 0, i64 %indvars.iv.i295
-  store double %239, ptr %240, align 8, !alias.scope !42
+234:                                              ; preds = %234, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit294
+  %indvars.iv.i295 = phi i64 [ 0, %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit294 ], [ %indvars.iv.next.i296, %234 ]
+  %235 = mul nuw nsw i64 %indvars.iv.i295, 9
+  %236 = add nuw nsw i64 %235, 8
+  %237 = getelementptr inbounds [36 x double], ptr %28, i64 0, i64 %236
+  %238 = load double, ptr %237, align 8, !noalias !42
+  %239 = getelementptr inbounds [4 x double], ptr %233, i64 0, i64 %indvars.iv.i295
+  store double %238, ptr %239, align 8, !alias.scope !42
   %indvars.iv.next.i296 = add nuw nsw i64 %indvars.iv.i295, 1
   %exitcond.not.i297 = icmp eq i64 %indvars.iv.next.i296, 4
-  br i1 %exitcond.not.i297, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit298, label %235, !llvm.loop !20
+  br i1 %exitcond.not.i297, label %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit298, label %234, !llvm.loop !20
 
-_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit298:            ; preds = %235
+_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit298:            ; preds = %234
   invoke void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %30, i32 noundef 10, i32 noundef 20, i32 noundef 6)
           to label %_ZN2cv4Mat_IdEC2Eii.exit.preheader unwind label %146
 
 _ZN2cv4Mat_IdEC2Eii.exit.preheader:               ; preds = %_ZNK2cv4MatxIdLi4ELi9EE3colEi.exit298
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(720) %31, i8 0, i64 720, i1 false)
-  %241 = getelementptr inbounds i8, ptr %0, i64 105
-  %242 = load i8, ptr %241, align 1
-  %243 = trunc i8 %242 to i1
-  br i1 %243, label %.preheader590, label %2319
+  %240 = getelementptr inbounds i8, ptr %0, i64 105
+  %241 = load i8, ptr %240, align 1
+  %242 = trunc i8 %241 to i1
+  br i1 %242, label %.preheader590, label %2318
 
 .preheader590:                                    ; preds = %_ZN2cv4Mat_IdEC2Eii.exit.preheader
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 8
@@ -807,257 +805,257 @@ _ZN2cv4Mat_IdEC2Eii.exit.preheader:               ; preds = %_ZNK2cv4MatxIdLi4EL
   %.sroa.10.0..sroa_idx.i316 = getelementptr inbounds i8, ptr %36, i64 72
   br label %.preheader589
 
-.preheader589:                                    ; preds = %.preheader590, %372
-  %indvars.iv659 = phi i64 [ 0, %.preheader590 ], [ %indvars.iv.next660, %372 ]
-  %244 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.21"]], ptr %29, i64 0, i64 %indvars.iv659
-  %245 = load <2 x double>, ptr %244, align 16, !noalias !45
-  %246 = getelementptr inbounds i8, ptr %244, i64 16
-  %247 = load double, ptr %246, align 16, !noalias !45
-  %248 = getelementptr inbounds i8, ptr %244, i64 24
-  %249 = load double, ptr %248, align 8, !noalias !45
-  %250 = getelementptr inbounds i8, ptr %244, i64 32
-  %251 = load <2 x double>, ptr %250, align 16, !noalias !48
-  %252 = getelementptr inbounds i8, ptr %244, i64 48
-  %253 = load double, ptr %252, align 16, !noalias !48
-  %254 = getelementptr inbounds i8, ptr %244, i64 56
-  %255 = load double, ptr %254, align 8, !noalias !48
-  %256 = getelementptr inbounds i8, ptr %244, i64 64
-  %257 = load <2 x double>, ptr %256, align 16, !noalias !51
-  %258 = getelementptr inbounds i8, ptr %244, i64 80
-  %259 = load double, ptr %258, align 16, !noalias !51
-  %260 = getelementptr inbounds i8, ptr %244, i64 88
-  %261 = load double, ptr %260, align 8, !noalias !51
-  %262 = insertelement <2 x double> poison, double %259, i64 0
-  %263 = shufflevector <2 x double> %262, <2 x double> poison, <2 x i32> zeroinitializer
-  %264 = insertelement <2 x double> poison, double %261, i64 0
-  %265 = shufflevector <2 x double> %264, <2 x double> poison, <2 x i32> zeroinitializer
-  %266 = extractelement <2 x double> %257, i64 0
-  %267 = extractelement <2 x double> %257, i64 1
-  %268 = insertelement <2 x double> poison, double %247, i64 0
-  %269 = shufflevector <2 x double> %268, <2 x double> poison, <2 x i32> zeroinitializer
-  %270 = insertelement <2 x double> poison, double %249, i64 0
-  %271 = shufflevector <2 x double> %270, <2 x double> poison, <2 x i32> zeroinitializer
-  %272 = extractelement <2 x double> %245, i64 0
-  %273 = extractelement <2 x double> %245, i64 1
-  %274 = insertelement <2 x double> poison, double %253, i64 0
-  %275 = shufflevector <2 x double> %274, <2 x double> poison, <2 x i32> zeroinitializer
-  %276 = insertelement <2 x double> poison, double %255, i64 0
-  %277 = shufflevector <2 x double> %276, <2 x double> poison, <2 x i32> zeroinitializer
-  %278 = extractelement <2 x double> %251, i64 0
-  %279 = extractelement <2 x double> %251, i64 1
-  br label %280
+.preheader589:                                    ; preds = %.preheader590, %371
+  %indvars.iv653 = phi i64 [ 0, %.preheader590 ], [ %indvars.iv.next654, %371 ]
+  %243 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.21"]], ptr %29, i64 0, i64 %indvars.iv653
+  %244 = load <2 x double>, ptr %243, align 16, !noalias !45
+  %245 = getelementptr inbounds i8, ptr %243, i64 16
+  %246 = load double, ptr %245, align 16, !noalias !45
+  %247 = getelementptr inbounds i8, ptr %243, i64 24
+  %248 = load double, ptr %247, align 8, !noalias !45
+  %249 = getelementptr inbounds i8, ptr %243, i64 32
+  %250 = load <2 x double>, ptr %249, align 16, !noalias !48
+  %251 = getelementptr inbounds i8, ptr %243, i64 48
+  %252 = load double, ptr %251, align 16, !noalias !48
+  %253 = getelementptr inbounds i8, ptr %243, i64 56
+  %254 = load double, ptr %253, align 8, !noalias !48
+  %255 = getelementptr inbounds i8, ptr %243, i64 64
+  %256 = load <2 x double>, ptr %255, align 16, !noalias !51
+  %257 = getelementptr inbounds i8, ptr %243, i64 80
+  %258 = load double, ptr %257, align 16, !noalias !51
+  %259 = getelementptr inbounds i8, ptr %243, i64 88
+  %260 = load double, ptr %259, align 8, !noalias !51
+  %261 = insertelement <2 x double> poison, double %258, i64 0
+  %262 = shufflevector <2 x double> %261, <2 x double> poison, <2 x i32> zeroinitializer
+  %263 = insertelement <2 x double> poison, double %260, i64 0
+  %264 = shufflevector <2 x double> %263, <2 x double> poison, <2 x i32> zeroinitializer
+  %265 = extractelement <2 x double> %256, i64 0
+  %266 = extractelement <2 x double> %256, i64 1
+  %267 = insertelement <2 x double> poison, double %246, i64 0
+  %268 = shufflevector <2 x double> %267, <2 x double> poison, <2 x i32> zeroinitializer
+  %269 = insertelement <2 x double> poison, double %248, i64 0
+  %270 = shufflevector <2 x double> %269, <2 x double> poison, <2 x i32> zeroinitializer
+  %271 = extractelement <2 x double> %244, i64 0
+  %272 = extractelement <2 x double> %244, i64 1
+  %273 = insertelement <2 x double> poison, double %252, i64 0
+  %274 = shufflevector <2 x double> %273, <2 x double> poison, <2 x i32> zeroinitializer
+  %275 = insertelement <2 x double> poison, double %254, i64 0
+  %276 = shufflevector <2 x double> %275, <2 x double> poison, <2 x i32> zeroinitializer
+  %277 = extractelement <2 x double> %250, i64 0
+  %278 = extractelement <2 x double> %250, i64 1
+  br label %279
 
-280:                                              ; preds = %.preheader589, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320
-  %indvars.iv655 = phi i64 [ 0, %.preheader589 ], [ %indvars.iv.next656, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320 ]
-  %281 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.21"]], ptr %29, i64 0, i64 %indvars.iv655
+279:                                              ; preds = %.preheader589, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320
+  %indvars.iv649 = phi i64 [ 0, %.preheader589 ], [ %indvars.iv.next650, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320 ]
+  %280 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.21"]], ptr %29, i64 0, i64 %indvars.iv649
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %282 = getelementptr inbounds i8, ptr %281, i64 16
-  %283 = load double, ptr %282, align 16, !noalias !45
-  %284 = fmul double %283, %247
-  %285 = getelementptr inbounds i8, ptr %281, i64 24
-  %286 = load double, ptr %285, align 8, !noalias !45
-  %287 = fmul double %283, %249
-  %288 = call double @llvm.fmuladd.f64(double %247, double %286, double %287)
-  %289 = fmul double %286, %249
-  %290 = load <2 x double>, ptr %281, align 16, !noalias !45
-  %291 = extractelement <2 x double> %290, i64 0
-  %292 = fmul <2 x double> %245, %290
-  %293 = extractelement <2 x double> %292, i64 0
-  %294 = fmul double %291, %273
-  %295 = extractelement <2 x double> %290, i64 1
-  %296 = call double @llvm.fmuladd.f64(double %272, double %295, double %294)
-  %297 = fmul double %295, %273
-  %298 = fmul <2 x double> %290, %269
-  %299 = insertelement <2 x double> poison, double %283, i64 0
-  %300 = shufflevector <2 x double> %299, <2 x double> poison, <2 x i32> zeroinitializer
-  %301 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %245, <2 x double> %300, <2 x double> %298)
-  store double %293, ptr %34, align 8, !alias.scope !45
-  store double %296, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !45
-  store double %297, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !45
-  store <2 x double> %301, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !45
-  store double %284, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !45
-  %302 = fmul <2 x double> %290, %271
-  %303 = insertelement <2 x double> poison, double %286, i64 0
-  %304 = shufflevector <2 x double> %303, <2 x double> poison, <2 x i32> zeroinitializer
-  %305 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %245, <2 x double> %304, <2 x double> %302)
-  store <2 x double> %305, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !45
-  store double %288, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !45
-  store double %289, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !45
-  %306 = getelementptr inbounds i8, ptr %281, i64 32
+  %281 = getelementptr inbounds i8, ptr %280, i64 16
+  %282 = load double, ptr %281, align 16, !noalias !45
+  %283 = fmul double %282, %246
+  %284 = getelementptr inbounds i8, ptr %280, i64 24
+  %285 = load double, ptr %284, align 8, !noalias !45
+  %286 = fmul double %282, %248
+  %287 = call double @llvm.fmuladd.f64(double %246, double %285, double %286)
+  %288 = fmul double %285, %248
+  %289 = load <2 x double>, ptr %280, align 16, !noalias !45
+  %290 = extractelement <2 x double> %289, i64 0
+  %291 = fmul <2 x double> %244, %289
+  %292 = extractelement <2 x double> %291, i64 0
+  %293 = fmul double %290, %272
+  %294 = extractelement <2 x double> %289, i64 1
+  %295 = call double @llvm.fmuladd.f64(double %271, double %294, double %293)
+  %296 = fmul double %294, %272
+  %297 = fmul <2 x double> %289, %268
+  %298 = insertelement <2 x double> poison, double %282, i64 0
+  %299 = shufflevector <2 x double> %298, <2 x double> poison, <2 x i32> zeroinitializer
+  %300 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %244, <2 x double> %299, <2 x double> %297)
+  store double %292, ptr %34, align 8, !alias.scope !45
+  store double %295, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !45
+  store double %296, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !45
+  store <2 x double> %300, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !45
+  store double %283, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !45
+  %301 = fmul <2 x double> %289, %270
+  %302 = insertelement <2 x double> poison, double %285, i64 0
+  %303 = shufflevector <2 x double> %302, <2 x double> poison, <2 x i32> zeroinitializer
+  %304 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %244, <2 x double> %303, <2 x double> %301)
+  store <2 x double> %304, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !45
+  store double %287, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !45
+  store double %288, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !45
+  %305 = getelementptr inbounds i8, ptr %280, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %307 = getelementptr inbounds i8, ptr %281, i64 48
-  %308 = load double, ptr %307, align 16, !noalias !48
-  %309 = fmul double %308, %253
-  %310 = getelementptr inbounds i8, ptr %281, i64 56
-  %311 = load double, ptr %310, align 8, !noalias !48
-  %312 = fmul double %308, %255
-  %313 = call double @llvm.fmuladd.f64(double %253, double %311, double %312)
-  %314 = fmul double %311, %255
-  %315 = load <2 x double>, ptr %306, align 16, !noalias !48
-  %316 = extractelement <2 x double> %315, i64 0
-  %317 = fmul <2 x double> %251, %315
-  %318 = extractelement <2 x double> %317, i64 0
-  %319 = fmul double %316, %279
-  %320 = extractelement <2 x double> %315, i64 1
-  %321 = call double @llvm.fmuladd.f64(double %278, double %320, double %319)
-  %322 = fmul double %320, %279
-  %323 = fmul <2 x double> %315, %275
-  %324 = insertelement <2 x double> poison, double %308, i64 0
-  %325 = shufflevector <2 x double> %324, <2 x double> poison, <2 x i32> zeroinitializer
-  %326 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %251, <2 x double> %325, <2 x double> %323)
-  store double %318, ptr %35, align 8, !alias.scope !48
-  store double %321, ptr %.sroa.2.0..sroa_idx.i299, align 8, !alias.scope !48
-  store double %322, ptr %.sroa.3.0..sroa_idx.i300, align 8, !alias.scope !48
-  store <2 x double> %326, ptr %.sroa.4.0..sroa_idx.i301, align 8, !alias.scope !48
-  store double %309, ptr %.sroa.6.0..sroa_idx.i303, align 8, !alias.scope !48
-  %327 = fmul <2 x double> %315, %277
-  %328 = insertelement <2 x double> poison, double %311, i64 0
-  %329 = shufflevector <2 x double> %328, <2 x double> poison, <2 x i32> zeroinitializer
-  %330 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %251, <2 x double> %329, <2 x double> %327)
-  store <2 x double> %330, ptr %.sroa.7.0..sroa_idx.i304, align 8, !alias.scope !48
-  store double %313, ptr %.sroa.9.0..sroa_idx.i306, align 8, !alias.scope !48
-  store double %314, ptr %.sroa.10.0..sroa_idx.i307, align 8, !alias.scope !48
+  %306 = getelementptr inbounds i8, ptr %280, i64 48
+  %307 = load double, ptr %306, align 16, !noalias !48
+  %308 = fmul double %307, %252
+  %309 = getelementptr inbounds i8, ptr %280, i64 56
+  %310 = load double, ptr %309, align 8, !noalias !48
+  %311 = fmul double %307, %254
+  %312 = call double @llvm.fmuladd.f64(double %252, double %310, double %311)
+  %313 = fmul double %310, %254
+  %314 = load <2 x double>, ptr %305, align 16, !noalias !48
+  %315 = extractelement <2 x double> %314, i64 0
+  %316 = fmul <2 x double> %250, %314
+  %317 = extractelement <2 x double> %316, i64 0
+  %318 = fmul double %315, %278
+  %319 = extractelement <2 x double> %314, i64 1
+  %320 = call double @llvm.fmuladd.f64(double %277, double %319, double %318)
+  %321 = fmul double %319, %278
+  %322 = fmul <2 x double> %314, %274
+  %323 = insertelement <2 x double> poison, double %307, i64 0
+  %324 = shufflevector <2 x double> %323, <2 x double> poison, <2 x i32> zeroinitializer
+  %325 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %250, <2 x double> %324, <2 x double> %322)
+  store double %317, ptr %35, align 8, !alias.scope !48
+  store double %320, ptr %.sroa.2.0..sroa_idx.i299, align 8, !alias.scope !48
+  store double %321, ptr %.sroa.3.0..sroa_idx.i300, align 8, !alias.scope !48
+  store <2 x double> %325, ptr %.sroa.4.0..sroa_idx.i301, align 8, !alias.scope !48
+  store double %308, ptr %.sroa.6.0..sroa_idx.i303, align 8, !alias.scope !48
+  %326 = fmul <2 x double> %314, %276
+  %327 = insertelement <2 x double> poison, double %310, i64 0
+  %328 = shufflevector <2 x double> %327, <2 x double> poison, <2 x i32> zeroinitializer
+  %329 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %250, <2 x double> %328, <2 x double> %326)
+  store <2 x double> %329, ptr %.sroa.7.0..sroa_idx.i304, align 8, !alias.scope !48
+  store double %312, ptr %.sroa.9.0..sroa_idx.i306, align 8, !alias.scope !48
+  store double %313, ptr %.sroa.10.0..sroa_idx.i307, align 8, !alias.scope !48
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  br label %331
+  br label %330
 
-331:                                              ; preds = %331, %280
-  %indvars.iv.i.i = phi i64 [ 0, %280 ], [ %indvars.iv.next.i.i, %331 ]
-  %332 = getelementptr inbounds [10 x double], ptr %34, i64 0, i64 %indvars.iv.i.i
-  %333 = load double, ptr %332, align 8, !noalias !54
-  %334 = getelementptr inbounds [10 x double], ptr %35, i64 0, i64 %indvars.iv.i.i
-  %335 = load double, ptr %334, align 8, !noalias !54
-  %336 = fadd double %333, %335
-  %337 = getelementptr inbounds [10 x double], ptr %33, i64 0, i64 %indvars.iv.i.i
-  store double %336, ptr %337, align 8, !alias.scope !54
+330:                                              ; preds = %330, %279
+  %indvars.iv.i.i = phi i64 [ 0, %279 ], [ %indvars.iv.next.i.i, %330 ]
+  %331 = getelementptr inbounds [10 x double], ptr %34, i64 0, i64 %indvars.iv.i.i
+  %332 = load double, ptr %331, align 8, !noalias !54
+  %333 = getelementptr inbounds [10 x double], ptr %35, i64 0, i64 %indvars.iv.i.i
+  %334 = load double, ptr %333, align 8, !noalias !54
+  %335 = fadd double %332, %334
+  %336 = getelementptr inbounds [10 x double], ptr %33, i64 0, i64 %indvars.iv.i.i
+  store double %335, ptr %336, align 8, !alias.scope !54
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
-  br i1 %exitcond.not.i.i, label %338, label %331, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %337, label %330, !llvm.loop !57
 
-338:                                              ; preds = %331
-  %339 = getelementptr inbounds i8, ptr %281, i64 64
+337:                                              ; preds = %330
+  %338 = getelementptr inbounds i8, ptr %280, i64 64
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %340 = getelementptr inbounds i8, ptr %281, i64 80
-  %341 = load double, ptr %340, align 16, !noalias !51
-  %342 = fmul double %341, %259
-  %343 = getelementptr inbounds i8, ptr %281, i64 88
-  %344 = load double, ptr %343, align 8, !noalias !51
-  %345 = fmul double %341, %261
-  %346 = call double @llvm.fmuladd.f64(double %259, double %344, double %345)
-  %347 = fmul double %344, %261
-  %348 = load <2 x double>, ptr %339, align 16, !noalias !51
-  %349 = extractelement <2 x double> %348, i64 0
-  %350 = fmul <2 x double> %257, %348
-  %351 = extractelement <2 x double> %350, i64 0
-  %352 = fmul double %349, %267
-  %353 = extractelement <2 x double> %348, i64 1
-  %354 = call double @llvm.fmuladd.f64(double %266, double %353, double %352)
-  %355 = fmul double %353, %267
-  %356 = fmul <2 x double> %348, %263
-  %357 = insertelement <2 x double> poison, double %341, i64 0
-  %358 = shufflevector <2 x double> %357, <2 x double> poison, <2 x i32> zeroinitializer
-  %359 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %257, <2 x double> %358, <2 x double> %356)
-  store double %351, ptr %36, align 8, !alias.scope !51
-  store double %354, ptr %.sroa.2.0..sroa_idx.i308, align 8, !alias.scope !51
-  store double %355, ptr %.sroa.3.0..sroa_idx.i309, align 8, !alias.scope !51
-  store <2 x double> %359, ptr %.sroa.4.0..sroa_idx.i310, align 8, !alias.scope !51
-  store double %342, ptr %.sroa.6.0..sroa_idx.i312, align 8, !alias.scope !51
-  %360 = fmul <2 x double> %348, %265
-  %361 = insertelement <2 x double> poison, double %344, i64 0
-  %362 = shufflevector <2 x double> %361, <2 x double> poison, <2 x i32> zeroinitializer
-  %363 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %257, <2 x double> %362, <2 x double> %360)
-  store <2 x double> %363, ptr %.sroa.7.0..sroa_idx.i313, align 8, !alias.scope !51
-  store double %346, ptr %.sroa.9.0..sroa_idx.i315, align 8, !alias.scope !51
-  store double %347, ptr %.sroa.10.0..sroa_idx.i316, align 8, !alias.scope !51
+  %339 = getelementptr inbounds i8, ptr %280, i64 80
+  %340 = load double, ptr %339, align 16, !noalias !51
+  %341 = fmul double %340, %258
+  %342 = getelementptr inbounds i8, ptr %280, i64 88
+  %343 = load double, ptr %342, align 8, !noalias !51
+  %344 = fmul double %340, %260
+  %345 = call double @llvm.fmuladd.f64(double %258, double %343, double %344)
+  %346 = fmul double %343, %260
+  %347 = load <2 x double>, ptr %338, align 16, !noalias !51
+  %348 = extractelement <2 x double> %347, i64 0
+  %349 = fmul <2 x double> %256, %347
+  %350 = extractelement <2 x double> %349, i64 0
+  %351 = fmul double %348, %266
+  %352 = extractelement <2 x double> %347, i64 1
+  %353 = call double @llvm.fmuladd.f64(double %265, double %352, double %351)
+  %354 = fmul double %352, %266
+  %355 = fmul <2 x double> %347, %262
+  %356 = insertelement <2 x double> poison, double %340, i64 0
+  %357 = shufflevector <2 x double> %356, <2 x double> poison, <2 x i32> zeroinitializer
+  %358 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %256, <2 x double> %357, <2 x double> %355)
+  store double %350, ptr %36, align 8, !alias.scope !51
+  store double %353, ptr %.sroa.2.0..sroa_idx.i308, align 8, !alias.scope !51
+  store double %354, ptr %.sroa.3.0..sroa_idx.i309, align 8, !alias.scope !51
+  store <2 x double> %358, ptr %.sroa.4.0..sroa_idx.i310, align 8, !alias.scope !51
+  store double %341, ptr %.sroa.6.0..sroa_idx.i312, align 8, !alias.scope !51
+  %359 = fmul <2 x double> %347, %264
+  %360 = insertelement <2 x double> poison, double %343, i64 0
+  %361 = shufflevector <2 x double> %360, <2 x double> poison, <2 x i32> zeroinitializer
+  %362 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %256, <2 x double> %361, <2 x double> %359)
+  store <2 x double> %362, ptr %.sroa.7.0..sroa_idx.i313, align 8, !alias.scope !51
+  store double %345, ptr %.sroa.9.0..sroa_idx.i315, align 8, !alias.scope !51
+  store double %346, ptr %.sroa.10.0..sroa_idx.i316, align 8, !alias.scope !51
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  br label %364
+  br label %363
 
-364:                                              ; preds = %364, %338
-  %indvars.iv.i.i317 = phi i64 [ 0, %338 ], [ %indvars.iv.next.i.i318, %364 ]
-  %365 = getelementptr inbounds [10 x double], ptr %33, i64 0, i64 %indvars.iv.i.i317
-  %366 = load double, ptr %365, align 8, !noalias !58
-  %367 = getelementptr inbounds [10 x double], ptr %36, i64 0, i64 %indvars.iv.i.i317
-  %368 = load double, ptr %367, align 8, !noalias !58
-  %369 = fadd double %366, %368
-  %370 = getelementptr inbounds [10 x double], ptr %32, i64 0, i64 %indvars.iv.i.i317
-  store double %369, ptr %370, align 8, !alias.scope !58
+363:                                              ; preds = %363, %337
+  %indvars.iv.i.i317 = phi i64 [ 0, %337 ], [ %indvars.iv.next.i.i318, %363 ]
+  %364 = getelementptr inbounds [10 x double], ptr %33, i64 0, i64 %indvars.iv.i.i317
+  %365 = load double, ptr %364, align 8, !noalias !58
+  %366 = getelementptr inbounds [10 x double], ptr %36, i64 0, i64 %indvars.iv.i.i317
+  %367 = load double, ptr %366, align 8, !noalias !58
+  %368 = fadd double %365, %367
+  %369 = getelementptr inbounds [10 x double], ptr %32, i64 0, i64 %indvars.iv.i.i317
+  store double %368, ptr %369, align 8, !alias.scope !58
   %indvars.iv.next.i.i318 = add nuw nsw i64 %indvars.iv.i.i317, 1
   %exitcond.not.i.i319 = icmp eq i64 %indvars.iv.next.i.i318, 10
-  br i1 %exitcond.not.i.i319, label %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320, label %364, !llvm.loop !57
+  br i1 %exitcond.not.i.i319, label %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320, label %363, !llvm.loop !57
 
-_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320: ; preds = %364
-  %371 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.22"]], ptr %31, i64 0, i64 %indvars.iv659, i64 %indvars.iv655
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %371, ptr noundef nonnull align 8 dereferenceable(80) %32, i64 80, i1 false)
-  %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
-  %exitcond658.not = icmp eq i64 %indvars.iv.next656, 3
-  br i1 %exitcond658.not, label %372, label %280, !llvm.loop !61
+_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320: ; preds = %363
+  %370 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.22"]], ptr %31, i64 0, i64 %indvars.iv653, i64 %indvars.iv649
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %370, ptr noundef nonnull align 8 dereferenceable(80) %32, i64 80, i1 false)
+  %indvars.iv.next650 = add nuw nsw i64 %indvars.iv649, 1
+  %exitcond652.not = icmp eq i64 %indvars.iv.next650, 3
+  br i1 %exitcond652.not, label %371, label %279, !llvm.loop !61
 
 .loopexit584:                                     ; preds = %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit396
   %lpad.loopexit586 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp585:                            ; preds = %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528, %1131, %1134
+.loopexit.split-lp585:                            ; preds = %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528, %1130, %1133
   %lpad.loopexit.split-lp587 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-372:                                              ; preds = %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320
-  %indvars.iv.next660 = add nuw nsw i64 %indvars.iv659, 1
-  %exitcond662.not = icmp eq i64 %indvars.iv.next660, 3
-  br i1 %exitcond662.not, label %373, label %.preheader589, !llvm.loop !62
+371:                                              ; preds = %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit320
+  %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
+  %exitcond656.not = icmp eq i64 %indvars.iv.next654, 3
+  br i1 %exitcond656.not, label %372, label %.preheader589, !llvm.loop !62
 
-373:                                              ; preds = %372
-  %374 = getelementptr inbounds i8, ptr %31, i64 320
+372:                                              ; preds = %371
+  %373 = getelementptr inbounds i8, ptr %31, i64 320
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  br label %375
+  br label %374
 
-375:                                              ; preds = %375, %373
-  %indvars.iv.i.i321 = phi i64 [ 0, %373 ], [ %indvars.iv.next.i.i322, %375 ]
-  %376 = getelementptr inbounds [10 x double], ptr %31, i64 0, i64 %indvars.iv.i.i321
-  %377 = load double, ptr %376, align 8, !noalias !63
-  %378 = getelementptr inbounds [10 x double], ptr %374, i64 0, i64 %indvars.iv.i.i321
-  %379 = load double, ptr %378, align 8, !noalias !63
-  %380 = fadd double %377, %379
-  %381 = getelementptr inbounds [10 x double], ptr %39, i64 0, i64 %indvars.iv.i.i321
-  store double %380, ptr %381, align 8, !alias.scope !63
+374:                                              ; preds = %374, %372
+  %indvars.iv.i.i321 = phi i64 [ 0, %372 ], [ %indvars.iv.next.i.i322, %374 ]
+  %375 = getelementptr inbounds [10 x double], ptr %31, i64 0, i64 %indvars.iv.i.i321
+  %376 = load double, ptr %375, align 8, !noalias !63
+  %377 = getelementptr inbounds [10 x double], ptr %373, i64 0, i64 %indvars.iv.i.i321
+  %378 = load double, ptr %377, align 8, !noalias !63
+  %379 = fadd double %376, %378
+  %380 = getelementptr inbounds [10 x double], ptr %39, i64 0, i64 %indvars.iv.i.i321
+  store double %379, ptr %380, align 8, !alias.scope !63
   %indvars.iv.next.i.i322 = add nuw nsw i64 %indvars.iv.i.i321, 1
   %exitcond.not.i.i323 = icmp eq i64 %indvars.iv.next.i.i322, 10
-  br i1 %exitcond.not.i.i323, label %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit324, label %375, !llvm.loop !57
+  br i1 %exitcond.not.i.i323, label %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit324, label %374, !llvm.loop !57
 
-_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit324: ; preds = %375
-  %382 = getelementptr inbounds i8, ptr %31, i64 640
+_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit324: ; preds = %374
+  %381 = getelementptr inbounds i8, ptr %31, i64 640
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  br label %383
+  br label %382
 
-383:                                              ; preds = %383, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit324
-  %indvars.iv.i.i325 = phi i64 [ 0, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit324 ], [ %indvars.iv.next.i.i326, %383 ]
-  %384 = getelementptr inbounds [10 x double], ptr %39, i64 0, i64 %indvars.iv.i.i325
-  %385 = load double, ptr %384, align 8, !noalias !66
-  %386 = getelementptr inbounds [10 x double], ptr %382, i64 0, i64 %indvars.iv.i.i325
-  %387 = load double, ptr %386, align 8, !noalias !66
-  %388 = fadd double %385, %387
-  %389 = getelementptr inbounds [10 x double], ptr %38, i64 0, i64 %indvars.iv.i.i325
-  store double %388, ptr %389, align 8, !alias.scope !66
+382:                                              ; preds = %382, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit324
+  %indvars.iv.i.i325 = phi i64 [ 0, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit324 ], [ %indvars.iv.next.i.i326, %382 ]
+  %383 = getelementptr inbounds [10 x double], ptr %39, i64 0, i64 %indvars.iv.i.i325
+  %384 = load double, ptr %383, align 8, !noalias !66
+  %385 = getelementptr inbounds [10 x double], ptr %381, i64 0, i64 %indvars.iv.i.i325
+  %386 = load double, ptr %385, align 8, !noalias !66
+  %387 = fadd double %384, %386
+  %388 = getelementptr inbounds [10 x double], ptr %38, i64 0, i64 %indvars.iv.i.i325
+  store double %387, ptr %388, align 8, !alias.scope !66
   %indvars.iv.next.i.i326 = add nuw nsw i64 %indvars.iv.i.i325, 1
   %exitcond.not.i.i327 = icmp eq i64 %indvars.iv.next.i.i326, 10
-  br i1 %exitcond.not.i.i327, label %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit328, label %383, !llvm.loop !57
+  br i1 %exitcond.not.i.i327, label %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit328, label %382, !llvm.loop !57
 
-_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit328: ; preds = %383
+_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit328: ; preds = %382
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  br label %390
+  br label %389
 
-390:                                              ; preds = %390, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit328
-  %indvars.iv.i.i329 = phi i64 [ 0, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit328 ], [ %indvars.iv.next.i.i330, %390 ]
-  %391 = getelementptr inbounds [10 x double], ptr %38, i64 0, i64 %indvars.iv.i.i329
-  %392 = load double, ptr %391, align 8, !noalias !69
-  %393 = fmul double %392, 5.000000e-01
-  %394 = getelementptr inbounds [10 x double], ptr %37, i64 0, i64 %indvars.iv.i.i329
-  store double %393, ptr %394, align 8, !alias.scope !69
+389:                                              ; preds = %389, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit328
+  %indvars.iv.i.i329 = phi i64 [ 0, %_ZN2cvplIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit328 ], [ %indvars.iv.next.i.i330, %389 ]
+  %390 = getelementptr inbounds [10 x double], ptr %38, i64 0, i64 %indvars.iv.i.i329
+  %391 = load double, ptr %390, align 8, !noalias !69
+  %392 = fmul double %391, 5.000000e-01
+  %393 = getelementptr inbounds [10 x double], ptr %37, i64 0, i64 %indvars.iv.i.i329
+  store double %392, ptr %393, align 8, !alias.scope !69
   %indvars.iv.next.i.i330 = add nuw nsw i64 %indvars.iv.i.i329, 1
   %exitcond.not.i.i331 = icmp eq i64 %indvars.iv.next.i.i330, 10
-  br i1 %exitcond.not.i.i331, label %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit.preheader, label %390, !llvm.loop !72
+  br i1 %exitcond.not.i.i331, label %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit.preheader, label %389, !llvm.loop !72
 
-_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit.preheader: ; preds = %390
+_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit.preheader: ; preds = %389
   %.sroa.3.0..sroa_idx.i336 = getelementptr inbounds i8, ptr %43, i64 16
   %.sroa.5.0..sroa_idx.i338 = getelementptr inbounds i8, ptr %43, i64 32
   %.sroa.7.0..sroa_idx.i340 = getelementptr inbounds i8, ptr %43, i64 48
@@ -1088,2734 +1086,2734 @@ _ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit.preheader: ; preds = %39
   %.sroa.17.0..sroa_idx.i389 = getelementptr inbounds i8, ptr %47, i64 128
   %.sroa.18.0..sroa_idx.i390 = getelementptr inbounds i8, ptr %47, i64 136
   %.sroa.20.0..sroa_idx.i392 = getelementptr inbounds i8, ptr %47, i64 152
-  %395 = getelementptr inbounds i8, ptr %40, i64 8
-  %396 = getelementptr inbounds i8, ptr %40, i64 16
-  %397 = getelementptr inbounds i8, ptr %40, i64 64
-  %398 = getelementptr inbounds i8, ptr %40, i64 72
-  %399 = getelementptr inbounds i8, ptr %40, i64 80
-  %400 = getelementptr inbounds i8, ptr %17, i64 8
-  %401 = getelementptr inbounds i8, ptr %17, i64 16
-  %402 = getelementptr inbounds i8, ptr %14, i64 4
-  %403 = getelementptr inbounds i8, ptr %49, i64 8
-  %404 = getelementptr inbounds i8, ptr %49, i64 16
+  %394 = getelementptr inbounds i8, ptr %40, i64 8
+  %395 = getelementptr inbounds i8, ptr %40, i64 16
+  %396 = getelementptr inbounds i8, ptr %40, i64 64
+  %397 = getelementptr inbounds i8, ptr %40, i64 72
+  %398 = getelementptr inbounds i8, ptr %40, i64 80
+  %399 = getelementptr inbounds i8, ptr %17, i64 8
+  %400 = getelementptr inbounds i8, ptr %17, i64 16
+  %401 = getelementptr inbounds i8, ptr %14, i64 4
+  %402 = getelementptr inbounds i8, ptr %49, i64 8
+  %403 = getelementptr inbounds i8, ptr %49, i64 16
   br label %.preheader583
 
 .preheader583:                                    ; preds = %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit.preheader, %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit
-  %indvars.iv667 = phi i64 [ 0, %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit.preheader ], [ %indvars.iv.next668, %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit ]
-  %405 = icmp eq i64 %indvars.iv667, 0
-  %406 = icmp eq i64 %indvars.iv667, 1
-  %407 = icmp eq i64 %indvars.iv667, 2
-  %408 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.22"]], ptr %31, i64 0, i64 %indvars.iv667
-  %409 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.22"]], ptr %31, i64 0, i64 %indvars.iv667, i64 1
-  %410 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.22"]], ptr %31, i64 0, i64 %indvars.iv667, i64 2
-  %indvars.iv.next668 = add nuw nsw i64 %indvars.iv667, 1
-  br label %411
+  %indvars.iv661 = phi i64 [ 0, %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit.preheader ], [ %indvars.iv.next662, %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit ]
+  %404 = icmp eq i64 %indvars.iv661, 0
+  %405 = icmp eq i64 %indvars.iv661, 1
+  %406 = icmp eq i64 %indvars.iv661, 2
+  %407 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.22"]], ptr %31, i64 0, i64 %indvars.iv661
+  %408 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.22"]], ptr %31, i64 0, i64 %indvars.iv661, i64 1
+  %409 = getelementptr inbounds [3 x [3 x %"class.cv::Matx.22"]], ptr %31, i64 0, i64 %indvars.iv661, i64 2
+  %indvars.iv.next662 = add nuw nsw i64 %indvars.iv661, 1
+  br label %410
 
-411:                                              ; preds = %.preheader583, %696
-  %indvars.iv663 = phi i64 [ 0, %.preheader583 ], [ %indvars.iv.next664, %696 ]
-  br i1 %405, label %412, label %.loopexit582
+410:                                              ; preds = %.preheader583, %695
+  %indvars.iv657 = phi i64 [ 0, %.preheader583 ], [ %indvars.iv.next658, %695 ]
+  br i1 %404, label %411, label %.loopexit582
 
-412:                                              ; preds = %411
+411:                                              ; preds = %410
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  br label %413
+  br label %412
 
-413:                                              ; preds = %413, %412
-  %indvars.iv.i.i332 = phi i64 [ 0, %412 ], [ %indvars.iv.next.i.i333, %413 ]
-  %414 = getelementptr inbounds [10 x double], ptr %31, i64 0, i64 %indvars.iv.i.i332
-  %415 = load double, ptr %414, align 8, !noalias !73
-  %416 = getelementptr inbounds [10 x double], ptr %37, i64 0, i64 %indvars.iv.i.i332
-  %417 = load double, ptr %416, align 8, !noalias !73
-  %418 = fsub double %415, %417
-  %419 = getelementptr inbounds [10 x double], ptr %44, i64 0, i64 %indvars.iv.i.i332
-  store double %418, ptr %419, align 8, !alias.scope !73
+412:                                              ; preds = %412, %411
+  %indvars.iv.i.i332 = phi i64 [ 0, %411 ], [ %indvars.iv.next.i.i333, %412 ]
+  %413 = getelementptr inbounds [10 x double], ptr %31, i64 0, i64 %indvars.iv.i.i332
+  %414 = load double, ptr %413, align 8, !noalias !73
+  %415 = getelementptr inbounds [10 x double], ptr %37, i64 0, i64 %indvars.iv.i.i332
+  %416 = load double, ptr %415, align 8, !noalias !73
+  %417 = fsub double %414, %416
+  %418 = getelementptr inbounds [10 x double], ptr %44, i64 0, i64 %indvars.iv.i.i332
+  store double %417, ptr %418, align 8, !alias.scope !73
   %indvars.iv.next.i.i333 = add nuw nsw i64 %indvars.iv.i.i332, 1
   %exitcond.not.i.i334 = icmp eq i64 %indvars.iv.next.i.i333, 10
-  br i1 %exitcond.not.i.i334, label %.loopexit582, label %413, !llvm.loop !76
+  br i1 %exitcond.not.i.i334, label %.loopexit582, label %412, !llvm.loop !76
 
-.loopexit582:                                     ; preds = %413, %411
-  %420 = phi ptr [ %408, %411 ], [ %44, %413 ]
-  %421 = getelementptr inbounds [3 x %"class.cv::Matx.21"], ptr %29, i64 0, i64 %indvars.iv663
+.loopexit582:                                     ; preds = %412, %410
+  %419 = phi ptr [ %407, %410 ], [ %44, %412 ]
+  %420 = getelementptr inbounds [3 x %"class.cv::Matx.21"], ptr %29, i64 0, i64 %indvars.iv657
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  %422 = getelementptr inbounds i8, ptr %420, i64 16
-  %423 = load double, ptr %422, align 8, !noalias !77
-  %424 = getelementptr inbounds i8, ptr %421, i64 16
-  %425 = getelementptr inbounds i8, ptr %420, i64 24
-  %426 = load double, ptr %425, align 8, !noalias !77
-  %427 = getelementptr inbounds i8, ptr %420, i64 48
-  %428 = load double, ptr %427, align 8, !noalias !77
-  %429 = getelementptr inbounds i8, ptr %420, i64 32
-  %430 = load double, ptr %429, align 8, !noalias !77
-  %431 = getelementptr inbounds i8, ptr %420, i64 56
-  %432 = getelementptr inbounds i8, ptr %420, i64 40
-  %433 = load double, ptr %432, align 8, !noalias !77
-  %434 = getelementptr inbounds i8, ptr %420, i64 72
-  %435 = load double, ptr %434, align 8, !noalias !77
-  %436 = load <2 x double>, ptr %421, align 16, !noalias !77
-  %437 = extractelement <2 x double> %436, i64 0
-  %438 = fmul double %437, %433
-  %439 = extractelement <2 x double> %436, i64 1
-  %440 = fmul double %439, %435
-  %441 = load <2 x double>, ptr %420, align 8, !noalias !77
-  %442 = insertelement <2 x double> %441, double %423, i64 1
-  %443 = fmul <2 x double> %442, %436
-  %444 = shufflevector <2 x double> %436, <2 x double> poison, <2 x i32> zeroinitializer
-  %445 = shufflevector <2 x double> %441, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %446 = insertelement <2 x double> %445, double %423, i64 1
-  %447 = fmul <2 x double> %444, %446
-  %448 = shufflevector <2 x double> %436, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %449 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %441, <2 x double> %448, <2 x double> %447)
-  store <2 x double> %443, ptr %43, align 16, !alias.scope !77
-  store <2 x double> %449, ptr %.sroa.3.0..sroa_idx.i336, align 16, !alias.scope !77
-  %450 = load <2 x double>, ptr %424, align 16, !noalias !77
-  %451 = shufflevector <2 x double> %450, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %452 = extractelement <2 x double> %450, i64 0
-  %453 = fmul double %452, %428
-  %454 = extractelement <2 x double> %450, i64 1
-  %455 = call double @llvm.fmuladd.f64(double %426, double %454, double %453)
-  %456 = fmul double %452, %433
-  %457 = fmul double %454, %435
-  %458 = insertelement <2 x double> poison, double %426, i64 0
-  %459 = insertelement <2 x double> %458, double %428, i64 1
-  %460 = fmul <2 x double> %444, %459
-  %461 = shufflevector <2 x double> %441, <2 x double> poison, <2 x i32> zeroinitializer
-  %462 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %461, <2 x double> %450, <2 x double> %460)
-  store <2 x double> %462, ptr %.sroa.5.0..sroa_idx.i338, align 16, !alias.scope !77
-  %463 = insertelement <2 x double> poison, double %430, i64 0
-  %464 = insertelement <2 x double> poison, double %423, i64 0
-  %465 = shufflevector <2 x double> %464, <2 x double> poison, <2 x i32> zeroinitializer
-  %466 = fmul <2 x double> %448, %459
-  %467 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %445, <2 x double> %450, <2 x double> %466)
-  %468 = shufflevector <2 x double> %450, <2 x double> %436, <2 x i32> <i32 0, i32 2>
-  %469 = insertelement <2 x double> poison, double %438, i64 0
-  %470 = insertelement <2 x double> %469, double %455, i64 1
-  %471 = insertelement <2 x double> poison, double %435, i64 0
-  %472 = insertelement <2 x double> %471, double %433, i64 1
-  %473 = fmul <2 x double> %436, %472
-  %474 = insertelement <2 x double> poison, double %428, i64 0
-  %475 = insertelement <2 x double> %474, double %430, i64 1
-  %476 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %475, <2 x double> %451, <2 x double> %473)
-  store <2 x double> %476, ptr %.sroa.13.0..sroa_idx.i, align 16, !alias.scope !77
-  %477 = load <2 x double>, ptr %431, align 8, !noalias !77
-  %478 = fmul <2 x double> %450, %477
-  %479 = extractelement <2 x double> %478, i64 0
-  %480 = call double @llvm.fmuladd.f64(double %430, double %454, double %479)
-  %481 = shufflevector <2 x double> %450, <2 x double> %436, <2 x i32> <i32 1, i32 3>
-  %482 = insertelement <2 x double> poison, double %440, i64 0
-  %483 = insertelement <2 x double> %482, double %480, i64 1
-  %484 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %477, <2 x double> %481, <2 x double> %483)
-  %485 = shufflevector <2 x double> %463, <2 x double> %477, <2 x i32> <i32 0, i32 2>
-  %486 = fmul <2 x double> %448, %485
-  %487 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %465, <2 x double> %450, <2 x double> %486)
-  store <2 x double> %487, ptr %.sroa.7.0..sroa_idx.i340, align 16, !alias.scope !77
-  %488 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %485, <2 x double> %444, <2 x double> %467)
-  store <2 x double> %488, ptr %.sroa.9.0..sroa_idx.i342, align 16, !alias.scope !77
-  %489 = insertelement <2 x double> %477, double %426, i64 0
-  %490 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %489, <2 x double> %468, <2 x double> %470)
-  store <2 x double> %490, ptr %.sroa.11.0..sroa_idx.i, align 16, !alias.scope !77
-  %491 = shufflevector <2 x double> %484, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %491, ptr %.sroa.15.0..sroa_idx.i, align 16, !alias.scope !77
-  store double %456, ptr %.sroa.17.0..sroa_idx.i, align 16, !alias.scope !77
-  %492 = shufflevector <2 x double> %450, <2 x double> poison, <2 x i32> zeroinitializer
-  %493 = shufflevector <2 x double> %477, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %494 = insertelement <2 x double> %493, double %435, i64 1
-  %495 = fmul <2 x double> %492, %494
-  %496 = insertelement <2 x double> %477, double %433, i64 0
-  %497 = shufflevector <2 x double> %450, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %498 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %496, <2 x double> %497, <2 x double> %495)
-  store <2 x double> %498, ptr %.sroa.18.0..sroa_idx.i, align 8, !alias.scope !77
-  store double %457, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !77
-  br i1 %406, label %499, label %.loopexit581
+  %421 = getelementptr inbounds i8, ptr %419, i64 16
+  %422 = load double, ptr %421, align 8, !noalias !77
+  %423 = getelementptr inbounds i8, ptr %420, i64 16
+  %424 = getelementptr inbounds i8, ptr %419, i64 24
+  %425 = load double, ptr %424, align 8, !noalias !77
+  %426 = getelementptr inbounds i8, ptr %419, i64 48
+  %427 = load double, ptr %426, align 8, !noalias !77
+  %428 = getelementptr inbounds i8, ptr %419, i64 32
+  %429 = load double, ptr %428, align 8, !noalias !77
+  %430 = getelementptr inbounds i8, ptr %419, i64 56
+  %431 = getelementptr inbounds i8, ptr %419, i64 40
+  %432 = load double, ptr %431, align 8, !noalias !77
+  %433 = getelementptr inbounds i8, ptr %419, i64 72
+  %434 = load double, ptr %433, align 8, !noalias !77
+  %435 = load <2 x double>, ptr %420, align 16, !noalias !77
+  %436 = extractelement <2 x double> %435, i64 0
+  %437 = fmul double %436, %432
+  %438 = extractelement <2 x double> %435, i64 1
+  %439 = fmul double %438, %434
+  %440 = load <2 x double>, ptr %419, align 8, !noalias !77
+  %441 = insertelement <2 x double> %440, double %422, i64 1
+  %442 = fmul <2 x double> %441, %435
+  %443 = shufflevector <2 x double> %435, <2 x double> poison, <2 x i32> zeroinitializer
+  %444 = shufflevector <2 x double> %440, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %445 = insertelement <2 x double> %444, double %422, i64 1
+  %446 = fmul <2 x double> %443, %445
+  %447 = shufflevector <2 x double> %435, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %448 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %440, <2 x double> %447, <2 x double> %446)
+  store <2 x double> %442, ptr %43, align 16, !alias.scope !77
+  store <2 x double> %448, ptr %.sroa.3.0..sroa_idx.i336, align 16, !alias.scope !77
+  %449 = load <2 x double>, ptr %423, align 16, !noalias !77
+  %450 = shufflevector <2 x double> %449, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %451 = extractelement <2 x double> %449, i64 0
+  %452 = fmul double %451, %427
+  %453 = extractelement <2 x double> %449, i64 1
+  %454 = call double @llvm.fmuladd.f64(double %425, double %453, double %452)
+  %455 = fmul double %451, %432
+  %456 = fmul double %453, %434
+  %457 = insertelement <2 x double> poison, double %425, i64 0
+  %458 = insertelement <2 x double> %457, double %427, i64 1
+  %459 = fmul <2 x double> %443, %458
+  %460 = shufflevector <2 x double> %440, <2 x double> poison, <2 x i32> zeroinitializer
+  %461 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %460, <2 x double> %449, <2 x double> %459)
+  store <2 x double> %461, ptr %.sroa.5.0..sroa_idx.i338, align 16, !alias.scope !77
+  %462 = insertelement <2 x double> poison, double %429, i64 0
+  %463 = insertelement <2 x double> poison, double %422, i64 0
+  %464 = shufflevector <2 x double> %463, <2 x double> poison, <2 x i32> zeroinitializer
+  %465 = fmul <2 x double> %447, %458
+  %466 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %444, <2 x double> %449, <2 x double> %465)
+  %467 = shufflevector <2 x double> %449, <2 x double> %435, <2 x i32> <i32 0, i32 2>
+  %468 = insertelement <2 x double> poison, double %437, i64 0
+  %469 = insertelement <2 x double> %468, double %454, i64 1
+  %470 = insertelement <2 x double> poison, double %434, i64 0
+  %471 = insertelement <2 x double> %470, double %432, i64 1
+  %472 = fmul <2 x double> %435, %471
+  %473 = insertelement <2 x double> poison, double %427, i64 0
+  %474 = insertelement <2 x double> %473, double %429, i64 1
+  %475 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %474, <2 x double> %450, <2 x double> %472)
+  store <2 x double> %475, ptr %.sroa.13.0..sroa_idx.i, align 16, !alias.scope !77
+  %476 = load <2 x double>, ptr %430, align 8, !noalias !77
+  %477 = fmul <2 x double> %449, %476
+  %478 = extractelement <2 x double> %477, i64 0
+  %479 = call double @llvm.fmuladd.f64(double %429, double %453, double %478)
+  %480 = shufflevector <2 x double> %449, <2 x double> %435, <2 x i32> <i32 1, i32 3>
+  %481 = insertelement <2 x double> poison, double %439, i64 0
+  %482 = insertelement <2 x double> %481, double %479, i64 1
+  %483 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %476, <2 x double> %480, <2 x double> %482)
+  %484 = shufflevector <2 x double> %462, <2 x double> %476, <2 x i32> <i32 0, i32 2>
+  %485 = fmul <2 x double> %447, %484
+  %486 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %464, <2 x double> %449, <2 x double> %485)
+  store <2 x double> %486, ptr %.sroa.7.0..sroa_idx.i340, align 16, !alias.scope !77
+  %487 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %484, <2 x double> %443, <2 x double> %466)
+  store <2 x double> %487, ptr %.sroa.9.0..sroa_idx.i342, align 16, !alias.scope !77
+  %488 = insertelement <2 x double> %476, double %425, i64 0
+  %489 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %488, <2 x double> %467, <2 x double> %469)
+  store <2 x double> %489, ptr %.sroa.11.0..sroa_idx.i, align 16, !alias.scope !77
+  %490 = shufflevector <2 x double> %483, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %490, ptr %.sroa.15.0..sroa_idx.i, align 16, !alias.scope !77
+  store double %455, ptr %.sroa.17.0..sroa_idx.i, align 16, !alias.scope !77
+  %491 = shufflevector <2 x double> %449, <2 x double> poison, <2 x i32> zeroinitializer
+  %492 = shufflevector <2 x double> %476, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %493 = insertelement <2 x double> %492, double %434, i64 1
+  %494 = fmul <2 x double> %491, %493
+  %495 = insertelement <2 x double> %476, double %432, i64 0
+  %496 = shufflevector <2 x double> %449, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %497 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %495, <2 x double> %496, <2 x double> %494)
+  store <2 x double> %497, ptr %.sroa.18.0..sroa_idx.i, align 8, !alias.scope !77
+  store double %456, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !77
+  br i1 %405, label %498, label %.loopexit581
 
-499:                                              ; preds = %.loopexit582
+498:                                              ; preds = %.loopexit582
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  br label %500
+  br label %499
 
-500:                                              ; preds = %500, %499
-  %indvars.iv.i.i344 = phi i64 [ 0, %499 ], [ %indvars.iv.next.i.i345, %500 ]
-  %501 = getelementptr inbounds [10 x double], ptr %374, i64 0, i64 %indvars.iv.i.i344
-  %502 = load double, ptr %501, align 8, !noalias !80
-  %503 = getelementptr inbounds [10 x double], ptr %37, i64 0, i64 %indvars.iv.i.i344
-  %504 = load double, ptr %503, align 8, !noalias !80
-  %505 = fsub double %502, %504
-  %506 = getelementptr inbounds [10 x double], ptr %46, i64 0, i64 %indvars.iv.i.i344
-  store double %505, ptr %506, align 8, !alias.scope !80
+499:                                              ; preds = %499, %498
+  %indvars.iv.i.i344 = phi i64 [ 0, %498 ], [ %indvars.iv.next.i.i345, %499 ]
+  %500 = getelementptr inbounds [10 x double], ptr %373, i64 0, i64 %indvars.iv.i.i344
+  %501 = load double, ptr %500, align 8, !noalias !80
+  %502 = getelementptr inbounds [10 x double], ptr %37, i64 0, i64 %indvars.iv.i.i344
+  %503 = load double, ptr %502, align 8, !noalias !80
+  %504 = fsub double %501, %503
+  %505 = getelementptr inbounds [10 x double], ptr %46, i64 0, i64 %indvars.iv.i.i344
+  store double %504, ptr %505, align 8, !alias.scope !80
   %indvars.iv.next.i.i345 = add nuw nsw i64 %indvars.iv.i.i344, 1
   %exitcond.not.i.i346 = icmp eq i64 %indvars.iv.next.i.i345, 10
-  br i1 %exitcond.not.i.i346, label %.loopexit581, label %500, !llvm.loop !76
+  br i1 %exitcond.not.i.i346, label %.loopexit581, label %499, !llvm.loop !76
 
-.loopexit581:                                     ; preds = %500, %.loopexit582
-  %507 = phi ptr [ %409, %.loopexit582 ], [ %46, %500 ]
-  %508 = getelementptr inbounds [3 x %"class.cv::Matx.21"], ptr %199, i64 0, i64 %indvars.iv663
+.loopexit581:                                     ; preds = %499, %.loopexit582
+  %506 = phi ptr [ %408, %.loopexit582 ], [ %46, %499 ]
+  %507 = getelementptr inbounds [3 x %"class.cv::Matx.21"], ptr %198, i64 0, i64 %indvars.iv657
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  %509 = getelementptr inbounds i8, ptr %507, i64 16
-  %510 = load double, ptr %509, align 8, !noalias !83
-  %511 = getelementptr inbounds i8, ptr %508, i64 16
-  %512 = getelementptr inbounds i8, ptr %507, i64 24
-  %513 = load double, ptr %512, align 8, !noalias !83
-  %514 = getelementptr inbounds i8, ptr %507, i64 48
-  %515 = load double, ptr %514, align 8, !noalias !83
-  %516 = getelementptr inbounds i8, ptr %507, i64 32
-  %517 = load double, ptr %516, align 8, !noalias !83
-  %518 = getelementptr inbounds i8, ptr %507, i64 56
-  %519 = getelementptr inbounds i8, ptr %507, i64 40
-  %520 = load double, ptr %519, align 8, !noalias !83
-  %521 = getelementptr inbounds i8, ptr %507, i64 72
-  %522 = load double, ptr %521, align 8, !noalias !83
-  %523 = load <2 x double>, ptr %508, align 16, !noalias !83
-  %524 = extractelement <2 x double> %523, i64 0
-  %525 = fmul double %524, %520
-  %526 = extractelement <2 x double> %523, i64 1
-  %527 = fmul double %526, %522
-  %528 = load <2 x double>, ptr %507, align 8, !noalias !83
-  %529 = insertelement <2 x double> %528, double %510, i64 1
-  %530 = fmul <2 x double> %529, %523
-  %531 = shufflevector <2 x double> %523, <2 x double> poison, <2 x i32> zeroinitializer
-  %532 = shufflevector <2 x double> %528, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %533 = insertelement <2 x double> %532, double %510, i64 1
-  %534 = fmul <2 x double> %531, %533
-  %535 = shufflevector <2 x double> %523, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %536 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %528, <2 x double> %535, <2 x double> %534)
-  store <2 x double> %530, ptr %45, align 16, !alias.scope !83
-  store <2 x double> %536, ptr %.sroa.3.0..sroa_idx.i349, align 16, !alias.scope !83
-  %537 = load <2 x double>, ptr %511, align 16, !noalias !83
-  %538 = shufflevector <2 x double> %537, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %539 = extractelement <2 x double> %537, i64 0
-  %540 = fmul double %539, %515
-  %541 = extractelement <2 x double> %537, i64 1
-  %542 = call double @llvm.fmuladd.f64(double %513, double %541, double %540)
-  %543 = fmul double %539, %520
-  %544 = fmul double %541, %522
-  %545 = insertelement <2 x double> poison, double %513, i64 0
-  %546 = insertelement <2 x double> %545, double %515, i64 1
-  %547 = fmul <2 x double> %531, %546
-  %548 = shufflevector <2 x double> %528, <2 x double> poison, <2 x i32> zeroinitializer
-  %549 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %548, <2 x double> %537, <2 x double> %547)
-  store <2 x double> %549, ptr %.sroa.5.0..sroa_idx.i351, align 16, !alias.scope !83
-  %550 = insertelement <2 x double> poison, double %517, i64 0
-  %551 = insertelement <2 x double> poison, double %510, i64 0
-  %552 = shufflevector <2 x double> %551, <2 x double> poison, <2 x i32> zeroinitializer
-  %553 = fmul <2 x double> %535, %546
-  %554 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %532, <2 x double> %537, <2 x double> %553)
-  %555 = shufflevector <2 x double> %537, <2 x double> %523, <2 x i32> <i32 0, i32 2>
-  %556 = insertelement <2 x double> poison, double %525, i64 0
-  %557 = insertelement <2 x double> %556, double %542, i64 1
-  %558 = insertelement <2 x double> poison, double %522, i64 0
-  %559 = insertelement <2 x double> %558, double %520, i64 1
-  %560 = fmul <2 x double> %523, %559
-  %561 = insertelement <2 x double> poison, double %515, i64 0
-  %562 = insertelement <2 x double> %561, double %517, i64 1
-  %563 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %562, <2 x double> %538, <2 x double> %560)
-  store <2 x double> %563, ptr %.sroa.13.0..sroa_idx.i359, align 16, !alias.scope !83
-  %564 = load <2 x double>, ptr %518, align 8, !noalias !83
-  %565 = fmul <2 x double> %537, %564
-  %566 = extractelement <2 x double> %565, i64 0
-  %567 = call double @llvm.fmuladd.f64(double %517, double %541, double %566)
-  %568 = shufflevector <2 x double> %537, <2 x double> %523, <2 x i32> <i32 1, i32 3>
-  %569 = insertelement <2 x double> poison, double %527, i64 0
-  %570 = insertelement <2 x double> %569, double %567, i64 1
-  %571 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %564, <2 x double> %568, <2 x double> %570)
-  %572 = shufflevector <2 x double> %550, <2 x double> %564, <2 x i32> <i32 0, i32 2>
-  %573 = fmul <2 x double> %535, %572
-  %574 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %552, <2 x double> %537, <2 x double> %573)
-  store <2 x double> %574, ptr %.sroa.7.0..sroa_idx.i353, align 16, !alias.scope !83
-  %575 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %572, <2 x double> %531, <2 x double> %554)
-  store <2 x double> %575, ptr %.sroa.9.0..sroa_idx.i355, align 16, !alias.scope !83
-  %576 = insertelement <2 x double> %564, double %513, i64 0
-  %577 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %576, <2 x double> %555, <2 x double> %557)
-  store <2 x double> %577, ptr %.sroa.11.0..sroa_idx.i357, align 16, !alias.scope !83
-  %578 = shufflevector <2 x double> %571, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %578, ptr %.sroa.15.0..sroa_idx.i361, align 16, !alias.scope !83
-  store double %543, ptr %.sroa.17.0..sroa_idx.i363, align 16, !alias.scope !83
-  %579 = shufflevector <2 x double> %537, <2 x double> poison, <2 x i32> zeroinitializer
-  %580 = shufflevector <2 x double> %564, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %581 = insertelement <2 x double> %580, double %522, i64 1
-  %582 = fmul <2 x double> %579, %581
-  %583 = insertelement <2 x double> %564, double %520, i64 0
-  %584 = shufflevector <2 x double> %537, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %585 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %583, <2 x double> %584, <2 x double> %582)
-  store <2 x double> %585, ptr %.sroa.18.0..sroa_idx.i364, align 8, !alias.scope !83
-  store double %544, ptr %.sroa.20.0..sroa_idx.i366, align 8, !alias.scope !83
+  %508 = getelementptr inbounds i8, ptr %506, i64 16
+  %509 = load double, ptr %508, align 8, !noalias !83
+  %510 = getelementptr inbounds i8, ptr %507, i64 16
+  %511 = getelementptr inbounds i8, ptr %506, i64 24
+  %512 = load double, ptr %511, align 8, !noalias !83
+  %513 = getelementptr inbounds i8, ptr %506, i64 48
+  %514 = load double, ptr %513, align 8, !noalias !83
+  %515 = getelementptr inbounds i8, ptr %506, i64 32
+  %516 = load double, ptr %515, align 8, !noalias !83
+  %517 = getelementptr inbounds i8, ptr %506, i64 56
+  %518 = getelementptr inbounds i8, ptr %506, i64 40
+  %519 = load double, ptr %518, align 8, !noalias !83
+  %520 = getelementptr inbounds i8, ptr %506, i64 72
+  %521 = load double, ptr %520, align 8, !noalias !83
+  %522 = load <2 x double>, ptr %507, align 16, !noalias !83
+  %523 = extractelement <2 x double> %522, i64 0
+  %524 = fmul double %523, %519
+  %525 = extractelement <2 x double> %522, i64 1
+  %526 = fmul double %525, %521
+  %527 = load <2 x double>, ptr %506, align 8, !noalias !83
+  %528 = insertelement <2 x double> %527, double %509, i64 1
+  %529 = fmul <2 x double> %528, %522
+  %530 = shufflevector <2 x double> %522, <2 x double> poison, <2 x i32> zeroinitializer
+  %531 = shufflevector <2 x double> %527, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %532 = insertelement <2 x double> %531, double %509, i64 1
+  %533 = fmul <2 x double> %530, %532
+  %534 = shufflevector <2 x double> %522, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %535 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %527, <2 x double> %534, <2 x double> %533)
+  store <2 x double> %529, ptr %45, align 16, !alias.scope !83
+  store <2 x double> %535, ptr %.sroa.3.0..sroa_idx.i349, align 16, !alias.scope !83
+  %536 = load <2 x double>, ptr %510, align 16, !noalias !83
+  %537 = shufflevector <2 x double> %536, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %538 = extractelement <2 x double> %536, i64 0
+  %539 = fmul double %538, %514
+  %540 = extractelement <2 x double> %536, i64 1
+  %541 = call double @llvm.fmuladd.f64(double %512, double %540, double %539)
+  %542 = fmul double %538, %519
+  %543 = fmul double %540, %521
+  %544 = insertelement <2 x double> poison, double %512, i64 0
+  %545 = insertelement <2 x double> %544, double %514, i64 1
+  %546 = fmul <2 x double> %530, %545
+  %547 = shufflevector <2 x double> %527, <2 x double> poison, <2 x i32> zeroinitializer
+  %548 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %547, <2 x double> %536, <2 x double> %546)
+  store <2 x double> %548, ptr %.sroa.5.0..sroa_idx.i351, align 16, !alias.scope !83
+  %549 = insertelement <2 x double> poison, double %516, i64 0
+  %550 = insertelement <2 x double> poison, double %509, i64 0
+  %551 = shufflevector <2 x double> %550, <2 x double> poison, <2 x i32> zeroinitializer
+  %552 = fmul <2 x double> %534, %545
+  %553 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %531, <2 x double> %536, <2 x double> %552)
+  %554 = shufflevector <2 x double> %536, <2 x double> %522, <2 x i32> <i32 0, i32 2>
+  %555 = insertelement <2 x double> poison, double %524, i64 0
+  %556 = insertelement <2 x double> %555, double %541, i64 1
+  %557 = insertelement <2 x double> poison, double %521, i64 0
+  %558 = insertelement <2 x double> %557, double %519, i64 1
+  %559 = fmul <2 x double> %522, %558
+  %560 = insertelement <2 x double> poison, double %514, i64 0
+  %561 = insertelement <2 x double> %560, double %516, i64 1
+  %562 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %561, <2 x double> %537, <2 x double> %559)
+  store <2 x double> %562, ptr %.sroa.13.0..sroa_idx.i359, align 16, !alias.scope !83
+  %563 = load <2 x double>, ptr %517, align 8, !noalias !83
+  %564 = fmul <2 x double> %536, %563
+  %565 = extractelement <2 x double> %564, i64 0
+  %566 = call double @llvm.fmuladd.f64(double %516, double %540, double %565)
+  %567 = shufflevector <2 x double> %536, <2 x double> %522, <2 x i32> <i32 1, i32 3>
+  %568 = insertelement <2 x double> poison, double %526, i64 0
+  %569 = insertelement <2 x double> %568, double %566, i64 1
+  %570 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %563, <2 x double> %567, <2 x double> %569)
+  %571 = shufflevector <2 x double> %549, <2 x double> %563, <2 x i32> <i32 0, i32 2>
+  %572 = fmul <2 x double> %534, %571
+  %573 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %551, <2 x double> %536, <2 x double> %572)
+  store <2 x double> %573, ptr %.sroa.7.0..sroa_idx.i353, align 16, !alias.scope !83
+  %574 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %571, <2 x double> %530, <2 x double> %553)
+  store <2 x double> %574, ptr %.sroa.9.0..sroa_idx.i355, align 16, !alias.scope !83
+  %575 = insertelement <2 x double> %563, double %512, i64 0
+  %576 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %575, <2 x double> %554, <2 x double> %556)
+  store <2 x double> %576, ptr %.sroa.11.0..sroa_idx.i357, align 16, !alias.scope !83
+  %577 = shufflevector <2 x double> %570, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %577, ptr %.sroa.15.0..sroa_idx.i361, align 16, !alias.scope !83
+  store double %542, ptr %.sroa.17.0..sroa_idx.i363, align 16, !alias.scope !83
+  %578 = shufflevector <2 x double> %536, <2 x double> poison, <2 x i32> zeroinitializer
+  %579 = shufflevector <2 x double> %563, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %580 = insertelement <2 x double> %579, double %521, i64 1
+  %581 = fmul <2 x double> %578, %580
+  %582 = insertelement <2 x double> %563, double %519, i64 0
+  %583 = shufflevector <2 x double> %536, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %584 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %582, <2 x double> %583, <2 x double> %581)
+  store <2 x double> %584, ptr %.sroa.18.0..sroa_idx.i364, align 8, !alias.scope !83
+  store double %543, ptr %.sroa.20.0..sroa_idx.i366, align 8, !alias.scope !83
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  br label %586
+  br label %585
 
-586:                                              ; preds = %586, %.loopexit581
-  %indvars.iv.i.i367 = phi i64 [ 0, %.loopexit581 ], [ %indvars.iv.next.i.i368, %586 ]
-  %587 = getelementptr inbounds [20 x double], ptr %43, i64 0, i64 %indvars.iv.i.i367
-  %588 = load double, ptr %587, align 8, !noalias !86
-  %589 = getelementptr inbounds [20 x double], ptr %45, i64 0, i64 %indvars.iv.i.i367
-  %590 = load double, ptr %589, align 8, !noalias !86
-  %591 = fadd double %588, %590
-  %592 = getelementptr inbounds [20 x double], ptr %42, i64 0, i64 %indvars.iv.i.i367
-  store double %591, ptr %592, align 8, !alias.scope !86
+585:                                              ; preds = %585, %.loopexit581
+  %indvars.iv.i.i367 = phi i64 [ 0, %.loopexit581 ], [ %indvars.iv.next.i.i368, %585 ]
+  %586 = getelementptr inbounds [20 x double], ptr %43, i64 0, i64 %indvars.iv.i.i367
+  %587 = load double, ptr %586, align 8, !noalias !86
+  %588 = getelementptr inbounds [20 x double], ptr %45, i64 0, i64 %indvars.iv.i.i367
+  %589 = load double, ptr %588, align 8, !noalias !86
+  %590 = fadd double %587, %589
+  %591 = getelementptr inbounds [20 x double], ptr %42, i64 0, i64 %indvars.iv.i.i367
+  store double %590, ptr %591, align 8, !alias.scope !86
   %indvars.iv.next.i.i368 = add nuw nsw i64 %indvars.iv.i.i367, 1
   %exitcond.not.i.i369 = icmp eq i64 %indvars.iv.next.i.i368, 20
-  br i1 %exitcond.not.i.i369, label %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit, label %586, !llvm.loop !89
+  br i1 %exitcond.not.i.i369, label %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit, label %585, !llvm.loop !89
 
-_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit: ; preds = %586
-  br i1 %407, label %593, label %.loopexit580
+_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit: ; preds = %585
+  br i1 %406, label %592, label %.loopexit580
 
-593:                                              ; preds = %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit
+592:                                              ; preds = %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  br label %594
+  br label %593
 
-594:                                              ; preds = %594, %593
-  %indvars.iv.i.i370 = phi i64 [ 0, %593 ], [ %indvars.iv.next.i.i371, %594 ]
-  %595 = getelementptr inbounds [10 x double], ptr %382, i64 0, i64 %indvars.iv.i.i370
-  %596 = load double, ptr %595, align 8, !noalias !90
-  %597 = getelementptr inbounds [10 x double], ptr %37, i64 0, i64 %indvars.iv.i.i370
-  %598 = load double, ptr %597, align 8, !noalias !90
-  %599 = fsub double %596, %598
-  %600 = getelementptr inbounds [10 x double], ptr %48, i64 0, i64 %indvars.iv.i.i370
-  store double %599, ptr %600, align 8, !alias.scope !90
+593:                                              ; preds = %593, %592
+  %indvars.iv.i.i370 = phi i64 [ 0, %592 ], [ %indvars.iv.next.i.i371, %593 ]
+  %594 = getelementptr inbounds [10 x double], ptr %381, i64 0, i64 %indvars.iv.i.i370
+  %595 = load double, ptr %594, align 8, !noalias !90
+  %596 = getelementptr inbounds [10 x double], ptr %37, i64 0, i64 %indvars.iv.i.i370
+  %597 = load double, ptr %596, align 8, !noalias !90
+  %598 = fsub double %595, %597
+  %599 = getelementptr inbounds [10 x double], ptr %48, i64 0, i64 %indvars.iv.i.i370
+  store double %598, ptr %599, align 8, !alias.scope !90
   %indvars.iv.next.i.i371 = add nuw nsw i64 %indvars.iv.i.i370, 1
   %exitcond.not.i.i372 = icmp eq i64 %indvars.iv.next.i.i371, 10
-  br i1 %exitcond.not.i.i372, label %.loopexit580, label %594, !llvm.loop !76
+  br i1 %exitcond.not.i.i372, label %.loopexit580, label %593, !llvm.loop !76
 
-.loopexit580:                                     ; preds = %594, %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit
-  %601 = phi ptr [ %410, %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit ], [ %48, %594 ]
-  %602 = getelementptr inbounds [3 x %"class.cv::Matx.21"], ptr %220, i64 0, i64 %indvars.iv663
+.loopexit580:                                     ; preds = %593, %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit
+  %600 = phi ptr [ %409, %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit ], [ %48, %593 ]
+  %601 = getelementptr inbounds [3 x %"class.cv::Matx.21"], ptr %219, i64 0, i64 %indvars.iv657
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  %603 = getelementptr inbounds i8, ptr %601, i64 16
-  %604 = load double, ptr %603, align 8, !noalias !93
-  %605 = getelementptr inbounds i8, ptr %602, i64 16
-  %606 = getelementptr inbounds i8, ptr %601, i64 24
-  %607 = load double, ptr %606, align 8, !noalias !93
-  %608 = getelementptr inbounds i8, ptr %601, i64 48
-  %609 = load double, ptr %608, align 8, !noalias !93
-  %610 = getelementptr inbounds i8, ptr %601, i64 32
-  %611 = load double, ptr %610, align 8, !noalias !93
-  %612 = getelementptr inbounds i8, ptr %601, i64 56
-  %613 = getelementptr inbounds i8, ptr %601, i64 40
-  %614 = load double, ptr %613, align 8, !noalias !93
-  %615 = getelementptr inbounds i8, ptr %601, i64 72
-  %616 = load double, ptr %615, align 8, !noalias !93
-  %617 = load <2 x double>, ptr %602, align 16, !noalias !93
-  %618 = extractelement <2 x double> %617, i64 0
-  %619 = fmul double %618, %614
-  %620 = extractelement <2 x double> %617, i64 1
-  %621 = fmul double %620, %616
-  %622 = load <2 x double>, ptr %601, align 8, !noalias !93
-  %623 = insertelement <2 x double> %622, double %604, i64 1
-  %624 = fmul <2 x double> %623, %617
-  %625 = shufflevector <2 x double> %617, <2 x double> poison, <2 x i32> zeroinitializer
-  %626 = shufflevector <2 x double> %622, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %627 = insertelement <2 x double> %626, double %604, i64 1
-  %628 = fmul <2 x double> %625, %627
-  %629 = shufflevector <2 x double> %617, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %630 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %622, <2 x double> %629, <2 x double> %628)
-  store <2 x double> %624, ptr %47, align 16, !alias.scope !93
-  store <2 x double> %630, ptr %.sroa.3.0..sroa_idx.i375, align 16, !alias.scope !93
-  %631 = load <2 x double>, ptr %605, align 16, !noalias !93
-  %632 = shufflevector <2 x double> %631, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %633 = extractelement <2 x double> %631, i64 0
-  %634 = fmul double %633, %609
-  %635 = extractelement <2 x double> %631, i64 1
-  %636 = call double @llvm.fmuladd.f64(double %607, double %635, double %634)
-  %637 = fmul double %633, %614
-  %638 = fmul double %635, %616
-  %639 = insertelement <2 x double> poison, double %607, i64 0
-  %640 = insertelement <2 x double> %639, double %609, i64 1
-  %641 = fmul <2 x double> %625, %640
-  %642 = shufflevector <2 x double> %622, <2 x double> poison, <2 x i32> zeroinitializer
-  %643 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %642, <2 x double> %631, <2 x double> %641)
-  store <2 x double> %643, ptr %.sroa.5.0..sroa_idx.i377, align 16, !alias.scope !93
-  %644 = insertelement <2 x double> poison, double %611, i64 0
-  %645 = insertelement <2 x double> poison, double %604, i64 0
-  %646 = shufflevector <2 x double> %645, <2 x double> poison, <2 x i32> zeroinitializer
-  %647 = fmul <2 x double> %629, %640
-  %648 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %626, <2 x double> %631, <2 x double> %647)
-  %649 = shufflevector <2 x double> %631, <2 x double> %617, <2 x i32> <i32 0, i32 2>
-  %650 = insertelement <2 x double> poison, double %619, i64 0
-  %651 = insertelement <2 x double> %650, double %636, i64 1
-  %652 = insertelement <2 x double> poison, double %616, i64 0
-  %653 = insertelement <2 x double> %652, double %614, i64 1
-  %654 = fmul <2 x double> %617, %653
-  %655 = insertelement <2 x double> poison, double %609, i64 0
-  %656 = insertelement <2 x double> %655, double %611, i64 1
-  %657 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %656, <2 x double> %632, <2 x double> %654)
-  store <2 x double> %657, ptr %.sroa.13.0..sroa_idx.i385, align 16, !alias.scope !93
-  %658 = load <2 x double>, ptr %612, align 8, !noalias !93
-  %659 = fmul <2 x double> %631, %658
-  %660 = extractelement <2 x double> %659, i64 0
-  %661 = call double @llvm.fmuladd.f64(double %611, double %635, double %660)
-  %662 = shufflevector <2 x double> %631, <2 x double> %617, <2 x i32> <i32 1, i32 3>
-  %663 = insertelement <2 x double> poison, double %621, i64 0
-  %664 = insertelement <2 x double> %663, double %661, i64 1
-  %665 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %658, <2 x double> %662, <2 x double> %664)
-  %666 = shufflevector <2 x double> %644, <2 x double> %658, <2 x i32> <i32 0, i32 2>
-  %667 = fmul <2 x double> %629, %666
-  %668 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %646, <2 x double> %631, <2 x double> %667)
-  store <2 x double> %668, ptr %.sroa.7.0..sroa_idx.i379, align 16, !alias.scope !93
-  %669 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %666, <2 x double> %625, <2 x double> %648)
-  store <2 x double> %669, ptr %.sroa.9.0..sroa_idx.i381, align 16, !alias.scope !93
-  %670 = insertelement <2 x double> %658, double %607, i64 0
-  %671 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %670, <2 x double> %649, <2 x double> %651)
-  store <2 x double> %671, ptr %.sroa.11.0..sroa_idx.i383, align 16, !alias.scope !93
-  %672 = shufflevector <2 x double> %665, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %672, ptr %.sroa.15.0..sroa_idx.i387, align 16, !alias.scope !93
-  store double %637, ptr %.sroa.17.0..sroa_idx.i389, align 16, !alias.scope !93
-  %673 = shufflevector <2 x double> %631, <2 x double> poison, <2 x i32> zeroinitializer
-  %674 = shufflevector <2 x double> %658, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %675 = insertelement <2 x double> %674, double %616, i64 1
-  %676 = fmul <2 x double> %673, %675
-  %677 = insertelement <2 x double> %658, double %614, i64 0
-  %678 = shufflevector <2 x double> %631, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %679 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %677, <2 x double> %678, <2 x double> %676)
-  store <2 x double> %679, ptr %.sroa.18.0..sroa_idx.i390, align 8, !alias.scope !93
-  store double %638, ptr %.sroa.20.0..sroa_idx.i392, align 8, !alias.scope !93
+  %602 = getelementptr inbounds i8, ptr %600, i64 16
+  %603 = load double, ptr %602, align 8, !noalias !93
+  %604 = getelementptr inbounds i8, ptr %601, i64 16
+  %605 = getelementptr inbounds i8, ptr %600, i64 24
+  %606 = load double, ptr %605, align 8, !noalias !93
+  %607 = getelementptr inbounds i8, ptr %600, i64 48
+  %608 = load double, ptr %607, align 8, !noalias !93
+  %609 = getelementptr inbounds i8, ptr %600, i64 32
+  %610 = load double, ptr %609, align 8, !noalias !93
+  %611 = getelementptr inbounds i8, ptr %600, i64 56
+  %612 = getelementptr inbounds i8, ptr %600, i64 40
+  %613 = load double, ptr %612, align 8, !noalias !93
+  %614 = getelementptr inbounds i8, ptr %600, i64 72
+  %615 = load double, ptr %614, align 8, !noalias !93
+  %616 = load <2 x double>, ptr %601, align 16, !noalias !93
+  %617 = extractelement <2 x double> %616, i64 0
+  %618 = fmul double %617, %613
+  %619 = extractelement <2 x double> %616, i64 1
+  %620 = fmul double %619, %615
+  %621 = load <2 x double>, ptr %600, align 8, !noalias !93
+  %622 = insertelement <2 x double> %621, double %603, i64 1
+  %623 = fmul <2 x double> %622, %616
+  %624 = shufflevector <2 x double> %616, <2 x double> poison, <2 x i32> zeroinitializer
+  %625 = shufflevector <2 x double> %621, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %626 = insertelement <2 x double> %625, double %603, i64 1
+  %627 = fmul <2 x double> %624, %626
+  %628 = shufflevector <2 x double> %616, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %629 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %621, <2 x double> %628, <2 x double> %627)
+  store <2 x double> %623, ptr %47, align 16, !alias.scope !93
+  store <2 x double> %629, ptr %.sroa.3.0..sroa_idx.i375, align 16, !alias.scope !93
+  %630 = load <2 x double>, ptr %604, align 16, !noalias !93
+  %631 = shufflevector <2 x double> %630, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %632 = extractelement <2 x double> %630, i64 0
+  %633 = fmul double %632, %608
+  %634 = extractelement <2 x double> %630, i64 1
+  %635 = call double @llvm.fmuladd.f64(double %606, double %634, double %633)
+  %636 = fmul double %632, %613
+  %637 = fmul double %634, %615
+  %638 = insertelement <2 x double> poison, double %606, i64 0
+  %639 = insertelement <2 x double> %638, double %608, i64 1
+  %640 = fmul <2 x double> %624, %639
+  %641 = shufflevector <2 x double> %621, <2 x double> poison, <2 x i32> zeroinitializer
+  %642 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %641, <2 x double> %630, <2 x double> %640)
+  store <2 x double> %642, ptr %.sroa.5.0..sroa_idx.i377, align 16, !alias.scope !93
+  %643 = insertelement <2 x double> poison, double %610, i64 0
+  %644 = insertelement <2 x double> poison, double %603, i64 0
+  %645 = shufflevector <2 x double> %644, <2 x double> poison, <2 x i32> zeroinitializer
+  %646 = fmul <2 x double> %628, %639
+  %647 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %625, <2 x double> %630, <2 x double> %646)
+  %648 = shufflevector <2 x double> %630, <2 x double> %616, <2 x i32> <i32 0, i32 2>
+  %649 = insertelement <2 x double> poison, double %618, i64 0
+  %650 = insertelement <2 x double> %649, double %635, i64 1
+  %651 = insertelement <2 x double> poison, double %615, i64 0
+  %652 = insertelement <2 x double> %651, double %613, i64 1
+  %653 = fmul <2 x double> %616, %652
+  %654 = insertelement <2 x double> poison, double %608, i64 0
+  %655 = insertelement <2 x double> %654, double %610, i64 1
+  %656 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %655, <2 x double> %631, <2 x double> %653)
+  store <2 x double> %656, ptr %.sroa.13.0..sroa_idx.i385, align 16, !alias.scope !93
+  %657 = load <2 x double>, ptr %611, align 8, !noalias !93
+  %658 = fmul <2 x double> %630, %657
+  %659 = extractelement <2 x double> %658, i64 0
+  %660 = call double @llvm.fmuladd.f64(double %610, double %634, double %659)
+  %661 = shufflevector <2 x double> %630, <2 x double> %616, <2 x i32> <i32 1, i32 3>
+  %662 = insertelement <2 x double> poison, double %620, i64 0
+  %663 = insertelement <2 x double> %662, double %660, i64 1
+  %664 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %657, <2 x double> %661, <2 x double> %663)
+  %665 = shufflevector <2 x double> %643, <2 x double> %657, <2 x i32> <i32 0, i32 2>
+  %666 = fmul <2 x double> %628, %665
+  %667 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %645, <2 x double> %630, <2 x double> %666)
+  store <2 x double> %667, ptr %.sroa.7.0..sroa_idx.i379, align 16, !alias.scope !93
+  %668 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %665, <2 x double> %624, <2 x double> %647)
+  store <2 x double> %668, ptr %.sroa.9.0..sroa_idx.i381, align 16, !alias.scope !93
+  %669 = insertelement <2 x double> %657, double %606, i64 0
+  %670 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %669, <2 x double> %648, <2 x double> %650)
+  store <2 x double> %670, ptr %.sroa.11.0..sroa_idx.i383, align 16, !alias.scope !93
+  %671 = shufflevector <2 x double> %664, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %671, ptr %.sroa.15.0..sroa_idx.i387, align 16, !alias.scope !93
+  store double %636, ptr %.sroa.17.0..sroa_idx.i389, align 16, !alias.scope !93
+  %672 = shufflevector <2 x double> %630, <2 x double> poison, <2 x i32> zeroinitializer
+  %673 = shufflevector <2 x double> %657, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %674 = insertelement <2 x double> %673, double %615, i64 1
+  %675 = fmul <2 x double> %672, %674
+  %676 = insertelement <2 x double> %657, double %613, i64 0
+  %677 = shufflevector <2 x double> %630, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %678 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %676, <2 x double> %677, <2 x double> %675)
+  store <2 x double> %678, ptr %.sroa.18.0..sroa_idx.i390, align 8, !alias.scope !93
+  store double %637, ptr %.sroa.20.0..sroa_idx.i392, align 8, !alias.scope !93
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  br label %680
+  br label %679
 
-680:                                              ; preds = %680, %.loopexit580
-  %indvars.iv.i.i393 = phi i64 [ 0, %.loopexit580 ], [ %indvars.iv.next.i.i394, %680 ]
-  %681 = getelementptr inbounds [20 x double], ptr %42, i64 0, i64 %indvars.iv.i.i393
-  %682 = load double, ptr %681, align 8, !noalias !96
-  %683 = getelementptr inbounds [20 x double], ptr %47, i64 0, i64 %indvars.iv.i.i393
-  %684 = load double, ptr %683, align 8, !noalias !96
-  %685 = fadd double %682, %684
-  %686 = getelementptr inbounds [20 x double], ptr %41, i64 0, i64 %indvars.iv.i.i393
-  store double %685, ptr %686, align 8, !alias.scope !96
+679:                                              ; preds = %679, %.loopexit580
+  %indvars.iv.i.i393 = phi i64 [ 0, %.loopexit580 ], [ %indvars.iv.next.i.i394, %679 ]
+  %680 = getelementptr inbounds [20 x double], ptr %42, i64 0, i64 %indvars.iv.i.i393
+  %681 = load double, ptr %680, align 8, !noalias !96
+  %682 = getelementptr inbounds [20 x double], ptr %47, i64 0, i64 %indvars.iv.i.i393
+  %683 = load double, ptr %682, align 8, !noalias !96
+  %684 = fadd double %681, %683
+  %685 = getelementptr inbounds [20 x double], ptr %41, i64 0, i64 %indvars.iv.i.i393
+  store double %684, ptr %685, align 8, !alias.scope !96
   %indvars.iv.next.i.i394 = add nuw nsw i64 %indvars.iv.i.i393, 1
   %exitcond.not.i.i395 = icmp eq i64 %indvars.iv.next.i.i394, 20
-  br i1 %exitcond.not.i.i395, label %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit396, label %680, !llvm.loop !89
+  br i1 %exitcond.not.i.i395, label %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit396, label %679, !llvm.loop !89
 
-_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit396: ; preds = %680
+_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit396: ; preds = %679
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   store <4 x i32> <i32 1124024326, i32 2, i32 1, i32 20>, ptr %40, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %396, i8 0, i64 48, i1 false)
-  store ptr %395, ptr %397, align 16
-  store ptr %399, ptr %398, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %399, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %395, i8 0, i64 48, i1 false)
+  store ptr %394, ptr %396, align 16
+  store ptr %398, ptr %397, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %398, i8 0, i64 16, i1 false)
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %16, i32 noundef 1, i32 noundef 20, i32 noundef 6, ptr noundef nonnull %41, i64 noundef 0)
           to label %.noexc unwind label %.loopexit584
 
 .noexc:                                           ; preds = %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit396
-  store i64 0, ptr %401, align 8
+  store i64 0, ptr %400, align 8
   store i32 33619968, ptr %17, align 8
-  store ptr %40, ptr %400, align 8
+  store ptr %40, ptr %399, align 8
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %689 unwind label %687
+          to label %688 unwind label %686
 
-687:                                              ; preds = %.noexc
-  %688 = landingpad { ptr, i32 }
+686:                                              ; preds = %.noexc
+  %687 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #19
   br label %.body
 
-689:                                              ; preds = %.noexc
+688:                                              ; preds = %.noexc
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %690 = mul nuw nsw i64 %indvars.iv663, 3
-  %691 = add nuw nsw i64 %indvars.iv.next668, %690
+  %689 = mul nuw nsw i64 %indvars.iv657, 3
+  %690 = add nuw nsw i64 %indvars.iv.next662, %689
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %692 = trunc nuw nsw i64 %691 to i32
-  store i32 %692, ptr %14, align 4, !noalias !99
-  %693 = trunc i64 %691 to i32
-  %694 = add i32 %693, 1
-  store i32 %694, ptr %402, align 4, !noalias !99
+  %691 = trunc nuw nsw i64 %690 to i32
+  store i32 %691, ptr %14, align 4, !noalias !99
+  %692 = trunc i64 %690 to i32
+  %693 = add i32 %692, 1
+  store i32 %693, ptr %401, align 4, !noalias !99
   store i64 9223372034707292160, ptr %15, align 8, !noalias !99
   invoke void @_ZN2cv3MatC2ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %50, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %15)
-          to label %695 unwind label %697
+          to label %694 unwind label %696
 
-695:                                              ; preds = %689
+694:                                              ; preds = %688
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  store i64 0, ptr %404, align 8
+  store i64 0, ptr %403, align 8
   store i32 -1040121850, ptr %49, align 8
-  store ptr %50, ptr %403, align 8
+  store ptr %50, ptr %402, align 8
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull align 8 dereferenceable(24) %49)
-          to label %696 unwind label %699
+          to label %695 unwind label %698
 
-696:                                              ; preds = %695
+695:                                              ; preds = %694
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %50) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #19
-  %indvars.iv.next664 = add nuw nsw i64 %indvars.iv663, 1
-  %exitcond666.not = icmp eq i64 %indvars.iv.next664, 3
-  br i1 %exitcond666.not, label %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit, label %411, !llvm.loop !102
+  %indvars.iv.next658 = add nuw nsw i64 %indvars.iv657, 1
+  %exitcond660.not = icmp eq i64 %indvars.iv.next658, 3
+  br i1 %exitcond660.not, label %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit, label %410, !llvm.loop !102
 
-697:                                              ; preds = %689
-  %698 = landingpad { ptr, i32 }
+696:                                              ; preds = %688
+  %697 = landingpad { ptr, i32 }
           cleanup
-  br label %701
+  br label %700
 
-699:                                              ; preds = %695
-  %700 = landingpad { ptr, i32 }
+698:                                              ; preds = %694
+  %699 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %50) #19
-  br label %701
+  br label %700
 
-701:                                              ; preds = %699, %697
-  %.pn254.pn = phi { ptr, i32 } [ %700, %699 ], [ %698, %697 ]
+700:                                              ; preds = %698, %696
+  %.pn254.pn = phi { ptr, i32 } [ %699, %698 ], [ %697, %696 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #19
   br label %.body
 
-_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %696
-  %exitcond670.not = icmp eq i64 %indvars.iv.next668, 3
-  br i1 %exitcond670.not, label %702, label %.preheader583, !llvm.loop !103
+_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %695
+  %exitcond664.not = icmp eq i64 %indvars.iv.next662, 3
+  br i1 %exitcond664.not, label %701, label %.preheader583, !llvm.loop !103
 
-702:                                              ; preds = %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit
-  %703 = load <2 x double>, ptr %213, align 16, !noalias !104
-  %704 = load <2 x double>, ptr %185, align 16, !noalias !104
-  %705 = extractelement <2 x double> %704, i64 0
-  %706 = extractelement <2 x double> %703, i64 0
-  %707 = fmul <2 x double> %704, %703
-  %708 = extractelement <2 x double> %707, i64 0
-  %709 = extractelement <2 x double> %704, i64 1
-  %710 = fmul double %706, %709
-  %711 = extractelement <2 x double> %703, i64 1
-  %712 = call double @llvm.fmuladd.f64(double %705, double %711, double %710)
-  %713 = fmul double %711, %709
-  %714 = getelementptr inbounds i8, ptr %29, i64 176
-  %715 = load double, ptr %714, align 16, !noalias !104
-  %716 = getelementptr inbounds i8, ptr %29, i64 48
-  %717 = load double, ptr %716, align 16, !noalias !104
-  %718 = fmul double %715, %717
-  %719 = getelementptr inbounds i8, ptr %29, i64 184
-  %720 = load double, ptr %719, align 8, !noalias !104
-  %721 = getelementptr inbounds i8, ptr %29, i64 56
-  %722 = load double, ptr %721, align 8, !noalias !104
-  %723 = fmul double %715, %722
-  %724 = call double @llvm.fmuladd.f64(double %717, double %720, double %723)
-  %725 = fmul double %720, %722
-  store double %708, ptr %56, align 8, !alias.scope !105
+701:                                              ; preds = %_ZN2cvmlIdLi1ELi10EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit
+  %702 = load <2 x double>, ptr %212, align 16, !noalias !104
+  %703 = load <2 x double>, ptr %184, align 16, !noalias !104
+  %704 = extractelement <2 x double> %703, i64 0
+  %705 = extractelement <2 x double> %702, i64 0
+  %706 = fmul <2 x double> %703, %702
+  %707 = extractelement <2 x double> %706, i64 0
+  %708 = extractelement <2 x double> %703, i64 1
+  %709 = fmul double %705, %708
+  %710 = extractelement <2 x double> %702, i64 1
+  %711 = call double @llvm.fmuladd.f64(double %704, double %710, double %709)
+  %712 = fmul double %710, %708
+  %713 = getelementptr inbounds i8, ptr %29, i64 176
+  %714 = load double, ptr %713, align 16, !noalias !104
+  %715 = getelementptr inbounds i8, ptr %29, i64 48
+  %716 = load double, ptr %715, align 16, !noalias !104
+  %717 = fmul double %714, %716
+  %718 = getelementptr inbounds i8, ptr %29, i64 184
+  %719 = load double, ptr %718, align 8, !noalias !104
+  %720 = getelementptr inbounds i8, ptr %29, i64 56
+  %721 = load double, ptr %720, align 8, !noalias !104
+  %722 = fmul double %714, %721
+  %723 = call double @llvm.fmuladd.f64(double %716, double %719, double %722)
+  %724 = fmul double %719, %721
+  store double %707, ptr %56, align 8, !alias.scope !105
   %.sroa.2.0..sroa_idx.i398 = getelementptr inbounds i8, ptr %56, i64 8
-  store double %712, ptr %.sroa.2.0..sroa_idx.i398, align 8, !alias.scope !105
+  store double %711, ptr %.sroa.2.0..sroa_idx.i398, align 8, !alias.scope !105
   %.sroa.3.0..sroa_idx.i399 = getelementptr inbounds i8, ptr %56, i64 16
-  store double %713, ptr %.sroa.3.0..sroa_idx.i399, align 8, !alias.scope !105
+  store double %712, ptr %.sroa.3.0..sroa_idx.i399, align 8, !alias.scope !105
   %.sroa.4.0..sroa_idx.i400 = getelementptr inbounds i8, ptr %56, i64 24
-  %726 = insertelement <2 x double> poison, double %717, i64 0
-  %727 = shufflevector <2 x double> %726, <2 x double> poison, <2 x i32> zeroinitializer
-  %728 = fmul <2 x double> %703, %727
-  %729 = insertelement <2 x double> poison, double %715, i64 0
-  %730 = shufflevector <2 x double> %729, <2 x double> poison, <2 x i32> zeroinitializer
-  %731 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %704, <2 x double> %730, <2 x double> %728)
-  store <2 x double> %731, ptr %.sroa.4.0..sroa_idx.i400, align 8, !alias.scope !105
+  %725 = insertelement <2 x double> poison, double %716, i64 0
+  %726 = shufflevector <2 x double> %725, <2 x double> poison, <2 x i32> zeroinitializer
+  %727 = fmul <2 x double> %702, %726
+  %728 = insertelement <2 x double> poison, double %714, i64 0
+  %729 = shufflevector <2 x double> %728, <2 x double> poison, <2 x i32> zeroinitializer
+  %730 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %703, <2 x double> %729, <2 x double> %727)
+  store <2 x double> %730, ptr %.sroa.4.0..sroa_idx.i400, align 8, !alias.scope !105
   %.sroa.6.0..sroa_idx.i402 = getelementptr inbounds i8, ptr %56, i64 40
-  store double %718, ptr %.sroa.6.0..sroa_idx.i402, align 8, !alias.scope !105
+  store double %717, ptr %.sroa.6.0..sroa_idx.i402, align 8, !alias.scope !105
   %.sroa.7.0..sroa_idx.i403 = getelementptr inbounds i8, ptr %56, i64 48
-  %732 = insertelement <2 x double> poison, double %722, i64 0
-  %733 = shufflevector <2 x double> %732, <2 x double> poison, <2 x i32> zeroinitializer
-  %734 = fmul <2 x double> %703, %733
-  %735 = insertelement <2 x double> poison, double %720, i64 0
-  %736 = shufflevector <2 x double> %735, <2 x double> poison, <2 x i32> zeroinitializer
-  %737 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %704, <2 x double> %736, <2 x double> %734)
-  store <2 x double> %737, ptr %.sroa.7.0..sroa_idx.i403, align 8, !alias.scope !105
+  %731 = insertelement <2 x double> poison, double %721, i64 0
+  %732 = shufflevector <2 x double> %731, <2 x double> poison, <2 x i32> zeroinitializer
+  %733 = fmul <2 x double> %702, %732
+  %734 = insertelement <2 x double> poison, double %719, i64 0
+  %735 = shufflevector <2 x double> %734, <2 x double> poison, <2 x i32> zeroinitializer
+  %736 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %703, <2 x double> %735, <2 x double> %733)
+  store <2 x double> %736, ptr %.sroa.7.0..sroa_idx.i403, align 8, !alias.scope !105
   %.sroa.9.0..sroa_idx.i405 = getelementptr inbounds i8, ptr %56, i64 64
-  store double %724, ptr %.sroa.9.0..sroa_idx.i405, align 8, !alias.scope !105
+  store double %723, ptr %.sroa.9.0..sroa_idx.i405, align 8, !alias.scope !105
   %.sroa.10.0..sroa_idx.i406 = getelementptr inbounds i8, ptr %56, i64 72
-  store double %725, ptr %.sroa.10.0..sroa_idx.i406, align 8, !alias.scope !105
-  %738 = load <2 x double>, ptr %206, align 16, !noalias !104
-  %739 = load <2 x double>, ptr %192, align 16, !noalias !104
-  %740 = extractelement <2 x double> %739, i64 0
-  %741 = extractelement <2 x double> %738, i64 0
-  %742 = fmul <2 x double> %739, %738
-  %743 = extractelement <2 x double> %742, i64 0
-  %744 = extractelement <2 x double> %739, i64 1
-  %745 = fmul double %741, %744
-  %746 = extractelement <2 x double> %738, i64 1
-  %747 = call double @llvm.fmuladd.f64(double %740, double %746, double %745)
-  %748 = fmul double %746, %744
-  %749 = getelementptr inbounds i8, ptr %29, i64 144
-  %750 = load double, ptr %749, align 16, !noalias !104
-  %751 = getelementptr inbounds i8, ptr %29, i64 80
-  %752 = load double, ptr %751, align 16, !noalias !104
-  %753 = fmul double %750, %752
-  %754 = getelementptr inbounds i8, ptr %29, i64 152
-  %755 = load double, ptr %754, align 8, !noalias !104
-  %756 = getelementptr inbounds i8, ptr %29, i64 88
-  %757 = load double, ptr %756, align 8, !noalias !104
-  %758 = fmul double %750, %757
-  %759 = call double @llvm.fmuladd.f64(double %752, double %755, double %758)
-  %760 = fmul double %755, %757
-  store double %743, ptr %57, align 8, !alias.scope !108
+  store double %724, ptr %.sroa.10.0..sroa_idx.i406, align 8, !alias.scope !105
+  %737 = load <2 x double>, ptr %205, align 16, !noalias !104
+  %738 = load <2 x double>, ptr %191, align 16, !noalias !104
+  %739 = extractelement <2 x double> %738, i64 0
+  %740 = extractelement <2 x double> %737, i64 0
+  %741 = fmul <2 x double> %738, %737
+  %742 = extractelement <2 x double> %741, i64 0
+  %743 = extractelement <2 x double> %738, i64 1
+  %744 = fmul double %740, %743
+  %745 = extractelement <2 x double> %737, i64 1
+  %746 = call double @llvm.fmuladd.f64(double %739, double %745, double %744)
+  %747 = fmul double %745, %743
+  %748 = getelementptr inbounds i8, ptr %29, i64 144
+  %749 = load double, ptr %748, align 16, !noalias !104
+  %750 = getelementptr inbounds i8, ptr %29, i64 80
+  %751 = load double, ptr %750, align 16, !noalias !104
+  %752 = fmul double %749, %751
+  %753 = getelementptr inbounds i8, ptr %29, i64 152
+  %754 = load double, ptr %753, align 8, !noalias !104
+  %755 = getelementptr inbounds i8, ptr %29, i64 88
+  %756 = load double, ptr %755, align 8, !noalias !104
+  %757 = fmul double %749, %756
+  %758 = call double @llvm.fmuladd.f64(double %751, double %754, double %757)
+  %759 = fmul double %754, %756
+  store double %742, ptr %57, align 8, !alias.scope !108
   %.sroa.2.0..sroa_idx.i407 = getelementptr inbounds i8, ptr %57, i64 8
-  store double %747, ptr %.sroa.2.0..sroa_idx.i407, align 8, !alias.scope !108
+  store double %746, ptr %.sroa.2.0..sroa_idx.i407, align 8, !alias.scope !108
   %.sroa.3.0..sroa_idx.i408 = getelementptr inbounds i8, ptr %57, i64 16
-  store double %748, ptr %.sroa.3.0..sroa_idx.i408, align 8, !alias.scope !108
+  store double %747, ptr %.sroa.3.0..sroa_idx.i408, align 8, !alias.scope !108
   %.sroa.4.0..sroa_idx.i409 = getelementptr inbounds i8, ptr %57, i64 24
-  %761 = insertelement <2 x double> poison, double %752, i64 0
-  %762 = shufflevector <2 x double> %761, <2 x double> poison, <2 x i32> zeroinitializer
-  %763 = fmul <2 x double> %738, %762
-  %764 = insertelement <2 x double> poison, double %750, i64 0
-  %765 = shufflevector <2 x double> %764, <2 x double> poison, <2 x i32> zeroinitializer
-  %766 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %739, <2 x double> %765, <2 x double> %763)
-  store <2 x double> %766, ptr %.sroa.4.0..sroa_idx.i409, align 8, !alias.scope !108
+  %760 = insertelement <2 x double> poison, double %751, i64 0
+  %761 = shufflevector <2 x double> %760, <2 x double> poison, <2 x i32> zeroinitializer
+  %762 = fmul <2 x double> %737, %761
+  %763 = insertelement <2 x double> poison, double %749, i64 0
+  %764 = shufflevector <2 x double> %763, <2 x double> poison, <2 x i32> zeroinitializer
+  %765 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %738, <2 x double> %764, <2 x double> %762)
+  store <2 x double> %765, ptr %.sroa.4.0..sroa_idx.i409, align 8, !alias.scope !108
   %.sroa.6.0..sroa_idx.i411 = getelementptr inbounds i8, ptr %57, i64 40
-  store double %753, ptr %.sroa.6.0..sroa_idx.i411, align 8, !alias.scope !108
+  store double %752, ptr %.sroa.6.0..sroa_idx.i411, align 8, !alias.scope !108
   %.sroa.7.0..sroa_idx.i412 = getelementptr inbounds i8, ptr %57, i64 48
-  %767 = insertelement <2 x double> poison, double %757, i64 0
-  %768 = shufflevector <2 x double> %767, <2 x double> poison, <2 x i32> zeroinitializer
-  %769 = fmul <2 x double> %738, %768
-  %770 = insertelement <2 x double> poison, double %755, i64 0
-  %771 = shufflevector <2 x double> %770, <2 x double> poison, <2 x i32> zeroinitializer
-  %772 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %739, <2 x double> %771, <2 x double> %769)
-  store <2 x double> %772, ptr %.sroa.7.0..sroa_idx.i412, align 8, !alias.scope !108
+  %766 = insertelement <2 x double> poison, double %756, i64 0
+  %767 = shufflevector <2 x double> %766, <2 x double> poison, <2 x i32> zeroinitializer
+  %768 = fmul <2 x double> %737, %767
+  %769 = insertelement <2 x double> poison, double %754, i64 0
+  %770 = shufflevector <2 x double> %769, <2 x double> poison, <2 x i32> zeroinitializer
+  %771 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %738, <2 x double> %770, <2 x double> %768)
+  store <2 x double> %771, ptr %.sroa.7.0..sroa_idx.i412, align 8, !alias.scope !108
   %.sroa.9.0..sroa_idx.i414 = getelementptr inbounds i8, ptr %57, i64 64
-  store double %759, ptr %.sroa.9.0..sroa_idx.i414, align 8, !alias.scope !108
+  store double %758, ptr %.sroa.9.0..sroa_idx.i414, align 8, !alias.scope !108
   %.sroa.10.0..sroa_idx.i415 = getelementptr inbounds i8, ptr %57, i64 72
-  store double %760, ptr %.sroa.10.0..sroa_idx.i415, align 8, !alias.scope !108
+  store double %759, ptr %.sroa.10.0..sroa_idx.i415, align 8, !alias.scope !108
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  br label %773
+  br label %772
 
-773:                                              ; preds = %773, %702
-  %indvars.iv.i.i416 = phi i64 [ 0, %702 ], [ %indvars.iv.next.i.i417, %773 ]
-  %774 = getelementptr inbounds [10 x double], ptr %56, i64 0, i64 %indvars.iv.i.i416
-  %775 = load double, ptr %774, align 8, !noalias !111
-  %776 = getelementptr inbounds [10 x double], ptr %57, i64 0, i64 %indvars.iv.i.i416
-  %777 = load double, ptr %776, align 8, !noalias !111
-  %778 = fsub double %775, %777
-  %779 = getelementptr inbounds [10 x double], ptr %55, i64 0, i64 %indvars.iv.i.i416
-  store double %778, ptr %779, align 8, !alias.scope !111
+772:                                              ; preds = %772, %701
+  %indvars.iv.i.i416 = phi i64 [ 0, %701 ], [ %indvars.iv.next.i.i417, %772 ]
+  %773 = getelementptr inbounds [10 x double], ptr %56, i64 0, i64 %indvars.iv.i.i416
+  %774 = load double, ptr %773, align 8, !noalias !111
+  %775 = getelementptr inbounds [10 x double], ptr %57, i64 0, i64 %indvars.iv.i.i416
+  %776 = load double, ptr %775, align 8, !noalias !111
+  %777 = fsub double %774, %776
+  %778 = getelementptr inbounds [10 x double], ptr %55, i64 0, i64 %indvars.iv.i.i416
+  store double %777, ptr %778, align 8, !alias.scope !111
   %indvars.iv.next.i.i417 = add nuw nsw i64 %indvars.iv.i.i416, 1
   %exitcond.not.i.i418 = icmp eq i64 %indvars.iv.next.i.i417, 10
-  br i1 %exitcond.not.i.i418, label %780, label %773, !llvm.loop !76
+  br i1 %exitcond.not.i.i418, label %779, label %772, !llvm.loop !76
 
-780:                                              ; preds = %773
+779:                                              ; preds = %772
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  %781 = getelementptr inbounds i8, ptr %55, i64 16
-  %782 = load double, ptr %781, align 16, !noalias !114
-  %783 = getelementptr inbounds i8, ptr %29, i64 208
-  %784 = getelementptr inbounds i8, ptr %55, i64 24
-  %785 = load double, ptr %784, align 8, !noalias !114
-  %786 = getelementptr inbounds i8, ptr %55, i64 48
-  %787 = load double, ptr %786, align 16, !noalias !114
-  %788 = getelementptr inbounds i8, ptr %55, i64 32
-  %789 = load double, ptr %788, align 16, !noalias !114
-  %790 = getelementptr inbounds i8, ptr %55, i64 56
-  %791 = getelementptr inbounds i8, ptr %55, i64 40
-  %792 = load double, ptr %791, align 8, !noalias !114
-  %793 = getelementptr inbounds i8, ptr %55, i64 72
-  %794 = load double, ptr %793, align 8, !noalias !114
-  %795 = load <2 x double>, ptr %220, align 16, !noalias !114
-  %796 = extractelement <2 x double> %795, i64 0
-  %797 = fmul double %796, %792
-  %798 = extractelement <2 x double> %795, i64 1
-  %799 = fmul double %798, %794
+  %780 = getelementptr inbounds i8, ptr %55, i64 16
+  %781 = load double, ptr %780, align 16, !noalias !114
+  %782 = getelementptr inbounds i8, ptr %29, i64 208
+  %783 = getelementptr inbounds i8, ptr %55, i64 24
+  %784 = load double, ptr %783, align 8, !noalias !114
+  %785 = getelementptr inbounds i8, ptr %55, i64 48
+  %786 = load double, ptr %785, align 16, !noalias !114
+  %787 = getelementptr inbounds i8, ptr %55, i64 32
+  %788 = load double, ptr %787, align 16, !noalias !114
+  %789 = getelementptr inbounds i8, ptr %55, i64 56
+  %790 = getelementptr inbounds i8, ptr %55, i64 40
+  %791 = load double, ptr %790, align 8, !noalias !114
+  %792 = getelementptr inbounds i8, ptr %55, i64 72
+  %793 = load double, ptr %792, align 8, !noalias !114
+  %794 = load <2 x double>, ptr %219, align 16, !noalias !114
+  %795 = extractelement <2 x double> %794, i64 0
+  %796 = fmul double %795, %791
+  %797 = extractelement <2 x double> %794, i64 1
+  %798 = fmul double %797, %793
   %.sroa.3.0..sroa_idx.i421 = getelementptr inbounds i8, ptr %54, i64 16
-  %800 = load <2 x double>, ptr %55, align 16, !noalias !114
-  %801 = insertelement <2 x double> %800, double %782, i64 1
-  %802 = fmul <2 x double> %801, %795
-  %803 = shufflevector <2 x double> %795, <2 x double> poison, <2 x i32> zeroinitializer
-  %804 = shufflevector <2 x double> %800, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %805 = insertelement <2 x double> %804, double %782, i64 1
-  %806 = fmul <2 x double> %803, %805
-  %807 = shufflevector <2 x double> %795, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %808 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %800, <2 x double> %807, <2 x double> %806)
-  store <2 x double> %802, ptr %54, align 16, !alias.scope !114
-  store <2 x double> %808, ptr %.sroa.3.0..sroa_idx.i421, align 16, !alias.scope !114
+  %799 = load <2 x double>, ptr %55, align 16, !noalias !114
+  %800 = insertelement <2 x double> %799, double %781, i64 1
+  %801 = fmul <2 x double> %800, %794
+  %802 = shufflevector <2 x double> %794, <2 x double> poison, <2 x i32> zeroinitializer
+  %803 = shufflevector <2 x double> %799, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %804 = insertelement <2 x double> %803, double %781, i64 1
+  %805 = fmul <2 x double> %802, %804
+  %806 = shufflevector <2 x double> %794, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %807 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %799, <2 x double> %806, <2 x double> %805)
+  store <2 x double> %801, ptr %54, align 16, !alias.scope !114
+  store <2 x double> %807, ptr %.sroa.3.0..sroa_idx.i421, align 16, !alias.scope !114
   %.sroa.5.0..sroa_idx.i423 = getelementptr inbounds i8, ptr %54, i64 32
-  %809 = load <2 x double>, ptr %783, align 16, !noalias !114
-  %810 = shufflevector <2 x double> %809, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %811 = extractelement <2 x double> %809, i64 0
-  %812 = fmul double %811, %787
-  %813 = extractelement <2 x double> %809, i64 1
-  %814 = call double @llvm.fmuladd.f64(double %785, double %813, double %812)
-  %815 = fmul double %811, %792
-  %816 = fmul double %813, %794
-  %817 = insertelement <2 x double> poison, double %785, i64 0
-  %818 = insertelement <2 x double> %817, double %787, i64 1
-  %819 = fmul <2 x double> %803, %818
-  %820 = shufflevector <2 x double> %800, <2 x double> poison, <2 x i32> zeroinitializer
-  %821 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %820, <2 x double> %809, <2 x double> %819)
-  store <2 x double> %821, ptr %.sroa.5.0..sroa_idx.i423, align 16, !alias.scope !114
+  %808 = load <2 x double>, ptr %782, align 16, !noalias !114
+  %809 = shufflevector <2 x double> %808, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %810 = extractelement <2 x double> %808, i64 0
+  %811 = fmul double %810, %786
+  %812 = extractelement <2 x double> %808, i64 1
+  %813 = call double @llvm.fmuladd.f64(double %784, double %812, double %811)
+  %814 = fmul double %810, %791
+  %815 = fmul double %812, %793
+  %816 = insertelement <2 x double> poison, double %784, i64 0
+  %817 = insertelement <2 x double> %816, double %786, i64 1
+  %818 = fmul <2 x double> %802, %817
+  %819 = shufflevector <2 x double> %799, <2 x double> poison, <2 x i32> zeroinitializer
+  %820 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %819, <2 x double> %808, <2 x double> %818)
+  store <2 x double> %820, ptr %.sroa.5.0..sroa_idx.i423, align 16, !alias.scope !114
   %.sroa.7.0..sroa_idx.i425 = getelementptr inbounds i8, ptr %54, i64 48
-  %822 = insertelement <2 x double> poison, double %789, i64 0
-  %823 = insertelement <2 x double> poison, double %782, i64 0
-  %824 = shufflevector <2 x double> %823, <2 x double> poison, <2 x i32> zeroinitializer
+  %821 = insertelement <2 x double> poison, double %788, i64 0
+  %822 = insertelement <2 x double> poison, double %781, i64 0
+  %823 = shufflevector <2 x double> %822, <2 x double> poison, <2 x i32> zeroinitializer
   %.sroa.9.0..sroa_idx.i427 = getelementptr inbounds i8, ptr %54, i64 64
-  %825 = fmul <2 x double> %807, %818
-  %826 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %804, <2 x double> %809, <2 x double> %825)
+  %824 = fmul <2 x double> %806, %817
+  %825 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %803, <2 x double> %808, <2 x double> %824)
   %.sroa.11.0..sroa_idx.i429 = getelementptr inbounds i8, ptr %54, i64 80
-  %827 = shufflevector <2 x double> %809, <2 x double> %795, <2 x i32> <i32 0, i32 2>
-  %828 = insertelement <2 x double> poison, double %797, i64 0
-  %829 = insertelement <2 x double> %828, double %814, i64 1
+  %826 = shufflevector <2 x double> %808, <2 x double> %794, <2 x i32> <i32 0, i32 2>
+  %827 = insertelement <2 x double> poison, double %796, i64 0
+  %828 = insertelement <2 x double> %827, double %813, i64 1
   %.sroa.13.0..sroa_idx.i431 = getelementptr inbounds i8, ptr %54, i64 96
-  %830 = insertelement <2 x double> poison, double %794, i64 0
-  %831 = insertelement <2 x double> %830, double %792, i64 1
-  %832 = fmul <2 x double> %795, %831
-  %833 = insertelement <2 x double> poison, double %787, i64 0
-  %834 = insertelement <2 x double> %833, double %789, i64 1
-  %835 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %834, <2 x double> %810, <2 x double> %832)
-  store <2 x double> %835, ptr %.sroa.13.0..sroa_idx.i431, align 16, !alias.scope !114
+  %829 = insertelement <2 x double> poison, double %793, i64 0
+  %830 = insertelement <2 x double> %829, double %791, i64 1
+  %831 = fmul <2 x double> %794, %830
+  %832 = insertelement <2 x double> poison, double %786, i64 0
+  %833 = insertelement <2 x double> %832, double %788, i64 1
+  %834 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %833, <2 x double> %809, <2 x double> %831)
+  store <2 x double> %834, ptr %.sroa.13.0..sroa_idx.i431, align 16, !alias.scope !114
   %.sroa.15.0..sroa_idx.i433 = getelementptr inbounds i8, ptr %54, i64 112
-  %836 = load <2 x double>, ptr %790, align 8, !noalias !114
-  %837 = fmul <2 x double> %809, %836
-  %838 = extractelement <2 x double> %837, i64 0
-  %839 = call double @llvm.fmuladd.f64(double %789, double %813, double %838)
-  %840 = shufflevector <2 x double> %809, <2 x double> %795, <2 x i32> <i32 1, i32 3>
-  %841 = insertelement <2 x double> poison, double %799, i64 0
-  %842 = insertelement <2 x double> %841, double %839, i64 1
-  %843 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %836, <2 x double> %840, <2 x double> %842)
-  %844 = shufflevector <2 x double> %822, <2 x double> %836, <2 x i32> <i32 0, i32 2>
-  %845 = fmul <2 x double> %807, %844
-  %846 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %824, <2 x double> %809, <2 x double> %845)
-  store <2 x double> %846, ptr %.sroa.7.0..sroa_idx.i425, align 16, !alias.scope !114
-  %847 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %844, <2 x double> %803, <2 x double> %826)
-  store <2 x double> %847, ptr %.sroa.9.0..sroa_idx.i427, align 16, !alias.scope !114
-  %848 = insertelement <2 x double> %836, double %785, i64 0
-  %849 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %848, <2 x double> %827, <2 x double> %829)
-  store <2 x double> %849, ptr %.sroa.11.0..sroa_idx.i429, align 16, !alias.scope !114
-  %850 = shufflevector <2 x double> %843, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %850, ptr %.sroa.15.0..sroa_idx.i433, align 16, !alias.scope !114
+  %835 = load <2 x double>, ptr %789, align 8, !noalias !114
+  %836 = fmul <2 x double> %808, %835
+  %837 = extractelement <2 x double> %836, i64 0
+  %838 = call double @llvm.fmuladd.f64(double %788, double %812, double %837)
+  %839 = shufflevector <2 x double> %808, <2 x double> %794, <2 x i32> <i32 1, i32 3>
+  %840 = insertelement <2 x double> poison, double %798, i64 0
+  %841 = insertelement <2 x double> %840, double %838, i64 1
+  %842 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %835, <2 x double> %839, <2 x double> %841)
+  %843 = shufflevector <2 x double> %821, <2 x double> %835, <2 x i32> <i32 0, i32 2>
+  %844 = fmul <2 x double> %806, %843
+  %845 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %823, <2 x double> %808, <2 x double> %844)
+  store <2 x double> %845, ptr %.sroa.7.0..sroa_idx.i425, align 16, !alias.scope !114
+  %846 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %843, <2 x double> %802, <2 x double> %825)
+  store <2 x double> %846, ptr %.sroa.9.0..sroa_idx.i427, align 16, !alias.scope !114
+  %847 = insertelement <2 x double> %835, double %784, i64 0
+  %848 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %847, <2 x double> %826, <2 x double> %828)
+  store <2 x double> %848, ptr %.sroa.11.0..sroa_idx.i429, align 16, !alias.scope !114
+  %849 = shufflevector <2 x double> %842, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %849, ptr %.sroa.15.0..sroa_idx.i433, align 16, !alias.scope !114
   %.sroa.17.0..sroa_idx.i435 = getelementptr inbounds i8, ptr %54, i64 128
-  store double %815, ptr %.sroa.17.0..sroa_idx.i435, align 16, !alias.scope !114
+  store double %814, ptr %.sroa.17.0..sroa_idx.i435, align 16, !alias.scope !114
   %.sroa.18.0..sroa_idx.i436 = getelementptr inbounds i8, ptr %54, i64 136
-  %851 = shufflevector <2 x double> %809, <2 x double> poison, <2 x i32> zeroinitializer
-  %852 = shufflevector <2 x double> %836, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %853 = insertelement <2 x double> %852, double %794, i64 1
-  %854 = fmul <2 x double> %851, %853
-  %855 = insertelement <2 x double> %836, double %792, i64 0
-  %856 = shufflevector <2 x double> %809, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %857 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %855, <2 x double> %856, <2 x double> %854)
-  store <2 x double> %857, ptr %.sroa.18.0..sroa_idx.i436, align 8, !alias.scope !114
+  %850 = shufflevector <2 x double> %808, <2 x double> poison, <2 x i32> zeroinitializer
+  %851 = shufflevector <2 x double> %835, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %852 = insertelement <2 x double> %851, double %793, i64 1
+  %853 = fmul <2 x double> %850, %852
+  %854 = insertelement <2 x double> %835, double %791, i64 0
+  %855 = shufflevector <2 x double> %808, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %856 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %854, <2 x double> %855, <2 x double> %853)
+  store <2 x double> %856, ptr %.sroa.18.0..sroa_idx.i436, align 8, !alias.scope !114
   %.sroa.20.0..sroa_idx.i438 = getelementptr inbounds i8, ptr %54, i64 152
-  store double %816, ptr %.sroa.20.0..sroa_idx.i438, align 8, !alias.scope !114
-  %858 = load <2 x double>, ptr %199, align 16, !noalias !104
-  %859 = extractelement <2 x double> %858, i64 0
-  %860 = fmul <2 x double> %739, %858
-  %861 = extractelement <2 x double> %860, i64 0
-  %862 = fmul double %744, %859
-  %863 = extractelement <2 x double> %858, i64 1
-  %864 = call double @llvm.fmuladd.f64(double %740, double %863, double %862)
-  %865 = fmul double %744, %863
-  %866 = getelementptr inbounds i8, ptr %29, i64 112
-  %867 = load double, ptr %866, align 16, !noalias !104
-  %868 = fmul double %752, %867
-  %869 = getelementptr inbounds i8, ptr %29, i64 120
-  %870 = load double, ptr %869, align 8, !noalias !104
-  %871 = fmul double %757, %867
-  %872 = call double @llvm.fmuladd.f64(double %752, double %870, double %871)
-  %873 = fmul double %757, %870
-  store double %861, ptr %60, align 8, !alias.scope !117
+  store double %815, ptr %.sroa.20.0..sroa_idx.i438, align 8, !alias.scope !114
+  %857 = load <2 x double>, ptr %198, align 16, !noalias !104
+  %858 = extractelement <2 x double> %857, i64 0
+  %859 = fmul <2 x double> %738, %857
+  %860 = extractelement <2 x double> %859, i64 0
+  %861 = fmul double %743, %858
+  %862 = extractelement <2 x double> %857, i64 1
+  %863 = call double @llvm.fmuladd.f64(double %739, double %862, double %861)
+  %864 = fmul double %743, %862
+  %865 = getelementptr inbounds i8, ptr %29, i64 112
+  %866 = load double, ptr %865, align 16, !noalias !104
+  %867 = fmul double %751, %866
+  %868 = getelementptr inbounds i8, ptr %29, i64 120
+  %869 = load double, ptr %868, align 8, !noalias !104
+  %870 = fmul double %756, %866
+  %871 = call double @llvm.fmuladd.f64(double %751, double %869, double %870)
+  %872 = fmul double %756, %869
+  store double %860, ptr %60, align 8, !alias.scope !117
   %.sroa.2.0..sroa_idx.i439 = getelementptr inbounds i8, ptr %60, i64 8
-  store double %864, ptr %.sroa.2.0..sroa_idx.i439, align 8, !alias.scope !117
+  store double %863, ptr %.sroa.2.0..sroa_idx.i439, align 8, !alias.scope !117
   %.sroa.3.0..sroa_idx.i440 = getelementptr inbounds i8, ptr %60, i64 16
-  store double %865, ptr %.sroa.3.0..sroa_idx.i440, align 8, !alias.scope !117
+  store double %864, ptr %.sroa.3.0..sroa_idx.i440, align 8, !alias.scope !117
   %.sroa.4.0..sroa_idx.i441 = getelementptr inbounds i8, ptr %60, i64 24
-  %874 = fmul <2 x double> %762, %858
-  %875 = insertelement <2 x double> poison, double %867, i64 0
-  %876 = shufflevector <2 x double> %875, <2 x double> poison, <2 x i32> zeroinitializer
-  %877 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %739, <2 x double> %876, <2 x double> %874)
-  store <2 x double> %877, ptr %.sroa.4.0..sroa_idx.i441, align 8, !alias.scope !117
+  %873 = fmul <2 x double> %761, %857
+  %874 = insertelement <2 x double> poison, double %866, i64 0
+  %875 = shufflevector <2 x double> %874, <2 x double> poison, <2 x i32> zeroinitializer
+  %876 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %738, <2 x double> %875, <2 x double> %873)
+  store <2 x double> %876, ptr %.sroa.4.0..sroa_idx.i441, align 8, !alias.scope !117
   %.sroa.6.0..sroa_idx.i443 = getelementptr inbounds i8, ptr %60, i64 40
-  store double %868, ptr %.sroa.6.0..sroa_idx.i443, align 8, !alias.scope !117
+  store double %867, ptr %.sroa.6.0..sroa_idx.i443, align 8, !alias.scope !117
   %.sroa.7.0..sroa_idx.i444 = getelementptr inbounds i8, ptr %60, i64 48
-  %878 = fmul <2 x double> %768, %858
-  %879 = insertelement <2 x double> poison, double %870, i64 0
-  %880 = shufflevector <2 x double> %879, <2 x double> poison, <2 x i32> zeroinitializer
-  %881 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %739, <2 x double> %880, <2 x double> %878)
-  store <2 x double> %881, ptr %.sroa.7.0..sroa_idx.i444, align 8, !alias.scope !117
+  %877 = fmul <2 x double> %767, %857
+  %878 = insertelement <2 x double> poison, double %869, i64 0
+  %879 = shufflevector <2 x double> %878, <2 x double> poison, <2 x i32> zeroinitializer
+  %880 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %738, <2 x double> %879, <2 x double> %877)
+  store <2 x double> %880, ptr %.sroa.7.0..sroa_idx.i444, align 8, !alias.scope !117
   %.sroa.9.0..sroa_idx.i446 = getelementptr inbounds i8, ptr %60, i64 64
-  store double %872, ptr %.sroa.9.0..sroa_idx.i446, align 8, !alias.scope !117
+  store double %871, ptr %.sroa.9.0..sroa_idx.i446, align 8, !alias.scope !117
   %.sroa.10.0..sroa_idx.i447 = getelementptr inbounds i8, ptr %60, i64 72
-  store double %873, ptr %.sroa.10.0..sroa_idx.i447, align 8, !alias.scope !117
-  %882 = load <2 x double>, ptr %29, align 16, !noalias !104
-  %883 = extractelement <2 x double> %882, i64 0
-  %884 = fmul <2 x double> %703, %882
-  %885 = extractelement <2 x double> %884, i64 0
-  %886 = extractelement <2 x double> %882, i64 1
-  %887 = fmul double %706, %886
-  %888 = call double @llvm.fmuladd.f64(double %883, double %711, double %887)
-  %889 = fmul double %711, %886
-  %890 = getelementptr inbounds i8, ptr %29, i64 16
-  %891 = load double, ptr %890, align 16, !noalias !104
-  %892 = fmul double %715, %891
-  %893 = getelementptr inbounds i8, ptr %29, i64 24
-  %894 = load double, ptr %893, align 8, !noalias !104
-  %895 = fmul double %715, %894
-  %896 = call double @llvm.fmuladd.f64(double %891, double %720, double %895)
-  %897 = fmul double %720, %894
-  store double %885, ptr %61, align 8, !alias.scope !120
+  store double %872, ptr %.sroa.10.0..sroa_idx.i447, align 8, !alias.scope !117
+  %881 = load <2 x double>, ptr %29, align 16, !noalias !104
+  %882 = extractelement <2 x double> %881, i64 0
+  %883 = fmul <2 x double> %702, %881
+  %884 = extractelement <2 x double> %883, i64 0
+  %885 = extractelement <2 x double> %881, i64 1
+  %886 = fmul double %705, %885
+  %887 = call double @llvm.fmuladd.f64(double %882, double %710, double %886)
+  %888 = fmul double %710, %885
+  %889 = getelementptr inbounds i8, ptr %29, i64 16
+  %890 = load double, ptr %889, align 16, !noalias !104
+  %891 = fmul double %714, %890
+  %892 = getelementptr inbounds i8, ptr %29, i64 24
+  %893 = load double, ptr %892, align 8, !noalias !104
+  %894 = fmul double %714, %893
+  %895 = call double @llvm.fmuladd.f64(double %890, double %719, double %894)
+  %896 = fmul double %719, %893
+  store double %884, ptr %61, align 8, !alias.scope !120
   %.sroa.2.0..sroa_idx.i448 = getelementptr inbounds i8, ptr %61, i64 8
-  store double %888, ptr %.sroa.2.0..sroa_idx.i448, align 8, !alias.scope !120
+  store double %887, ptr %.sroa.2.0..sroa_idx.i448, align 8, !alias.scope !120
   %.sroa.3.0..sroa_idx.i449 = getelementptr inbounds i8, ptr %61, i64 16
-  store double %889, ptr %.sroa.3.0..sroa_idx.i449, align 8, !alias.scope !120
+  store double %888, ptr %.sroa.3.0..sroa_idx.i449, align 8, !alias.scope !120
   %.sroa.4.0..sroa_idx.i450 = getelementptr inbounds i8, ptr %61, i64 24
-  %898 = insertelement <2 x double> poison, double %891, i64 0
-  %899 = shufflevector <2 x double> %898, <2 x double> poison, <2 x i32> zeroinitializer
-  %900 = fmul <2 x double> %703, %899
-  %901 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %882, <2 x double> %730, <2 x double> %900)
-  store <2 x double> %901, ptr %.sroa.4.0..sroa_idx.i450, align 8, !alias.scope !120
+  %897 = insertelement <2 x double> poison, double %890, i64 0
+  %898 = shufflevector <2 x double> %897, <2 x double> poison, <2 x i32> zeroinitializer
+  %899 = fmul <2 x double> %702, %898
+  %900 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %881, <2 x double> %729, <2 x double> %899)
+  store <2 x double> %900, ptr %.sroa.4.0..sroa_idx.i450, align 8, !alias.scope !120
   %.sroa.6.0..sroa_idx.i452 = getelementptr inbounds i8, ptr %61, i64 40
-  store double %892, ptr %.sroa.6.0..sroa_idx.i452, align 8, !alias.scope !120
+  store double %891, ptr %.sroa.6.0..sroa_idx.i452, align 8, !alias.scope !120
   %.sroa.7.0..sroa_idx.i453 = getelementptr inbounds i8, ptr %61, i64 48
-  %902 = insertelement <2 x double> poison, double %894, i64 0
-  %903 = shufflevector <2 x double> %902, <2 x double> poison, <2 x i32> zeroinitializer
-  %904 = fmul <2 x double> %703, %903
-  %905 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %882, <2 x double> %736, <2 x double> %904)
-  store <2 x double> %905, ptr %.sroa.7.0..sroa_idx.i453, align 8, !alias.scope !120
+  %901 = insertelement <2 x double> poison, double %893, i64 0
+  %902 = shufflevector <2 x double> %901, <2 x double> poison, <2 x i32> zeroinitializer
+  %903 = fmul <2 x double> %702, %902
+  %904 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %881, <2 x double> %735, <2 x double> %903)
+  store <2 x double> %904, ptr %.sroa.7.0..sroa_idx.i453, align 8, !alias.scope !120
   %.sroa.9.0..sroa_idx.i455 = getelementptr inbounds i8, ptr %61, i64 64
-  store double %896, ptr %.sroa.9.0..sroa_idx.i455, align 8, !alias.scope !120
+  store double %895, ptr %.sroa.9.0..sroa_idx.i455, align 8, !alias.scope !120
   %.sroa.10.0..sroa_idx.i456 = getelementptr inbounds i8, ptr %61, i64 72
-  store double %897, ptr %.sroa.10.0..sroa_idx.i456, align 8, !alias.scope !120
+  store double %896, ptr %.sroa.10.0..sroa_idx.i456, align 8, !alias.scope !120
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
-  br label %906
+  br label %905
 
-906:                                              ; preds = %906, %780
-  %indvars.iv.i.i457 = phi i64 [ 0, %780 ], [ %indvars.iv.next.i.i458, %906 ]
-  %907 = getelementptr inbounds [10 x double], ptr %60, i64 0, i64 %indvars.iv.i.i457
-  %908 = load double, ptr %907, align 8, !noalias !123
-  %909 = getelementptr inbounds [10 x double], ptr %61, i64 0, i64 %indvars.iv.i.i457
-  %910 = load double, ptr %909, align 8, !noalias !123
-  %911 = fsub double %908, %910
-  %912 = getelementptr inbounds [10 x double], ptr %59, i64 0, i64 %indvars.iv.i.i457
-  store double %911, ptr %912, align 8, !alias.scope !123
+905:                                              ; preds = %905, %779
+  %indvars.iv.i.i457 = phi i64 [ 0, %779 ], [ %indvars.iv.next.i.i458, %905 ]
+  %906 = getelementptr inbounds [10 x double], ptr %60, i64 0, i64 %indvars.iv.i.i457
+  %907 = load double, ptr %906, align 8, !noalias !123
+  %908 = getelementptr inbounds [10 x double], ptr %61, i64 0, i64 %indvars.iv.i.i457
+  %909 = load double, ptr %908, align 8, !noalias !123
+  %910 = fsub double %907, %909
+  %911 = getelementptr inbounds [10 x double], ptr %59, i64 0, i64 %indvars.iv.i.i457
+  store double %910, ptr %911, align 8, !alias.scope !123
   %indvars.iv.next.i.i458 = add nuw nsw i64 %indvars.iv.i.i457, 1
   %exitcond.not.i.i459 = icmp eq i64 %indvars.iv.next.i.i458, 10
-  br i1 %exitcond.not.i.i459, label %913, label %906, !llvm.loop !76
+  br i1 %exitcond.not.i.i459, label %912, label %905, !llvm.loop !76
 
-913:                                              ; preds = %906
+912:                                              ; preds = %905
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  %914 = getelementptr inbounds i8, ptr %59, i64 16
-  %915 = load double, ptr %914, align 16, !noalias !126
-  %916 = getelementptr inbounds i8, ptr %29, i64 240
-  %917 = getelementptr inbounds i8, ptr %59, i64 24
-  %918 = load double, ptr %917, align 8, !noalias !126
-  %919 = getelementptr inbounds i8, ptr %59, i64 48
-  %920 = load double, ptr %919, align 16, !noalias !126
-  %921 = getelementptr inbounds i8, ptr %59, i64 32
-  %922 = load double, ptr %921, align 16, !noalias !126
-  %923 = getelementptr inbounds i8, ptr %59, i64 56
-  %924 = getelementptr inbounds i8, ptr %59, i64 40
-  %925 = load double, ptr %924, align 8, !noalias !126
-  %926 = getelementptr inbounds i8, ptr %59, i64 72
-  %927 = load double, ptr %926, align 8, !noalias !126
-  %928 = load <2 x double>, ptr %227, align 16, !noalias !126
-  %929 = extractelement <2 x double> %928, i64 0
-  %930 = fmul double %929, %925
-  %931 = extractelement <2 x double> %928, i64 1
-  %932 = fmul double %931, %927
+  %913 = getelementptr inbounds i8, ptr %59, i64 16
+  %914 = load double, ptr %913, align 16, !noalias !126
+  %915 = getelementptr inbounds i8, ptr %29, i64 240
+  %916 = getelementptr inbounds i8, ptr %59, i64 24
+  %917 = load double, ptr %916, align 8, !noalias !126
+  %918 = getelementptr inbounds i8, ptr %59, i64 48
+  %919 = load double, ptr %918, align 16, !noalias !126
+  %920 = getelementptr inbounds i8, ptr %59, i64 32
+  %921 = load double, ptr %920, align 16, !noalias !126
+  %922 = getelementptr inbounds i8, ptr %59, i64 56
+  %923 = getelementptr inbounds i8, ptr %59, i64 40
+  %924 = load double, ptr %923, align 8, !noalias !126
+  %925 = getelementptr inbounds i8, ptr %59, i64 72
+  %926 = load double, ptr %925, align 8, !noalias !126
+  %927 = load <2 x double>, ptr %226, align 16, !noalias !126
+  %928 = extractelement <2 x double> %927, i64 0
+  %929 = fmul double %928, %924
+  %930 = extractelement <2 x double> %927, i64 1
+  %931 = fmul double %930, %926
   %.sroa.3.0..sroa_idx.i462 = getelementptr inbounds i8, ptr %58, i64 16
-  %933 = load <2 x double>, ptr %59, align 16, !noalias !126
-  %934 = insertelement <2 x double> %933, double %915, i64 1
-  %935 = fmul <2 x double> %934, %928
-  %936 = shufflevector <2 x double> %928, <2 x double> poison, <2 x i32> zeroinitializer
-  %937 = shufflevector <2 x double> %933, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %938 = insertelement <2 x double> %937, double %915, i64 1
-  %939 = fmul <2 x double> %936, %938
-  %940 = shufflevector <2 x double> %928, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %941 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %933, <2 x double> %940, <2 x double> %939)
-  store <2 x double> %935, ptr %58, align 16, !alias.scope !126
-  store <2 x double> %941, ptr %.sroa.3.0..sroa_idx.i462, align 16, !alias.scope !126
+  %932 = load <2 x double>, ptr %59, align 16, !noalias !126
+  %933 = insertelement <2 x double> %932, double %914, i64 1
+  %934 = fmul <2 x double> %933, %927
+  %935 = shufflevector <2 x double> %927, <2 x double> poison, <2 x i32> zeroinitializer
+  %936 = shufflevector <2 x double> %932, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %937 = insertelement <2 x double> %936, double %914, i64 1
+  %938 = fmul <2 x double> %935, %937
+  %939 = shufflevector <2 x double> %927, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %940 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %932, <2 x double> %939, <2 x double> %938)
+  store <2 x double> %934, ptr %58, align 16, !alias.scope !126
+  store <2 x double> %940, ptr %.sroa.3.0..sroa_idx.i462, align 16, !alias.scope !126
   %.sroa.5.0..sroa_idx.i464 = getelementptr inbounds i8, ptr %58, i64 32
-  %942 = load <2 x double>, ptr %916, align 16, !noalias !126
-  %943 = shufflevector <2 x double> %942, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %944 = extractelement <2 x double> %942, i64 0
-  %945 = fmul double %944, %920
-  %946 = extractelement <2 x double> %942, i64 1
-  %947 = call double @llvm.fmuladd.f64(double %918, double %946, double %945)
-  %948 = fmul double %944, %925
-  %949 = fmul double %946, %927
-  %950 = insertelement <2 x double> poison, double %918, i64 0
-  %951 = insertelement <2 x double> %950, double %920, i64 1
-  %952 = fmul <2 x double> %936, %951
-  %953 = shufflevector <2 x double> %933, <2 x double> poison, <2 x i32> zeroinitializer
-  %954 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %953, <2 x double> %942, <2 x double> %952)
-  store <2 x double> %954, ptr %.sroa.5.0..sroa_idx.i464, align 16, !alias.scope !126
+  %941 = load <2 x double>, ptr %915, align 16, !noalias !126
+  %942 = shufflevector <2 x double> %941, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %943 = extractelement <2 x double> %941, i64 0
+  %944 = fmul double %943, %919
+  %945 = extractelement <2 x double> %941, i64 1
+  %946 = call double @llvm.fmuladd.f64(double %917, double %945, double %944)
+  %947 = fmul double %943, %924
+  %948 = fmul double %945, %926
+  %949 = insertelement <2 x double> poison, double %917, i64 0
+  %950 = insertelement <2 x double> %949, double %919, i64 1
+  %951 = fmul <2 x double> %935, %950
+  %952 = shufflevector <2 x double> %932, <2 x double> poison, <2 x i32> zeroinitializer
+  %953 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %952, <2 x double> %941, <2 x double> %951)
+  store <2 x double> %953, ptr %.sroa.5.0..sroa_idx.i464, align 16, !alias.scope !126
   %.sroa.7.0..sroa_idx.i466 = getelementptr inbounds i8, ptr %58, i64 48
-  %955 = insertelement <2 x double> poison, double %922, i64 0
-  %956 = insertelement <2 x double> poison, double %915, i64 0
-  %957 = shufflevector <2 x double> %956, <2 x double> poison, <2 x i32> zeroinitializer
+  %954 = insertelement <2 x double> poison, double %921, i64 0
+  %955 = insertelement <2 x double> poison, double %914, i64 0
+  %956 = shufflevector <2 x double> %955, <2 x double> poison, <2 x i32> zeroinitializer
   %.sroa.9.0..sroa_idx.i468 = getelementptr inbounds i8, ptr %58, i64 64
-  %958 = fmul <2 x double> %940, %951
-  %959 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %937, <2 x double> %942, <2 x double> %958)
+  %957 = fmul <2 x double> %939, %950
+  %958 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %936, <2 x double> %941, <2 x double> %957)
   %.sroa.11.0..sroa_idx.i470 = getelementptr inbounds i8, ptr %58, i64 80
-  %960 = shufflevector <2 x double> %942, <2 x double> %928, <2 x i32> <i32 0, i32 2>
-  %961 = insertelement <2 x double> poison, double %930, i64 0
-  %962 = insertelement <2 x double> %961, double %947, i64 1
+  %959 = shufflevector <2 x double> %941, <2 x double> %927, <2 x i32> <i32 0, i32 2>
+  %960 = insertelement <2 x double> poison, double %929, i64 0
+  %961 = insertelement <2 x double> %960, double %946, i64 1
   %.sroa.13.0..sroa_idx.i472 = getelementptr inbounds i8, ptr %58, i64 96
-  %963 = insertelement <2 x double> poison, double %927, i64 0
-  %964 = insertelement <2 x double> %963, double %925, i64 1
-  %965 = fmul <2 x double> %928, %964
-  %966 = insertelement <2 x double> poison, double %920, i64 0
-  %967 = insertelement <2 x double> %966, double %922, i64 1
-  %968 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %967, <2 x double> %943, <2 x double> %965)
-  store <2 x double> %968, ptr %.sroa.13.0..sroa_idx.i472, align 16, !alias.scope !126
+  %962 = insertelement <2 x double> poison, double %926, i64 0
+  %963 = insertelement <2 x double> %962, double %924, i64 1
+  %964 = fmul <2 x double> %927, %963
+  %965 = insertelement <2 x double> poison, double %919, i64 0
+  %966 = insertelement <2 x double> %965, double %921, i64 1
+  %967 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %966, <2 x double> %942, <2 x double> %964)
+  store <2 x double> %967, ptr %.sroa.13.0..sroa_idx.i472, align 16, !alias.scope !126
   %.sroa.15.0..sroa_idx.i474 = getelementptr inbounds i8, ptr %58, i64 112
-  %969 = load <2 x double>, ptr %923, align 8, !noalias !126
-  %970 = fmul <2 x double> %942, %969
-  %971 = extractelement <2 x double> %970, i64 0
-  %972 = call double @llvm.fmuladd.f64(double %922, double %946, double %971)
-  %973 = shufflevector <2 x double> %942, <2 x double> %928, <2 x i32> <i32 1, i32 3>
-  %974 = insertelement <2 x double> poison, double %932, i64 0
-  %975 = insertelement <2 x double> %974, double %972, i64 1
-  %976 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %969, <2 x double> %973, <2 x double> %975)
-  %977 = shufflevector <2 x double> %955, <2 x double> %969, <2 x i32> <i32 0, i32 2>
-  %978 = fmul <2 x double> %940, %977
-  %979 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %957, <2 x double> %942, <2 x double> %978)
-  store <2 x double> %979, ptr %.sroa.7.0..sroa_idx.i466, align 16, !alias.scope !126
-  %980 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %977, <2 x double> %936, <2 x double> %959)
-  store <2 x double> %980, ptr %.sroa.9.0..sroa_idx.i468, align 16, !alias.scope !126
-  %981 = insertelement <2 x double> %969, double %918, i64 0
-  %982 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %981, <2 x double> %960, <2 x double> %962)
-  store <2 x double> %982, ptr %.sroa.11.0..sroa_idx.i470, align 16, !alias.scope !126
-  %983 = shufflevector <2 x double> %976, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %983, ptr %.sroa.15.0..sroa_idx.i474, align 16, !alias.scope !126
+  %968 = load <2 x double>, ptr %922, align 8, !noalias !126
+  %969 = fmul <2 x double> %941, %968
+  %970 = extractelement <2 x double> %969, i64 0
+  %971 = call double @llvm.fmuladd.f64(double %921, double %945, double %970)
+  %972 = shufflevector <2 x double> %941, <2 x double> %927, <2 x i32> <i32 1, i32 3>
+  %973 = insertelement <2 x double> poison, double %931, i64 0
+  %974 = insertelement <2 x double> %973, double %971, i64 1
+  %975 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %968, <2 x double> %972, <2 x double> %974)
+  %976 = shufflevector <2 x double> %954, <2 x double> %968, <2 x i32> <i32 0, i32 2>
+  %977 = fmul <2 x double> %939, %976
+  %978 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %956, <2 x double> %941, <2 x double> %977)
+  store <2 x double> %978, ptr %.sroa.7.0..sroa_idx.i466, align 16, !alias.scope !126
+  %979 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %976, <2 x double> %935, <2 x double> %958)
+  store <2 x double> %979, ptr %.sroa.9.0..sroa_idx.i468, align 16, !alias.scope !126
+  %980 = insertelement <2 x double> %968, double %917, i64 0
+  %981 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %980, <2 x double> %959, <2 x double> %961)
+  store <2 x double> %981, ptr %.sroa.11.0..sroa_idx.i470, align 16, !alias.scope !126
+  %982 = shufflevector <2 x double> %975, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %982, ptr %.sroa.15.0..sroa_idx.i474, align 16, !alias.scope !126
   %.sroa.17.0..sroa_idx.i476 = getelementptr inbounds i8, ptr %58, i64 128
-  store double %948, ptr %.sroa.17.0..sroa_idx.i476, align 16, !alias.scope !126
+  store double %947, ptr %.sroa.17.0..sroa_idx.i476, align 16, !alias.scope !126
   %.sroa.18.0..sroa_idx.i477 = getelementptr inbounds i8, ptr %58, i64 136
-  %984 = shufflevector <2 x double> %942, <2 x double> poison, <2 x i32> zeroinitializer
-  %985 = shufflevector <2 x double> %969, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %986 = insertelement <2 x double> %985, double %927, i64 1
-  %987 = fmul <2 x double> %984, %986
-  %988 = insertelement <2 x double> %969, double %925, i64 0
-  %989 = shufflevector <2 x double> %942, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %990 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %988, <2 x double> %989, <2 x double> %987)
-  store <2 x double> %990, ptr %.sroa.18.0..sroa_idx.i477, align 8, !alias.scope !126
+  %983 = shufflevector <2 x double> %941, <2 x double> poison, <2 x i32> zeroinitializer
+  %984 = shufflevector <2 x double> %968, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %985 = insertelement <2 x double> %984, double %926, i64 1
+  %986 = fmul <2 x double> %983, %985
+  %987 = insertelement <2 x double> %968, double %924, i64 0
+  %988 = shufflevector <2 x double> %941, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %989 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %987, <2 x double> %988, <2 x double> %986)
+  store <2 x double> %989, ptr %.sroa.18.0..sroa_idx.i477, align 8, !alias.scope !126
   %.sroa.20.0..sroa_idx.i479 = getelementptr inbounds i8, ptr %58, i64 152
-  store double %949, ptr %.sroa.20.0..sroa_idx.i479, align 8, !alias.scope !126
+  store double %948, ptr %.sroa.20.0..sroa_idx.i479, align 8, !alias.scope !126
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
-  br label %991
+  br label %990
 
-991:                                              ; preds = %991, %913
-  %indvars.iv.i.i480 = phi i64 [ 0, %913 ], [ %indvars.iv.next.i.i481, %991 ]
-  %992 = getelementptr inbounds [20 x double], ptr %54, i64 0, i64 %indvars.iv.i.i480
-  %993 = load double, ptr %992, align 8, !noalias !129
-  %994 = getelementptr inbounds [20 x double], ptr %58, i64 0, i64 %indvars.iv.i.i480
-  %995 = load double, ptr %994, align 8, !noalias !129
-  %996 = fadd double %993, %995
-  %997 = getelementptr inbounds [20 x double], ptr %53, i64 0, i64 %indvars.iv.i.i480
-  store double %996, ptr %997, align 8, !alias.scope !129
+990:                                              ; preds = %990, %912
+  %indvars.iv.i.i480 = phi i64 [ 0, %912 ], [ %indvars.iv.next.i.i481, %990 ]
+  %991 = getelementptr inbounds [20 x double], ptr %54, i64 0, i64 %indvars.iv.i.i480
+  %992 = load double, ptr %991, align 8, !noalias !129
+  %993 = getelementptr inbounds [20 x double], ptr %58, i64 0, i64 %indvars.iv.i.i480
+  %994 = load double, ptr %993, align 8, !noalias !129
+  %995 = fadd double %992, %994
+  %996 = getelementptr inbounds [20 x double], ptr %53, i64 0, i64 %indvars.iv.i.i480
+  store double %995, ptr %996, align 8, !alias.scope !129
   %indvars.iv.next.i.i481 = add nuw nsw i64 %indvars.iv.i.i480, 1
   %exitcond.not.i.i482 = icmp eq i64 %indvars.iv.next.i.i481, 20
-  br i1 %exitcond.not.i.i482, label %998, label %991, !llvm.loop !89
+  br i1 %exitcond.not.i.i482, label %997, label %990, !llvm.loop !89
 
-998:                                              ; preds = %991
-  %999 = fmul <2 x double> %738, %882
-  %1000 = extractelement <2 x double> %999, i64 0
-  %1001 = fmul double %741, %886
-  %1002 = call double @llvm.fmuladd.f64(double %883, double %746, double %1001)
-  %1003 = fmul double %746, %886
-  %1004 = fmul <2 x double> %738, %899
-  %1005 = fmul double %750, %891
-  %1006 = fmul double %750, %894
-  %1007 = call double @llvm.fmuladd.f64(double %891, double %755, double %1006)
-  %1008 = fmul double %755, %894
-  store double %1000, ptr %64, align 8, !alias.scope !132
+997:                                              ; preds = %990
+  %998 = fmul <2 x double> %737, %881
+  %999 = extractelement <2 x double> %998, i64 0
+  %1000 = fmul double %740, %885
+  %1001 = call double @llvm.fmuladd.f64(double %882, double %745, double %1000)
+  %1002 = fmul double %745, %885
+  %1003 = fmul <2 x double> %737, %898
+  %1004 = fmul double %749, %890
+  %1005 = fmul double %749, %893
+  %1006 = call double @llvm.fmuladd.f64(double %890, double %754, double %1005)
+  %1007 = fmul double %754, %893
+  store double %999, ptr %64, align 8, !alias.scope !132
   %.sroa.2.0..sroa_idx.i484 = getelementptr inbounds i8, ptr %64, i64 8
-  store double %1002, ptr %.sroa.2.0..sroa_idx.i484, align 8, !alias.scope !132
+  store double %1001, ptr %.sroa.2.0..sroa_idx.i484, align 8, !alias.scope !132
   %.sroa.3.0..sroa_idx.i485 = getelementptr inbounds i8, ptr %64, i64 16
-  store double %1003, ptr %.sroa.3.0..sroa_idx.i485, align 8, !alias.scope !132
+  store double %1002, ptr %.sroa.3.0..sroa_idx.i485, align 8, !alias.scope !132
   %.sroa.4.0..sroa_idx.i486 = getelementptr inbounds i8, ptr %64, i64 24
-  %1009 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %882, <2 x double> %765, <2 x double> %1004)
-  store <2 x double> %1009, ptr %.sroa.4.0..sroa_idx.i486, align 8, !alias.scope !132
+  %1008 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %881, <2 x double> %764, <2 x double> %1003)
+  store <2 x double> %1008, ptr %.sroa.4.0..sroa_idx.i486, align 8, !alias.scope !132
   %.sroa.6.0..sroa_idx.i488 = getelementptr inbounds i8, ptr %64, i64 40
-  store double %1005, ptr %.sroa.6.0..sroa_idx.i488, align 8, !alias.scope !132
+  store double %1004, ptr %.sroa.6.0..sroa_idx.i488, align 8, !alias.scope !132
   %.sroa.7.0..sroa_idx.i489 = getelementptr inbounds i8, ptr %64, i64 48
-  %1010 = fmul <2 x double> %738, %903
-  %1011 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %882, <2 x double> %771, <2 x double> %1010)
-  store <2 x double> %1011, ptr %.sroa.7.0..sroa_idx.i489, align 8, !alias.scope !132
+  %1009 = fmul <2 x double> %737, %902
+  %1010 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %881, <2 x double> %770, <2 x double> %1009)
+  store <2 x double> %1010, ptr %.sroa.7.0..sroa_idx.i489, align 8, !alias.scope !132
   %.sroa.9.0..sroa_idx.i491 = getelementptr inbounds i8, ptr %64, i64 64
-  store double %1007, ptr %.sroa.9.0..sroa_idx.i491, align 8, !alias.scope !132
+  store double %1006, ptr %.sroa.9.0..sroa_idx.i491, align 8, !alias.scope !132
   %.sroa.10.0..sroa_idx.i492 = getelementptr inbounds i8, ptr %64, i64 72
-  store double %1008, ptr %.sroa.10.0..sroa_idx.i492, align 8, !alias.scope !132
-  %1012 = fmul <2 x double> %704, %858
-  %1013 = extractelement <2 x double> %1012, i64 0
-  %1014 = fmul double %709, %859
-  %1015 = call double @llvm.fmuladd.f64(double %705, double %863, double %1014)
-  %1016 = fmul double %709, %863
-  %1017 = fmul <2 x double> %727, %858
-  %1018 = fmul double %717, %867
-  %1019 = fmul double %722, %867
-  %1020 = call double @llvm.fmuladd.f64(double %717, double %870, double %1019)
-  %1021 = fmul double %722, %870
-  store double %1013, ptr %65, align 8, !alias.scope !135
+  store double %1007, ptr %.sroa.10.0..sroa_idx.i492, align 8, !alias.scope !132
+  %1011 = fmul <2 x double> %703, %857
+  %1012 = extractelement <2 x double> %1011, i64 0
+  %1013 = fmul double %708, %858
+  %1014 = call double @llvm.fmuladd.f64(double %704, double %862, double %1013)
+  %1015 = fmul double %708, %862
+  %1016 = fmul <2 x double> %726, %857
+  %1017 = fmul double %716, %866
+  %1018 = fmul double %721, %866
+  %1019 = call double @llvm.fmuladd.f64(double %716, double %869, double %1018)
+  %1020 = fmul double %721, %869
+  store double %1012, ptr %65, align 8, !alias.scope !135
   %.sroa.2.0..sroa_idx.i493 = getelementptr inbounds i8, ptr %65, i64 8
-  store double %1015, ptr %.sroa.2.0..sroa_idx.i493, align 8, !alias.scope !135
+  store double %1014, ptr %.sroa.2.0..sroa_idx.i493, align 8, !alias.scope !135
   %.sroa.3.0..sroa_idx.i494 = getelementptr inbounds i8, ptr %65, i64 16
-  store double %1016, ptr %.sroa.3.0..sroa_idx.i494, align 8, !alias.scope !135
+  store double %1015, ptr %.sroa.3.0..sroa_idx.i494, align 8, !alias.scope !135
   %.sroa.4.0..sroa_idx.i495 = getelementptr inbounds i8, ptr %65, i64 24
-  %1022 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %704, <2 x double> %876, <2 x double> %1017)
-  store <2 x double> %1022, ptr %.sroa.4.0..sroa_idx.i495, align 8, !alias.scope !135
+  %1021 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %703, <2 x double> %875, <2 x double> %1016)
+  store <2 x double> %1021, ptr %.sroa.4.0..sroa_idx.i495, align 8, !alias.scope !135
   %.sroa.6.0..sroa_idx.i497 = getelementptr inbounds i8, ptr %65, i64 40
-  store double %1018, ptr %.sroa.6.0..sroa_idx.i497, align 8, !alias.scope !135
+  store double %1017, ptr %.sroa.6.0..sroa_idx.i497, align 8, !alias.scope !135
   %.sroa.7.0..sroa_idx.i498 = getelementptr inbounds i8, ptr %65, i64 48
-  %1023 = fmul <2 x double> %733, %858
-  %1024 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %704, <2 x double> %880, <2 x double> %1023)
-  store <2 x double> %1024, ptr %.sroa.7.0..sroa_idx.i498, align 8, !alias.scope !135
+  %1022 = fmul <2 x double> %732, %857
+  %1023 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %703, <2 x double> %879, <2 x double> %1022)
+  store <2 x double> %1023, ptr %.sroa.7.0..sroa_idx.i498, align 8, !alias.scope !135
   %.sroa.9.0..sroa_idx.i500 = getelementptr inbounds i8, ptr %65, i64 64
-  store double %1020, ptr %.sroa.9.0..sroa_idx.i500, align 8, !alias.scope !135
+  store double %1019, ptr %.sroa.9.0..sroa_idx.i500, align 8, !alias.scope !135
   %.sroa.10.0..sroa_idx.i501 = getelementptr inbounds i8, ptr %65, i64 72
-  store double %1021, ptr %.sroa.10.0..sroa_idx.i501, align 8, !alias.scope !135
+  store double %1020, ptr %.sroa.10.0..sroa_idx.i501, align 8, !alias.scope !135
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  br label %1025
+  br label %1024
 
-1025:                                             ; preds = %1025, %998
-  %indvars.iv.i.i502 = phi i64 [ 0, %998 ], [ %indvars.iv.next.i.i503, %1025 ]
-  %1026 = getelementptr inbounds [10 x double], ptr %64, i64 0, i64 %indvars.iv.i.i502
-  %1027 = load double, ptr %1026, align 8, !noalias !138
-  %1028 = getelementptr inbounds [10 x double], ptr %65, i64 0, i64 %indvars.iv.i.i502
-  %1029 = load double, ptr %1028, align 8, !noalias !138
-  %1030 = fsub double %1027, %1029
-  %1031 = getelementptr inbounds [10 x double], ptr %63, i64 0, i64 %indvars.iv.i.i502
-  store double %1030, ptr %1031, align 8, !alias.scope !138
+1024:                                             ; preds = %1024, %997
+  %indvars.iv.i.i502 = phi i64 [ 0, %997 ], [ %indvars.iv.next.i.i503, %1024 ]
+  %1025 = getelementptr inbounds [10 x double], ptr %64, i64 0, i64 %indvars.iv.i.i502
+  %1026 = load double, ptr %1025, align 8, !noalias !138
+  %1027 = getelementptr inbounds [10 x double], ptr %65, i64 0, i64 %indvars.iv.i.i502
+  %1028 = load double, ptr %1027, align 8, !noalias !138
+  %1029 = fsub double %1026, %1028
+  %1030 = getelementptr inbounds [10 x double], ptr %63, i64 0, i64 %indvars.iv.i.i502
+  store double %1029, ptr %1030, align 8, !alias.scope !138
   %indvars.iv.next.i.i503 = add nuw nsw i64 %indvars.iv.i.i502, 1
   %exitcond.not.i.i504 = icmp eq i64 %indvars.iv.next.i.i503, 10
-  br i1 %exitcond.not.i.i504, label %1032, label %1025, !llvm.loop !76
+  br i1 %exitcond.not.i.i504, label %1031, label %1024, !llvm.loop !76
 
-1032:                                             ; preds = %1025
+1031:                                             ; preds = %1024
   call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  %1033 = getelementptr inbounds i8, ptr %63, i64 16
-  %1034 = load double, ptr %1033, align 16, !noalias !141
-  %1035 = getelementptr inbounds i8, ptr %29, i64 272
-  %1036 = getelementptr inbounds i8, ptr %63, i64 24
-  %1037 = load double, ptr %1036, align 8, !noalias !141
-  %1038 = getelementptr inbounds i8, ptr %63, i64 48
-  %1039 = load double, ptr %1038, align 16, !noalias !141
-  %1040 = getelementptr inbounds i8, ptr %63, i64 32
-  %1041 = load double, ptr %1040, align 16, !noalias !141
-  %1042 = getelementptr inbounds i8, ptr %63, i64 56
-  %1043 = getelementptr inbounds i8, ptr %63, i64 40
-  %1044 = load double, ptr %1043, align 8, !noalias !141
-  %1045 = getelementptr inbounds i8, ptr %63, i64 72
-  %1046 = load double, ptr %1045, align 8, !noalias !141
-  %1047 = load <2 x double>, ptr %234, align 16, !noalias !141
-  %1048 = extractelement <2 x double> %1047, i64 0
-  %1049 = fmul double %1048, %1044
-  %1050 = extractelement <2 x double> %1047, i64 1
-  %1051 = fmul double %1050, %1046
+  %1032 = getelementptr inbounds i8, ptr %63, i64 16
+  %1033 = load double, ptr %1032, align 16, !noalias !141
+  %1034 = getelementptr inbounds i8, ptr %29, i64 272
+  %1035 = getelementptr inbounds i8, ptr %63, i64 24
+  %1036 = load double, ptr %1035, align 8, !noalias !141
+  %1037 = getelementptr inbounds i8, ptr %63, i64 48
+  %1038 = load double, ptr %1037, align 16, !noalias !141
+  %1039 = getelementptr inbounds i8, ptr %63, i64 32
+  %1040 = load double, ptr %1039, align 16, !noalias !141
+  %1041 = getelementptr inbounds i8, ptr %63, i64 56
+  %1042 = getelementptr inbounds i8, ptr %63, i64 40
+  %1043 = load double, ptr %1042, align 8, !noalias !141
+  %1044 = getelementptr inbounds i8, ptr %63, i64 72
+  %1045 = load double, ptr %1044, align 8, !noalias !141
+  %1046 = load <2 x double>, ptr %233, align 16, !noalias !141
+  %1047 = extractelement <2 x double> %1046, i64 0
+  %1048 = fmul double %1047, %1043
+  %1049 = extractelement <2 x double> %1046, i64 1
+  %1050 = fmul double %1049, %1045
   %.sroa.3.0..sroa_idx.i507 = getelementptr inbounds i8, ptr %62, i64 16
-  %1052 = load <2 x double>, ptr %63, align 16, !noalias !141
-  %1053 = insertelement <2 x double> %1052, double %1034, i64 1
-  %1054 = fmul <2 x double> %1053, %1047
-  %1055 = shufflevector <2 x double> %1047, <2 x double> poison, <2 x i32> zeroinitializer
-  %1056 = shufflevector <2 x double> %1052, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1057 = insertelement <2 x double> %1056, double %1034, i64 1
-  %1058 = fmul <2 x double> %1055, %1057
-  %1059 = shufflevector <2 x double> %1047, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1060 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1052, <2 x double> %1059, <2 x double> %1058)
-  store <2 x double> %1054, ptr %62, align 16, !alias.scope !141
-  store <2 x double> %1060, ptr %.sroa.3.0..sroa_idx.i507, align 16, !alias.scope !141
+  %1051 = load <2 x double>, ptr %63, align 16, !noalias !141
+  %1052 = insertelement <2 x double> %1051, double %1033, i64 1
+  %1053 = fmul <2 x double> %1052, %1046
+  %1054 = shufflevector <2 x double> %1046, <2 x double> poison, <2 x i32> zeroinitializer
+  %1055 = shufflevector <2 x double> %1051, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1056 = insertelement <2 x double> %1055, double %1033, i64 1
+  %1057 = fmul <2 x double> %1054, %1056
+  %1058 = shufflevector <2 x double> %1046, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1059 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1051, <2 x double> %1058, <2 x double> %1057)
+  store <2 x double> %1053, ptr %62, align 16, !alias.scope !141
+  store <2 x double> %1059, ptr %.sroa.3.0..sroa_idx.i507, align 16, !alias.scope !141
   %.sroa.5.0..sroa_idx.i509 = getelementptr inbounds i8, ptr %62, i64 32
-  %1061 = load <2 x double>, ptr %1035, align 16, !noalias !141
-  %1062 = shufflevector <2 x double> %1061, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1063 = extractelement <2 x double> %1061, i64 0
-  %1064 = fmul double %1063, %1039
-  %1065 = extractelement <2 x double> %1061, i64 1
-  %1066 = call double @llvm.fmuladd.f64(double %1037, double %1065, double %1064)
-  %1067 = fmul double %1063, %1044
-  %1068 = fmul double %1065, %1046
-  %1069 = insertelement <2 x double> poison, double %1037, i64 0
-  %1070 = insertelement <2 x double> %1069, double %1039, i64 1
-  %1071 = fmul <2 x double> %1055, %1070
-  %1072 = shufflevector <2 x double> %1052, <2 x double> poison, <2 x i32> zeroinitializer
-  %1073 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1072, <2 x double> %1061, <2 x double> %1071)
-  store <2 x double> %1073, ptr %.sroa.5.0..sroa_idx.i509, align 16, !alias.scope !141
+  %1060 = load <2 x double>, ptr %1034, align 16, !noalias !141
+  %1061 = shufflevector <2 x double> %1060, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1062 = extractelement <2 x double> %1060, i64 0
+  %1063 = fmul double %1062, %1038
+  %1064 = extractelement <2 x double> %1060, i64 1
+  %1065 = call double @llvm.fmuladd.f64(double %1036, double %1064, double %1063)
+  %1066 = fmul double %1062, %1043
+  %1067 = fmul double %1064, %1045
+  %1068 = insertelement <2 x double> poison, double %1036, i64 0
+  %1069 = insertelement <2 x double> %1068, double %1038, i64 1
+  %1070 = fmul <2 x double> %1054, %1069
+  %1071 = shufflevector <2 x double> %1051, <2 x double> poison, <2 x i32> zeroinitializer
+  %1072 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1071, <2 x double> %1060, <2 x double> %1070)
+  store <2 x double> %1072, ptr %.sroa.5.0..sroa_idx.i509, align 16, !alias.scope !141
   %.sroa.7.0..sroa_idx.i511 = getelementptr inbounds i8, ptr %62, i64 48
-  %1074 = insertelement <2 x double> poison, double %1041, i64 0
-  %1075 = insertelement <2 x double> poison, double %1034, i64 0
-  %1076 = shufflevector <2 x double> %1075, <2 x double> poison, <2 x i32> zeroinitializer
+  %1073 = insertelement <2 x double> poison, double %1040, i64 0
+  %1074 = insertelement <2 x double> poison, double %1033, i64 0
+  %1075 = shufflevector <2 x double> %1074, <2 x double> poison, <2 x i32> zeroinitializer
   %.sroa.9.0..sroa_idx.i513 = getelementptr inbounds i8, ptr %62, i64 64
-  %1077 = fmul <2 x double> %1059, %1070
-  %1078 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1056, <2 x double> %1061, <2 x double> %1077)
+  %1076 = fmul <2 x double> %1058, %1069
+  %1077 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1055, <2 x double> %1060, <2 x double> %1076)
   %.sroa.11.0..sroa_idx.i515 = getelementptr inbounds i8, ptr %62, i64 80
-  %1079 = shufflevector <2 x double> %1061, <2 x double> %1047, <2 x i32> <i32 0, i32 2>
-  %1080 = insertelement <2 x double> poison, double %1049, i64 0
-  %1081 = insertelement <2 x double> %1080, double %1066, i64 1
+  %1078 = shufflevector <2 x double> %1060, <2 x double> %1046, <2 x i32> <i32 0, i32 2>
+  %1079 = insertelement <2 x double> poison, double %1048, i64 0
+  %1080 = insertelement <2 x double> %1079, double %1065, i64 1
   %.sroa.13.0..sroa_idx.i517 = getelementptr inbounds i8, ptr %62, i64 96
-  %1082 = insertelement <2 x double> poison, double %1046, i64 0
-  %1083 = insertelement <2 x double> %1082, double %1044, i64 1
-  %1084 = fmul <2 x double> %1047, %1083
-  %1085 = insertelement <2 x double> poison, double %1039, i64 0
-  %1086 = insertelement <2 x double> %1085, double %1041, i64 1
-  %1087 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1086, <2 x double> %1062, <2 x double> %1084)
-  store <2 x double> %1087, ptr %.sroa.13.0..sroa_idx.i517, align 16, !alias.scope !141
+  %1081 = insertelement <2 x double> poison, double %1045, i64 0
+  %1082 = insertelement <2 x double> %1081, double %1043, i64 1
+  %1083 = fmul <2 x double> %1046, %1082
+  %1084 = insertelement <2 x double> poison, double %1038, i64 0
+  %1085 = insertelement <2 x double> %1084, double %1040, i64 1
+  %1086 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1085, <2 x double> %1061, <2 x double> %1083)
+  store <2 x double> %1086, ptr %.sroa.13.0..sroa_idx.i517, align 16, !alias.scope !141
   %.sroa.15.0..sroa_idx.i519 = getelementptr inbounds i8, ptr %62, i64 112
-  %1088 = load <2 x double>, ptr %1042, align 8, !noalias !141
-  %1089 = fmul <2 x double> %1061, %1088
-  %1090 = extractelement <2 x double> %1089, i64 0
-  %1091 = call double @llvm.fmuladd.f64(double %1041, double %1065, double %1090)
-  %1092 = shufflevector <2 x double> %1061, <2 x double> %1047, <2 x i32> <i32 1, i32 3>
-  %1093 = insertelement <2 x double> poison, double %1051, i64 0
-  %1094 = insertelement <2 x double> %1093, double %1091, i64 1
-  %1095 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1088, <2 x double> %1092, <2 x double> %1094)
-  %1096 = shufflevector <2 x double> %1074, <2 x double> %1088, <2 x i32> <i32 0, i32 2>
-  %1097 = fmul <2 x double> %1059, %1096
-  %1098 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1076, <2 x double> %1061, <2 x double> %1097)
-  store <2 x double> %1098, ptr %.sroa.7.0..sroa_idx.i511, align 16, !alias.scope !141
-  %1099 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1096, <2 x double> %1055, <2 x double> %1078)
-  store <2 x double> %1099, ptr %.sroa.9.0..sroa_idx.i513, align 16, !alias.scope !141
-  %1100 = insertelement <2 x double> %1088, double %1037, i64 0
-  %1101 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1100, <2 x double> %1079, <2 x double> %1081)
-  store <2 x double> %1101, ptr %.sroa.11.0..sroa_idx.i515, align 16, !alias.scope !141
-  %1102 = shufflevector <2 x double> %1095, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %1102, ptr %.sroa.15.0..sroa_idx.i519, align 16, !alias.scope !141
+  %1087 = load <2 x double>, ptr %1041, align 8, !noalias !141
+  %1088 = fmul <2 x double> %1060, %1087
+  %1089 = extractelement <2 x double> %1088, i64 0
+  %1090 = call double @llvm.fmuladd.f64(double %1040, double %1064, double %1089)
+  %1091 = shufflevector <2 x double> %1060, <2 x double> %1046, <2 x i32> <i32 1, i32 3>
+  %1092 = insertelement <2 x double> poison, double %1050, i64 0
+  %1093 = insertelement <2 x double> %1092, double %1090, i64 1
+  %1094 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1087, <2 x double> %1091, <2 x double> %1093)
+  %1095 = shufflevector <2 x double> %1073, <2 x double> %1087, <2 x i32> <i32 0, i32 2>
+  %1096 = fmul <2 x double> %1058, %1095
+  %1097 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1075, <2 x double> %1060, <2 x double> %1096)
+  store <2 x double> %1097, ptr %.sroa.7.0..sroa_idx.i511, align 16, !alias.scope !141
+  %1098 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1095, <2 x double> %1054, <2 x double> %1077)
+  store <2 x double> %1098, ptr %.sroa.9.0..sroa_idx.i513, align 16, !alias.scope !141
+  %1099 = insertelement <2 x double> %1087, double %1036, i64 0
+  %1100 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1099, <2 x double> %1078, <2 x double> %1080)
+  store <2 x double> %1100, ptr %.sroa.11.0..sroa_idx.i515, align 16, !alias.scope !141
+  %1101 = shufflevector <2 x double> %1094, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %1101, ptr %.sroa.15.0..sroa_idx.i519, align 16, !alias.scope !141
   %.sroa.17.0..sroa_idx.i521 = getelementptr inbounds i8, ptr %62, i64 128
-  store double %1067, ptr %.sroa.17.0..sroa_idx.i521, align 16, !alias.scope !141
+  store double %1066, ptr %.sroa.17.0..sroa_idx.i521, align 16, !alias.scope !141
   %.sroa.18.0..sroa_idx.i522 = getelementptr inbounds i8, ptr %62, i64 136
-  %1103 = shufflevector <2 x double> %1061, <2 x double> poison, <2 x i32> zeroinitializer
-  %1104 = shufflevector <2 x double> %1088, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1105 = insertelement <2 x double> %1104, double %1046, i64 1
-  %1106 = fmul <2 x double> %1103, %1105
-  %1107 = insertelement <2 x double> %1088, double %1044, i64 0
-  %1108 = shufflevector <2 x double> %1061, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1109 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1107, <2 x double> %1108, <2 x double> %1106)
-  store <2 x double> %1109, ptr %.sroa.18.0..sroa_idx.i522, align 8, !alias.scope !141
+  %1102 = shufflevector <2 x double> %1060, <2 x double> poison, <2 x i32> zeroinitializer
+  %1103 = shufflevector <2 x double> %1087, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1104 = insertelement <2 x double> %1103, double %1045, i64 1
+  %1105 = fmul <2 x double> %1102, %1104
+  %1106 = insertelement <2 x double> %1087, double %1043, i64 0
+  %1107 = shufflevector <2 x double> %1060, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1108 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1106, <2 x double> %1107, <2 x double> %1105)
+  store <2 x double> %1108, ptr %.sroa.18.0..sroa_idx.i522, align 8, !alias.scope !141
   %.sroa.20.0..sroa_idx.i524 = getelementptr inbounds i8, ptr %62, i64 152
-  store double %1068, ptr %.sroa.20.0..sroa_idx.i524, align 8, !alias.scope !141
+  store double %1067, ptr %.sroa.20.0..sroa_idx.i524, align 8, !alias.scope !141
   call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  br label %1110
+  br label %1109
 
-1110:                                             ; preds = %1110, %1032
-  %indvars.iv.i.i525 = phi i64 [ 0, %1032 ], [ %indvars.iv.next.i.i526, %1110 ]
-  %1111 = getelementptr inbounds [20 x double], ptr %53, i64 0, i64 %indvars.iv.i.i525
-  %1112 = load double, ptr %1111, align 8, !noalias !144
-  %1113 = getelementptr inbounds [20 x double], ptr %62, i64 0, i64 %indvars.iv.i.i525
-  %1114 = load double, ptr %1113, align 8, !noalias !144
-  %1115 = fadd double %1112, %1114
-  %1116 = getelementptr inbounds [20 x double], ptr %52, i64 0, i64 %indvars.iv.i.i525
-  store double %1115, ptr %1116, align 8, !alias.scope !144
+1109:                                             ; preds = %1109, %1031
+  %indvars.iv.i.i525 = phi i64 [ 0, %1031 ], [ %indvars.iv.next.i.i526, %1109 ]
+  %1110 = getelementptr inbounds [20 x double], ptr %53, i64 0, i64 %indvars.iv.i.i525
+  %1111 = load double, ptr %1110, align 8, !noalias !144
+  %1112 = getelementptr inbounds [20 x double], ptr %62, i64 0, i64 %indvars.iv.i.i525
+  %1113 = load double, ptr %1112, align 8, !noalias !144
+  %1114 = fadd double %1111, %1113
+  %1115 = getelementptr inbounds [20 x double], ptr %52, i64 0, i64 %indvars.iv.i.i525
+  store double %1114, ptr %1115, align 8, !alias.scope !144
   %indvars.iv.next.i.i526 = add nuw nsw i64 %indvars.iv.i.i525, 1
   %exitcond.not.i.i527 = icmp eq i64 %indvars.iv.next.i.i526, 20
-  br i1 %exitcond.not.i.i527, label %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528, label %1110, !llvm.loop !89
+  br i1 %exitcond.not.i.i527, label %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528, label %1109, !llvm.loop !89
 
-_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528: ; preds = %1110
+_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528: ; preds = %1109
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  %1117 = getelementptr inbounds i8, ptr %51, i64 8
+  %1116 = getelementptr inbounds i8, ptr %51, i64 8
   store <4 x i32> <i32 1124024326, i32 2, i32 1, i32 20>, ptr %51, align 16
-  %1118 = getelementptr inbounds i8, ptr %51, i64 16
-  %1119 = getelementptr inbounds i8, ptr %51, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1118, i8 0, i64 48, i1 false)
-  store ptr %1117, ptr %1119, align 16
-  %1120 = getelementptr inbounds i8, ptr %51, i64 72
-  %1121 = getelementptr inbounds i8, ptr %51, i64 80
-  store ptr %1121, ptr %1120, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1121, i8 0, i64 16, i1 false)
+  %1117 = getelementptr inbounds i8, ptr %51, i64 16
+  %1118 = getelementptr inbounds i8, ptr %51, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1117, i8 0, i64 48, i1 false)
+  store ptr %1116, ptr %1118, align 16
+  %1119 = getelementptr inbounds i8, ptr %51, i64 72
+  %1120 = getelementptr inbounds i8, ptr %51, i64 80
+  store ptr %1120, ptr %1119, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1120, i8 0, i64 16, i1 false)
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef 1, i32 noundef 20, i32 noundef 6, ptr noundef nonnull %52, i64 noundef 0)
           to label %.noexc529 unwind label %.loopexit.split-lp585
 
 .noexc529:                                        ; preds = %_ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528
-  %1122 = getelementptr inbounds i8, ptr %13, i64 8
-  %1123 = getelementptr inbounds i8, ptr %13, i64 16
-  store i64 0, ptr %1123, align 8
+  %1121 = getelementptr inbounds i8, ptr %13, i64 8
+  %1122 = getelementptr inbounds i8, ptr %13, i64 16
+  store i64 0, ptr %1122, align 8
   store i32 33619968, ptr %13, align 8
-  store ptr %51, ptr %1122, align 8
+  store ptr %51, ptr %1121, align 8
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %1126 unwind label %1124
+          to label %1125 unwind label %1123
 
-1124:                                             ; preds = %.noexc529
-  %1125 = landingpad { ptr, i32 }
+1123:                                             ; preds = %.noexc529
+  %1124 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #19
   br label %.body
 
-1126:                                             ; preds = %.noexc529
+1125:                                             ; preds = %.noexc529
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i32 0, ptr %10, align 4, !noalias !147
-  %1127 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 1, ptr %1127, align 4, !noalias !147
+  %1126 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 1, ptr %1126, align 4, !noalias !147
   store i64 9223372034707292160, ptr %11, align 8, !noalias !147
   invoke void @_ZN2cv3MatC2ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %67, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
-          to label %1128 unwind label %1146
+          to label %1127 unwind label %1145
 
-1128:                                             ; preds = %1126
+1127:                                             ; preds = %1125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %1129 = getelementptr inbounds i8, ptr %66, i64 8
-  %1130 = getelementptr inbounds i8, ptr %66, i64 16
-  store i64 0, ptr %1130, align 8
+  %1128 = getelementptr inbounds i8, ptr %66, i64 8
+  %1129 = getelementptr inbounds i8, ptr %66, i64 16
+  store i64 0, ptr %1129, align 8
   store i32 -1040121850, ptr %66, align 8
-  store ptr %67, ptr %1129, align 8
+  store ptr %67, ptr %1128, align 8
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %51, ptr noundef nonnull align 8 dereferenceable(24) %66)
-          to label %1131 unwind label %1148
+          to label %1130 unwind label %1147
 
-1131:                                             ; preds = %1128
+1130:                                             ; preds = %1127
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %67) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %51) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 9223372034707292160, ptr %8, align 8, !noalias !150
   store i32 0, ptr %9, align 4, !noalias !150
-  %1132 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 10, ptr %1132, align 4, !noalias !150
+  %1131 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 10, ptr %1131, align 4, !noalias !150
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %69, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %1133 unwind label %.loopexit.split-lp585
+          to label %1132 unwind label %.loopexit.split-lp585
 
-1133:                                             ; preds = %1131
+1132:                                             ; preds = %1130
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   invoke void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIdLi10ELi10EEEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Matx.24") align 8 %68, ptr noundef nonnull align 8 dereferenceable(96) %69)
-          to label %1134 unwind label %1151
+          to label %1133 unwind label %1150
 
-1134:                                             ; preds = %1133
+1133:                                             ; preds = %1132
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 9223372034707292160, ptr %6, align 8, !noalias !153
   store i32 10, ptr %7, align 4, !noalias !153
-  %1135 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 20, ptr %1135, align 4, !noalias !153
+  %1134 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 20, ptr %1134, align 4, !noalias !153
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %71, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
-          to label %1136 unwind label %.loopexit.split-lp585
+          to label %1135 unwind label %.loopexit.split-lp585
 
-1136:                                             ; preds = %1134
+1135:                                             ; preds = %1133
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   invoke void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIdLi10ELi10EEEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Matx.24") align 8 %70, ptr noundef nonnull align 8 dereferenceable(96) %71)
-          to label %1137 unwind label %1153
+          to label %1136 unwind label %1152
 
-1137:                                             ; preds = %1136
+1136:                                             ; preds = %1135
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %71) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(800) %72, i8 0, i64 800, i1 false)
-  %1138 = getelementptr inbounds i8, ptr %73, i64 16
+  %1137 = getelementptr inbounds i8, ptr %73, i64 16
   store i32 -1056833530, ptr %73, align 8
-  %1139 = getelementptr inbounds i8, ptr %73, i64 8
-  store ptr %68, ptr %1139, align 8
-  store i64 42949672970, ptr %1138, align 8
-  %1140 = getelementptr inbounds i8, ptr %74, i64 16
+  %1138 = getelementptr inbounds i8, ptr %73, i64 8
+  store ptr %68, ptr %1138, align 8
+  store i64 42949672970, ptr %1137, align 8
+  %1139 = getelementptr inbounds i8, ptr %74, i64 16
   store i32 -1056833530, ptr %74, align 8
-  %1141 = getelementptr inbounds i8, ptr %74, i64 8
-  store ptr %70, ptr %1141, align 8
-  store i64 42949672970, ptr %1140, align 8
-  %1142 = getelementptr inbounds i8, ptr %75, i64 8
+  %1140 = getelementptr inbounds i8, ptr %74, i64 8
+  store ptr %70, ptr %1140, align 8
+  store i64 42949672970, ptr %1139, align 8
+  %1141 = getelementptr inbounds i8, ptr %75, i64 8
   store i32 -1040056314, ptr %75, align 8
-  store ptr %72, ptr %1142, align 8
-  %1143 = getelementptr inbounds i8, ptr %75, i64 16
-  store i64 42949672970, ptr %1143, align 8
-  %1144 = invoke noundef zeroext i1 @_ZN2cv5solveERKNS_11_InputArrayES2_RKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75, i32 noundef 0)
-          to label %1145 unwind label %1155
+  store ptr %72, ptr %1141, align 8
+  %1142 = getelementptr inbounds i8, ptr %75, i64 16
+  store i64 42949672970, ptr %1142, align 8
+  %1143 = invoke noundef zeroext i1 @_ZN2cv5solveERKNS_11_InputArrayES2_RKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75, i32 noundef 0)
+          to label %1144 unwind label %1154
 
-1145:                                             ; preds = %1137
-  br i1 %1144, label %.preheader578, label %2327
+1144:                                             ; preds = %1136
+  br i1 %1143, label %.preheader578, label %2326
 
-1146:                                             ; preds = %1126
-  %1147 = landingpad { ptr, i32 }
+1145:                                             ; preds = %1125
+  %1146 = landingpad { ptr, i32 }
           cleanup
-  br label %1150
+  br label %1149
 
-1148:                                             ; preds = %1128
-  %1149 = landingpad { ptr, i32 }
+1147:                                             ; preds = %1127
+  %1148 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %67) #19
-  br label %1150
+  br label %1149
 
-1150:                                             ; preds = %1148, %1146
-  %.pn245.pn = phi { ptr, i32 } [ %1149, %1148 ], [ %1147, %1146 ]
+1149:                                             ; preds = %1147, %1145
+  %.pn245.pn = phi { ptr, i32 } [ %1148, %1147 ], [ %1146, %1145 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %51) #19
   br label %.body
 
-1151:                                             ; preds = %1133
-  %1152 = landingpad { ptr, i32 }
+1150:                                             ; preds = %1132
+  %1151 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #19
   br label %.body
 
-1153:                                             ; preds = %1136
-  %1154 = landingpad { ptr, i32 }
+1152:                                             ; preds = %1135
+  %1153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %71) #19
   br label %.body
 
-1155:                                             ; preds = %1137
-  %1156 = landingpad { ptr, i32 }
+1154:                                             ; preds = %1136
+  %1155 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.preheader578:                                    ; preds = %1145, %1187
-  %indvars.iv675 = phi i64 [ %indvars.iv.next676, %1187 ], [ 0, %1145 ]
-  %1157 = mul nuw nsw i64 %indvars.iv675, 13
-  %1158 = mul nuw nsw i64 %indvars.iv675, 20
-  %1159 = trunc i64 %1158 to i32
-  %1160 = add i32 %1159, 40
-  %1161 = trunc i64 %1158 to i32
-  %1162 = add i32 %1161, 50
-  br label %1163
+.preheader578:                                    ; preds = %1144, %1186
+  %indvars.iv669 = phi i64 [ %indvars.iv.next670, %1186 ], [ 0, %1144 ]
+  %1156 = mul nuw nsw i64 %indvars.iv669, 13
+  %1157 = mul nuw nsw i64 %indvars.iv669, 20
+  %1158 = trunc i64 %1157 to i32
+  %1159 = add i32 %1158, 40
+  %1160 = trunc i64 %1157 to i32
+  %1161 = add i32 %1160, 50
+  br label %1162
 
-1163:                                             ; preds = %.preheader578, %1182
-  %indvars.iv671 = phi i64 [ 0, %.preheader578 ], [ %indvars.iv.next672, %1182 ]
-  %.0225616 = phi i32 [ 0, %.preheader578 ], [ %.1226, %1182 ]
-  %.0227615 = phi i32 [ 0, %.preheader578 ], [ %.1228, %1182 ]
-  %1164 = trunc nuw nsw i64 %indvars.iv671 to i32
-  %1165 = and i32 %1164, 11
-  %or.cond = icmp eq i32 %1165, 0
-  %1166 = icmp eq i64 %indvars.iv671, 8
-  %or.cond3 = or i1 %1166, %or.cond
-  br i1 %or.cond3, label %1173, label %1167
+1162:                                             ; preds = %.preheader578, %1181
+  %indvars.iv665 = phi i64 [ 0, %.preheader578 ], [ %indvars.iv.next666, %1181 ]
+  %.0225614 = phi i32 [ 0, %.preheader578 ], [ %.1226, %1181 ]
+  %.0227613 = phi i32 [ 0, %.preheader578 ], [ %.1228, %1181 ]
+  %1163 = trunc nuw nsw i64 %indvars.iv665 to i32
+  %1164 = and i32 %1163, 11
+  %or.cond = icmp eq i32 %1164, 0
+  %1165 = icmp eq i64 %indvars.iv665, 8
+  %or.cond3 = or i1 %1165, %or.cond
+  br i1 %or.cond3, label %1172, label %1166
 
-1167:                                             ; preds = %1163
-  %1168 = add nsw i32 %.0227615, 1
-  %1169 = add nsw i32 %1160, %.0227615
-  %1170 = sext i32 %1169 to i64
-  %1171 = getelementptr inbounds double, ptr %72, i64 %1170
-  %1172 = load double, ptr %1171, align 8
-  br label %1173
+1166:                                             ; preds = %1162
+  %1167 = add nsw i32 %.0227613, 1
+  %1168 = add nsw i32 %1159, %.0227613
+  %1169 = sext i32 %1168 to i64
+  %1170 = getelementptr inbounds double, ptr %72, i64 %1169
+  %1171 = load double, ptr %1170, align 8
+  br label %1172
 
-1173:                                             ; preds = %1163, %1167
-  %.1228 = phi i32 [ %.0227615, %1163 ], [ %1168, %1167 ]
-  %1174 = phi double [ 0.000000e+00, %1163 ], [ %1172, %1167 ]
-  %or.cond5 = icmp eq i32 %1165, 3
-  %1175 = icmp eq i64 %indvars.iv671, 12
-  %or.cond7 = or i1 %1175, %or.cond5
-  br i1 %or.cond7, label %1182, label %1176
+1172:                                             ; preds = %1162, %1166
+  %.1228 = phi i32 [ %.0227613, %1162 ], [ %1167, %1166 ]
+  %1173 = phi double [ 0.000000e+00, %1162 ], [ %1171, %1166 ]
+  %or.cond5 = icmp eq i32 %1164, 3
+  %1174 = icmp eq i64 %indvars.iv665, 12
+  %or.cond7 = or i1 %1174, %or.cond5
+  br i1 %or.cond7, label %1181, label %1175
 
-1176:                                             ; preds = %1173
-  %1177 = add nsw i32 %.0225616, 1
-  %1178 = add nsw i32 %1162, %.0225616
-  %1179 = sext i32 %1178 to i64
-  %1180 = getelementptr inbounds double, ptr %72, i64 %1179
-  %1181 = load double, ptr %1180, align 8
-  br label %1182
+1175:                                             ; preds = %1172
+  %1176 = add nsw i32 %.0225614, 1
+  %1177 = add nsw i32 %1161, %.0225614
+  %1178 = sext i32 %1177 to i64
+  %1179 = getelementptr inbounds double, ptr %72, i64 %1178
+  %1180 = load double, ptr %1179, align 8
+  br label %1181
 
-1182:                                             ; preds = %1173, %1176
-  %.1226 = phi i32 [ %.0225616, %1173 ], [ %1177, %1176 ]
-  %1183 = phi double [ 0.000000e+00, %1173 ], [ %1181, %1176 ]
-  %1184 = fsub double %1174, %1183
-  %1185 = add nuw nsw i64 %indvars.iv671, %1157
-  %1186 = getelementptr inbounds [39 x double], ptr %76, i64 0, i64 %1185
-  store double %1184, ptr %1186, align 8
-  %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 1
-  %exitcond674.not = icmp eq i64 %indvars.iv.next672, 13
-  br i1 %exitcond674.not, label %1187, label %1163, !llvm.loop !156
+1181:                                             ; preds = %1172, %1175
+  %.1226 = phi i32 [ %.0225614, %1172 ], [ %1176, %1175 ]
+  %1182 = phi double [ 0.000000e+00, %1172 ], [ %1180, %1175 ]
+  %1183 = fsub double %1173, %1182
+  %1184 = add nuw nsw i64 %indvars.iv665, %1156
+  %1185 = getelementptr inbounds [39 x double], ptr %76, i64 0, i64 %1184
+  store double %1183, ptr %1185, align 8
+  %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
+  %exitcond668.not = icmp eq i64 %indvars.iv.next666, 13
+  br i1 %exitcond668.not, label %1186, label %1162, !llvm.loop !156
 
-1187:                                             ; preds = %1182
-  %indvars.iv.next676 = add nuw nsw i64 %indvars.iv675, 1
-  %exitcond678.not = icmp eq i64 %indvars.iv.next676, 3
-  br i1 %exitcond678.not, label %1188, label %.preheader578, !llvm.loop !157
+1186:                                             ; preds = %1181
+  %indvars.iv.next670 = add nuw nsw i64 %indvars.iv669, 1
+  %exitcond672.not = icmp eq i64 %indvars.iv.next670, 3
+  br i1 %exitcond672.not, label %1187, label %.preheader578, !llvm.loop !157
 
-1188:                                             ; preds = %1187
+1187:                                             ; preds = %1186
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
-  %1189 = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #18
-          to label %1190 unwind label %2204
+  %1188 = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #18
+          to label %1189 unwind label %2203
 
-1190:                                             ; preds = %1188
-  store ptr %1189, ptr %77, align 8
-  %1191 = getelementptr inbounds i8, ptr %1189, i64 88
-  %1192 = getelementptr inbounds i8, ptr %77, i64 16
-  store ptr %1191, ptr %1192, align 8
-  %1193 = getelementptr inbounds i8, ptr %77, i64 8
-  store ptr %1191, ptr %1193, align 8
+1189:                                             ; preds = %1187
+  store ptr %1188, ptr %77, align 8
+  %1190 = getelementptr inbounds i8, ptr %1188, i64 88
+  %1191 = getelementptr inbounds i8, ptr %77, i64 16
+  store ptr %1190, ptr %1191, align 8
+  %1192 = getelementptr inbounds i8, ptr %77, i64 8
+  store ptr %1190, ptr %1192, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
-  %1194 = load double, ptr %76, align 16
-  %1195 = getelementptr inbounds i8, ptr %76, i64 136
-  %1196 = load double, ptr %1195, align 8
-  %1197 = getelementptr inbounds i8, ptr %76, i64 272
-  %1198 = load double, ptr %1197, align 16
-  %1199 = getelementptr inbounds i8, ptr %76, i64 208
-  %1200 = getelementptr inbounds i8, ptr %76, i64 32
-  %1201 = getelementptr inbounds i8, ptr %76, i64 168
-  %1202 = getelementptr inbounds i8, ptr %76, i64 64
-  %1203 = getelementptr inbounds i8, ptr %76, i64 104
-  %1204 = load double, ptr %1203, align 8
-  %1205 = fneg double %1204
-  %1206 = getelementptr inbounds i8, ptr %76, i64 240
-  %1207 = getelementptr inbounds i8, ptr %1189, i64 80
-  %1208 = getelementptr inbounds i8, ptr %76, i64 112
-  %1209 = load double, ptr %1208, align 16
-  %1210 = getelementptr inbounds i8, ptr %76, i64 8
-  %1211 = getelementptr inbounds i8, ptr %76, i64 280
-  %1212 = getelementptr inbounds i8, ptr %76, i64 144
-  %1213 = getelementptr inbounds i8, ptr %76, i64 120
-  %1214 = getelementptr inbounds i8, ptr %76, i64 48
-  %1215 = getelementptr inbounds i8, ptr %76, i64 80
-  %1216 = getelementptr inbounds i8, ptr %76, i64 256
-  %1217 = getelementptr inbounds i8, ptr %76, i64 184
-  %1218 = getelementptr inbounds i8, ptr %76, i64 224
-  %1219 = load double, ptr %1218, align 16
-  %1220 = fneg double %1219
-  %1221 = getelementptr inbounds i8, ptr %1189, i64 64
-  %1222 = getelementptr inbounds i8, ptr %76, i64 24
-  %1223 = load double, ptr %1222, align 8
-  %1224 = getelementptr inbounds i8, ptr %76, i64 296
-  %1225 = getelementptr inbounds i8, ptr %76, i64 160
-  %1226 = load double, ptr %1225, align 16
-  %1227 = getelementptr inbounds i8, ptr %76, i64 232
-  %1228 = load double, ptr %1227, align 8
-  %1229 = insertelement <2 x double> poison, double %1228, i64 0
-  %1230 = insertelement <2 x double> %1229, double %1194, i64 1
-  %1231 = fneg <2 x double> %1230
-  %1232 = getelementptr inbounds i8, ptr %76, i64 96
-  %1233 = load double, ptr %1232, align 16
-  %1234 = getelementptr inbounds i8, ptr %76, i64 200
-  %1235 = load double, ptr %1234, align 8
-  %1236 = getelementptr inbounds i8, ptr %1189, i64 48
-  %1237 = fmul double %1226, %1220
-  %1238 = getelementptr inbounds i8, ptr %1189, i64 32
-  %1239 = getelementptr inbounds i8, ptr %1189, i64 16
-  %1240 = insertelement <2 x double> poison, double %1226, i64 0
-  %1241 = insertelement <2 x double> %1231, double %1228, i64 1
-  %1242 = insertelement <2 x double> poison, double %1235, i64 0
-  %1243 = load <2 x double>, ptr %1206, align 16
-  %1244 = shufflevector <2 x double> %1243, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1245 = extractelement <2 x double> %1243, i64 0
-  %1246 = extractelement <2 x double> %1243, i64 1
-  %1247 = load <2 x double>, ptr %1211, align 8
-  %1248 = extractelement <2 x double> %1247, i64 1
-  %1249 = extractelement <2 x double> %1247, i64 0
-  %1250 = load <2 x double>, ptr %1216, align 16
-  %1251 = extractelement <2 x double> %1250, i64 0
-  %1252 = fmul double %1209, %1251
-  %1253 = extractelement <2 x double> %1250, i64 1
-  %1254 = insertelement <2 x double> poison, double %1209, i64 0
-  %1255 = insertelement <2 x double> %1254, double %1196, i64 1
-  %1256 = shufflevector <2 x double> %1250, <2 x double> %1231, <2 x i32> <i32 1, i32 2>
-  %1257 = fmul <2 x double> %1255, %1256
-  %1258 = insertelement <2 x double> %1250, double %1235, i64 0
-  %1259 = load <2 x double>, ptr %1210, align 8
-  %1260 = insertelement <2 x double> poison, double %1196, i64 0
-  %1261 = shufflevector <2 x double> %1260, <2 x double> poison, <2 x i32> zeroinitializer
-  %1262 = fmul <2 x double> %1261, %1259
-  %1263 = insertelement <2 x double> poison, double %1194, i64 0
-  %1264 = shufflevector <2 x double> %1259, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1265 = insertelement <2 x double> %1264, double %1235, i64 1
-  %1266 = insertelement <2 x double> %1263, double %1204, i64 1
-  %1267 = insertelement <2 x double> %1244, double %1196, i64 0
-  %1268 = fmul <2 x double> %1266, %1267
-  %1269 = extractelement <2 x double> %1268, i64 0
-  %1270 = extractelement <2 x double> %1268, i64 1
-  %1271 = load <2 x double>, ptr %1201, align 8
-  %1272 = load <2 x double>, ptr %1200, align 16
-  %1273 = load <2 x double>, ptr %1199, align 16
-  %1274 = fmul <2 x double> %1273, %1272
-  %1275 = shufflevector <2 x double> %1274, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1276 = extractelement <2 x double> %1274, i64 0
-  %1277 = extractelement <2 x double> %1271, i64 0
-  %1278 = fmul double %1276, %1277
-  %1279 = extractelement <2 x double> %1272, i64 1
-  %1280 = load <2 x double>, ptr %1202, align 16
-  %1281 = shufflevector <2 x double> %1280, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %shift = shufflevector <2 x double> %1231, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1282 = fmul <2 x double> %1271, %shift
-  %1283 = extractelement <2 x double> %1282, i64 0
-  %1284 = shufflevector <2 x double> %1231, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1285 = shufflevector <2 x double> %1284, <2 x double> %1272, <2 x i32> <i32 0, i32 3>
-  %1286 = fmul double %1279, %1219
-  %1287 = load <2 x double>, ptr %1213, align 8
-  %1288 = fneg <2 x double> %1287
-  %1289 = shufflevector <2 x double> %1240, <2 x double> %1288, <2 x i32> <i32 0, i32 2>
-  %1290 = fmul <2 x double> %1287, %1250
-  %1291 = extractelement <2 x double> %1290, i64 0
-  %1292 = extractelement <2 x double> %1288, i64 1
-  %1293 = shufflevector <2 x double> %1272, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1294 = fmul <2 x double> %1293, %1288
-  %1295 = fmul double %1279, %1228
-  %1296 = extractelement <2 x double> %1280, i64 0
-  %1297 = extractelement <2 x double> %1280, i64 1
-  %1298 = fmul double %1296, %1252
-  %1299 = shufflevector <2 x double> %1259, <2 x double> %1271, <2 x i32> <i32 0, i32 2>
-  %1300 = call double @llvm.fmuladd.f64(double %1269, double %1198, double %1278)
-  %1301 = shufflevector <2 x double> %1264, <2 x double> %1273, <2 x i32> <i32 0, i32 2>
-  %1302 = fneg <2 x double> %1301
-  %1303 = shufflevector <2 x double> %1259, <2 x double> %1273, <2 x i32> <i32 0, i32 3>
-  %1304 = fneg <2 x double> %1303
-  %1305 = shufflevector <2 x double> %1271, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1306 = insertelement <2 x double> %1305, double %1196, i64 1
-  %1307 = fmul <2 x double> %1306, %1304
-  %1308 = shufflevector <2 x double> %1307, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1309 = shufflevector <2 x double> %1262, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1310 = insertelement <2 x double> %1280, double %1198, i64 1
-  %1311 = extractelement <2 x double> %1302, i64 0
-  %1312 = extractelement <2 x double> %1271, i64 1
-  %1313 = fmul double %1312, %1311
-  %1314 = shufflevector <2 x double> %1302, <2 x double> %1259, <2 x i32> <i32 0, i32 3>
-  %1315 = shufflevector <2 x double> %1302, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1316 = insertelement <2 x double> %1315, double %1226, i64 0
-  %1317 = insertelement <2 x double> %1244, double %1198, i64 1
-  %1318 = shufflevector <2 x double> %1243, <2 x double> %1271, <2 x i32> <i32 0, i32 2>
-  %1319 = shufflevector <2 x double> %1282, <2 x double> poison, <2 x i32> zeroinitializer
-  %1320 = shufflevector <2 x double> %1250, <2 x double> %1243, <2 x i32> <i32 0, i32 3>
-  %1321 = shufflevector <2 x double> %1271, <2 x double> %1280, <2 x i32> <i32 0, i32 3>
-  %1322 = shufflevector <2 x double> %1280, <2 x double> %1244, <2 x i32> <i32 0, i32 3>
-  %1323 = insertelement <2 x double> poison, double %1198, i64 0
-  %1324 = shufflevector <2 x double> %1323, <2 x double> %1271, <2 x i32> <i32 0, i32 2>
-  %1325 = shufflevector <2 x double> %1247, <2 x double> poison, <2 x i32> zeroinitializer
-  %1326 = shufflevector <2 x double> %1247, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1327 = shufflevector <2 x double> %1326, <2 x double> %1280, <2 x i32> <i32 0, i32 3>
-  %1328 = shufflevector <2 x double> %1323, <2 x double> poison, <2 x i32> zeroinitializer
-  %1329 = shufflevector <2 x double> %1243, <2 x double> %1281, <2 x i32> <i32 0, i32 3>
-  %1330 = insertelement <2 x double> %1260, double %1194, i64 1
-  %1331 = insertelement <2 x double> %1231, double %1220, i64 0
-  %1332 = insertelement <2 x double> %1272, double %1194, i64 1
-  %1333 = insertelement <2 x double> %1229, double %1226, i64 1
-  %1334 = fmul <2 x double> %1332, %1333
-  %1335 = load <2 x double>, ptr %1212, align 16
-  %1336 = extractelement <2 x double> %1335, i64 0
-  %1337 = fmul double %1336, %1223
-  %1338 = insertelement <2 x double> %1335, double %1219, i64 0
-  %1339 = shufflevector <2 x double> %1242, <2 x double> %1335, <2 x i32> <i32 0, i32 2>
-  %1340 = shufflevector <2 x double> %1335, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1341 = insertelement <2 x double> %1340, double %1235, i64 1
-  %1342 = fmul <2 x double> %1341, %1231
-  %1343 = extractelement <2 x double> %1342, i64 0
-  %1344 = shufflevector <2 x double> %1272, <2 x double> poison, <2 x i32> zeroinitializer
-  %1345 = shufflevector <2 x double> %1273, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1346 = insertelement <2 x double> %1345, double %1219, i64 1
-  %1347 = fmul <2 x double> %1344, %1346
-  %1348 = shufflevector <2 x double> %1231, <2 x double> %1302, <2 x i32> <i32 0, i32 3>
-  %1349 = fmul <2 x double> %1335, %1348
-  %1350 = shufflevector <2 x double> %1349, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1351 = shufflevector <2 x double> %1304, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1352 = insertelement <2 x double> %1351, double %1220, i64 1
-  %1353 = fmul <2 x double> %1340, %1352
-  %1354 = shufflevector <2 x double> %1271, <2 x double> %1335, <2 x i32> <i32 0, i32 2>
-  %1355 = fmul <2 x double> %1354, %1302
-  %1356 = extractelement <2 x double> %1355, i64 1
-  %1357 = extractelement <2 x double> %1349, i64 1
-  %1358 = extractelement <2 x double> %1347, i64 0
-  %1359 = load <2 x double>, ptr %1214, align 16
-  %1360 = extractelement <2 x double> %1359, i64 0
-  %1361 = extractelement <2 x double> %1359, i64 1
-  %1362 = load <2 x double>, ptr %1215, align 16
-  %1363 = shufflevector <2 x double> %1362, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1364 = load <2 x double>, ptr %1217, align 8
-  %1365 = fmul <2 x double> %1359, %1288
-  %1366 = extractelement <2 x double> %1365, i64 0
-  %1367 = shufflevector <2 x double> %1364, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1368 = fmul double %1360, %1292
-  %1369 = fmul double %1361, %1292
-  %1370 = fmul double %1361, %1228
-  %1371 = fmul double %1370, %1235
-  %1372 = insertelement <2 x double> %1359, double %1223, i64 0
-  %1373 = fmul <2 x double> %1372, %1289
-  %1374 = shufflevector <2 x double> %1373, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1375 = shufflevector <2 x double> %1240, <2 x double> %1359, <2 x i32> <i32 0, i32 2>
-  %1376 = fmul <2 x double> %1375, %1241
-  %1377 = extractelement <2 x double> %1376, i64 0
-  %1378 = insertelement <2 x double> %1364, double %1219, i64 0
-  %1379 = shufflevector <2 x double> %1359, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1380 = insertelement <2 x double> %1364, double %1194, i64 0
-  %1381 = shufflevector <2 x double> %1359, <2 x double> %1259, <2 x i32> <i32 0, i32 2>
-  %1382 = shufflevector <2 x double> %1259, <2 x double> %1364, <2 x i32> <i32 0, i32 2>
-  %1383 = shufflevector <2 x double> %1364, <2 x double> %1273, <2 x i32> <i32 0, i32 2>
-  %1384 = fmul <2 x double> %1383, %1285
-  %1385 = fmul <2 x double> %1273, %1359
-  %1386 = shufflevector <2 x double> %1385, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1387 = shufflevector <2 x double> %1335, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1388 = insertelement <2 x double> %1387, double %1196, i64 0
-  %1389 = shufflevector <2 x double> %1302, <2 x double> %1304, <2 x i32> <i32 1, i32 3>
-  %1390 = fmul <2 x double> %1388, %1389
-  %1391 = extractelement <2 x double> %1390, i64 0
-  %1392 = call double @llvm.fmuladd.f64(double %1391, double %1296, double %1300)
-  %1393 = shufflevector <2 x double> %1243, <2 x double> %1304, <2 x i32> <i32 0, i32 3>
-  %1394 = shufflevector <2 x double> %1287, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1395 = insertelement <2 x double> %1394, double %1226, i64 1
-  %1396 = fmul <2 x double> %1393, %1395
-  %1397 = extractelement <2 x double> %1384, i64 1
-  %1398 = extractelement <2 x double> %1385, i64 0
-  %1399 = extractelement <2 x double> %1364, i64 0
-  %1400 = fmul <2 x double> %1364, %1304
-  %1401 = fmul <2 x double> %1382, %1316
-  %1402 = shufflevector <2 x double> %1379, <2 x double> %1304, <2 x i32> <i32 0, i32 2>
-  %1403 = fmul <2 x double> %1378, %1402
-  %1404 = insertelement <2 x double> %1402, double %1226, i64 0
-  %1405 = fmul <2 x double> %1265, %1404
-  %1406 = extractelement <2 x double> %1403, i64 0
-  %1407 = extractelement <2 x double> %1405, i64 0
-  %1408 = shufflevector <2 x double> %1367, <2 x double> %1335, <2 x i32> <i32 0, i32 3>
-  %1409 = fmul <2 x double> %1381, %1338
-  %1410 = extractelement <2 x double> %1396, i64 0
-  %1411 = shufflevector <2 x double> %1309, <2 x double> %1390, <2 x i32> <i32 3, i32 1>
-  %1412 = insertelement <2 x double> %1287, double %1204, i64 1
-  %1413 = shufflevector <2 x double> %1243, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1414 = fmul <2 x double> %1412, %1413
-  %1415 = insertelement <2 x double> %1272, double %1209, i64 1
-  %1416 = shufflevector <2 x double> %1288, <2 x double> %1243, <2 x i32> <i32 0, i32 3>
-  %1417 = fmul <2 x double> %1415, %1416
-  %1418 = shufflevector <2 x double> %1243, <2 x double> %1359, <2 x i32> <i32 0, i32 3>
-  %1419 = insertelement <2 x double> poison, double %1209, i64 0
-  %1420 = insertelement <2 x double> %1419, double %1205, i64 1
-  %1421 = fmul <2 x double> %1418, %1420
-  %1422 = extractelement <2 x double> %1421, i64 0
-  %1423 = fmul double %1296, %1422
-  %1424 = extractelement <2 x double> %1417, i64 1
-  %1425 = fmul double %1296, %1424
-  %1426 = call double @llvm.fmuladd.f64(double %1422, double %1297, double %1425)
-  %1427 = extractelement <2 x double> %1414, i64 1
-  %1428 = call double @llvm.fmuladd.f64(double %1427, double %1297, double %1426)
-  %1429 = insertelement <2 x double> %1420, double %1226, i64 0
-  %1430 = shufflevector <2 x double> %1302, <2 x double> %1272, <2 x i32> <i32 1, i32 2>
-  %1431 = fmul <2 x double> %1429, %1430
-  %1432 = extractelement <2 x double> %1431, i64 1
-  %1433 = call double @llvm.fmuladd.f64(double %1432, double %1248, double %1428)
-  %1434 = shufflevector <2 x double> %1308, <2 x double> %1414, <2 x i32> <i32 0, i32 3>
-  %1435 = shufflevector <2 x double> %1262, <2 x double> %1431, <2 x i32> <i32 0, i32 3>
-  %1436 = shufflevector <2 x double> %1273, <2 x double> %1272, <2 x i32> <i32 0, i32 2>
-  %1437 = shufflevector <2 x double> %1359, <2 x double> %1288, <2 x i32> <i32 1, i32 3>
-  %1438 = fmul <2 x double> %1436, %1437
-  %1439 = call double @llvm.fmuladd.f64(double %1432, double %1198, double %1392)
-  %1440 = call double @llvm.fmuladd.f64(double %1283, double %1245, double %1439)
-  %1441 = call double @llvm.fmuladd.f64(double %1270, double %1296, double %1440)
-  store double %1441, ptr %1207, align 8
-  %1442 = extractelement <2 x double> %1362, i64 0
-  %1443 = extractelement <2 x double> %1417, i64 0
-  %1444 = extractelement <2 x double> %1438, i64 1
-  %1445 = extractelement <2 x double> %1421, i64 1
-  %1446 = extractelement <2 x double> %1414, i64 0
-  %1447 = insertelement <2 x double> %1254, double %1223, i64 1
-  %1448 = fneg <2 x double> %1447
-  %1449 = shufflevector <2 x double> %1448, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1450 = insertelement <2 x double> %1293, double %1196, i64 1
-  %1451 = insertelement <2 x double> %1448, double %1223, i64 1
-  %1452 = fmul <2 x double> %1450, %1451
-  %1453 = shufflevector <2 x double> %1272, <2 x double> %1271, <2 x i32> <i32 0, i32 2>
-  %1454 = fmul <2 x double> %1453, %1448
-  %1455 = fmul <2 x double> %1271, %1448
-  %1456 = extractelement <2 x double> %1455, i64 1
-  %1457 = shufflevector <2 x double> %1449, <2 x double> %1287, <2 x i32> <i32 0, i32 3>
-  %1458 = fmul <2 x double> %1258, %1457
-  %1459 = extractelement <2 x double> %1458, i64 1
-  %1460 = extractelement <2 x double> %1458, i64 0
-  %1461 = extractelement <2 x double> %1448, i64 0
-  %1462 = fmul <2 x double> %1359, %1448
-  %1463 = extractelement <2 x double> %1462, i64 0
-  %1464 = fmul double %1361, %1461
-  %1465 = fmul double %1198, %1464
-  %1466 = call double @llvm.fmuladd.f64(double %1463, double %1249, double %1465)
-  %1467 = fmul double %1249, %1464
-  %1468 = call double @llvm.fmuladd.f64(double %1463, double %1248, double %1467)
-  %1469 = fmul double %1248, %1464
-  %1470 = call double @llvm.fmuladd.f64(double %1456, double %1245, double %1466)
-  %1471 = extractelement <2 x double> %1454, i64 1
-  %1472 = call double @llvm.fmuladd.f64(double %1471, double %1246, double %1470)
-  %1473 = extractelement <2 x double> %1452, i64 1
-  %1474 = call double @llvm.fmuladd.f64(double %1473, double %1249, double %1472)
-  %1475 = extractelement <2 x double> %1362, i64 1
-  %1476 = call double @llvm.fmuladd.f64(double %1337, double %1198, double %1474)
-  %1477 = call double @llvm.fmuladd.f64(double %1424, double %1475, double %1468)
-  %1478 = extractelement <2 x double> %1454, i64 0
-  %1479 = extractelement <2 x double> %1452, i64 0
-  %1480 = shufflevector <2 x double> %1421, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1481 = shufflevector <2 x double> %1257, <2 x double> %1480, <2 x i32> <i32 0, i32 3>
-  %1482 = shufflevector <2 x double> %1280, <2 x double> %1362, <2 x i32> <i32 0, i32 2>
-  %1483 = insertelement <2 x double> %1326, double %1198, i64 1
-  %1484 = shufflevector <2 x double> %1280, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1485 = shufflevector <2 x double> %1280, <2 x double> poison, <2 x i32> zeroinitializer
-  %1486 = shufflevector <2 x double> %1274, <2 x double> %1247, <2 x i32> <i32 0, i32 3>
-  %1487 = shufflevector <2 x double> %1384, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1488 = shufflevector <2 x double> %1364, <2 x double> %1280, <2 x i32> <i32 1, i32 3>
-  %1489 = shufflevector <2 x double> %1385, <2 x double> %1414, <2 x i32> <i32 0, i32 2>
-  %1490 = shufflevector <2 x double> %1364, <2 x double> %1281, <2 x i32> <i32 0, i32 3>
-  %1491 = insertelement <2 x double> %1305, double %1198, i64 1
-  %1492 = shufflevector <2 x double> %1390, <2 x double> %1247, <2 x i32> <i32 0, i32 2>
-  %1493 = insertelement <2 x double> poison, double %1233, i64 0
-  %1494 = insertelement <2 x double> %1363, double %1198, i64 1
-  %1495 = shufflevector <2 x double> %1268, <2 x double> %1417, <2 x i32> <i32 3, i32 1>
-  %1496 = shufflevector <2 x double> %1281, <2 x double> %1363, <2 x i32> <i32 0, i32 3>
-  %1497 = shufflevector <2 x double> %1247, <2 x double> %1280, <2 x i32> <i32 1, i32 3>
-  %1498 = shufflevector <2 x double> %1294, <2 x double> %1454, <2 x i32> <i32 0, i32 2>
-  %1499 = shufflevector <2 x double> %1452, <2 x double> %1362, <2 x i32> <i32 0, i32 3>
-  %1500 = shufflevector <2 x double> %1247, <2 x double> %1355, <2 x i32> <i32 0, i32 3>
-  %1501 = shufflevector <2 x double> %1462, <2 x double> %1349, <2 x i32> <i32 0, i32 3>
-  %1502 = insertelement <2 x double> %1363, double %1198, i64 0
-  %1503 = shufflevector <2 x double> %1431, <2 x double> %1364, <2 x i32> <i32 0, i32 3>
-  %1504 = shufflevector <2 x double> %1280, <2 x double> %1347, <2 x i32> <i32 0, i32 2>
-  %1505 = shufflevector <2 x double> %1271, <2 x double> %1384, <2 x i32> <i32 1, i32 3>
-  %1506 = shufflevector <2 x double> %1438, <2 x double> %1362, <2 x i32> <i32 0, i32 3>
-  %1507 = shufflevector <2 x double> %1271, <2 x double> %1307, <2 x i32> <i32 0, i32 3>
-  %1508 = shufflevector <2 x double> %1353, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1509 = shufflevector <2 x double> %1417, <2 x double> %1508, <2 x i32> <i32 0, i32 3>
-  %1510 = shufflevector <2 x double> %1247, <2 x double> %1280, <2 x i32> <i32 0, i32 3>
-  %1511 = shufflevector <2 x double> %1323, <2 x double> poison, <2 x i32> zeroinitializer
-  %1512 = shufflevector <2 x double> %1355, <2 x double> %1280, <2 x i32> <i32 1, i32 3>
-  %1513 = shufflevector <2 x double> %1362, <2 x double> %1257, <2 x i32> <i32 0, i32 3>
-  %1514 = shufflevector <2 x double> %1364, <2 x double> poison, <2 x i32> zeroinitializer
-  %1515 = insertelement <2 x double> %1275, double %1286, i64 1
-  %1516 = shufflevector <2 x double> %1250, <2 x double> %1243, <2 x i32> <i32 1, i32 3>
-  %1517 = fmul <2 x double> %1287, %1516
-  %1518 = shufflevector <2 x double> %1517, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1519 = extractelement <2 x double> %1517, i64 1
-  %1520 = extractelement <2 x double> %1517, i64 0
-  %1521 = shufflevector <2 x double> %1243, <2 x double> %1335, <2 x i32> <i32 0, i32 3>
-  %1522 = insertelement <2 x double> %1287, double %1223, i64 1
-  %1523 = fmul <2 x double> %1521, %1522
-  %1524 = shufflevector <2 x double> %1359, <2 x double> %1250, <2 x i32> <i32 0, i32 2>
-  %1525 = insertelement <2 x double> poison, double %1205, i64 0
-  %1526 = insertelement <2 x double> %1525, double %1204, i64 1
-  %1527 = fmul <2 x double> %1524, %1526
-  %1528 = shufflevector <2 x double> %1272, <2 x double> %1364, <2 x i32> <i32 1, i32 3>
-  %1529 = insertelement <2 x double> %1448, double %1205, i64 0
-  %1530 = fmul <2 x double> %1528, %1529
-  %1531 = extractelement <2 x double> %1530, i64 0
-  %1532 = call double @llvm.fmuladd.f64(double %1531, double %1249, double %1433)
-  %1533 = extractelement <2 x double> %1523, i64 0
-  %1534 = call double @llvm.fmuladd.f64(double %1533, double %1296, double %1532)
-  %1535 = extractelement <2 x double> %1527, i64 0
-  %1536 = call double @llvm.fmuladd.f64(double %1535, double %1198, double %1534)
-  %1537 = call double @llvm.fmuladd.f64(double %1270, double %1442, double %1536)
-  %1538 = extractelement <2 x double> %1527, i64 1
-  %1539 = call double @llvm.fmuladd.f64(double %1538, double %1296, double %1537)
-  %1540 = insertelement <2 x double> %1367, double %1204, i64 0
-  %1541 = shufflevector <2 x double> %1250, <2 x double> %1448, <2 x i32> <i32 1, i32 3>
-  %1542 = fmul <2 x double> %1540, %1541
-  %1543 = extractelement <2 x double> %1530, i64 1
-  %1544 = fmul double %1251, %1543
-  %1545 = extractelement <2 x double> %1523, i64 1
-  %1546 = extractelement <2 x double> %1373, i64 0
-  %1547 = extractelement <2 x double> %1542, i64 1
-  %1548 = extractelement <2 x double> %1373, i64 1
-  %1549 = call double @llvm.fmuladd.f64(double %1538, double %1442, double %1476)
-  %1550 = extractelement <2 x double> %1542, i64 0
-  %1551 = call double @llvm.fmuladd.f64(double %1550, double %1297, double %1549)
-  %1552 = call double @llvm.fmuladd.f64(double %1547, double %1245, double %1477)
-  %1553 = call double @llvm.fmuladd.f64(double %1471, double %1251, double %1552)
-  %1554 = call double @llvm.fmuladd.f64(double %1478, double %1249, double %1539)
-  %1555 = call double @llvm.fmuladd.f64(double %1479, double %1198, double %1554)
-  %1556 = call double @llvm.fmuladd.f64(double %1276, double %1399, double %1555)
-  %1557 = call double @llvm.fmuladd.f64(double %1397, double %1312, double %1556)
-  %1558 = call double @llvm.fmuladd.f64(double %1398, double %1277, double %1557)
-  %1559 = call double @llvm.fmuladd.f64(double %1391, double %1442, double %1558)
-  %1560 = call double @llvm.fmuladd.f64(double %1443, double %1198, double %1559)
-  %1561 = call double @llvm.fmuladd.f64(double %1337, double %1249, double %1553)
-  %1562 = call double @llvm.fmuladd.f64(double %1456, double %1246, double %1561)
-  %1563 = shufflevector <2 x double> %1452, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1564 = shufflevector <2 x double> %1563, <2 x double> %1462, <2 x i32> <i32 0, i32 2>
-  %1565 = insertelement <2 x double> poison, double %1562, i64 0
-  %1566 = insertelement <2 x double> %1565, double %1469, i64 1
-  %1567 = shufflevector <2 x double> %1417, <2 x double> %1523, <2 x i32> <i32 3, i32 1>
-  %1568 = insertelement <2 x double> %1323, double %1233, i64 1
-  %1569 = shufflevector <2 x double> %1362, <2 x double> %1452, <2 x i32> <i32 1, i32 3>
-  %1570 = shufflevector <2 x double> %1362, <2 x double> %1243, <2 x i32> <i32 0, i32 3>
-  %1571 = shufflevector <2 x double> %1365, <2 x double> %1454, <2 x i32> <i32 0, i32 3>
-  %1572 = shufflevector <2 x double> %1247, <2 x double> %1250, <2 x i32> <i32 0, i32 3>
-  %1573 = shufflevector <2 x double> %1323, <2 x double> poison, <2 x i32> zeroinitializer
-  %1574 = shufflevector <2 x double> %1362, <2 x double> %1247, <2 x i32> <i32 1, i32 2>
-  %1575 = insertelement <2 x double> %1414, double %1337, i64 1
-  %1576 = shufflevector <2 x double> %1362, <2 x double> %1247, <2 x i32> <i32 0, i32 3>
-  %1577 = call double @llvm.fmuladd.f64(double %1356, double %1297, double %1560)
-  %1578 = call double @llvm.fmuladd.f64(double %1357, double %1296, double %1577)
-  %1579 = call double @llvm.fmuladd.f64(double %1358, double %1312, double %1578)
-  %1580 = insertelement <2 x double> poison, double %1579, i64 0
-  %1581 = insertelement <2 x double> %1580, double %1423, i64 1
-  %1582 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1275, <2 x double> %1271, <2 x double> %1581)
-  %1583 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1434, <2 x double> %1281, <2 x double> %1582)
-  %1584 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1411, <2 x double> %1310, <2 x double> %1583)
-  %1585 = shufflevector <2 x double> %1396, <2 x double> %1527, <2 x i32> <i32 0, i32 3>
-  %1586 = shufflevector <2 x double> %1242, <2 x double> %1530, <2 x i32> <i32 0, i32 2>
-  %1587 = shufflevector <2 x double> %1487, <2 x double> %1523, <2 x i32> <i32 0, i32 2>
-  %1588 = shufflevector <2 x double> %1493, <2 x double> %1527, <2 x i32> <i32 0, i32 2>
-  %1589 = shufflevector <2 x double> %1518, <2 x double> %1455, <2 x i32> <i32 0, i32 3>
-  %1590 = shufflevector <2 x double> %1281, <2 x double> %1250, <2 x i32> <i32 0, i32 2>
-  %1591 = extractelement <2 x double> %1364, i64 1
-  %1592 = shufflevector <2 x double> %1518, <2 x double> %1542, <2 x i32> <i32 0, i32 2>
-  %1593 = shufflevector <2 x double> %1480, <2 x double> %1542, <2 x i32> <i32 0, i32 2>
-  %1594 = shufflevector <2 x double> %1247, <2 x double> %1362, <2 x i32> <i32 1, i32 3>
-  %1595 = shufflevector <2 x double> %1493, <2 x double> %1365, <2 x i32> <i32 0, i32 2>
-  %1596 = shufflevector <2 x double> %1414, <2 x double> %1247, <2 x i32> <i32 1, i32 3>
-  %1597 = insertelement <2 x double> %1373, double %1252, i64 0
-  %1598 = shufflevector <2 x double> %1362, <2 x double> %1247, <2 x i32> <i32 0, i32 2>
-  %1599 = shufflevector <2 x double> %1414, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1600 = shufflevector <2 x double> %1257, <2 x double> %1599, <2 x i32> <i32 0, i32 3>
-  %1601 = shufflevector <2 x double> %1281, <2 x double> %1362, <2 x i32> <i32 0, i32 3>
-  %1602 = shufflevector <2 x double> %1454, <2 x double> %1523, <2 x i32> <i32 0, i32 2>
-  %1603 = shufflevector <2 x double> %1452, <2 x double> %1280, <2 x i32> <i32 0, i32 3>
-  %1604 = insertelement <2 x double> %1458, double %1368, i64 0
-  %1605 = insertelement <2 x double> %1281, double %1198, i64 0
-  %1606 = shufflevector <2 x double> %1396, <2 x double> %1527, <2 x i32> <i32 0, i32 2>
-  %1607 = shufflevector <2 x double> %1280, <2 x double> %1421, <2 x i32> <i32 0, i32 3>
-  %1608 = insertelement <2 x double> %1431, double %1252, i64 1
-  %1609 = shufflevector <2 x double> %1257, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1610 = insertelement <2 x double> %1609, double %1235, i64 0
-  %1611 = shufflevector <2 x double> %1384, <2 x double> %1362, <2 x i32> <i32 1, i32 2>
-  %1612 = shufflevector <2 x double> %1452, <2 x double> %1386, <2 x i32> <i32 0, i32 3>
-  %1613 = shufflevector <2 x double> %1438, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1614 = insertelement <2 x double> %1613, double %1368, i64 0
-  %1615 = shufflevector <2 x double> %1247, <2 x double> %1364, <2 x i32> <i32 0, i32 2>
-  %1616 = insertelement <2 x double> %1480, double %1369, i64 0
-  %1617 = shufflevector <2 x double> %1396, <2 x double> %1290, <2 x i32> <i32 0, i32 2>
-  %1618 = shufflevector <2 x double> %1362, <2 x double> %1280, <2 x i32> <i32 1, i32 3>
-  %1619 = shufflevector <2 x double> %1362, <2 x double> %1281, <2 x i32> <i32 0, i32 3>
-  %1620 = shufflevector <2 x double> %1350, <2 x double> %1417, <2 x i32> <i32 0, i32 2>
-  %1621 = shufflevector <2 x double> %1431, <2 x double> %1294, <2 x i32> <i32 0, i32 2>
-  %1622 = shufflevector <2 x double> %1362, <2 x double> %1247, <2 x i32> <i32 1, i32 3>
-  %1623 = shufflevector <2 x double> %1385, <2 x double> %1271, <2 x i32> <i32 0, i32 3>
-  %1624 = insertelement <2 x double> %1242, double %1295, i64 1
-  %1625 = shufflevector <2 x double> %1438, <2 x double> %1376, <2 x i32> <i32 0, i32 3>
-  %1626 = shufflevector <2 x double> %1364, <2 x double> %1271, <2 x i32> <i32 1, i32 2>
-  %1627 = shufflevector <2 x double> %1362, <2 x double> %1355, <2 x i32> <i32 0, i32 3>
-  %1628 = shufflevector <2 x double> %1517, <2 x double> %1349, <2 x i32> <i32 0, i32 3>
-  %1629 = shufflevector <2 x double> %1417, <2 x double> %1396, <2 x i32> <i32 0, i32 3>
-  %1630 = shufflevector <2 x double> %1294, <2 x double> %1347, <2 x i32> <i32 0, i32 2>
-  %1631 = insertelement <2 x double> %1274, double %1295, i64 0
-  %1632 = shufflevector <2 x double> %1376, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1633 = shufflevector <2 x double> %1271, <2 x double> %1364, <2 x i32> <i32 1, i32 2>
-  %1634 = insertelement <2 x double> %1385, double %1370, i64 0
-  %1635 = shufflevector <2 x double> %1396, <2 x double> %1307, <2 x i32> <i32 1, i32 3>
-  %1636 = insertelement <2 x double> %1362, double %1233, i64 1
-  %1637 = shufflevector <2 x double> %1275, <2 x double> %1390, <2 x i32> <i32 0, i32 3>
-  %1638 = insertelement <2 x double> %1362, double %1235, i64 0
-  %1639 = shufflevector <2 x double> %1364, <2 x double> %1362, <2 x i32> <i32 1, i32 2>
-  %1640 = insertelement <2 x double> %1386, double %1237, i64 1
-  %1641 = shufflevector <2 x double> %1390, <2 x double> %1438, <2 x i32> <i32 1, i32 3>
-  %1642 = insertelement <2 x double> %1247, double %1233, i64 0
-  %1643 = shufflevector <2 x double> %1353, <2 x double> %1294, <2 x i32> <i32 0, i32 3>
-  %1644 = load <2 x double>, ptr %1224, align 8
-  %1645 = shufflevector <2 x double> %1250, <2 x double> %1273, <2 x i32> <i32 0, i32 3>
-  %1646 = shufflevector <2 x double> %1287, <2 x double> %1359, <2 x i32> <i32 1, i32 2>
-  %1647 = fmul <2 x double> %1645, %1646
-  %1648 = extractelement <2 x double> %1644, i64 0
-  %1649 = fmul double %1648, %1464
-  %1650 = extractelement <2 x double> %1644, i64 1
-  %1651 = call double @llvm.fmuladd.f64(double %1463, double %1650, double %1649)
-  %1652 = shufflevector <2 x double> %1644, <2 x double> %1244, <2 x i32> <i32 0, i32 3>
-  %1653 = shufflevector <2 x double> %1281, <2 x double> %1644, <2 x i32> <i32 0, i32 2>
-  %1654 = shufflevector <2 x double> %1367, <2 x double> %1647, <2 x i32> <i32 3, i32 1>
-  %1655 = call double @llvm.fmuladd.f64(double %1545, double %1248, double %1651)
-  %1656 = call double @llvm.fmuladd.f64(double %1456, double %1253, double %1655)
-  %1657 = call double @llvm.fmuladd.f64(double %1546, double %1249, double %1656)
-  %1658 = call double @llvm.fmuladd.f64(double %1547, double %1251, double %1657)
-  %1659 = call double @llvm.fmuladd.f64(double %1460, double %1245, double %1658)
-  %1660 = call double @llvm.fmuladd.f64(double %1473, double %1650, double %1659)
-  %1661 = call double @llvm.fmuladd.f64(double %1337, double %1648, double %1660)
-  %1662 = call double @llvm.fmuladd.f64(double %1543, double %1246, double %1661)
-  %1663 = call double @llvm.fmuladd.f64(double %1366, double %1648, double %1662)
-  %1664 = call double @llvm.fmuladd.f64(double %1548, double %1248, double %1663)
-  %1665 = call double @llvm.fmuladd.f64(double %1432, double %1650, double %1551)
-  %1666 = call double @llvm.fmuladd.f64(double %1531, double %1648, double %1665)
-  %1667 = call double @llvm.fmuladd.f64(double %1366, double %1198, double %1666)
-  %1668 = call double @llvm.fmuladd.f64(double %1533, double %1442, double %1667)
-  %1669 = call double @llvm.fmuladd.f64(double %1291, double %1296, double %1668)
-  %1670 = call double @llvm.fmuladd.f64(double %1444, double %1249, double %1669)
-  %1671 = call double @llvm.fmuladd.f64(double %1535, double %1248, double %1670)
-  %1672 = call double @llvm.fmuladd.f64(double %1445, double %1249, double %1671)
-  %1673 = call double @llvm.fmuladd.f64(double %1427, double %1475, double %1672)
-  %1674 = shufflevector <2 x double> %1326, <2 x double> %1644, <2 x i32> <i32 0, i32 2>
-  %1675 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1564, <2 x double> %1674, <2 x double> %1566)
-  %1676 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1567, <2 x double> %1568, <2 x double> %1675)
-  %1677 = shufflevector <2 x double> %1527, <2 x double> %1674, <2 x i32> <i32 1, i32 3>
-  %1678 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1677, <2 x double> %1569, <2 x double> %1676)
-  %1679 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1542, <2 x double> %1570, <2 x double> %1678)
-  %1680 = shufflevector <2 x double> %1244, <2 x double> %1644, <2 x i32> <i32 3, i32 1>
-  %1681 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1530, <2 x double> %1680, <2 x double> %1679)
-  %1682 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1571, <2 x double> %1572, <2 x double> %1681)
-  %1683 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1374, <2 x double> %1573, <2 x double> %1682)
-  %1684 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1523, <2 x double> %1574, <2 x double> %1683)
-  %1685 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1575, <2 x double> %1576, <2 x double> %1684)
-  %1686 = call double @llvm.fmuladd.f64(double %1446, double %1233, double %1664)
-  %1687 = extractelement <2 x double> %1647, i64 0
-  %1688 = call double @llvm.fmuladd.f64(double %1687, double %1442, double %1686)
-  %1689 = call double @llvm.fmuladd.f64(double %1459, double %1297, double %1688)
-  %1690 = call double @llvm.fmuladd.f64(double %1550, double %1233, double %1689)
-  %1691 = call double @llvm.fmuladd.f64(double %1445, double %1650, double %1690)
-  %1692 = call double @llvm.fmuladd.f64(double %1252, double %1233, double %1691)
-  %1693 = extractelement <2 x double> %1257, i64 0
-  %1694 = call double @llvm.fmuladd.f64(double %1693, double %1475, double %1692)
+  %1193 = load double, ptr %76, align 16
+  %1194 = getelementptr inbounds i8, ptr %76, i64 136
+  %1195 = load double, ptr %1194, align 8
+  %1196 = getelementptr inbounds i8, ptr %76, i64 272
+  %1197 = load double, ptr %1196, align 16
+  %1198 = getelementptr inbounds i8, ptr %76, i64 208
+  %1199 = getelementptr inbounds i8, ptr %76, i64 32
+  %1200 = getelementptr inbounds i8, ptr %76, i64 168
+  %1201 = getelementptr inbounds i8, ptr %76, i64 64
+  %1202 = getelementptr inbounds i8, ptr %76, i64 104
+  %1203 = load double, ptr %1202, align 8
+  %1204 = fneg double %1203
+  %1205 = getelementptr inbounds i8, ptr %76, i64 240
+  %1206 = getelementptr inbounds i8, ptr %1188, i64 80
+  %1207 = getelementptr inbounds i8, ptr %76, i64 112
+  %1208 = load double, ptr %1207, align 16
+  %1209 = getelementptr inbounds i8, ptr %76, i64 8
+  %1210 = getelementptr inbounds i8, ptr %76, i64 280
+  %1211 = getelementptr inbounds i8, ptr %76, i64 144
+  %1212 = getelementptr inbounds i8, ptr %76, i64 120
+  %1213 = getelementptr inbounds i8, ptr %76, i64 48
+  %1214 = getelementptr inbounds i8, ptr %76, i64 80
+  %1215 = getelementptr inbounds i8, ptr %76, i64 256
+  %1216 = getelementptr inbounds i8, ptr %76, i64 184
+  %1217 = getelementptr inbounds i8, ptr %76, i64 224
+  %1218 = load double, ptr %1217, align 16
+  %1219 = fneg double %1218
+  %1220 = getelementptr inbounds i8, ptr %1188, i64 64
+  %1221 = getelementptr inbounds i8, ptr %76, i64 24
+  %1222 = load double, ptr %1221, align 8
+  %1223 = getelementptr inbounds i8, ptr %76, i64 296
+  %1224 = getelementptr inbounds i8, ptr %76, i64 160
+  %1225 = load double, ptr %1224, align 16
+  %1226 = getelementptr inbounds i8, ptr %76, i64 232
+  %1227 = load double, ptr %1226, align 8
+  %1228 = insertelement <2 x double> poison, double %1227, i64 0
+  %1229 = insertelement <2 x double> %1228, double %1193, i64 1
+  %1230 = fneg <2 x double> %1229
+  %1231 = getelementptr inbounds i8, ptr %76, i64 96
+  %1232 = load double, ptr %1231, align 16
+  %1233 = getelementptr inbounds i8, ptr %76, i64 200
+  %1234 = load double, ptr %1233, align 8
+  %1235 = getelementptr inbounds i8, ptr %1188, i64 48
+  %1236 = fmul double %1225, %1219
+  %1237 = getelementptr inbounds i8, ptr %1188, i64 32
+  %1238 = getelementptr inbounds i8, ptr %1188, i64 16
+  %1239 = insertelement <2 x double> poison, double %1225, i64 0
+  %1240 = insertelement <2 x double> %1230, double %1227, i64 1
+  %1241 = insertelement <2 x double> poison, double %1234, i64 0
+  %1242 = load <2 x double>, ptr %1205, align 16
+  %1243 = shufflevector <2 x double> %1242, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1244 = extractelement <2 x double> %1242, i64 0
+  %1245 = extractelement <2 x double> %1242, i64 1
+  %1246 = load <2 x double>, ptr %1210, align 8
+  %1247 = extractelement <2 x double> %1246, i64 1
+  %1248 = extractelement <2 x double> %1246, i64 0
+  %1249 = load <2 x double>, ptr %1215, align 16
+  %1250 = extractelement <2 x double> %1249, i64 0
+  %1251 = fmul double %1208, %1250
+  %1252 = extractelement <2 x double> %1249, i64 1
+  %1253 = insertelement <2 x double> poison, double %1208, i64 0
+  %1254 = insertelement <2 x double> %1253, double %1195, i64 1
+  %1255 = shufflevector <2 x double> %1249, <2 x double> %1230, <2 x i32> <i32 1, i32 2>
+  %1256 = fmul <2 x double> %1254, %1255
+  %1257 = insertelement <2 x double> %1249, double %1234, i64 0
+  %1258 = load <2 x double>, ptr %1209, align 8
+  %1259 = insertelement <2 x double> poison, double %1195, i64 0
+  %1260 = shufflevector <2 x double> %1259, <2 x double> poison, <2 x i32> zeroinitializer
+  %1261 = fmul <2 x double> %1260, %1258
+  %1262 = insertelement <2 x double> poison, double %1193, i64 0
+  %1263 = shufflevector <2 x double> %1258, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1264 = insertelement <2 x double> %1263, double %1234, i64 1
+  %1265 = insertelement <2 x double> %1262, double %1203, i64 1
+  %1266 = insertelement <2 x double> %1243, double %1195, i64 0
+  %1267 = fmul <2 x double> %1265, %1266
+  %1268 = extractelement <2 x double> %1267, i64 0
+  %1269 = extractelement <2 x double> %1267, i64 1
+  %1270 = load <2 x double>, ptr %1200, align 8
+  %1271 = load <2 x double>, ptr %1199, align 16
+  %1272 = load <2 x double>, ptr %1198, align 16
+  %1273 = fmul <2 x double> %1272, %1271
+  %1274 = shufflevector <2 x double> %1273, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1275 = extractelement <2 x double> %1273, i64 0
+  %1276 = extractelement <2 x double> %1270, i64 0
+  %1277 = fmul double %1275, %1276
+  %1278 = extractelement <2 x double> %1271, i64 1
+  %1279 = load <2 x double>, ptr %1201, align 16
+  %1280 = shufflevector <2 x double> %1279, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %shift = shufflevector <2 x double> %1230, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1281 = fmul <2 x double> %1270, %shift
+  %1282 = extractelement <2 x double> %1281, i64 0
+  %1283 = shufflevector <2 x double> %1230, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1284 = shufflevector <2 x double> %1283, <2 x double> %1271, <2 x i32> <i32 0, i32 3>
+  %1285 = fmul double %1278, %1218
+  %1286 = load <2 x double>, ptr %1212, align 8
+  %1287 = fneg <2 x double> %1286
+  %1288 = shufflevector <2 x double> %1239, <2 x double> %1287, <2 x i32> <i32 0, i32 2>
+  %1289 = fmul <2 x double> %1286, %1249
+  %1290 = extractelement <2 x double> %1289, i64 0
+  %1291 = extractelement <2 x double> %1287, i64 1
+  %1292 = shufflevector <2 x double> %1271, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1293 = fmul <2 x double> %1292, %1287
+  %1294 = fmul double %1278, %1227
+  %1295 = extractelement <2 x double> %1279, i64 0
+  %1296 = extractelement <2 x double> %1279, i64 1
+  %1297 = fmul double %1295, %1251
+  %1298 = shufflevector <2 x double> %1258, <2 x double> %1270, <2 x i32> <i32 0, i32 2>
+  %1299 = call double @llvm.fmuladd.f64(double %1268, double %1197, double %1277)
+  %1300 = shufflevector <2 x double> %1263, <2 x double> %1272, <2 x i32> <i32 0, i32 2>
+  %1301 = fneg <2 x double> %1300
+  %1302 = shufflevector <2 x double> %1258, <2 x double> %1272, <2 x i32> <i32 0, i32 3>
+  %1303 = fneg <2 x double> %1302
+  %1304 = shufflevector <2 x double> %1270, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1305 = insertelement <2 x double> %1304, double %1195, i64 1
+  %1306 = fmul <2 x double> %1305, %1303
+  %1307 = shufflevector <2 x double> %1306, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1308 = shufflevector <2 x double> %1261, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1309 = insertelement <2 x double> %1279, double %1197, i64 1
+  %1310 = extractelement <2 x double> %1301, i64 0
+  %1311 = extractelement <2 x double> %1270, i64 1
+  %1312 = fmul double %1311, %1310
+  %1313 = shufflevector <2 x double> %1301, <2 x double> %1258, <2 x i32> <i32 0, i32 3>
+  %1314 = shufflevector <2 x double> %1301, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1315 = insertelement <2 x double> %1314, double %1225, i64 0
+  %1316 = insertelement <2 x double> %1243, double %1197, i64 1
+  %1317 = shufflevector <2 x double> %1242, <2 x double> %1270, <2 x i32> <i32 0, i32 2>
+  %1318 = shufflevector <2 x double> %1281, <2 x double> poison, <2 x i32> zeroinitializer
+  %1319 = shufflevector <2 x double> %1249, <2 x double> %1242, <2 x i32> <i32 0, i32 3>
+  %1320 = shufflevector <2 x double> %1270, <2 x double> %1279, <2 x i32> <i32 0, i32 3>
+  %1321 = shufflevector <2 x double> %1279, <2 x double> %1243, <2 x i32> <i32 0, i32 3>
+  %1322 = insertelement <2 x double> poison, double %1197, i64 0
+  %1323 = shufflevector <2 x double> %1322, <2 x double> %1270, <2 x i32> <i32 0, i32 2>
+  %1324 = shufflevector <2 x double> %1246, <2 x double> poison, <2 x i32> zeroinitializer
+  %1325 = shufflevector <2 x double> %1246, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1326 = shufflevector <2 x double> %1325, <2 x double> %1279, <2 x i32> <i32 0, i32 3>
+  %1327 = shufflevector <2 x double> %1322, <2 x double> poison, <2 x i32> zeroinitializer
+  %1328 = shufflevector <2 x double> %1242, <2 x double> %1280, <2 x i32> <i32 0, i32 3>
+  %1329 = insertelement <2 x double> %1259, double %1193, i64 1
+  %1330 = insertelement <2 x double> %1230, double %1219, i64 0
+  %1331 = insertelement <2 x double> %1271, double %1193, i64 1
+  %1332 = insertelement <2 x double> %1228, double %1225, i64 1
+  %1333 = fmul <2 x double> %1331, %1332
+  %1334 = load <2 x double>, ptr %1211, align 16
+  %1335 = extractelement <2 x double> %1334, i64 0
+  %1336 = fmul double %1335, %1222
+  %1337 = insertelement <2 x double> %1334, double %1218, i64 0
+  %1338 = shufflevector <2 x double> %1241, <2 x double> %1334, <2 x i32> <i32 0, i32 2>
+  %1339 = shufflevector <2 x double> %1334, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1340 = insertelement <2 x double> %1339, double %1234, i64 1
+  %1341 = fmul <2 x double> %1340, %1230
+  %1342 = extractelement <2 x double> %1341, i64 0
+  %1343 = shufflevector <2 x double> %1271, <2 x double> poison, <2 x i32> zeroinitializer
+  %1344 = shufflevector <2 x double> %1272, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1345 = insertelement <2 x double> %1344, double %1218, i64 1
+  %1346 = fmul <2 x double> %1343, %1345
+  %1347 = shufflevector <2 x double> %1230, <2 x double> %1301, <2 x i32> <i32 0, i32 3>
+  %1348 = fmul <2 x double> %1334, %1347
+  %1349 = shufflevector <2 x double> %1348, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1350 = shufflevector <2 x double> %1303, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1351 = insertelement <2 x double> %1350, double %1219, i64 1
+  %1352 = fmul <2 x double> %1339, %1351
+  %1353 = shufflevector <2 x double> %1270, <2 x double> %1334, <2 x i32> <i32 0, i32 2>
+  %1354 = fmul <2 x double> %1353, %1301
+  %1355 = extractelement <2 x double> %1354, i64 1
+  %1356 = extractelement <2 x double> %1348, i64 1
+  %1357 = extractelement <2 x double> %1346, i64 0
+  %1358 = load <2 x double>, ptr %1213, align 16
+  %1359 = extractelement <2 x double> %1358, i64 0
+  %1360 = extractelement <2 x double> %1358, i64 1
+  %1361 = load <2 x double>, ptr %1214, align 16
+  %1362 = shufflevector <2 x double> %1361, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1363 = load <2 x double>, ptr %1216, align 8
+  %1364 = fmul <2 x double> %1358, %1287
+  %1365 = extractelement <2 x double> %1364, i64 0
+  %1366 = shufflevector <2 x double> %1363, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1367 = fmul double %1359, %1291
+  %1368 = fmul double %1360, %1291
+  %1369 = fmul double %1360, %1227
+  %1370 = fmul double %1369, %1234
+  %1371 = insertelement <2 x double> %1358, double %1222, i64 0
+  %1372 = fmul <2 x double> %1371, %1288
+  %1373 = shufflevector <2 x double> %1372, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1374 = shufflevector <2 x double> %1239, <2 x double> %1358, <2 x i32> <i32 0, i32 2>
+  %1375 = fmul <2 x double> %1374, %1240
+  %1376 = extractelement <2 x double> %1375, i64 0
+  %1377 = insertelement <2 x double> %1363, double %1218, i64 0
+  %1378 = shufflevector <2 x double> %1358, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1379 = insertelement <2 x double> %1363, double %1193, i64 0
+  %1380 = shufflevector <2 x double> %1358, <2 x double> %1258, <2 x i32> <i32 0, i32 2>
+  %1381 = shufflevector <2 x double> %1258, <2 x double> %1363, <2 x i32> <i32 0, i32 2>
+  %1382 = shufflevector <2 x double> %1363, <2 x double> %1272, <2 x i32> <i32 0, i32 2>
+  %1383 = fmul <2 x double> %1382, %1284
+  %1384 = fmul <2 x double> %1272, %1358
+  %1385 = shufflevector <2 x double> %1384, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1386 = shufflevector <2 x double> %1334, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1387 = insertelement <2 x double> %1386, double %1195, i64 0
+  %1388 = shufflevector <2 x double> %1301, <2 x double> %1303, <2 x i32> <i32 1, i32 3>
+  %1389 = fmul <2 x double> %1387, %1388
+  %1390 = extractelement <2 x double> %1389, i64 0
+  %1391 = call double @llvm.fmuladd.f64(double %1390, double %1295, double %1299)
+  %1392 = shufflevector <2 x double> %1242, <2 x double> %1303, <2 x i32> <i32 0, i32 3>
+  %1393 = shufflevector <2 x double> %1286, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1394 = insertelement <2 x double> %1393, double %1225, i64 1
+  %1395 = fmul <2 x double> %1392, %1394
+  %1396 = extractelement <2 x double> %1383, i64 1
+  %1397 = extractelement <2 x double> %1384, i64 0
+  %1398 = extractelement <2 x double> %1363, i64 0
+  %1399 = fmul <2 x double> %1363, %1303
+  %1400 = fmul <2 x double> %1381, %1315
+  %1401 = shufflevector <2 x double> %1378, <2 x double> %1303, <2 x i32> <i32 0, i32 2>
+  %1402 = fmul <2 x double> %1377, %1401
+  %1403 = insertelement <2 x double> %1401, double %1225, i64 0
+  %1404 = fmul <2 x double> %1264, %1403
+  %1405 = extractelement <2 x double> %1402, i64 0
+  %1406 = extractelement <2 x double> %1404, i64 0
+  %1407 = shufflevector <2 x double> %1366, <2 x double> %1334, <2 x i32> <i32 0, i32 3>
+  %1408 = fmul <2 x double> %1380, %1337
+  %1409 = extractelement <2 x double> %1395, i64 0
+  %1410 = shufflevector <2 x double> %1308, <2 x double> %1389, <2 x i32> <i32 3, i32 1>
+  %1411 = insertelement <2 x double> %1286, double %1203, i64 1
+  %1412 = shufflevector <2 x double> %1242, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1413 = fmul <2 x double> %1411, %1412
+  %1414 = insertelement <2 x double> %1271, double %1208, i64 1
+  %1415 = shufflevector <2 x double> %1287, <2 x double> %1242, <2 x i32> <i32 0, i32 3>
+  %1416 = fmul <2 x double> %1414, %1415
+  %1417 = shufflevector <2 x double> %1242, <2 x double> %1358, <2 x i32> <i32 0, i32 3>
+  %1418 = insertelement <2 x double> poison, double %1208, i64 0
+  %1419 = insertelement <2 x double> %1418, double %1204, i64 1
+  %1420 = fmul <2 x double> %1417, %1419
+  %1421 = extractelement <2 x double> %1420, i64 0
+  %1422 = fmul double %1295, %1421
+  %1423 = extractelement <2 x double> %1416, i64 1
+  %1424 = fmul double %1295, %1423
+  %1425 = call double @llvm.fmuladd.f64(double %1421, double %1296, double %1424)
+  %1426 = extractelement <2 x double> %1413, i64 1
+  %1427 = call double @llvm.fmuladd.f64(double %1426, double %1296, double %1425)
+  %1428 = insertelement <2 x double> %1419, double %1225, i64 0
+  %1429 = shufflevector <2 x double> %1301, <2 x double> %1271, <2 x i32> <i32 1, i32 2>
+  %1430 = fmul <2 x double> %1428, %1429
+  %1431 = extractelement <2 x double> %1430, i64 1
+  %1432 = call double @llvm.fmuladd.f64(double %1431, double %1247, double %1427)
+  %1433 = shufflevector <2 x double> %1307, <2 x double> %1413, <2 x i32> <i32 0, i32 3>
+  %1434 = shufflevector <2 x double> %1261, <2 x double> %1430, <2 x i32> <i32 0, i32 3>
+  %1435 = shufflevector <2 x double> %1272, <2 x double> %1271, <2 x i32> <i32 0, i32 2>
+  %1436 = shufflevector <2 x double> %1358, <2 x double> %1287, <2 x i32> <i32 1, i32 3>
+  %1437 = fmul <2 x double> %1435, %1436
+  %1438 = call double @llvm.fmuladd.f64(double %1431, double %1197, double %1391)
+  %1439 = call double @llvm.fmuladd.f64(double %1282, double %1244, double %1438)
+  %1440 = call double @llvm.fmuladd.f64(double %1269, double %1295, double %1439)
+  store double %1440, ptr %1206, align 8
+  %1441 = extractelement <2 x double> %1361, i64 0
+  %1442 = extractelement <2 x double> %1416, i64 0
+  %1443 = extractelement <2 x double> %1437, i64 1
+  %1444 = extractelement <2 x double> %1420, i64 1
+  %1445 = extractelement <2 x double> %1413, i64 0
+  %1446 = insertelement <2 x double> %1253, double %1222, i64 1
+  %1447 = fneg <2 x double> %1446
+  %1448 = shufflevector <2 x double> %1447, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1449 = insertelement <2 x double> %1292, double %1195, i64 1
+  %1450 = insertelement <2 x double> %1447, double %1222, i64 1
+  %1451 = fmul <2 x double> %1449, %1450
+  %1452 = shufflevector <2 x double> %1271, <2 x double> %1270, <2 x i32> <i32 0, i32 2>
+  %1453 = fmul <2 x double> %1452, %1447
+  %1454 = fmul <2 x double> %1270, %1447
+  %1455 = extractelement <2 x double> %1454, i64 1
+  %1456 = shufflevector <2 x double> %1448, <2 x double> %1286, <2 x i32> <i32 0, i32 3>
+  %1457 = fmul <2 x double> %1257, %1456
+  %1458 = extractelement <2 x double> %1457, i64 1
+  %1459 = extractelement <2 x double> %1457, i64 0
+  %1460 = extractelement <2 x double> %1447, i64 0
+  %1461 = fmul <2 x double> %1358, %1447
+  %1462 = extractelement <2 x double> %1461, i64 0
+  %1463 = fmul double %1360, %1460
+  %1464 = fmul double %1197, %1463
+  %1465 = call double @llvm.fmuladd.f64(double %1462, double %1248, double %1464)
+  %1466 = fmul double %1248, %1463
+  %1467 = call double @llvm.fmuladd.f64(double %1462, double %1247, double %1466)
+  %1468 = fmul double %1247, %1463
+  %1469 = call double @llvm.fmuladd.f64(double %1455, double %1244, double %1465)
+  %1470 = extractelement <2 x double> %1453, i64 1
+  %1471 = call double @llvm.fmuladd.f64(double %1470, double %1245, double %1469)
+  %1472 = extractelement <2 x double> %1451, i64 1
+  %1473 = call double @llvm.fmuladd.f64(double %1472, double %1248, double %1471)
+  %1474 = extractelement <2 x double> %1361, i64 1
+  %1475 = call double @llvm.fmuladd.f64(double %1336, double %1197, double %1473)
+  %1476 = call double @llvm.fmuladd.f64(double %1423, double %1474, double %1467)
+  %1477 = extractelement <2 x double> %1453, i64 0
+  %1478 = extractelement <2 x double> %1451, i64 0
+  %1479 = shufflevector <2 x double> %1420, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1480 = shufflevector <2 x double> %1256, <2 x double> %1479, <2 x i32> <i32 0, i32 3>
+  %1481 = shufflevector <2 x double> %1279, <2 x double> %1361, <2 x i32> <i32 0, i32 2>
+  %1482 = insertelement <2 x double> %1325, double %1197, i64 1
+  %1483 = shufflevector <2 x double> %1279, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1484 = shufflevector <2 x double> %1279, <2 x double> poison, <2 x i32> zeroinitializer
+  %1485 = shufflevector <2 x double> %1273, <2 x double> %1246, <2 x i32> <i32 0, i32 3>
+  %1486 = shufflevector <2 x double> %1383, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1487 = shufflevector <2 x double> %1363, <2 x double> %1279, <2 x i32> <i32 1, i32 3>
+  %1488 = shufflevector <2 x double> %1384, <2 x double> %1413, <2 x i32> <i32 0, i32 2>
+  %1489 = shufflevector <2 x double> %1363, <2 x double> %1280, <2 x i32> <i32 0, i32 3>
+  %1490 = insertelement <2 x double> %1304, double %1197, i64 1
+  %1491 = shufflevector <2 x double> %1389, <2 x double> %1246, <2 x i32> <i32 0, i32 2>
+  %1492 = insertelement <2 x double> poison, double %1232, i64 0
+  %1493 = insertelement <2 x double> %1362, double %1197, i64 1
+  %1494 = shufflevector <2 x double> %1267, <2 x double> %1416, <2 x i32> <i32 3, i32 1>
+  %1495 = shufflevector <2 x double> %1280, <2 x double> %1362, <2 x i32> <i32 0, i32 3>
+  %1496 = shufflevector <2 x double> %1246, <2 x double> %1279, <2 x i32> <i32 1, i32 3>
+  %1497 = shufflevector <2 x double> %1293, <2 x double> %1453, <2 x i32> <i32 0, i32 2>
+  %1498 = shufflevector <2 x double> %1451, <2 x double> %1361, <2 x i32> <i32 0, i32 3>
+  %1499 = shufflevector <2 x double> %1246, <2 x double> %1354, <2 x i32> <i32 0, i32 3>
+  %1500 = shufflevector <2 x double> %1461, <2 x double> %1348, <2 x i32> <i32 0, i32 3>
+  %1501 = insertelement <2 x double> %1362, double %1197, i64 0
+  %1502 = shufflevector <2 x double> %1430, <2 x double> %1363, <2 x i32> <i32 0, i32 3>
+  %1503 = shufflevector <2 x double> %1279, <2 x double> %1346, <2 x i32> <i32 0, i32 2>
+  %1504 = shufflevector <2 x double> %1270, <2 x double> %1383, <2 x i32> <i32 1, i32 3>
+  %1505 = shufflevector <2 x double> %1437, <2 x double> %1361, <2 x i32> <i32 0, i32 3>
+  %1506 = shufflevector <2 x double> %1270, <2 x double> %1306, <2 x i32> <i32 0, i32 3>
+  %1507 = shufflevector <2 x double> %1352, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1508 = shufflevector <2 x double> %1416, <2 x double> %1507, <2 x i32> <i32 0, i32 3>
+  %1509 = shufflevector <2 x double> %1246, <2 x double> %1279, <2 x i32> <i32 0, i32 3>
+  %1510 = shufflevector <2 x double> %1322, <2 x double> poison, <2 x i32> zeroinitializer
+  %1511 = shufflevector <2 x double> %1354, <2 x double> %1279, <2 x i32> <i32 1, i32 3>
+  %1512 = shufflevector <2 x double> %1361, <2 x double> %1256, <2 x i32> <i32 0, i32 3>
+  %1513 = shufflevector <2 x double> %1363, <2 x double> poison, <2 x i32> zeroinitializer
+  %1514 = insertelement <2 x double> %1274, double %1285, i64 1
+  %1515 = shufflevector <2 x double> %1249, <2 x double> %1242, <2 x i32> <i32 1, i32 3>
+  %1516 = fmul <2 x double> %1286, %1515
+  %1517 = shufflevector <2 x double> %1516, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1518 = extractelement <2 x double> %1516, i64 1
+  %1519 = extractelement <2 x double> %1516, i64 0
+  %1520 = shufflevector <2 x double> %1242, <2 x double> %1334, <2 x i32> <i32 0, i32 3>
+  %1521 = insertelement <2 x double> %1286, double %1222, i64 1
+  %1522 = fmul <2 x double> %1520, %1521
+  %1523 = shufflevector <2 x double> %1358, <2 x double> %1249, <2 x i32> <i32 0, i32 2>
+  %1524 = insertelement <2 x double> poison, double %1204, i64 0
+  %1525 = insertelement <2 x double> %1524, double %1203, i64 1
+  %1526 = fmul <2 x double> %1523, %1525
+  %1527 = shufflevector <2 x double> %1271, <2 x double> %1363, <2 x i32> <i32 1, i32 3>
+  %1528 = insertelement <2 x double> %1447, double %1204, i64 0
+  %1529 = fmul <2 x double> %1527, %1528
+  %1530 = extractelement <2 x double> %1529, i64 0
+  %1531 = call double @llvm.fmuladd.f64(double %1530, double %1248, double %1432)
+  %1532 = extractelement <2 x double> %1522, i64 0
+  %1533 = call double @llvm.fmuladd.f64(double %1532, double %1295, double %1531)
+  %1534 = extractelement <2 x double> %1526, i64 0
+  %1535 = call double @llvm.fmuladd.f64(double %1534, double %1197, double %1533)
+  %1536 = call double @llvm.fmuladd.f64(double %1269, double %1441, double %1535)
+  %1537 = extractelement <2 x double> %1526, i64 1
+  %1538 = call double @llvm.fmuladd.f64(double %1537, double %1295, double %1536)
+  %1539 = insertelement <2 x double> %1366, double %1203, i64 0
+  %1540 = shufflevector <2 x double> %1249, <2 x double> %1447, <2 x i32> <i32 1, i32 3>
+  %1541 = fmul <2 x double> %1539, %1540
+  %1542 = extractelement <2 x double> %1529, i64 1
+  %1543 = fmul double %1250, %1542
+  %1544 = extractelement <2 x double> %1522, i64 1
+  %1545 = extractelement <2 x double> %1372, i64 0
+  %1546 = extractelement <2 x double> %1541, i64 1
+  %1547 = extractelement <2 x double> %1372, i64 1
+  %1548 = call double @llvm.fmuladd.f64(double %1537, double %1441, double %1475)
+  %1549 = extractelement <2 x double> %1541, i64 0
+  %1550 = call double @llvm.fmuladd.f64(double %1549, double %1296, double %1548)
+  %1551 = call double @llvm.fmuladd.f64(double %1546, double %1244, double %1476)
+  %1552 = call double @llvm.fmuladd.f64(double %1470, double %1250, double %1551)
+  %1553 = call double @llvm.fmuladd.f64(double %1477, double %1248, double %1538)
+  %1554 = call double @llvm.fmuladd.f64(double %1478, double %1197, double %1553)
+  %1555 = call double @llvm.fmuladd.f64(double %1275, double %1398, double %1554)
+  %1556 = call double @llvm.fmuladd.f64(double %1396, double %1311, double %1555)
+  %1557 = call double @llvm.fmuladd.f64(double %1397, double %1276, double %1556)
+  %1558 = call double @llvm.fmuladd.f64(double %1390, double %1441, double %1557)
+  %1559 = call double @llvm.fmuladd.f64(double %1442, double %1197, double %1558)
+  %1560 = call double @llvm.fmuladd.f64(double %1336, double %1248, double %1552)
+  %1561 = call double @llvm.fmuladd.f64(double %1455, double %1245, double %1560)
+  %1562 = shufflevector <2 x double> %1451, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1563 = shufflevector <2 x double> %1562, <2 x double> %1461, <2 x i32> <i32 0, i32 2>
+  %1564 = insertelement <2 x double> poison, double %1561, i64 0
+  %1565 = insertelement <2 x double> %1564, double %1468, i64 1
+  %1566 = shufflevector <2 x double> %1416, <2 x double> %1522, <2 x i32> <i32 3, i32 1>
+  %1567 = insertelement <2 x double> %1322, double %1232, i64 1
+  %1568 = shufflevector <2 x double> %1361, <2 x double> %1451, <2 x i32> <i32 1, i32 3>
+  %1569 = shufflevector <2 x double> %1361, <2 x double> %1242, <2 x i32> <i32 0, i32 3>
+  %1570 = shufflevector <2 x double> %1364, <2 x double> %1453, <2 x i32> <i32 0, i32 3>
+  %1571 = shufflevector <2 x double> %1246, <2 x double> %1249, <2 x i32> <i32 0, i32 3>
+  %1572 = shufflevector <2 x double> %1322, <2 x double> poison, <2 x i32> zeroinitializer
+  %1573 = shufflevector <2 x double> %1361, <2 x double> %1246, <2 x i32> <i32 1, i32 2>
+  %1574 = insertelement <2 x double> %1413, double %1336, i64 1
+  %1575 = shufflevector <2 x double> %1361, <2 x double> %1246, <2 x i32> <i32 0, i32 3>
+  %1576 = call double @llvm.fmuladd.f64(double %1355, double %1296, double %1559)
+  %1577 = call double @llvm.fmuladd.f64(double %1356, double %1295, double %1576)
+  %1578 = call double @llvm.fmuladd.f64(double %1357, double %1311, double %1577)
+  %1579 = insertelement <2 x double> poison, double %1578, i64 0
+  %1580 = insertelement <2 x double> %1579, double %1422, i64 1
+  %1581 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1274, <2 x double> %1270, <2 x double> %1580)
+  %1582 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1433, <2 x double> %1280, <2 x double> %1581)
+  %1583 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1410, <2 x double> %1309, <2 x double> %1582)
+  %1584 = shufflevector <2 x double> %1395, <2 x double> %1526, <2 x i32> <i32 0, i32 3>
+  %1585 = shufflevector <2 x double> %1241, <2 x double> %1529, <2 x i32> <i32 0, i32 2>
+  %1586 = shufflevector <2 x double> %1486, <2 x double> %1522, <2 x i32> <i32 0, i32 2>
+  %1587 = shufflevector <2 x double> %1492, <2 x double> %1526, <2 x i32> <i32 0, i32 2>
+  %1588 = shufflevector <2 x double> %1517, <2 x double> %1454, <2 x i32> <i32 0, i32 3>
+  %1589 = shufflevector <2 x double> %1280, <2 x double> %1249, <2 x i32> <i32 0, i32 2>
+  %1590 = extractelement <2 x double> %1363, i64 1
+  %1591 = shufflevector <2 x double> %1517, <2 x double> %1541, <2 x i32> <i32 0, i32 2>
+  %1592 = shufflevector <2 x double> %1479, <2 x double> %1541, <2 x i32> <i32 0, i32 2>
+  %1593 = shufflevector <2 x double> %1246, <2 x double> %1361, <2 x i32> <i32 1, i32 3>
+  %1594 = shufflevector <2 x double> %1492, <2 x double> %1364, <2 x i32> <i32 0, i32 2>
+  %1595 = shufflevector <2 x double> %1413, <2 x double> %1246, <2 x i32> <i32 1, i32 3>
+  %1596 = insertelement <2 x double> %1372, double %1251, i64 0
+  %1597 = shufflevector <2 x double> %1361, <2 x double> %1246, <2 x i32> <i32 0, i32 2>
+  %1598 = shufflevector <2 x double> %1413, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1599 = shufflevector <2 x double> %1256, <2 x double> %1598, <2 x i32> <i32 0, i32 3>
+  %1600 = shufflevector <2 x double> %1280, <2 x double> %1361, <2 x i32> <i32 0, i32 3>
+  %1601 = shufflevector <2 x double> %1453, <2 x double> %1522, <2 x i32> <i32 0, i32 2>
+  %1602 = shufflevector <2 x double> %1451, <2 x double> %1279, <2 x i32> <i32 0, i32 3>
+  %1603 = insertelement <2 x double> %1457, double %1367, i64 0
+  %1604 = insertelement <2 x double> %1280, double %1197, i64 0
+  %1605 = shufflevector <2 x double> %1395, <2 x double> %1526, <2 x i32> <i32 0, i32 2>
+  %1606 = shufflevector <2 x double> %1279, <2 x double> %1420, <2 x i32> <i32 0, i32 3>
+  %1607 = insertelement <2 x double> %1430, double %1251, i64 1
+  %1608 = shufflevector <2 x double> %1256, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1609 = insertelement <2 x double> %1608, double %1234, i64 0
+  %1610 = shufflevector <2 x double> %1383, <2 x double> %1361, <2 x i32> <i32 1, i32 2>
+  %1611 = shufflevector <2 x double> %1451, <2 x double> %1385, <2 x i32> <i32 0, i32 3>
+  %1612 = shufflevector <2 x double> %1437, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1613 = insertelement <2 x double> %1612, double %1367, i64 0
+  %1614 = shufflevector <2 x double> %1246, <2 x double> %1363, <2 x i32> <i32 0, i32 2>
+  %1615 = insertelement <2 x double> %1479, double %1368, i64 0
+  %1616 = shufflevector <2 x double> %1395, <2 x double> %1289, <2 x i32> <i32 0, i32 2>
+  %1617 = shufflevector <2 x double> %1361, <2 x double> %1279, <2 x i32> <i32 1, i32 3>
+  %1618 = shufflevector <2 x double> %1361, <2 x double> %1280, <2 x i32> <i32 0, i32 3>
+  %1619 = shufflevector <2 x double> %1349, <2 x double> %1416, <2 x i32> <i32 0, i32 2>
+  %1620 = shufflevector <2 x double> %1430, <2 x double> %1293, <2 x i32> <i32 0, i32 2>
+  %1621 = shufflevector <2 x double> %1361, <2 x double> %1246, <2 x i32> <i32 1, i32 3>
+  %1622 = shufflevector <2 x double> %1384, <2 x double> %1270, <2 x i32> <i32 0, i32 3>
+  %1623 = insertelement <2 x double> %1241, double %1294, i64 1
+  %1624 = shufflevector <2 x double> %1437, <2 x double> %1375, <2 x i32> <i32 0, i32 3>
+  %1625 = shufflevector <2 x double> %1363, <2 x double> %1270, <2 x i32> <i32 1, i32 2>
+  %1626 = shufflevector <2 x double> %1361, <2 x double> %1354, <2 x i32> <i32 0, i32 3>
+  %1627 = shufflevector <2 x double> %1516, <2 x double> %1348, <2 x i32> <i32 0, i32 3>
+  %1628 = shufflevector <2 x double> %1416, <2 x double> %1395, <2 x i32> <i32 0, i32 3>
+  %1629 = shufflevector <2 x double> %1293, <2 x double> %1346, <2 x i32> <i32 0, i32 2>
+  %1630 = insertelement <2 x double> %1273, double %1294, i64 0
+  %1631 = shufflevector <2 x double> %1375, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1632 = shufflevector <2 x double> %1270, <2 x double> %1363, <2 x i32> <i32 1, i32 2>
+  %1633 = insertelement <2 x double> %1384, double %1369, i64 0
+  %1634 = shufflevector <2 x double> %1395, <2 x double> %1306, <2 x i32> <i32 1, i32 3>
+  %1635 = insertelement <2 x double> %1361, double %1232, i64 1
+  %1636 = shufflevector <2 x double> %1274, <2 x double> %1389, <2 x i32> <i32 0, i32 3>
+  %1637 = insertelement <2 x double> %1361, double %1234, i64 0
+  %1638 = shufflevector <2 x double> %1363, <2 x double> %1361, <2 x i32> <i32 1, i32 2>
+  %1639 = insertelement <2 x double> %1385, double %1236, i64 1
+  %1640 = shufflevector <2 x double> %1389, <2 x double> %1437, <2 x i32> <i32 1, i32 3>
+  %1641 = insertelement <2 x double> %1246, double %1232, i64 0
+  %1642 = shufflevector <2 x double> %1352, <2 x double> %1293, <2 x i32> <i32 0, i32 3>
+  %1643 = load <2 x double>, ptr %1223, align 8
+  %1644 = shufflevector <2 x double> %1249, <2 x double> %1272, <2 x i32> <i32 0, i32 3>
+  %1645 = shufflevector <2 x double> %1286, <2 x double> %1358, <2 x i32> <i32 1, i32 2>
+  %1646 = fmul <2 x double> %1644, %1645
+  %1647 = extractelement <2 x double> %1643, i64 0
+  %1648 = fmul double %1647, %1463
+  %1649 = extractelement <2 x double> %1643, i64 1
+  %1650 = call double @llvm.fmuladd.f64(double %1462, double %1649, double %1648)
+  %1651 = shufflevector <2 x double> %1643, <2 x double> %1243, <2 x i32> <i32 0, i32 3>
+  %1652 = shufflevector <2 x double> %1280, <2 x double> %1643, <2 x i32> <i32 0, i32 2>
+  %1653 = shufflevector <2 x double> %1366, <2 x double> %1646, <2 x i32> <i32 3, i32 1>
+  %1654 = call double @llvm.fmuladd.f64(double %1544, double %1247, double %1650)
+  %1655 = call double @llvm.fmuladd.f64(double %1455, double %1252, double %1654)
+  %1656 = call double @llvm.fmuladd.f64(double %1545, double %1248, double %1655)
+  %1657 = call double @llvm.fmuladd.f64(double %1546, double %1250, double %1656)
+  %1658 = call double @llvm.fmuladd.f64(double %1459, double %1244, double %1657)
+  %1659 = call double @llvm.fmuladd.f64(double %1472, double %1649, double %1658)
+  %1660 = call double @llvm.fmuladd.f64(double %1336, double %1647, double %1659)
+  %1661 = call double @llvm.fmuladd.f64(double %1542, double %1245, double %1660)
+  %1662 = call double @llvm.fmuladd.f64(double %1365, double %1647, double %1661)
+  %1663 = call double @llvm.fmuladd.f64(double %1547, double %1247, double %1662)
+  %1664 = call double @llvm.fmuladd.f64(double %1431, double %1649, double %1550)
+  %1665 = call double @llvm.fmuladd.f64(double %1530, double %1647, double %1664)
+  %1666 = call double @llvm.fmuladd.f64(double %1365, double %1197, double %1665)
+  %1667 = call double @llvm.fmuladd.f64(double %1532, double %1441, double %1666)
+  %1668 = call double @llvm.fmuladd.f64(double %1290, double %1295, double %1667)
+  %1669 = call double @llvm.fmuladd.f64(double %1443, double %1248, double %1668)
+  %1670 = call double @llvm.fmuladd.f64(double %1534, double %1247, double %1669)
+  %1671 = call double @llvm.fmuladd.f64(double %1444, double %1248, double %1670)
+  %1672 = call double @llvm.fmuladd.f64(double %1426, double %1474, double %1671)
+  %1673 = shufflevector <2 x double> %1325, <2 x double> %1643, <2 x i32> <i32 0, i32 2>
+  %1674 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1563, <2 x double> %1673, <2 x double> %1565)
+  %1675 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1566, <2 x double> %1567, <2 x double> %1674)
+  %1676 = shufflevector <2 x double> %1526, <2 x double> %1673, <2 x i32> <i32 1, i32 3>
+  %1677 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1676, <2 x double> %1568, <2 x double> %1675)
+  %1678 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1541, <2 x double> %1569, <2 x double> %1677)
+  %1679 = shufflevector <2 x double> %1243, <2 x double> %1643, <2 x i32> <i32 3, i32 1>
+  %1680 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1529, <2 x double> %1679, <2 x double> %1678)
+  %1681 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1570, <2 x double> %1571, <2 x double> %1680)
+  %1682 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1373, <2 x double> %1572, <2 x double> %1681)
+  %1683 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1522, <2 x double> %1573, <2 x double> %1682)
+  %1684 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1574, <2 x double> %1575, <2 x double> %1683)
+  %1685 = call double @llvm.fmuladd.f64(double %1445, double %1232, double %1663)
+  %1686 = extractelement <2 x double> %1646, i64 0
+  %1687 = call double @llvm.fmuladd.f64(double %1686, double %1441, double %1685)
+  %1688 = call double @llvm.fmuladd.f64(double %1458, double %1296, double %1687)
+  %1689 = call double @llvm.fmuladd.f64(double %1549, double %1232, double %1688)
+  %1690 = call double @llvm.fmuladd.f64(double %1444, double %1649, double %1689)
+  %1691 = call double @llvm.fmuladd.f64(double %1251, double %1232, double %1690)
+  %1692 = extractelement <2 x double> %1256, i64 0
+  %1693 = call double @llvm.fmuladd.f64(double %1692, double %1474, double %1691)
+  %1694 = call double @llvm.fmuladd.f64(double %1367, double %1247, double %1693)
   %1695 = call double @llvm.fmuladd.f64(double %1368, double %1248, double %1694)
-  %1696 = call double @llvm.fmuladd.f64(double %1369, double %1249, double %1695)
-  %1697 = call double @llvm.fmuladd.f64(double %1270, double %1233, double %1673)
-  %1698 = call double @llvm.fmuladd.f64(double %1252, double %1297, double %1697)
-  %1699 = insertelement <2 x double> poison, double %1698, i64 0
-  %1700 = insertelement <2 x double> %1699, double %1298, i64 1
-  %1701 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1481, <2 x double> %1482, <2 x double> %1700)
-  %1702 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1454, <2 x double> %1652, <2 x double> %1701)
-  %1703 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1452, <2 x double> %1483, <2 x double> %1702)
-  %1704 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1585, <2 x double> %1484, <2 x double> %1703)
-  %1705 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1589, <2 x double> %1590, <2 x double> %1685)
-  %1706 = insertelement <2 x double> %1644, double %1233, i64 1
-  %1707 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1527, <2 x double> %1706, <2 x double> %1705)
-  %1708 = call double @llvm.fmuladd.f64(double %1519, double %1475, double %1696)
-  %1709 = call double @llvm.fmuladd.f64(double %1410, double %1233, double %1708)
-  %1710 = call double @llvm.fmuladd.f64(double %1291, double %1475, double %1709)
-  %1711 = call double @llvm.fmuladd.f64(double %1520, double %1442, double %1710)
-  %1712 = shufflevector <2 x double> %1294, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1713 = insertelement <2 x double> %1712, double %1337, i64 0
-  %1714 = shufflevector <2 x double> %1644, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1715 = insertelement <2 x double> poison, double %1544, i64 0
-  %1716 = insertelement <2 x double> %1715, double %1711, i64 1
-  %1717 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1713, <2 x double> %1714, <2 x double> %1716)
-  %1718 = shufflevector <2 x double> %1523, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1719 = insertelement <2 x double> %1718, double %1295, i64 1
-  %1720 = shufflevector <2 x double> %1644, <2 x double> %1364, <2 x i32> <i32 0, i32 3>
-  %1721 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1719, <2 x double> %1720, <2 x double> %1717)
-  %1722 = shufflevector <2 x double> %1373, <2 x double> %1376, <2 x i32> <i32 0, i32 3>
-  %1723 = shufflevector <2 x double> %1247, <2 x double> %1364, <2 x i32> <i32 1, i32 2>
-  %1724 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1722, <2 x double> %1723, <2 x double> %1721)
-  %1725 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1592, <2 x double> %1485, <2 x double> %1704)
-  %1726 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1431, <2 x double> %1653, <2 x double> %1725)
-  %1727 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1486, <2 x double> %1586, <2 x double> %1726)
-  %1728 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1587, <2 x double> %1488, <2 x double> %1727)
-  %1729 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1489, <2 x double> %1490, <2 x double> %1728)
-  %1730 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1438, <2 x double> %1491, <2 x double> %1729)
-  %1731 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1492, <2 x double> %1588, <2 x double> %1730)
-  %1732 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1421, <2 x double> %1494, <2 x double> %1731)
-  %1733 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1495, <2 x double> %1362, <2 x double> %1732)
-  %1734 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1414, <2 x double> %1496, <2 x double> %1733)
-  %1735 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1417, <2 x double> %1497, <2 x double> %1734)
-  %1736 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1498, <2 x double> %1247, <2 x double> %1735)
-  %1737 = shufflevector <2 x double> %1736, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1738 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1499, <2 x double> %1500, <2 x double> %1737)
-  %1739 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1501, <2 x double> %1502, <2 x double> %1738)
-  %1740 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1396, <2 x double> %1485, <2 x double> %1739)
-  %1741 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1503, <2 x double> %1504, <2 x double> %1740)
-  %1742 = shufflevector <2 x double> %1741, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1743 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1275, <2 x double> %1364, <2 x double> %1742)
-  %1744 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1505, <2 x double> %1654, <2 x double> %1743)
-  %1745 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1386, <2 x double> %1271, <2 x double> %1744)
-  %1746 = shufflevector <2 x double> %1745, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1747 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1506, <2 x double> %1507, <2 x double> %1746)
-  %1748 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1390, <2 x double> %1363, <2 x double> %1747)
-  %1749 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1509, <2 x double> %1510, <2 x double> %1748)
-  %1750 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1294, <2 x double> %1511, <2 x double> %1749)
-  %1751 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1512, <2 x double> %1513, <2 x double> %1750)
-  %1752 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1350, <2 x double> %1281, <2 x double> %1751)
-  %1753 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1347, <2 x double> %1514, <2 x double> %1752)
-  %1754 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1515, <2 x double> %1305, <2 x double> %1753)
-  %1755 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1593, <2 x double> %1594, <2 x double> %1707)
-  %1756 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1595, <2 x double> %1596, <2 x double> %1755)
-  %1757 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1597, <2 x double> %1598, <2 x double> %1756)
-  %1758 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1600, <2 x double> %1601, <2 x double> %1757)
-  %1759 = insertelement <2 x double> %1714, double %1233, i64 1
-  %1760 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1602, <2 x double> %1759, <2 x double> %1758)
-  %1761 = shufflevector <2 x double> %1644, <2 x double> %1647, <2 x i32> <i32 0, i32 2>
-  %1762 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1761, <2 x double> %1603, <2 x double> %1760)
-  %1763 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1604, <2 x double> %1605, <2 x double> %1762)
-  %1764 = shufflevector <2 x double> %1362, <2 x double> %1644, <2 x i32> <i32 0, i32 3>
-  %1765 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1606, <2 x double> %1764, <2 x double> %1763)
-  %1766 = shufflevector <2 x double> %1761, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1767 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1607, <2 x double> %1766, <2 x double> %1765)
-  %1768 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1608, <2 x double> %1362, <2 x double> %1767)
-  %1769 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1610, <2 x double> %1611, <2 x double> %1768)
-  %1770 = shufflevector <2 x double> %1364, <2 x double> %1644, <2 x i32> <i32 3, i32 1>
-  %1771 = shufflevector <2 x double> %1769, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1772 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1612, <2 x double> %1770, <2 x double> %1771)
-  %1773 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1614, <2 x double> %1615, <2 x double> %1772)
-  %1774 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1616, <2 x double> %1568, <2 x double> %1773)
-  %1775 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1617, <2 x double> %1618, <2 x double> %1774)
-  %1776 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1518, <2 x double> %1619, <2 x double> %1775)
-  %1777 = shufflevector <2 x double> %1493, <2 x double> %1644, <2 x i32> <i32 0, i32 2>
-  %1778 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1620, <2 x double> %1777, <2 x double> %1776)
-  %1779 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1621, <2 x double> %1622, <2 x double> %1778)
-  %1780 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1623, <2 x double> %1624, <2 x double> %1779)
-  %1781 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1625, <2 x double> %1626, <2 x double> %1780)
-  %1782 = shufflevector <2 x double> %1617, <2 x double> %1777, <2 x i32> <i32 1, i32 2>
-  %1783 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1782, <2 x double> %1627, <2 x double> %1781)
-  %1784 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1628, <2 x double> %1601, <2 x double> %1783)
-  %1785 = shufflevector <2 x double> %1280, <2 x double> %1644, <2 x i32> <i32 3, i32 1>
-  %1786 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1629, <2 x double> %1785, <2 x double> %1784)
-  %1787 = insertelement <2 x double> %1644, double %1235, i64 1
-  %1788 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1630, <2 x double> %1787, <2 x double> %1786)
-  %1789 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1631, <2 x double> %1364, <2 x double> %1788)
-  %1790 = shufflevector <2 x double> %1632, <2 x double> %1647, <2 x i32> <i32 0, i32 3>
-  %1791 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1790, <2 x double> %1633, <2 x double> %1789)
-  %1792 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1634, <2 x double> %1271, <2 x double> %1791)
-  %1793 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1635, <2 x double> %1636, <2 x double> %1792)
-  %1794 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1637, <2 x double> %1638, <2 x double> %1793)
-  %1795 = shufflevector <2 x double> %1508, <2 x double> %1647, <2 x i32> <i32 3, i32 1>
-  %1796 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1795, <2 x double> %1639, <2 x double> %1794)
-  %1797 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1640, <2 x double> %1490, <2 x double> %1796)
-  %1798 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1641, <2 x double> %1642, <2 x double> %1797)
-  %1799 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1643, <2 x double> %1574, <2 x double> %1798)
-  %1800 = shufflevector <2 x double> %1458, <2 x double> %1431, <2 x i32> <i32 0, i32 2>
-  %1801 = insertelement <2 x double> %1244, double %1233, i64 1
-  %1802 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1800, <2 x double> %1801, <2 x double> %1724)
-  %1803 = shufflevector <2 x double> %1542, <2 x double> %1438, <2 x i32> <i32 1, i32 2>
-  %1804 = shufflevector <2 x double> %1250, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1805 = insertelement <2 x double> %1804, double %1235, i64 1
-  %1806 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1803, <2 x double> %1805, <2 x double> %1802)
-  %1807 = shufflevector <2 x double> %1365, <2 x double> %1508, <2 x i32> <i32 0, i32 3>
-  %1808 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1807, <2 x double> %1759, <2 x double> %1806)
-  %1809 = shufflevector <2 x double> %1373, <2 x double> %1396, <2 x i32> <i32 1, i32 3>
-  %1810 = shufflevector <2 x double> %1644, <2 x double> %1362, <2 x i32> <i32 0, i32 3>
-  %1811 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1809, <2 x double> %1810, <2 x double> %1808)
-  %1812 = insertelement <2 x double> %1363, double %1235, i64 1
-  %1813 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1647, <2 x double> %1812, <2 x double> %1811)
-  %1814 = shufflevector <2 x double> %1458, <2 x double> %1385, <2 x i32> <i32 1, i32 3>
-  %1815 = shufflevector <2 x double> %1362, <2 x double> %1364, <2 x i32> <i32 0, i32 3>
-  %1816 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1814, <2 x double> %1815, <2 x double> %1813)
-  %1817 = shufflevector <2 x double> %1294, <2 x double> %1362, <2 x i32> <i32 1, i32 2>
-  %1818 = insertelement <2 x double> %1714, double %1237, i64 1
-  %1819 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1817, <2 x double> %1818, <2 x double> %1816)
-  %1820 = insertelement <2 x double> %1438, double %1368, i64 0
-  %1821 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1820, <2 x double> %1644, <2 x double> %1819)
-  %1822 = shufflevector <2 x double> %1644, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1823 = insertelement <2 x double> %1822, double %1369, i64 0
-  %1824 = shufflevector <2 x double> %1247, <2 x double> %1294, <2 x i32> <i32 1, i32 3>
-  %1825 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1823, <2 x double> %1824, <2 x double> %1821)
-  %1826 = shufflevector <2 x double> %1518, <2 x double> %1271, <2 x i32> <i32 0, i32 3>
-  %1827 = insertelement <2 x double> poison, double %1233, i64 0
-  %1828 = insertelement <2 x double> %1827, double %1370, i64 1
-  %1829 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1826, <2 x double> %1828, <2 x double> %1825)
-  %1830 = shufflevector <2 x double> %1335, <2 x double> %1304, <2 x i32> <i32 0, i32 2>
-  %1831 = fmul <2 x double> %1299, %1830
-  %1832 = shufflevector <2 x double> %1830, <2 x double> %1231, <2 x i32> <i32 0, i32 3>
-  %1833 = fmul <2 x double> %1380, %1832
-  %1834 = fmul <2 x double> %1339, %1314
-  %1835 = fmul <2 x double> %1408, %1314
-  %1836 = shufflevector <2 x double> %1831, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1837 = shufflevector <2 x double> %1836, <2 x double> %1530, <2 x i32> <i32 0, i32 2>
-  %1838 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1837, <2 x double> %1317, <2 x double> %1584)
-  %1839 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1384, <2 x double> %1318, <2 x double> %1838)
-  %1840 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1319, <2 x double> %1320, <2 x double> %1839)
-  %1841 = shufflevector <2 x double> %1347, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %1842 = shufflevector <2 x double> %1841, <2 x double> %1390, <2 x i32> <i32 0, i32 2>
-  %1843 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1842, <2 x double> %1321, <2 x double> %1840)
-  %1844 = shufflevector <2 x double> %1309, <2 x double> %1347, <2 x i32> <i32 0, i32 2>
-  %1845 = shufflevector <2 x double> %1833, <2 x double> %1268, <2 x i32> <i32 0, i32 2>
-  %1846 = shufflevector <2 x double> %1833, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1847 = shufflevector <2 x double> %1831, <2 x double> %1454, <2 x i32> <i32 0, i32 2>
-  %1848 = shufflevector <2 x double> %1409, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1849 = shufflevector <2 x double> %1848, <2 x double> %1647, <2 x i32> <i32 3, i32 1>
-  %1850 = shufflevector <2 x double> %1271, <2 x double> poison, <2 x i32> zeroinitializer
-  %1851 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1849, <2 x double> %1850, <2 x double> %1754)
-  %1852 = insertelement <2 x double> %1335, double %1220, i64 0
-  %1853 = fmul <2 x double> %1330, %1852
-  %1854 = shufflevector <2 x double> %1335, <2 x double> %1271, <2 x i32> <i32 0, i32 3>
-  %1855 = fmul <2 x double> %1854, %1331
-  %1856 = shufflevector <2 x double> %1853, <2 x double> %1831, <2 x i32> <i32 0, i32 3>
-  %1857 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1856, <2 x double> %1322, <2 x double> %1843)
+  %1696 = call double @llvm.fmuladd.f64(double %1269, double %1232, double %1672)
+  %1697 = call double @llvm.fmuladd.f64(double %1251, double %1296, double %1696)
+  %1698 = insertelement <2 x double> poison, double %1697, i64 0
+  %1699 = insertelement <2 x double> %1698, double %1297, i64 1
+  %1700 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1480, <2 x double> %1481, <2 x double> %1699)
+  %1701 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1453, <2 x double> %1651, <2 x double> %1700)
+  %1702 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1451, <2 x double> %1482, <2 x double> %1701)
+  %1703 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1584, <2 x double> %1483, <2 x double> %1702)
+  %1704 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1588, <2 x double> %1589, <2 x double> %1684)
+  %1705 = insertelement <2 x double> %1643, double %1232, i64 1
+  %1706 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1526, <2 x double> %1705, <2 x double> %1704)
+  %1707 = call double @llvm.fmuladd.f64(double %1518, double %1474, double %1695)
+  %1708 = call double @llvm.fmuladd.f64(double %1409, double %1232, double %1707)
+  %1709 = call double @llvm.fmuladd.f64(double %1290, double %1474, double %1708)
+  %1710 = call double @llvm.fmuladd.f64(double %1519, double %1441, double %1709)
+  %1711 = shufflevector <2 x double> %1293, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1712 = insertelement <2 x double> %1711, double %1336, i64 0
+  %1713 = shufflevector <2 x double> %1643, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1714 = insertelement <2 x double> poison, double %1543, i64 0
+  %1715 = insertelement <2 x double> %1714, double %1710, i64 1
+  %1716 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1712, <2 x double> %1713, <2 x double> %1715)
+  %1717 = shufflevector <2 x double> %1522, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1718 = insertelement <2 x double> %1717, double %1294, i64 1
+  %1719 = shufflevector <2 x double> %1643, <2 x double> %1363, <2 x i32> <i32 0, i32 3>
+  %1720 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1718, <2 x double> %1719, <2 x double> %1716)
+  %1721 = shufflevector <2 x double> %1372, <2 x double> %1375, <2 x i32> <i32 0, i32 3>
+  %1722 = shufflevector <2 x double> %1246, <2 x double> %1363, <2 x i32> <i32 1, i32 2>
+  %1723 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1721, <2 x double> %1722, <2 x double> %1720)
+  %1724 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1591, <2 x double> %1484, <2 x double> %1703)
+  %1725 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1430, <2 x double> %1652, <2 x double> %1724)
+  %1726 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1485, <2 x double> %1585, <2 x double> %1725)
+  %1727 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1586, <2 x double> %1487, <2 x double> %1726)
+  %1728 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1488, <2 x double> %1489, <2 x double> %1727)
+  %1729 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1437, <2 x double> %1490, <2 x double> %1728)
+  %1730 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1491, <2 x double> %1587, <2 x double> %1729)
+  %1731 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1420, <2 x double> %1493, <2 x double> %1730)
+  %1732 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1494, <2 x double> %1361, <2 x double> %1731)
+  %1733 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1413, <2 x double> %1495, <2 x double> %1732)
+  %1734 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1416, <2 x double> %1496, <2 x double> %1733)
+  %1735 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1497, <2 x double> %1246, <2 x double> %1734)
+  %1736 = shufflevector <2 x double> %1735, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1737 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1498, <2 x double> %1499, <2 x double> %1736)
+  %1738 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1500, <2 x double> %1501, <2 x double> %1737)
+  %1739 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1395, <2 x double> %1484, <2 x double> %1738)
+  %1740 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1502, <2 x double> %1503, <2 x double> %1739)
+  %1741 = shufflevector <2 x double> %1740, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1742 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1274, <2 x double> %1363, <2 x double> %1741)
+  %1743 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1504, <2 x double> %1653, <2 x double> %1742)
+  %1744 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1385, <2 x double> %1270, <2 x double> %1743)
+  %1745 = shufflevector <2 x double> %1744, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1746 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1505, <2 x double> %1506, <2 x double> %1745)
+  %1747 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1389, <2 x double> %1362, <2 x double> %1746)
+  %1748 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1508, <2 x double> %1509, <2 x double> %1747)
+  %1749 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1293, <2 x double> %1510, <2 x double> %1748)
+  %1750 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1511, <2 x double> %1512, <2 x double> %1749)
+  %1751 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1349, <2 x double> %1280, <2 x double> %1750)
+  %1752 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1346, <2 x double> %1513, <2 x double> %1751)
+  %1753 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1514, <2 x double> %1304, <2 x double> %1752)
+  %1754 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1592, <2 x double> %1593, <2 x double> %1706)
+  %1755 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1594, <2 x double> %1595, <2 x double> %1754)
+  %1756 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1596, <2 x double> %1597, <2 x double> %1755)
+  %1757 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1599, <2 x double> %1600, <2 x double> %1756)
+  %1758 = insertelement <2 x double> %1713, double %1232, i64 1
+  %1759 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1601, <2 x double> %1758, <2 x double> %1757)
+  %1760 = shufflevector <2 x double> %1643, <2 x double> %1646, <2 x i32> <i32 0, i32 2>
+  %1761 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1760, <2 x double> %1602, <2 x double> %1759)
+  %1762 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1603, <2 x double> %1604, <2 x double> %1761)
+  %1763 = shufflevector <2 x double> %1361, <2 x double> %1643, <2 x i32> <i32 0, i32 3>
+  %1764 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1605, <2 x double> %1763, <2 x double> %1762)
+  %1765 = shufflevector <2 x double> %1760, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1766 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1606, <2 x double> %1765, <2 x double> %1764)
+  %1767 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1607, <2 x double> %1361, <2 x double> %1766)
+  %1768 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1609, <2 x double> %1610, <2 x double> %1767)
+  %1769 = shufflevector <2 x double> %1363, <2 x double> %1643, <2 x i32> <i32 3, i32 1>
+  %1770 = shufflevector <2 x double> %1768, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1771 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1611, <2 x double> %1769, <2 x double> %1770)
+  %1772 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1613, <2 x double> %1614, <2 x double> %1771)
+  %1773 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1615, <2 x double> %1567, <2 x double> %1772)
+  %1774 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1616, <2 x double> %1617, <2 x double> %1773)
+  %1775 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1517, <2 x double> %1618, <2 x double> %1774)
+  %1776 = shufflevector <2 x double> %1492, <2 x double> %1643, <2 x i32> <i32 0, i32 2>
+  %1777 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1619, <2 x double> %1776, <2 x double> %1775)
+  %1778 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1620, <2 x double> %1621, <2 x double> %1777)
+  %1779 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1622, <2 x double> %1623, <2 x double> %1778)
+  %1780 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1624, <2 x double> %1625, <2 x double> %1779)
+  %1781 = shufflevector <2 x double> %1616, <2 x double> %1776, <2 x i32> <i32 1, i32 2>
+  %1782 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1781, <2 x double> %1626, <2 x double> %1780)
+  %1783 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1627, <2 x double> %1600, <2 x double> %1782)
+  %1784 = shufflevector <2 x double> %1279, <2 x double> %1643, <2 x i32> <i32 3, i32 1>
+  %1785 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1628, <2 x double> %1784, <2 x double> %1783)
+  %1786 = insertelement <2 x double> %1643, double %1234, i64 1
+  %1787 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1629, <2 x double> %1786, <2 x double> %1785)
+  %1788 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1630, <2 x double> %1363, <2 x double> %1787)
+  %1789 = shufflevector <2 x double> %1631, <2 x double> %1646, <2 x i32> <i32 0, i32 3>
+  %1790 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1789, <2 x double> %1632, <2 x double> %1788)
+  %1791 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1633, <2 x double> %1270, <2 x double> %1790)
+  %1792 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1634, <2 x double> %1635, <2 x double> %1791)
+  %1793 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1636, <2 x double> %1637, <2 x double> %1792)
+  %1794 = shufflevector <2 x double> %1507, <2 x double> %1646, <2 x i32> <i32 3, i32 1>
+  %1795 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1794, <2 x double> %1638, <2 x double> %1793)
+  %1796 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1639, <2 x double> %1489, <2 x double> %1795)
+  %1797 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1640, <2 x double> %1641, <2 x double> %1796)
+  %1798 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1642, <2 x double> %1573, <2 x double> %1797)
+  %1799 = shufflevector <2 x double> %1457, <2 x double> %1430, <2 x i32> <i32 0, i32 2>
+  %1800 = insertelement <2 x double> %1243, double %1232, i64 1
+  %1801 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1799, <2 x double> %1800, <2 x double> %1723)
+  %1802 = shufflevector <2 x double> %1541, <2 x double> %1437, <2 x i32> <i32 1, i32 2>
+  %1803 = shufflevector <2 x double> %1249, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1804 = insertelement <2 x double> %1803, double %1234, i64 1
+  %1805 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1802, <2 x double> %1804, <2 x double> %1801)
+  %1806 = shufflevector <2 x double> %1364, <2 x double> %1507, <2 x i32> <i32 0, i32 3>
+  %1807 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1806, <2 x double> %1758, <2 x double> %1805)
+  %1808 = shufflevector <2 x double> %1372, <2 x double> %1395, <2 x i32> <i32 1, i32 3>
+  %1809 = shufflevector <2 x double> %1643, <2 x double> %1361, <2 x i32> <i32 0, i32 3>
+  %1810 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1808, <2 x double> %1809, <2 x double> %1807)
+  %1811 = insertelement <2 x double> %1362, double %1234, i64 1
+  %1812 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1646, <2 x double> %1811, <2 x double> %1810)
+  %1813 = shufflevector <2 x double> %1457, <2 x double> %1384, <2 x i32> <i32 1, i32 3>
+  %1814 = shufflevector <2 x double> %1361, <2 x double> %1363, <2 x i32> <i32 0, i32 3>
+  %1815 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1813, <2 x double> %1814, <2 x double> %1812)
+  %1816 = shufflevector <2 x double> %1293, <2 x double> %1361, <2 x i32> <i32 1, i32 2>
+  %1817 = insertelement <2 x double> %1713, double %1236, i64 1
+  %1818 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1816, <2 x double> %1817, <2 x double> %1815)
+  %1819 = insertelement <2 x double> %1437, double %1367, i64 0
+  %1820 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1819, <2 x double> %1643, <2 x double> %1818)
+  %1821 = shufflevector <2 x double> %1643, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1822 = insertelement <2 x double> %1821, double %1368, i64 0
+  %1823 = shufflevector <2 x double> %1246, <2 x double> %1293, <2 x i32> <i32 1, i32 3>
+  %1824 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1822, <2 x double> %1823, <2 x double> %1820)
+  %1825 = shufflevector <2 x double> %1517, <2 x double> %1270, <2 x i32> <i32 0, i32 3>
+  %1826 = insertelement <2 x double> poison, double %1232, i64 0
+  %1827 = insertelement <2 x double> %1826, double %1369, i64 1
+  %1828 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1825, <2 x double> %1827, <2 x double> %1824)
+  %1829 = shufflevector <2 x double> %1334, <2 x double> %1303, <2 x i32> <i32 0, i32 2>
+  %1830 = fmul <2 x double> %1298, %1829
+  %1831 = shufflevector <2 x double> %1829, <2 x double> %1230, <2 x i32> <i32 0, i32 3>
+  %1832 = fmul <2 x double> %1379, %1831
+  %1833 = fmul <2 x double> %1338, %1313
+  %1834 = fmul <2 x double> %1407, %1313
+  %1835 = shufflevector <2 x double> %1830, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1836 = shufflevector <2 x double> %1835, <2 x double> %1529, <2 x i32> <i32 0, i32 2>
+  %1837 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1836, <2 x double> %1316, <2 x double> %1583)
+  %1838 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1383, <2 x double> %1317, <2 x double> %1837)
+  %1839 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1318, <2 x double> %1319, <2 x double> %1838)
+  %1840 = shufflevector <2 x double> %1346, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %1841 = shufflevector <2 x double> %1840, <2 x double> %1389, <2 x i32> <i32 0, i32 2>
+  %1842 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1841, <2 x double> %1320, <2 x double> %1839)
+  %1843 = shufflevector <2 x double> %1308, <2 x double> %1346, <2 x i32> <i32 0, i32 2>
+  %1844 = shufflevector <2 x double> %1832, <2 x double> %1267, <2 x i32> <i32 0, i32 2>
+  %1845 = shufflevector <2 x double> %1832, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1846 = shufflevector <2 x double> %1830, <2 x double> %1453, <2 x i32> <i32 0, i32 2>
+  %1847 = shufflevector <2 x double> %1408, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1848 = shufflevector <2 x double> %1847, <2 x double> %1646, <2 x i32> <i32 3, i32 1>
+  %1849 = shufflevector <2 x double> %1270, <2 x double> poison, <2 x i32> zeroinitializer
+  %1850 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1848, <2 x double> %1849, <2 x double> %1753)
+  %1851 = insertelement <2 x double> %1334, double %1219, i64 0
+  %1852 = fmul <2 x double> %1329, %1851
+  %1853 = shufflevector <2 x double> %1334, <2 x double> %1270, <2 x i32> <i32 0, i32 3>
+  %1854 = fmul <2 x double> %1853, %1330
+  %1855 = shufflevector <2 x double> %1852, <2 x double> %1830, <2 x i32> <i32 0, i32 3>
+  %1856 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1855, <2 x double> %1321, <2 x double> %1842)
+  %1857 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1843, <2 x double> %1323, <2 x double> %1856)
   %1858 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1844, <2 x double> %1324, <2 x double> %1857)
-  %1859 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1845, <2 x double> %1325, <2 x double> %1858)
-  %1860 = shufflevector <2 x double> %1855, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1861 = shufflevector <2 x double> %1855, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1862 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1861, <2 x double> %1244, <2 x double> %1859)
-  %1863 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1268, <2 x double> %1327, <2 x double> %1862)
-  %1864 = shufflevector <2 x double> %1846, <2 x double> %1853, <2 x i32> <i32 3, i32 1>
-  %1865 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1864, <2 x double> %1328, <2 x double> %1863)
-  %1866 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1307, <2 x double> %1329, <2 x double> %1865)
-  %1867 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1847, <2 x double> %1328, <2 x double> %1866)
-  %1868 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1435, <2 x double> %1325, <2 x double> %1867)
-  %1869 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1355, <2 x double> %1329, <2 x double> %1868)
-  store <2 x double> %1869, ptr %1221, align 8
-  %1870 = shufflevector <2 x double> %1307, <2 x double> %1853, <2 x i32> <i32 1, i32 2>
-  %1871 = shufflevector <2 x double> %1362, <2 x double> poison, <2 x i32> zeroinitializer
-  %1872 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1870, <2 x double> %1871, <2 x double> %1851)
-  %1873 = shufflevector <2 x double> %1860, <2 x double> %1390, <2 x i32> <i32 3, i32 1>
-  %1874 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1873, <2 x double> %1484, <2 x double> %1872)
-  %1875 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1353, <2 x double> %1485, <2 x double> %1874)
-  %1876 = shufflevector <2 x double> %1268, <2 x double> %1334, <2 x i32> <i32 0, i32 2>
-  %1877 = shufflevector <2 x double> %1644, <2 x double> %1271, <2 x i32> <i32 0, i32 3>
-  %1878 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1876, <2 x double> %1877, <2 x double> %1875)
-  %1879 = insertelement <2 x double> %1384, double %1295, i64 1
-  %1880 = shufflevector <2 x double> %1243, <2 x double> %1271, <2 x i32> <i32 1, i32 2>
-  %1881 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1879, <2 x double> %1880, <2 x double> %1878)
-  %1882 = shufflevector <2 x double> %1833, <2 x double> %1401, <2 x i32> <i32 1, i32 3>
-  %1883 = shufflevector <2 x double> %1243, <2 x double> poison, <2 x i32> zeroinitializer
-  %1884 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1882, <2 x double> %1883, <2 x double> %1881)
-  %1885 = shufflevector <2 x double> %1282, <2 x double> %1834, <2 x i32> <i32 0, i32 3>
-  %1886 = shufflevector <2 x double> %1250, <2 x double> %1247, <2 x i32> <i32 1, i32 2>
-  %1887 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1885, <2 x double> %1886, <2 x double> %1884)
-  %1888 = shufflevector <2 x double> %1308, <2 x double> %1257, <2 x i32> <i32 3, i32 1>
-  %1889 = shufflevector <2 x double> %1280, <2 x double> %1250, <2 x i32> <i32 0, i32 2>
-  %1890 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1888, <2 x double> %1889, <2 x double> %1887)
-  %1891 = shufflevector <2 x double> %1355, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1892 = shufflevector <2 x double> %1891, <2 x double> %1347, <2 x i32> <i32 3, i32 1>
-  %1893 = shufflevector <2 x double> %1271, <2 x double> %1250, <2 x i32> <i32 1, i32 2>
-  %1894 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1892, <2 x double> %1893, <2 x double> %1890)
-  %1895 = insertelement <2 x double> poison, double %1286, i64 0
-  %1896 = insertelement <2 x double> %1895, double %1198, i64 1
-  %1897 = shufflevector <2 x double> %1271, <2 x double> %1835, <2 x i32> <i32 0, i32 3>
-  %1898 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1896, <2 x double> %1897, <2 x double> %1894)
-  %1899 = shufflevector <2 x double> %1281, <2 x double> %1247, <2 x i32> <i32 0, i32 3>
-  %1900 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1853, <2 x double> %1899, <2 x double> %1898)
-  %1901 = shufflevector <2 x double> %1280, <2 x double> %1250, <2 x i32> <i32 0, i32 3>
-  %1902 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1855, <2 x double> %1901, <2 x double> %1900)
-  %1903 = shufflevector <2 x double> %1271, <2 x double> %1247, <2 x i32> <i32 0, i32 2>
-  %1904 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1334, <2 x double> %1903, <2 x double> %1902)
-  %1905 = shufflevector <2 x double> %1409, <2 x double> %1384, <2 x i32> <i32 1, i32 2>
-  %1906 = insertelement <2 x double> %1804, double %1198, i64 0
-  %1907 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1905, <2 x double> %1906, <2 x double> %1904)
-  %1908 = shufflevector <2 x double> %1355, <2 x double> %1342, <2 x i32> <i32 0, i32 3>
-  %1909 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1908, <2 x double> %1244, <2 x double> %1907)
-  %1910 = shufflevector <2 x double> %1268, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1911 = shufflevector <2 x double> %1910, <2 x double> %1334, <2 x i32> <i32 3, i32 1>
-  %1912 = insertelement <2 x double> %1644, double %1198, i64 0
-  %1913 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1911, <2 x double> %1912, <2 x double> %1909)
-  %1914 = shufflevector <2 x double> %1247, <2 x double> %1644, <2 x i32> <i32 0, i32 2>
-  %1915 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1864, <2 x double> %1914, <2 x double> %1913)
-  %1916 = shufflevector <2 x double> %1247, <2 x double> %1243, <2 x i32> <i32 1, i32 3>
-  %1917 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1833, <2 x double> %1916, <2 x double> %1915)
-  %1918 = shufflevector <2 x double> %1309, <2 x double> %1855, <2 x i32> <i32 3, i32 1>
-  %1919 = shufflevector <2 x double> %1250, <2 x double> %1644, <2 x i32> <i32 0, i32 2>
-  %1920 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1918, <2 x double> %1919, <2 x double> %1917)
-  %1921 = shufflevector <2 x double> %1400, <2 x double> poison, <2 x i32> zeroinitializer
-  %1922 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1921, <2 x double> %1243, <2 x double> %1920)
-  %1923 = shufflevector <2 x double> %1403, <2 x double> %1831, <2 x i32> <i32 3, i32 1>
-  %1924 = shufflevector <2 x double> %1250, <2 x double> %1243, <2 x i32> <i32 0, i32 2>
-  %1925 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1923, <2 x double> %1924, <2 x double> %1922)
-  %1926 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1831, <2 x double> %1572, <2 x double> %1925)
-  %1927 = shufflevector <2 x double> %1243, <2 x double> %1401, <2 x i32> <i32 1, i32 2>
-  %1928 = insertelement <2 x double> %1307, double %1198, i64 1
-  %1929 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1927, <2 x double> %1928, <2 x double> %1926)
-  %1930 = insertelement <2 x double> %1409, double %1313, i64 0
-  %1931 = shufflevector <2 x double> %1243, <2 x double> %1247, <2 x i32> <i32 0, i32 2>
-  %1932 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1930, <2 x double> %1931, <2 x double> %1929)
-  %1933 = shufflevector <2 x double> %1262, <2 x double> %1831, <2 x i32> <i32 1, i32 2>
-  %1934 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1933, <2 x double> %1247, <2 x double> %1932)
-  %1935 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1262, <2 x double> %1326, <2 x double> %1934)
-  %1936 = shufflevector <2 x double> %1928, <2 x double> %1930, <2 x i32> <i32 1, i32 2>
-  %1937 = shufflevector <2 x double> %1834, <2 x double> %1243, <2 x i32> <i32 1, i32 3>
-  %1938 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1936, <2 x double> %1937, <2 x double> %1935)
-  %1939 = shufflevector <2 x double> %1938, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %1939, ptr %1236, align 8
-  %1940 = insertelement <2 x double> %1257, double %1237, i64 0
-  %1941 = shufflevector <2 x double> %1281, <2 x double> %1362, <2 x i32> <i32 0, i32 2>
-  %1942 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1940, <2 x double> %1941, <2 x double> %1799)
-  %1943 = shufflevector <2 x double> %1438, <2 x double> %1350, <2 x i32> <i32 1, i32 3>
-  %1944 = shufflevector <2 x double> %1644, <2 x double> %1280, <2 x i32> <i32 0, i32 3>
-  %1945 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1943, <2 x double> %1944, <2 x double> %1942)
-  %1946 = shufflevector <2 x double> %1294, <2 x double> %1342, <2 x i32> <i32 1, i32 2>
-  %1947 = shufflevector <2 x double> %1247, <2 x double> %1281, <2 x i32> <i32 1, i32 3>
-  %1948 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1946, <2 x double> %1947, <2 x double> %1945)
-  %1949 = shufflevector <2 x double> %1853, <2 x double> %1347, <2 x i32> <i32 1, i32 3>
-  %1950 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1949, <2 x double> %1770, <2 x double> %1948)
-  %1951 = insertelement <2 x double> %1846, double %1286, i64 1
-  %1952 = shufflevector <2 x double> %1250, <2 x double> %1364, <2 x i32> <i32 1, i32 2>
-  %1953 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1951, <2 x double> %1952, <2 x double> %1950)
-  %1954 = shufflevector <2 x double> %1334, <2 x double> %1409, <2 x i32> <i32 1, i32 2>
-  %1955 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1954, <2 x double> %1877, <2 x double> %1953)
-  %1956 = shufflevector <2 x double> %1403, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1957 = shufflevector <2 x double> %1956, <2 x double> %1257, <2 x i32> <i32 3, i32 1>
-  %1958 = shufflevector <2 x double> %1362, <2 x double> %1271, <2 x i32> <i32 1, i32 2>
-  %1959 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1957, <2 x double> %1958, <2 x double> %1955)
-  %1960 = shufflevector <2 x double> %1349, <2 x double> %1853, <2 x i32> <i32 0, i32 2>
-  %1961 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1960, <2 x double> %1362, <2 x double> %1959)
-  %1962 = shufflevector <2 x double> %1342, <2 x double> %1855, <2 x i32> <i32 0, i32 2>
-  %1963 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1962, <2 x double> %1941, <2 x double> %1961)
-  %1964 = shufflevector <2 x double> %1347, <2 x double> %1353, <2 x i32> <i32 1, i32 3>
-  %1965 = insertelement <2 x double> %1280, double %1235, i64 0
-  %1966 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1964, <2 x double> %1965, <2 x double> %1963)
-  %1967 = shufflevector <2 x double> %1334, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %1968 = insertelement <2 x double> %1967, double %1286, i64 0
-  %1969 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1968, <2 x double> %1367, <2 x double> %1966)
-  %1970 = insertelement <2 x double> %1409, double %1313, i64 1
-  %1971 = shufflevector <2 x double> %1364, <2 x double> %1250, <2 x i32> <i32 0, i32 2>
-  %1972 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1970, <2 x double> %1971, <2 x double> %1969)
-  %1973 = shufflevector <2 x double> %1403, <2 x double> %1355, <2 x i32> <i32 0, i32 2>
-  %1974 = shufflevector <2 x double> %1271, <2 x double> %1250, <2 x i32> <i32 1, i32 3>
-  %1975 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1973, <2 x double> %1974, <2 x double> %1972)
-  %1976 = shufflevector <2 x double> %1853, <2 x double> %1403, <2 x i32> <i32 0, i32 3>
-  %1977 = insertelement <2 x double> %1243, double %1233, i64 0
-  %1978 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1976, <2 x double> %1977, <2 x double> %1975)
-  %1979 = shufflevector <2 x double> %1855, <2 x double> %1833, <2 x i32> <i32 0, i32 2>
-  %1980 = shufflevector <2 x double> %1363, <2 x double> %1644, <2 x i32> <i32 0, i32 3>
-  %1981 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1979, <2 x double> %1980, <2 x double> %1978)
-  %1982 = shufflevector <2 x double> %1353, <2 x double> %1833, <2 x i32> <i32 1, i32 3>
-  %1983 = shufflevector <2 x double> %1362, <2 x double> %1250, <2 x i32> <i32 0, i32 2>
-  %1984 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1982, <2 x double> %1983, <2 x double> %1981)
-  %1985 = shufflevector <2 x double> %1376, <2 x double> %1853, <2 x i32> <i32 0, i32 3>
-  %1986 = shufflevector <2 x double> %1280, <2 x double> %1644, <2 x i32> <i32 0, i32 2>
-  %1987 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1985, <2 x double> %1986, <2 x double> %1984)
-  %1988 = shufflevector <2 x double> %1364, <2 x double> %1247, <2 x i32> <i32 1, i32 3>
-  %1989 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1334, <2 x double> %1988, <2 x double> %1987)
-  %1990 = shufflevector <2 x double> %1834, <2 x double> %1342, <2 x i32> <i32 1, i32 3>
-  %1991 = shufflevector <2 x double> %1644, <2 x double> %1243, <2 x i32> <i32 0, i32 3>
-  %1992 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1990, <2 x double> %1991, <2 x double> %1989)
-  %1993 = shufflevector <2 x double> %1342, <2 x double> %1384, <2 x i32> <i32 1, i32 2>
-  %1994 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1993, <2 x double> %1250, <2 x double> %1992)
-  %1995 = shufflevector <2 x double> %1831, <2 x double> %1409, <2 x i32> <i32 0, i32 3>
-  %1996 = shufflevector <2 x double> %1247, <2 x double> %1644, <2 x i32> <i32 3, i32 1>
-  %1997 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1995, <2 x double> %1996, <2 x double> %1994)
-  %1998 = shufflevector <2 x double> %1403, <2 x double> %1307, <2 x i32> <i32 1, i32 2>
-  %1999 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1998, <2 x double> %1250, <2 x double> %1997)
-  %2000 = shufflevector <2 x double> %1401, <2 x double> %1409, <2 x i32> <i32 0, i32 3>
-  %2001 = shufflevector <2 x double> %1999, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %2002 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2000, <2 x double> %1914, <2 x double> %2001)
-  %2003 = shufflevector <2 x double> %1835, <2 x double> %1401, <2 x i32> <i32 1, i32 2>
-  %2004 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2003, <2 x double> %1247, <2 x double> %2002)
-  %2005 = shufflevector <2 x double> %1835, <2 x double> %1405, <2 x i32> <i32 0, i32 3>
-  %2006 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2005, <2 x double> %1243, <2 x double> %2004)
-  %2007 = shufflevector <2 x double> %1401, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %2008 = shufflevector <2 x double> %2007, <2 x double> %1262, <2 x i32> <i32 0, i32 3>
-  %2009 = shufflevector <2 x double> %1244, <2 x double> %1644, <2 x i32> <i32 0, i32 3>
-  %2010 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2008, <2 x double> %2009, <2 x double> %2006)
-  %2011 = shufflevector <2 x double> %1405, <2 x double> %1835, <2 x i32> <i32 0, i32 3>
-  %2012 = insertelement <2 x double> %1247, double %1198, i64 0
-  %2013 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2011, <2 x double> %2012, <2 x double> %2010)
-  %2014 = shufflevector <2 x double> %1835, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %2015 = shufflevector <2 x double> %2014, <2 x double> %1262, <2 x i32> <i32 3, i32 1>
-  %2016 = shufflevector <2 x double> %1644, <2 x double> %1243, <2 x i32> <i32 0, i32 3>
-  %2017 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2015, <2 x double> %2016, <2 x double> %2013)
-  %2018 = shufflevector <2 x double> %1405, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %2019 = insertelement <2 x double> %2018, double %1313, i64 1
-  %2020 = shufflevector <2 x double> %1243, <2 x double> %1250, <2 x i32> <i32 0, i32 3>
-  %2021 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2019, <2 x double> %2020, <2 x double> %2017)
-  %2022 = shufflevector <2 x double> %1831, <2 x double> %1401, <2 x i32> <i32 0, i32 3>
-  %2023 = shufflevector <2 x double> %1644, <2 x double> %1250, <2 x i32> <i32 0, i32 2>
-  %2024 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2022, <2 x double> %2023, <2 x double> %2021)
-  %2025 = shufflevector <2 x double> %1262, <2 x double> %2018, <2 x i32> <i32 0, i32 3>
-  %2026 = shufflevector <2 x double> %1714, <2 x double> %1247, <2 x i32> <i32 0, i32 2>
-  %2027 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2025, <2 x double> %2026, <2 x double> %2024)
-  %2028 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1921, <2 x double> %1250, <2 x double> %2027)
-  %2029 = shufflevector <2 x double> %2028, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %2030 = shufflevector <2 x double> %2020, <2 x double> %1247, <2 x i32> <i32 0, i32 3>
-  %2031 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1834, <2 x double> %2030, <2 x double> %2029)
-  store <2 x double> %2031, ptr %1238, align 8
-  %2032 = shufflevector <2 x double> %1493, <2 x double> poison, <2 x i32> zeroinitializer
-  %2033 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1257, <2 x double> %2032, <2 x double> %1829)
-  %2034 = insertelement <2 x double> %1350, double %1464, i64 0
-  %2035 = shufflevector <2 x double> %1362, <2 x double> %1644, <2 x i32> <i32 3, i32 1>
-  %2036 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2034, <2 x double> %2035, <2 x double> %2033)
-  %2037 = shufflevector <2 x double> %1342, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %2038 = shufflevector <2 x double> %1290, <2 x double> %2037, <2 x i32> <i32 0, i32 3>
-  %2039 = insertelement <2 x double> %1363, double %1233, i64 0
-  %2040 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2038, <2 x double> %2039, <2 x double> %2036)
-  %2041 = insertelement <2 x double> %1517, double %1286, i64 1
-  %2042 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2041, <2 x double> %1812, <2 x double> %2040)
-  %2043 = insertelement <2 x double> %1848, double %1295, i64 0
-  %2044 = insertelement <2 x double> %1364, double %1235, i64 0
-  %2045 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2043, <2 x double> %2044, <2 x double> %2042)
-  %2046 = shufflevector <2 x double> %1376, <2 x double> %1403, <2 x i32> <i32 1, i32 2>
-  %2047 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2046, <2 x double> %1367, <2 x double> %2045)
-  %2048 = shufflevector <2 x double> %1396, <2 x double> %1855, <2 x i32> <i32 1, i32 2>
-  %2049 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2048, <2 x double> %2032, <2 x double> %2047)
-  %2050 = shufflevector <2 x double> %1386, <2 x double> %1353, <2 x i32> <i32 0, i32 3>
-  %2051 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2050, <2 x double> %1638, <2 x double> %2049)
-  %2052 = shufflevector <2 x double> %1353, <2 x double> %1376, <2 x i32> <i32 1, i32 2>
-  %2053 = insertelement <2 x double> %1280, double %1233, i64 0
-  %2054 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2052, <2 x double> %2053, <2 x double> %2051)
-  %2055 = insertelement <2 x double> poison, double %1237, i64 0
-  %2056 = insertelement <2 x double> %2055, double %1235, i64 1
-  %2057 = shufflevector <2 x double> %1362, <2 x double> %1334, <2 x i32> <i32 1, i32 2>
-  %2058 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2056, <2 x double> %2057, <2 x double> %2054)
-  %2059 = insertelement <2 x double> %2014, double %1370, i64 0
-  %2060 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2059, <2 x double> %1971, <2 x double> %2058)
-  %2061 = shufflevector <2 x double> %1349, <2 x double> %1334, <2 x i32> <i32 0, i32 3>
-  %2062 = insertelement <2 x double> %1644, double %1233, i64 0
-  %2063 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2061, <2 x double> %2062, <2 x double> %2060)
-  %2064 = shufflevector <2 x double> %1363, <2 x double> %1250, <2 x i32> <i32 0, i32 3>
-  %2065 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1342, <2 x double> %2064, <2 x double> %2063)
-  %2066 = insertelement <2 x double> %1644, double %1235, i64 0
-  %2067 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1409, <2 x double> %2066, <2 x double> %2065)
-  %2068 = shufflevector <2 x double> %1367, <2 x double> %1250, <2 x i32> <i32 0, i32 3>
-  %2069 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1403, <2 x double> %2068, <2 x double> %2067)
-  %2070 = shufflevector <2 x double> %1376, <2 x double> %1401, <2 x i32> <i32 0, i32 2>
-  %2071 = shufflevector <2 x double> %1362, <2 x double> %1644, <2 x i32> <i32 0, i32 2>
-  %2072 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2070, <2 x double> %2071, <2 x double> %2069)
-  %2073 = shufflevector <2 x double> %1835, <2 x double> %1834, <2 x i32> <i32 1, i32 2>
-  %2074 = shufflevector <2 x double> %1714, <2 x double> %1243, <2 x i32> <i32 0, i32 3>
-  %2075 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2073, <2 x double> %2074, <2 x double> %2072)
-  %2076 = shufflevector <2 x double> %1250, <2 x double> %1247, <2 x i32> <i32 1, i32 3>
-  %2077 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2018, <2 x double> %2076, <2 x double> %2075)
-  %2078 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1405, <2 x double> %2023, <2 x double> %2077)
-  %2079 = shufflevector <2 x double> %1804, <2 x double> %1644, <2 x i32> <i32 0, i32 2>
-  %2080 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1835, <2 x double> %2079, <2 x double> %2078)
-  %2081 = shufflevector <2 x double> %1250, <2 x double> %1644, <2 x i32> <i32 0, i32 3>
-  %2082 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1834, <2 x double> %2081, <2 x double> %2080)
-  %2083 = shufflevector <2 x double> %1714, <2 x double> %1250, <2 x i32> <i32 0, i32 3>
-  %2084 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1401, <2 x double> %2083, <2 x double> %2082)
-  store <2 x double> %2084, ptr %1239, align 8
-  %2085 = fmul double %1475, %1377
-  %2086 = call double @llvm.fmuladd.f64(double %1370, double %1591, double %2085)
-  %2087 = call double @llvm.fmuladd.f64(double %1407, double %1650, double %2086)
-  %2088 = extractelement <2 x double> %1834, i64 0
-  %2089 = call double @llvm.fmuladd.f64(double %2088, double %1253, double %2087)
-  %2090 = call double @llvm.fmuladd.f64(double %1237, double %1233, double %2089)
-  %2091 = call double @llvm.fmuladd.f64(double %1406, double %1235, double %2090)
-  %2092 = call double @llvm.fmuladd.f64(double %1343, double %1233, double %2091)
-  %2093 = call double @llvm.fmuladd.f64(double %1543, double %1253, double %2092)
-  %2094 = call double @llvm.fmuladd.f64(double %1520, double %1233, double %2093)
-  %2095 = call double @llvm.fmuladd.f64(double %1545, double %1650, double %2094)
-  %2096 = call double @llvm.fmuladd.f64(double %1368, double %1650, double %2095)
-  %2097 = call double @llvm.fmuladd.f64(double %1546, double %1648, double %2096)
-  %2098 = call double @llvm.fmuladd.f64(double %1687, double %1233, double %2097)
-  %2099 = insertelement <2 x double> %1493, double %1235, i64 1
-  %2100 = insertelement <2 x double> poison, double %1371, i64 0
-  %2101 = insertelement <2 x double> %2100, double %2098, i64 1
-  %2102 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1376, <2 x double> %2099, <2 x double> %2101)
-  %2103 = shufflevector <2 x double> %1458, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %2104 = insertelement <2 x double> %2103, double %1369, i64 1
-  %2105 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2104, <2 x double> %1777, <2 x double> %2102)
-  %2106 = shufflevector <2 x double> %2104, <2 x double> %1458, <2 x i32> <i32 1, i32 2>
-  %2107 = shufflevector <2 x double> %1714, <2 x double> %1250, <2 x i32> <i32 0, i32 2>
-  %2108 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2106, <2 x double> %2107, <2 x double> %2105)
-  %2109 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1373, <2 x double> %1714, <2 x double> %2108)
-  %2110 = shufflevector <2 x double> %1804, <2 x double> %1362, <2 x i32> <i32 0, i32 3>
-  %2111 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1458, <2 x double> %2110, <2 x double> %2109)
-  store <2 x double> %2111, ptr %1189, align 8
+  %1859 = shufflevector <2 x double> %1854, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1860 = shufflevector <2 x double> %1854, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1861 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1860, <2 x double> %1243, <2 x double> %1858)
+  %1862 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1267, <2 x double> %1326, <2 x double> %1861)
+  %1863 = shufflevector <2 x double> %1845, <2 x double> %1852, <2 x i32> <i32 3, i32 1>
+  %1864 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1863, <2 x double> %1327, <2 x double> %1862)
+  %1865 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1306, <2 x double> %1328, <2 x double> %1864)
+  %1866 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1846, <2 x double> %1327, <2 x double> %1865)
+  %1867 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1434, <2 x double> %1324, <2 x double> %1866)
+  %1868 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1354, <2 x double> %1328, <2 x double> %1867)
+  store <2 x double> %1868, ptr %1220, align 8
+  %1869 = shufflevector <2 x double> %1306, <2 x double> %1852, <2 x i32> <i32 1, i32 2>
+  %1870 = shufflevector <2 x double> %1361, <2 x double> poison, <2 x i32> zeroinitializer
+  %1871 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1869, <2 x double> %1870, <2 x double> %1850)
+  %1872 = shufflevector <2 x double> %1859, <2 x double> %1389, <2 x i32> <i32 3, i32 1>
+  %1873 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1872, <2 x double> %1483, <2 x double> %1871)
+  %1874 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1352, <2 x double> %1484, <2 x double> %1873)
+  %1875 = shufflevector <2 x double> %1267, <2 x double> %1333, <2 x i32> <i32 0, i32 2>
+  %1876 = shufflevector <2 x double> %1643, <2 x double> %1270, <2 x i32> <i32 0, i32 3>
+  %1877 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1875, <2 x double> %1876, <2 x double> %1874)
+  %1878 = insertelement <2 x double> %1383, double %1294, i64 1
+  %1879 = shufflevector <2 x double> %1242, <2 x double> %1270, <2 x i32> <i32 1, i32 2>
+  %1880 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1878, <2 x double> %1879, <2 x double> %1877)
+  %1881 = shufflevector <2 x double> %1832, <2 x double> %1400, <2 x i32> <i32 1, i32 3>
+  %1882 = shufflevector <2 x double> %1242, <2 x double> poison, <2 x i32> zeroinitializer
+  %1883 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1881, <2 x double> %1882, <2 x double> %1880)
+  %1884 = shufflevector <2 x double> %1281, <2 x double> %1833, <2 x i32> <i32 0, i32 3>
+  %1885 = shufflevector <2 x double> %1249, <2 x double> %1246, <2 x i32> <i32 1, i32 2>
+  %1886 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1884, <2 x double> %1885, <2 x double> %1883)
+  %1887 = shufflevector <2 x double> %1307, <2 x double> %1256, <2 x i32> <i32 3, i32 1>
+  %1888 = shufflevector <2 x double> %1279, <2 x double> %1249, <2 x i32> <i32 0, i32 2>
+  %1889 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1887, <2 x double> %1888, <2 x double> %1886)
+  %1890 = shufflevector <2 x double> %1354, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1891 = shufflevector <2 x double> %1890, <2 x double> %1346, <2 x i32> <i32 3, i32 1>
+  %1892 = shufflevector <2 x double> %1270, <2 x double> %1249, <2 x i32> <i32 1, i32 2>
+  %1893 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1891, <2 x double> %1892, <2 x double> %1889)
+  %1894 = insertelement <2 x double> poison, double %1285, i64 0
+  %1895 = insertelement <2 x double> %1894, double %1197, i64 1
+  %1896 = shufflevector <2 x double> %1270, <2 x double> %1834, <2 x i32> <i32 0, i32 3>
+  %1897 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1895, <2 x double> %1896, <2 x double> %1893)
+  %1898 = shufflevector <2 x double> %1280, <2 x double> %1246, <2 x i32> <i32 0, i32 3>
+  %1899 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1852, <2 x double> %1898, <2 x double> %1897)
+  %1900 = shufflevector <2 x double> %1279, <2 x double> %1249, <2 x i32> <i32 0, i32 3>
+  %1901 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1854, <2 x double> %1900, <2 x double> %1899)
+  %1902 = shufflevector <2 x double> %1270, <2 x double> %1246, <2 x i32> <i32 0, i32 2>
+  %1903 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1333, <2 x double> %1902, <2 x double> %1901)
+  %1904 = shufflevector <2 x double> %1408, <2 x double> %1383, <2 x i32> <i32 1, i32 2>
+  %1905 = insertelement <2 x double> %1803, double %1197, i64 0
+  %1906 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1904, <2 x double> %1905, <2 x double> %1903)
+  %1907 = shufflevector <2 x double> %1354, <2 x double> %1341, <2 x i32> <i32 0, i32 3>
+  %1908 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1907, <2 x double> %1243, <2 x double> %1906)
+  %1909 = shufflevector <2 x double> %1267, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1910 = shufflevector <2 x double> %1909, <2 x double> %1333, <2 x i32> <i32 3, i32 1>
+  %1911 = insertelement <2 x double> %1643, double %1197, i64 0
+  %1912 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1910, <2 x double> %1911, <2 x double> %1908)
+  %1913 = shufflevector <2 x double> %1246, <2 x double> %1643, <2 x i32> <i32 0, i32 2>
+  %1914 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1863, <2 x double> %1913, <2 x double> %1912)
+  %1915 = shufflevector <2 x double> %1246, <2 x double> %1242, <2 x i32> <i32 1, i32 3>
+  %1916 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1832, <2 x double> %1915, <2 x double> %1914)
+  %1917 = shufflevector <2 x double> %1308, <2 x double> %1854, <2 x i32> <i32 3, i32 1>
+  %1918 = shufflevector <2 x double> %1249, <2 x double> %1643, <2 x i32> <i32 0, i32 2>
+  %1919 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1917, <2 x double> %1918, <2 x double> %1916)
+  %1920 = shufflevector <2 x double> %1399, <2 x double> poison, <2 x i32> zeroinitializer
+  %1921 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1920, <2 x double> %1242, <2 x double> %1919)
+  %1922 = shufflevector <2 x double> %1402, <2 x double> %1830, <2 x i32> <i32 3, i32 1>
+  %1923 = shufflevector <2 x double> %1249, <2 x double> %1242, <2 x i32> <i32 0, i32 2>
+  %1924 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1922, <2 x double> %1923, <2 x double> %1921)
+  %1925 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1830, <2 x double> %1571, <2 x double> %1924)
+  %1926 = shufflevector <2 x double> %1242, <2 x double> %1400, <2 x i32> <i32 1, i32 2>
+  %1927 = insertelement <2 x double> %1306, double %1197, i64 1
+  %1928 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1926, <2 x double> %1927, <2 x double> %1925)
+  %1929 = insertelement <2 x double> %1408, double %1312, i64 0
+  %1930 = shufflevector <2 x double> %1242, <2 x double> %1246, <2 x i32> <i32 0, i32 2>
+  %1931 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1929, <2 x double> %1930, <2 x double> %1928)
+  %1932 = shufflevector <2 x double> %1261, <2 x double> %1830, <2 x i32> <i32 1, i32 2>
+  %1933 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1932, <2 x double> %1246, <2 x double> %1931)
+  %1934 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1261, <2 x double> %1325, <2 x double> %1933)
+  %1935 = shufflevector <2 x double> %1927, <2 x double> %1929, <2 x i32> <i32 1, i32 2>
+  %1936 = shufflevector <2 x double> %1833, <2 x double> %1242, <2 x i32> <i32 1, i32 3>
+  %1937 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1935, <2 x double> %1936, <2 x double> %1934)
+  %1938 = shufflevector <2 x double> %1937, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %1938, ptr %1235, align 8
+  %1939 = insertelement <2 x double> %1256, double %1236, i64 0
+  %1940 = shufflevector <2 x double> %1280, <2 x double> %1361, <2 x i32> <i32 0, i32 2>
+  %1941 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1939, <2 x double> %1940, <2 x double> %1798)
+  %1942 = shufflevector <2 x double> %1437, <2 x double> %1349, <2 x i32> <i32 1, i32 3>
+  %1943 = shufflevector <2 x double> %1643, <2 x double> %1279, <2 x i32> <i32 0, i32 3>
+  %1944 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1942, <2 x double> %1943, <2 x double> %1941)
+  %1945 = shufflevector <2 x double> %1293, <2 x double> %1341, <2 x i32> <i32 1, i32 2>
+  %1946 = shufflevector <2 x double> %1246, <2 x double> %1280, <2 x i32> <i32 1, i32 3>
+  %1947 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1945, <2 x double> %1946, <2 x double> %1944)
+  %1948 = shufflevector <2 x double> %1852, <2 x double> %1346, <2 x i32> <i32 1, i32 3>
+  %1949 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1948, <2 x double> %1769, <2 x double> %1947)
+  %1950 = insertelement <2 x double> %1845, double %1285, i64 1
+  %1951 = shufflevector <2 x double> %1249, <2 x double> %1363, <2 x i32> <i32 1, i32 2>
+  %1952 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1950, <2 x double> %1951, <2 x double> %1949)
+  %1953 = shufflevector <2 x double> %1333, <2 x double> %1408, <2 x i32> <i32 1, i32 2>
+  %1954 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1953, <2 x double> %1876, <2 x double> %1952)
+  %1955 = shufflevector <2 x double> %1402, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1956 = shufflevector <2 x double> %1955, <2 x double> %1256, <2 x i32> <i32 3, i32 1>
+  %1957 = shufflevector <2 x double> %1361, <2 x double> %1270, <2 x i32> <i32 1, i32 2>
+  %1958 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1956, <2 x double> %1957, <2 x double> %1954)
+  %1959 = shufflevector <2 x double> %1348, <2 x double> %1852, <2 x i32> <i32 0, i32 2>
+  %1960 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1959, <2 x double> %1361, <2 x double> %1958)
+  %1961 = shufflevector <2 x double> %1341, <2 x double> %1854, <2 x i32> <i32 0, i32 2>
+  %1962 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1961, <2 x double> %1940, <2 x double> %1960)
+  %1963 = shufflevector <2 x double> %1346, <2 x double> %1352, <2 x i32> <i32 1, i32 3>
+  %1964 = insertelement <2 x double> %1279, double %1234, i64 0
+  %1965 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1963, <2 x double> %1964, <2 x double> %1962)
+  %1966 = shufflevector <2 x double> %1333, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %1967 = insertelement <2 x double> %1966, double %1285, i64 0
+  %1968 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1967, <2 x double> %1366, <2 x double> %1965)
+  %1969 = insertelement <2 x double> %1408, double %1312, i64 1
+  %1970 = shufflevector <2 x double> %1363, <2 x double> %1249, <2 x i32> <i32 0, i32 2>
+  %1971 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1969, <2 x double> %1970, <2 x double> %1968)
+  %1972 = shufflevector <2 x double> %1402, <2 x double> %1354, <2 x i32> <i32 0, i32 2>
+  %1973 = shufflevector <2 x double> %1270, <2 x double> %1249, <2 x i32> <i32 1, i32 3>
+  %1974 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1972, <2 x double> %1973, <2 x double> %1971)
+  %1975 = shufflevector <2 x double> %1852, <2 x double> %1402, <2 x i32> <i32 0, i32 3>
+  %1976 = insertelement <2 x double> %1242, double %1232, i64 0
+  %1977 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1975, <2 x double> %1976, <2 x double> %1974)
+  %1978 = shufflevector <2 x double> %1854, <2 x double> %1832, <2 x i32> <i32 0, i32 2>
+  %1979 = shufflevector <2 x double> %1362, <2 x double> %1643, <2 x i32> <i32 0, i32 3>
+  %1980 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1978, <2 x double> %1979, <2 x double> %1977)
+  %1981 = shufflevector <2 x double> %1352, <2 x double> %1832, <2 x i32> <i32 1, i32 3>
+  %1982 = shufflevector <2 x double> %1361, <2 x double> %1249, <2 x i32> <i32 0, i32 2>
+  %1983 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1981, <2 x double> %1982, <2 x double> %1980)
+  %1984 = shufflevector <2 x double> %1375, <2 x double> %1852, <2 x i32> <i32 0, i32 3>
+  %1985 = shufflevector <2 x double> %1279, <2 x double> %1643, <2 x i32> <i32 0, i32 2>
+  %1986 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1984, <2 x double> %1985, <2 x double> %1983)
+  %1987 = shufflevector <2 x double> %1363, <2 x double> %1246, <2 x i32> <i32 1, i32 3>
+  %1988 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1333, <2 x double> %1987, <2 x double> %1986)
+  %1989 = shufflevector <2 x double> %1833, <2 x double> %1341, <2 x i32> <i32 1, i32 3>
+  %1990 = shufflevector <2 x double> %1643, <2 x double> %1242, <2 x i32> <i32 0, i32 3>
+  %1991 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1989, <2 x double> %1990, <2 x double> %1988)
+  %1992 = shufflevector <2 x double> %1341, <2 x double> %1383, <2 x i32> <i32 1, i32 2>
+  %1993 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1992, <2 x double> %1249, <2 x double> %1991)
+  %1994 = shufflevector <2 x double> %1830, <2 x double> %1408, <2 x i32> <i32 0, i32 3>
+  %1995 = shufflevector <2 x double> %1246, <2 x double> %1643, <2 x i32> <i32 3, i32 1>
+  %1996 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1994, <2 x double> %1995, <2 x double> %1993)
+  %1997 = shufflevector <2 x double> %1402, <2 x double> %1306, <2 x i32> <i32 1, i32 2>
+  %1998 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1997, <2 x double> %1249, <2 x double> %1996)
+  %1999 = shufflevector <2 x double> %1400, <2 x double> %1408, <2 x i32> <i32 0, i32 3>
+  %2000 = shufflevector <2 x double> %1998, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %2001 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1999, <2 x double> %1913, <2 x double> %2000)
+  %2002 = shufflevector <2 x double> %1834, <2 x double> %1400, <2 x i32> <i32 1, i32 2>
+  %2003 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2002, <2 x double> %1246, <2 x double> %2001)
+  %2004 = shufflevector <2 x double> %1834, <2 x double> %1404, <2 x i32> <i32 0, i32 3>
+  %2005 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2004, <2 x double> %1242, <2 x double> %2003)
+  %2006 = shufflevector <2 x double> %1400, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %2007 = shufflevector <2 x double> %2006, <2 x double> %1261, <2 x i32> <i32 0, i32 3>
+  %2008 = shufflevector <2 x double> %1243, <2 x double> %1643, <2 x i32> <i32 0, i32 3>
+  %2009 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2007, <2 x double> %2008, <2 x double> %2005)
+  %2010 = shufflevector <2 x double> %1404, <2 x double> %1834, <2 x i32> <i32 0, i32 3>
+  %2011 = insertelement <2 x double> %1246, double %1197, i64 0
+  %2012 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2010, <2 x double> %2011, <2 x double> %2009)
+  %2013 = shufflevector <2 x double> %1834, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %2014 = shufflevector <2 x double> %2013, <2 x double> %1261, <2 x i32> <i32 3, i32 1>
+  %2015 = shufflevector <2 x double> %1643, <2 x double> %1242, <2 x i32> <i32 0, i32 3>
+  %2016 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2014, <2 x double> %2015, <2 x double> %2012)
+  %2017 = shufflevector <2 x double> %1404, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %2018 = insertelement <2 x double> %2017, double %1312, i64 1
+  %2019 = shufflevector <2 x double> %1242, <2 x double> %1249, <2 x i32> <i32 0, i32 3>
+  %2020 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2018, <2 x double> %2019, <2 x double> %2016)
+  %2021 = shufflevector <2 x double> %1830, <2 x double> %1400, <2 x i32> <i32 0, i32 3>
+  %2022 = shufflevector <2 x double> %1643, <2 x double> %1249, <2 x i32> <i32 0, i32 2>
+  %2023 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2021, <2 x double> %2022, <2 x double> %2020)
+  %2024 = shufflevector <2 x double> %1261, <2 x double> %2017, <2 x i32> <i32 0, i32 3>
+  %2025 = shufflevector <2 x double> %1713, <2 x double> %1246, <2 x i32> <i32 0, i32 2>
+  %2026 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2024, <2 x double> %2025, <2 x double> %2023)
+  %2027 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1920, <2 x double> %1249, <2 x double> %2026)
+  %2028 = shufflevector <2 x double> %2027, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %2029 = shufflevector <2 x double> %2019, <2 x double> %1246, <2 x i32> <i32 0, i32 3>
+  %2030 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1833, <2 x double> %2029, <2 x double> %2028)
+  store <2 x double> %2030, ptr %1237, align 8
+  %2031 = shufflevector <2 x double> %1492, <2 x double> poison, <2 x i32> zeroinitializer
+  %2032 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1256, <2 x double> %2031, <2 x double> %1828)
+  %2033 = insertelement <2 x double> %1349, double %1463, i64 0
+  %2034 = shufflevector <2 x double> %1361, <2 x double> %1643, <2 x i32> <i32 3, i32 1>
+  %2035 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2033, <2 x double> %2034, <2 x double> %2032)
+  %2036 = shufflevector <2 x double> %1341, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %2037 = shufflevector <2 x double> %1289, <2 x double> %2036, <2 x i32> <i32 0, i32 3>
+  %2038 = insertelement <2 x double> %1362, double %1232, i64 0
+  %2039 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2037, <2 x double> %2038, <2 x double> %2035)
+  %2040 = insertelement <2 x double> %1516, double %1285, i64 1
+  %2041 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2040, <2 x double> %1811, <2 x double> %2039)
+  %2042 = insertelement <2 x double> %1847, double %1294, i64 0
+  %2043 = insertelement <2 x double> %1363, double %1234, i64 0
+  %2044 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2042, <2 x double> %2043, <2 x double> %2041)
+  %2045 = shufflevector <2 x double> %1375, <2 x double> %1402, <2 x i32> <i32 1, i32 2>
+  %2046 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2045, <2 x double> %1366, <2 x double> %2044)
+  %2047 = shufflevector <2 x double> %1395, <2 x double> %1854, <2 x i32> <i32 1, i32 2>
+  %2048 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2047, <2 x double> %2031, <2 x double> %2046)
+  %2049 = shufflevector <2 x double> %1385, <2 x double> %1352, <2 x i32> <i32 0, i32 3>
+  %2050 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2049, <2 x double> %1637, <2 x double> %2048)
+  %2051 = shufflevector <2 x double> %1352, <2 x double> %1375, <2 x i32> <i32 1, i32 2>
+  %2052 = insertelement <2 x double> %1279, double %1232, i64 0
+  %2053 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2051, <2 x double> %2052, <2 x double> %2050)
+  %2054 = insertelement <2 x double> poison, double %1236, i64 0
+  %2055 = insertelement <2 x double> %2054, double %1234, i64 1
+  %2056 = shufflevector <2 x double> %1361, <2 x double> %1333, <2 x i32> <i32 1, i32 2>
+  %2057 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2055, <2 x double> %2056, <2 x double> %2053)
+  %2058 = insertelement <2 x double> %2013, double %1369, i64 0
+  %2059 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2058, <2 x double> %1970, <2 x double> %2057)
+  %2060 = shufflevector <2 x double> %1348, <2 x double> %1333, <2 x i32> <i32 0, i32 3>
+  %2061 = insertelement <2 x double> %1643, double %1232, i64 0
+  %2062 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2060, <2 x double> %2061, <2 x double> %2059)
+  %2063 = shufflevector <2 x double> %1362, <2 x double> %1249, <2 x i32> <i32 0, i32 3>
+  %2064 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1341, <2 x double> %2063, <2 x double> %2062)
+  %2065 = insertelement <2 x double> %1643, double %1234, i64 0
+  %2066 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1408, <2 x double> %2065, <2 x double> %2064)
+  %2067 = shufflevector <2 x double> %1366, <2 x double> %1249, <2 x i32> <i32 0, i32 3>
+  %2068 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1402, <2 x double> %2067, <2 x double> %2066)
+  %2069 = shufflevector <2 x double> %1375, <2 x double> %1400, <2 x i32> <i32 0, i32 2>
+  %2070 = shufflevector <2 x double> %1361, <2 x double> %1643, <2 x i32> <i32 0, i32 2>
+  %2071 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2069, <2 x double> %2070, <2 x double> %2068)
+  %2072 = shufflevector <2 x double> %1834, <2 x double> %1833, <2 x i32> <i32 1, i32 2>
+  %2073 = shufflevector <2 x double> %1713, <2 x double> %1242, <2 x i32> <i32 0, i32 3>
+  %2074 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2072, <2 x double> %2073, <2 x double> %2071)
+  %2075 = shufflevector <2 x double> %1249, <2 x double> %1246, <2 x i32> <i32 1, i32 3>
+  %2076 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2017, <2 x double> %2075, <2 x double> %2074)
+  %2077 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1404, <2 x double> %2022, <2 x double> %2076)
+  %2078 = shufflevector <2 x double> %1803, <2 x double> %1643, <2 x i32> <i32 0, i32 2>
+  %2079 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1834, <2 x double> %2078, <2 x double> %2077)
+  %2080 = shufflevector <2 x double> %1249, <2 x double> %1643, <2 x i32> <i32 0, i32 3>
+  %2081 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1833, <2 x double> %2080, <2 x double> %2079)
+  %2082 = shufflevector <2 x double> %1713, <2 x double> %1249, <2 x i32> <i32 0, i32 3>
+  %2083 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1400, <2 x double> %2082, <2 x double> %2081)
+  store <2 x double> %2083, ptr %1238, align 8
+  %2084 = fmul double %1474, %1376
+  %2085 = call double @llvm.fmuladd.f64(double %1369, double %1590, double %2084)
+  %2086 = call double @llvm.fmuladd.f64(double %1406, double %1649, double %2085)
+  %2087 = extractelement <2 x double> %1833, i64 0
+  %2088 = call double @llvm.fmuladd.f64(double %2087, double %1252, double %2086)
+  %2089 = call double @llvm.fmuladd.f64(double %1236, double %1232, double %2088)
+  %2090 = call double @llvm.fmuladd.f64(double %1405, double %1234, double %2089)
+  %2091 = call double @llvm.fmuladd.f64(double %1342, double %1232, double %2090)
+  %2092 = call double @llvm.fmuladd.f64(double %1542, double %1252, double %2091)
+  %2093 = call double @llvm.fmuladd.f64(double %1519, double %1232, double %2092)
+  %2094 = call double @llvm.fmuladd.f64(double %1544, double %1649, double %2093)
+  %2095 = call double @llvm.fmuladd.f64(double %1367, double %1649, double %2094)
+  %2096 = call double @llvm.fmuladd.f64(double %1545, double %1647, double %2095)
+  %2097 = call double @llvm.fmuladd.f64(double %1686, double %1232, double %2096)
+  %2098 = insertelement <2 x double> %1492, double %1234, i64 1
+  %2099 = insertelement <2 x double> poison, double %1370, i64 0
+  %2100 = insertelement <2 x double> %2099, double %2097, i64 1
+  %2101 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1375, <2 x double> %2098, <2 x double> %2100)
+  %2102 = shufflevector <2 x double> %1457, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %2103 = insertelement <2 x double> %2102, double %1368, i64 1
+  %2104 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2103, <2 x double> %1776, <2 x double> %2101)
+  %2105 = shufflevector <2 x double> %2103, <2 x double> %1457, <2 x i32> <i32 1, i32 2>
+  %2106 = shufflevector <2 x double> %1713, <2 x double> %1249, <2 x i32> <i32 0, i32 2>
+  %2107 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2105, <2 x double> %2106, <2 x double> %2104)
+  %2108 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1372, <2 x double> %1713, <2 x double> %2107)
+  %2109 = shufflevector <2 x double> %1803, <2 x double> %1361, <2 x i32> <i32 0, i32 3>
+  %2110 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1457, <2 x double> %2109, <2 x double> %2108)
+  store <2 x double> %2110, ptr %1188, align 8
   invoke void @_ZN2cv4usac10SolverPoly6createEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.25") align 8 %79)
-          to label %2112 unwind label %2206
+          to label %2111 unwind label %2205
 
-2112:                                             ; preds = %1190
-  %2113 = load ptr, ptr %79, align 8
-  %2114 = load ptr, ptr %2113, align 8
-  %2115 = getelementptr inbounds i8, ptr %2114, i64 64
-  %2116 = load ptr, ptr %2115, align 8
-  %2117 = invoke noundef i32 %2116(ptr noundef nonnull align 8 dereferenceable(8) %2113, ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %78)
-          to label %2118 unwind label %.loopexit.split-lp
+2111:                                             ; preds = %1189
+  %2112 = load ptr, ptr %79, align 8
+  %2113 = load ptr, ptr %2112, align 8
+  %2114 = getelementptr inbounds i8, ptr %2113, i64 64
+  %2115 = load ptr, ptr %2114, align 8
+  %2116 = invoke noundef i32 %2115(ptr noundef nonnull align 8 dereferenceable(8) %2112, ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %78)
+          to label %2117 unwind label %.loopexit.split-lp
 
-2118:                                             ; preds = %2112
-  %2119 = load ptr, ptr %2, align 8
-  %2120 = getelementptr inbounds i8, ptr %2, i64 8
-  %2121 = load ptr, ptr %2120, align 8
-  %2122 = getelementptr inbounds i8, ptr %2, i64 16
-  %.not4.i.i.i.i.i.i = icmp eq ptr %2119, %2121
+2117:                                             ; preds = %2111
+  %2118 = load ptr, ptr %2, align 8
+  %2119 = getelementptr inbounds i8, ptr %2, i64 8
+  %2120 = load ptr, ptr %2119, align 8
+  %2121 = getelementptr inbounds i8, ptr %2, i64 16
+  %.not4.i.i.i.i.i.i = icmp eq ptr %2118, %2120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %2118, %.lr.ph.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %2123, %.lr.ph.i.i.i.i.i.i ], [ %2119, %2118 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %2117, %.lr.ph.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %2122, %.lr.ph.i.i.i.i.i.i ], [ %2118, %2117 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #19
-  %2123 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i.i = icmp eq ptr %2123, %2121
+  %2122 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i.i = icmp eq ptr %2122, %2120
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !158
 
-_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %2118
-  %.not.i.i.i.i.i = icmp eq ptr %2119, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %2124
+_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %2117
+  %.not.i.i.i.i.i = icmp eq ptr %2118, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %2123
 
-2124:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %2119) #20
+2123:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %2118) #20
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, %2124
-  %2125 = sext i32 %2117 to i64
-  invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %2125)
+_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, %2123
+  %2124 = sext i32 %2116 to i64
+  invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %2124)
           to label %.preheader577 unwind label %.loopexit.split-lp
 
 .preheader577:                                    ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  %2126 = icmp sgt i32 %2117, 0
-  br i1 %2126, label %.lr.ph622, label %._crit_edge623
+  %2125 = icmp sgt i32 %2116, 0
+  br i1 %2125, label %.lr.ph620, label %._crit_edge621
 
-.lr.ph622:                                        ; preds = %.preheader577
-  %2127 = getelementptr inbounds i8, ptr %83, i64 8
-  %2128 = getelementptr inbounds i8, ptr %83, i64 16
-  %2129 = getelementptr inbounds i8, ptr %83, i64 64
-  %2130 = getelementptr inbounds i8, ptr %83, i64 72
-  %2131 = getelementptr inbounds i8, ptr %83, i64 80
-  %2132 = getelementptr inbounds i8, ptr %5, i64 8
-  %2133 = getelementptr inbounds i8, ptr %5, i64 16
-  %2134 = getelementptr inbounds i8, ptr %82, i64 8
-  %2135 = getelementptr inbounds i8, ptr %82, i64 16
-  %2136 = getelementptr inbounds i8, ptr %85, i64 16
-  %wide.trip.count = zext nneg i32 %2117 to i64
-  br label %2137
+.lr.ph620:                                        ; preds = %.preheader577
+  %2126 = getelementptr inbounds i8, ptr %83, i64 8
+  %2127 = getelementptr inbounds i8, ptr %83, i64 16
+  %2128 = getelementptr inbounds i8, ptr %83, i64 64
+  %2129 = getelementptr inbounds i8, ptr %83, i64 72
+  %2130 = getelementptr inbounds i8, ptr %83, i64 80
+  %2131 = getelementptr inbounds i8, ptr %5, i64 8
+  %2132 = getelementptr inbounds i8, ptr %5, i64 16
+  %2133 = getelementptr inbounds i8, ptr %82, i64 8
+  %2134 = getelementptr inbounds i8, ptr %82, i64 16
+  %2135 = getelementptr inbounds i8, ptr %85, i64 16
+  %wide.trip.count = zext nneg i32 %2116 to i64
+  br label %2136
 
-2137:                                             ; preds = %.lr.ph622, %2266
-  %indvars.iv687 = phi i64 [ 0, %.lr.ph622 ], [ %indvars.iv.next688, %2266 ]
-  %2138 = load ptr, ptr %78, align 8
-  %2139 = getelementptr inbounds double, ptr %2138, i64 %indvars.iv687
-  %2140 = load double, ptr %2139, align 8
-  %2141 = fmul double %2140, %2140
-  %2142 = fmul double %2140, %2141
-  %2143 = fmul double %2140, %2142
-  %2144 = insertelement <2 x double> poison, double %2140, i64 0
-  %2145 = shufflevector <2 x double> %2144, <2 x double> poison, <2 x i32> zeroinitializer
-  %2146 = insertelement <2 x double> poison, double %2142, i64 0
-  %2147 = shufflevector <2 x double> %2146, <2 x double> poison, <2 x i32> zeroinitializer
-  %2148 = insertelement <2 x double> poison, double %2141, i64 0
-  %2149 = shufflevector <2 x double> %2148, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %2152
+2136:                                             ; preds = %.lr.ph620, %2265
+  %indvars.iv681 = phi i64 [ 0, %.lr.ph620 ], [ %indvars.iv.next682, %2265 ]
+  %2137 = load ptr, ptr %78, align 8
+  %2138 = getelementptr inbounds double, ptr %2137, i64 %indvars.iv681
+  %2139 = load double, ptr %2138, align 8
+  %2140 = fmul double %2139, %2139
+  %2141 = fmul double %2139, %2140
+  %2142 = fmul double %2139, %2141
+  %2143 = insertelement <2 x double> poison, double %2139, i64 0
+  %2144 = shufflevector <2 x double> %2143, <2 x double> poison, <2 x i32> zeroinitializer
+  %2145 = insertelement <2 x double> poison, double %2141, i64 0
+  %2146 = shufflevector <2 x double> %2145, <2 x double> poison, <2 x i32> zeroinitializer
+  %2147 = insertelement <2 x double> poison, double %2140, i64 0
+  %2148 = shufflevector <2 x double> %2147, <2 x double> poison, <2 x i32> zeroinitializer
+  br label %2151
 
-.preheader:                                       ; preds = %2152
+.preheader:                                       ; preds = %2151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 16 dereferenceable(72) %80, i64 72, i1 false)
-  %2150 = call double @sqrt(double noundef %2203) #19
-  %2151 = fdiv double 1.000000e+00, %2150
+  %2149 = call double @sqrt(double noundef %2202) #19
+  %2150 = fdiv double 1.000000e+00, %2149
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  br label %2208
+  br label %2207
 
-2152:                                             ; preds = %2137, %2152
-  %indvars.iv679 = phi i64 [ 0, %2137 ], [ %indvars.iv.next680, %2152 ]
-  %.0219618 = phi double [ 0.000000e+00, %2137 ], [ %2203, %2152 ]
-  %.idx692 = mul i64 %indvars.iv679, 104
-  %2153 = getelementptr inbounds i8, ptr %76, i64 %.idx692
-  %.idx693 = mul i64 %indvars.iv679, 24
-  %2154 = getelementptr inbounds i8, ptr %80, i64 %.idx693
-  %2155 = load double, ptr %2153, align 8
-  %2156 = getelementptr inbounds i8, ptr %2153, i64 8
-  %2157 = load double, ptr %2156, align 8
-  %2158 = getelementptr inbounds i8, ptr %2153, i64 16
-  %2159 = load double, ptr %2158, align 8
-  %2160 = getelementptr inbounds i8, ptr %2153, i64 24
-  %2161 = load double, ptr %2160, align 8
-  %2162 = getelementptr inbounds i8, ptr %2153, i64 32
-  %2163 = load double, ptr %2162, align 8
-  %2164 = getelementptr inbounds i8, ptr %2153, i64 40
-  %2165 = load double, ptr %2164, align 8
-  %2166 = getelementptr inbounds i8, ptr %2153, i64 48
-  %2167 = load double, ptr %2166, align 8
-  %2168 = getelementptr inbounds i8, ptr %2153, i64 56
-  %2169 = load double, ptr %2168, align 8
-  %2170 = insertelement <2 x double> poison, double %2157, i64 0
-  %2171 = insertelement <2 x double> %2170, double %2165, i64 1
-  %2172 = fmul <2 x double> %2149, %2171
-  %2173 = insertelement <2 x double> poison, double %2155, i64 0
-  %2174 = insertelement <2 x double> %2173, double %2163, i64 1
-  %2175 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2174, <2 x double> %2147, <2 x double> %2172)
-  %2176 = insertelement <2 x double> poison, double %2159, i64 0
-  %2177 = insertelement <2 x double> %2176, double %2167, i64 1
-  %2178 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2177, <2 x double> %2145, <2 x double> %2175)
-  %2179 = insertelement <2 x double> poison, double %2161, i64 0
-  %2180 = insertelement <2 x double> %2179, double %2169, i64 1
-  %2181 = fadd <2 x double> %2180, %2178
-  store <2 x double> %2181, ptr %2154, align 8
-  %2182 = getelementptr inbounds i8, ptr %2153, i64 64
-  %2183 = load double, ptr %2182, align 8
-  %2184 = getelementptr inbounds i8, ptr %2153, i64 72
-  %2185 = load double, ptr %2184, align 8
-  %2186 = fmul double %2142, %2185
-  %2187 = call double @llvm.fmuladd.f64(double %2183, double %2143, double %2186)
-  %2188 = getelementptr inbounds i8, ptr %2153, i64 80
-  %2189 = load double, ptr %2188, align 8
-  %2190 = call double @llvm.fmuladd.f64(double %2189, double %2141, double %2187)
-  %2191 = getelementptr inbounds i8, ptr %2153, i64 88
-  %2192 = load double, ptr %2191, align 8
-  %2193 = call double @llvm.fmuladd.f64(double %2192, double %2140, double %2190)
-  %2194 = getelementptr inbounds i8, ptr %2153, i64 96
-  %2195 = load double, ptr %2194, align 8
-  %2196 = fadd double %2195, %2193
-  %2197 = getelementptr inbounds i8, ptr %2154, i64 16
-  store double %2196, ptr %2197, align 8
-  %2198 = fmul <2 x double> %2181, %2181
-  %2199 = extractelement <2 x double> %2198, i64 1
-  %2200 = extractelement <2 x double> %2181, i64 0
-  %2201 = call double @llvm.fmuladd.f64(double %2200, double %2200, double %2199)
-  %2202 = call double @llvm.fmuladd.f64(double %2196, double %2196, double %2201)
-  %2203 = fadd double %.0219618, %2202
-  %indvars.iv.next680 = add nuw nsw i64 %indvars.iv679, 1
-  %exitcond682.not = icmp eq i64 %indvars.iv.next680, 3
-  br i1 %exitcond682.not, label %.preheader, label %2152, !llvm.loop !162
+2151:                                             ; preds = %2136, %2151
+  %indvars.iv673 = phi i64 [ 0, %2136 ], [ %indvars.iv.next674, %2151 ]
+  %.0219616 = phi double [ 0.000000e+00, %2136 ], [ %2202, %2151 ]
+  %.idx686 = mul i64 %indvars.iv673, 104
+  %2152 = getelementptr inbounds i8, ptr %76, i64 %.idx686
+  %.idx687 = mul i64 %indvars.iv673, 24
+  %2153 = getelementptr inbounds i8, ptr %80, i64 %.idx687
+  %2154 = load double, ptr %2152, align 8
+  %2155 = getelementptr inbounds i8, ptr %2152, i64 8
+  %2156 = load double, ptr %2155, align 8
+  %2157 = getelementptr inbounds i8, ptr %2152, i64 16
+  %2158 = load double, ptr %2157, align 8
+  %2159 = getelementptr inbounds i8, ptr %2152, i64 24
+  %2160 = load double, ptr %2159, align 8
+  %2161 = getelementptr inbounds i8, ptr %2152, i64 32
+  %2162 = load double, ptr %2161, align 8
+  %2163 = getelementptr inbounds i8, ptr %2152, i64 40
+  %2164 = load double, ptr %2163, align 8
+  %2165 = getelementptr inbounds i8, ptr %2152, i64 48
+  %2166 = load double, ptr %2165, align 8
+  %2167 = getelementptr inbounds i8, ptr %2152, i64 56
+  %2168 = load double, ptr %2167, align 8
+  %2169 = insertelement <2 x double> poison, double %2156, i64 0
+  %2170 = insertelement <2 x double> %2169, double %2164, i64 1
+  %2171 = fmul <2 x double> %2148, %2170
+  %2172 = insertelement <2 x double> poison, double %2154, i64 0
+  %2173 = insertelement <2 x double> %2172, double %2162, i64 1
+  %2174 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2173, <2 x double> %2146, <2 x double> %2171)
+  %2175 = insertelement <2 x double> poison, double %2158, i64 0
+  %2176 = insertelement <2 x double> %2175, double %2166, i64 1
+  %2177 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %2176, <2 x double> %2144, <2 x double> %2174)
+  %2178 = insertelement <2 x double> poison, double %2160, i64 0
+  %2179 = insertelement <2 x double> %2178, double %2168, i64 1
+  %2180 = fadd <2 x double> %2179, %2177
+  store <2 x double> %2180, ptr %2153, align 8
+  %2181 = getelementptr inbounds i8, ptr %2152, i64 64
+  %2182 = load double, ptr %2181, align 8
+  %2183 = getelementptr inbounds i8, ptr %2152, i64 72
+  %2184 = load double, ptr %2183, align 8
+  %2185 = fmul double %2141, %2184
+  %2186 = call double @llvm.fmuladd.f64(double %2182, double %2142, double %2185)
+  %2187 = getelementptr inbounds i8, ptr %2152, i64 80
+  %2188 = load double, ptr %2187, align 8
+  %2189 = call double @llvm.fmuladd.f64(double %2188, double %2140, double %2186)
+  %2190 = getelementptr inbounds i8, ptr %2152, i64 88
+  %2191 = load double, ptr %2190, align 8
+  %2192 = call double @llvm.fmuladd.f64(double %2191, double %2139, double %2189)
+  %2193 = getelementptr inbounds i8, ptr %2152, i64 96
+  %2194 = load double, ptr %2193, align 8
+  %2195 = fadd double %2194, %2192
+  %2196 = getelementptr inbounds i8, ptr %2153, i64 16
+  store double %2195, ptr %2196, align 8
+  %2197 = fmul <2 x double> %2180, %2180
+  %2198 = extractelement <2 x double> %2197, i64 1
+  %2199 = extractelement <2 x double> %2180, i64 0
+  %2200 = call double @llvm.fmuladd.f64(double %2199, double %2199, double %2198)
+  %2201 = call double @llvm.fmuladd.f64(double %2195, double %2195, double %2200)
+  %2202 = fadd double %.0219616, %2201
+  %indvars.iv.next674 = add nuw nsw i64 %indvars.iv673, 1
+  %exitcond676.not = icmp eq i64 %indvars.iv.next674, 3
+  br i1 %exitcond676.not, label %.preheader, label %2151, !llvm.loop !162
 
-2204:                                             ; preds = %1188
-  %2205 = landingpad { ptr, i32 }
+2203:                                             ; preds = %1187
+  %2204 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-2206:                                             ; preds = %1190
-  %2207 = landingpad { ptr, i32 }
+2205:                                             ; preds = %1189
+  %2206 = landingpad { ptr, i32 }
           cleanup
-  br label %2314
+  br label %2313
 
-.loopexit:                                        ; preds = %_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit, %2233
+.loopexit:                                        ; preds = %_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit, %2232
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body547
 
-.loopexit.split-lp:                               ; preds = %2112, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
+.loopexit.split-lp:                               ; preds = %2111, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body547
 
-2208:                                             ; preds = %2208, %.preheader
-  %indvars.iv.i.i543 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i.i544, %2208 ]
-  %2209 = getelementptr inbounds [9 x double], ptr %81, i64 0, i64 %indvars.iv.i.i543
-  %2210 = load double, ptr %2209, align 8, !noalias !159
-  %2211 = fmul double %2151, %2210
-  %2212 = getelementptr inbounds [9 x double], ptr %84, i64 0, i64 %indvars.iv.i.i543
-  store double %2211, ptr %2212, align 8, !alias.scope !159
+2207:                                             ; preds = %2207, %.preheader
+  %indvars.iv.i.i543 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i.i544, %2207 ]
+  %2208 = getelementptr inbounds [9 x double], ptr %81, i64 0, i64 %indvars.iv.i.i543
+  %2209 = load double, ptr %2208, align 8, !noalias !159
+  %2210 = fmul double %2150, %2209
+  %2211 = getelementptr inbounds [9 x double], ptr %84, i64 0, i64 %indvars.iv.i.i543
+  store double %2210, ptr %2211, align 8, !alias.scope !159
   %indvars.iv.next.i.i544 = add nuw nsw i64 %indvars.iv.i.i543, 1
   %exitcond.not.i.i545 = icmp eq i64 %indvars.iv.next.i.i544, 9
-  br i1 %exitcond.not.i.i545, label %_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit, label %2208, !llvm.loop !163
+  br i1 %exitcond.not.i.i545, label %_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit, label %2207, !llvm.loop !163
 
-_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit: ; preds = %2208
+_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit: ; preds = %2207
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store <4 x i32> <i32 1124024326, i32 2, i32 3, i32 3>, ptr %83, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2128, i8 0, i64 48, i1 false)
-  store ptr %2127, ptr %2129, align 16
-  store ptr %2131, ptr %2130, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2131, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2127, i8 0, i64 48, i1 false)
+  store ptr %2126, ptr %2128, align 16
+  store ptr %2130, ptr %2129, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2130, i8 0, i64 16, i1 false)
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %84, i64 noundef 0)
           to label %.noexc546 unwind label %.loopexit
 
 .noexc546:                                        ; preds = %_ZN2cvmlIdLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_d.exit
-  store i64 0, ptr %2133, align 8
+  store i64 0, ptr %2132, align 8
   store i32 33619968, ptr %5, align 8
-  store ptr %83, ptr %2132, align 8
+  store ptr %83, ptr %2131, align 8
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %2215 unwind label %2213
+          to label %2214 unwind label %2212
 
-2213:                                             ; preds = %.noexc546
-  %2214 = landingpad { ptr, i32 }
+2212:                                             ; preds = %.noexc546
+  %2213 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   br label %.body547
 
-2215:                                             ; preds = %.noexc546
+2214:                                             ; preds = %.noexc546
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   invoke void @_ZN2cv4usac5Utils15getRightEpipoleERKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Vec") align 8 %82, ptr noundef nonnull align 8 dereferenceable(96) %83)
-          to label %2216 unwind label %2231
+          to label %2215 unwind label %2230
 
-2216:                                             ; preds = %2215
+2215:                                             ; preds = %2214
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %83) #19
-  %2217 = load double, ptr %82, align 8
-  %2218 = load double, ptr %2134, align 8
-  %2219 = fmul double %2218, %2218
-  %2220 = call double @llvm.fmuladd.f64(double %2217, double %2217, double %2219)
-  %2221 = load double, ptr %2135, align 8
-  %2222 = call double @llvm.fmuladd.f64(double %2221, double %2221, double %2220)
-  %sqrt = call double @llvm.sqrt.f64(double %2222)
-  %2223 = fdiv double 1.000000e+00, %sqrt
-  br label %2224
+  %2216 = load double, ptr %82, align 8
+  %2217 = load double, ptr %2133, align 8
+  %2218 = fmul double %2217, %2217
+  %2219 = call double @llvm.fmuladd.f64(double %2216, double %2216, double %2218)
+  %2220 = load double, ptr %2134, align 8
+  %2221 = call double @llvm.fmuladd.f64(double %2220, double %2220, double %2219)
+  %sqrt = call double @llvm.sqrt.f64(double %2221)
+  %2222 = fdiv double 1.000000e+00, %sqrt
+  br label %2223
 
-2224:                                             ; preds = %2224, %2216
-  %indvars.iv.i549 = phi i64 [ 0, %2216 ], [ %indvars.iv.next.i550, %2224 ]
-  %2225 = getelementptr inbounds [3 x double], ptr %82, i64 0, i64 %indvars.iv.i549
-  %2226 = load double, ptr %2225, align 8
-  %2227 = fmul double %2223, %2226
-  store double %2227, ptr %2225, align 8
+2223:                                             ; preds = %2223, %2215
+  %indvars.iv.i549 = phi i64 [ 0, %2215 ], [ %indvars.iv.next.i550, %2223 ]
+  %2224 = getelementptr inbounds [3 x double], ptr %82, i64 0, i64 %indvars.iv.i549
+  %2225 = load double, ptr %2224, align 8
+  %2226 = fmul double %2222, %2225
+  store double %2226, ptr %2224, align 8
   %indvars.iv.next.i550 = add nuw nsw i64 %indvars.iv.i549, 1
   %exitcond.not.i551 = icmp eq i64 %indvars.iv.next.i550, 3
-  br i1 %exitcond.not.i551, label %_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit, label %2224, !llvm.loop !164
+  br i1 %exitcond.not.i551, label %_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit, label %2223, !llvm.loop !164
 
-_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit:      ; preds = %2224
-  %2228 = load double, ptr %2135, align 8
-  %2229 = call double @llvm.fabs.f64(double %2228)
-  %2230 = fcmp olt double %2229, 1.000000e-10
-  br i1 %2230, label %2266, label %2233
+_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit:      ; preds = %2223
+  %2227 = load double, ptr %2134, align 8
+  %2228 = call double @llvm.fabs.f64(double %2227)
+  %2229 = fcmp olt double %2228, 1.000000e-10
+  br i1 %2229, label %2265, label %2232
 
-2231:                                             ; preds = %2215
-  %2232 = landingpad { ptr, i32 }
+2230:                                             ; preds = %2214
+  %2231 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %83) #19
   br label %.body547
 
-2233:                                             ; preds = %_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit
+2232:                                             ; preds = %_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit
   invoke void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %85, i32 noundef 3, i32 noundef 3, i32 noundef 6)
           to label %_ZN2cv4Mat_IdEC2Eii.exit553 unwind label %.loopexit
 
-_ZN2cv4Mat_IdEC2Eii.exit553:                      ; preds = %2233
-  %2234 = load ptr, ptr %2136, align 8
-  %2235 = load double, ptr %82, align 8
-  %2236 = load double, ptr %2135, align 8
-  %2237 = fdiv double %2235, %2236
-  %2238 = load double, ptr %2134, align 8
-  %2239 = fdiv double %2238, %2236
-  br label %2240
+_ZN2cv4Mat_IdEC2Eii.exit553:                      ; preds = %2232
+  %2233 = load ptr, ptr %2135, align 8
+  %2234 = load double, ptr %82, align 8
+  %2235 = load double, ptr %2134, align 8
+  %2236 = fdiv double %2234, %2235
+  %2237 = load double, ptr %2133, align 8
+  %2238 = fdiv double %2237, %2235
+  br label %2239
 
-2240:                                             ; preds = %_ZN2cv4Mat_IdEC2Eii.exit553, %2240
-  %indvars.iv683 = phi i64 [ 0, %_ZN2cv4Mat_IdEC2Eii.exit553 ], [ %indvars.iv.next684, %2240 ]
-  %2241 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %indvars.iv683
-  %2242 = load double, ptr %2241, align 8
-  %2243 = add nuw nsw i64 %indvars.iv683, 9
-  %2244 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %2243
-  %2245 = load double, ptr %2244, align 8
-  %2246 = fmul double %2239, %2245
-  %2247 = call double @llvm.fmuladd.f64(double %2242, double %2237, double %2246)
-  %2248 = add nuw nsw i64 %indvars.iv683, 18
-  %2249 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %2248
-  %2250 = load double, ptr %2249, align 8
-  %2251 = call double @llvm.fmuladd.f64(double %2250, double %2140, double %2247)
-  %2252 = add nuw nsw i64 %indvars.iv683, 27
-  %2253 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %2252
-  %2254 = load double, ptr %2253, align 8
-  %2255 = fadd double %2254, %2251
-  %2256 = getelementptr inbounds double, ptr %2234, i64 %indvars.iv683
-  store double %2255, ptr %2256, align 8
-  %indvars.iv.next684 = add nuw nsw i64 %indvars.iv683, 1
-  %exitcond686.not = icmp eq i64 %indvars.iv.next684, 9
-  br i1 %exitcond686.not, label %2259, label %2240, !llvm.loop !165
+2239:                                             ; preds = %_ZN2cv4Mat_IdEC2Eii.exit553, %2239
+  %indvars.iv677 = phi i64 [ 0, %_ZN2cv4Mat_IdEC2Eii.exit553 ], [ %indvars.iv.next678, %2239 ]
+  %2240 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %indvars.iv677
+  %2241 = load double, ptr %2240, align 8
+  %2242 = add nuw nsw i64 %indvars.iv677, 9
+  %2243 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %2242
+  %2244 = load double, ptr %2243, align 8
+  %2245 = fmul double %2238, %2244
+  %2246 = call double @llvm.fmuladd.f64(double %2241, double %2236, double %2245)
+  %2247 = add nuw nsw i64 %indvars.iv677, 18
+  %2248 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %2247
+  %2249 = load double, ptr %2248, align 8
+  %2250 = call double @llvm.fmuladd.f64(double %2249, double %2139, double %2246)
+  %2251 = add nuw nsw i64 %indvars.iv677, 27
+  %2252 = getelementptr inbounds [36 x double], ptr %19, i64 0, i64 %2251
+  %2253 = load double, ptr %2252, align 8
+  %2254 = fadd double %2253, %2250
+  %2255 = getelementptr inbounds double, ptr %2233, i64 %indvars.iv677
+  store double %2254, ptr %2255, align 8
+  %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677, 1
+  %exitcond680.not = icmp eq i64 %indvars.iv.next678, 9
+  br i1 %exitcond680.not, label %2258, label %2239, !llvm.loop !165
 
-2257:                                             ; preds = %2265, %2262
-  %2258 = landingpad { ptr, i32 }
+2256:                                             ; preds = %2264, %2261
+  %2257 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %85) #19
   br label %.body547
 
-2259:                                             ; preds = %2240
-  %2260 = load ptr, ptr %2120, align 8
-  %2261 = load ptr, ptr %2122, align 8
-  %.not.i = icmp eq ptr %2260, %2261
-  br i1 %.not.i, label %2265, label %2262
+2258:                                             ; preds = %2239
+  %2259 = load ptr, ptr %2119, align 8
+  %2260 = load ptr, ptr %2121, align 8
+  %.not.i = icmp eq ptr %2259, %2260
+  br i1 %.not.i, label %2264, label %2261
 
-2262:                                             ; preds = %2259
-  invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %2260, ptr noundef nonnull align 8 dereferenceable(96) %85)
-          to label %.noexc554 unwind label %2257
+2261:                                             ; preds = %2258
+  invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %2259, ptr noundef nonnull align 8 dereferenceable(96) %85)
+          to label %.noexc554 unwind label %2256
 
-.noexc554:                                        ; preds = %2262
-  %2263 = load ptr, ptr %2120, align 8
-  %2264 = getelementptr inbounds i8, ptr %2263, i64 96
-  store ptr %2264, ptr %2120, align 8
+.noexc554:                                        ; preds = %2261
+  %2262 = load ptr, ptr %2119, align 8
+  %2263 = getelementptr inbounds i8, ptr %2262, i64 96
+  store ptr %2263, ptr %2119, align 8
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE12emplace_backIJRNS0_4Mat_IdEEEEEvDpOT_.exit
 
-2265:                                             ; preds = %2259
-  invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_realloc_insertIJRNS0_4Mat_IdEEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %2260, ptr noundef nonnull align 8 dereferenceable(96) %85)
-          to label %_ZNSt6vectorIN2cv3MatESaIS1_EE12emplace_backIJRNS0_4Mat_IdEEEEEvDpOT_.exit unwind label %2257
+2264:                                             ; preds = %2258
+  invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_realloc_insertIJRNS0_4Mat_IdEEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %2259, ptr noundef nonnull align 8 dereferenceable(96) %85)
+          to label %_ZNSt6vectorIN2cv3MatESaIS1_EE12emplace_backIJRNS0_4Mat_IdEEEEEvDpOT_.exit unwind label %2256
 
-_ZNSt6vectorIN2cv3MatESaIS1_EE12emplace_backIJRNS0_4Mat_IdEEEEEvDpOT_.exit: ; preds = %.noexc554, %2265
+_ZNSt6vectorIN2cv3MatESaIS1_EE12emplace_backIJRNS0_4Mat_IdEEEEEvDpOT_.exit: ; preds = %.noexc554, %2264
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %85) #19
-  br label %2266
+  br label %2265
 
-2266:                                             ; preds = %_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit, %_ZNSt6vectorIN2cv3MatESaIS1_EE12emplace_backIJRNS0_4Mat_IdEEEEEvDpOT_.exit
-  %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 1
-  %exitcond690.not = icmp eq i64 %indvars.iv.next688, %wide.trip.count
-  br i1 %exitcond690.not, label %._crit_edge623, label %2137, !llvm.loop !166
+2265:                                             ; preds = %_ZN2cvmLIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit, %_ZNSt6vectorIN2cv3MatESaIS1_EE12emplace_backIJRNS0_4Mat_IdEEEEEvDpOT_.exit
+  %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
+  %exitcond684.not = icmp eq i64 %indvars.iv.next682, %wide.trip.count
+  br i1 %exitcond684.not, label %._crit_edge621, label %2136, !llvm.loop !166
 
-._crit_edge623:                                   ; preds = %2266, %.preheader577
-  %2267 = getelementptr inbounds i8, ptr %79, i64 8
-  %2268 = load ptr, ptr %2267, align 8
-  %.not.i.i.i.i556 = icmp eq ptr %2268, null
-  br i1 %.not.i.i.i.i556, label %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit, label %2269
+._crit_edge621:                                   ; preds = %2265, %.preheader577
+  %2266 = getelementptr inbounds i8, ptr %79, i64 8
+  %2267 = load ptr, ptr %2266, align 8
+  %.not.i.i.i.i556 = icmp eq ptr %2267, null
+  br i1 %.not.i.i.i.i556, label %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit, label %2268
 
-2269:                                             ; preds = %._crit_edge623
-  %2270 = getelementptr inbounds i8, ptr %2268, i64 8
-  %2271 = load atomic i64, ptr %2270 acquire, align 8
-  %2272 = icmp eq i64 %2271, 4294967297
-  %2273 = trunc i64 %2271 to i32
-  br i1 %2272, label %2274, label %2279
+2268:                                             ; preds = %._crit_edge621
+  %2269 = getelementptr inbounds i8, ptr %2267, i64 8
+  %2270 = load atomic i64, ptr %2269 acquire, align 8
+  %2271 = icmp eq i64 %2270, 4294967297
+  %2272 = trunc i64 %2270 to i32
+  br i1 %2271, label %2273, label %2278
 
-2274:                                             ; preds = %2269
-  store i32 0, ptr %2270, align 8
-  %2275 = getelementptr inbounds i8, ptr %2268, i64 12
-  store i32 0, ptr %2275, align 4
-  %2276 = load ptr, ptr %2268, align 8
-  %2277 = getelementptr inbounds i8, ptr %2276, i64 16
-  %2278 = load ptr, ptr %2277, align 8
-  call void %2278(ptr noundef nonnull align 8 dereferenceable(16) %2268) #19
+2273:                                             ; preds = %2268
+  store i32 0, ptr %2269, align 8
+  %2274 = getelementptr inbounds i8, ptr %2267, i64 12
+  store i32 0, ptr %2274, align 4
+  %2275 = load ptr, ptr %2267, align 8
+  %2276 = getelementptr inbounds i8, ptr %2275, i64 16
+  %2277 = load ptr, ptr %2276, align 8
+  call void %2277(ptr noundef nonnull align 8 dereferenceable(16) %2267) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
 
-2279:                                             ; preds = %2269
-  %2280 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i557 = icmp eq i8 %2280, 0
-  br i1 %.not.i.i.i.i.i557, label %2283, label %2281
+2278:                                             ; preds = %2268
+  %2279 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i557 = icmp eq i8 %2279, 0
+  br i1 %.not.i.i.i.i.i557, label %2282, label %2280
 
-2281:                                             ; preds = %2279
-  %2282 = add nsw i32 %2273, -1
-  store i32 %2282, ptr %2270, align 4
-  br label %2285
+2280:                                             ; preds = %2278
+  %2281 = add nsw i32 %2272, -1
+  store i32 %2281, ptr %2269, align 4
+  br label %2284
 
-2283:                                             ; preds = %2279
-  %2284 = atomicrmw volatile add ptr %2270, i32 -1 acq_rel, align 4
-  br label %2285
+2282:                                             ; preds = %2278
+  %2283 = atomicrmw volatile add ptr %2269, i32 -1 acq_rel, align 4
+  br label %2284
 
-2285:                                             ; preds = %2283, %2281
-  %.0.i.i.i.i.i = phi i32 [ %2273, %2281 ], [ %2284, %2283 ]
-  %2286 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %2286, label %2287, label %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit
+2284:                                             ; preds = %2282, %2280
+  %.0.i.i.i.i.i = phi i32 [ %2272, %2280 ], [ %2283, %2282 ]
+  %2285 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %2285, label %2286, label %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit
 
-2287:                                             ; preds = %2285
-  %2288 = load ptr, ptr %2268, align 8
-  %2289 = getelementptr inbounds i8, ptr %2288, i64 16
-  %2290 = load ptr, ptr %2289, align 8
-  call void %2290(ptr noundef nonnull align 8 dereferenceable(16) %2268) #19
-  %2291 = getelementptr inbounds i8, ptr %2268, i64 12
-  %2292 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %2292, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %2296, label %2293
+2286:                                             ; preds = %2284
+  %2287 = load ptr, ptr %2267, align 8
+  %2288 = getelementptr inbounds i8, ptr %2287, i64 16
+  %2289 = load ptr, ptr %2288, align 8
+  call void %2289(ptr noundef nonnull align 8 dereferenceable(16) %2267) #19
+  %2290 = getelementptr inbounds i8, ptr %2267, i64 12
+  %2291 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %2291, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %2295, label %2292
 
-2293:                                             ; preds = %2287
-  %2294 = load i32, ptr %2291, align 4
-  %2295 = add nsw i32 %2294, -1
-  store i32 %2295, ptr %2291, align 4
-  br label %2298
+2292:                                             ; preds = %2286
+  %2293 = load i32, ptr %2290, align 4
+  %2294 = add nsw i32 %2293, -1
+  store i32 %2294, ptr %2290, align 4
+  br label %2297
 
-2296:                                             ; preds = %2287
-  %2297 = atomicrmw volatile add ptr %2291, i32 -1 acq_rel, align 4
-  br label %2298
+2295:                                             ; preds = %2286
+  %2296 = atomicrmw volatile add ptr %2290, i32 -1 acq_rel, align 4
+  br label %2297
 
-2298:                                             ; preds = %2296, %2293
-  %.0.i.i.i.i.i.i.i = phi i32 [ %2294, %2293 ], [ %2297, %2296 ]
-  %2299 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %2299, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit
+2297:                                             ; preds = %2295, %2292
+  %.0.i.i.i.i.i.i.i = phi i32 [ %2293, %2292 ], [ %2296, %2295 ]
+  %2298 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %2298, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %2298, %2274
-  %2300 = load ptr, ptr %2268, align 8
-  %2301 = getelementptr inbounds i8, ptr %2300, i64 24
-  %2302 = load ptr, ptr %2301, align 8
-  call void %2302(ptr noundef nonnull align 8 dereferenceable(16) %2268) #19
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %2297, %2273
+  %2299 = load ptr, ptr %2267, align 8
+  %2300 = getelementptr inbounds i8, ptr %2299, i64 24
+  %2301 = load ptr, ptr %2300, align 8
+  call void %2301(ptr noundef nonnull align 8 dereferenceable(16) %2267) #19
   br label %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit
 
-_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit:       ; preds = %._crit_edge623, %2285, %2298, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %2303 = load ptr, ptr %78, align 8
-  %.not.i.i.i558 = icmp eq ptr %2303, null
-  br i1 %.not.i.i.i558, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %2304
+_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit:       ; preds = %._crit_edge621, %2284, %2297, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+  %2302 = load ptr, ptr %78, align 8
+  %.not.i.i.i558 = icmp eq ptr %2302, null
+  br i1 %.not.i.i.i558, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %2303
 
-2304:                                             ; preds = %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %2303) #20
+2303:                                             ; preds = %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %2302) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit, %2304
-  %2305 = load ptr, ptr %77, align 8
-  %.not.i.i.i559 = icmp eq ptr %2305, null
-  br i1 %.not.i.i.i559, label %_ZNSt6vectorIdSaIdEED2Ev.exit560, label %2306
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev.exit, %2303
+  %2304 = load ptr, ptr %77, align 8
+  %.not.i.i.i559 = icmp eq ptr %2304, null
+  br i1 %.not.i.i.i559, label %_ZNSt6vectorIdSaIdEED2Ev.exit560, label %2305
 
-2306:                                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %2305) #20
+2305:                                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %2304) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit560
 
-_ZNSt6vectorIdSaIdEED2Ev.exit560:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %2306
-  %2307 = load ptr, ptr %2120, align 8
-  %2308 = load ptr, ptr %2, align 8
+_ZNSt6vectorIdSaIdEED2Ev.exit560:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %2305
+  %2306 = load ptr, ptr %2119, align 8
+  %2307 = load ptr, ptr %2, align 8
+  %2308 = ptrtoint ptr %2306 to i64
   %2309 = ptrtoint ptr %2307 to i64
-  %2310 = ptrtoint ptr %2308 to i64
-  %2311 = sub i64 %2309, %2310
-  %2312 = sdiv exact i64 %2311, 96
-  %2313 = trunc i64 %2312 to i32
-  br label %2327
+  %2310 = sub i64 %2308, %2309
+  %2311 = sdiv exact i64 %2310, 96
+  %2312 = trunc i64 %2311 to i32
+  br label %2326
 
-.body547:                                         ; preds = %.loopexit, %.loopexit.split-lp, %2213, %2257, %2231
-  %.pn251 = phi { ptr, i32 } [ %2258, %2257 ], [ %2232, %2231 ], [ %2214, %2213 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body547:                                         ; preds = %.loopexit, %.loopexit.split-lp, %2212, %2256, %2230
+  %.pn251 = phi { ptr, i32 } [ %2257, %2256 ], [ %2231, %2230 ], [ %2213, %2212 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3PtrINS_4usac10SolverPolyEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %79) #19
-  br label %2314
+  br label %2313
 
-2314:                                             ; preds = %.body547, %2206
-  %.pn251.pn = phi { ptr, i32 } [ %.pn251, %.body547 ], [ %2207, %2206 ]
-  %2315 = load ptr, ptr %78, align 8
-  %.not.i.i.i561 = icmp eq ptr %2315, null
-  br i1 %.not.i.i.i561, label %_ZNSt6vectorIdSaIdEED2Ev.exit562, label %2316
+2313:                                             ; preds = %.body547, %2205
+  %.pn251.pn = phi { ptr, i32 } [ %.pn251, %.body547 ], [ %2206, %2205 ]
+  %2314 = load ptr, ptr %78, align 8
+  %.not.i.i.i561 = icmp eq ptr %2314, null
+  br i1 %.not.i.i.i561, label %_ZNSt6vectorIdSaIdEED2Ev.exit562, label %2315
 
-2316:                                             ; preds = %2314
-  call void @_ZdlPv(ptr noundef nonnull %2315) #20
+2315:                                             ; preds = %2313
+  call void @_ZdlPv(ptr noundef nonnull %2314) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit562
 
-_ZNSt6vectorIdSaIdEED2Ev.exit562:                 ; preds = %2314, %2316
-  %2317 = load ptr, ptr %77, align 8
-  %.not.i.i.i563 = icmp eq ptr %2317, null
-  br i1 %.not.i.i.i563, label %.body, label %2318
+_ZNSt6vectorIdSaIdEED2Ev.exit562:                 ; preds = %2313, %2315
+  %2316 = load ptr, ptr %77, align 8
+  %.not.i.i.i563 = icmp eq ptr %2316, null
+  br i1 %.not.i.i.i563, label %.body, label %2317
 
-2318:                                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit562
-  call void @_ZdlPv(ptr noundef nonnull %2317) #20
+2317:                                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit562
+  call void @_ZdlPv(ptr noundef nonnull %2316) #20
   br label %.body
 
-2319:                                             ; preds = %_ZN2cv4Mat_IdEC2Eii.exit.preheader
+2318:                                             ; preds = %_ZN2cv4Mat_IdEC2Eii.exit.preheader
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %87)
-          to label %2320 unwind label %2322
+          to label %2319 unwind label %2321
+
+2319:                                             ; preds = %2318
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @__func__._ZNK2cv4usac30EssentialMinimalSolver5ptsImpl8estimateERKSt6vectorIiSaIiEERS2_INS_3MatESaIS7_EE, ptr noundef nonnull @.str.1, i32 noundef 299) #22
+          to label %2320 unwind label %2323
 
 2320:                                             ; preds = %2319
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @__func__._ZNK2cv4usac30EssentialMinimalSolver5ptsImpl8estimateERKSt6vectorIiSaIiEERS2_INS_3MatESaIS7_EE, ptr noundef nonnull @.str.1, i32 noundef 299) #22
-          to label %2321 unwind label %2324
-
-2321:                                             ; preds = %2320
   unreachable
 
-2322:                                             ; preds = %2319
-  %2323 = landingpad { ptr, i32 }
+2321:                                             ; preds = %2318
+  %2322 = landingpad { ptr, i32 }
           cleanup
-  br label %2326
+  br label %2325
 
-2324:                                             ; preds = %2320
-  %2325 = landingpad { ptr, i32 }
+2323:                                             ; preds = %2319
+  %2324 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #19
-  br label %2326
+  br label %2325
 
-2326:                                             ; preds = %2324, %2322
-  %.pn243 = phi { ptr, i32 } [ %2325, %2324 ], [ %2323, %2322 ]
+2325:                                             ; preds = %2323, %2321
+  %.pn243 = phi { ptr, i32 } [ %2324, %2323 ], [ %2322, %2321 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #19
   br label %.body
 
-2327:                                             ; preds = %1145, %_ZNSt6vectorIdSaIdEED2Ev.exit560
-  %.1 = phi i32 [ %2313, %_ZNSt6vectorIdSaIdEED2Ev.exit560 ], [ 0, %1145 ]
+2326:                                             ; preds = %1144, %_ZNSt6vectorIdSaIdEED2Ev.exit560
+  %.1 = phi i32 [ %2312, %_ZNSt6vectorIdSaIdEED2Ev.exit560 ], [ 0, %1144 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #19
   br label %.loopexit593
 
-.body:                                            ; preds = %.loopexit584, %.loopexit.split-lp585, %2318, %_ZNSt6vectorIdSaIdEED2Ev.exit562, %1155, %687, %1124, %2326, %2204, %1153, %1151, %1150, %701
-  %.pn257 = phi { ptr, i32 } [ %.pn254.pn, %701 ], [ %2205, %2204 ], [ %1154, %1153 ], [ %1152, %1151 ], [ %.pn245.pn, %1150 ], [ %.pn243, %2326 ], [ %688, %687 ], [ %1125, %1124 ], [ %1156, %1155 ], [ %.pn251.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit562 ], [ %.pn251.pn, %2318 ], [ %lpad.loopexit586, %.loopexit584 ], [ %lpad.loopexit.split-lp587, %.loopexit.split-lp585 ]
+.body:                                            ; preds = %.loopexit584, %.loopexit.split-lp585, %2317, %_ZNSt6vectorIdSaIdEED2Ev.exit562, %1154, %686, %1123, %2325, %2203, %1152, %1150, %1149, %700
+  %.pn257 = phi { ptr, i32 } [ %.pn254.pn, %700 ], [ %2204, %2203 ], [ %1153, %1152 ], [ %1151, %1150 ], [ %.pn245.pn, %1149 ], [ %.pn243, %2325 ], [ %687, %686 ], [ %1124, %1123 ], [ %1155, %1154 ], [ %.pn251.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit562 ], [ %.pn251.pn, %2317 ], [ %lpad.loopexit586, %.loopexit584 ], [ %lpad.loopexit.split-lp587, %.loopexit.split-lp585 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #19
-  br label %2330
+  br label %2329
 
-.loopexit593:                                     ; preds = %._crit_edge, %153, %2327
-  %.0196 = phi i32 [ %.1, %2327 ], [ 0, %153 ], [ 0, %._crit_edge ]
-  %2328 = load ptr, ptr %18, align 8
-  %.not.i.i.i565 = icmp eq ptr %2328, null
-  br i1 %.not.i.i.i565, label %_ZNSt6vectorIdSaIdEED2Ev.exit566, label %2329
+.loopexit593:                                     ; preds = %._crit_edge, %153, %2326
+  %.0196 = phi i32 [ %.1, %2326 ], [ 0, %153 ], [ 0, %._crit_edge ]
+  %2327 = load ptr, ptr %18, align 8
+  %.not.i.i.i565 = icmp eq ptr %2327, null
+  br i1 %.not.i.i.i565, label %_ZNSt6vectorIdSaIdEED2Ev.exit566, label %2328
 
-2329:                                             ; preds = %.loopexit593
-  call void @_ZdlPv(ptr noundef nonnull %2328) #20
+2328:                                             ; preds = %.loopexit593
+  call void @_ZdlPv(ptr noundef nonnull %2327) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit566
 
-_ZNSt6vectorIdSaIdEED2Ev.exit566:                 ; preds = %.loopexit593, %2329
+_ZNSt6vectorIdSaIdEED2Ev.exit566:                 ; preds = %.loopexit593, %2328
   ret i32 %.0196
 
-2330:                                             ; preds = %.body, %148, %146
+2329:                                             ; preds = %.body, %148, %146
   %.pn257.pn = phi { ptr, i32 } [ %.pn257, %.body ], [ %147, %146 ], [ %149, %148 ]
-  %2331 = load ptr, ptr %18, align 8
-  %.not.i.i.i567 = icmp eq ptr %2331, null
-  br i1 %.not.i.i.i567, label %_ZNSt6vectorIdSaIdEED2Ev.exit568, label %2332
+  %2330 = load ptr, ptr %18, align 8
+  %.not.i.i.i567 = icmp eq ptr %2330, null
+  br i1 %.not.i.i.i567, label %_ZNSt6vectorIdSaIdEED2Ev.exit568, label %2331
 
-2332:                                             ; preds = %2330
-  call void @_ZdlPv(ptr noundef nonnull %2331) #20
+2331:                                             ; preds = %2329
+  call void @_ZdlPv(ptr noundef nonnull %2330) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit568
 
-_ZNSt6vectorIdSaIdEED2Ev.exit568:                 ; preds = %2332, %2330
+_ZNSt6vectorIdSaIdEED2Ev.exit568:                 ; preds = %2331, %2329
   resume { ptr, i32 } %.pn257.pn
 }
 

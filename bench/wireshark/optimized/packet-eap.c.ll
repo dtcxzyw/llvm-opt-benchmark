@@ -3137,7 +3137,7 @@ define internal fastcc noundef i32 @dissect_eap_gpsk_csuite_list(ptr noundef %0,
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.027 = phi i32 [ %.0.reass, %.lr.ph ], [ %.025, %3 ]
+  %.027 = phi i32 [ %.0, %.lr.ph ], [ %.025, %3 ]
   %.0.in26 = phi i32 [ %17, %.lr.ph ], [ %2, %3 ]
   %13 = load i32, ptr @ett_eap_gpsk_csuite, align 4
   %14 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %1, i32 noundef %.027, i32 noundef 6, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.541) #6
@@ -3146,12 +3146,12 @@ define internal fastcc noundef i32 @dissect_eap_gpsk_csuite_list(ptr noundef %0,
   %17 = add i32 %.0.in26, 6
   %18 = load i32, ptr @hf_eap_gpsk_csuite_specifier, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %18, ptr noundef %1, i32 noundef %17, i32 noundef 2, i32 noundef 0) #6
-  %.0.reass = add i32 %.0.in26, 8
-  %20 = icmp slt i32 %.0.reass, %11
+  %.0 = add i32 %.0.in26, 8
+  %20 = icmp slt i32 %.0, %11
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0.lcssa = phi i32 [ %.025, %3 ], [ %.0.reass, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %.025, %3 ], [ %.0, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 

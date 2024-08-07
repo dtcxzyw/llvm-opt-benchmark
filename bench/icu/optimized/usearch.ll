@@ -3420,7 +3420,6 @@ invoke.cont59:                                    ; preds = %call.i.noexc196, %i
   br i1 %cmp64, label %if.then65, label %for.cond78.preheader
 
 for.cond78.preheader:                             ; preds = %invoke.cont59
-  %invariant.op = add nuw i32 %targetIx.0, 1
   %cmp8.not.i275 = icmp ult i64 %patCE.0.lcssa, 281474976710656
   %shr4.i272 = lshr i64 %patCE.0.lcssa, 32
   %cmp28.i291 = icmp ult i64 %patCE.0.lcssa, 4294967296
@@ -3519,9 +3518,9 @@ if.then.i260:                                     ; preds = %for.cond78
 if.end.i241:                                      ; preds = %for.cond78
   %cmp4.not.i242 = icmp eq i32 %68, %add79
   call void @llvm.assume(i1 %cmp4.not.i242)
-  %inc.i245.reass = add i32 %targetIxOffset.2, %invariant.op
-  store i32 %inc.i245.reass, ptr %limitIx.i, align 8
-  %sub.i246 = sub nsw i32 %inc.i245.reass, %67
+  %inc.i245 = add nsw i32 %add79, 1
+  store i32 %inc.i245, ptr %limitIx.i, align 8
+  %sub.i246 = sub nsw i32 %inc.i245, %67
   %cmp11.not.i247 = icmp slt i32 %sub.i246, %66
   br i1 %cmp11.not.i247, label %if.end15.i250, label %if.then12.i248
 

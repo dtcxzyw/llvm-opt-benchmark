@@ -9677,8 +9677,9 @@ if.end85:                                         ; preds = %while.body
   %or.i74 = or disjoint i16 %shl.i72, %conv2.i73
   %add88 = add i32 %14, 2
   store i32 %add88, ptr %inOutIdx, align 4
+  %sub89 = sub i32 %add88, %0
   %conv90 = zext i16 %or.i74 to i32
-  %add91 = add i32 %add81, %conv90
+  %add91 = add i32 %sub89, %conv90
   %cmp92 = icmp ugt i32 %add91, %size
   br i1 %cmp92, label %return, label %if.end95
 

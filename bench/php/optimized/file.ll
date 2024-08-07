@@ -6071,8 +6071,8 @@ define i64 @php_fputcsv(ptr noundef %0, ptr nocapture noundef readonly %1, i8 no
 
 144:                                              ; preds = %139, %127
   %.1270.sink = phi i64 [ %.1270, %139 ], [ %124, %127 ]
-  %.sink396 = load ptr, ptr %7, align 8
-  %145 = getelementptr inbounds i8, ptr %.sink396, i64 16
+  %.sink388 = load ptr, ptr %7, align 8
+  %145 = getelementptr inbounds i8, ptr %.sink388, i64 16
   store i64 %.1270.sink, ptr %145, align 8
   %146 = add i32 %.0281354, 1
   %.not333 = icmp eq i32 %146, %12
@@ -6093,7 +6093,7 @@ define i64 @php_fputcsv(ptr noundef %0, ptr nocapture noundef readonly %1, i8 no
 
 151:                                              ; preds = %150, %147
   %152 = phi i64 [ %.pre379, %150 ], [ %.1270.sink, %147 ]
-  %153 = phi ptr [ %.pre377, %150 ], [ %.sink396, %147 ]
+  %153 = phi ptr [ %.pre377, %150 ], [ %.sink388, %147 ]
   %154 = getelementptr inbounds i8, ptr %153, i64 24
   %155 = getelementptr inbounds i8, ptr %154, i64 %152
   store i8 %2, ptr %155, align 1
@@ -6202,10 +6202,10 @@ define i64 @php_fputcsv(ptr noundef %0, ptr nocapture noundef readonly %1, i8 no
 
 203:                                              ; preds = %198, %184
   %.1286.sink = phi i64 [ %.1286, %198 ], [ %.1273, %184 ]
-  %.sink397 = load ptr, ptr %7, align 8
-  %204 = getelementptr inbounds i8, ptr %.sink397, i64 16
+  %.sink389 = load ptr, ptr %7, align 8
+  %204 = getelementptr inbounds i8, ptr %.sink389, i64 16
   store i64 %.1286.sink, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %.sink397, i64 24
+  %205 = getelementptr inbounds i8, ptr %.sink389, i64 24
   %206 = getelementptr inbounds [1 x i8], ptr %205, i64 0, i64 %.1286.sink
   store i8 0, ptr %206, align 1
   %207 = load ptr, ptr %7, align 8

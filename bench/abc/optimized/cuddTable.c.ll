@@ -4700,7 +4700,6 @@ define range(i32 0, 2) i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %126, label %.preheader629
 
 .preheader629:                                    ; preds = %3
-  %invariant.op = add i32 %1, -1
   %.not613.not631 = icmp sgt i32 %7, %2
   br i1 %.not613.not631, label %.lr.ph, label %.preheader628
 
@@ -4709,37 +4708,36 @@ define range(i32 0, 2) i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, 
   %12 = getelementptr inbounds i8, ptr %0, i64 328
   %13 = getelementptr inbounds i8, ptr %0, i64 312
   %14 = sext i32 %7 to i64
-  %15 = sext i32 %2 to i64
-  br label %25
+  %15 = sext i32 %1 to i64
+  %16 = sext i32 %2 to i64
+  br label %26
 
-.preheader628:                                    ; preds = %25, %.preheader629
-  %16 = icmp sgt i32 %1, 0
-  br i1 %16, label %.lr.ph636, label %.loopexit
+.preheader628:                                    ; preds = %26, %.preheader629
+  %17 = icmp sgt i32 %1, 0
+  br i1 %17, label %.lr.ph636, label %.loopexit
 
 .lr.ph636:                                        ; preds = %.preheader628
-  %17 = getelementptr inbounds i8, ptr %0, i64 152
-  %18 = shl i32 %5, 2
-  %19 = getelementptr inbounds i8, ptr %0, i64 312
-  %20 = getelementptr inbounds i8, ptr %0, i64 328
-  %21 = zext i32 %5 to i64
-  %22 = shl nuw nsw i64 %21, 3
+  %18 = getelementptr inbounds i8, ptr %0, i64 152
+  %19 = shl i32 %5, 2
+  %20 = getelementptr inbounds i8, ptr %0, i64 312
+  %21 = getelementptr inbounds i8, ptr %0, i64 328
+  %22 = zext i32 %5 to i64
+  %23 = shl nuw nsw i64 %22, 3
   %.not667 = icmp eq i32 %5, 0
-  %23 = sext i32 %2 to i64
-  %24 = sext i32 %7 to i64
+  %24 = sext i32 %2 to i64
+  %25 = sext i32 %7 to i64
   %wide.trip.count677 = zext nneg i32 %1 to i64
   br label %81
 
-25:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %25 ]
+26:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds %struct.DdSubtable, ptr %26, i64 %indvars.iv.next, i32 2
-  %28 = load i32, ptr %27, align 4
-  %29 = trunc nsw i64 %indvars.iv to i32
-  %.reass = add i32 %invariant.op, %29
-  %30 = sext i32 %.reass to i64
-  %31 = getelementptr inbounds %struct.DdSubtable, ptr %26, i64 %30, i32 2
-  store i32 %28, ptr %31, align 4
+  %27 = load ptr, ptr %11, align 8
+  %28 = getelementptr inbounds %struct.DdSubtable, ptr %27, i64 %indvars.iv.next, i32 2
+  %29 = load i32, ptr %28, align 4
+  %30 = add nsw i64 %indvars.iv.next, %15
+  %31 = getelementptr inbounds %struct.DdSubtable, ptr %27, i64 %30, i32 2
+  store i32 %29, ptr %31, align 4
   %32 = load ptr, ptr %11, align 8
   %33 = getelementptr inbounds %struct.DdSubtable, ptr %32, i64 %indvars.iv.next, i32 1
   %34 = load i32, ptr %33, align 8
@@ -4801,55 +4799,55 @@ define range(i32 0, 2) i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, 
   %79 = load i32, ptr %78, align 4
   %80 = add nsw i32 %79, %1
   store i32 %80, ptr %78, align 4
-  %.not613.not = icmp sgt i64 %indvars.iv.next, %15
-  br i1 %.not613.not, label %25, label %.preheader628, !llvm.loop !78
+  %.not613.not = icmp sgt i64 %indvars.iv.next, %16
+  br i1 %.not613.not, label %26, label %.preheader628, !llvm.loop !78
 
 81:                                               ; preds = %.lr.ph636, %._crit_edge
   %indvars.iv674 = phi i64 [ 0, %.lr.ph636 ], [ %indvars.iv.next675, %._crit_edge ]
-  %82 = load ptr, ptr %17, align 8
-  %83 = add nsw i64 %indvars.iv674, %23
+  %82 = load ptr, ptr %18, align 8
+  %83 = add nsw i64 %indvars.iv674, %24
   %84 = getelementptr inbounds %struct.DdSubtable, ptr %82, i64 %83, i32 2
   store i32 %5, ptr %84, align 4
   %85 = tail call i32 @cuddComputeFloorLog2(i32 noundef %5) #13
   %86 = sub i32 32, %85
-  %87 = load ptr, ptr %17, align 8
+  %87 = load ptr, ptr %18, align 8
   %88 = getelementptr inbounds %struct.DdSubtable, ptr %87, i64 %83, i32 1
   store i32 %86, ptr %88, align 8
-  %89 = load ptr, ptr %17, align 8
+  %89 = load ptr, ptr %18, align 8
   %90 = getelementptr inbounds %struct.DdSubtable, ptr %89, i64 %83, i32 3
   store i32 0, ptr %90, align 8
-  %91 = load ptr, ptr %17, align 8
+  %91 = load ptr, ptr %18, align 8
   %92 = getelementptr inbounds %struct.DdSubtable, ptr %91, i64 %83, i32 4
-  store i32 %18, ptr %92, align 4
-  %93 = load ptr, ptr %17, align 8
+  store i32 %19, ptr %92, align 4
+  %93 = load ptr, ptr %18, align 8
   %94 = getelementptr inbounds %struct.DdSubtable, ptr %93, i64 %83, i32 5
   store i32 0, ptr %94, align 8
-  %95 = load ptr, ptr %17, align 8
+  %95 = load ptr, ptr %18, align 8
   %96 = getelementptr inbounds %struct.DdSubtable, ptr %95, i64 %83, i32 7
   store i32 0, ptr %96, align 8
-  %97 = load ptr, ptr %17, align 8
+  %97 = load ptr, ptr %18, align 8
   %98 = getelementptr inbounds %struct.DdSubtable, ptr %97, i64 %83, i32 8
   store i32 0, ptr %98, align 4
-  %99 = load ptr, ptr %17, align 8
+  %99 = load ptr, ptr %18, align 8
   %100 = getelementptr inbounds %struct.DdSubtable, ptr %99, i64 %83, i32 9
   store i32 0, ptr %100, align 8
-  %101 = load ptr, ptr %17, align 8
+  %101 = load ptr, ptr %18, align 8
   %102 = getelementptr inbounds %struct.DdSubtable, ptr %101, i64 %83, i32 10
   store i32 0, ptr %102, align 4
-  %103 = load ptr, ptr %17, align 8
+  %103 = load ptr, ptr %18, align 8
   %104 = getelementptr inbounds %struct.DdSubtable, ptr %103, i64 %83, i32 11
   store i32 0, ptr %104, align 8
-  %105 = load ptr, ptr %19, align 8
-  %106 = add nsw i64 %indvars.iv674, %24
+  %105 = load ptr, ptr %20, align 8
+  %106 = add nsw i64 %indvars.iv674, %25
   %107 = getelementptr inbounds i32, ptr %105, i64 %106
   %108 = trunc nsw i64 %83 to i32
   store i32 %108, ptr %107, align 4
-  %109 = load ptr, ptr %20, align 8
+  %109 = load ptr, ptr %21, align 8
   %110 = getelementptr inbounds i32, ptr %109, i64 %83
   %111 = trunc nsw i64 %106 to i32
   store i32 %111, ptr %110, align 4
-  %112 = tail call noalias ptr @malloc(i64 noundef %22) #12
-  %113 = load ptr, ptr %17, align 8
+  %112 = tail call noalias ptr @malloc(i64 noundef %23) #12
+  %113 = load ptr, ptr %18, align 8
   %114 = getelementptr inbounds %struct.DdSubtable, ptr %113, i64 %83
   store ptr %112, ptr %114, align 8
   %115 = icmp eq ptr %112, null
@@ -4868,7 +4866,7 @@ define range(i32 0, 2) i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, 
   %118 = getelementptr inbounds ptr, ptr %112, i64 %indvars.iv671
   store ptr %0, ptr %118, align 8
   %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next672, %21
+  %exitcond.not = icmp eq i64 %indvars.iv.next672, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph634, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph634, %.preheader627
@@ -4880,7 +4878,7 @@ define range(i32 0, 2) i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, 
   %119 = getelementptr inbounds i8, ptr %0, i64 352
   %120 = load ptr, ptr %119, align 8
   %.not614 = icmp ne ptr %120, null
-  %or.cond = and i1 %.not614, %16
+  %or.cond = and i1 %.not614, %17
   br i1 %or.cond, label %.lr.ph639.preheader, label %.loopexit
 
 .lr.ph639.preheader:                              ; preds = %._crit_edge637

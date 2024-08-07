@@ -1029,15 +1029,15 @@ land.lhs.true108:                                 ; preds = %if.then96
 
 while.cond.preheader:                             ; preds = %land.lhs.true108
   %cmp11749 = icmp ugt i32 %0, 15
-  br i1 %cmp11749, label %land.lhs.true119.lr.ph, label %if.end132
+  br i1 %cmp11749, label %land.lhs.true119.preheader, label %if.end132
 
-land.lhs.true119.lr.ph:                           ; preds = %while.cond.preheader
+land.lhs.true119.preheader:                       ; preds = %while.cond.preheader
   %33 = add nsw i32 %0, -14
   %wide.trip.count = zext nneg i32 %33 to i64
   br label %land.lhs.true119
 
-land.lhs.true119:                                 ; preds = %land.lhs.true119.lr.ph, %while.body
-  %indvars.iv53 = phi i64 [ 1, %land.lhs.true119.lr.ph ], [ %indvars.iv.next54, %while.body ]
+land.lhs.true119:                                 ; preds = %land.lhs.true119.preheader, %while.body
+  %indvars.iv53 = phi i64 [ 1, %land.lhs.true119.preheader ], [ %indvars.iv.next54, %while.body ]
   %arrayidx121 = getelementptr inbounds i8, ptr %arrayidx109, i64 %indvars.iv53
   %34 = load i8, ptr %arrayidx121, align 1
   %35 = add i8 %34, -48

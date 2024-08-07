@@ -4671,14 +4671,13 @@ define internal fastcc void @vm_reset_perms(ptr nocapture noundef readonly %0) u
   %12 = zext nneg i32 %7 to i64
   %13 = shl i64 4096, %12
   %14 = shl nuw i32 1, %7
-  %invariant.op = add i64 %11, %13
   br label %15
 
-15:                                               ; preds = %31, %5
-  %16 = phi i64 [ -1, %5 ], [ %34, %31 ]
-  %17 = phi i64 [ 0, %5 ], [ %33, %31 ]
-  %18 = phi i32 [ 0, %5 ], [ %32, %31 ]
-  %19 = phi i32 [ 0, %5 ], [ %35, %31 ]
+15:                                               ; preds = %32, %5
+  %16 = phi i64 [ -1, %5 ], [ %35, %32 ]
+  %17 = phi i64 [ 0, %5 ], [ %34, %32 ]
+  %18 = phi i32 [ 0, %5 ], [ %33, %32 ]
+  %19 = phi i32 [ 0, %5 ], [ %36, %32 ]
   %20 = sext i32 %19 to i64
   %21 = getelementptr ptr, ptr %9, i64 %20
   %22 = load ptr, ptr %21, align 8
@@ -4687,100 +4686,100 @@ define internal fastcc void @vm_reset_perms(ptr nocapture noundef readonly %0) u
   %25 = shl i64 %24, 6
   %26 = add i64 %25, %11
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %31, label %28
+  br i1 %27, label %32, label %28
 
 28:                                               ; preds = %15
   %29 = tail call i64 @llvm.umin.i64(i64 %16, i64 %26)
-  %.reass = add i64 %25, %invariant.op
-  %30 = tail call i64 @llvm.umax.i64(i64 %.reass, i64 %17)
-  br label %31
+  %30 = add i64 %26, %13
+  %31 = tail call i64 @llvm.umax.i64(i64 %30, i64 %17)
+  br label %32
 
-31:                                               ; preds = %28, %15
-  %32 = phi i32 [ 1, %28 ], [ %18, %15 ]
-  %33 = phi i64 [ %30, %28 ], [ %17, %15 ]
-  %34 = phi i64 [ %29, %28 ], [ %16, %15 ]
-  %35 = add i32 %19, %14
-  %36 = icmp ult i32 %35, %3
-  br i1 %36, label %15, label %.preheader, !llvm.loop !179
+32:                                               ; preds = %28, %15
+  %33 = phi i32 [ 1, %28 ], [ %18, %15 ]
+  %34 = phi i64 [ %31, %28 ], [ %17, %15 ]
+  %35 = phi i64 [ %29, %28 ], [ %16, %15 ]
+  %36 = add i32 %19, %14
+  %37 = icmp ult i32 %36, %3
+  br i1 %37, label %15, label %.preheader, !llvm.loop !179
 
-.preheader:                                       ; preds = %31, %52
-  %37 = phi i32 [ %53, %52 ], [ %3, %31 ]
-  %38 = phi i64 [ %54, %52 ], [ %11, %31 ]
-  %39 = phi i64 [ %55, %52 ], [ %10, %31 ]
-  %40 = phi i32 [ %56, %52 ], [ 0, %31 ]
-  %41 = load ptr, ptr %8, align 8
-  %42 = sext i32 %40 to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %46 = sub i64 %45, %39
-  %47 = shl i64 %46, 6
-  %48 = sub i64 0, %38
-  %49 = icmp eq i64 %47, %48
-  br i1 %49, label %52, label %50
+.preheader:                                       ; preds = %32, %53
+  %38 = phi i32 [ %54, %53 ], [ %3, %32 ]
+  %39 = phi i64 [ %55, %53 ], [ %11, %32 ]
+  %40 = phi i64 [ %56, %53 ], [ %10, %32 ]
+  %41 = phi i32 [ %57, %53 ], [ 0, %32 ]
+  %42 = load ptr, ptr %8, align 8
+  %43 = sext i32 %41 to i64
+  %44 = getelementptr ptr, ptr %42, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %47 = sub i64 %46, %40
+  %48 = shl i64 %47, 6
+  %49 = sub i64 0, %39
+  %50 = icmp eq i64 %48, %49
+  br i1 %50, label %53, label %51
 
-50:                                               ; preds = %.preheader
-  %51 = tail call i32 @set_direct_map_invalid_noflush(ptr noundef %44) #21, !callees !180
+51:                                               ; preds = %.preheader
+  %52 = tail call i32 @set_direct_map_invalid_noflush(ptr noundef %45) #21, !callees !180
   %.pre = load i64, ptr @vmemmap_base, align 8
   %.pre10 = load i64, ptr @page_offset_base, align 8
   %.pre12 = load i32, ptr %2, align 4
-  br label %52
+  br label %53
 
-52:                                               ; preds = %50, %.preheader
-  %53 = phi i32 [ %.pre12, %50 ], [ %37, %.preheader ]
-  %54 = phi i64 [ %.pre10, %50 ], [ %38, %.preheader ]
-  %55 = phi i64 [ %.pre, %50 ], [ %39, %.preheader ]
-  %56 = add nuw i32 %40, 1
-  %57 = icmp ult i32 %56, %53
-  br i1 %57, label %.preheader, label %.thread, !llvm.loop !181
+53:                                               ; preds = %51, %.preheader
+  %54 = phi i32 [ %.pre12, %51 ], [ %38, %.preheader ]
+  %55 = phi i64 [ %.pre10, %51 ], [ %39, %.preheader ]
+  %56 = phi i64 [ %.pre, %51 ], [ %40, %.preheader ]
+  %57 = add nuw i32 %41, 1
+  %58 = icmp ult i32 %57, %54
+  br i1 %58, label %.preheader, label %.thread, !llvm.loop !181
 
-.thread:                                          ; preds = %52, %1
-  %58 = phi i64 [ -1, %1 ], [ %34, %52 ]
-  %59 = phi i64 [ 0, %1 ], [ %33, %52 ]
-  %60 = phi i32 [ 0, %1 ], [ %32, %52 ]
-  tail call fastcc void @_vm_unmap_aliases(i64 noundef %58, i64 noundef %59, i32 noundef %60)
-  %61 = load i32, ptr %2, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.loopexit, label %63
+.thread:                                          ; preds = %53, %1
+  %59 = phi i64 [ -1, %1 ], [ %35, %53 ]
+  %60 = phi i64 [ 0, %1 ], [ %34, %53 ]
+  %61 = phi i32 [ 0, %1 ], [ %33, %53 ]
+  tail call fastcc void @_vm_unmap_aliases(i64 noundef %59, i64 noundef %60, i32 noundef %61)
+  %62 = load i32, ptr %2, align 4
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %.loopexit, label %64
 
-63:                                               ; preds = %.thread
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+64:                                               ; preds = %.thread
+  %65 = getelementptr inbounds i8, ptr %0, i64 32
   %.pre14 = load i64, ptr @vmemmap_base, align 8
   %.pre16 = load i64, ptr @page_offset_base, align 8
-  br label %65
+  br label %66
 
-65:                                               ; preds = %81, %63
-  %66 = phi i32 [ %61, %63 ], [ %82, %81 ]
-  %67 = phi i64 [ %.pre16, %63 ], [ %83, %81 ]
-  %68 = phi i64 [ %.pre14, %63 ], [ %84, %81 ]
-  %69 = phi i32 [ 0, %63 ], [ %85, %81 ]
-  %70 = load ptr, ptr %64, align 8
-  %71 = sext i32 %69 to i64
-  %72 = getelementptr ptr, ptr %70, i64 %71
-  %73 = load ptr, ptr %72, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %75 = sub i64 %74, %68
-  %76 = shl i64 %75, 6
-  %77 = sub i64 0, %67
-  %78 = icmp eq i64 %76, %77
-  br i1 %78, label %81, label %79
+66:                                               ; preds = %82, %64
+  %67 = phi i32 [ %62, %64 ], [ %83, %82 ]
+  %68 = phi i64 [ %.pre16, %64 ], [ %84, %82 ]
+  %69 = phi i64 [ %.pre14, %64 ], [ %85, %82 ]
+  %70 = phi i32 [ 0, %64 ], [ %86, %82 ]
+  %71 = load ptr, ptr %65, align 8
+  %72 = sext i32 %70 to i64
+  %73 = getelementptr ptr, ptr %71, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %75 = ptrtoint ptr %74 to i64
+  %76 = sub i64 %75, %69
+  %77 = shl i64 %76, 6
+  %78 = sub i64 0, %68
+  %79 = icmp eq i64 %77, %78
+  br i1 %79, label %82, label %80
 
-79:                                               ; preds = %65
-  %80 = tail call i32 @set_direct_map_default_noflush(ptr noundef %73) #21, !callees !180
+80:                                               ; preds = %66
+  %81 = tail call i32 @set_direct_map_default_noflush(ptr noundef %74) #21, !callees !180
   %.pre13 = load i64, ptr @vmemmap_base, align 8
   %.pre15 = load i64, ptr @page_offset_base, align 8
   %.pre17 = load i32, ptr %2, align 4
-  br label %81
+  br label %82
 
-81:                                               ; preds = %79, %65
-  %82 = phi i32 [ %.pre17, %79 ], [ %66, %65 ]
-  %83 = phi i64 [ %.pre15, %79 ], [ %67, %65 ]
-  %84 = phi i64 [ %.pre13, %79 ], [ %68, %65 ]
-  %85 = add nuw i32 %69, 1
-  %86 = icmp ult i32 %85, %82
-  br i1 %86, label %65, label %.loopexit, !llvm.loop !181
+82:                                               ; preds = %80, %66
+  %83 = phi i32 [ %.pre17, %80 ], [ %67, %66 ]
+  %84 = phi i64 [ %.pre15, %80 ], [ %68, %66 ]
+  %85 = phi i64 [ %.pre13, %80 ], [ %69, %66 ]
+  %86 = add nuw i32 %70, 1
+  %87 = icmp ult i32 %86, %83
+  br i1 %87, label %66, label %.loopexit, !llvm.loop !181
 
-.loopexit:                                        ; preds = %81, %.thread
+.loopexit:                                        ; preds = %82, %.thread
   ret void
 }
 

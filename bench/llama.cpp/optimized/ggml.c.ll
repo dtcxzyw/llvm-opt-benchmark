@@ -21825,7 +21825,6 @@ if.end114.i:                                      ; preds = %if.then111.i, %if.e
   %iter124.i = getelementptr inbounds i8, ptr %opt, i64 128
   %73 = load i32, ptr %iter124.i, align 8
   %74 = load i32, ptr %adam.i, align 8
-  %invariant.op.i = add i32 %73, 1
   %cmp127275.i = icmp sgt i32 %74, 0
   br i1 %cmp127275.i, label %for.body129.lr.ph.i, label %ggml_opt_adam.exit
 
@@ -21846,9 +21845,9 @@ for.body129.lr.ph.i:                              ; preds = %if.end114.i
 
 for.body129.i:                                    ; preds = %if.end314.i, %for.body129.lr.ph.i
   %t.0276.i = phi i32 [ 0, %for.body129.lr.ph.i ], [ %inc319.i, %if.end314.i ]
-  %add131.reass.i = add i32 %invariant.op.i, %t.0276.i
-  store i32 %add131.reass.i, ptr %iter124.i, align 8
   %add130.i = add nsw i32 %t.0276.i, %73
+  %add131.i = add nsw i32 %add130.i, 1
+  store i32 %add131.i, ptr %iter124.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i) #45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i)
@@ -29486,8 +29485,8 @@ gguf_bwrite_el.exit454:                           ; preds = %if.then.i.i446, %gg
 sw.bb29:                                          ; preds = %gguf_bwrite_el.exit201
   %value30 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %96 = load i64, ptr %value30, align 8
-  %add.i455.reass = add i64 %39, 12
-  %add.i.i457 = add i64 %add.i455.reass, %96
+  %add.i455 = add i64 %39, 12
+  %add.i.i457 = add i64 %add.i455, %96
   %97 = load i64, ptr %size1.i.i, align 8
   %cmp.i.i459 = icmp ugt i64 %add.i.i457, %97
   br i1 %cmp.i.i459, label %if.then.i.i478, label %gguf_buf_grow.exitthread-pre-split.i460
@@ -29502,7 +29501,7 @@ if.then.i.i478:                                   ; preds = %sw.bb29
   br i1 %tobool.not.i.i482, label %if.end.thread.i486, label %if.then6.i.i483
 
 if.end.thread.i486:                               ; preds = %if.then.i.i478
-  store i64 %add.i455.reass, ptr %offset.i.i, align 8
+  store i64 %add.i455, ptr %offset.i.i, align 8
   br label %gguf_bwrite_str.exit488
 
 if.then6.i.i483:                                  ; preds = %if.then.i.i478
@@ -29547,7 +29546,7 @@ if.then7.i471:                                    ; preds = %if.end.i465
   br label %gguf_bwrite_str.exit488
 
 gguf_bwrite_str.exit488:                          ; preds = %if.end.thread.i486, %if.end.thread22.i476, %if.end.i465, %if.then7.i471
-  %103 = phi i64 [ %add.i455.reass, %if.end.thread.i486 ], [ %.pre20.i474, %if.then7.i471 ], [ %add4.i469, %if.end.i465 ], [ %add424.i477, %if.end.thread22.i476 ]
+  %103 = phi i64 [ %add.i455, %if.end.thread.i486 ], [ %.pre20.i474, %if.then7.i471 ], [ %add4.i469, %if.end.i465 ], [ %add424.i477, %if.end.thread22.i476 ]
   %104 = load i64, ptr %value30, align 8
   %add16.i475 = add i64 %104, %103
   br label %for.inc65.sink.split

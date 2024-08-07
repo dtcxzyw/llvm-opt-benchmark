@@ -592,15 +592,15 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %9 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #3
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %.loopexit673, label %.lr.ph712
+  br i1 %.not, label %.loopexit673, label %.lr.ph692
 
-.lr.ph712:                                        ; preds = %4
+.lr.ph692:                                        ; preds = %4
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   br label %12
 
-12:                                               ; preds = %.lr.ph712, %.loopexit
-  %.0711 = phi i32 [ 0, %.lr.ph712 ], [ %490, %.loopexit ]
-  %13 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0711) #3
+12:                                               ; preds = %.lr.ph692, %.loopexit
+  %.0691 = phi i32 [ 0, %.lr.ph692 ], [ %501, %.loopexit ]
+  %13 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0691) #3
   %14 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
   %15 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
   %16 = icmp eq i32 %14, -1
@@ -613,34 +613,33 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %20 = load ptr, ptr %11, align 8
   call void @col_append_sep_str(ptr noundef %20, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.192) #3
   %21 = load i32, ptr @hf_rep_invalid_tlv, align 4
-  %22 = sub i32 %6, %.0711
-  %23 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %21, ptr noundef %0, i32 noundef %.0711, i32 noundef %22, i32 noundef 0) #3
+  %22 = sub i32 %6, %.0691
+  %23 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %21, ptr noundef %0, i32 noundef %.0691, i32 noundef %22, i32 noundef 0) #3
   br label %.loopexit673
 
 24:                                               ; preds = %12
   %25 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %26 = add i32 %25, %.0711
-  switch i32 %14, label %487 [
-    i32 1, label %.lr.ph710.preheader
-    i32 2, label %.lr.ph704.preheader
-    i32 3, label %.lr.ph702.preheader
-    i32 4, label %.lr.ph690.preheader
-    i32 5, label %.lr.ph684.preheader
+  %26 = add i32 %25, %.0691
+  switch i32 %14, label %498 [
+    i32 1, label %.lr.ph690.preheader
+    i32 2, label %.lr.ph688.preheader
+    i32 3, label %.lr.ph686.preheader
+    i32 4, label %.lr.ph684.preheader
+    i32 5, label %.lr.ph682.preheader
     i32 6, label %.lr.ph.preheader
-    i32 147, label %479
+    i32 147, label %490
   ]
 
-.lr.ph710.preheader:                              ; preds = %24
+.lr.ph690.preheader:                              ; preds = %24
   %27 = load i32, ptr @hf_rep_rsp_report_type, align 4
-  %28 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef %.0711, i32 noundef 0) #3
+  %28 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef %.0691, i32 noundef 0) #3
   %29 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
-  %invariant.op705 = add i32 %26, 1
-  br label %.lr.ph710
+  br label %.lr.ph690
 
-.lr.ph710:                                        ; preds = %.lr.ph710.preheader, %116
-  %.0645709 = phi i32 [ %117, %116 ], [ 0, %.lr.ph710.preheader ]
-  %31 = add i32 %.0645709, %26
+.lr.ph690:                                        ; preds = %.lr.ph690.preheader, %118
+  %.0645689 = phi i32 [ %119, %118 ], [ 0, %.lr.ph690.preheader ]
+  %31 = add i32 %.0645689, %26
   %32 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %31) #3
   %33 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
   %34 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
@@ -650,7 +649,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %or.cond7 = select i1 %35, i1 true, i1 %37
   br i1 %or.cond7, label %38, label %43
 
-38:                                               ; preds = %.lr.ph710
+38:                                               ; preds = %.lr.ph690
   %39 = load ptr, ptr %11, align 8
   call void @col_append_sep_str(ptr noundef %39, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.193) #3
   %40 = load i32, ptr @hf_rep_invalid_tlv, align 4
@@ -658,17 +657,17 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %42 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %40, ptr noundef %0, i32 noundef %26, i32 noundef %41, i32 noundef 0) #3
   br label %.loopexit
 
-43:                                               ; preds = %.lr.ph710
+43:                                               ; preds = %.lr.ph690
   %44 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %45 = add i32 %44, %.0645709
+  %45 = add i32 %44, %.0645689
   %46 = add i32 %45, %26
-  switch i32 %33, label %111 [
+  switch i32 %33, label %113 [
     i32 1, label %47
     i32 2, label %52
     i32 3, label %57
     i32 4, label %62
     i32 5, label %79
-    i32 6, label %94
+    i32 6, label %95
   ]
 
 47:                                               ; preds = %43
@@ -676,21 +675,21 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %49 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
   %50 = sub i32 %46, %49
   %51 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %30, i32 noundef %48, ptr noundef %0, i32 noundef %50, i32 noundef 0) #3
-  br label %116
+  br label %118
 
 52:                                               ; preds = %43
   %53 = load i32, ptr @hf_rep_rsp_report_type_frame_number, align 4
   %54 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
   %55 = sub i32 %46, %54
   %56 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %30, i32 noundef %53, ptr noundef %0, i32 noundef %55, i32 noundef 0) #3
-  br label %116
+  br label %118
 
 57:                                               ; preds = %43
   %58 = load i32, ptr @hf_rep_rsp_report_type_duration, align 4
   %59 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
   %60 = sub i32 %46, %59
   %61 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %30, i32 noundef %58, ptr noundef %0, i32 noundef %60, i32 noundef 0) #3
-  br label %116
+  br label %118
 
 62:                                               ; preds = %43
   %63 = load i32, ptr @hf_rep_rsp_report_type_basic_report, align 4
@@ -709,7 +708,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %76 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %75, ptr noundef %0, i32 noundef %46, i32 noundef %34, i32 noundef 0) #3
   %77 = load i32, ptr @hf_rep_rsp_report_type_basic_report_reserved, align 4
   %78 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %77, ptr noundef %0, i32 noundef %46, i32 noundef %34, i32 noundef 0) #3
-  br label %116
+  br label %118
 
 79:                                               ; preds = %43
   %80 = load i32, ptr @hf_rep_rsp_report_type_cinr_report, align 4
@@ -724,607 +723,603 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %spec.store.select = add nsw i32 %88, -20
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef nonnull @.str.194, i32 noundef %spec.store.select) #3
   %89 = load i32, ptr @hf_rep_rsp_report_type_cinr_report_deviation, align 4
-  %.reass708 = add i32 %45, %invariant.op705
-  %90 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %89, ptr noundef %0, i32 noundef %.reass708, i32 noundef 1, i32 noundef 0) #3
-  %91 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass708) #3
-  %92 = call i8 @llvm.umin.i8(i8 %91, i8 57)
-  %93 = zext nneg i8 %92 to i32
-  %spec.store.select29 = add nsw i32 %93, -20
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.194, i32 noundef %spec.store.select29) #3
-  br label %116
+  %90 = add i32 %46, 1
+  %91 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %89, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef 0) #3
+  %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %90) #3
+  %93 = call i8 @llvm.umin.i8(i8 %92, i8 57)
+  %94 = zext nneg i8 %93 to i32
+  %spec.store.select29 = add nsw i32 %94, -20
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %91, ptr noundef nonnull @.str.194, i32 noundef %spec.store.select29) #3
+  br label %118
 
-94:                                               ; preds = %43
-  %95 = load i32, ptr @hf_rep_rsp_report_type_rssi_report, align 4
-  %96 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %97 = sub i32 %46, %96
-  %98 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %30, i32 noundef %95, ptr noundef %0, i32 noundef %97, i32 noundef 0) #3
-  %99 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %100 = call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99) #3
-  %101 = load i32, ptr @hf_rep_rsp_report_type_rssi_report_mean, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #3
-  %103 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %46) #3
-  %104 = call i8 @llvm.umin.i8(i8 %103, i8 83)
-  %105 = zext nneg i8 %104 to i32
-  %spec.store.select8 = add nuw nsw i32 %105, -123
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %102, ptr noundef nonnull @.str.194, i32 noundef %spec.store.select8) #3
-  %106 = load i32, ptr @hf_rep_rsp_report_type_rssi_report_deviation, align 4
-  %.reass706 = add i32 %45, %invariant.op705
-  %107 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %106, ptr noundef %0, i32 noundef %.reass706, i32 noundef 1, i32 noundef 0) #3
-  %108 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.reass706) #3
-  %109 = call i8 @llvm.umin.i8(i8 %108, i8 83)
-  %110 = zext nneg i8 %109 to i32
-  %spec.store.select30 = add nuw nsw i32 %110, -123
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %107, ptr noundef nonnull @.str.194, i32 noundef %spec.store.select30) #3
-  br label %116
+95:                                               ; preds = %43
+  %96 = load i32, ptr @hf_rep_rsp_report_type_rssi_report, align 4
+  %97 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %98 = sub i32 %46, %97
+  %99 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %30, i32 noundef %96, ptr noundef %0, i32 noundef %98, i32 noundef 0) #3
+  %100 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %101 = call ptr @proto_item_add_subtree(ptr noundef %99, i32 noundef %100) #3
+  %102 = load i32, ptr @hf_rep_rsp_report_type_rssi_report_mean, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #3
+  %104 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %46) #3
+  %105 = call i8 @llvm.umin.i8(i8 %104, i8 83)
+  %106 = zext nneg i8 %105 to i32
+  %spec.store.select8 = add nuw nsw i32 %106, -123
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %103, ptr noundef nonnull @.str.194, i32 noundef %spec.store.select8) #3
+  %107 = load i32, ptr @hf_rep_rsp_report_type_rssi_report_deviation, align 4
+  %108 = add i32 %46, 1
+  %109 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef 1, i32 noundef 0) #3
+  %110 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %108) #3
+  %111 = call i8 @llvm.umin.i8(i8 %110, i8 83)
+  %112 = zext nneg i8 %111 to i32
+  %spec.store.select30 = add nuw nsw i32 %112, -123
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.194, i32 noundef %spec.store.select30) #3
+  br label %118
 
-111:                                              ; preds = %43
-  %112 = load i32, ptr @hf_rep_unknown_type, align 4
-  %113 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %114 = sub i32 %46, %113
-  %115 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %30, i32 noundef %112, ptr noundef %0, i32 noundef %114, i32 noundef 0) #3
-  br label %116
+113:                                              ; preds = %43
+  %114 = load i32, ptr @hf_rep_unknown_type, align 4
+  %115 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %116 = sub i32 %46, %115
+  %117 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %30, i32 noundef %114, ptr noundef %0, i32 noundef %116, i32 noundef 0) #3
+  br label %118
 
-116:                                              ; preds = %111, %94, %79, %62, %57, %52, %47
-  %117 = add i32 %45, %34
-  %118 = icmp slt i32 %117, %15
-  br i1 %118, label %.lr.ph710, label %.loopexit, !llvm.loop !7
+118:                                              ; preds = %113, %95, %79, %62, %57, %52, %47
+  %119 = add i32 %45, %34
+  %120 = icmp slt i32 %119, %15
+  br i1 %120, label %.lr.ph690, label %.loopexit, !llvm.loop !7
 
-.lr.ph704.preheader:                              ; preds = %24
-  %119 = load i32, ptr @hf_rep_rsp_channel_type_report, align 4
-  %120 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %119, ptr noundef %0, i32 noundef %.0711, i32 noundef 0) #3
-  %121 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %122 = call ptr @proto_item_add_subtree(ptr noundef %120, i32 noundef %121) #3
-  br label %.lr.ph704
+.lr.ph688.preheader:                              ; preds = %24
+  %121 = load i32, ptr @hf_rep_rsp_channel_type_report, align 4
+  %122 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %121, ptr noundef %0, i32 noundef %.0691, i32 noundef 0) #3
+  %123 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %124 = call ptr @proto_item_add_subtree(ptr noundef %122, i32 noundef %123) #3
+  br label %.lr.ph688
 
-.lr.ph704:                                        ; preds = %.lr.ph704.preheader, %138
-  %.1703 = phi i32 [ %143, %138 ], [ 0, %.lr.ph704.preheader ]
-  %123 = add i32 %.1703, %26
-  %124 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %123) #3
-  %125 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
-  %126 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
-  %127 = icmp eq i32 %125, -1
-  %128 = add i32 %126, -64001
-  %129 = icmp ult i32 %128, -64000
-  %or.cond12 = select i1 %127, i1 true, i1 %129
-  br i1 %or.cond12, label %130, label %135
+.lr.ph688:                                        ; preds = %.lr.ph688.preheader, %140
+  %.1687 = phi i32 [ %145, %140 ], [ 0, %.lr.ph688.preheader ]
+  %125 = add i32 %.1687, %26
+  %126 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %125) #3
+  %127 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
+  %128 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
+  %129 = icmp eq i32 %127, -1
+  %130 = add i32 %128, -64001
+  %131 = icmp ult i32 %130, -64000
+  %or.cond12 = select i1 %129, i1 true, i1 %131
+  br i1 %or.cond12, label %132, label %137
 
-130:                                              ; preds = %.lr.ph704
-  %131 = load ptr, ptr %11, align 8
-  call void @col_append_sep_str(ptr noundef %131, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.195) #3
-  %132 = load i32, ptr @hf_rep_invalid_tlv, align 4
-  %133 = sub i32 %15, %123
-  %134 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %132, ptr noundef %0, i32 noundef %26, i32 noundef %133, i32 noundef 0) #3
+132:                                              ; preds = %.lr.ph688
+  %133 = load ptr, ptr %11, align 8
+  call void @col_append_sep_str(ptr noundef %133, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.195) #3
+  %134 = load i32, ptr @hf_rep_invalid_tlv, align 4
+  %135 = sub i32 %15, %125
+  %136 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %134, ptr noundef %0, i32 noundef %26, i32 noundef %135, i32 noundef 0) #3
   br label %.loopexit
 
-135:                                              ; preds = %.lr.ph704
-  %switch.tableidx = add i32 %125, -1
-  %136 = icmp ult i32 %switch.tableidx, 5
-  br i1 %136, label %switch.lookup, label %138
+137:                                              ; preds = %.lr.ph688
+  %switch.tableidx = add i32 %127, -1
+  %138 = icmp ult i32 %switch.tableidx, 5
+  br i1 %138, label %switch.lookup, label %140
 
-switch.lookup:                                    ; preds = %135
-  %137 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_mac_mgmt_msg_rep_rsp_decoder, i64 0, i64 %137
+switch.lookup:                                    ; preds = %137
+  %139 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_mac_mgmt_msg_rep_rsp_decoder, i64 0, i64 %139
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %138
+  br label %140
 
-138:                                              ; preds = %135, %switch.lookup
-  %hf_rep_unknown_type.sink = phi ptr [ %switch.load, %switch.lookup ], [ @hf_rep_unknown_type, %135 ]
-  %139 = load i32, ptr %hf_rep_unknown_type.sink, align 4
-  %140 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %122, i32 noundef %139, ptr noundef %0, i32 noundef %123, i32 noundef 0) #3
-  %141 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %142 = add i32 %126, %.1703
-  %143 = add i32 %142, %141
-  %144 = icmp slt i32 %143, %15
-  br i1 %144, label %.lr.ph704, label %.loopexit, !llvm.loop !8
+140:                                              ; preds = %137, %switch.lookup
+  %hf_rep_unknown_type.sink = phi ptr [ %switch.load, %switch.lookup ], [ @hf_rep_unknown_type, %137 ]
+  %141 = load i32, ptr %hf_rep_unknown_type.sink, align 4
+  %142 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %124, i32 noundef %141, ptr noundef %0, i32 noundef %125, i32 noundef 0) #3
+  %143 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %144 = add i32 %128, %.1687
+  %145 = add i32 %144, %143
+  %146 = icmp slt i32 %145, %15
+  br i1 %146, label %.lr.ph688, label %.loopexit, !llvm.loop !8
 
-.lr.ph702.preheader:                              ; preds = %24
-  %145 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_report, align 4
-  %146 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %145, ptr noundef %0, i32 noundef %.0711, i32 noundef 0) #3
-  %147 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %148 = call ptr @proto_item_add_subtree(ptr noundef %146, i32 noundef %147) #3
-  %invariant.op691 = add i32 %26, 1
-  br label %.lr.ph702
+.lr.ph686.preheader:                              ; preds = %24
+  %147 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_report, align 4
+  %148 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %147, ptr noundef %0, i32 noundef %.0691, i32 noundef 0) #3
+  %149 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #3
+  br label %.lr.ph686
 
-.lr.ph702:                                        ; preds = %.lr.ph702.preheader, %270
-  %.2701 = phi i32 [ %271, %270 ], [ 0, %.lr.ph702.preheader ]
-  %149 = add i32 %.2701, %26
-  %150 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %149) #3
-  %151 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
-  %152 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
-  %153 = icmp eq i32 %151, -1
-  %154 = add i32 %152, -64001
-  %155 = icmp ult i32 %154, -64000
-  %or.cond16 = select i1 %153, i1 true, i1 %155
-  br i1 %or.cond16, label %156, label %161
+.lr.ph686:                                        ; preds = %.lr.ph686.preheader, %277
+  %.2685 = phi i32 [ %278, %277 ], [ 0, %.lr.ph686.preheader ]
+  %151 = add i32 %.2685, %26
+  %152 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %151) #3
+  %153 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
+  %154 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
+  %155 = icmp eq i32 %153, -1
+  %156 = add i32 %154, -64001
+  %157 = icmp ult i32 %156, -64000
+  %or.cond16 = select i1 %155, i1 true, i1 %157
+  br i1 %or.cond16, label %158, label %163
 
-156:                                              ; preds = %.lr.ph702
-  %157 = load ptr, ptr %11, align 8
-  call void @col_append_sep_str(ptr noundef %157, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.196) #3
-  %158 = load i32, ptr @hf_rep_invalid_tlv, align 4
-  %159 = sub i32 %15, %149
-  %160 = call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %158, ptr noundef %0, i32 noundef %26, i32 noundef %159, i32 noundef 0) #3
+158:                                              ; preds = %.lr.ph686
+  %159 = load ptr, ptr %11, align 8
+  call void @col_append_sep_str(ptr noundef %159, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.196) #3
+  %160 = load i32, ptr @hf_rep_invalid_tlv, align 4
+  %161 = sub i32 %15, %151
+  %162 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %160, ptr noundef %0, i32 noundef %26, i32 noundef %161, i32 noundef 0) #3
   br label %.loopexit
 
-161:                                              ; preds = %.lr.ph702
-  %162 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %163 = add i32 %162, %.2701
-  %164 = add i32 %163, %26
-  switch i32 %151, label %265 [
-    i32 1, label %165
-    i32 2, label %184
-    i32 3, label %203
-    i32 4, label %222
-    i32 5, label %241
-    i32 6, label %246
+163:                                              ; preds = %.lr.ph686
+  %164 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %165 = add i32 %164, %.2685
+  %166 = add i32 %165, %26
+  switch i32 %153, label %272 [
+    i32 1, label %167
+    i32 2, label %187
+    i32 3, label %207
+    i32 4, label %227
+    i32 5, label %247
+    i32 6, label %252
   ]
 
-165:                                              ; preds = %161
-  %166 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_pusc_sc0, align 4
-  %167 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %168 = sub i32 %164, %167
-  %169 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %148, i32 noundef %166, ptr noundef %0, i32 noundef %168, i32 noundef 0) #3
-  %170 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %171 = call ptr @proto_item_add_subtree(ptr noundef %169, i32 noundef %170) #3
-  %172 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
-  %173 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %172, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %174 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %174, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %176 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %176, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %178 = icmp eq i32 %152, 2
-  br i1 %178, label %179, label %270
+167:                                              ; preds = %163
+  %168 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_pusc_sc0, align 4
+  %169 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %170 = sub i32 %166, %169
+  %171 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %150, i32 noundef %168, ptr noundef %0, i32 noundef %170, i32 noundef 0) #3
+  %172 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %173 = call ptr @proto_item_add_subtree(ptr noundef %171, i32 noundef %172) #3
+  %174 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
+  %175 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %174, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %176 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
+  %177 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %176, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %178 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
+  %179 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %178, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %180 = icmp eq i32 %154, 2
+  br i1 %180, label %181, label %277
 
-179:                                              ; preds = %165
-  %180 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
-  %.reass700 = add i32 %163, %invariant.op691
-  %181 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %180, ptr noundef %0, i32 noundef %.reass700, i32 noundef 1, i32 noundef 0) #3
-  %182 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %182, ptr noundef %0, i32 noundef %.reass700, i32 noundef 1, i32 noundef 0) #3
-  br label %270
+181:                                              ; preds = %167
+  %182 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
+  %183 = add i32 %166, 1
+  %184 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %182, ptr noundef %0, i32 noundef %183, i32 noundef 1, i32 noundef 0) #3
+  %185 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
+  %186 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %185, ptr noundef %0, i32 noundef %183, i32 noundef 1, i32 noundef 0) #3
+  br label %277
 
-184:                                              ; preds = %161
-  %185 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_pusc_sc1, align 4
-  %186 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %187 = sub i32 %164, %186
-  %188 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %148, i32 noundef %185, ptr noundef %0, i32 noundef %187, i32 noundef 0) #3
-  %189 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %190 = call ptr @proto_item_add_subtree(ptr noundef %188, i32 noundef %189) #3
-  %191 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
-  %192 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %191, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %193 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %193, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %195 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %195, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %197 = icmp eq i32 %152, 2
-  br i1 %197, label %198, label %270
+187:                                              ; preds = %163
+  %188 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_pusc_sc1, align 4
+  %189 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %190 = sub i32 %166, %189
+  %191 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %150, i32 noundef %188, ptr noundef %0, i32 noundef %190, i32 noundef 0) #3
+  %192 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %193 = call ptr @proto_item_add_subtree(ptr noundef %191, i32 noundef %192) #3
+  %194 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
+  %195 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %196 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %196, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %198 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %198, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %200 = icmp eq i32 %154, 2
+  br i1 %200, label %201, label %277
 
-198:                                              ; preds = %184
-  %199 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
-  %.reass698 = add i32 %163, %invariant.op691
-  %200 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %199, ptr noundef %0, i32 noundef %.reass698, i32 noundef 1, i32 noundef 0) #3
-  %201 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
-  %202 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %201, ptr noundef %0, i32 noundef %.reass698, i32 noundef 1, i32 noundef 0) #3
-  br label %270
+201:                                              ; preds = %187
+  %202 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
+  %203 = add i32 %166, 1
+  %204 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %202, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #3
+  %205 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
+  %206 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %205, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #3
+  br label %277
 
-203:                                              ; preds = %161
-  %204 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_fusc, align 4
-  %205 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %206 = sub i32 %164, %205
-  %207 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %148, i32 noundef %204, ptr noundef %0, i32 noundef %206, i32 noundef 0) #3
-  %208 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %209 = call ptr @proto_item_add_subtree(ptr noundef %207, i32 noundef %208) #3
-  %210 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %210, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %212 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %212, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %214 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
-  %215 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %214, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %216 = icmp eq i32 %152, 2
-  br i1 %216, label %217, label %270
+207:                                              ; preds = %163
+  %208 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_fusc, align 4
+  %209 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %210 = sub i32 %166, %209
+  %211 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %150, i32 noundef %208, ptr noundef %0, i32 noundef %210, i32 noundef 0) #3
+  %212 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %213 = call ptr @proto_item_add_subtree(ptr noundef %211, i32 noundef %212) #3
+  %214 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
+  %215 = call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %214, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %216 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
+  %217 = call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %216, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %218 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
+  %219 = call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %218, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %220 = icmp eq i32 %154, 2
+  br i1 %220, label %221, label %277
 
-217:                                              ; preds = %203
-  %218 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
-  %.reass696 = add i32 %163, %invariant.op691
-  %219 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %218, ptr noundef %0, i32 noundef %.reass696, i32 noundef 1, i32 noundef 0) #3
-  %220 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
-  %221 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %220, ptr noundef %0, i32 noundef %.reass696, i32 noundef 1, i32 noundef 0) #3
-  br label %270
+221:                                              ; preds = %207
+  %222 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
+  %223 = add i32 %166, 1
+  %224 = call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %222, ptr noundef %0, i32 noundef %223, i32 noundef 1, i32 noundef 0) #3
+  %225 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
+  %226 = call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %225, ptr noundef %0, i32 noundef %223, i32 noundef 1, i32 noundef 0) #3
+  br label %277
 
-222:                                              ; preds = %161
-  %223 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_optional_fusc, align 4
-  %224 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %225 = sub i32 %164, %224
-  %226 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %148, i32 noundef %223, ptr noundef %0, i32 noundef %225, i32 noundef 0) #3
-  %227 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %228 = call ptr @proto_item_add_subtree(ptr noundef %226, i32 noundef %227) #3
-  %229 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %228, i32 noundef %229, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %231 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
-  %232 = call ptr @proto_tree_add_item(ptr noundef %228, i32 noundef %231, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %233 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
-  %234 = call ptr @proto_tree_add_item(ptr noundef %228, i32 noundef %233, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %235 = icmp eq i32 %152, 2
-  br i1 %235, label %236, label %270
+227:                                              ; preds = %163
+  %228 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_optional_fusc, align 4
+  %229 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %230 = sub i32 %166, %229
+  %231 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %150, i32 noundef %228, ptr noundef %0, i32 noundef %230, i32 noundef 0) #3
+  %232 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %233 = call ptr @proto_item_add_subtree(ptr noundef %231, i32 noundef %232) #3
+  %234 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
+  %235 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %234, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %236 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
+  %237 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %236, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %238 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
+  %239 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %238, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %240 = icmp eq i32 %154, 2
+  br i1 %240, label %241, label %277
 
-236:                                              ; preds = %222
-  %237 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
-  %.reass694 = add i32 %163, %invariant.op691
-  %238 = call ptr @proto_tree_add_item(ptr noundef %228, i32 noundef %237, ptr noundef %0, i32 noundef %.reass694, i32 noundef 1, i32 noundef 0) #3
-  %239 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
-  %240 = call ptr @proto_tree_add_item(ptr noundef %228, i32 noundef %239, ptr noundef %0, i32 noundef %.reass694, i32 noundef 1, i32 noundef 0) #3
-  br label %270
+241:                                              ; preds = %227
+  %242 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
+  %243 = add i32 %166, 1
+  %244 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %242, ptr noundef %0, i32 noundef %243, i32 noundef 1, i32 noundef 0) #3
+  %245 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
+  %246 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %245, ptr noundef %0, i32 noundef %243, i32 noundef 1, i32 noundef 0) #3
+  br label %277
 
-241:                                              ; preds = %161
-  %242 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_safety_channel, align 4
-  %243 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %244 = sub i32 %164, %243
-  %245 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %148, i32 noundef %242, ptr noundef %0, i32 noundef %244, i32 noundef 0) #3
-  br label %270
+247:                                              ; preds = %163
+  %248 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_safety_channel, align 4
+  %249 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %250 = sub i32 %166, %249
+  %251 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %150, i32 noundef %248, ptr noundef %0, i32 noundef %250, i32 noundef 0) #3
+  br label %277
 
-246:                                              ; preds = %161
-  %247 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_amc, align 4
-  %248 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %249 = sub i32 %164, %248
-  %250 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %148, i32 noundef %247, ptr noundef %0, i32 noundef %249, i32 noundef 0) #3
-  %251 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %252 = call ptr @proto_item_add_subtree(ptr noundef %250, i32 noundef %251) #3
-  %253 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
-  %254 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %253, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %255 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
-  %256 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %255, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %257 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
-  %258 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %257, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #3
-  %259 = icmp eq i32 %152, 2
-  br i1 %259, label %260, label %270
+252:                                              ; preds = %163
+  %253 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_amc, align 4
+  %254 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %255 = sub i32 %166, %254
+  %256 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %150, i32 noundef %253, ptr noundef %0, i32 noundef %255, i32 noundef 0) #3
+  %257 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %258 = call ptr @proto_item_add_subtree(ptr noundef %256, i32 noundef %257) #3
+  %259 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_mean, align 4
+  %260 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %259, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %261 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_report_type, align 4
+  %262 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %261, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %263 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved1, align 4
+  %264 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %263, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
+  %265 = icmp eq i32 %154, 2
+  br i1 %265, label %266, label %277
 
-260:                                              ; preds = %246
-  %261 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
-  %.reass692 = add i32 %163, %invariant.op691
-  %262 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %261, ptr noundef %0, i32 noundef %.reass692, i32 noundef 1, i32 noundef 0) #3
-  %263 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
-  %264 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %263, ptr noundef %0, i32 noundef %.reass692, i32 noundef 1, i32 noundef 0) #3
-  br label %270
+266:                                              ; preds = %252
+  %267 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
+  %268 = add i32 %166, 1
+  %269 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %267, ptr noundef %0, i32 noundef %268, i32 noundef 1, i32 noundef 0) #3
+  %270 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_reserved2, align 4
+  %271 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %270, ptr noundef %0, i32 noundef %268, i32 noundef 1, i32 noundef 0) #3
+  br label %277
 
-265:                                              ; preds = %161
-  %266 = load i32, ptr @hf_rep_unknown_type, align 4
-  %267 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %268 = sub i32 %164, %267
-  %269 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %148, i32 noundef %266, ptr noundef %0, i32 noundef %268, i32 noundef 0) #3
-  br label %270
+272:                                              ; preds = %163
+  %273 = load i32, ptr @hf_rep_unknown_type, align 4
+  %274 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %275 = sub i32 %166, %274
+  %276 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %150, i32 noundef %273, ptr noundef %0, i32 noundef %275, i32 noundef 0) #3
+  br label %277
 
-270:                                              ; preds = %246, %260, %222, %236, %203, %217, %184, %198, %165, %179, %265, %241
-  %271 = add i32 %163, %152
-  %272 = icmp slt i32 %271, %15
-  br i1 %272, label %.lr.ph702, label %.loopexit, !llvm.loop !9
-
-.lr.ph690.preheader:                              ; preds = %24
-  %273 = load i32, ptr @hf_rep_rsp_preamble_phy_cinr_report, align 4
-  %274 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %273, ptr noundef %0, i32 noundef %.0711, i32 noundef 0) #3
-  %275 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %276 = call ptr @proto_item_add_subtree(ptr noundef %274, i32 noundef %275) #3
-  %invariant.op685 = add i32 %26, 1
-  br label %.lr.ph690
-
-.lr.ph690:                                        ; preds = %.lr.ph690.preheader, %318
-  %.3689 = phi i32 [ %321, %318 ], [ 0, %.lr.ph690.preheader ]
-  %277 = add i32 %.3689, %26
-  %278 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %277) #3
-  %279 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
-  %280 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
-  %281 = icmp eq i32 %279, -1
-  %282 = add i32 %280, -64001
-  %283 = icmp ult i32 %282, -64000
-  %or.cond20 = select i1 %281, i1 true, i1 %283
-  br i1 %or.cond20, label %284, label %289
-
-284:                                              ; preds = %.lr.ph690
-  %285 = load ptr, ptr %11, align 8
-  call void @col_append_sep_str(ptr noundef %285, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.197) #3
-  %286 = load i32, ptr @hf_rep_invalid_tlv, align 4
-  %287 = sub i32 %15, %277
-  %288 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %286, ptr noundef %0, i32 noundef %26, i32 noundef %287, i32 noundef 0) #3
-  br label %.loopexit
-
-289:                                              ; preds = %.lr.ph690
-  switch i32 %279, label %315 [
-    i32 1, label %290
-    i32 2, label %301
-    i32 3, label %312
-  ]
-
-290:                                              ; preds = %289
-  %291 = load i32, ptr @hf_rep_rsp_preamble_phy_cinr_rep_configuration_1, align 4
-  %292 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %276, i32 noundef %291, ptr noundef %0, i32 noundef %277, i32 noundef 0) #3
-  %293 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %294 = call ptr @proto_item_add_subtree(ptr noundef %292, i32 noundef %293) #3
-  %295 = icmp eq i32 %280, 2
-  br i1 %295, label %296, label %318
-
-296:                                              ; preds = %290
-  %297 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
-  %.reass688 = add i32 %.3689, %invariant.op685
-  %298 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %299 = add i32 %.reass688, %298
-  %300 = call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %297, ptr noundef %0, i32 noundef %299, i32 noundef 1, i32 noundef 0) #3
-  br label %318
-
-301:                                              ; preds = %289
-  %302 = load i32, ptr @hf_rep_rsp_preamble_phy_cinr_rep_configuration_3, align 4
-  %303 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %276, i32 noundef %302, ptr noundef %0, i32 noundef %277, i32 noundef 0) #3
-  %304 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %305 = call ptr @proto_item_add_subtree(ptr noundef %303, i32 noundef %304) #3
-  %306 = icmp eq i32 %280, 2
-  br i1 %306, label %307, label %318
-
-307:                                              ; preds = %301
-  %308 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
-  %.reass686 = add i32 %.3689, %invariant.op685
-  %309 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %310 = add i32 %.reass686, %309
-  %311 = call ptr @proto_tree_add_item(ptr noundef %305, i32 noundef %308, ptr noundef %0, i32 noundef %310, i32 noundef 1, i32 noundef 0) #3
-  br label %318
-
-312:                                              ; preds = %289
-  %313 = load i32, ptr @hf_rep_rsp_preamble_phy_cinr_rep_band_amc_zone, align 4
-  %314 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %276, i32 noundef %313, ptr noundef %0, i32 noundef %277, i32 noundef 0) #3
-  br label %318
-
-315:                                              ; preds = %289
-  %316 = load i32, ptr @hf_rep_unknown_type, align 4
-  %317 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %276, i32 noundef %316, ptr noundef %0, i32 noundef %277, i32 noundef 0) #3
-  br label %318
-
-318:                                              ; preds = %301, %307, %290, %296, %315, %312
-  %319 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %320 = add i32 %280, %.3689
-  %321 = add i32 %320, %319
-  %322 = icmp slt i32 %321, %15
-  br i1 %322, label %.lr.ph690, label %.loopexit, !llvm.loop !10
+277:                                              ; preds = %252, %266, %227, %241, %207, %221, %187, %201, %167, %181, %272, %247
+  %278 = add i32 %165, %154
+  %279 = icmp slt i32 %278, %15
+  br i1 %279, label %.lr.ph686, label %.loopexit, !llvm.loop !9
 
 .lr.ph684.preheader:                              ; preds = %24
-  %323 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_report, align 4
-  %324 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %323, ptr noundef %0, i32 noundef %.0711, i32 noundef 0) #3
-  %325 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %326 = call ptr @proto_item_add_subtree(ptr noundef %324, i32 noundef %325) #3
+  %280 = load i32, ptr @hf_rep_rsp_preamble_phy_cinr_report, align 4
+  %281 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %280, ptr noundef %0, i32 noundef %.0691, i32 noundef 0) #3
+  %282 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %283 = call ptr @proto_item_add_subtree(ptr noundef %281, i32 noundef %282) #3
   br label %.lr.ph684
 
-.lr.ph684:                                        ; preds = %.lr.ph684.preheader, %413
-  %.4683 = phi i32 [ %414, %413 ], [ 0, %.lr.ph684.preheader ]
-  %327 = add i32 %.4683, %26
-  %328 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %327) #3
-  %329 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
-  %330 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
-  %331 = icmp eq i32 %329, -1
-  %332 = add i32 %330, -64001
-  %333 = icmp ult i32 %332, -64000
-  %or.cond24 = select i1 %331, i1 true, i1 %333
-  br i1 %or.cond24, label %334, label %339
+.lr.ph684:                                        ; preds = %.lr.ph684.preheader, %327
+  %.3683 = phi i32 [ %330, %327 ], [ 0, %.lr.ph684.preheader ]
+  %284 = add i32 %.3683, %26
+  %285 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %284) #3
+  %286 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
+  %287 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
+  %288 = icmp eq i32 %286, -1
+  %289 = add i32 %287, -64001
+  %290 = icmp ult i32 %289, -64000
+  %or.cond20 = select i1 %288, i1 true, i1 %290
+  br i1 %or.cond20, label %291, label %296
 
-334:                                              ; preds = %.lr.ph684
-  %335 = load ptr, ptr %11, align 8
-  call void @col_append_sep_str(ptr noundef %335, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.198) #3
-  %336 = load i32, ptr @hf_rep_invalid_tlv, align 4
-  %337 = sub i32 %15, %327
-  %338 = call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %336, ptr noundef %0, i32 noundef %26, i32 noundef %337, i32 noundef 0) #3
+291:                                              ; preds = %.lr.ph684
+  %292 = load ptr, ptr %11, align 8
+  call void @col_append_sep_str(ptr noundef %292, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.197) #3
+  %293 = load i32, ptr @hf_rep_invalid_tlv, align 4
+  %294 = sub i32 %15, %284
+  %295 = call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %293, ptr noundef %0, i32 noundef %26, i32 noundef %294, i32 noundef 0) #3
   br label %.loopexit
 
-339:                                              ; preds = %.lr.ph684
-  %340 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %341 = add i32 %340, %.4683
-  %342 = add i32 %341, %26
-  switch i32 %329, label %408 [
-    i32 1, label %343
-    i32 2, label %356
-    i32 3, label %369
-    i32 4, label %382
-    i32 5, label %395
+296:                                              ; preds = %.lr.ph684
+  switch i32 %286, label %324 [
+    i32 1, label %297
+    i32 2, label %309
+    i32 3, label %321
   ]
 
-343:                                              ; preds = %339
-  %344 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_pusc_sc0, align 4
-  %345 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %346 = sub i32 %342, %345
-  %347 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %326, i32 noundef %344, ptr noundef %0, i32 noundef %346, i32 noundef 0) #3
-  %348 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %349 = call ptr @proto_item_add_subtree(ptr noundef %347, i32 noundef %348) #3
-  %350 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
-  %351 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %350, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %352 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
-  %353 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %352, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %354 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
-  %355 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %354, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  br label %413
+297:                                              ; preds = %296
+  %298 = load i32, ptr @hf_rep_rsp_preamble_phy_cinr_rep_configuration_1, align 4
+  %299 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %283, i32 noundef %298, ptr noundef %0, i32 noundef %284, i32 noundef 0) #3
+  %300 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %301 = call ptr @proto_item_add_subtree(ptr noundef %299, i32 noundef %300) #3
+  %302 = icmp eq i32 %287, 2
+  br i1 %302, label %303, label %327
 
-356:                                              ; preds = %339
-  %357 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_pusc_sc1, align 4
-  %358 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %359 = sub i32 %342, %358
-  %360 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %326, i32 noundef %357, ptr noundef %0, i32 noundef %359, i32 noundef 0) #3
-  %361 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %362 = call ptr @proto_item_add_subtree(ptr noundef %360, i32 noundef %361) #3
-  %363 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
-  %364 = call ptr @proto_tree_add_item(ptr noundef %362, i32 noundef %363, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %365 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
-  %366 = call ptr @proto_tree_add_item(ptr noundef %362, i32 noundef %365, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %367 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
-  %368 = call ptr @proto_tree_add_item(ptr noundef %362, i32 noundef %367, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  br label %413
+303:                                              ; preds = %297
+  %304 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
+  %305 = add i32 %284, 1
+  %306 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %307 = add i32 %305, %306
+  %308 = call ptr @proto_tree_add_item(ptr noundef %301, i32 noundef %304, ptr noundef %0, i32 noundef %307, i32 noundef 1, i32 noundef 0) #3
+  br label %327
 
-369:                                              ; preds = %339
-  %370 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_fusc, align 4
-  %371 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %372 = sub i32 %342, %371
-  %373 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %326, i32 noundef %370, ptr noundef %0, i32 noundef %372, i32 noundef 0) #3
-  %374 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %375 = call ptr @proto_item_add_subtree(ptr noundef %373, i32 noundef %374) #3
-  %376 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
-  %377 = call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %376, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %378 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
-  %379 = call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %378, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %380 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
-  %381 = call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %380, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  br label %413
+309:                                              ; preds = %296
+  %310 = load i32, ptr @hf_rep_rsp_preamble_phy_cinr_rep_configuration_3, align 4
+  %311 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %283, i32 noundef %310, ptr noundef %0, i32 noundef %284, i32 noundef 0) #3
+  %312 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %313 = call ptr @proto_item_add_subtree(ptr noundef %311, i32 noundef %312) #3
+  %314 = icmp eq i32 %287, 2
+  br i1 %314, label %315, label %327
 
-382:                                              ; preds = %339
-  %383 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_optional_fusc, align 4
-  %384 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %385 = sub i32 %342, %384
-  %386 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %326, i32 noundef %383, ptr noundef %0, i32 noundef %385, i32 noundef 0) #3
-  %387 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %388 = call ptr @proto_item_add_subtree(ptr noundef %386, i32 noundef %387) #3
-  %389 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
-  %390 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %389, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %391 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
-  %392 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %391, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %393 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
-  %394 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %393, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  br label %413
+315:                                              ; preds = %309
+  %316 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_rep_deviation, align 4
+  %317 = add i32 %284, 1
+  %318 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %319 = add i32 %317, %318
+  %320 = call ptr @proto_tree_add_item(ptr noundef %313, i32 noundef %316, ptr noundef %0, i32 noundef %319, i32 noundef 1, i32 noundef 0) #3
+  br label %327
 
-395:                                              ; preds = %339
-  %396 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_amc_aas, align 4
-  %397 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %398 = sub i32 %342, %397
-  %399 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %326, i32 noundef %396, ptr noundef %0, i32 noundef %398, i32 noundef 0) #3
-  %400 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %401 = call ptr @proto_item_add_subtree(ptr noundef %399, i32 noundef %400) #3
-  %402 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
-  %403 = call ptr @proto_tree_add_item(ptr noundef %401, i32 noundef %402, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %404 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
-  %405 = call ptr @proto_tree_add_item(ptr noundef %401, i32 noundef %404, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  %406 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
-  %407 = call ptr @proto_tree_add_item(ptr noundef %401, i32 noundef %406, ptr noundef %0, i32 noundef %342, i32 noundef %330, i32 noundef 0) #3
-  br label %413
+321:                                              ; preds = %296
+  %322 = load i32, ptr @hf_rep_rsp_preamble_phy_cinr_rep_band_amc_zone, align 4
+  %323 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %283, i32 noundef %322, ptr noundef %0, i32 noundef %284, i32 noundef 0) #3
+  br label %327
 
-408:                                              ; preds = %339
-  %409 = load i32, ptr @hf_rep_unknown_type, align 4
-  %410 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %411 = sub i32 %342, %410
-  %412 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %326, i32 noundef %409, ptr noundef %0, i32 noundef %411, i32 noundef 0) #3
-  br label %413
+324:                                              ; preds = %296
+  %325 = load i32, ptr @hf_rep_unknown_type, align 4
+  %326 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %283, i32 noundef %325, ptr noundef %0, i32 noundef %284, i32 noundef 0) #3
+  br label %327
 
-413:                                              ; preds = %408, %395, %382, %369, %356, %343
-  %414 = add i32 %341, %330
-  %415 = icmp slt i32 %414, %15
-  br i1 %415, label %.lr.ph684, label %.loopexit, !llvm.loop !11
+327:                                              ; preds = %309, %315, %297, %303, %324, %321
+  %328 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %329 = add i32 %287, %.3683
+  %330 = add i32 %329, %328
+  %331 = icmp slt i32 %330, %15
+  br i1 %331, label %.lr.ph684, label %.loopexit, !llvm.loop !10
+
+.lr.ph682.preheader:                              ; preds = %24
+  %332 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_report, align 4
+  %333 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %332, ptr noundef %0, i32 noundef %.0691, i32 noundef 0) #3
+  %334 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %335 = call ptr @proto_item_add_subtree(ptr noundef %333, i32 noundef %334) #3
+  br label %.lr.ph682
+
+.lr.ph682:                                        ; preds = %.lr.ph682.preheader, %422
+  %.4681 = phi i32 [ %423, %422 ], [ 0, %.lr.ph682.preheader ]
+  %336 = add i32 %.4681, %26
+  %337 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %336) #3
+  %338 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
+  %339 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
+  %340 = icmp eq i32 %338, -1
+  %341 = add i32 %339, -64001
+  %342 = icmp ult i32 %341, -64000
+  %or.cond24 = select i1 %340, i1 true, i1 %342
+  br i1 %or.cond24, label %343, label %348
+
+343:                                              ; preds = %.lr.ph682
+  %344 = load ptr, ptr %11, align 8
+  call void @col_append_sep_str(ptr noundef %344, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.198) #3
+  %345 = load i32, ptr @hf_rep_invalid_tlv, align 4
+  %346 = sub i32 %15, %336
+  %347 = call ptr @proto_tree_add_item(ptr noundef %335, i32 noundef %345, ptr noundef %0, i32 noundef %26, i32 noundef %346, i32 noundef 0) #3
+  br label %.loopexit
+
+348:                                              ; preds = %.lr.ph682
+  %349 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %350 = add i32 %349, %.4681
+  %351 = add i32 %350, %26
+  switch i32 %338, label %417 [
+    i32 1, label %352
+    i32 2, label %365
+    i32 3, label %378
+    i32 4, label %391
+    i32 5, label %404
+  ]
+
+352:                                              ; preds = %348
+  %353 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_pusc_sc0, align 4
+  %354 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %355 = sub i32 %351, %354
+  %356 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %335, i32 noundef %353, ptr noundef %0, i32 noundef %355, i32 noundef 0) #3
+  %357 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %358 = call ptr @proto_item_add_subtree(ptr noundef %356, i32 noundef %357) #3
+  %359 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
+  %360 = call ptr @proto_tree_add_item(ptr noundef %358, i32 noundef %359, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %361 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
+  %362 = call ptr @proto_tree_add_item(ptr noundef %358, i32 noundef %361, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %363 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
+  %364 = call ptr @proto_tree_add_item(ptr noundef %358, i32 noundef %363, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  br label %422
+
+365:                                              ; preds = %348
+  %366 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_pusc_sc1, align 4
+  %367 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %368 = sub i32 %351, %367
+  %369 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %335, i32 noundef %366, ptr noundef %0, i32 noundef %368, i32 noundef 0) #3
+  %370 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %371 = call ptr @proto_item_add_subtree(ptr noundef %369, i32 noundef %370) #3
+  %372 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
+  %373 = call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %372, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %374 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
+  %375 = call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %374, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %376 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
+  %377 = call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %376, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  br label %422
+
+378:                                              ; preds = %348
+  %379 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_fusc, align 4
+  %380 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %381 = sub i32 %351, %380
+  %382 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %335, i32 noundef %379, ptr noundef %0, i32 noundef %381, i32 noundef 0) #3
+  %383 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %384 = call ptr @proto_item_add_subtree(ptr noundef %382, i32 noundef %383) #3
+  %385 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
+  %386 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %385, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %387 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
+  %388 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %387, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %389 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
+  %390 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %389, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  br label %422
+
+391:                                              ; preds = %348
+  %392 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_optional_fusc, align 4
+  %393 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %394 = sub i32 %351, %393
+  %395 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %335, i32 noundef %392, ptr noundef %0, i32 noundef %394, i32 noundef 0) #3
+  %396 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %397 = call ptr @proto_item_add_subtree(ptr noundef %395, i32 noundef %396) #3
+  %398 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
+  %399 = call ptr @proto_tree_add_item(ptr noundef %397, i32 noundef %398, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %400 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
+  %401 = call ptr @proto_tree_add_item(ptr noundef %397, i32 noundef %400, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %402 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
+  %403 = call ptr @proto_tree_add_item(ptr noundef %397, i32 noundef %402, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  br label %422
+
+404:                                              ; preds = %348
+  %405 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_amc_aas, align 4
+  %406 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %407 = sub i32 %351, %406
+  %408 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %335, i32 noundef %405, ptr noundef %0, i32 noundef %407, i32 noundef 0) #3
+  %409 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %410 = call ptr @proto_item_add_subtree(ptr noundef %408, i32 noundef %409) #3
+  %411 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
+  %412 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %411, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %413 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type, align 4
+  %414 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %413, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  %415 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_cqich_id, align 4
+  %416 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %415, ptr noundef %0, i32 noundef %351, i32 noundef %339, i32 noundef 0) #3
+  br label %422
+
+417:                                              ; preds = %348
+  %418 = load i32, ptr @hf_rep_unknown_type, align 4
+  %419 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %420 = sub i32 %351, %419
+  %421 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %335, i32 noundef %418, ptr noundef %0, i32 noundef %420, i32 noundef 0) #3
+  br label %422
+
+422:                                              ; preds = %417, %404, %391, %378, %365, %352
+  %423 = add i32 %350, %339
+  %424 = icmp slt i32 %423, %15
+  br i1 %424, label %.lr.ph682, label %.loopexit, !llvm.loop !11
 
 .lr.ph.preheader:                                 ; preds = %24
-  %416 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_report, align 4
-  %417 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %416, ptr noundef %0, i32 noundef %.0711, i32 noundef 0) #3
-  %418 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %419 = call ptr @proto_item_add_subtree(ptr noundef %417, i32 noundef %418) #3
-  %invariant.op = add i32 %26, 2
-  %invariant.op680 = add i32 %26, 1
+  %425 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_report, align 4
+  %426 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %425, ptr noundef %0, i32 noundef %.0691, i32 noundef 0) #3
+  %427 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %428 = call ptr @proto_item_add_subtree(ptr noundef %426, i32 noundef %427) #3
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %476
-  %.5682 = phi i32 [ %477, %476 ], [ 0, %.lr.ph.preheader ]
-  %420 = add i32 %.5682, %26
-  %421 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %420) #3
-  %422 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
-  %423 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
-  %424 = icmp eq i32 %422, -1
-  %425 = add i32 %423, -64001
-  %426 = icmp ult i32 %425, -64000
-  %or.cond28 = select i1 %424, i1 true, i1 %426
-  br i1 %or.cond28, label %427, label %432
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %487
+  %.5680 = phi i32 [ %488, %487 ], [ 0, %.lr.ph.preheader ]
+  %429 = add i32 %.5680, %26
+  %430 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %429) #3
+  %431 = call i32 @get_tlv_type(ptr noundef nonnull %5) #3
+  %432 = call i32 @get_tlv_length(ptr noundef nonnull %5) #3
+  %433 = icmp eq i32 %431, -1
+  %434 = add i32 %432, -64001
+  %435 = icmp ult i32 %434, -64000
+  %or.cond28 = select i1 %433, i1 true, i1 %435
+  br i1 %or.cond28, label %436, label %441
 
-427:                                              ; preds = %.lr.ph
-  %428 = load ptr, ptr %11, align 8
-  call void @col_append_sep_str(ptr noundef %428, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.199) #3
-  %429 = load i32, ptr @hf_rep_invalid_tlv, align 4
-  %430 = sub i32 %15, %420
-  %431 = call ptr @proto_tree_add_item(ptr noundef %419, i32 noundef %429, ptr noundef %0, i32 noundef %26, i32 noundef %430, i32 noundef 0) #3
+436:                                              ; preds = %.lr.ph
+  %437 = load ptr, ptr %11, align 8
+  call void @col_append_sep_str(ptr noundef %437, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.199) #3
+  %438 = load i32, ptr @hf_rep_invalid_tlv, align 4
+  %439 = sub i32 %15, %429
+  %440 = call ptr @proto_tree_add_item(ptr noundef %428, i32 noundef %438, ptr noundef %0, i32 noundef %26, i32 noundef %439, i32 noundef 0) #3
   br label %.loopexit
 
-432:                                              ; preds = %.lr.ph
-  %433 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %434 = add i32 %433, %.5682
-  %435 = add i32 %434, %26
-  switch i32 %422, label %471 [
-    i32 1, label %436
-    i32 2, label %447
-    i32 3, label %458
+441:                                              ; preds = %.lr.ph
+  %442 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %443 = add i32 %442, %.5680
+  %444 = add i32 %443, %26
+  switch i32 %431, label %482 [
+    i32 1, label %445
+    i32 2, label %456
+    i32 3, label %467
   ]
 
-436:                                              ; preds = %432
-  %437 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_rep_configuration_1, align 4
-  %438 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %439 = sub i32 %435, %438
-  %440 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %419, i32 noundef %437, ptr noundef %0, i32 noundef %439, i32 noundef 0) #3
-  %441 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %442 = call ptr @proto_item_add_subtree(ptr noundef %440, i32 noundef %441) #3
-  %443 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
-  %444 = call ptr @proto_tree_add_item(ptr noundef %442, i32 noundef %443, ptr noundef %0, i32 noundef %435, i32 noundef %423, i32 noundef 0) #3
-  %445 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_rep_cqich_id, align 4
-  %446 = call ptr @proto_tree_add_item(ptr noundef %442, i32 noundef %445, ptr noundef %0, i32 noundef %435, i32 noundef %423, i32 noundef 0) #3
-  br label %476
+445:                                              ; preds = %441
+  %446 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_rep_configuration_1, align 4
+  %447 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %448 = sub i32 %444, %447
+  %449 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %428, i32 noundef %446, ptr noundef %0, i32 noundef %448, i32 noundef 0) #3
+  %450 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %451 = call ptr @proto_item_add_subtree(ptr noundef %449, i32 noundef %450) #3
+  %452 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
+  %453 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %452, ptr noundef %0, i32 noundef %444, i32 noundef %432, i32 noundef 0) #3
+  %454 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_rep_cqich_id, align 4
+  %455 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %454, ptr noundef %0, i32 noundef %444, i32 noundef %432, i32 noundef 0) #3
+  br label %487
 
-447:                                              ; preds = %432
-  %448 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_rep_configuration_3, align 4
-  %449 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %450 = sub i32 %435, %449
-  %451 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %419, i32 noundef %448, ptr noundef %0, i32 noundef %450, i32 noundef 0) #3
-  %452 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %453 = call ptr @proto_item_add_subtree(ptr noundef %451, i32 noundef %452) #3
-  %454 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
-  %455 = call ptr @proto_tree_add_item(ptr noundef %453, i32 noundef %454, ptr noundef %0, i32 noundef %435, i32 noundef %423, i32 noundef 0) #3
-  %456 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_rep_cqich_id, align 4
-  %457 = call ptr @proto_tree_add_item(ptr noundef %453, i32 noundef %456, ptr noundef %0, i32 noundef %435, i32 noundef %423, i32 noundef 0) #3
-  br label %476
+456:                                              ; preds = %441
+  %457 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_rep_configuration_3, align 4
+  %458 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %459 = sub i32 %444, %458
+  %460 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %428, i32 noundef %457, ptr noundef %0, i32 noundef %459, i32 noundef 0) #3
+  %461 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %462 = call ptr @proto_item_add_subtree(ptr noundef %460, i32 noundef %461) #3
+  %463 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_rep_effective_cinr, align 4
+  %464 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %463, ptr noundef %0, i32 noundef %444, i32 noundef %432, i32 noundef 0) #3
+  %465 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_rep_cqich_id, align 4
+  %466 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %465, ptr noundef %0, i32 noundef %444, i32 noundef %432, i32 noundef 0) #3
+  br label %487
 
-458:                                              ; preds = %432
-  %459 = load i32, ptr @hf_rep_rsp_channel_selectivity_report, align 4
-  %460 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %461 = sub i32 %435, %460
-  %462 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %459, ptr noundef %0, i32 noundef %461, i32 noundef 0) #3
-  %463 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
-  %464 = call ptr @proto_item_add_subtree(ptr noundef %462, i32 noundef %463) #3
-  %465 = load i32, ptr @hf_rep_rsp_channel_selectivity_rep_frequency_a, align 4
-  %.reass = add i32 %434, %invariant.op
-  %466 = call ptr @proto_tree_add_item(ptr noundef %464, i32 noundef %465, ptr noundef %0, i32 noundef %.reass, i32 noundef 1, i32 noundef 0) #3
-  %467 = load i32, ptr @hf_rep_rsp_channel_selectivity_rep_frequency_b, align 4
-  %.reass681 = add i32 %434, %invariant.op680
-  %468 = call ptr @proto_tree_add_item(ptr noundef %464, i32 noundef %467, ptr noundef %0, i32 noundef %.reass681, i32 noundef 1, i32 noundef 0) #3
-  %469 = load i32, ptr @hf_rep_rsp_channel_selectivity_rep_frequency_c, align 4
-  %470 = call ptr @proto_tree_add_item(ptr noundef %464, i32 noundef %469, ptr noundef %0, i32 noundef %435, i32 noundef 1, i32 noundef 0) #3
-  br label %476
+467:                                              ; preds = %441
+  %468 = load i32, ptr @hf_rep_rsp_channel_selectivity_report, align 4
+  %469 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %470 = sub i32 %444, %469
+  %471 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %468, ptr noundef %0, i32 noundef %470, i32 noundef 0) #3
+  %472 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
+  %473 = call ptr @proto_item_add_subtree(ptr noundef %471, i32 noundef %472) #3
+  %474 = load i32, ptr @hf_rep_rsp_channel_selectivity_rep_frequency_a, align 4
+  %475 = add i32 %444, 2
+  %476 = call ptr @proto_tree_add_item(ptr noundef %473, i32 noundef %474, ptr noundef %0, i32 noundef %475, i32 noundef 1, i32 noundef 0) #3
+  %477 = load i32, ptr @hf_rep_rsp_channel_selectivity_rep_frequency_b, align 4
+  %478 = add i32 %444, 1
+  %479 = call ptr @proto_tree_add_item(ptr noundef %473, i32 noundef %477, ptr noundef %0, i32 noundef %478, i32 noundef 1, i32 noundef 0) #3
+  %480 = load i32, ptr @hf_rep_rsp_channel_selectivity_rep_frequency_c, align 4
+  %481 = call ptr @proto_tree_add_item(ptr noundef %473, i32 noundef %480, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef 0) #3
+  br label %487
 
-471:                                              ; preds = %432
-  %472 = load i32, ptr @hf_rep_unknown_type, align 4
-  %473 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
-  %474 = sub i32 %435, %473
-  %475 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %419, i32 noundef %472, ptr noundef %0, i32 noundef %474, i32 noundef 0) #3
-  br label %476
+482:                                              ; preds = %441
+  %483 = load i32, ptr @hf_rep_unknown_type, align 4
+  %484 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #3
+  %485 = sub i32 %444, %484
+  %486 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %428, i32 noundef %483, ptr noundef %0, i32 noundef %485, i32 noundef 0) #3
+  br label %487
 
-476:                                              ; preds = %471, %458, %447, %436
-  %477 = add i32 %434, %423
-  %478 = icmp slt i32 %477, %15
-  br i1 %478, label %.lr.ph, label %.loopexit, !llvm.loop !12
+487:                                              ; preds = %482, %467, %456, %445
+  %488 = add i32 %443, %432
+  %489 = icmp slt i32 %488, %15
+  br i1 %489, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
-479:                                              ; preds = %24
-  %480 = load i32, ptr @hf_rep_rsp_current_transmitted_power, align 4
-  %481 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %480, ptr noundef %0, i32 noundef %.0711, i32 noundef 0) #3
-  %482 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #3
-  %483 = uitofp i8 %482 to float
-  %484 = fadd float %483, -1.280000e+02
-  %485 = fmul float %484, 5.000000e-01
-  %486 = fpext float %485 to double
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %481, ptr noundef nonnull @.str.200, double noundef %486) #3
+490:                                              ; preds = %24
+  %491 = load i32, ptr @hf_rep_rsp_current_transmitted_power, align 4
+  %492 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %491, ptr noundef %0, i32 noundef %.0691, i32 noundef 0) #3
+  %493 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #3
+  %494 = uitofp i8 %493 to float
+  %495 = fadd float %494, -1.280000e+02
+  %496 = fmul float %495, 5.000000e-01
+  %497 = fpext float %496 to double
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %492, ptr noundef nonnull @.str.200, double noundef %497) #3
   br label %.loopexit
 
-487:                                              ; preds = %24
-  %488 = load i32, ptr @hf_rep_unknown_type, align 4
-  %489 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %488, ptr noundef %0, i32 noundef %.0711, i32 noundef 0) #3
+498:                                              ; preds = %24
+  %499 = load i32, ptr @hf_rep_unknown_type, align 4
+  %500 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %499, ptr noundef %0, i32 noundef %.0691, i32 noundef 0) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %476, %413, %318, %270, %138, %116, %427, %334, %284, %156, %130, %38, %487, %479
-  %490 = add i32 %26, %15
-  %491 = icmp ult i32 %490, %6
-  br i1 %491, label %12, label %.loopexit673, !llvm.loop !13
+.loopexit:                                        ; preds = %487, %422, %327, %277, %140, %118, %436, %343, %291, %158, %132, %38, %498, %490
+  %501 = add i32 %26, %15
+  %502 = icmp ult i32 %501, %6
+  br i1 %502, label %12, label %.loopexit673, !llvm.loop !13
 
 .loopexit673:                                     ; preds = %.loopexit, %4, %19
-  %492 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %492
+  %503 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %503
 }
 
 ; Function Attrs: nounwind uwtable

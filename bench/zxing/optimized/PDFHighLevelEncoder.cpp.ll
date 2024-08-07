@@ -261,7 +261,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   %101 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %97) #13
-  br label %347
+  br label %349
 
 102:                                              ; preds = %95, %73, %38, %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -270,7 +270,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 103:                                              ; preds = %98, %94, %84, %72, %62, %49, %38, %28, %17, %4
   %104 = landingpad { ptr, i32 }
           cleanup
-  br label %347
+  br label %349
 
 105:                                              ; preds = %102, %15
   %106 = load i64, ptr %13, align 8, !tbaa !3
@@ -300,7 +300,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 118:                                              ; preds = %155, %154, %116
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %347
+  br label %349
 
 120:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
@@ -360,7 +360,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 145:                                              ; preds = %144, %141, %134
   %146 = phi { ptr, i32 } [ %135, %134 ], [ %137, %141 ], [ %137, %144 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
-  br label %347
+  br label %349
 
 147:                                              ; preds = %105
   %148 = load ptr, ptr %12, align 8, !tbaa !12
@@ -383,10 +383,10 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   invoke fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0, i32 noundef %107, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
           to label %.loopexit unwind label %118
 
-156:                                              ; preds = %341, %110
-  %157 = phi i32 [ 0, %110 ], [ %344, %341 ]
-  %158 = phi i32 [ 0, %110 ], [ %343, %341 ]
-  %159 = phi i32 [ 0, %110 ], [ %345, %341 ]
+156:                                              ; preds = %343, %110
+  %157 = phi i32 [ 0, %110 ], [ %346, %343 ]
+  %158 = phi i32 [ 0, %110 ], [ %345, %343 ]
+  %159 = phi i32 [ 0, %110 ], [ %347, %343 ]
   %160 = load i64, ptr %13, align 8, !tbaa !3
   %161 = sext i32 %159 to i64
   %162 = icmp ugt i64 %160, %161
@@ -447,12 +447,12 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 197:                                              ; preds = %196, %194
   invoke fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %159, i32 noundef %188, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-          to label %341 unwind label %198
+          to label %343 unwind label %198
 
 198:                                              ; preds = %197, %196
   %199 = landingpad { ptr, i32 }
           cleanup
-  br label %347
+  br label %349
 
 200:                                              ; preds = %186, %163
   %201 = phi i32 [ 0, %163 ], [ %188, %186 ]
@@ -559,26 +559,25 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 259:                                              ; preds = %261, %258
   %260 = landingpad { ptr, i32 }
           cleanup
-  br label %347
+  br label %349
 
 261:                                              ; preds = %258, %256, %250
   %262 = phi i32 [ %158, %250 ], [ 0, %258 ], [ 0, %256 ]
   %263 = invoke fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %159, i32 noundef %246, i32 noundef %262, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-          to label %341 unwind label %259
+          to label %343 unwind label %259
 
 264:                                              ; preds = %243
   %265 = load ptr, ptr %1, align 8
   %266 = call i64 @llvm.umax.i64(i64 %160, i64 %161)
   br label %267
 
-267:                                              ; preds = %283, %264
-  %268 = phi i64 [ %161, %264 ], [ %invariant.op, %283 ]
+267:                                              ; preds = %284, %264
+  %268 = phi i64 [ %161, %264 ], [ %288, %284 ]
   %269 = icmp ult i64 %268, %160
-  br i1 %269, label %270, label %287
+  br i1 %269, label %270, label %289
 
 270:                                              ; preds = %267
   %271 = getelementptr i32, ptr %265, i64 %268
-  %invariant.op = add nuw i64 %268, 1
   br label %272
 
 272:                                              ; preds = %280, %270
@@ -589,160 +588,161 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   %277 = add i32 %275, -48
   %278 = icmp ult i32 %277, 10
   %279 = select i1 %276, i1 %278, i1 false
-  br i1 %279, label %280, label %283
+  br i1 %279, label %280, label %284
 
 280:                                              ; preds = %272
   %281 = add nuw nsw i64 %273, 1
-  %.reass = add nuw i64 %273, %invariant.op
-  %282 = icmp ult i64 %.reass, %160
-  br i1 %282, label %272, label %283
+  %282 = add i64 %281, %268
+  %283 = icmp ult i64 %282, %160
+  br i1 %283, label %272, label %284
 
-283:                                              ; preds = %280, %272
-  %284 = phi i64 [ %273, %272 ], [ %281, %280 ]
-  %285 = trunc i64 %284 to i32
-  %286 = icmp ult i32 %285, 13
-  br i1 %286, label %267, label %287, !llvm.loop !27
+284:                                              ; preds = %280, %272
+  %285 = phi i64 [ %273, %272 ], [ %281, %280 ]
+  %286 = trunc i64 %285 to i32
+  %287 = icmp ult i32 %286, 13
+  %288 = add i64 %268, 1
+  br i1 %287, label %267, label %289, !llvm.loop !27
 
-287:                                              ; preds = %283, %267
-  %288 = phi i64 [ %266, %267 ], [ %268, %283 ]
-  %289 = trunc i64 %288 to i32
-  %290 = sub i32 %289, %159
-  %291 = call i32 @llvm.umax.i32(i32 %290, i32 1)
+289:                                              ; preds = %284, %267
+  %290 = phi i64 [ %266, %267 ], [ %268, %284 ]
+  %291 = trunc i64 %290 to i32
+  %292 = sub i32 %291, %159
+  %293 = call i32 @llvm.umax.i32(i32 %292, i32 1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #13
-  %292 = sext i32 %291 to i64
-  invoke void @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %161, i64 noundef %292) #12
-          to label %293 unwind label %307
+  %294 = sext i32 %293 to i64
+  invoke void @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %161, i64 noundef %294) #12
+          to label %295 unwind label %309
 
-293:                                              ; preds = %287
+295:                                              ; preds = %289
   invoke void @_ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.3") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef zeroext %3) #12
-          to label %294 unwind label %309
+          to label %296 unwind label %311
 
-294:                                              ; preds = %293
-  %295 = load ptr, ptr %11, align 8, !tbaa !20
-  %296 = icmp eq ptr %295, %111
-  br i1 %296, label %297, label %300
+296:                                              ; preds = %295
+  %297 = load ptr, ptr %11, align 8, !tbaa !20
+  %298 = icmp eq ptr %297, %111
+  br i1 %298, label %299, label %302
 
-297:                                              ; preds = %294
-  %298 = load i64, ptr %112, align 8, !tbaa !3
-  %299 = icmp ult i64 %298, 4
-  call void @llvm.assume(i1 %299)
-  br label %301
+299:                                              ; preds = %296
+  %300 = load i64, ptr %112, align 8, !tbaa !3
+  %301 = icmp ult i64 %300, 4
+  call void @llvm.assume(i1 %301)
+  br label %303
 
-300:                                              ; preds = %294
-  call void @_ZdlPv(ptr noundef %295) #15
-  br label %301
+302:                                              ; preds = %296
+  call void @_ZdlPv(ptr noundef %297) #15
+  br label %303
 
-301:                                              ; preds = %300, %297
+303:                                              ; preds = %302, %299
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
-  %302 = load i64, ptr %113, align 8, !tbaa !16
-  %303 = icmp eq i64 %302, 1
-  %304 = icmp eq i32 %157, 0
-  %305 = and i1 %304, %303
-  br i1 %305, label %306, label %327
+  %304 = load i64, ptr %113, align 8, !tbaa !16
+  %305 = icmp eq i64 %304, 1
+  %306 = icmp eq i32 %157, 0
+  %307 = and i1 %306, %305
+  br i1 %307, label %308, label %329
 
-306:                                              ; preds = %301
+308:                                              ; preds = %303
   invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-          to label %329 unwind label %319
+          to label %331 unwind label %321
 
-307:                                              ; preds = %287
-  %308 = landingpad { ptr, i32 }
-          cleanup
-  br label %317
-
-309:                                              ; preds = %293
+309:                                              ; preds = %289
   %310 = landingpad { ptr, i32 }
           cleanup
-  %311 = load ptr, ptr %11, align 8, !tbaa !20
-  %312 = icmp eq ptr %311, %111
-  br i1 %312, label %313, label %316
+  br label %319
 
-313:                                              ; preds = %309
-  %314 = load i64, ptr %112, align 8, !tbaa !3
-  %315 = icmp ult i64 %314, 4
-  call void @llvm.assume(i1 %315)
-  br label %317
-
-316:                                              ; preds = %309
-  call void @_ZdlPv(ptr noundef %311) #15
-  br label %317
-
-317:                                              ; preds = %316, %313, %307
-  %318 = phi { ptr, i32 } [ %308, %307 ], [ %310, %313 ], [ %310, %316 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
-  br label %339
-
-319:                                              ; preds = %327, %306
-  %320 = landingpad { ptr, i32 }
+311:                                              ; preds = %295
+  %312 = landingpad { ptr, i32 }
           cleanup
-  %321 = load ptr, ptr %10, align 8, !tbaa !19
-  %322 = icmp eq ptr %321, %114
-  br i1 %322, label %323, label %326
+  %313 = load ptr, ptr %11, align 8, !tbaa !20
+  %314 = icmp eq ptr %313, %111
+  br i1 %314, label %315, label %318
 
-323:                                              ; preds = %319
-  %324 = load i64, ptr %113, align 8, !tbaa !16
-  %325 = icmp ult i64 %324, 16
-  call void @llvm.assume(i1 %325)
-  br label %339
+315:                                              ; preds = %311
+  %316 = load i64, ptr %112, align 8, !tbaa !3
+  %317 = icmp ult i64 %316, 4
+  call void @llvm.assume(i1 %317)
+  br label %319
 
-326:                                              ; preds = %319
-  call void @_ZdlPv(ptr noundef %321) #15
-  br label %339
+318:                                              ; preds = %311
+  call void @_ZdlPv(ptr noundef %313) #15
+  br label %319
 
-327:                                              ; preds = %301
-  %328 = trunc i64 %302 to i32
-  invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %328, i32 noundef %157, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-          to label %329 unwind label %319
-
-329:                                              ; preds = %327, %306
-  %330 = phi i32 [ %158, %306 ], [ 0, %327 ]
-  %331 = phi i32 [ 0, %306 ], [ 1, %327 ]
-  %332 = load ptr, ptr %10, align 8, !tbaa !19
-  %333 = icmp eq ptr %332, %114
-  br i1 %333, label %334, label %337
-
-334:                                              ; preds = %329
-  %335 = load i64, ptr %113, align 8, !tbaa !16
-  %336 = icmp ult i64 %335, 16
-  call void @llvm.assume(i1 %336)
-  br label %338
-
-337:                                              ; preds = %329
-  call void @_ZdlPv(ptr noundef %332) #15
-  br label %338
-
-338:                                              ; preds = %337, %334
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+319:                                              ; preds = %318, %315, %309
+  %320 = phi { ptr, i32 } [ %310, %309 ], [ %312, %315 ], [ %312, %318 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
   br label %341
 
-339:                                              ; preds = %326, %323, %317
-  %340 = phi { ptr, i32 } [ %318, %317 ], [ %320, %323 ], [ %320, %326 ]
+321:                                              ; preds = %329, %308
+  %322 = landingpad { ptr, i32 }
+          cleanup
+  %323 = load ptr, ptr %10, align 8, !tbaa !19
+  %324 = icmp eq ptr %323, %114
+  br i1 %324, label %325, label %328
+
+325:                                              ; preds = %321
+  %326 = load i64, ptr %113, align 8, !tbaa !16
+  %327 = icmp ult i64 %326, 16
+  call void @llvm.assume(i1 %327)
+  br label %341
+
+328:                                              ; preds = %321
+  call void @_ZdlPv(ptr noundef %323) #15
+  br label %341
+
+329:                                              ; preds = %303
+  %330 = trunc i64 %304 to i32
+  invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %330, i32 noundef %157, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+          to label %331 unwind label %321
+
+331:                                              ; preds = %329, %308
+  %332 = phi i32 [ %158, %308 ], [ 0, %329 ]
+  %333 = phi i32 [ 0, %308 ], [ 1, %329 ]
+  %334 = load ptr, ptr %10, align 8, !tbaa !19
+  %335 = icmp eq ptr %334, %114
+  br i1 %335, label %336, label %339
+
+336:                                              ; preds = %331
+  %337 = load i64, ptr %113, align 8, !tbaa !16
+  %338 = icmp ult i64 %337, 16
+  call void @llvm.assume(i1 %338)
+  br label %340
+
+339:                                              ; preds = %331
+  call void @_ZdlPv(ptr noundef %334) #15
+  br label %340
+
+340:                                              ; preds = %339, %336
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
-  br label %347
+  br label %343
 
-341:                                              ; preds = %338, %261, %197
-  %342 = phi i32 [ %188, %197 ], [ %291, %338 ], [ %246, %261 ]
-  %343 = phi i32 [ 0, %197 ], [ %330, %338 ], [ %263, %261 ]
-  %344 = phi i32 [ 2, %197 ], [ %331, %338 ], [ 0, %261 ]
-  %345 = add nsw i32 %342, %159
-  %346 = icmp slt i32 %345, %107
-  br i1 %346, label %156, label %.loopexit, !llvm.loop !28
+341:                                              ; preds = %328, %325, %319
+  %342 = phi { ptr, i32 } [ %320, %319 ], [ %322, %325 ], [ %322, %328 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  br label %349
 
-.loopexit:                                        ; preds = %341, %155, %133, %116, %108
+343:                                              ; preds = %340, %261, %197
+  %344 = phi i32 [ %188, %197 ], [ %293, %340 ], [ %246, %261 ]
+  %345 = phi i32 [ 0, %197 ], [ %332, %340 ], [ %263, %261 ]
+  %346 = phi i32 [ 2, %197 ], [ %333, %340 ], [ 0, %261 ]
+  %347 = add nsw i32 %344, %159
+  %348 = icmp slt i32 %347, %107
+  br i1 %348, label %156, label %.loopexit, !llvm.loop !28
+
+.loopexit:                                        ; preds = %343, %155, %133, %116, %108
   ret void
 
-347:                                              ; preds = %339, %259, %198, %145, %118, %103, %100
-  %348 = phi { ptr, i32 } [ %119, %118 ], [ %146, %145 ], [ %199, %198 ], [ %260, %259 ], [ %340, %339 ], [ %104, %103 ], [ %101, %100 ]
-  %349 = load ptr, ptr %0, align 8, !tbaa !29
-  %350 = icmp eq ptr %349, null
-  br i1 %350, label %352, label %351
+349:                                              ; preds = %341, %259, %198, %145, %118, %103, %100
+  %350 = phi { ptr, i32 } [ %119, %118 ], [ %146, %145 ], [ %199, %198 ], [ %260, %259 ], [ %342, %341 ], [ %104, %103 ], [ %101, %100 ]
+  %351 = load ptr, ptr %0, align 8, !tbaa !29
+  %352 = icmp eq ptr %351, null
+  br i1 %352, label %354, label %353
 
-351:                                              ; preds = %347
-  call void @_ZdlPv(ptr noundef nonnull %349) #15
-  br label %352
+353:                                              ; preds = %349
+  call void @_ZdlPv(ptr noundef nonnull %351) #15
+  br label %354
 
-352:                                              ; preds = %351, %347
-  resume { ptr, i32 } %348
+354:                                              ; preds = %353, %349
+  resume { ptr, i32 } %350
 }
 
 ; Function Attrs: mustprogress optsize uwtable

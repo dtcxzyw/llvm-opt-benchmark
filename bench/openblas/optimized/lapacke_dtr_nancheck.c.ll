@@ -51,7 +51,7 @@ define noundef range(i32 0, 2) i32 @LAPACKE_dtr_nancheck(i32 noundef %0, i8 noun
   %34 = sext i32 %5 to i64
   %35 = zext nneg i32 %28 to i64
   %36 = sub nsw i64 %33, %32
-  br label %65
+  br label %67
 
 37:                                               ; preds = %24
   %38 = icmp slt i32 %25, %3
@@ -59,78 +59,77 @@ define noundef range(i32 0, 2) i32 @LAPACKE_dtr_nancheck(i32 noundef %0, i8 noun
 
 39:                                               ; preds = %37
   %40 = zext i1 %20 to i64
-  %41 = sext i32 %5 to i64
-  %42 = zext nneg i32 %3 to i64
-  %not. = xor i1 %20, true
-  %invariant.op = zext i1 %not. to i64
-  br label %45
+  %41 = sext i1 %20 to i64
+  %42 = sext i32 %5 to i64
+  %43 = zext nneg i32 %3 to i64
+  br label %46
 
-.loopexit8:                                       ; preds = %57, %45
-  %43 = add nuw i32 %47, 1
-  %44 = icmp eq i64 %48, %42
-  br i1 %44, label %.loopexit, label %45, !llvm.loop !3
+.loopexit8:                                       ; preds = %59, %46
+  %44 = add nuw i32 %48, 1
+  %45 = icmp eq i64 %49, %43
+  br i1 %45, label %.loopexit, label %46, !llvm.loop !3
 
-45:                                               ; preds = %.loopexit8, %39
-  %46 = phi i64 [ %40, %39 ], [ %48, %.loopexit8 ]
-  %47 = phi i32 [ 1, %39 ], [ %43, %.loopexit8 ]
-  %48 = add nuw nsw i64 %46, 1
-  %.reass = add nuw i64 %46, %invariant.op
-  %49 = trunc i64 %.reass to i32
-  %50 = tail call i32 @llvm.smin.i32(i32 %49, i32 %5)
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %.loopexit8
+46:                                               ; preds = %.loopexit8, %39
+  %47 = phi i64 [ %40, %39 ], [ %49, %.loopexit8 ]
+  %48 = phi i32 [ 1, %39 ], [ %44, %.loopexit8 ]
+  %49 = add nuw nsw i64 %47, 1
+  %50 = add i64 %49, %41
+  %51 = trunc i64 %50 to i32
+  %52 = tail call i32 @llvm.smin.i32(i32 %51, i32 %5)
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %54, label %.loopexit8
 
-52:                                               ; preds = %45
-  %53 = tail call i32 @llvm.smin.i32(i32 %5, i32 %47)
-  %54 = mul nsw i64 %46, %41
-  %55 = zext i32 %53 to i64
-  %56 = getelementptr double, ptr %4, i64 %54
-  br label %60
+54:                                               ; preds = %46
+  %55 = tail call i32 @llvm.smin.i32(i32 %5, i32 %48)
+  %56 = mul nsw i64 %47, %42
+  %57 = zext i32 %55 to i64
+  %58 = getelementptr double, ptr %4, i64 %56
+  br label %62
 
-57:                                               ; preds = %60
-  %58 = add nuw nsw i64 %61, 1
-  %59 = icmp eq i64 %58, %55
-  br i1 %59, label %.loopexit8, label %60, !llvm.loop !6
+59:                                               ; preds = %62
+  %60 = add nuw nsw i64 %63, 1
+  %61 = icmp eq i64 %60, %57
+  br i1 %61, label %.loopexit8, label %62, !llvm.loop !6
 
-60:                                               ; preds = %57, %52
-  %61 = phi i64 [ 0, %52 ], [ %58, %57 ]
-  %62 = getelementptr double, ptr %56, i64 %61
-  %63 = load double, ptr %62, align 8, !tbaa !7
-  %64 = fcmp uno double %63, 0.000000e+00
-  br i1 %64, label %.loopexit, label %57
+62:                                               ; preds = %59, %54
+  %63 = phi i64 [ 0, %54 ], [ %60, %59 ]
+  %64 = getelementptr double, ptr %58, i64 %63
+  %65 = load double, ptr %64, align 8, !tbaa !7
+  %66 = fcmp uno double %65, 0.000000e+00
+  br i1 %66, label %.loopexit, label %59
 
-65:                                               ; preds = %.loopexit11, %30
-  %66 = phi i64 [ 0, %30 ], [ %80, %.loopexit11 ]
-  %67 = phi i64 [ %32, %30 ], [ %81, %.loopexit11 ]
-  %68 = icmp slt i64 %66, %36
-  br i1 %68, label %69, label %.loopexit11
+67:                                               ; preds = %.loopexit11, %30
+  %68 = phi i64 [ 0, %30 ], [ %82, %.loopexit11 ]
+  %69 = phi i64 [ %32, %30 ], [ %83, %.loopexit11 ]
+  %70 = icmp slt i64 %68, %36
+  br i1 %70, label %71, label %.loopexit11
 
-69:                                               ; preds = %65
-  %70 = mul nsw i64 %66, %34
-  %71 = getelementptr double, ptr %4, i64 %70
-  br label %75
+71:                                               ; preds = %67
+  %72 = mul nsw i64 %68, %34
+  %73 = getelementptr double, ptr %4, i64 %72
+  br label %77
 
-72:                                               ; preds = %75
-  %73 = add nuw nsw i64 %76, 1
-  %74 = icmp slt i64 %73, %33
-  br i1 %74, label %75, label %.loopexit11, !llvm.loop !11
+74:                                               ; preds = %77
+  %75 = add nuw nsw i64 %78, 1
+  %76 = icmp slt i64 %75, %33
+  br i1 %76, label %77, label %.loopexit11, !llvm.loop !11
 
-75:                                               ; preds = %72, %69
-  %76 = phi i64 [ %67, %69 ], [ %73, %72 ]
-  %77 = getelementptr double, ptr %71, i64 %76
-  %78 = load double, ptr %77, align 8, !tbaa !7
-  %79 = fcmp uno double %78, 0.000000e+00
-  br i1 %79, label %.loopexit, label %72
+77:                                               ; preds = %74, %71
+  %78 = phi i64 [ %69, %71 ], [ %75, %74 ]
+  %79 = getelementptr double, ptr %73, i64 %78
+  %80 = load double, ptr %79, align 8, !tbaa !7
+  %81 = fcmp uno double %80, 0.000000e+00
+  br i1 %81, label %.loopexit, label %74
 
-.loopexit11:                                      ; preds = %72, %65
-  %80 = add nuw nsw i64 %66, 1
-  %81 = add nuw nsw i64 %67, 1
-  %82 = icmp eq i64 %80, %35
-  br i1 %82, label %.loopexit, label %65, !llvm.loop !12
+.loopexit11:                                      ; preds = %74, %67
+  %82 = add nuw nsw i64 %68, 1
+  %83 = add nuw nsw i64 %69, 1
+  %84 = icmp eq i64 %82, %35
+  br i1 %84, label %.loopexit, label %67, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.loopexit11, %75, %.loopexit8, %60, %37, %27, %21, %16, %8, %6
-  %83 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %21 ], [ 0, %16 ], [ 0, %37 ], [ 0, %27 ], [ 1, %60 ], [ 0, %.loopexit8 ], [ 1, %75 ], [ 0, %.loopexit11 ]
-  ret i32 %83
+.loopexit:                                        ; preds = %.loopexit11, %77, %.loopexit8, %62, %37, %27, %21, %16, %8, %6
+  %85 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %21 ], [ 0, %16 ], [ 0, %37 ], [ 0, %27 ], [ 1, %62 ], [ 0, %.loopexit8 ], [ 1, %77 ], [ 0, %.loopexit11 ]
+  ret i32 %85
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

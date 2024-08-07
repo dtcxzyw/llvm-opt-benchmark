@@ -5366,9 +5366,10 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_hdr_core(ptr nocapture no
   %39 = zext nneg i32 %36 to i64
   %40 = sext i32 %3 to i64
   %invariant.gep.i = getelementptr inbounds i8, ptr %21, i64 %37
-  %invariant.gep198.i = getelementptr inbounds i8, ptr %21, i64 %38
-  %invariant.gep200.i = getelementptr inbounds i8, ptr %21, i64 %39
+  %invariant.gep195.i = getelementptr inbounds i8, ptr %21, i64 %38
+  %invariant.gep197.i = getelementptr inbounds i8, ptr %21, i64 %39
   %41 = zext nneg i32 %3 to i64
+  %invariant.op.i = add nsw i64 %37, -3
   %42 = getelementptr inbounds i8, ptr %12, i64 1
   %43 = getelementptr inbounds i8, ptr %12, i64 3
   %44 = getelementptr inbounds i8, ptr %12, i64 2
@@ -5392,8 +5393,8 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_hdr_core(ptr nocapture no
   br label %52
 
 52:                                               ; preds = %stbiw__linear_to_rgbe.exit.i.us.us.us, %.preheader.i.us.us
-  %indvars.iv189.i.us.us.us = phi i64 [ 0, %.preheader.i.us.us ], [ %indvars.iv.next190.i.us.us.us, %stbiw__linear_to_rgbe.exit.i.us.us.us ]
-  %53 = mul nuw nsw i64 %indvars.iv189.i.us.us.us, %40
+  %indvars.iv187.i.us.us.us = phi i64 [ 0, %.preheader.i.us.us ], [ %indvars.iv.next188.i.us.us.us, %stbiw__linear_to_rgbe.exit.i.us.us.us ]
+  %53 = mul nuw nsw i64 %indvars.iv187.i.us.us.us, %40
   %54 = getelementptr float, ptr %51, i64 %53
   %55 = getelementptr i8, ptr %54, i64 8
   %56 = load float, ptr %55, align 4
@@ -5438,9 +5439,9 @@ stbiw__linear_to_rgbe.exit.i.us.us.us:            ; preds = %52, %64
   %79 = load ptr, ptr %0, align 8
   %80 = load ptr, ptr %23, align 8
   call void %79(ptr noundef %80, ptr noundef nonnull %12, i32 noundef 4) #50
-  %indvars.iv.next190.i.us.us.us = add nuw nsw i64 %indvars.iv189.i.us.us.us, 1
-  %exitcond194.not.i.us.us.us = icmp eq i64 %indvars.iv.next190.i.us.us.us, %37
-  br i1 %exitcond194.not.i.us.us.us, label %stbiw__write_hdr_scanline.exit.loopexit.us.split.us.us, label %52
+  %indvars.iv.next188.i.us.us.us = add nuw nsw i64 %indvars.iv187.i.us.us.us, 1
+  %exitcond191.not.i.us.us.us = icmp eq i64 %indvars.iv.next188.i.us.us.us, %37
+  br i1 %exitcond191.not.i.us.us.us, label %stbiw__write_hdr_scanline.exit.loopexit.us.split.us.us, label %52
 
 stbiw__write_hdr_scanline.exit.loopexit.us.split.us.us: ; preds = %stbiw__linear_to_rgbe.exit.i.us.us.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
@@ -5464,8 +5465,8 @@ stbiw__write_hdr_scanline.exit.loopexit.us.split.us.us: ; preds = %stbiw__linear
   br label %89
 
 89:                                               ; preds = %stbiw__linear_to_rgbe.exit.i.us, %.preheader.i.us
-  %indvars.iv189.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next190.i.us, %stbiw__linear_to_rgbe.exit.i.us ]
-  %90 = mul nsw i64 %indvars.iv189.i.us, %40
+  %indvars.iv187.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next188.i.us, %stbiw__linear_to_rgbe.exit.i.us ]
+  %90 = mul nsw i64 %indvars.iv187.i.us, %40
   %91 = getelementptr float, ptr %88, i64 %90
   %92 = load float, ptr %91, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -5496,9 +5497,9 @@ stbiw__linear_to_rgbe.exit.i.us:                  ; preds = %89, %94
   %105 = load ptr, ptr %0, align 8
   %106 = load ptr, ptr %23, align 8
   call void %105(ptr noundef %106, ptr noundef nonnull %12, i32 noundef 4) #50
-  %indvars.iv.next190.i.us = add nuw nsw i64 %indvars.iv189.i.us, 1
-  %exitcond194.not.i.us = icmp eq i64 %indvars.iv.next190.i.us, %37
-  br i1 %exitcond194.not.i.us, label %stbiw__write_hdr_scanline.exit.loopexit.us.split, label %89
+  %indvars.iv.next188.i.us = add nuw nsw i64 %indvars.iv187.i.us, 1
+  %exitcond191.not.i.us = icmp eq i64 %indvars.iv.next188.i.us, %37
+  br i1 %exitcond191.not.i.us, label %stbiw__write_hdr_scanline.exit.loopexit.us.split, label %89
 
 stbiw__write_hdr_scanline.exit.loopexit.us.split: ; preds = %stbiw__linear_to_rgbe.exit.i.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
@@ -5566,12 +5567,12 @@ stbiw__linear_to_rgbe.exit119.us.i:               ; preds = %126, %.lr.ph.split.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %143 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv168.i
   store i8 %142, ptr %143, align 1
-  %gep203.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv168.i
-  store i8 %141, ptr %gep203.i, align 1
-  %gep205.i = getelementptr inbounds i8, ptr %invariant.gep198.i, i64 %indvars.iv168.i
-  store i8 %.sink.i118.us.i, ptr %gep205.i, align 1
-  %gep207.i = getelementptr inbounds i8, ptr %invariant.gep200.i, i64 %indvars.iv168.i
-  store i8 %.sink32.i117.us.i, ptr %gep207.i, align 1
+  %gep200.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv168.i
+  store i8 %141, ptr %gep200.i, align 1
+  %gep202.i = getelementptr inbounds i8, ptr %invariant.gep195.i, i64 %indvars.iv168.i
+  store i8 %.sink.i118.us.i, ptr %gep202.i, align 1
+  %gep204.i = getelementptr inbounds i8, ptr %invariant.gep197.i, i64 %indvars.iv168.i
+  store i8 %.sink32.i117.us.i, ptr %gep204.i, align 1
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
   %exitcond172.not.i = icmp eq i64 %indvars.iv.next169.i, %37
   br i1 %exitcond172.not.i, label %.preheader129.lr.ph.us.preheader.i, label %.lr.ph.split.us.i
@@ -5606,10 +5607,10 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %148, %.lr.ph.split.
   store i8 %159, ptr %160, align 1
   %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   store i8 %159, ptr %gep.i, align 1
-  %gep199.i = getelementptr inbounds i8, ptr %invariant.gep198.i, i64 %indvars.iv.i
-  store i8 %159, ptr %gep199.i, align 1
-  %gep201.i = getelementptr inbounds i8, ptr %invariant.gep200.i, i64 %indvars.iv.i
-  store i8 %.sink32.i117.i, ptr %gep201.i, align 1
+  %gep196.i = getelementptr inbounds i8, ptr %invariant.gep195.i, i64 %indvars.iv.i
+  store i8 %159, ptr %gep196.i, align 1
+  %gep198.i = getelementptr inbounds i8, ptr %invariant.gep197.i, i64 %indvars.iv.i
+  store i8 %.sink32.i117.i, ptr %gep198.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %37
   br i1 %exitcond.not.i, label %.preheader129.lr.ph.us.preheader.i, label %.lr.ph.split.i
@@ -5621,8 +5622,8 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %148, %.lr.ph.split.
   br label %.preheader129.lr.ph.us.i
 
 .preheader129.lr.ph.us.i:                         ; preds = %._crit_edge154.us.i, %.preheader129.lr.ph.us.preheader.i
-  %indvars.iv184.i = phi i64 [ 0, %.preheader129.lr.ph.us.preheader.i ], [ %indvars.iv.next185.i, %._crit_edge154.us.i ]
-  %163 = mul nuw nsw i64 %indvars.iv184.i, %37
+  %indvars.iv183.i = phi i64 [ 0, %.preheader129.lr.ph.us.preheader.i ], [ %indvars.iv.next184.i, %._crit_edge154.us.i ]
+  %163 = mul nuw nsw i64 %indvars.iv183.i, %37
   %164 = getelementptr inbounds i8, ptr %21, i64 %163
   br label %.preheader129.us.i
 
@@ -5643,9 +5644,8 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %148, %.lr.ph.split.
   br i1 %172, label %._crit_edge140.us.loopexit.split.loop.exit.i, label %173
 
 173:                                              ; preds = %169, %.lr.ph139.us.i
+  %174 = icmp slt i64 %indvars.iv175.i, %invariant.op.i
   %indvars.iv.next174.i = add nsw i64 %indvars.iv173.i, 1
-  %indvars.i = trunc i64 %indvars.iv.next174.i to i32
-  %174 = icmp slt i32 %indvars.i, %1
   br i1 %174, label %.lr.ph139.us.i, label %._crit_edge140.us.i
 
 ._crit_edge140.us.loopexit.split.loop.exit.i:     ; preds = %169
@@ -5668,14 +5668,14 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %148, %.lr.ph.split.
   %180 = getelementptr inbounds i8, ptr %164, i64 %indvars.iv180.i
   %181 = load i8, ptr %180, align 1
   %182 = icmp eq i8 %181, %212
-  br i1 %182, label %198, label %.critedge.us.split.loop.exit210.i
+  br i1 %182, label %198, label %.critedge.us.split.loop.exit207.i
 
-.critedge.us.split.loop.exit210.i:                ; preds = %179
+.critedge.us.split.loop.exit207.i:                ; preds = %179
   %183 = trunc nsw i64 %indvars.iv180.i to i32
   br label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %198, %.critedge.us.split.loop.exit210.i
-  %.2109.lcssa.us.i = phi i32 [ %183, %.critedge.us.split.loop.exit210.i ], [ %smax.i, %198 ]
+.critedge.us.i:                                   ; preds = %198, %.critedge.us.split.loop.exit207.i
+  %.2109.lcssa.us.i = phi i32 [ %183, %.critedge.us.split.loop.exit207.i ], [ %smax.i, %198 ]
   %184 = icmp slt i32 %.3.lcssa.us.i, %.2109.lcssa.us.i
   br i1 %184, label %.lr.ph151.us.i, label %.loopexit127.us.i
 
@@ -5757,9 +5757,9 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %148, %.lr.ph.split.
   br label %.lr.ph139.us.i
 
 ._crit_edge154.us.i:                              ; preds = %.loopexit127.us.i
-  %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
-  %exitcond188.not.i = icmp eq i64 %indvars.iv.next185.i, 4
-  br i1 %exitcond188.not.i, label %stbiw__write_hdr_scanline.exit.loopexit32, label %.preheader129.lr.ph.us.i
+  %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
+  %exitcond186.not.i = icmp eq i64 %indvars.iv.next184.i, 4
+  br i1 %exitcond186.not.i, label %stbiw__write_hdr_scanline.exit.loopexit32, label %.preheader129.lr.ph.us.i
 
 stbiw__write_hdr_scanline.exit.loopexit32:        ; preds = %._crit_edge154.us.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)

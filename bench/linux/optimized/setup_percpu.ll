@@ -84,11 +84,10 @@ define dso_local void @setup_per_cpu_areas() local_unnamed_addr #0 section ".ini
   %19 = load ptr, ptr @pcpu_base_addr, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = sub i64 %20, ptrtoint (ptr @__per_cpu_start to i64)
-  %invariant.op = add i64 %21, ptrtoint (ptr @this_cpu_off to i64)
   br label %22
 
-22:                                               ; preds = %.thread7, %74
-  %23 = phi i64 [ 0, %.thread7 ], [ %76, %74 ]
+22:                                               ; preds = %.thread7, %75
+  %23 = phi i64 [ 0, %.thread7 ], [ %77, %75 ]
   %24 = load i64, ptr @__cpu_possible_mask, align 8
   %25 = shl nsw i64 -1, %23
   %26 = and i64 %24, %25
@@ -109,67 +108,67 @@ define dso_local void @setup_per_cpu_areas() local_unnamed_addr #0 section ".ini
   %37 = add i64 %36, %21
   %38 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %34
   store i64 %37, ptr %38, align 8
-  %.reass = add i64 %36, %invariant.op
-  %39 = inttoptr i64 %.reass to ptr
-  store i64 %37, ptr %39, align 8
-  %40 = load i64, ptr %38, align 8
-  %41 = add i64 %40, ptrtoint (ptr getelementptr inbounds (i8, ptr @pcpu_hot, i64 12) to i64)
-  %42 = inttoptr i64 %41 to ptr
-  store i32 %30, ptr %42, align 4
-  %43 = getelementptr [0 x i32], ptr @x86_cpu_to_apicid_early_map, i64 0, i64 %34
-  %44 = load i32, ptr %43, align 4
-  %45 = load i64, ptr %38, align 8
-  %46 = add i64 %45, ptrtoint (ptr @x86_cpu_to_apicid to i64)
-  %47 = inttoptr i64 %46 to ptr
-  store i32 %44, ptr %47, align 4
-  %48 = getelementptr [0 x i32], ptr @x86_cpu_to_acpiid_early_map, i64 0, i64 %34
-  %49 = load i32, ptr %48, align 4
-  %50 = load i64, ptr %38, align 8
-  %51 = add i64 %50, ptrtoint (ptr @x86_cpu_to_acpiid to i64)
-  %52 = inttoptr i64 %51 to ptr
-  store i32 %49, ptr %52, align 4
-  %53 = getelementptr [0 x i32], ptr @x86_cpu_to_node_map_early_map, i64 0, i64 %34
-  %54 = load i32, ptr %53, align 4
-  %55 = load i64, ptr %38, align 8
-  %56 = add i64 %55, ptrtoint (ptr @x86_cpu_to_node_map to i64)
-  %57 = inttoptr i64 %56 to ptr
-  store i32 %54, ptr %57, align 4
-  %58 = load ptr, ptr @x86_cpu_to_node_map_early_ptr, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %62, label %60
+  %39 = add i64 %37, ptrtoint (ptr @this_cpu_off to i64)
+  %40 = inttoptr i64 %39 to ptr
+  store i64 %37, ptr %40, align 8
+  %41 = load i64, ptr %38, align 8
+  %42 = add i64 %41, ptrtoint (ptr getelementptr inbounds (i8, ptr @pcpu_hot, i64 12) to i64)
+  %43 = inttoptr i64 %42 to ptr
+  store i32 %30, ptr %43, align 4
+  %44 = getelementptr [0 x i32], ptr @x86_cpu_to_apicid_early_map, i64 0, i64 %34
+  %45 = load i32, ptr %44, align 4
+  %46 = load i64, ptr %38, align 8
+  %47 = add i64 %46, ptrtoint (ptr @x86_cpu_to_apicid to i64)
+  %48 = inttoptr i64 %47 to ptr
+  store i32 %45, ptr %48, align 4
+  %49 = getelementptr [0 x i32], ptr @x86_cpu_to_acpiid_early_map, i64 0, i64 %34
+  %50 = load i32, ptr %49, align 4
+  %51 = load i64, ptr %38, align 8
+  %52 = add i64 %51, ptrtoint (ptr @x86_cpu_to_acpiid to i64)
+  %53 = inttoptr i64 %52 to ptr
+  store i32 %50, ptr %53, align 4
+  %54 = getelementptr [0 x i32], ptr @x86_cpu_to_node_map_early_map, i64 0, i64 %34
+  %55 = load i32, ptr %54, align 4
+  %56 = load i64, ptr %38, align 8
+  %57 = add i64 %56, ptrtoint (ptr @x86_cpu_to_node_map to i64)
+  %58 = inttoptr i64 %57 to ptr
+  store i32 %55, ptr %58, align 4
+  %59 = load ptr, ptr @x86_cpu_to_node_map_early_ptr, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %63, label %61
 
-60:                                               ; preds = %32
-  %61 = getelementptr i32, ptr %58, i64 %34
+61:                                               ; preds = %32
+  %62 = getelementptr i32, ptr %59, i64 %34
   %.pre = load i64, ptr %38, align 8
-  br label %66
+  br label %67
 
-62:                                               ; preds = %32
-  %63 = load i64, ptr %38, align 8
-  %64 = add i64 %63, ptrtoint (ptr @x86_cpu_to_node_map to i64)
-  %65 = inttoptr i64 %64 to ptr
-  br label %66
+63:                                               ; preds = %32
+  %64 = load i64, ptr %38, align 8
+  %65 = add i64 %64, ptrtoint (ptr @x86_cpu_to_node_map to i64)
+  %66 = inttoptr i64 %65 to ptr
+  br label %67
 
-66:                                               ; preds = %62, %60
-  %67 = phi i64 [ %.pre, %60 ], [ %63, %62 ]
-  %68 = phi ptr [ %61, %60 ], [ %65, %62 ]
-  %69 = load i32, ptr %68, align 4
-  %70 = add i64 %67, ptrtoint (ptr @numa_node to i64)
-  %71 = inttoptr i64 %70 to ptr
-  store i32 %69, ptr %71, align 4
-  %72 = icmp eq i32 %30, 0
-  br i1 %72, label %73, label %74
+67:                                               ; preds = %63, %61
+  %68 = phi i64 [ %.pre, %61 ], [ %64, %63 ]
+  %69 = phi ptr [ %62, %61 ], [ %66, %63 ]
+  %70 = load i32, ptr %69, align 4
+  %71 = add i64 %68, ptrtoint (ptr @numa_node to i64)
+  %72 = inttoptr i64 %71 to ptr
+  store i32 %70, ptr %72, align 4
+  %73 = icmp eq i32 %30, 0
+  br i1 %73, label %74, label %75
 
-73:                                               ; preds = %66
+74:                                               ; preds = %67
   tail call void @switch_gdt_and_percpu_base(i32 noundef 0) #5
-  br label %74
+  br label %75
 
-74:                                               ; preds = %73, %66
-  %75 = add nuw nsw i64 %29, 1
-  %76 = and i64 %75, 127
-  %77 = icmp ugt i64 %76, 63
-  br i1 %77, label %.thread9, label %22, !prof !6, !llvm.loop !7
+75:                                               ; preds = %74, %67
+  %76 = add nuw nsw i64 %29, 1
+  %77 = and i64 %76, 127
+  %78 = icmp ugt i64 %77, 63
+  br i1 %78, label %.thread9, label %22, !prof !6, !llvm.loop !7
 
-.thread9:                                         ; preds = %22, %74, %28
+.thread9:                                         ; preds = %22, %75, %28
   store ptr null, ptr @x86_cpu_to_apicid_early_ptr, align 8
   store ptr null, ptr @x86_cpu_to_acpiid_early_ptr, align 8
   store ptr null, ptr @x86_cpu_to_node_map_early_ptr, align 8

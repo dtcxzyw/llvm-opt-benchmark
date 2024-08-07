@@ -1645,29 +1645,29 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
   br i1 %204, label %.loopexit250, label %.preheader
 
 .preheader:                                       ; preds = %193
-  %.reass = add i32 %.2252, 32
-  %205 = icmp ult i32 %.reass, %202
-  br i1 %205, label %.lr.ph, label %.loopexit
+  %205 = add i32 %.2252, 32
+  %206 = icmp ult i32 %205, %202
+  br i1 %206, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.4251 = phi i32 [ %213, %.lr.ph ], [ %190, %.preheader ]
-  %206 = add i32 %.4251, 14
-  %207 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %206) #4
-  %208 = zext i16 %207 to i32
-  %209 = add nuw nsw i32 %208, 16
-  %210 = load i32, ptr @ett_osd_attribute, align 4
-  %211 = call ptr @proto_tree_add_subtree(ptr noundef %196, ptr noundef %0, i32 noundef %.4251, i32 noundef %209, i32 noundef %210, ptr noundef nonnull %11, ptr noundef nonnull @.str.291) #4
-  %212 = load ptr, ptr %11, align 8
-  %213 = call fastcc i32 @dissect_osd_attribute_list_entry(ptr noundef %1, ptr noundef %0, ptr noundef %211, ptr noundef %212, i32 noundef %.4251, ptr noundef %9, i32 noundef 1)
-  %214 = add i32 %213, 16
-  %215 = icmp ult i32 %214, %202
-  br i1 %215, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  %.4251 = phi i32 [ %214, %.lr.ph ], [ %190, %.preheader ]
+  %207 = add i32 %.4251, 14
+  %208 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %207) #4
+  %209 = zext i16 %208 to i32
+  %210 = add nuw nsw i32 %209, 16
+  %211 = load i32, ptr @ett_osd_attribute, align 4
+  %212 = call ptr @proto_tree_add_subtree(ptr noundef %196, ptr noundef %0, i32 noundef %.4251, i32 noundef %210, i32 noundef %211, ptr noundef nonnull %11, ptr noundef nonnull @.str.291) #4
+  %213 = load ptr, ptr %11, align 8
+  %214 = call fastcc i32 @dissect_osd_attribute_list_entry(ptr noundef %1, ptr noundef %0, ptr noundef %212, ptr noundef %213, i32 noundef %.4251, ptr noundef %9, i32 noundef 1)
+  %215 = add i32 %214, 16
+  %216 = icmp ult i32 %215, %202
+  br i1 %216, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader
-  %216 = add i32 %202, -8
-  %217 = zext i32 %216 to i64
-  %218 = icmp ugt i64 %spec.select231, %217
-  br i1 %218, label %.lr.ph253.split, label %.loopexit250, !llvm.loop !8
+  %217 = add i32 %202, -8
+  %218 = zext i32 %217 to i64
+  %219 = icmp ugt i64 %spec.select231, %218
+  br i1 %219, label %.lr.ph253.split, label %.loopexit250, !llvm.loop !8
 
 .loopexit250:                                     ; preds = %193, %189, %.loopexit, %.lr.ph253.split.us.split.split, %.lr.ph253.split.us.split.split.us, %.lr.ph253.split.us.split.us, %select.unfold244, %dissect_osd_attribute_data_in.exit, %select.unfold, %103
   ret void

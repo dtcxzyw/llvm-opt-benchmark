@@ -968,12 +968,12 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   %5 = alloca %struct._gvsp_packet_info, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %7 = icmp ult i32 %6, 8
-  br i1 %7, label %348, label %8
+  br i1 %7, label %385, label %8
 
 8:                                                ; preds = %4
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %10 = icmp ult i32 %9, 5
-  br i1 %10, label %348, label %11
+  br i1 %10, label %385, label %11
 
 11:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
@@ -985,7 +985,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
 14:                                               ; preds = %11
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %16 = icmp ult i32 %15, 20
-  br i1 %16, label %348, label %17
+  br i1 %16, label %385, label %17
 
 17:                                               ; preds = %14, %11
   %18 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1124,7 +1124,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   br label %98
 
 98:                                               ; preds = %96, %95
-  switch i8 %28, label %329 [
+  switch i8 %28, label %366 [
     i8 3, label %99
     i8 5, label %106
     i8 6, label %116
@@ -1246,7 +1246,7 @@ status_with_payload.exit.thread2.i129:            ; preds = %136, %134
   %156 = and i8 %140, 32
   %.not218.i = icmp eq i8 %156, 0
   %or.cond.i130 = or i1 %.not217.i, %.not218.i
-  br i1 %or.cond.i130, label %325, label %157
+  br i1 %or.cond.i130, label %362, label %157
 
 157:                                              ; preds = %138
   %158 = add nuw nsw i32 %.1, 68
@@ -1306,256 +1306,246 @@ status_with_payload.exit.thread2.i129:            ; preds = %136, %134
   %212 = shl i32 %159, 3
   %213 = load i32, ptr @ett_gvsp_gendc_container_header_component_offsets, align 4
   %214 = tail call ptr @proto_tree_add_subtree(ptr noundef %162, ptr noundef %0, i32 noundef %211, i32 noundef %212, i32 noundef %213, ptr noundef null, ptr noundef nonnull @.str.705) #4
-  %invariant.op50.i = add nuw nsw i32 %.1, 62
-  %invariant.op52.i = shl nuw nsw i32 %160, 1
-  %invariant.op54.i = add nuw nsw i32 %.1, 18
-  %invariant.op64.i = add nuw nsw i32 %.1, 30
-  %invariant.op68.i = add nuw nsw i32 %.1, 36
-  %invariant.op76.i = add nuw nsw i32 %.1, 60
-  %.not83.i = icmp eq i32 %159, 0
-  br i1 %.not83.i, label %.sink.split131, label %.lr.ph82.i
+  %.not9.i = icmp eq i32 %159, 0
+  br i1 %.not9.i, label %.sink.split131, label %.lr.ph8.i
 
-.lr.ph82.i:                                       ; preds = %157
-  %invariant.op29.i = or disjoint i32 %.1, 66
-  br label %215
+.lr.ph8.i:                                        ; preds = %157, %._crit_edge.i
+  %.06.i = phi i32 [ %361, %._crit_edge.i ], [ 0, %157 ]
+  %215 = shl i32 %.06.i, 3
+  %216 = add i32 %215, %211
+  %217 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %216, i32 noundef -2147483648) #4
+  %218 = trunc i64 %217 to i32
+  %219 = add i32 %160, %218
+  %220 = add i32 %219, 46
+  %221 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %220, i32 noundef -2147483648) #4
+  %222 = add i32 %219, %160
+  %223 = load i32, ptr @ett_gvsp_gendc_component_header, align 4
+  %224 = tail call ptr @proto_tree_add_subtree(ptr noundef %162, ptr noundef %0, i32 noundef %222, i32 noundef -1, i32 noundef %223, ptr noundef null, ptr noundef nonnull @.str.679) #4
+  %225 = load i32, ptr @hf_gvsp_gendc_container_header_component_offset_v2_2, align 4
+  %226 = tail call ptr @proto_tree_add_item(ptr noundef %214, i32 noundef %225, ptr noundef %0, i32 noundef %216, i32 noundef 8, i32 noundef -2147483648) #4
+  %227 = load i32, ptr @hf_gvsp_gendc_header_type_v2_2, align 4
+  %228 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %227, ptr noundef %0, i32 noundef %219, i32 noundef 2, i32 noundef -2147483648) #4
+  %229 = add i32 %219, 2
+  %230 = load i32, ptr @hf_gvsp_gendc_component_header_flags_v2_2, align 4
+  %231 = load i32, ptr @ett_gvsp_gendc_component_header_flags, align 4
+  %232 = tail call ptr @proto_tree_add_bitmask(ptr noundef %224, ptr noundef %0, i32 noundef %229, i32 noundef %230, i32 noundef %231, ptr noundef nonnull @gendc_component_header_flags_fields, i32 noundef -2147483648) #4
+  %233 = load i32, ptr @hf_gvsp_gendc_header_size_v2_2, align 4
+  %234 = add i32 %219, 4
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %233, ptr noundef %0, i32 noundef %234, i32 noundef 4, i32 noundef -2147483648) #4
+  %236 = load i32, ptr @hf_gvsp_gendc_header_reserved_2_bytes_v2_2, align 4
+  %237 = add i32 %219, 8
+  %238 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %236, ptr noundef %0, i32 noundef %237, i32 noundef 2, i32 noundef -2147483648) #4
+  %239 = load i32, ptr @hf_gvsp_gendc_component_header_group_id_v2_2, align 4
+  %240 = add i32 %219, 10
+  %241 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %239, ptr noundef %0, i32 noundef %240, i32 noundef 2, i32 noundef -2147483648) #4
+  %242 = load i32, ptr @hf_gvsp_gendc_component_header_source_id_v2_2, align 4
+  %243 = add i32 %219, 12
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %242, ptr noundef %0, i32 noundef %243, i32 noundef 2, i32 noundef -2147483648) #4
+  %245 = load i32, ptr @hf_gvsp_gendc_component_header_region_id_v2_2, align 4
+  %246 = add i32 %219, 14
+  %247 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %245, ptr noundef %0, i32 noundef %246, i32 noundef 2, i32 noundef -2147483648) #4
+  %248 = load i32, ptr @hf_gvsp_offsetx, align 4
+  %249 = add i32 %219, 16
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %248, ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef -2147483648) #4
+  %251 = load i32, ptr @hf_gvsp_offsety, align 4
+  %252 = add i32 %219, 20
+  %253 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %251, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef -2147483648) #4
+  %254 = load i32, ptr @hf_gvsp_timestamp, align 4
+  %255 = add i32 %219, 24
+  %256 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %254, ptr noundef %0, i32 noundef %255, i32 noundef 8, i32 noundef -2147483648) #4
+  %257 = load i32, ptr @hf_gvsp_gendc_component_header_type_id_v2_2, align 4
+  %258 = add i32 %219, 32
+  %259 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %257, ptr noundef %0, i32 noundef %258, i32 noundef 8, i32 noundef -2147483648) #4
+  %260 = add i32 %219, 40
+  %261 = load i32, ptr @hf_gvsp_pixelformat, align 4
+  %262 = load i32, ptr @ett_gvsp_pixelformat, align 4
+  %263 = tail call ptr @proto_tree_add_bitmask(ptr noundef %224, ptr noundef %0, i32 noundef %260, i32 noundef %261, i32 noundef %262, ptr noundef nonnull @pixelformat_fields, i32 noundef -2147483648) #4
+  %264 = load i32, ptr @hf_gvsp_gendc_header_reserved_2_bytes_v2_2, align 4
+  %265 = add i32 %219, 44
+  %266 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %264, ptr noundef %0, i32 noundef %265, i32 noundef 2, i32 noundef -2147483648) #4
+  %267 = load i32, ptr @hf_gvsp_gendc_component_header_part_count_v2_2, align 4
+  %268 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %267, ptr noundef %0, i32 noundef %220, i32 noundef 2, i32 noundef -2147483648) #4
+  %269 = add i32 %219, 48
+  %270 = zext i16 %221 to i32
+  %271 = shl nuw nsw i32 %270, 3
+  %272 = load i32, ptr @ett_gvsp_gendc_part_offsets, align 4
+  %273 = tail call ptr @proto_tree_add_subtree(ptr noundef %224, ptr noundef %0, i32 noundef %269, i32 noundef %271, i32 noundef %272, ptr noundef null, ptr noundef nonnull @.str.706) #4
+  %.not10.i = icmp eq i16 %221, 0
+  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
 
-215:                                              ; preds = %._crit_edge.i, %.lr.ph82.i
-  %.080.i = phi i32 [ 0, %.lr.ph82.i ], [ %324, %._crit_edge.i ]
-  %216 = shl i32 %.080.i, 3
-  %217 = add i32 %216, %211
-  %218 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %217, i32 noundef -2147483648) #4
-  %219 = trunc i64 %218 to i32
-  %220 = add i32 %160, %219
-  %.reass51.i = add i32 %invariant.op50.i, %219
-  %221 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.reass51.i, i32 noundef -2147483648) #4
-  %.reass53.i = add i32 %invariant.op52.i, %219
-  %222 = load i32, ptr @ett_gvsp_gendc_component_header, align 4
-  %223 = tail call ptr @proto_tree_add_subtree(ptr noundef %162, ptr noundef %0, i32 noundef %.reass53.i, i32 noundef -1, i32 noundef %222, ptr noundef null, ptr noundef nonnull @.str.679) #4
-  %224 = load i32, ptr @hf_gvsp_gendc_container_header_component_offset_v2_2, align 4
-  %225 = tail call ptr @proto_tree_add_item(ptr noundef %214, i32 noundef %224, ptr noundef %0, i32 noundef %217, i32 noundef 8, i32 noundef -2147483648) #4
-  %226 = load i32, ptr @hf_gvsp_gendc_header_type_v2_2, align 4
-  %227 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %226, ptr noundef %0, i32 noundef %220, i32 noundef 2, i32 noundef -2147483648) #4
-  %.reass55.i = add i32 %invariant.op54.i, %219
-  %228 = load i32, ptr @hf_gvsp_gendc_component_header_flags_v2_2, align 4
-  %229 = load i32, ptr @ett_gvsp_gendc_component_header_flags, align 4
-  %230 = tail call ptr @proto_tree_add_bitmask(ptr noundef %223, ptr noundef %0, i32 noundef %.reass55.i, i32 noundef %228, i32 noundef %229, ptr noundef nonnull @gendc_component_header_flags_fields, i32 noundef -2147483648) #4
-  %231 = load i32, ptr @hf_gvsp_gendc_header_size_v2_2, align 4
-  %.reass57.i = add i32 %166, %219
-  %232 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %231, ptr noundef %0, i32 noundef %.reass57.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %233 = load i32, ptr @hf_gvsp_gendc_header_reserved_2_bytes_v2_2, align 4
-  %.reass59.i = add i32 %178, %219
-  %234 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %233, ptr noundef %0, i32 noundef %.reass59.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %235 = load i32, ptr @hf_gvsp_gendc_component_header_group_id_v2_2, align 4
-  %.reass61.i = add i32 %180, %219
-  %236 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %235, ptr noundef %0, i32 noundef %.reass61.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %237 = load i32, ptr @hf_gvsp_gendc_component_header_source_id_v2_2, align 4
-  %.reass63.i = add i32 %185, %219
-  %238 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %237, ptr noundef %0, i32 noundef %.reass63.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %239 = load i32, ptr @hf_gvsp_gendc_component_header_region_id_v2_2, align 4
-  %.reass65.i = add i32 %invariant.op64.i, %219
-  %240 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %239, ptr noundef %0, i32 noundef %.reass65.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %241 = load i32, ptr @hf_gvsp_offsetx, align 4
-  %.reass67.i = add i32 %188, %219
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %241, ptr noundef %0, i32 noundef %.reass67.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %243 = load i32, ptr @hf_gvsp_offsety, align 4
-  %.reass69.i = add i32 %invariant.op68.i, %219
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %243, ptr noundef %0, i32 noundef %.reass69.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %245 = load i32, ptr @hf_gvsp_timestamp, align 4
-  %.reass71.i = add i32 %190, %219
-  %246 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %245, ptr noundef %0, i32 noundef %.reass71.i, i32 noundef 8, i32 noundef -2147483648) #4
-  %247 = load i32, ptr @hf_gvsp_gendc_component_header_type_id_v2_2, align 4
-  %.reass73.i = add i32 %201, %219
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %247, ptr noundef %0, i32 noundef %.reass73.i, i32 noundef 8, i32 noundef -2147483648) #4
-  %.reass75.i = add i32 %204, %219
-  %249 = load i32, ptr @hf_gvsp_pixelformat, align 4
-  %250 = load i32, ptr @ett_gvsp_pixelformat, align 4
-  %251 = tail call ptr @proto_tree_add_bitmask(ptr noundef %223, ptr noundef %0, i32 noundef %.reass75.i, i32 noundef %249, i32 noundef %250, ptr noundef nonnull @pixelformat_fields, i32 noundef -2147483648) #4
-  %252 = load i32, ptr @hf_gvsp_gendc_header_reserved_2_bytes_v2_2, align 4
-  %.reass77.i = add i32 %invariant.op76.i, %219
-  %253 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %252, ptr noundef %0, i32 noundef %.reass77.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %254 = load i32, ptr @hf_gvsp_gendc_component_header_part_count_v2_2, align 4
-  %255 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %254, ptr noundef %0, i32 noundef %.reass51.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %.reass79.i = add i32 %207, %219
-  %256 = zext i16 %221 to i32
-  %257 = shl nuw nsw i32 %256, 3
-  %258 = load i32, ptr @ett_gvsp_gendc_part_offsets, align 4
-  %259 = tail call ptr @proto_tree_add_subtree(ptr noundef %223, ptr noundef %0, i32 noundef %.reass79.i, i32 noundef %257, i32 noundef %258, ptr noundef null, ptr noundef nonnull @.str.706) #4
-  %.not84.i = icmp eq i16 %221, 0
-  br i1 %.not84.i, label %._crit_edge.i, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %.lr.ph8.i, %360
+  %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %360 ], [ 0, %.lr.ph8.i ]
+  %274 = shl nuw nsw i32 %indvars.iv.i, 3
+  %275 = add i32 %274, %269
+  %276 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %275, i32 noundef -2147483648) #4
+  %277 = trunc i64 %276 to i32
+  %278 = add i32 %160, %277
+  %279 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %278, i32 noundef -2147483648) #4
+  %280 = add i32 %278, %160
+  %281 = load i32, ptr @ett_gvsp_gendc_part_header, align 4
+  %282 = tail call ptr @proto_tree_add_subtree(ptr noundef %224, ptr noundef %0, i32 noundef %280, i32 noundef -1, i32 noundef %281, ptr noundef null, ptr noundef nonnull @.str.707) #4
+  %283 = load i32, ptr @hf_gvsp_gendc_component_header_part_offset_v2_2, align 4
+  %284 = tail call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %283, ptr noundef %0, i32 noundef %275, i32 noundef 8, i32 noundef -2147483648) #4
+  %285 = load i32, ptr @hf_gvsp_gendc_header_type_v2_2, align 4
+  %286 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %285, ptr noundef %0, i32 noundef %278, i32 noundef 2, i32 noundef -2147483648) #4
+  %287 = icmp eq i16 %279, 16385
+  br i1 %287, label %288, label %293
 
-.lr.ph.i:                                         ; preds = %215, %323
-  %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %323 ], [ 0, %215 ]
-  %260 = shl nuw nsw i32 %indvars.iv.i, 3
-  %261 = add i32 %260, %.reass79.i
-  %262 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %261, i32 noundef -2147483648) #4
-  %263 = trunc i64 %262 to i32
-  %264 = add i32 %160, %263
-  %265 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %264, i32 noundef -2147483648) #4
-  %.reass.i = add i32 %invariant.op52.i, %263
-  %266 = load i32, ptr @ett_gvsp_gendc_part_header, align 4
-  %267 = tail call ptr @proto_tree_add_subtree(ptr noundef %223, ptr noundef %0, i32 noundef %.reass.i, i32 noundef -1, i32 noundef %266, ptr noundef null, ptr noundef nonnull @.str.707) #4
-  %268 = load i32, ptr @hf_gvsp_gendc_component_header_part_offset_v2_2, align 4
-  %269 = tail call ptr @proto_tree_add_item(ptr noundef %259, i32 noundef %268, ptr noundef %0, i32 noundef %261, i32 noundef 8, i32 noundef -2147483648) #4
-  %270 = load i32, ptr @hf_gvsp_gendc_header_type_v2_2, align 4
-  %271 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %270, ptr noundef %0, i32 noundef %264, i32 noundef 2, i32 noundef -2147483648) #4
-  %272 = icmp eq i16 %265, 16385
-  br i1 %272, label %273, label %277
+288:                                              ; preds = %.lr.ph.i
+  %289 = add i32 %278, 2
+  %290 = load i32, ptr @hf_gvsp_gendc_part_header_flags_v2_2, align 4
+  %291 = load i32, ptr @ett_gvsp_gendc_part_header_flags, align 4
+  %292 = tail call ptr @proto_tree_add_bitmask(ptr noundef %282, ptr noundef %0, i32 noundef %289, i32 noundef %290, i32 noundef %291, ptr noundef nonnull @gendc_part_header_flags_fields, i32 noundef -2147483648) #4
+  br label %297
 
-273:                                              ; preds = %.lr.ph.i
-  %.reass8.i = add i32 %invariant.op54.i, %263
-  %274 = load i32, ptr @hf_gvsp_gendc_part_header_flags_v2_2, align 4
-  %275 = load i32, ptr @ett_gvsp_gendc_part_header_flags, align 4
-  %276 = tail call ptr @proto_tree_add_bitmask(ptr noundef %267, ptr noundef %0, i32 noundef %.reass8.i, i32 noundef %274, i32 noundef %275, ptr noundef nonnull @gendc_part_header_flags_fields, i32 noundef -2147483648) #4
-  br label %280
+293:                                              ; preds = %.lr.ph.i
+  %294 = load i32, ptr @hf_gvsp_gendc_part_header_flags_v2_2, align 4
+  %295 = add i32 %278, 2
+  %296 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %294, ptr noundef %0, i32 noundef %295, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %297
 
-277:                                              ; preds = %.lr.ph.i
-  %278 = load i32, ptr @hf_gvsp_gendc_part_header_flags_v2_2, align 4
-  %.reass6.i = add i32 %invariant.op54.i, %263
-  %279 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %278, ptr noundef %0, i32 noundef %.reass6.i, i32 noundef 2, i32 noundef -2147483648) #4
-  br label %280
-
-280:                                              ; preds = %277, %273
-  %281 = load i32, ptr @hf_gvsp_gendc_header_size_v2_2, align 4
-  %.reass10.i = add i32 %166, %263
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %281, ptr noundef %0, i32 noundef %.reass10.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %.reass12.i = add i32 %178, %263
-  %283 = load i32, ptr @hf_gvsp_pixelformat, align 4
-  %284 = load i32, ptr @ett_gvsp_pixelformat, align 4
-  %285 = tail call ptr @proto_tree_add_bitmask(ptr noundef %267, ptr noundef %0, i32 noundef %.reass12.i, i32 noundef %283, i32 noundef %284, ptr noundef nonnull @pixelformat_fields, i32 noundef -2147483648) #4
-  %286 = load i32, ptr @hf_gvsp_gendc_header_reserved_2_bytes_v2_2, align 4
-  %.reass14.i = add i32 %185, %263
-  %287 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %286, ptr noundef %0, i32 noundef %.reass14.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %288 = load i32, ptr @hf_gvsp_gendc_payload_flow_id_v2_2, align 4
-  %.reass16.i = add i32 %invariant.op64.i, %263
-  %289 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %288, ptr noundef %0, i32 noundef %.reass16.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %290 = load i32, ptr @hf_gvsp_gendc_part_header_flow_offset_v2_2, align 4
-  %.reass18.i = add i32 %188, %263
-  %291 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %290, ptr noundef %0, i32 noundef %.reass18.i, i32 noundef 8, i32 noundef -2147483648) #4
-  %292 = load i32, ptr @hf_gvsp_gendc_container_header_data_size_v2_2, align 4
-  %.reass20.i = add i32 %190, %263
-  %293 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %292, ptr noundef %0, i32 noundef %.reass20.i, i32 noundef 8, i32 noundef -2147483648) #4
-  %294 = load i32, ptr @hf_gvsp_gendc_container_header_data_offset_v2_2, align 4
-  %.reass22.i = add i32 %201, %263
-  %295 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %294, ptr noundef %0, i32 noundef %.reass22.i, i32 noundef 8, i32 noundef -2147483648) #4
-  switch i16 %265, label %323 [
-    i16 16384, label %296
-    i16 16385, label %296
-    i16 16640, label %296
-    i16 16896, label %305
-    i16 16897, label %305
-    i16 16898, label %305
-    i16 16899, label %314
+297:                                              ; preds = %293, %288
+  %298 = load i32, ptr @hf_gvsp_gendc_header_size_v2_2, align 4
+  %299 = add i32 %278, 4
+  %300 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %298, ptr noundef %0, i32 noundef %299, i32 noundef 4, i32 noundef -2147483648) #4
+  %301 = add i32 %278, 8
+  %302 = load i32, ptr @hf_gvsp_pixelformat, align 4
+  %303 = load i32, ptr @ett_gvsp_pixelformat, align 4
+  %304 = tail call ptr @proto_tree_add_bitmask(ptr noundef %282, ptr noundef %0, i32 noundef %301, i32 noundef %302, i32 noundef %303, ptr noundef nonnull @pixelformat_fields, i32 noundef -2147483648) #4
+  %305 = load i32, ptr @hf_gvsp_gendc_header_reserved_2_bytes_v2_2, align 4
+  %306 = add i32 %278, 12
+  %307 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %305, ptr noundef %0, i32 noundef %306, i32 noundef 2, i32 noundef -2147483648) #4
+  %308 = load i32, ptr @hf_gvsp_gendc_payload_flow_id_v2_2, align 4
+  %309 = add i32 %278, 14
+  %310 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %308, ptr noundef %0, i32 noundef %309, i32 noundef 2, i32 noundef -2147483648) #4
+  %311 = load i32, ptr @hf_gvsp_gendc_part_header_flow_offset_v2_2, align 4
+  %312 = add i32 %278, 16
+  %313 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %311, ptr noundef %0, i32 noundef %312, i32 noundef 8, i32 noundef -2147483648) #4
+  %314 = load i32, ptr @hf_gvsp_gendc_container_header_data_size_v2_2, align 4
+  %315 = add i32 %278, 24
+  %316 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %314, ptr noundef %0, i32 noundef %315, i32 noundef 8, i32 noundef -2147483648) #4
+  %317 = load i32, ptr @hf_gvsp_gendc_container_header_data_offset_v2_2, align 4
+  %318 = add i32 %278, 32
+  %319 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %317, ptr noundef %0, i32 noundef %318, i32 noundef 8, i32 noundef -2147483648) #4
+  switch i16 %279, label %360 [
+    i16 16384, label %320
+    i16 16385, label %320
+    i16 16640, label %320
+    i16 16896, label %333
+    i16 16897, label %333
+    i16 16898, label %333
+    i16 16899, label %346
   ]
 
-296:                                              ; preds = %280, %280, %280
-  %297 = load i32, ptr @hf_gvsp_gendc_part_header_1D_size_v2_2, align 4
-  %.reass42.i = add i32 %204, %263
-  %298 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %297, ptr noundef %0, i32 noundef %.reass42.i, i32 noundef 8, i32 noundef -2147483648) #4
-  %299 = load i32, ptr @hf_gvsp_gendc_part_header_1D_padding_v2_2, align 4
-  %.reass44.i = add i32 %207, %263
-  %300 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %299, ptr noundef %0, i32 noundef %.reass44.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %301 = load i32, ptr @hf_gvsp_gendc_header_reserved_4_bytes_v2_2, align 4
-  %.reass46.i = add i32 %158, %263
-  %302 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %301, ptr noundef %0, i32 noundef %.reass46.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %303 = load i32, ptr @hf_gvsp_gendc_part_header_type_specific_info_v2_2, align 4
-  %.reass48.i = add i32 %211, %263
-  %304 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %303, ptr noundef %0, i32 noundef %.reass48.i, i32 noundef 8, i32 noundef -2147483648) #4
-  br label %323
+320:                                              ; preds = %297, %297, %297
+  %321 = load i32, ptr @hf_gvsp_gendc_part_header_1D_size_v2_2, align 4
+  %322 = add i32 %278, 40
+  %323 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %321, ptr noundef %0, i32 noundef %322, i32 noundef 8, i32 noundef -2147483648) #4
+  %324 = load i32, ptr @hf_gvsp_gendc_part_header_1D_padding_v2_2, align 4
+  %325 = add i32 %278, 48
+  %326 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %324, ptr noundef %0, i32 noundef %325, i32 noundef 4, i32 noundef -2147483648) #4
+  %327 = load i32, ptr @hf_gvsp_gendc_header_reserved_4_bytes_v2_2, align 4
+  %328 = add i32 %278, 52
+  %329 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %327, ptr noundef %0, i32 noundef %328, i32 noundef 4, i32 noundef -2147483648) #4
+  %330 = load i32, ptr @hf_gvsp_gendc_part_header_type_specific_info_v2_2, align 4
+  %331 = add i32 %278, 56
+  %332 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %330, ptr noundef %0, i32 noundef %331, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %360
 
-305:                                              ; preds = %280, %280, %280
-  %.reass34.i = add i32 %204, %263
-  %306 = load i32, ptr @hf_gvsp_sizex, align 4
-  %307 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %306, ptr noundef %0, i32 noundef %.reass34.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %308 = load i32, ptr @hf_gvsp_sizey, align 4
-  %.reass36.i = add i32 %invariant.op76.i, %263
-  %309 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %308, ptr noundef %0, i32 noundef %.reass36.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %310 = load i32, ptr @hf_gvsp_paddingx, align 4
-  %.reass38.i = add i32 %207, %263
-  %311 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %310, ptr noundef %0, i32 noundef %.reass38.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %312 = load i32, ptr @hf_gvsp_paddingy, align 4
-  %.reass40.i = add i32 %invariant.op29.i, %263
-  %313 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %312, ptr noundef %0, i32 noundef %.reass40.i, i32 noundef 2, i32 noundef -2147483648) #4
-  br label %323
+333:                                              ; preds = %297, %297, %297
+  %334 = add i32 %278, 40
+  %335 = load i32, ptr @hf_gvsp_sizex, align 4
+  %336 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %335, ptr noundef %0, i32 noundef %334, i32 noundef 4, i32 noundef -2147483648) #4
+  %337 = load i32, ptr @hf_gvsp_sizey, align 4
+  %338 = add i32 %278, 44
+  %339 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %337, ptr noundef %0, i32 noundef %338, i32 noundef 4, i32 noundef -2147483648) #4
+  %340 = load i32, ptr @hf_gvsp_paddingx, align 4
+  %341 = add i32 %278, 48
+  %342 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %340, ptr noundef %0, i32 noundef %341, i32 noundef 2, i32 noundef -2147483648) #4
+  %343 = load i32, ptr @hf_gvsp_paddingy, align 4
+  %344 = add i32 %278, 50
+  %345 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %343, ptr noundef %0, i32 noundef %344, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %360
 
-314:                                              ; preds = %280
-  %.reass24.i = add i32 %204, %263
-  %315 = load i32, ptr @hf_gvsp_sizex, align 4
-  %316 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %315, ptr noundef %0, i32 noundef %.reass24.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %317 = load i32, ptr @hf_gvsp_sizey, align 4
-  %.reass26.i = add i32 %invariant.op76.i, %263
-  %318 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %317, ptr noundef %0, i32 noundef %.reass26.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %319 = load i32, ptr @hf_gvsp_paddingx, align 4
-  %.reass28.i = add i32 %207, %263
-  %320 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %319, ptr noundef %0, i32 noundef %.reass28.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %321 = load i32, ptr @hf_gvsp_paddingy, align 4
-  %.reass30.i = add i32 %invariant.op29.i, %263
-  %322 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %321, ptr noundef %0, i32 noundef %.reass30.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %.reass32.i = add i32 %158, %263
-  tail call fastcc void @dissect_h264_leader_common(ptr noundef %267, ptr noundef %0, i32 noundef %.reass32.i, i32 noundef -2147483648)
-  br label %323
+346:                                              ; preds = %297
+  %347 = add i32 %278, 40
+  %348 = load i32, ptr @hf_gvsp_sizex, align 4
+  %349 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %348, ptr noundef %0, i32 noundef %347, i32 noundef 4, i32 noundef -2147483648) #4
+  %350 = load i32, ptr @hf_gvsp_sizey, align 4
+  %351 = add i32 %278, 44
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %350, ptr noundef %0, i32 noundef %351, i32 noundef 4, i32 noundef -2147483648) #4
+  %353 = load i32, ptr @hf_gvsp_paddingx, align 4
+  %354 = add i32 %278, 48
+  %355 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %353, ptr noundef %0, i32 noundef %354, i32 noundef 2, i32 noundef -2147483648) #4
+  %356 = load i32, ptr @hf_gvsp_paddingy, align 4
+  %357 = add i32 %278, 50
+  %358 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %356, ptr noundef %0, i32 noundef %357, i32 noundef 2, i32 noundef -2147483648) #4
+  %359 = add i32 %278, 52
+  tail call fastcc void @dissect_h264_leader_common(ptr noundef %282, ptr noundef %0, i32 noundef %359, i32 noundef -2147483648)
+  br label %360
 
-323:                                              ; preds = %314, %305, %296, %280
+360:                                              ; preds = %346, %333, %320, %297
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %256
+  %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %270
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %323, %215
-  %324 = add nuw i32 %.080.i, 1
-  %exitcond86.not.i = icmp eq i32 %324, %159
-  br i1 %exitcond86.not.i, label %.sink.split131, label %215, !llvm.loop !6
+._crit_edge.i:                                    ; preds = %360, %.lr.ph8.i
+  %361 = add nuw i32 %.06.i, 1
+  %exitcond12.not.i = icmp eq i32 %361, %159
+  br i1 %exitcond12.not.i, label %.sink.split131, label %.lr.ph8.i, !llvm.loop !6
 
-325:                                              ; preds = %138
-  %326 = load i32, ptr @hf_gvsp_payloaddata, align 4
-  %327 = add nuw nsw i32 %.1, 16
-  %328 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %326, ptr noundef %0, i32 noundef %327, i32 noundef -1, i32 noundef 0) #4
+362:                                              ; preds = %138
+  %363 = load i32, ptr @hf_gvsp_payloaddata, align 4
+  %364 = add nuw nsw i32 %.1, 16
+  %365 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %363, ptr noundef %0, i32 noundef %364, i32 noundef -1, i32 noundef 0) #4
   br label %.sink.split131
 
-329:                                              ; preds = %98
-  %330 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #4
-  %331 = icmp sgt i32 %330, 1
-  br i1 %331, label %332, label %335
+366:                                              ; preds = %98
+  %367 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #4
+  %368 = icmp sgt i32 %367, 1
+  br i1 %368, label %369, label %372
 
-332:                                              ; preds = %329
-  %333 = or disjoint i32 %.1, 2
-  %334 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %333) #4
-  br label %335
+369:                                              ; preds = %366
+  %370 = or disjoint i32 %.1, 2
+  %371 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %370) #4
+  br label %372
 
-335:                                              ; preds = %332, %329
-  %336 = phi i16 [ %334, %332 ], [ 0, %329 ]
-  %337 = getelementptr inbounds i8, ptr %5, i64 8
-  %338 = and i16 %336, 16384
-  %339 = zext nneg i16 %338 to i32
-  store i32 %339, ptr %5, align 8
-  %340 = and i16 %336, 16383
-  store i16 %340, ptr %337, align 8
-  %341 = load ptr, ptr %18, align 8
-  %342 = zext nneg i16 %340 to i32
-  %343 = tail call ptr @val_to_str_ext(i32 noundef %342, ptr noundef nonnull @payloadtypenames_ext, ptr noundef nonnull @.str.703) #4
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %341, i32 noundef 25, ptr noundef nonnull @.str.697, ptr noundef %343) #4
+372:                                              ; preds = %369, %366
+  %373 = phi i16 [ %371, %369 ], [ 0, %366 ]
+  %374 = getelementptr inbounds i8, ptr %5, i64 8
+  %375 = and i16 %373, 16384
+  %376 = zext nneg i16 %375 to i32
+  store i32 %376, ptr %5, align 8
+  %377 = and i16 %373, 16383
+  store i16 %377, ptr %374, align 8
+  %378 = load ptr, ptr %18, align 8
+  %379 = zext nneg i16 %377 to i32
+  %380 = tail call ptr @val_to_str_ext(i32 noundef %379, ptr noundef nonnull @payloadtypenames_ext, ptr noundef nonnull @.str.703) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %378, i32 noundef 25, ptr noundef nonnull @.str.697, ptr noundef %380) #4
   switch i8 %28, label %.sink.split131 [
-    i8 4, label %344
-    i8 1, label %345
-    i8 2, label %346
+    i8 4, label %381
+    i8 1, label %382
+    i8 2, label %383
   ]
 
-344:                                              ; preds = %335
+381:                                              ; preds = %372
   call fastcc void @dissect_packet_all_in(ptr noundef %24, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %5)
   br label %.sink.split131
 
-345:                                              ; preds = %335
-  tail call fastcc void @dissect_packet_leader(ptr noundef %24, ptr noundef %0, i32 noundef %.1, i16 %340)
+382:                                              ; preds = %372
+  tail call fastcc void @dissect_packet_leader(ptr noundef %24, ptr noundef %0, i32 noundef %.1, i16 %377)
   br label %.sink.split131
 
-346:                                              ; preds = %335
+383:                                              ; preds = %372
   call fastcc void @dissect_packet_trailer(ptr noundef %24, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %5)
   br label %.sink.split131
 
-.sink.split131:                                   ; preds = %._crit_edge.i, %344, %345, %346, %335, %325, %157, %status_with_payload.exit.thread2.i129, %136, %121, %status_with_payload.exit.thread2.i126, %119, %110, %status_with_payload.exit.thread2.i122, %108, %103, %status_with_payload.exit.thread2.i, %101, %116
-  %347 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %348
+.sink.split131:                                   ; preds = %._crit_edge.i, %381, %382, %383, %372, %362, %157, %status_with_payload.exit.thread2.i129, %136, %121, %status_with_payload.exit.thread2.i126, %119, %110, %status_with_payload.exit.thread2.i122, %108, %103, %status_with_payload.exit.thread2.i, %101, %116
+  %384 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  br label %385
 
-348:                                              ; preds = %.sink.split131, %14, %4, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %14 ], [ %347, %.sink.split131 ]
+385:                                              ; preds = %.sink.split131, %14, %4, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %14 ], [ %384, %.sink.split131 ]
   ret i32 %.0
 }
 
@@ -2154,7 +2144,7 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
     i16 8, label %38
     i16 9, label %55
     i16 10, label %56
-    i16 11, label %139
+    i16 11, label %153
   ]
 
 4:                                                ; preds = %3
@@ -2256,15 +2246,10 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   %76 = add nuw nsw i32 %2, 32
   %77 = add nuw nsw i32 %2, 34
   %78 = add nuw nsw i32 %2, 36
-  %invariant.op = add i32 %2, 40
-  %invariant.op1 = add i32 %2, 48
-  %invariant.op5 = add i32 %2, 44
-  %invariant.op9 = add i32 %2, 52
-  %invariant.op11 = add i32 %2, 54
   br label %79
 
 79:                                               ; preds = %.loopexit.i, %.lr.ph.i
-  %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %138, %.loopexit.i ]
+  %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %152, %.loopexit.i ]
   %80 = mul nuw nsw i32 %.02.i, 48
   %81 = add i32 %80, %60
   %82 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %81) #4
@@ -2319,82 +2304,82 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
     i16 7, label %117
     i16 8, label %117
     i16 9, label %117
-    i16 11, label %.loopexit.i.sink.split
-    i16 12, label %.loopexit.i.sink.split
+    i16 11, label %136
+    i16 12, label %136
   ]
 
 .preheader.i:                                     ; preds = %99
   %116 = add i32 %80, %78
-  br label %125
+  br label %146
 
 117:                                              ; preds = %99, %99, %99, %99, %99, %99, %99, %99, %99
   %118 = add i32 %80, %78
   %119 = load i32, ptr @hf_gvsp_sizex, align 4
   %120 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %119, ptr noundef %1, i32 noundef %118, i32 noundef 4, i32 noundef 0) #4
   %121 = load i32, ptr @hf_gvsp_sizey, align 4
-  %.reass4 = add i32 %80, %invariant.op
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %121, ptr noundef %1, i32 noundef %.reass4, i32 noundef 4, i32 noundef 0) #4
-  %123 = load i32, ptr @hf_gvsp_offsetx, align 4
-  %.reass6 = add i32 %80, %invariant.op5
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %123, ptr noundef %1, i32 noundef %.reass6, i32 noundef 4, i32 noundef 0) #4
-  br label %.loopexit.i.sink.split
-
-125:                                              ; preds = %125, %.preheader.i
-  %.0851.i = phi i32 [ 0, %.preheader.i ], [ %130, %125 ]
-  %126 = load i32, ptr @hf_gvsp_data_type_specific, align 4
-  %127 = shl nuw nsw i32 %.0851.i, 2
-  %128 = add i32 %116, %127
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %126, ptr noundef %1, i32 noundef %128, i32 noundef 4, i32 noundef 0) #4
-  %130 = add nuw nsw i32 %.0851.i, 1
-  %exitcond.not.i = icmp eq i32 %130, 6
-  br i1 %exitcond.not.i, label %.loopexit.i, label %125, !llvm.loop !7
-
-.loopexit.i.sink.split:                           ; preds = %99, %99, %117
-  %hf_gvsp_genericflags.sink = phi ptr [ @hf_gvsp_offsety, %117 ], [ @hf_gvsp_genericflags, %99 ], [ @hf_gvsp_genericflags, %99 ]
-  %.sink17 = phi i32 [ %invariant.op1, %117 ], [ %78, %99 ], [ %78, %99 ]
-  %.sink16 = phi i32 [ 4, %117 ], [ 1, %99 ], [ 1, %99 ]
-  %hf_gvsp_timestamptickfrequency.sink = phi ptr [ @hf_gvsp_paddingx, %117 ], [ @hf_gvsp_timestamptickfrequency, %99 ], [ @hf_gvsp_timestamptickfrequency, %99 ]
-  %invariant.op.sink = phi i32 [ %invariant.op9, %117 ], [ %invariant.op, %99 ], [ %invariant.op, %99 ]
-  %.sink14 = phi i32 [ 2, %117 ], [ 8, %99 ], [ 8, %99 ]
-  %hf_gvsp_dataformat.sink = phi ptr [ @hf_gvsp_paddingy, %117 ], [ @hf_gvsp_dataformat, %99 ], [ @hf_gvsp_dataformat, %99 ]
-  %invariant.op1.sink = phi i32 [ %invariant.op11, %117 ], [ %invariant.op1, %99 ], [ %invariant.op1, %99 ]
-  %.sink13 = phi i32 [ 2, %117 ], [ 4, %99 ], [ 4, %99 ]
-  %131 = load i32, ptr %hf_gvsp_genericflags.sink, align 4
-  %132 = add i32 %80, %.sink17
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %131, ptr noundef %1, i32 noundef %132, i32 noundef %.sink16, i32 noundef 0) #4
-  %134 = load i32, ptr %hf_gvsp_timestamptickfrequency.sink, align 4
-  %.reass = add i32 %80, %invariant.op.sink
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %134, ptr noundef %1, i32 noundef %.reass, i32 noundef %.sink14, i32 noundef 0) #4
-  %136 = load i32, ptr %hf_gvsp_dataformat.sink, align 4
-  %.reass2 = add i32 %80, %invariant.op1.sink
-  %137 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %136, ptr noundef %1, i32 noundef %.reass2, i32 noundef %.sink13, i32 noundef 0) #4
+  %122 = add i32 %118, 4
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %121, ptr noundef %1, i32 noundef %122, i32 noundef 4, i32 noundef 0) #4
+  %124 = load i32, ptr @hf_gvsp_offsetx, align 4
+  %125 = add i32 %118, 8
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %124, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef 0) #4
+  %127 = load i32, ptr @hf_gvsp_offsety, align 4
+  %128 = add i32 %118, 12
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %127, ptr noundef %1, i32 noundef %128, i32 noundef 4, i32 noundef 0) #4
+  %130 = load i32, ptr @hf_gvsp_paddingx, align 4
+  %131 = add i32 %118, 16
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %130, ptr noundef %1, i32 noundef %131, i32 noundef 2, i32 noundef 0) #4
+  %133 = load i32, ptr @hf_gvsp_paddingy, align 4
+  %134 = add i32 %118, 18
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %133, ptr noundef %1, i32 noundef %134, i32 noundef 2, i32 noundef 0) #4
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %125, %.loopexit.i.sink.split
-  %138 = add nuw nsw i32 %.02.i, 1
-  %exitcond3.not.i = icmp eq i32 %138, %63
+136:                                              ; preds = %99, %99
+  %137 = load i32, ptr @hf_gvsp_genericflags, align 4
+  %138 = add i32 %80, %78
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %137, ptr noundef %1, i32 noundef %138, i32 noundef 1, i32 noundef 0) #4
+  %140 = load i32, ptr @hf_gvsp_timestamptickfrequency, align 4
+  %141 = add i32 %138, 4
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %140, ptr noundef %1, i32 noundef %141, i32 noundef 8, i32 noundef 0) #4
+  %143 = load i32, ptr @hf_gvsp_dataformat, align 4
+  %144 = add i32 %138, 12
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %143, ptr noundef %1, i32 noundef %144, i32 noundef 4, i32 noundef 0) #4
+  br label %.loopexit.i
+
+146:                                              ; preds = %146, %.preheader.i
+  %.0851.i = phi i32 [ 0, %.preheader.i ], [ %151, %146 ]
+  %147 = load i32, ptr @hf_gvsp_data_type_specific, align 4
+  %148 = shl nuw nsw i32 %.0851.i, 2
+  %149 = add i32 %116, %148
+  %150 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %147, ptr noundef %1, i32 noundef %149, i32 noundef 4, i32 noundef 0) #4
+  %151 = add nuw nsw i32 %.0851.i, 1
+  %exitcond.not.i = icmp eq i32 %151, 6
+  br i1 %exitcond.not.i, label %.loopexit.i, label %146, !llvm.loop !7
+
+.loopexit.i:                                      ; preds = %146, %136, %117
+  %152 = add nuw nsw i32 %.02.i, 1
+  %exitcond3.not.i = icmp eq i32 %152, %63
   br i1 %exitcond3.not.i, label %dissect_multi_part_leader.exit, label %79, !llvm.loop !8
 
-139:                                              ; preds = %3
-  %140 = load i32, ptr @hf_gvsp_payloadtype, align 4
-  %141 = add nuw nsw i32 %2, 2
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %140, ptr noundef %1, i32 noundef %141, i32 noundef 2, i32 noundef 0) #4
-  %143 = load i32, ptr @hf_gvsp_timestamp, align 4
-  %144 = add nuw nsw i32 %2, 4
-  %145 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %143, ptr noundef %1, i32 noundef %144, i32 noundef 8, i32 noundef 0) #4
-  %146 = load i32, ptr @hf_gvsp_payloaddatasize, align 4
-  %147 = add nuw nsw i32 %2, 12
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %146, ptr noundef %1, i32 noundef %147, i32 noundef 8, i32 noundef 0) #4
-  %149 = add nuw nsw i32 %2, 20
-  %150 = load i32, ptr @hf_gvsp_gendc_leader_flags_v2_2, align 4
-  %151 = load i32, ptr @ett_gvsp_gendc_leader_flags, align 4
-  %152 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %149, i32 noundef %150, i32 noundef %151, ptr noundef nonnull @gendc_leader_flags_fields, i32 noundef 0) #4
-  %153 = load i32, ptr @hf_gvsp_gendc_leader_descriptor_size_v2_2, align 4
-  %154 = add nuw nsw i32 %2, 24
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %153, ptr noundef %1, i32 noundef %154, i32 noundef 4, i32 noundef 0) #4
+153:                                              ; preds = %3
+  %154 = load i32, ptr @hf_gvsp_payloadtype, align 4
+  %155 = add nuw nsw i32 %2, 2
+  %156 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %154, ptr noundef %1, i32 noundef %155, i32 noundef 2, i32 noundef 0) #4
+  %157 = load i32, ptr @hf_gvsp_timestamp, align 4
+  %158 = add nuw nsw i32 %2, 4
+  %159 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %157, ptr noundef %1, i32 noundef %158, i32 noundef 8, i32 noundef 0) #4
+  %160 = load i32, ptr @hf_gvsp_payloaddatasize, align 4
+  %161 = add nuw nsw i32 %2, 12
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %160, ptr noundef %1, i32 noundef %161, i32 noundef 8, i32 noundef 0) #4
+  %163 = add nuw nsw i32 %2, 20
+  %164 = load i32, ptr @hf_gvsp_gendc_leader_flags_v2_2, align 4
+  %165 = load i32, ptr @ett_gvsp_gendc_leader_flags, align 4
+  %166 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %163, i32 noundef %164, i32 noundef %165, ptr noundef nonnull @gendc_leader_flags_fields, i32 noundef 0) #4
+  %167 = load i32, ptr @hf_gvsp_gendc_leader_descriptor_size_v2_2, align 4
+  %168 = add nuw nsw i32 %2, 24
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %167, ptr noundef %1, i32 noundef %168, i32 noundef 4, i32 noundef 0) #4
   br label %dissect_multi_part_leader.exit
 
-dissect_multi_part_leader.exit:                   ; preds = %.loopexit.i, %56, %3, %139, %55, %38, %37, %36, %29, %15, %5, %4
+dissect_multi_part_leader.exit:                   ; preds = %.loopexit.i, %56, %3, %153, %55, %38, %37, %36, %29, %15, %5, %4
   ret void
 }
 

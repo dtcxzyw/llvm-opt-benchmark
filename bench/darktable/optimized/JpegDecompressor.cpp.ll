@@ -63,7 +63,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
 17:                                               ; preds = %29, %19, %13, %3
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %473
+  br label %480
 
 19:                                               ; preds = %15
   %20 = invoke i32 @jpeg_start_decompress(ptr noundef nonnull %4)
@@ -174,12 +174,12 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
 83:                                               ; preds = %41
   %84 = landingpad { ptr, i32 }
           cleanup
-  br label %473
+  br label %480
 
 85:                                               ; preds = %.loopexit13
   %86 = landingpad { ptr, i32 }
           cleanup
-  br label %470
+  br label %477
 
 87:                                               ; preds = %70
   %88 = landingpad { ptr, i32 }
@@ -194,7 +194,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
 91:                                               ; preds = %89, %87
   %92 = phi { ptr, i32 } [ %88, %87 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  br label %470
+  br label %477
 
 93:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
@@ -296,17 +296,10 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %174 = and i64 %144, 7
   %175 = icmp eq i64 %174, 0
   %invariant.op = add nuw nsw <16 x i64> %160, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %invariant.op14 = add nuw nsw i64 %139, 1
-  %invariant.op16 = add nuw nsw i64 %139, 2
-  %invariant.op18 = add nuw nsw i64 %139, 3
-  %invariant.op20 = add nuw nsw i64 %139, 4
-  %invariant.op22 = add nuw nsw i64 %139, 5
-  %invariant.op24 = add nuw nsw i64 %139, 6
-  %invariant.op26 = add nuw nsw i64 %139, 7
   br label %176
 
 176:                                              ; preds = %.loopexit, %136
-  %177 = phi i64 [ 0, %136 ], [ %463, %.loopexit ]
+  %177 = phi i64 [ 0, %136 ], [ %470, %.loopexit ]
   %178 = icmp ult i64 %177, %141
   call void @llvm.assume(i1 %178)
   %179 = mul nuw nsw i64 %177, %142
@@ -678,7 +671,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   br i1 %387, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit10, %.preheader
-  %388 = phi i64 [ %461, %.preheader ], [ %385, %.loopexit10 ]
+  %388 = phi i64 [ %468, %.preheader ], [ %385, %.loopexit10 ]
   %389 = icmp ult i64 %388, %138
   call void @llvm.assume(i1 %389)
   %390 = getelementptr inbounds i8, ptr %183, i64 %388
@@ -697,148 +690,148 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   call void @llvm.assume(i1 %399)
   %400 = getelementptr inbounds i8, ptr %183, i64 %398
   %401 = load i8, ptr %400, align 1, !tbaa !90
-  %.reass15 = add nuw i64 %388, %invariant.op14
-  %402 = and i64 %.reass15, 2147483648
-  %403 = icmp eq i64 %402, 0
-  call void @llvm.assume(i1 %403)
-  %404 = icmp ult i64 %.reass15, %140
+  %402 = add nuw nsw i64 %398, %139
+  %403 = and i64 %402, 2147483648
+  %404 = icmp eq i64 %403, 0
   call void @llvm.assume(i1 %404)
-  %405 = getelementptr inbounds i16, ptr %192, i64 %.reass15
-  %406 = zext i8 %401 to i16
-  store i16 %406, ptr %405, align 2, !tbaa !108
-  %407 = add nuw nsw i64 %388, 2
-  %408 = icmp ult i64 %407, %138
-  call void @llvm.assume(i1 %408)
-  %409 = getelementptr inbounds i8, ptr %183, i64 %407
-  %410 = load i8, ptr %409, align 1, !tbaa !90
-  %.reass17 = add nuw i64 %388, %invariant.op16
-  %411 = and i64 %.reass17, 2147483648
-  %412 = icmp eq i64 %411, 0
-  call void @llvm.assume(i1 %412)
-  %413 = icmp ult i64 %.reass17, %140
-  call void @llvm.assume(i1 %413)
-  %414 = getelementptr inbounds i16, ptr %192, i64 %.reass17
-  %415 = zext i8 %410 to i16
-  store i16 %415, ptr %414, align 2, !tbaa !108
-  %416 = add nuw nsw i64 %388, 3
-  %417 = icmp ult i64 %416, %138
-  call void @llvm.assume(i1 %417)
-  %418 = getelementptr inbounds i8, ptr %183, i64 %416
-  %419 = load i8, ptr %418, align 1, !tbaa !90
-  %.reass19 = add nuw i64 %388, %invariant.op18
-  %420 = and i64 %.reass19, 2147483648
-  %421 = icmp eq i64 %420, 0
-  call void @llvm.assume(i1 %421)
-  %422 = icmp ult i64 %.reass19, %140
-  call void @llvm.assume(i1 %422)
-  %423 = getelementptr inbounds i16, ptr %192, i64 %.reass19
-  %424 = zext i8 %419 to i16
-  store i16 %424, ptr %423, align 2, !tbaa !108
-  %425 = add nuw nsw i64 %388, 4
-  %426 = icmp ult i64 %425, %138
-  call void @llvm.assume(i1 %426)
-  %427 = getelementptr inbounds i8, ptr %183, i64 %425
-  %428 = load i8, ptr %427, align 1, !tbaa !90
-  %.reass21 = add nuw i64 %388, %invariant.op20
-  %429 = and i64 %.reass21, 2147483648
-  %430 = icmp eq i64 %429, 0
-  call void @llvm.assume(i1 %430)
-  %431 = icmp ult i64 %.reass21, %140
-  call void @llvm.assume(i1 %431)
-  %432 = getelementptr inbounds i16, ptr %192, i64 %.reass21
-  %433 = zext i8 %428 to i16
-  store i16 %433, ptr %432, align 2, !tbaa !108
-  %434 = add nuw nsw i64 %388, 5
-  %435 = icmp ult i64 %434, %138
+  %405 = icmp ult i64 %402, %140
+  call void @llvm.assume(i1 %405)
+  %406 = getelementptr inbounds i16, ptr %192, i64 %402
+  %407 = zext i8 %401 to i16
+  store i16 %407, ptr %406, align 2, !tbaa !108
+  %408 = add nuw nsw i64 %388, 2
+  %409 = icmp ult i64 %408, %138
+  call void @llvm.assume(i1 %409)
+  %410 = getelementptr inbounds i8, ptr %183, i64 %408
+  %411 = load i8, ptr %410, align 1, !tbaa !90
+  %412 = add nuw nsw i64 %408, %139
+  %413 = and i64 %412, 2147483648
+  %414 = icmp eq i64 %413, 0
+  call void @llvm.assume(i1 %414)
+  %415 = icmp ult i64 %412, %140
+  call void @llvm.assume(i1 %415)
+  %416 = getelementptr inbounds i16, ptr %192, i64 %412
+  %417 = zext i8 %411 to i16
+  store i16 %417, ptr %416, align 2, !tbaa !108
+  %418 = add nuw nsw i64 %388, 3
+  %419 = icmp ult i64 %418, %138
+  call void @llvm.assume(i1 %419)
+  %420 = getelementptr inbounds i8, ptr %183, i64 %418
+  %421 = load i8, ptr %420, align 1, !tbaa !90
+  %422 = add nuw nsw i64 %418, %139
+  %423 = and i64 %422, 2147483648
+  %424 = icmp eq i64 %423, 0
+  call void @llvm.assume(i1 %424)
+  %425 = icmp ult i64 %422, %140
+  call void @llvm.assume(i1 %425)
+  %426 = getelementptr inbounds i16, ptr %192, i64 %422
+  %427 = zext i8 %421 to i16
+  store i16 %427, ptr %426, align 2, !tbaa !108
+  %428 = add nuw nsw i64 %388, 4
+  %429 = icmp ult i64 %428, %138
+  call void @llvm.assume(i1 %429)
+  %430 = getelementptr inbounds i8, ptr %183, i64 %428
+  %431 = load i8, ptr %430, align 1, !tbaa !90
+  %432 = add nuw nsw i64 %428, %139
+  %433 = and i64 %432, 2147483648
+  %434 = icmp eq i64 %433, 0
+  call void @llvm.assume(i1 %434)
+  %435 = icmp ult i64 %432, %140
   call void @llvm.assume(i1 %435)
-  %436 = getelementptr inbounds i8, ptr %183, i64 %434
-  %437 = load i8, ptr %436, align 1, !tbaa !90
-  %.reass23 = add nuw i64 %388, %invariant.op22
-  %438 = and i64 %.reass23, 2147483648
-  %439 = icmp eq i64 %438, 0
+  %436 = getelementptr inbounds i16, ptr %192, i64 %432
+  %437 = zext i8 %431 to i16
+  store i16 %437, ptr %436, align 2, !tbaa !108
+  %438 = add nuw nsw i64 %388, 5
+  %439 = icmp ult i64 %438, %138
   call void @llvm.assume(i1 %439)
-  %440 = icmp ult i64 %.reass23, %140
-  call void @llvm.assume(i1 %440)
-  %441 = getelementptr inbounds i16, ptr %192, i64 %.reass23
-  %442 = zext i8 %437 to i16
-  store i16 %442, ptr %441, align 2, !tbaa !108
-  %443 = add nuw nsw i64 %388, 6
-  %444 = icmp ult i64 %443, %138
+  %440 = getelementptr inbounds i8, ptr %183, i64 %438
+  %441 = load i8, ptr %440, align 1, !tbaa !90
+  %442 = add nuw nsw i64 %438, %139
+  %443 = and i64 %442, 2147483648
+  %444 = icmp eq i64 %443, 0
   call void @llvm.assume(i1 %444)
-  %445 = getelementptr inbounds i8, ptr %183, i64 %443
-  %446 = load i8, ptr %445, align 1, !tbaa !90
-  %.reass25 = add nuw i64 %388, %invariant.op24
-  %447 = and i64 %.reass25, 2147483648
-  %448 = icmp eq i64 %447, 0
-  call void @llvm.assume(i1 %448)
-  %449 = icmp ult i64 %.reass25, %140
+  %445 = icmp ult i64 %442, %140
+  call void @llvm.assume(i1 %445)
+  %446 = getelementptr inbounds i16, ptr %192, i64 %442
+  %447 = zext i8 %441 to i16
+  store i16 %447, ptr %446, align 2, !tbaa !108
+  %448 = add nuw nsw i64 %388, 6
+  %449 = icmp ult i64 %448, %138
   call void @llvm.assume(i1 %449)
-  %450 = getelementptr inbounds i16, ptr %192, i64 %.reass25
-  %451 = zext i8 %446 to i16
-  store i16 %451, ptr %450, align 2, !tbaa !108
-  %452 = add nuw nsw i64 %388, 7
-  %453 = icmp ult i64 %452, %138
-  call void @llvm.assume(i1 %453)
-  %454 = getelementptr inbounds i8, ptr %183, i64 %452
-  %455 = load i8, ptr %454, align 1, !tbaa !90
-  %.reass27 = add nuw i64 %388, %invariant.op26
-  %456 = and i64 %.reass27, 2147483648
-  %457 = icmp eq i64 %456, 0
-  call void @llvm.assume(i1 %457)
-  %458 = icmp ult i64 %.reass27, %140
-  call void @llvm.assume(i1 %458)
-  %459 = getelementptr inbounds i16, ptr %192, i64 %.reass27
-  %460 = zext i8 %455 to i16
-  store i16 %460, ptr %459, align 2, !tbaa !108
-  %461 = add nuw nsw i64 %388, 8
-  %462 = icmp eq i64 %461, %144
-  br i1 %462, label %.loopexit, label %.preheader, !llvm.loop !122
+  %450 = getelementptr inbounds i8, ptr %183, i64 %448
+  %451 = load i8, ptr %450, align 1, !tbaa !90
+  %452 = add nuw nsw i64 %448, %139
+  %453 = and i64 %452, 2147483648
+  %454 = icmp eq i64 %453, 0
+  call void @llvm.assume(i1 %454)
+  %455 = icmp ult i64 %452, %140
+  call void @llvm.assume(i1 %455)
+  %456 = getelementptr inbounds i16, ptr %192, i64 %452
+  %457 = zext i8 %451 to i16
+  store i16 %457, ptr %456, align 2, !tbaa !108
+  %458 = add nuw nsw i64 %388, 7
+  %459 = icmp ult i64 %458, %138
+  call void @llvm.assume(i1 %459)
+  %460 = getelementptr inbounds i8, ptr %183, i64 %458
+  %461 = load i8, ptr %460, align 1, !tbaa !90
+  %462 = add nuw nsw i64 %458, %139
+  %463 = and i64 %462, 2147483648
+  %464 = icmp eq i64 %463, 0
+  call void @llvm.assume(i1 %464)
+  %465 = icmp ult i64 %462, %140
+  call void @llvm.assume(i1 %465)
+  %466 = getelementptr inbounds i16, ptr %192, i64 %462
+  %467 = zext i8 %461 to i16
+  store i16 %467, ptr %466, align 2, !tbaa !108
+  %468 = add nuw nsw i64 %388, 8
+  %469 = icmp eq i64 %468, %144
+  br i1 %469, label %.loopexit, label %.preheader, !llvm.loop !122
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit10, %368, %321
-  %463 = add nuw nsw i64 %177, 1
-  %464 = icmp eq i64 %463, %143
-  br i1 %464, label %.loopexit12, label %176, !llvm.loop !123
+  %470 = add nuw nsw i64 %177, 1
+  %471 = icmp eq i64 %470, %143
+  br i1 %471, label %.loopexit12, label %176, !llvm.loop !123
 
 .loopexit12:                                      ; preds = %.loopexit, %130, %98
-  %465 = icmp ne ptr %54, %55
-  call void @llvm.assume(i1 %465)
-  call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %55, i64 noundef 16) #16
-  invoke void @jpeg_destroy_decompress(ptr noundef nonnull %4)
-          to label %469 unwind label %466
-
-466:                                              ; preds = %.loopexit12
-  %467 = landingpad { ptr, i32 }
-          catch ptr null
-  %468 = extractvalue { ptr, i32 } %467, 0
-  call void @__clang_call_terminate(ptr %468) #19
-  unreachable
-
-469:                                              ; preds = %.loopexit12
-  call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %4) #16
-  ret void
-
-470:                                              ; preds = %91, %85
-  %471 = phi { ptr, i32 } [ %86, %85 ], [ %92, %91 ]
   %472 = icmp ne ptr %54, %55
   call void @llvm.assume(i1 %472)
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %55, i64 noundef 16) #16
-  br label %473
-
-473:                                              ; preds = %470, %83, %17
-  %474 = phi { ptr, i32 } [ %18, %17 ], [ %471, %470 ], [ %84, %83 ]
   invoke void @jpeg_destroy_decompress(ptr noundef nonnull %4)
-          to label %478 unwind label %475
+          to label %476 unwind label %473
 
-475:                                              ; preds = %473
-  %476 = landingpad { ptr, i32 }
+473:                                              ; preds = %.loopexit12
+  %474 = landingpad { ptr, i32 }
           catch ptr null
-  %477 = extractvalue { ptr, i32 } %476, 0
-  call void @__clang_call_terminate(ptr %477) #19
+  %475 = extractvalue { ptr, i32 } %474, 0
+  call void @__clang_call_terminate(ptr %475) #19
   unreachable
 
-478:                                              ; preds = %473
+476:                                              ; preds = %.loopexit12
   call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %4) #16
-  resume { ptr, i32 } %474
+  ret void
+
+477:                                              ; preds = %91, %85
+  %478 = phi { ptr, i32 } [ %86, %85 ], [ %92, %91 ]
+  %479 = icmp ne ptr %54, %55
+  call void @llvm.assume(i1 %479)
+  call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %55, i64 noundef 16) #16
+  br label %480
+
+480:                                              ; preds = %477, %83, %17
+  %481 = phi { ptr, i32 } [ %18, %17 ], [ %478, %477 ], [ %84, %83 ]
+  invoke void @jpeg_destroy_decompress(ptr noundef nonnull %4)
+          to label %485 unwind label %482
+
+482:                                              ; preds = %480
+  %483 = landingpad { ptr, i32 }
+          catch ptr null
+  %484 = extractvalue { ptr, i32 } %483, 0
+  call void @__clang_call_terminate(ptr %484) #19
+  unreachable
+
+485:                                              ; preds = %480
+  call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %4) #16
+  resume { ptr, i32 } %481
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

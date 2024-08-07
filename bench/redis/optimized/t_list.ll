@@ -3457,8 +3457,8 @@ if.then93.us98:                                   ; preds = %if.then84.us95
 
 land.lhs.true98.us:                               ; preds = %if.then93.us98
   %41 = load i64, ptr %rank, align 8
-  %sub99.reass.us = add i64 %matches.070.us88, 2
-  %add.us = sub i64 %sub99.reass.us, %41
+  %sub99.us = add i64 %matches.070.us88, 2
+  %add.us = sub i64 %sub99.us, %41
   %cmp100.not.us = icmp slt i64 %add.us, %40
   br i1 %cmp100.not.us, label %if.end107.us99, label %while.end
 
@@ -3500,8 +3500,8 @@ if.then93:                                        ; preds = %if.then84
 
 land.lhs.true98:                                  ; preds = %if.then93
   %46 = load i64, ptr %rank, align 8
-  %sub99.reass = add i64 %matches.070, 2
-  %add = sub i64 %sub99.reass, %46
+  %sub99 = add i64 %matches.070, 2
+  %add = sub i64 %sub99, %46
   %cmp100.not = icmp slt i64 %add, %45
   br i1 %cmp100.not, label %if.end107, label %while.end
 

@@ -1608,7 +1608,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_base
   %add.ptr21.i = getelementptr inbounds double, ptr %call5.i.i.i.i11, i64 %conv
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %1 = load ptr, ptr %binsVector, align 8
-  %invariant.op = add i32 %offset, -1
   %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   br label %for.body
 
@@ -1675,11 +1674,11 @@ if.end17:                                         ; preds = %invoke.cont10
   br i1 %cmp18.not, label %if.end30, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %sub.reass = add i32 %i.026, %invariant.op
+  %sub = add nsw i32 %add, -1
   %vtable21 = load ptr, ptr %1, align 8
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 352
   %9 = load ptr, ptr %vfn22, align 8
-  %call24 = invoke noundef double %9(ptr noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %sub.reass)
+  %call24 = invoke noundef double %9(ptr noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %sub)
           to label %invoke.cont23 unwind label %lpad.loopexit
 
 invoke.cont23:                                    ; preds = %if.then19
@@ -1795,7 +1794,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_base
   %add.ptr21.i = getelementptr inbounds double, ptr %call5.i.i.i.i13, i64 %conv
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %1 = load ptr, ptr %binsVector, align 8
-  %invariant.op = add i32 %offset, -1
   %_M_finish.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br label %for.body
 
@@ -1853,11 +1851,11 @@ if.end17:                                         ; preds = %if.end
   br i1 %cmp18.not, label %if.end30, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %sub.reass = add i32 %i.026, %invariant.op
+  %sub = add nsw i32 %add, -1
   %vtable21 = load ptr, ptr %1, align 8
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 352
   %7 = load ptr, ptr %vfn22, align 8
-  %call24 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %sub.reass)
+  %call24 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %sub)
           to label %invoke.cont23 unwind label %lpad.loopexit
 
 invoke.cont23:                                    ; preds = %if.then19

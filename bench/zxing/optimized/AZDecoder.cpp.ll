@@ -687,9 +687,6 @@ _ZN5ZXing8BitArrayC2Ei.exit.i:                    ; preds = %.noexc97.i, %_ZNSt6
   %97 = shl i32 %.tr.i, 1
   %98 = shl i32 %.tr.i, 2
   %99 = mul i32 %.tr.i, 6
-  %invariant.op = add i32 %.087205.i, %97
-  %invariant.op100 = add i32 %.087205.i, %98
-  %invariant.op101 = add i32 %.087205.i, %99
   br label %100
 
 100:                                              ; preds = %169, %.lr.ph.i
@@ -697,15 +694,16 @@ _ZN5ZXing8BitArrayC2Ei.exit.i:                    ; preds = %.noexc97.i, %_ZNSt6
   %101 = shl nuw nsw i64 %indvars.iv287.i, 1
   %gep362.i = getelementptr inbounds i32, ptr %invariant.gep361.i, i64 %indvars.iv287.i
   %102 = trunc nsw i64 %101 to i32
+  %invariant.op.i = add i32 %.087205.i, %102
   %103 = add nsw i64 %101, %96
-  %.reass.i.reass = add i32 %invariant.op, %102
+  %.reass.i = add i32 %invariant.op.i, %97
   %104 = sub nsw i64 %95, %indvars.iv287.i
   %105 = getelementptr inbounds i32, ptr %39, i64 %104
-  %.reass199.i.reass = add i32 %invariant.op100, %102
-  %.reass201.i.reass = add i32 %invariant.op101, %102
-  %106 = sext i32 %.reass201.i.reass to i64
-  %107 = sext i32 %.reass199.i.reass to i64
-  %108 = sext i32 %.reass.i.reass to i64
+  %.reass199.i = add i32 %invariant.op.i, %98
+  %.reass201.i = add i32 %invariant.op.i, %99
+  %106 = sext i32 %.reass201.i to i64
+  %107 = sext i32 %.reass199.i to i64
+  %108 = sext i32 %.reass.i to i64
   %109 = load i32, ptr %gep362.i, align 4, !noalias !6
   %110 = mul nsw i32 %109, %78
   br label %111

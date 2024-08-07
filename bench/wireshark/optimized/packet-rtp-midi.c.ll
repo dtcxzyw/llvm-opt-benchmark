@@ -5159,7 +5159,7 @@ define internal fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr nound
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %.lr.ph
-  %.276 = phi i32 [ %.2.reass, %.lr.ph ], [ %.273, %35 ]
+  %.276 = phi i32 [ %.2, %.lr.ph ], [ %.273, %35 ]
   %.2.in75 = phi i32 [ %50, %.lr.ph ], [ %3, %35 ]
   %.17174 = phi i32 [ %53, %.lr.ph ], [ 0, %35 ]
   %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.276) #2
@@ -5173,12 +5173,12 @@ define internal fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr nound
   %51 = load i32, ptr @hf_rtp_midi_sysex_common_tune_freq, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 3, i32 noundef 0) #2
   %53 = add nuw nsw i32 %.17174, 1
-  %.2.reass = add i32 %.2.in75, 7
+  %.2 = add i32 %.2.in75, 7
   %exitcond.not = icmp eq i32 %53, %42
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %35, %7, %31, %12
-  %.069 = phi i32 [ %15, %12 ], [ %34, %31 ], [ %11, %7 ], [ %.273, %35 ], [ %.2.reass, %.lr.ph ]
+  %.069 = phi i32 [ %15, %12 ], [ %34, %31 ], [ %11, %7 ], [ %.273, %35 ], [ %.2, %.lr.ph ]
   %54 = sub i32 %.069, %3
   br label %55
 

@@ -969,7 +969,6 @@ lor.lhs.false6.i48.lr.ph:                         ; preds = %if.end3.i
   %conv9.i.i.i89 = zext i8 %6 to i64
   %or10.i.i.i90 = or disjoint i64 %or7.i.i.i88, %conv9.i.i.i89
   %add.ptr.i.i91 = getelementptr i8, ptr %fdt, i64 %or10.i.i.i90
-  %invariant.op = add i32 %or10.i.i40, 1
   br label %lor.lhs.false6.i48
 
 lor.lhs.false6.i48:                               ; preds = %lor.lhs.false6.i48.lr.ph, %do.body.backedge.i
@@ -1041,36 +1040,33 @@ do.body.i5.preheader:                             ; preds = %if.end.i
 
 do.body.i5:                                       ; preds = %do.body.i5.preheader, %land.rhs.i
   %indvars.iv = phi i64 [ %21, %do.body.i5.preheader ], [ %indvars.iv.next, %land.rhs.i ]
-  %indvars153 = trunc i64 %indvars.iv to i32
-  %add.i21 = add i32 %or10.i.i40, %indvars153
-  %cmp.i22 = icmp slt i32 %indvars153, 0
-  %22 = zext i32 %add.i21 to i64
-  %cmp3.i = icmp ugt i64 %indvars.iv, %22
-  %or.cond.i23 = or i1 %cmp.i22, %cmp3.i
-  %cmp5.i = icmp eq i32 %add.i21, -1
-  %or.cond134 = or i1 %or.cond.i23, %cmp5.i
-  %add4.i.reass = add i32 %invariant.op, %indvars153
-  %cmp9.i = icmp ugt i32 %add4.i.reass, %or10.i29.i62
-  %or.cond160 = or i1 %or.cond134, %cmp9.i
-  br i1 %or.cond160, label %return, label %if.end12.i
+  %22 = trunc nuw i64 %indvars.iv to i32
+  %add.i21 = add i32 %or10.i.i40, %22
+  %cmp.i22 = icmp sgt i32 %22, -1
+  %23 = zext i32 %add.i21 to i64
+  %cmp3.i = icmp ule i64 %indvars.iv, %23
+  %or.cond.i23.not162 = and i1 %cmp.i22, %cmp3.i
+  %cmp9.i.not = icmp ult i32 %add.i21, %or10.i29.i62
+  %or.cond160 = and i1 %or.cond.i23.not162, %cmp9.i.not
+  br i1 %or.cond160, label %if.end12.i, label %return
 
 if.end12.i:                                       ; preds = %do.body.i5
   br i1 %cmp16.i79, label %lor.lhs.false20.i, label %fdt_offset_ptr.exit
 
 lor.lhs.false20.i:                                ; preds = %if.end12.i
-  %23 = load i8, ptr %size_dt_struct.i99, align 1
-  %conv.i43.i = zext i8 %23 to i64
+  %24 = load i8, ptr %size_dt_struct.i99, align 1
+  %conv.i43.i = zext i8 %24 to i64
   %shl.i44.i = shl nuw nsw i64 %conv.i43.i, 24
-  %24 = load i8, ptr %arrayidx1.i45.i102, align 1
-  %conv2.i46.i = zext i8 %24 to i64
+  %25 = load i8, ptr %arrayidx1.i45.i102, align 1
+  %conv2.i46.i = zext i8 %25 to i64
   %shl3.i47.i = shl nuw nsw i64 %conv2.i46.i, 16
   %or.i48.i = or disjoint i64 %shl3.i47.i, %shl.i44.i
-  %25 = load i8, ptr %arrayidx4.i49.i106, align 1
-  %conv5.i50.i = zext i8 %25 to i64
+  %26 = load i8, ptr %arrayidx4.i49.i106, align 1
+  %conv5.i50.i = zext i8 %26 to i64
   %shl6.i51.i = shl nuw nsw i64 %conv5.i50.i, 8
   %or7.i52.i = or disjoint i64 %or.i48.i, %shl6.i51.i
-  %26 = load i8, ptr %arrayidx8.i53.i110, align 1
-  %conv9.i54.i = zext i8 %26 to i64
+  %27 = load i8, ptr %arrayidx8.i53.i110, align 1
+  %conv9.i54.i = zext i8 %27 to i64
   %or10.i55.i = or disjoint i64 %or7.i52.i, %conv9.i54.i
   %cmp23.i.not = icmp ult i64 %indvars.iv, %or10.i55.i
   br i1 %cmp23.i.not, label %fdt_offset_ptr.exit, label %return
@@ -1082,8 +1078,8 @@ fdt_offset_ptr.exit:                              ; preds = %if.end12.i, %lor.lh
 
 land.rhs.i:                                       ; preds = %fdt_offset_ptr.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i8, ptr %add.ptr2.i.i, align 1
-  %cmp.not.i = icmp eq i8 %27, 0
+  %28 = load i8, ptr %add.ptr2.i.i, align 1
+  %cmp.not.i = icmp eq i8 %28, 0
   br i1 %cmp.not.i, label %sw.epilog.i.loopexit, label %do.body.i5, !llvm.loop !5
 
 sw.bb13.i4:                                       ; preds = %if.end.i
@@ -1092,8 +1088,8 @@ sw.bb13.i4:                                       ; preds = %if.end.i
   br i1 %tobool17.not.i, label %return, label %if.end19.i
 
 if.end19.i:                                       ; preds = %sw.bb13.i4
-  %28 = load i32, ptr %call14.i, align 4
-  %rev.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %28)
+  %29 = load i32, ptr %call14.i, align 4
+  %rev.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %29)
   %add22.i = add nuw i32 %11, 12
   %add24.i = add i32 %rev.i26.i, %add22.i
   %cmp29.i = icmp ult i32 %or10.i42.i78, 16
@@ -1109,11 +1105,11 @@ land.lhs.true35.i:                                ; preds = %if.end19.i
   br label %sw.epilog.i
 
 sw.epilog.i.loopexit:                             ; preds = %land.rhs.i
-  %29 = trunc nuw i64 %indvars.iv.next to i32
+  %30 = trunc nuw i64 %indvars.iv.next to i32
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.i.loopexit, %land.lhs.true35.i, %if.end19.i, %if.end.i, %if.end.i, %if.end.i
-  %offset.1.i = phi i32 [ %add.i, %if.end.i ], [ %add.i, %if.end.i ], [ %add.i, %if.end.i ], [ %add24.i, %if.end19.i ], [ %spec.select.i, %land.lhs.true35.i ], [ %29, %sw.epilog.i.loopexit ]
+  %offset.1.i = phi i32 [ %add.i, %if.end.i ], [ %add.i, %if.end.i ], [ %add.i, %if.end.i ], [ %add24.i, %if.end19.i ], [ %spec.select.i, %land.lhs.true35.i ], [ %30, %sw.epilog.i.loopexit ]
   %sub43.i = sub i32 %offset.1.i, %11
   %call44.i = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %fdt, i32 noundef %11, i32 noundef %sub43.i)
   %tobool45.not.i = icmp eq ptr %call44.i, null

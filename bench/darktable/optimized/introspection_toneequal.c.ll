@@ -8689,7 +8689,6 @@ define internal fastcc void @display_luminance_mask(ptr noalias nocapture nounde
   %43 = icmp eq i64 %42, %26
   %44 = and i64 %26, 1
   %45 = icmp eq i64 %44, 0
-  %invariant.op10 = add nsw i64 %11, 1
   br label %46
 
 46:                                               ; preds = %.loopexit, %35
@@ -8792,7 +8791,7 @@ define internal fastcc void @display_luminance_mask(ptr noalias nocapture nounde
   br i1 %124, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %122
-  %invariant.op.reass = add i64 %49, %invariant.op10
+  %invariant.op = add i64 %50, 1
   %invariant.op8 = add i64 %51, 1
   br label %125
 
@@ -8817,7 +8816,7 @@ define internal fastcc void @display_luminance_mask(ptr noalias nocapture nounde
   %142 = insertelement <4 x float> %141, float %140, i64 1
   %143 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   store <4 x float> %143, ptr %136, align 4, !tbaa !6
-  %.reass = add i64 %126, %invariant.op.reass
+  %.reass = add i64 %126, %invariant.op
   %144 = getelementptr inbounds float, ptr %1, i64 %.reass
   %145 = load float, ptr %144, align 4, !tbaa !6
   %146 = fadd reassoc nsz arcp contract afn float %145, -3.906250e-03

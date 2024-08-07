@@ -529,14 +529,14 @@ define internal fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr no
   %25 = icmp sgt i32 %24, 4
   br i1 %25, label %.lr.ph42, label %dissect_ros_connection_header_field.exit.thread
 
-dissect_ros_connection_header_field.exit.thread:  ; preds = %56, %.lr.ph
-  %.036.lcssa = phi i32 [ 4, %.lr.ph ], [ %53, %56 ]
+dissect_ros_connection_header_field.exit.thread:  ; preds = %57, %.lr.ph
+  %.036.lcssa = phi i32 [ 4, %.lr.ph ], [ %54, %57 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit
 
-.lr.ph42:                                         ; preds = %.lr.ph, %56
-  %26 = phi i32 [ %58, %56 ], [ %23, %.lr.ph ]
-  %.03641 = phi i32 [ %53, %56 ], [ 4, %.lr.ph ]
+.lr.ph42:                                         ; preds = %.lr.ph, %57
+  %26 = phi i32 [ %59, %57 ], [ %23, %.lr.ph ]
+  %.03641 = phi i32 [ %54, %57 ], [ 4, %.lr.ph ]
   %27 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %26) #3
   %28 = load i32, ptr @hf_tcpros_connection_header_field, align 4
   %29 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef -2147483646) #3
@@ -544,52 +544,52 @@ dissect_ros_connection_header_field.exit.thread:  ; preds = %56, %.lr.ph
   %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #3
   %32 = load i32, ptr @hf_tcpros_connection_header_field_length, align 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef -2147483648) #3
-  %.reass = add i32 %.03641, %16
-  %34 = load i32, ptr @hf_tcpros_connection_header_field_data, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef %.reass, i32 noundef %27, i32 noundef 2) #3
-  %36 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.reass, i32 noundef %27, i8 noundef zeroext 61) #3
-  %37 = sub i32 %36, %.reass
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %dissect_ros_connection_header_field.exit
+  %34 = add i32 %26, 4
+  %35 = load i32, ptr @hf_tcpros_connection_header_field_data, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef %27, i32 noundef 2) #3
+  %37 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %34, i32 noundef %27, i8 noundef zeroext 61) #3
+  %38 = sub i32 %37, %34
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %40, label %dissect_ros_connection_header_field.exit
 
-39:                                               ; preds = %.lr.ph42
-  %40 = load i32, ptr @ett_tcpros, align 4
-  %41 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %40) #3
-  %42 = load i32, ptr @hf_tcpros_connection_header_field_name, align 4
-  %43 = load ptr, ptr %22, align 8
-  %44 = call ptr @proto_tree_add_item_ret_string(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %.reass, i32 noundef %37, i32 noundef 2, ptr noundef %43, ptr noundef nonnull %5) #3
-  %45 = load i32, ptr @hf_tcpros_connection_header_field_value, align 4
-  %46 = add i32 %36, 1
-  %47 = xor i32 %37, -1
-  %48 = add i32 %27, %47
-  %49 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef %48, i32 noundef 2) #3
-  %50 = load ptr, ptr %7, align 8
-  %51 = load ptr, ptr %5, align 8
-  call void @col_append_str(ptr noundef %50, i32 noundef 25, ptr noundef %51) #3
+40:                                               ; preds = %.lr.ph42
+  %41 = load i32, ptr @ett_tcpros, align 4
+  %42 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %41) #3
+  %43 = load i32, ptr @hf_tcpros_connection_header_field_name, align 4
+  %44 = load ptr, ptr %22, align 8
+  %45 = call ptr @proto_tree_add_item_ret_string(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef %34, i32 noundef %38, i32 noundef 2, ptr noundef %44, ptr noundef nonnull %5) #3
+  %46 = load i32, ptr @hf_tcpros_connection_header_field_value, align 4
+  %47 = add i32 %37, 1
+  %48 = xor i32 %38, -1
+  %49 = add i32 %27, %48
+  %50 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef %49, i32 noundef 2) #3
+  %51 = load ptr, ptr %7, align 8
+  %52 = load ptr, ptr %5, align 8
+  call void @col_append_str(ptr noundef %51, i32 noundef 25, ptr noundef %52) #3
   br label %dissect_ros_connection_header_field.exit
 
-dissect_ros_connection_header_field.exit:         ; preds = %.lr.ph42, %39
-  %52 = add i32 %27, 4
+dissect_ros_connection_header_field.exit:         ; preds = %.lr.ph42, %40
+  %53 = add i32 %27, 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %53 = add i32 %52, %.03641
-  %54 = icmp ne i32 %52, 0
-  %55 = icmp slt i32 %53, %20
-  %or.cond = and i1 %54, %55
-  br i1 %or.cond, label %56, label %.loopexit
+  %54 = add i32 %53, %.03641
+  %55 = icmp ne i32 %53, 0
+  %56 = icmp slt i32 %54, %20
+  %or.cond = and i1 %55, %56
+  br i1 %or.cond, label %57, label %.loopexit
 
-56:                                               ; preds = %dissect_ros_connection_header_field.exit
-  %57 = load ptr, ptr %7, align 8
-  call void @col_append_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.81) #3
-  %58 = add i32 %53, %3
+57:                                               ; preds = %dissect_ros_connection_header_field.exit
+  %58 = load ptr, ptr %7, align 8
+  call void @col_append_str(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.81) #3
+  %59 = add i32 %54, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %59 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %58) #3
-  %60 = icmp sgt i32 %59, 4
-  br i1 %60, label %.lr.ph42, label %dissect_ros_connection_header_field.exit.thread
+  %60 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %59) #3
+  %61 = icmp sgt i32 %60, 4
+  br i1 %61, label %.lr.ph42, label %dissect_ros_connection_header_field.exit.thread
 
 .loopexit:                                        ; preds = %dissect_ros_connection_header_field.exit, %4, %dissect_ros_connection_header_field.exit.thread
-  %.1 = phi i32 [ %.036.lcssa, %dissect_ros_connection_header_field.exit.thread ], [ 4, %4 ], [ %53, %dissect_ros_connection_header_field.exit ]
-  %61 = load ptr, ptr %7, align 8
-  call void @col_append_str(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.82) #3
+  %.1 = phi i32 [ %.036.lcssa, %dissect_ros_connection_header_field.exit.thread ], [ 4, %4 ], [ %54, %dissect_ros_connection_header_field.exit ]
+  %62 = load ptr, ptr %7, align 8
+  call void @col_append_str(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.82) #3
   ret i32 %.1
 }
 

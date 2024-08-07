@@ -109,126 +109,124 @@ define dso_local ptr @handshake_req_hash_lookup(ptr noundef %0) local_unnamed_ad
   %5 = lshr i64 %4, 32
   %6 = trunc nuw i64 %5 to i32
   %7 = trunc i64 %4 to i32
-  %invariant.op = add i32 %6, -559038729
-  %invariant.op5 = add i32 %7, -559038729
   br label %8
 
-8:                                                ; preds = %81, %1
-  %9 = phi ptr [ %3, %1 ], [ %83, %81 ]
+8:                                                ; preds = %83, %1
+  %9 = phi ptr [ %3, %1 ], [ %85, %83 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, -559038729
-  %.reass = add i32 %11, %invariant.op
-  %.reass6 = add i32 %11, %invariant.op5
-  %13 = xor i32 %.reass, %12
-  %14 = tail call noundef i32 @llvm.fshl.i32(i32 %.reass, i32 %.reass, i32 14)
-  %15 = sub i32 %13, %14
-  %16 = xor i32 %15, %.reass6
-  %17 = tail call noundef i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 11)
-  %18 = sub i32 %16, %17
-  %19 = xor i32 %18, %.reass
-  %20 = tail call noundef i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 25)
-  %21 = sub i32 %19, %20
-  %22 = xor i32 %21, %15
-  %23 = tail call noundef i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 16)
-  %24 = sub i32 %22, %23
-  %25 = xor i32 %24, %18
-  %26 = tail call noundef i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 4)
-  %27 = sub i32 %25, %26
-  %28 = xor i32 %27, %21
-  %29 = tail call noundef i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 14)
-  %30 = sub i32 %28, %29
-  %31 = xor i32 %30, %24
-  %32 = tail call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 24)
-  %33 = sub i32 %31, %32
-  %34 = load i32, ptr %9, align 64
-  %35 = add i32 %34, -1
-  %36 = and i32 %33, %35
-  %37 = getelementptr inbounds i8, ptr %9, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %42, label %40, !prof !6
-
-40:                                               ; preds = %8
-  %41 = tail call ptr @rht_bucket_nested(ptr noundef %9, i32 noundef %36) #11
-  br label %46
+  %13 = add i32 %12, %6
+  %14 = add i32 %12, %7
+  %15 = xor i32 %13, %12
+  %16 = tail call noundef i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 14)
+  %17 = sub i32 %15, %16
+  %18 = xor i32 %17, %14
+  %19 = tail call noundef i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 11)
+  %20 = sub i32 %18, %19
+  %21 = xor i32 %20, %13
+  %22 = tail call noundef i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 25)
+  %23 = sub i32 %21, %22
+  %24 = xor i32 %23, %17
+  %25 = tail call noundef i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 16)
+  %26 = sub i32 %24, %25
+  %27 = xor i32 %26, %20
+  %28 = tail call noundef i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 4)
+  %29 = sub i32 %27, %28
+  %30 = xor i32 %29, %23
+  %31 = tail call noundef i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 14)
+  %32 = sub i32 %30, %31
+  %33 = xor i32 %32, %26
+  %34 = tail call noundef i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 24)
+  %35 = sub i32 %33, %34
+  %36 = load i32, ptr %9, align 64
+  %37 = add i32 %36, -1
+  %38 = and i32 %35, %37
+  %39 = getelementptr inbounds i8, ptr %9, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %44, label %42, !prof !6
 
 42:                                               ; preds = %8
-  %43 = getelementptr inbounds i8, ptr %9, i64 64
-  %44 = zext i32 %36 to i64
-  %45 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %44
-  br label %46
+  %43 = tail call ptr @rht_bucket_nested(ptr noundef %9, i32 noundef %38) #11
+  br label %48
 
-46:                                               ; preds = %42, %40
-  %47 = phi ptr [ %41, %40 ], [ %45, %42 ]
-  %48 = ptrtoint ptr %47 to i64
-  %49 = or i64 %48, 1
-  %50 = inttoptr i64 %49 to ptr
-  br label %51
+44:                                               ; preds = %8
+  %45 = getelementptr inbounds i8, ptr %9, i64 64
+  %46 = zext i32 %38 to i64
+  %47 = getelementptr [0 x ptr], ptr %45, i64 0, i64 %46
+  br label %48
 
-51:                                               ; preds = %.loopexit1, %46
+48:                                               ; preds = %44, %42
+  %49 = phi ptr [ %43, %42 ], [ %47, %44 ]
+  %50 = ptrtoint ptr %49 to i64
+  %51 = or i64 %50, 1
+  %52 = inttoptr i64 %51 to ptr
+  br label %53
+
+53:                                               ; preds = %.loopexit1, %48
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
-  %52 = load volatile ptr, ptr %47, align 8
-  %53 = ptrtoint ptr %52 to i64
-  %54 = and i64 %53, -2
-  %55 = icmp eq i64 %54, 0
-  %56 = select i1 %55, i64 %49, i64 %54
-  %57 = inttoptr i64 %56 to ptr
-  %58 = and i64 %56, 1
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %60, label %.loopexit1
+  %54 = load volatile ptr, ptr %49, align 8
+  %55 = ptrtoint ptr %54 to i64
+  %56 = and i64 %55, -2
+  %57 = icmp eq i64 %56, 0
+  %58 = select i1 %57, i64 %51, i64 %56
+  %59 = inttoptr i64 %58 to ptr
+  %60 = and i64 %58, 1
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %62, label %.loopexit1
 
-60:                                               ; preds = %51
-  %61 = load i16, ptr getelementptr inbounds (i8, ptr @handshake_rhashtbl, i64 22), align 2
-  %62 = zext i16 %61 to i64
-  %63 = sub nsw i64 0, %62
-  %64 = load i16, ptr getelementptr inbounds (i8, ptr @handshake_rhashtbl, i64 20), align 4
-  %65 = zext i16 %64 to i64
-  %66 = load i16, ptr getelementptr inbounds (i8, ptr @handshake_rhashtbl, i64 18), align 2
+62:                                               ; preds = %53
+  %63 = load i16, ptr getelementptr inbounds (i8, ptr @handshake_rhashtbl, i64 22), align 2
+  %64 = zext i16 %63 to i64
+  %65 = sub nsw i64 0, %64
+  %66 = load i16, ptr getelementptr inbounds (i8, ptr @handshake_rhashtbl, i64 20), align 4
   %67 = zext i16 %66 to i64
-  br label %68
+  %68 = load i16, ptr getelementptr inbounds (i8, ptr @handshake_rhashtbl, i64 18), align 2
+  %69 = zext i16 %68 to i64
+  br label %70
 
-68:                                               ; preds = %74, %60
-  %69 = phi ptr [ %75, %74 ], [ %57, %60 ]
-  %70 = getelementptr i8, ptr %69, i64 %63
-  %71 = getelementptr i8, ptr %70, i64 %65
-  %72 = call i32 @bcmp(ptr %71, ptr nonnull %2, i64 %67)
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.loopexit, label %74
+70:                                               ; preds = %76, %62
+  %71 = phi ptr [ %77, %76 ], [ %59, %62 ]
+  %72 = getelementptr i8, ptr %71, i64 %65
+  %73 = getelementptr i8, ptr %72, i64 %67
+  %74 = call i32 @bcmp(ptr %73, ptr nonnull %2, i64 %69)
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %.loopexit, label %76
 
-74:                                               ; preds = %68
-  %75 = load volatile ptr, ptr %69, align 8
-  %76 = ptrtoint ptr %75 to i64
-  %77 = and i64 %76, 1
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %68, label %.loopexit1, !llvm.loop !8
+76:                                               ; preds = %70
+  %77 = load volatile ptr, ptr %71, align 8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = and i64 %78, 1
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %70, label %.loopexit1, !llvm.loop !8
 
-.loopexit1:                                       ; preds = %74, %51
-  %79 = phi ptr [ %57, %51 ], [ %75, %74 ]
-  %80 = icmp eq ptr %79, %50
-  br i1 %80, label %81, label %51, !llvm.loop !11
+.loopexit1:                                       ; preds = %76, %53
+  %81 = phi ptr [ %59, %53 ], [ %77, %76 ]
+  %82 = icmp eq ptr %81, %52
+  br i1 %82, label %83, label %53, !llvm.loop !11
 
-81:                                               ; preds = %.loopexit1
+83:                                               ; preds = %.loopexit1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
-  %82 = getelementptr inbounds i8, ptr %9, i64 48
-  %83 = load volatile ptr, ptr %82, align 16
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %.loopexit.loopexit7, label %8, !prof !6
+  %84 = getelementptr inbounds i8, ptr %9, i64 48
+  %85 = load volatile ptr, ptr %84, align 16
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %.loopexit.loopexit5, label %8, !prof !6
 
-.loopexit.loopexit7:                              ; preds = %81
+.loopexit.loopexit5:                              ; preds = %83
   %.pre = load i16, ptr getelementptr inbounds (i8, ptr @handshake_rhashtbl, i64 22), align 2
-  %.pre10 = zext i16 %.pre to i64
-  %.pre11 = sub nsw i64 0, %.pre10
+  %.pre8 = zext i16 %.pre to i64
+  %.pre9 = sub nsw i64 0, %.pre8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %68, %.loopexit.loopexit7
-  %.pre-phi12 = phi i64 [ %.pre11, %.loopexit.loopexit7 ], [ %63, %68 ]
-  %85 = phi ptr [ null, %.loopexit.loopexit7 ], [ %69, %68 ]
-  %86 = icmp eq ptr %85, null
-  %87 = getelementptr i8, ptr %85, i64 %.pre-phi12
-  %88 = select i1 %86, ptr null, ptr %87
+.loopexit:                                        ; preds = %70, %.loopexit.loopexit5
+  %.pre-phi10 = phi i64 [ %.pre9, %.loopexit.loopexit5 ], [ %65, %70 ]
+  %87 = phi ptr [ null, %.loopexit.loopexit5 ], [ %71, %70 ]
+  %88 = icmp eq ptr %87, null
+  %89 = getelementptr i8, ptr %87, i64 %.pre-phi10
+  %90 = select i1 %88, ptr null, ptr %89
   tail call void @__rcu_read_unlock() #11
-  ret ptr %88
+  ret ptr %90
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
