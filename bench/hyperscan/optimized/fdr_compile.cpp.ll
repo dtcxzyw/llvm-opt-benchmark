@@ -938,10 +938,10 @@ for.body83.preheader.i.i:                         ; preds = %for.body83.lr.ph.i.
   br label %for.body83.i.i
 
 for.body83.lr.ph.split.us.i.i:                    ; preds = %for.body83.lr.ph.i.i
-  %53 = load ptr, ptr %t.i.i, align 8, !noalias !11
-  %54 = load i64, ptr %origin_offset_.i.i143.i.i, align 8, !noalias !11
+  %53 = load ptr, ptr %t.i.i, align 8, !noalias !41
+  %54 = load i64, ptr %origin_offset_.i.i143.i.i, align 8, !noalias !41
   %add.ptr.i.i144.us.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %53, i64 %54
-  %55 = load i64, ptr %stride_list_.i.i145.i.i, align 8, !noalias !11
+  %55 = load i64, ptr %stride_list_.i.i145.i.i, align 8, !noalias !44
   %56 = load i64, ptr %add.ptr3.i.i149.i.i, align 8, !noalias !11
   %mul.i.i155.us.i.i = mul nsw i64 %56, %49
   %invariant.gep.i.i = getelementptr %"struct.std::pair.63", ptr %add.ptr.i.i144.us.i.i, i64 %mul.i.i155.us.i.i
@@ -966,7 +966,7 @@ invoke.cont96.us.i.i:                             ; preds = %for.body83.us.i.i
   %indvars.iv.next483.i.i = add nuw nsw i64 %indvars.iv482.i.i, 1
   %lftr.wideiv149 = trunc i64 %indvars.iv.next483.i.i to i32
   %exitcond150 = icmp eq i32 %sub.i.i, %lftr.wideiv149
-  br i1 %exitcond150, label %invoke.cont119.i.i, label %for.body83.us.i.i, !llvm.loop !41
+  br i1 %exitcond150, label %invoke.cont119.i.i, label %for.body83.us.i.i, !llvm.loop !47
 
 for.body83thread-pre-split.i.i:                   ; preds = %invoke.cont96.i.i
   %indvars.iv.next479.i.i = add nuw nsw i64 %indvars.iv478.i.i, 1
@@ -1087,7 +1087,7 @@ invoke.cont.i311.i.i:                             ; preds = %for.cond.i.i.i
   %add.ptr14.i.i.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i, i64 8
   %74 = load i32, ptr %add.ptr14.i.i.i, align 4
   %cmp.i.i.i312.i.i = icmp eq i32 %cnt74.0425.i.i, %74
-  br i1 %cmp.i.i.i312.i.i, label %if.then.i15.i.i.i, label %for.cond.i.i.i, !llvm.loop !42
+  br i1 %cmp.i.i.i312.i.i, label %if.then.i15.i.i.i, label %for.cond.i.i.i, !llvm.loop !48
 
 _ZNSt10_HashtableIjSt4pairIKjdESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i: ; preds = %if.end36.i305.i.i
   %75 = landingpad { ptr, i32 }
@@ -1233,7 +1233,7 @@ if.end22.sink.split.i.i.i:                        ; preds = %if.else.i336.i.i, %
 if.end22.i.i.i:                                   ; preds = %if.end22.sink.split.i.i.i, %if.then.i340.i.i
   %__bbegin_bkt.1.i.i.i = phi i64 [ %rem.i.i.i.i.i, %if.then.i340.i.i ], [ %__bbegin_bkt.1.ph.i.i.i, %if.end22.sink.split.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %86, null
-  br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !43
+  br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !49
 
 while.end.i.i.i:                                  ; preds = %if.end22.i.i.i, %_ZNSt10_HashtableIjSt4pairIKjdESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i
   %93 = load ptr, ptr %scorer.i.i, align 8, !noalias !11
@@ -1347,10 +1347,10 @@ invoke.cont87.i.i:                                ; preds = %_ZN3ue212_GLOBAL__N
   br i1 %cmp89.i.i, label %invoke.cont119.i.i, label %invoke.cont96.i.i
 
 invoke.cont96.i.i:                                ; preds = %invoke.cont87.i.i
-  %109 = load ptr, ptr %t.i.i, align 8, !noalias !44
-  %110 = load i64, ptr %origin_offset_.i.i143.i.i, align 8, !noalias !44
+  %109 = load ptr, ptr %t.i.i, align 8, !noalias !41
+  %110 = load i64, ptr %origin_offset_.i.i143.i.i, align 8, !noalias !41
   %add.ptr.i.i144.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %109, i64 %110
-  %111 = load i64, ptr %stride_list_.i.i145.i.i, align 8, !noalias !47
+  %111 = load i64, ptr %stride_list_.i.i145.i.i, align 8, !noalias !44
   %mul.i.i146.i.i = mul nsw i64 %111, %indvars.iv478.i.i
   %add.ptr.i1.i147.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %add.ptr.i.i144.i.i, i64 %mul.i.i146.i.i
   %112 = load i64, ptr %add.ptr3.i.i149.i.i, align 8, !noalias !11
@@ -9216,7 +9216,7 @@ invoke.cont:                                      ; preds = %for.cond
   %add.ptr14 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
   %6 = load i32, ptr %add.ptr14, align 4
   %cmp.i.i = icmp eq i32 %0, %6
-  br i1 %cmp.i.i, label %if.then.i15, label %for.cond, !llvm.loop !42
+  br i1 %cmp.i.i, label %if.then.i15, label %for.cond, !llvm.loop !48
 
 _ZNSt10_HashtableIjSt4pairIKjdESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %if.end36
   %7 = landingpad { ptr, i32 }
@@ -9462,7 +9462,7 @@ if.end22.sink.split:                              ; preds = %if.else, %if.then15
 if.end22:                                         ; preds = %if.end22.sink.split, %if.then
   %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !43
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !49
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIjSt4pairIKjdESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
@@ -11829,15 +11829,15 @@ attributes #26 = { nounwind allocsize(0) }
 !38 = distinct !{!38, !39, !"_ZNK5boost6detail11multi_array16value_accessor_nISt4pairIdjELm2EE6accessINS1_9sub_arrayIS4_Lm1EEEPS4_EET_NS_4typeISA_EElT0_PKmPKlSH_: %agg.result"}
 !39 = distinct !{!39, !"_ZNK5boost6detail11multi_array16value_accessor_nISt4pairIdjELm2EE6accessINS1_9sub_arrayIS4_Lm1EEEPS4_EET_NS_4typeISA_EElT0_PKmPKlSH_"}
 !40 = distinct !{!40, !13}
-!41 = distinct !{!41, !13}
-!42 = distinct !{!42, !13}
-!43 = distinct !{!43, !13}
-!44 = !{!45, !9, !6}
-!45 = distinct !{!45, !46, !"_ZN5boost15multi_array_refISt4pairIdjELm2EEixEl: %agg.result"}
-!46 = distinct !{!46, !"_ZN5boost15multi_array_refISt4pairIdjELm2EEixEl"}
-!47 = !{!48, !45, !9, !6}
-!48 = distinct !{!48, !49, !"_ZNK5boost6detail11multi_array16value_accessor_nISt4pairIdjELm2EE6accessINS1_9sub_arrayIS4_Lm1EEEPS4_EET_NS_4typeISA_EElT0_PKmPKlSH_: %agg.result"}
-!49 = distinct !{!49, !"_ZNK5boost6detail11multi_array16value_accessor_nISt4pairIdjELm2EE6accessINS1_9sub_arrayIS4_Lm1EEEPS4_EET_NS_4typeISA_EElT0_PKmPKlSH_"}
+!41 = !{!42, !9, !6}
+!42 = distinct !{!42, !43, !"_ZN5boost15multi_array_refISt4pairIdjELm2EEixEl: %agg.result"}
+!43 = distinct !{!43, !"_ZN5boost15multi_array_refISt4pairIdjELm2EEixEl"}
+!44 = !{!45, !42, !9, !6}
+!45 = distinct !{!45, !46, !"_ZNK5boost6detail11multi_array16value_accessor_nISt4pairIdjELm2EE6accessINS1_9sub_arrayIS4_Lm1EEEPS4_EET_NS_4typeISA_EElT0_PKmPKlSH_: %agg.result"}
+!46 = distinct !{!46, !"_ZNK5boost6detail11multi_array16value_accessor_nISt4pairIdjELm2EE6accessINS1_9sub_arrayIS4_Lm1EEEPS4_EET_NS_4typeISA_EElT0_PKmPKlSH_"}
+!47 = distinct !{!47, !13}
+!48 = distinct !{!48, !13}
+!49 = distinct !{!49, !13}
 !50 = distinct !{!50, !13, !51}
 !51 = !{!"llvm.loop.unswitch.partial.disable"}
 !52 = !{!53, !9, !6}

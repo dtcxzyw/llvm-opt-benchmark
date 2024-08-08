@@ -225,20 +225,22 @@ for.body.lr.ph:                                   ; preds = %entry
   %1 = load i32, ptr %m_k.i, align 4
   %m_wlits = getelementptr inbounds i8, ptr %this, i64 76
   %wide.trip.count = zext i32 %0 to i64
-  br label %for.body
+  %2 = load i32, ptr %m_wlits, align 4
+  %.sroa.speculated18 = tail call i32 @llvm.umin.i32(i32 %2, i32 %1)
+  store i32 %.sroa.speculated18, ptr %m_wlits, align 4
+  br label %if.end
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
-  %2 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %if.end ]
-  %arrayidx = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits, i64 0, i64 %indvars.iv
+for.body:                                         ; preds = %if.end
+  %arrayidx = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits, i64 0, i64 %indvars.iv.next
   %3 = load i32, ptr %arrayidx, align 4
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %3, i32 %1)
   store i32 %.sroa.speculated, ptr %arrayidx, align 4
-  %add = add i32 %2, %.sroa.speculated
-  %cmp14 = icmp ult i32 %add, %2
-  br i1 %cmp14, label %if.then, label %if.end
+  %add = add i32 %add20, %.sroa.speculated
+  %cmp14 = icmp ult i32 %add, %add20
+  br i1 %cmp14, label %if.then, label %if.end, !llvm.loop !6
 
 if.then:                                          ; preds = %for.body
+  store i32 %add20, ptr %m_max_sum, align 8
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #15
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
@@ -265,13 +267,18 @@ cleanup.action:                                   ; preds = %if.then
   call void @__cxa_free_exception(ptr %exception) #15
   br label %eh.resume
 
-if.end:                                           ; preds = %for.body
-  store i32 %add, ptr %m_max_sum, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+if.end:                                           ; preds = %for.body.lr.ph, %for.body
+  %add20 = phi i32 [ %.sroa.speculated18, %for.body.lr.ph ], [ %add, %for.body ]
+  %indvars.iv19 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv19, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !6
 
-for.end:                                          ; preds = %if.end, %entry
+for.end.loopexit:                                 ; preds = %if.end
+  store i32 %add20, ptr %m_max_sum, align 8
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %entry
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action

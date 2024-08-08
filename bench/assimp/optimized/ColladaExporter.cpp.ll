@@ -8463,32 +8463,37 @@ entry:
 
 if.end12.lr.ph:                                   ; preds = %entry
   %tobool.not = icmp eq ptr %max_inout, null
-  %narrow.us78 = add nsw i8 %0, -48
-  %sub.us79 = zext nneg i8 %narrow.us78 to i64
-  br i1 %tobool.not, label %if.end18.us, label %if.end18.preheader
+  br i1 %tobool.not, label %if.end12.us.preheader, label %if.end12.lr.ph.split
 
-if.end18.preheader:                               ; preds = %if.end12.lr.ph
-  %2 = load i32, ptr %max_inout, align 4
-  br label %if.end18
+if.end12.us.preheader:                            ; preds = %if.end12.lr.ph
+  %narrow.us77 = add nsw i8 %0, -48
+  %sub.us78 = zext nneg i8 %narrow.us77 to i64
+  br label %if.end18.us
 
 if.end12.us:                                      ; preds = %if.end18.us
-  %mul.us = mul i64 %add.us82, 10
-  %narrow.us = add nsw i8 %3, -48
+  %mul.us = mul i64 %add.us81, 10
+  %narrow.us = add nsw i8 %2, -48
   %sub.us = zext nneg i8 %narrow.us to i64
   %add.us = add i64 %mul.us, %sub.us
-  %cmp15.us = icmp ult i64 %add.us, %add.us82
+  %cmp15.us = icmp ult i64 %add.us, %add.us81
   br i1 %cmp15.us, label %if.then16, label %if.end18.us, !llvm.loop !26
 
-if.end18.us:                                      ; preds = %if.end12.lr.ph, %if.end12.us
-  %add.us82 = phi i64 [ %add.us, %if.end12.us ], [ %sub.us79, %if.end12.lr.ph ]
-  %incdec.ptr3032.us81 = phi ptr [ %incdec.ptr.us, %if.end12.us ], [ %in, %if.end12.lr.ph ]
-  %cur.033.us80 = phi i32 [ %inc.us, %if.end12.us ], [ 0, %if.end12.lr.ph ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %incdec.ptr3032.us81, i64 1
-  %inc.us = add i32 %cur.033.us80, 1
-  %3 = load i8, ptr %incdec.ptr.us, align 1
-  %4 = add i8 %3, -58
-  %or.cond14.us = icmp ult i8 %4, -10
+if.end18.us:                                      ; preds = %if.end12.us.preheader, %if.end12.us
+  %add.us81 = phi i64 [ %sub.us78, %if.end12.us.preheader ], [ %add.us, %if.end12.us ]
+  %incdec.ptr3032.us80 = phi ptr [ %in, %if.end12.us.preheader ], [ %incdec.ptr.us, %if.end12.us ]
+  %cur.033.us79 = phi i32 [ 0, %if.end12.us.preheader ], [ %inc.us, %if.end12.us ]
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %incdec.ptr3032.us80, i64 1
+  %inc.us = add i32 %cur.033.us79, 1
+  %2 = load i8, ptr %incdec.ptr.us, align 1
+  %3 = add i8 %2, -58
+  %or.cond14.us = icmp ult i8 %3, -10
   br i1 %or.cond14.us, label %for.end, label %if.end12.us, !llvm.loop !26
+
+if.end12.lr.ph.split:                             ; preds = %if.end12.lr.ph
+  %4 = load i32, ptr %max_inout, align 4
+  %narrow72 = add nsw i8 %0, -48
+  %sub73 = zext nneg i8 %narrow72 to i64
+  br label %if.end18
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #22
@@ -8528,27 +8533,27 @@ cleanup.action:                                   ; preds = %ehcleanup.thread20,
   br label %eh.resume
 
 if.end12:                                         ; preds = %if.end29
-  %mul = mul i64 %add77, 10
+  %mul = mul i64 %add76, 10
   %narrow = add nsw i8 %12, -48
   %sub = zext nneg i8 %narrow to i64
   %add = add i64 %mul, %sub
-  %cmp15 = icmp ult i64 %add, %add77
+  %cmp15 = icmp ult i64 %add, %add76
   br i1 %cmp15, label %if.then16, label %if.end18, !llvm.loop !26
 
 if.then16:                                        ; preds = %if.end12, %if.end12.us
-  %storemerge64 = phi ptr [ %incdec.ptr.us, %if.end12.us ], [ %incdec.ptr, %if.end12 ]
-  store ptr %storemerge64, ptr %in.addr, align 8
+  %storemerge63 = phi ptr [ %incdec.ptr.us, %if.end12.us ], [ %incdec.ptr, %if.end12 ]
+  store ptr %storemerge63, ptr %in.addr, align 8
   %call17 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger4warnIJRA24_KcRPS2_RA37_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call17, ptr noundef nonnull align 1 dereferenceable(24) @.str.355, ptr noundef nonnull align 8 dereferenceable(8) %in.addr, ptr noundef nonnull align 1 dereferenceable(37) @.str.356)
   br label %return
 
-if.end18:                                         ; preds = %if.end18.preheader, %if.end12
-  %add77 = phi i64 [ %add, %if.end12 ], [ %sub.us79, %if.end18.preheader ]
-  %incdec.ptr303276 = phi ptr [ %incdec.ptr, %if.end12 ], [ %in, %if.end18.preheader ]
-  %cur.03375 = phi i32 [ %inc, %if.end12 ], [ 0, %if.end18.preheader ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr303276, i64 1
-  %inc = add i32 %cur.03375, 1
-  %cmp19 = icmp eq i32 %2, %inc
+if.end18:                                         ; preds = %if.end12.lr.ph.split, %if.end12
+  %add76 = phi i64 [ %sub73, %if.end12.lr.ph.split ], [ %add, %if.end12 ]
+  %incdec.ptr303275 = phi ptr [ %in, %if.end12.lr.ph.split ], [ %incdec.ptr, %if.end12 ]
+  %cur.03374 = phi i32 [ 0, %if.end12.lr.ph.split ], [ %inc, %if.end12 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr303275, i64 1
+  %inc = add i32 %cur.03374, 1
+  %cmp19 = icmp eq i32 %4, %inc
   br i1 %cmp19, label %if.then20, label %if.end29
 
 if.then20:                                        ; preds = %if.end18
@@ -8585,7 +8590,7 @@ if.end29:                                         ; preds = %if.end18
 for.end:                                          ; preds = %if.end29, %if.end18.us
   %storemerge = phi ptr [ %incdec.ptr.us, %if.end18.us ], [ %incdec.ptr, %if.end29 ]
   %cur.0.lcssa = phi i32 [ %inc.us, %if.end18.us ], [ %inc, %if.end29 ]
-  %value.0.lcssa = phi i64 [ %add.us82, %if.end18.us ], [ %add77, %if.end29 ]
+  %value.0.lcssa = phi i64 [ %add.us81, %if.end18.us ], [ %add76, %if.end29 ]
   store ptr %storemerge, ptr %in.addr, align 8
   %tobool30.not = icmp eq ptr %out, null
   br i1 %tobool30.not, label %if.end32, label %if.then31
@@ -8603,7 +8608,7 @@ if.then34:                                        ; preds = %if.end32
   br label %return
 
 return:                                           ; preds = %if.end32, %if.then34, %if.then20, %while.end, %if.then16
-  %retval.0 = phi i64 [ 0, %if.then16 ], [ %add77, %while.end ], [ %add77, %if.then20 ], [ %value.0.lcssa, %if.then34 ], [ %value.0.lcssa, %if.end32 ]
+  %retval.0 = phi i64 [ 0, %if.then16 ], [ %add76, %while.end ], [ %add76, %if.then20 ], [ %value.0.lcssa, %if.then34 ], [ %value.0.lcssa, %if.end32 ]
   ret i64 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action

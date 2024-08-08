@@ -12956,7 +12956,7 @@ define internal void @"_ZN105_$LT$regex_automata..meta..strategy..ReverseInner$u
   %53 = getelementptr inbounds i8, ptr %29, i64 8
   %54 = getelementptr inbounds i8, ptr %29, i64 16
   %55 = getelementptr inbounds i8, ptr %3, i64 40
-  %56 = load i8, ptr %55, align 8, !range !173
+  %56 = load i8, ptr %55, align 8, !range !173, !alias.scope !3544, !noalias !3546, !noundef !4
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %20, i64 8
   %.sroa.477.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 16
@@ -13618,7 +13618,7 @@ define internal void @"_ZN105_$LT$regex_automata..meta..strategy..ReverseInner$u
   %60 = getelementptr inbounds i8, ptr %36, i64 8
   %61 = getelementptr inbounds i8, ptr %36, i64 16
   %62 = getelementptr inbounds i8, ptr %3, i64 40
-  %63 = load i8, ptr %62, align 8, !range !173
+  %63 = load i8, ptr %62, align 8, !range !173, !alias.scope !3719, !noalias !3721, !noundef !4
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %27, i64 8
   %.sroa.4124.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 16
@@ -14463,7 +14463,7 @@ define internal noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..
   %49 = getelementptr inbounds i8, ptr %25, i64 8
   %50 = getelementptr inbounds i8, ptr %25, i64 16
   %51 = getelementptr inbounds i8, ptr %2, i64 40
-  %52 = load i8, ptr %51, align 8, !range !173
+  %52 = load i8, ptr %51, align 8, !range !173, !alias.scope !3956, !noalias !3958, !noundef !4
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %17, i64 8
   %.sroa.452.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 16
@@ -15425,7 +15425,7 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit: ; preds
   %217 = getelementptr inbounds i8, ptr %50, i64 8
   %218 = getelementptr inbounds i8, ptr %50, i64 16
   %219 = getelementptr inbounds i8, ptr %2, i64 40
-  %220 = load i8, ptr %219, align 8, !range !173
+  %220 = load i8, ptr %219, align 8, !range !173, !alias.scope !4239, !noalias !4240, !noundef !4
   %.fca.1.gep.i235 = getelementptr inbounds i8, ptr %28, i64 8
   %.sroa.4354.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
   %.sroa.5355.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 16
@@ -15876,7 +15876,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   %343 = getelementptr inbounds i8, ptr %58, i64 8
   %344 = getelementptr inbounds i8, ptr %58, i64 16
   %345 = getelementptr inbounds i8, ptr %2, i64 40
-  %346 = load i8, ptr %345, align 8, !range !173
+  %346 = load i8, ptr %345, align 8, !range !173, !noundef !4
   %.fca.1.gep.i252 = getelementptr inbounds i8, ptr %19, i64 8
   %.sroa.4320.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 8
   %.sroa.5321.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 16

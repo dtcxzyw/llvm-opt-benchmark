@@ -3395,7 +3395,7 @@ _ZN11uu_unexpand4open17hd359cbb5c6c43d80E.exit:   ; preds = %"_ZN3std2io8buffere
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h964a8da52f186658E.exit53"
-  %172 = load ptr, ptr %33, align 8, !alias.scope !633, !noalias !636, !nonnull !4
+  %172 = load ptr, ptr %33, align 8, !alias.scope !633, !noalias !636, !nonnull !4, !noundef !4
   br label %173
 
 173:                                              ; preds = %_ZN11uu_unexpand12next_tabstop17hc89086dd79392bcdE.exit.thread._crit_edge.i, %.lr.ph.i
