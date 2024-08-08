@@ -66312,16 +66312,19 @@ if.then:                                          ; preds = %for.body.i.i.i.i.i
 
 invoke.cont14:                                    ; preds = %cond.end.thread, %if.then
   %conv.i = phi float [ %7, %if.then ], [ 0.000000e+00, %cond.end.thread ]
-  %cmp.i.i.i = fcmp ogt float %min_load_factor, 0.000000e+00
-  %8 = select i1 %cmp.i.i.i, float %min_load_factor, float 0.000000e+00
-  %cmp.i1.i.i = fcmp olt float %8, 0x3FC3333340000000
-  %.sroa.speculated.i = select i1 %cmp.i1.i.i, float %8, float 0x3FC3333340000000
+  %8 = insertelement <2 x float> poison, float %max_load_factor, i64 0
+  %9 = insertelement <2 x float> %8, float %min_load_factor, i64 1
+  %10 = fcmp ogt <2 x float> %9, <float 0x3FC99999A0000000, float 0.000000e+00>
   %m_min_load_factor.i = getelementptr inbounds i8, ptr %this, i64 72
+  %11 = select <2 x i1> %10, <2 x float> %9, <2 x float> <float 0x3FC99999A0000000, float 0.000000e+00>
+  %12 = fcmp olt <2 x float> %11, <float 0x3FEE666660000000, float 0x3FC3333340000000>
+  %13 = extractelement <2 x i1> %12, i64 1
+  %14 = extractelement <2 x float> %11, i64 1
+  %.sroa.speculated.i = select i1 %13, float %14, float 0x3FC3333340000000
   store float %.sroa.speculated.i, ptr %m_min_load_factor.i, align 8
-  %cmp.i.i.i12 = fcmp ogt float %max_load_factor, 0x3FC99999A0000000
-  %9 = select i1 %cmp.i.i.i12, float %max_load_factor, float 0x3FC99999A0000000
-  %cmp.i1.i.i13 = fcmp olt float %9, 0x3FEE666660000000
-  %.sroa.speculated.i14 = select i1 %cmp.i1.i.i13, float %9, float 0x3FEE666660000000
+  %15 = extractelement <2 x i1> %12, i64 0
+  %16 = extractelement <2 x float> %11, i64 0
+  %.sroa.speculated.i14 = select i1 %15, float %16, float 0x3FEE666660000000
   %m_max_load_factor.i = getelementptr inbounds i8, ptr %this, i64 64
   store float %.sroa.speculated.i14, ptr %m_max_load_factor.i, align 8
   %mul.i = fmul float %.sroa.speculated.i14, %conv.i
@@ -70313,16 +70316,19 @@ if.then:                                          ; preds = %for.body.i.i.i.i.i
 
 invoke.cont14:                                    ; preds = %cond.end.thread, %if.then
   %conv.i = phi float [ %7, %if.then ], [ 0.000000e+00, %cond.end.thread ]
-  %cmp.i.i.i = fcmp ogt float %min_load_factor, 0.000000e+00
-  %8 = select i1 %cmp.i.i.i, float %min_load_factor, float 0.000000e+00
-  %cmp.i1.i.i = fcmp olt float %8, 0x3FC3333340000000
-  %.sroa.speculated.i = select i1 %cmp.i1.i.i, float %8, float 0x3FC3333340000000
+  %8 = insertelement <2 x float> poison, float %max_load_factor, i64 0
+  %9 = insertelement <2 x float> %8, float %min_load_factor, i64 1
+  %10 = fcmp ogt <2 x float> %9, <float 0x3FC99999A0000000, float 0.000000e+00>
   %m_min_load_factor.i = getelementptr inbounds i8, ptr %this, i64 72
+  %11 = select <2 x i1> %10, <2 x float> %9, <2 x float> <float 0x3FC99999A0000000, float 0.000000e+00>
+  %12 = fcmp olt <2 x float> %11, <float 0x3FEE666660000000, float 0x3FC3333340000000>
+  %13 = extractelement <2 x i1> %12, i64 1
+  %14 = extractelement <2 x float> %11, i64 1
+  %.sroa.speculated.i = select i1 %13, float %14, float 0x3FC3333340000000
   store float %.sroa.speculated.i, ptr %m_min_load_factor.i, align 8
-  %cmp.i.i.i12 = fcmp ogt float %max_load_factor, 0x3FC99999A0000000
-  %9 = select i1 %cmp.i.i.i12, float %max_load_factor, float 0x3FC99999A0000000
-  %cmp.i1.i.i13 = fcmp olt float %9, 0x3FEE666660000000
-  %.sroa.speculated.i14 = select i1 %cmp.i1.i.i13, float %9, float 0x3FEE666660000000
+  %15 = extractelement <2 x i1> %12, i64 0
+  %16 = extractelement <2 x float> %11, i64 0
+  %.sroa.speculated.i14 = select i1 %15, float %16, float 0x3FEE666660000000
   %m_max_load_factor.i = getelementptr inbounds i8, ptr %this, i64 64
   store float %.sroa.speculated.i14, ptr %m_max_load_factor.i, align 8
   %mul.i = fmul float %.sroa.speculated.i14, %conv.i
@@ -70932,16 +70938,19 @@ if.then:                                          ; preds = %for.body.i.i.i.i.i
 
 invoke.cont14:                                    ; preds = %cond.end.thread, %if.then
   %conv.i = phi float [ %7, %if.then ], [ 0.000000e+00, %cond.end.thread ]
-  %cmp.i.i.i = fcmp ogt float %min_load_factor, 0.000000e+00
-  %8 = select i1 %cmp.i.i.i, float %min_load_factor, float 0.000000e+00
-  %cmp.i1.i.i = fcmp olt float %8, 0x3FC3333340000000
-  %.sroa.speculated.i = select i1 %cmp.i1.i.i, float %8, float 0x3FC3333340000000
+  %8 = insertelement <2 x float> poison, float %max_load_factor, i64 0
+  %9 = insertelement <2 x float> %8, float %min_load_factor, i64 1
+  %10 = fcmp ogt <2 x float> %9, <float 0x3FC99999A0000000, float 0.000000e+00>
   %m_min_load_factor.i = getelementptr inbounds i8, ptr %this, i64 72
+  %11 = select <2 x i1> %10, <2 x float> %9, <2 x float> <float 0x3FC99999A0000000, float 0.000000e+00>
+  %12 = fcmp olt <2 x float> %11, <float 0x3FEE666660000000, float 0x3FC3333340000000>
+  %13 = extractelement <2 x i1> %12, i64 1
+  %14 = extractelement <2 x float> %11, i64 1
+  %.sroa.speculated.i = select i1 %13, float %14, float 0x3FC3333340000000
   store float %.sroa.speculated.i, ptr %m_min_load_factor.i, align 8
-  %cmp.i.i.i12 = fcmp ogt float %max_load_factor, 0x3FC99999A0000000
-  %9 = select i1 %cmp.i.i.i12, float %max_load_factor, float 0x3FC99999A0000000
-  %cmp.i1.i.i13 = fcmp olt float %9, 0x3FEE666660000000
-  %.sroa.speculated.i14 = select i1 %cmp.i1.i.i13, float %9, float 0x3FEE666660000000
+  %15 = extractelement <2 x i1> %12, i64 0
+  %16 = extractelement <2 x float> %11, i64 0
+  %.sroa.speculated.i14 = select i1 %15, float %16, float 0x3FEE666660000000
   %m_max_load_factor.i = getelementptr inbounds i8, ptr %this, i64 64
   store float %.sroa.speculated.i14, ptr %m_max_load_factor.i, align 8
   %mul.i = fmul float %.sroa.speculated.i14, %conv.i

@@ -6381,7 +6381,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN18OpenImageIO_v2_6_0L17get_resize_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufEff(ptr noalias align 8 %agg.result, ptr noundef %filtername, float noundef %fwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst, float noundef %wratio, float noundef %hratio) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
-  %fd = alloca %"class.OpenImageIO_v2_6_0::FilterDesc", align 8
+  %fd = alloca %"class.OpenImageIO_v2_6_0::FilterDesc", align 16
   %agg.tmp24 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %call5.i.i.i4.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
@@ -6460,7 +6460,7 @@ for.body:                                         ; preds = %for.cond.preheader,
           to label %invoke.cont7 unwind label %lpad.loopexit
 
 invoke.cont7:                                     ; preds = %for.body
-  %7 = load ptr, ptr %fd, align 8
+  %7 = load ptr, ptr %fd, align 16
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.thread, label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
 
@@ -6490,26 +6490,28 @@ if.then11:                                        ; preds = %_ZNSt11char_traitsI
   %.ph = phi i64 [ 0, %cond.true.i15 ], [ 0, %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.thread ], [ %call.i.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   %.ph31 = phi ptr [ %8, %cond.true.i15 ], [ %10, %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.thread ], [ %8, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   %cmp12 = fcmp ogt float %fwidth, 0.000000e+00
+  %12 = insertelement <2 x float> poison, float %fwidth, i64 0
+  %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
   br i1 %cmp12, label %cond.end22, label %cond.false17
 
 cond.false17:                                     ; preds = %if.then11
-  %width = getelementptr inbounds i8, ptr %fd, i64 12
-  %12 = load float, ptr %width, align 4
-  %cmp.i16 = fcmp ogt float %wratio, 1.000000e+00
-  %.sroa.speculated23 = select i1 %cmp.i16, float %wratio, float 1.000000e+00
-  %mul = fmul float %.sroa.speculated23, %12
-  %cmp.i17 = fcmp ogt float %hratio, 1.000000e+00
-  %.sroa.speculated = select i1 %cmp.i17, float %hratio, float 1.000000e+00
-  %mul21 = fmul float %.sroa.speculated, %12
+  %14 = load <4 x float>, ptr %fd, align 16
+  %15 = insertelement <2 x float> poison, float %wratio, i64 0
+  %16 = insertelement <2 x float> %15, float %hratio, i64 1
+  %17 = fcmp ogt <2 x float> %16, <float 1.000000e+00, float 1.000000e+00>
+  %18 = select <2 x i1> %17, <2 x float> %16, <2 x float> <float 1.000000e+00, float 1.000000e+00>
+  %19 = shufflevector <4 x float> %14, <4 x float> poison, <2 x i32> <i32 3, i32 3>
+  %20 = fmul <2 x float> %18, %19
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then11, %cond.false17
-  %cond34 = phi float [ %mul, %cond.false17 ], [ %fwidth, %if.then11 ]
-  %cond23 = phi float [ %mul21, %cond.false17 ], [ %fwidth, %if.then11 ]
+  %21 = phi <2 x float> [ %20, %cond.false17 ], [ %13, %if.then11 ]
   store ptr %.ph31, ptr %agg.tmp24, align 8
   %m_len.i19 = getelementptr inbounds i8, ptr %agg.tmp24, i64 8
   store i64 %.ph, ptr %m_len.i19, align 8
-  %call27 = invoke noundef ptr @_ZN18OpenImageIO_v2_6_08Filter2D6createENS_17basic_string_viewIcSt11char_traitsIcEEEff(ptr noundef nonnull %agg.tmp24, float noundef %cond34, float noundef %cond23)
+  %22 = extractelement <2 x float> %21, i64 0
+  %23 = extractelement <2 x float> %21, i64 1
+  %call27 = invoke noundef ptr @_ZN18OpenImageIO_v2_6_08Filter2D6createENS_17basic_string_viewIcSt11char_traitsIcEEEff(ptr noundef nonnull %agg.tmp24, float noundef %22, float noundef %23)
           to label %invoke.cont26 unwind label %lpad.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %cond.end22
@@ -6537,8 +6539,8 @@ for.inc:                                          ; preds = %_ZNSt11char_traitsI
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %invoke.cont26
-  %13 = load ptr, ptr %agg.result, align 8
-  %cmp.i21.not = icmp eq ptr %13, null
+  %24 = load ptr, ptr %agg.result, align 8
+  %cmp.i21.not = icmp eq ptr %24, null
   br i1 %cmp.i21.not, label %if.then31, label %nrvo.skipdtor
 
 if.then31:                                        ; preds = %for.end

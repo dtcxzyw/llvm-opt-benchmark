@@ -880,16 +880,17 @@ define linkonce_odr hidden noundef double @_ZNK18AdaptiveSizePolicy7gc_costEv(pt
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load float, ptr %3, align 4
-  %5 = fcmp olt float %4, 0.000000e+00
-  %6 = select i1 %5, float 0.000000e+00, float %4
-  %7 = fpext float %6 to double
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = load ptr, ptr %8, align 8
-  %10 = load float, ptr %9, align 4
-  %11 = fcmp olt float %10, 0.000000e+00
-  %12 = select i1 %11, float 0.000000e+00, float %10
-  %13 = fpext float %12 to double
-  %14 = fadd double %7, %13
+  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = load ptr, ptr %5, align 8
+  %7 = load float, ptr %6, align 4
+  %8 = insertelement <2 x float> poison, float %4, i64 0
+  %9 = insertelement <2 x float> %8, float %7, i64 1
+  %10 = fcmp olt <2 x float> %9, zeroinitializer
+  %11 = select <2 x i1> %10, <2 x float> zeroinitializer, <2 x float> %9
+  %12 = fpext <2 x float> %11 to <2 x double>
+  %shift = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %13 = fadd <2 x double> %shift, %12
+  %14 = extractelement <2 x double> %13, i64 0
   %15 = fcmp ogt double %14, 1.000000e+00
   %16 = select i1 %15, double 1.000000e+00, double %14
   ret double %16

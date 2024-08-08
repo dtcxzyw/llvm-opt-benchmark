@@ -857,39 +857,42 @@ _ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit: ; preds = %for.body
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit
-  %cmp.i.i = fcmp olt float %4, %3
-  %14 = select i1 %cmp.i.i, float %4, float %3
-  %cmp.i1.i = fcmp olt float %14, %0
-  %.sroa.speculated24.i = select i1 %cmp.i1.i, float %14, float %0
-  %cmp.i3.i = fcmp olt float %3, %4
-  %15 = select i1 %cmp.i3.i, float %4, float %3
-  %cmp.i5.i = fcmp ogt float %15, %0
-  %.sroa.speculated21.i = select i1 %cmp.i5.i, float %15, float %0
-  %cmp.i7.i = fcmp ogt float %.sroa.speculated21.i, 0x3DDB7CDFE0000000
-  %.sroa.speculated14.i = select i1 %cmp.i7.i, float %.sroa.speculated21.i, float 0x3DDB7CDFE0000000
-  %cmp.i9.i = fcmp ogt float %.sroa.speculated24.i, 0x3DDB7CDFE0000000
-  %.sroa.speculated.i = select i1 %cmp.i9.i, float %.sroa.speculated24.i, float 0x3DDB7CDFE0000000
-  %sub.i19 = fsub float %.sroa.speculated14.i, %.sroa.speculated.i
-  %cmp.i11.i = fcmp ogt float %.sroa.speculated21.i, 0x3F847AE140000000
-  %.sroa.speculated17.i = select i1 %cmp.i11.i, float %.sroa.speculated21.i, float 0x3F847AE140000000
+  %14 = shufflevector <2 x float> %1, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %15 = fcmp olt <2 x float> %1, %14
+  %16 = shufflevector <2 x float> %1, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %17 = shufflevector <2 x float> %1, <2 x float> poison, <2 x i32> zeroinitializer
+  %18 = select <2 x i1> %15, <2 x float> %16, <2 x float> %17
+  %19 = insertelement <2 x float> %18, float %0, i64 1
+  %20 = insertelement <2 x float> %18, float %0, i64 0
+  %21 = fcmp ogt <2 x float> %19, %20
+  %22 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %23 = select <2 x i1> %21, <2 x float> %18, <2 x float> %22
+  %24 = fcmp ogt <2 x float> %23, <float 0x3DDB7CDFE0000000, float 0x3DDB7CDFE0000000>
+  %25 = select <2 x i1> %24, <2 x float> %23, <2 x float> <float 0x3DDB7CDFE0000000, float 0x3DDB7CDFE0000000>
+  %shift = shufflevector <2 x float> %25, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %26 = fsub <2 x float> %25, %shift
+  %sub.i19 = extractelement <2 x float> %26, i64 0
+  %27 = extractelement <2 x float> %23, i64 0
+  %cmp.i11.i = fcmp ogt float %27, 0x3F847AE140000000
+  %.sroa.speculated17.i = select i1 %cmp.i11.i, float %27, float 0x3F847AE140000000
   %div.i = fdiv float %sub.i19, %.sroa.speculated17.i
   %mul = fmul float %div.i, %13
-  %16 = load float, ptr %m_pivot, align 4
-  %sub = fsub float %16, %0
+  %28 = load float, ptr %m_pivot, align 4
+  %sub = fsub float %28, %0
   %mul6 = fmul float %mul, %sub
-  %17 = load float, ptr %m_1minusScale, align 8
-  %18 = tail call float @llvm.fmuladd.f32(float %mul6, float %17, float %0)
+  %29 = load float, ptr %m_1minusScale, align 8
+  %30 = tail call float @llvm.fmuladd.f32(float %mul6, float %29, float %0)
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %if.then, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit
-  %red.0 = phi float [ %18, %if.then ], [ %0, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %0, %for.body ]
+  %red.0 = phi float [ %30, %if.then ], [ %0, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %0, %for.body ]
   store float %red.0, ptr %out.024, align 4
   %arrayidx9 = getelementptr inbounds i8, ptr %out.024, i64 4
   store <2 x float> %1, ptr %arrayidx9, align 4
   %arrayidx11 = getelementptr inbounds i8, ptr %in.025, i64 12
-  %19 = load float, ptr %arrayidx11, align 4
+  %31 = load float, ptr %arrayidx11, align 4
   %arrayidx12 = getelementptr inbounds i8, ptr %out.024, i64 12
-  store float %19, ptr %arrayidx12, align 4
+  store float %31, ptr %arrayidx12, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 16
   %add.ptr13 = getelementptr inbounds i8, ptr %out.024, i64 16
   %inc = add nuw nsw i64 %idx.023, 1
@@ -2020,19 +2023,22 @@ for.body:                                         ; preds = %entry, %for.body
   %mul = fmul float %sub, 6.000000e+00
   %arrayidx3 = getelementptr inbounds i8, ptr %in.045, i64 4
   %2 = load float, ptr %arrayidx3, align 4
-  %cmp.i.i = fcmp ogt float %2, 0.000000e+00
-  %.sroa.speculated3.i = select i1 %cmp.i.i, float %2, float 0.000000e+00
-  %cmp.i1.i = fcmp ogt float %.sroa.speculated3.i, 0x3FFFFBE760000000
-  %.sroa.speculated.i = select i1 %cmp.i1.i, float 0x3FFFFBE760000000, float %.sroa.speculated3.i
   %arrayidx5 = getelementptr inbounds i8, ptr %in.045, i64 8
   %3 = load float, ptr %arrayidx5, align 4
   %sub14 = fadd float %mul, -4.000000e+00
   %4 = tail call noundef float @llvm.fabs.f32(float %sub14)
   %sub16 = fsub float 2.000000e+00, %4
-  %cmp.i.i38 = fcmp ogt float %sub16, 0.000000e+00
-  %.sroa.speculated3.i39 = select i1 %cmp.i.i38, float %sub16, float 0.000000e+00
-  %cmp.i1.i40 = fcmp ogt float %.sroa.speculated3.i39, 1.000000e+00
-  %.sroa.speculated.i41 = select i1 %cmp.i1.i40, float 1.000000e+00, float %.sroa.speculated3.i39
+  %5 = insertelement <2 x float> poison, float %sub16, i64 0
+  %6 = insertelement <2 x float> %5, float %2, i64 1
+  %7 = fcmp ogt <2 x float> %6, zeroinitializer
+  %8 = select <2 x i1> %7, <2 x float> %6, <2 x float> zeroinitializer
+  %9 = fcmp ogt <2 x float> %8, <float 1.000000e+00, float 0x3FFFFBE760000000>
+  %10 = extractelement <2 x i1> %9, i64 1
+  %11 = extractelement <2 x float> %8, i64 1
+  %.sroa.speculated.i = select i1 %10, float 0x3FFFFBE760000000, float %11
+  %12 = extractelement <2 x i1> %9, i64 0
+  %13 = extractelement <2 x float> %8, i64 0
+  %.sroa.speculated.i41 = select i1 %12, float 1.000000e+00, float %13
   %sub18 = fsub float 1.000000e+00, %.sroa.speculated.i
   %mul19 = fmul float %3, %sub18
   %cmp20 = fcmp ogt float %.sroa.speculated.i, 1.000000e+00
@@ -2047,30 +2053,30 @@ for.body:                                         ; preds = %entry, %for.body
   %rgb_max.1 = select i1 %cmp25, float %sub29, float %rgb_max.0
   %rgb_min.1 = select i1 %cmp25, float %div28, float %rgb_min.0
   %sub31 = fsub float %rgb_max.1, %rgb_min.1
-  %5 = insertelement <2 x float> poison, float %mul, i64 0
-  %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
-  %7 = fadd <2 x float> %6, <float -3.000000e+00, float -2.000000e+00>
-  %8 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %7)
-  %9 = fadd <2 x float> %8, <float -1.000000e+00, float poison>
-  %10 = fsub <2 x float> <float poison, float 2.000000e+00>, %8
-  %11 = shufflevector <2 x float> %9, <2 x float> %10, <2 x i32> <i32 0, i32 3>
-  %12 = fcmp ogt <2 x float> %11, zeroinitializer
-  %13 = select <2 x i1> %12, <2 x float> %11, <2 x float> zeroinitializer
-  %14 = fcmp ogt <2 x float> %13, <float 1.000000e+00, float 1.000000e+00>
-  %15 = select <2 x i1> %14, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %13
-  %16 = insertelement <2 x float> poison, float %sub31, i64 0
-  %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
-  %18 = insertelement <2 x float> poison, float %rgb_min.1, i64 0
-  %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> %17, <2 x float> %19)
-  store <2 x float> %20, ptr %out.044, align 4
-  %21 = tail call float @llvm.fmuladd.f32(float %.sroa.speculated.i41, float %sub31, float %rgb_min.1)
+  %14 = insertelement <2 x float> poison, float %mul, i64 0
+  %15 = shufflevector <2 x float> %14, <2 x float> poison, <2 x i32> zeroinitializer
+  %16 = fadd <2 x float> %15, <float -3.000000e+00, float -2.000000e+00>
+  %17 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %16)
+  %18 = fadd <2 x float> %17, <float -1.000000e+00, float poison>
+  %19 = fsub <2 x float> <float poison, float 2.000000e+00>, %17
+  %20 = shufflevector <2 x float> %18, <2 x float> %19, <2 x i32> <i32 0, i32 3>
+  %21 = fcmp ogt <2 x float> %20, zeroinitializer
+  %22 = select <2 x i1> %21, <2 x float> %20, <2 x float> zeroinitializer
+  %23 = fcmp ogt <2 x float> %22, <float 1.000000e+00, float 1.000000e+00>
+  %24 = select <2 x i1> %23, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %22
+  %25 = insertelement <2 x float> poison, float %sub31, i64 0
+  %26 = shufflevector <2 x float> %25, <2 x float> poison, <2 x i32> zeroinitializer
+  %27 = insertelement <2 x float> poison, float %rgb_min.1, i64 0
+  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
+  %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %24, <2 x float> %26, <2 x float> %28)
+  store <2 x float> %29, ptr %out.044, align 4
+  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.speculated.i41, float %sub31, float %rgb_min.1)
   %arrayidx37 = getelementptr inbounds i8, ptr %out.044, i64 8
-  store float %21, ptr %arrayidx37, align 4
+  store float %30, ptr %arrayidx37, align 4
   %arrayidx38 = getelementptr inbounds i8, ptr %in.045, i64 12
-  %22 = load float, ptr %arrayidx38, align 4
+  %31 = load float, ptr %arrayidx38, align 4
   %arrayidx39 = getelementptr inbounds i8, ptr %out.044, i64 12
-  store float %22, ptr %arrayidx39, align 4
+  store float %31, ptr %arrayidx39, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.045, i64 16
   %add.ptr40 = getelementptr inbounds i8, ptr %out.044, i64 16
   %inc = add nuw nsw i64 %idx.043, 1

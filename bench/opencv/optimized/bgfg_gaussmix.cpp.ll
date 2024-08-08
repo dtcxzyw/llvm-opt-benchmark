@@ -1404,16 +1404,17 @@ _ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorMOGImplEED2Ev.exit: ; preds = %5
   %24 = fcmp ogt double %3, 0.000000e+00
   %25 = select i1 %24, double %3, double 0x3FEE666666666666
   %26 = fcmp ogt double %25, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i = select i1 %26, double 1.000000e+00, double %25
   %27 = getelementptr inbounds i8, ptr %6, i64 160
-  store double %.sroa.speculated.i.i.i.i.i, ptr %27, align 8, !noalias !46
   %28 = fcmp ole double %4, 0.000000e+00
-  %29 = select i1 %28, double 1.500000e+01, double %4
-  %30 = getelementptr inbounds i8, ptr %6, i64 168
-  store double %29, ptr %30, align 8, !noalias !46
+  %29 = insertelement <2 x i1> poison, i1 %26, i64 0
+  %30 = insertelement <2 x i1> %29, i1 %28, i64 1
+  %31 = insertelement <2 x double> poison, double %25, i64 0
+  %32 = insertelement <2 x double> %31, double %4, i64 1
+  %33 = select <2 x i1> %30, <2 x double> <double 1.000000e+00, double 1.500000e+01>, <2 x double> %32
+  store <2 x double> %33, ptr %27, align 8, !noalias !46
   store ptr %9, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %6, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %34, align 8
   ret void
 }
 

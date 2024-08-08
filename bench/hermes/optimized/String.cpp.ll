@@ -1466,14 +1466,13 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
 
 if.end33:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
   %14 = extractvalue { i32, i64 } %call29, 1
-  %15 = bitcast i64 %14 to double
-  %16 = load i32, ptr %argCount_.i, align 8
-  %cmp.i12 = icmp ugt i32 %16, 1
+  %15 = load i32, ptr %argCount_.i, align 8
+  %cmp.i12 = icmp ugt i32 %15, 1
   br i1 %cmp.i12, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, label %if.end55
 
 _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %if.end33
-  %17 = load ptr, ptr %args, align 8
-  %incdec.ptr.i.i.i14 = getelementptr inbounds i8, ptr %17, i64 -16
+  %16 = load ptr, ptr %args, align 8
+  %incdec.ptr.i.i.i14 = getelementptr inbounds i8, ptr %16, i64 -16
   %retval.sroa.0.0.copyload.i = load i64, ptr %incdec.ptr.i.i.i14, align 8
   %shr.i.mask.i = and i64 %retval.sroa.0.0.copyload.i, -140737488355328
   %cmp.i15 = icmp eq i64 %shr.i.mask.i, -1688849860263936
@@ -1481,38 +1480,44 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %if.end33
 
 if.else:                                          ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
   %call47 = call { i32, i64 } @_ZN6hermes2vm19toIntegerOrInfinityERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i14) #16
-  %18 = extractvalue { i32, i64 } %call47, 0
-  %cmp.i21 = icmp eq i32 %18, 0
+  %17 = extractvalue { i32, i64 } %call47, 0
+  %cmp.i21 = icmp eq i32 %17, 0
   br i1 %cmp.i21, label %return, label %if.end52
 
 if.end52:                                         ; preds = %if.else
-  %19 = extractvalue { i32, i64 } %call47, 1
-  %20 = bitcast i64 %19 to double
+  %18 = extractvalue { i32, i64 } %call47, 1
+  %19 = bitcast i64 %18 to double
   br label %if.end55
 
 if.end55:                                         ; preds = %if.end33, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, %if.end52
-  %storemerge = phi double [ %20, %if.end52 ], [ %conv, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ %conv, %if.end33 ]
-  %cmp.i23 = fcmp olt double %15, 0.000000e+00
-  %21 = select i1 %cmp.i23, double 0.000000e+00, double %15
-  %cmp.i24 = fcmp ogt double %21, %conv
-  %.sroa.speculated51 = select i1 %cmp.i24, double %conv, double %21
+  %storemerge = phi double [ %19, %if.end52 ], [ %conv, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ %conv, %if.end33 ]
+  %20 = insertelement <2 x i64> poison, i64 %14, i64 1
+  %21 = bitcast <2 x i64> %20 to <2 x double>
+  %22 = insertelement <2 x double> %21, double %storemerge, i64 0
+  %23 = fcmp olt <2 x double> %22, zeroinitializer
+  %24 = select <2 x i1> %23, <2 x double> zeroinitializer, <2 x double> %22
+  %25 = insertelement <2 x double> poison, double %conv, i64 0
+  %26 = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> zeroinitializer
+  %27 = fcmp ogt <2 x double> %24, %26
+  %28 = extractelement <2 x i1> %27, i64 1
+  %29 = extractelement <2 x double> %24, i64 1
+  %.sroa.speculated51 = select i1 %28, double %conv, double %29
   %conv59 = fptoui double %.sroa.speculated51 to i64
-  %cmp.i26 = fcmp olt double %storemerge, 0.000000e+00
-  %22 = select i1 %cmp.i26, double 0.000000e+00, double %storemerge
-  %cmp.i28 = fcmp ogt double %22, %conv
-  %.sroa.speculated48 = select i1 %cmp.i28, double %conv, double %22
+  %30 = extractelement <2 x i1> %27, i64 0
+  %31 = extractelement <2 x double> %24, i64 0
+  %.sroa.speculated48 = select i1 %30, double %conv, double %31
   %conv63 = fptoui double %.sroa.speculated48 to i64
   %.sroa.speculated37 = call i64 @llvm.umin.i64(i64 %conv63, i64 %conv59)
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %conv59, i64 %conv63)
   %cond = call i64 @llvm.usub.sat.i64(i64 %.sroa.speculated, i64 %.sroa.speculated37)
   %call70 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i, i64 noundef %.sroa.speculated37, i64 noundef %cond) #16
-  %23 = extractvalue { i32, i64 } %call70, 0
-  %24 = extractvalue { i32, i64 } %call70, 1
+  %32 = extractvalue { i32, i64 } %call70, 0
+  %33 = extractvalue { i32, i64 } %call70, 1
   br label %return
 
 return:                                           ; preds = %if.else, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit, %if.end55
-  %retval.sroa.0.0 = phi i32 [ %23, %if.end55 ], [ 0, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %if.else ]
-  %retval.sroa.6.0 = phi i64 [ %24, %if.end55 ], [ undef, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %if.end ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ undef, %if.else ]
+  %retval.sroa.0.0 = phi i32 [ %32, %if.end55 ], [ 0, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %if.else ]
+  %retval.sroa.6.0 = phi i64 [ %33, %if.end55 ], [ undef, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %if.end ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ undef, %if.else ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert

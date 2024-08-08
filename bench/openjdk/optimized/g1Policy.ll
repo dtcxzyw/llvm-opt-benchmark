@@ -4905,191 +4905,192 @@ define hidden void @_ZN8G1Policy31select_candidates_from_retainedEP25G1Collectio
 18:                                               ; preds = %6, %16
   %19 = load i32, ptr %1, align 4
   %.not7986 = icmp eq i32 %19, 0
+  %20 = insertelement <2 x double> poison, double %12, i64 0
+  %21 = insertelement <2 x double> %20, double %14, i64 1
   br i1 %.not7986, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 240
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %23
+  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 240
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %25
 
-23:                                               ; preds = %.lr.ph, %80
-  %.095 = phi double [ %14, %.lr.ph ], [ %.1, %80 ]
-  %.05494 = phi i32 [ 0, %.lr.ph ], [ %.155, %80 ]
-  %.05693 = phi i32 [ 0, %.lr.ph ], [ %.157, %80 ]
-  %.05992 = phi i32 [ 0, %.lr.ph ], [ %.160, %80 ]
-  %.06291 = phi i32 [ 0, %.lr.ph ], [ %.163, %80 ]
-  %.06490 = phi double [ 0.000000e+00, %.lr.ph ], [ %.165, %80 ]
-  %.06789 = phi double [ %12, %.lr.ph ], [ %.168, %80 ]
-  %.06988 = phi double [ 0.000000e+00, %.lr.ph ], [ %.170, %80 ]
-  %.sroa.2.087 = phi i32 [ 0, %.lr.ph ], [ %81, %80 ]
-  %24 = load ptr, ptr %20, align 8
-  %25 = sext i32 %.sroa.2.087 to i64
-  %26 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %24, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 968
-  %30 = load i8, ptr %29, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = getelementptr inbounds i8, ptr %28, i64 974
+25:                                               ; preds = %.lr.ph, %84
+  %.05494 = phi i32 [ 0, %.lr.ph ], [ %.155, %84 ]
+  %.05693 = phi i32 [ 0, %.lr.ph ], [ %.157, %84 ]
+  %.05992 = phi i32 [ 0, %.lr.ph ], [ %.160, %84 ]
+  %.06291 = phi i32 [ 0, %.lr.ph ], [ %.163, %84 ]
+  %.06490 = phi double [ 0.000000e+00, %.lr.ph ], [ %.165, %84 ]
+  %.06988 = phi double [ 0.000000e+00, %.lr.ph ], [ %.170, %84 ]
+  %.sroa.2.087 = phi i32 [ 0, %.lr.ph ], [ %86, %84 ]
+  %26 = phi <2 x double> [ %21, %.lr.ph ], [ %85, %84 ]
+  %27 = load ptr, ptr %22, align 8
+  %28 = sext i32 %.sroa.2.087 to i64
+  %29 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %27, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %23, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 968
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
-  %35 = xor i1 %34, true
-  %36 = select i1 %31, i1 %35, i1 false
-  %37 = tail call noundef double @_ZNK8G1Policy31predict_region_non_copy_time_msEP12G1HeapRegionb(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %27, i1 noundef zeroext %36)
-  %38 = tail call noundef i64 @_ZNK8G1Policy21predict_bytes_to_copyEP12G1HeapRegion(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %27)
-  %39 = load ptr, ptr %22, align 8
-  %40 = tail call noundef double @_ZNK11G1Analytics27predict_object_copy_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %39, i64 noundef %38, i1 noundef zeroext %36) #18
-  %41 = fadd double %37, %40
-  %42 = fcmp ole double %41, %.095
-  %43 = getelementptr inbounds i8, ptr %27, i64 128
-  %44 = load volatile i64, ptr %43, align 8
-  %.not80 = icmp eq i64 %44, 0
-  br i1 %.not80, label %62, label %45
+  %35 = getelementptr inbounds i8, ptr %31, i64 974
+  %36 = load i8, ptr %35, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = xor i1 %37, true
+  %39 = select i1 %34, i1 %38, i1 false
+  %40 = tail call noundef double @_ZNK8G1Policy31predict_region_non_copy_time_msEP12G1HeapRegionb(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %30, i1 noundef zeroext %39)
+  %41 = tail call noundef i64 @_ZNK8G1Policy21predict_bytes_to_copyEP12G1HeapRegion(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %30)
+  %42 = load ptr, ptr %24, align 8
+  %43 = tail call noundef double @_ZNK11G1Analytics27predict_object_copy_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %42, i64 noundef %41, i1 noundef zeroext %39) #18
+  %44 = fadd double %40, %43
+  %45 = extractelement <2 x double> %26, i64 1
+  %46 = fcmp ole double %44, %45
+  %47 = getelementptr inbounds i8, ptr %30, i64 128
+  %48 = load volatile i64, ptr %47, align 8
+  %.not80 = icmp eq i64 %48, 0
+  br i1 %.not80, label %66, label %49
 
-45:                                               ; preds = %23
-  %46 = add i32 %.06291, 1
-  %47 = getelementptr inbounds i8, ptr %26, i64 16
-  %48 = load i32, ptr %47, align 8
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %47, align 8
-  %50 = load i32, ptr @G1NumCollectionsKeepPinned, align 4
-  %51 = icmp ult i32 %49, %50
-  %52 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not85 = icmp eq ptr %52, null
-  br i1 %51, label %53, label %57
+49:                                               ; preds = %25
+  %50 = add i32 %.06291, 1
+  %51 = getelementptr inbounds i8, ptr %29, i64 16
+  %52 = load i32, ptr %51, align 8
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %51, align 8
+  %54 = load i32, ptr @G1NumCollectionsKeepPinned, align 4
+  %55 = icmp ult i32 %53, %54
+  %56 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not85 = icmp eq ptr %56, null
+  br i1 %55, label %57, label %61
 
-53:                                               ; preds = %45
-  br i1 %.not85, label %80, label %54
-
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %27, i64 48
-  %56 = load i32, ptr %55, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.51, i32 noundef %56)
-  br label %80
-
-57:                                               ; preds = %45
-  br i1 %.not85, label %61, label %58
+57:                                               ; preds = %49
+  br i1 %.not85, label %84, label %58
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %27, i64 48
+  %59 = getelementptr inbounds i8, ptr %30, i64 48
   %60 = load i32, ptr %59, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.52, i32 noundef %60)
-  br label %61
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.51, i32 noundef %60)
+  br label %84
 
-61:                                               ; preds = %57, %58
-  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %27) #18
-  br label %80
+61:                                               ; preds = %49
+  br i1 %.not85, label %65, label %62
 
-62:                                               ; preds = %23
-  %63 = icmp eq i32 %.05992, 0
-  %or.cond = select i1 %42, i1 true, i1 %63
-  br i1 %or.cond, label %64, label %68
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds i8, ptr %30, i64 48
+  %64 = load i32, ptr %63, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.52, i32 noundef %64)
+  br label %65
 
-64:                                               ; preds = %62
-  %65 = fadd double %.06490, %41
-  %not. = xor i1 %42, true
-  %66 = zext i1 %not. to i32
-  %.261 = add i32 %.05992, %66
-  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %27) #18
-  %67 = add i32 %.05494, 1
-  br label %73
+65:                                               ; preds = %61, %62
+  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %30) #18
+  br label %84
 
-68:                                               ; preds = %62
-  %69 = fcmp ugt double %41, %.06789
-  br i1 %69, label %._crit_edge.loopexit, label %70
+66:                                               ; preds = %25
+  %67 = icmp eq i32 %.05992, 0
+  %or.cond = select i1 %46, i1 true, i1 %67
+  br i1 %or.cond, label %68, label %72
 
-70:                                               ; preds = %68
-  %71 = fadd double %.06988, %41
-  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %27) #18
-  %72 = add i32 %.05693, 1
-  br label %73
+68:                                               ; preds = %66
+  %69 = fadd double %.06490, %44
+  %not. = xor i1 %46, true
+  %70 = zext i1 %not. to i32
+  %.261 = add i32 %.05992, %70
+  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %30) #18
+  %71 = add i32 %.05494, 1
+  br label %78
 
-73:                                               ; preds = %70, %64
-  %.271 = phi double [ %.06988, %64 ], [ %71, %70 ]
-  %.266 = phi double [ %65, %64 ], [ %.06490, %70 ]
-  %.3 = phi i32 [ %.261, %64 ], [ %.05992, %70 ]
-  %.258 = phi i32 [ %.05693, %64 ], [ %72, %70 ]
-  %.2 = phi i32 [ %67, %64 ], [ %.05494, %70 ]
-  %74 = fsub double %.095, %41
-  %75 = fcmp olt double %74, 0.000000e+00
-  %76 = select i1 %75, double 0.000000e+00, double %74
-  %77 = fsub double %.06789, %41
-  %78 = fcmp olt double %77, 0.000000e+00
-  %79 = select i1 %78, double 0.000000e+00, double %77
-  br label %80
+72:                                               ; preds = %66
+  %73 = extractelement <2 x double> %26, i64 0
+  %74 = fcmp ugt double %44, %73
+  br i1 %74, label %._crit_edge.loopexit, label %75
 
-80:                                               ; preds = %61, %53, %54, %73
-  %.170 = phi double [ %.06988, %54 ], [ %.06988, %53 ], [ %.06988, %61 ], [ %.271, %73 ]
-  %.168 = phi double [ %.06789, %54 ], [ %.06789, %53 ], [ %.06789, %61 ], [ %79, %73 ]
-  %.165 = phi double [ %.06490, %54 ], [ %.06490, %53 ], [ %.06490, %61 ], [ %.266, %73 ]
-  %.163 = phi i32 [ %46, %54 ], [ %46, %53 ], [ %46, %61 ], [ %.06291, %73 ]
-  %.160 = phi i32 [ %.05992, %54 ], [ %.05992, %53 ], [ %.05992, %61 ], [ %.3, %73 ]
-  %.157 = phi i32 [ %.05693, %54 ], [ %.05693, %53 ], [ %.05693, %61 ], [ %.258, %73 ]
-  %.155 = phi i32 [ %.05494, %54 ], [ %.05494, %53 ], [ %.05494, %61 ], [ %.2, %73 ]
-  %.1 = phi double [ %.095, %54 ], [ %.095, %53 ], [ %.095, %61 ], [ %76, %73 ]
-  %81 = add nuw i32 %.sroa.2.087, 1
-  %.not79 = icmp eq i32 %81, %19
-  br i1 %.not79, label %._crit_edge.loopexit, label %23
+75:                                               ; preds = %72
+  %76 = fadd double %.06988, %44
+  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %30) #18
+  %77 = add i32 %.05693, 1
+  br label %78
 
-._crit_edge.loopexit:                             ; preds = %68, %80
-  %.069.lcssa.ph = phi double [ %.170, %80 ], [ %.06988, %68 ]
-  %.067.lcssa.ph = phi double [ %.168, %80 ], [ %.06789, %68 ]
-  %.064.lcssa.ph = phi double [ %.165, %80 ], [ %.06490, %68 ]
-  %.062.lcssa.ph = phi i32 [ %.163, %80 ], [ %.06291, %68 ]
-  %.059.lcssa.ph = phi i32 [ %.160, %80 ], [ %.05992, %68 ]
-  %.056.lcssa.ph = phi i32 [ %.157, %80 ], [ %.05693, %68 ]
-  %.054.lcssa.ph = phi i32 [ %.155, %80 ], [ %.05494, %68 ]
-  %.0.lcssa.ph = phi double [ %.1, %80 ], [ %.095, %68 ]
+78:                                               ; preds = %75, %68
+  %.271 = phi double [ %.06988, %68 ], [ %76, %75 ]
+  %.266 = phi double [ %69, %68 ], [ %.06490, %75 ]
+  %.3 = phi i32 [ %.261, %68 ], [ %.05992, %75 ]
+  %.258 = phi i32 [ %.05693, %68 ], [ %77, %75 ]
+  %.2 = phi i32 [ %71, %68 ], [ %.05494, %75 ]
+  %79 = insertelement <2 x double> poison, double %44, i64 0
+  %80 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> zeroinitializer
+  %81 = fsub <2 x double> %26, %80
+  %82 = fcmp olt <2 x double> %81, zeroinitializer
+  %83 = select <2 x i1> %82, <2 x double> zeroinitializer, <2 x double> %81
+  br label %84
+
+84:                                               ; preds = %65, %57, %58, %78
+  %.170 = phi double [ %.06988, %58 ], [ %.06988, %57 ], [ %.06988, %65 ], [ %.271, %78 ]
+  %.165 = phi double [ %.06490, %58 ], [ %.06490, %57 ], [ %.06490, %65 ], [ %.266, %78 ]
+  %.163 = phi i32 [ %50, %58 ], [ %50, %57 ], [ %50, %65 ], [ %.06291, %78 ]
+  %.160 = phi i32 [ %.05992, %58 ], [ %.05992, %57 ], [ %.05992, %65 ], [ %.3, %78 ]
+  %.157 = phi i32 [ %.05693, %58 ], [ %.05693, %57 ], [ %.05693, %65 ], [ %.258, %78 ]
+  %.155 = phi i32 [ %.05494, %58 ], [ %.05494, %57 ], [ %.05494, %65 ], [ %.2, %78 ]
+  %85 = phi <2 x double> [ %26, %58 ], [ %26, %57 ], [ %26, %65 ], [ %83, %78 ]
+  %86 = add nuw i32 %.sroa.2.087, 1
+  %.not79 = icmp eq i32 %86, %19
+  br i1 %.not79, label %._crit_edge.loopexit, label %25
+
+._crit_edge.loopexit:                             ; preds = %72, %84
+  %.069.lcssa.ph = phi double [ %.170, %84 ], [ %.06988, %72 ]
+  %.064.lcssa.ph = phi double [ %.165, %84 ], [ %.06490, %72 ]
+  %.062.lcssa.ph = phi i32 [ %.163, %84 ], [ %.06291, %72 ]
+  %.059.lcssa.ph = phi i32 [ %.160, %84 ], [ %.05992, %72 ]
+  %.056.lcssa.ph = phi i32 [ %.157, %84 ], [ %.05693, %72 ]
+  %.054.lcssa.ph = phi i32 [ %.155, %84 ], [ %.05494, %72 ]
+  %87 = phi <2 x double> [ %85, %84 ], [ %26, %72 ]
   %.pre = load i32, ptr %1, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
-  %82 = phi i32 [ 0, %18 ], [ %.pre, %._crit_edge.loopexit ]
+  %88 = phi i32 [ 0, %18 ], [ %.pre, %._crit_edge.loopexit ]
   %.069.lcssa = phi double [ 0.000000e+00, %18 ], [ %.069.lcssa.ph, %._crit_edge.loopexit ]
-  %.067.lcssa = phi double [ %12, %18 ], [ %.067.lcssa.ph, %._crit_edge.loopexit ]
   %.064.lcssa = phi double [ 0.000000e+00, %18 ], [ %.064.lcssa.ph, %._crit_edge.loopexit ]
   %.062.lcssa = phi i32 [ 0, %18 ], [ %.062.lcssa.ph, %._crit_edge.loopexit ]
   %.059.lcssa = phi i32 [ 0, %18 ], [ %.059.lcssa.ph, %._crit_edge.loopexit ]
   %.056.lcssa = phi i32 [ 0, %18 ], [ %.056.lcssa.ph, %._crit_edge.loopexit ]
   %.054.lcssa = phi i32 [ 0, %18 ], [ %.054.lcssa.ph, %._crit_edge.loopexit ]
-  %.0.lcssa = phi double [ %14, %18 ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
-  %83 = add i32 %.054.lcssa, %.056.lcssa
-  %84 = icmp eq i32 %83, %82
-  br i1 %84, label %85, label %88
+  %89 = phi <2 x double> [ %21, %18 ], [ %87, %._crit_edge.loopexit ]
+  %90 = add i32 %.054.lcssa, %.056.lcssa
+  %91 = icmp eq i32 %90, %88
+  br i1 %91, label %92, label %95
 
-85:                                               ; preds = %._crit_edge
-  %86 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not81 = icmp eq ptr %86, null
-  br i1 %.not81, label %88, label %87
-
-87:                                               ; preds = %85
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.53)
-  br label %88
-
-88:                                               ; preds = %87, %85, %._crit_edge
-  %.not = icmp eq i32 %.059.lcssa, 0
-  br i1 %.not, label %92, label %89
-
-89:                                               ; preds = %88
-  %90 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not82 = icmp eq ptr %90, null
-  br i1 %.not82, label %92, label %91
-
-91:                                               ; preds = %89
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.54, i32 noundef %.059.lcssa)
-  br label %92
-
-92:                                               ; preds = %91, %89, %88
+92:                                               ; preds = %._crit_edge
   %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not83 = icmp eq ptr %93, null
-  br i1 %.not83, label %95, label %94
+  %.not81 = icmp eq ptr %93, null
+  br i1 %.not81, label %95, label %94
 
 94:                                               ; preds = %92
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.55, i32 noundef %.054.lcssa, i32 noundef %.056.lcssa, i32 noundef %.062.lcssa, double noundef %.064.lcssa, double noundef %.069.lcssa, double noundef %.0.lcssa, double noundef %.067.lcssa)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.53)
   br label %95
 
-95:                                               ; preds = %92, %94
+95:                                               ; preds = %94, %92, %._crit_edge
+  %.not = icmp eq i32 %.059.lcssa, 0
+  br i1 %.not, label %99, label %96
+
+96:                                               ; preds = %95
+  %97 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not82 = icmp eq ptr %97, null
+  br i1 %.not82, label %99, label %98
+
+98:                                               ; preds = %96
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.54, i32 noundef %.059.lcssa)
+  br label %99
+
+99:                                               ; preds = %98, %96, %95
+  %100 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not83 = icmp eq ptr %100, null
+  br i1 %.not83, label %104, label %101
+
+101:                                              ; preds = %99
+  %102 = extractelement <2 x double> %89, i64 0
+  %103 = extractelement <2 x double> %89, i64 1
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.55, i32 noundef %.054.lcssa, i32 noundef %.056.lcssa, i32 noundef %.062.lcssa, double noundef %.064.lcssa, double noundef %.069.lcssa, double noundef %103, double noundef %102)
+  br label %104
+
+104:                                              ; preds = %99, %101
   ret void
 }
 

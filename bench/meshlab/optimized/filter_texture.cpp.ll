@@ -22268,91 +22268,94 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit:        ; preds = %78, %80, %87
   %91 = fsub float %.sroa.18.0.lcssa, %.sroa.057.0.lcssa
   %92 = fsub float %.sroa.26.0.lcssa, %.sroa.9.0.lcssa
   %93 = fcmp ogt float %4, 0.000000e+00
-  br i1 %93, label %94, label %104
+  br i1 %93, label %94, label %108
 
 94:                                               ; preds = %._crit_edge
-  %95 = fcmp olt float %92, %91
-  %.sroa.speculated33 = select i1 %95, float %92, float %91
-  %96 = fcmp ogt float %4, 5.000000e-01
-  %.sroa.speculated = select i1 %96, float 5.000000e-01, float %4
-  %97 = fmul float %.sroa.speculated, %.sroa.speculated33
-  %98 = fadd float %.sroa.18.0.lcssa, %97
-  %99 = fsub float %.sroa.057.0.lcssa, %97
-  %100 = fadd float %.sroa.26.0.lcssa, %97
-  %101 = fsub float %.sroa.9.0.lcssa, %97
-  %102 = fsub float %98, %99
-  %103 = fsub float %100, %101
-  br label %104
+  %95 = insertelement <2 x float> poison, float %4, i64 0
+  %96 = insertelement <2 x float> %95, float %91, i64 1
+  %97 = insertelement <2 x float> <float 5.000000e-01, float poison>, float %92, i64 1
+  %98 = fcmp ogt <2 x float> %96, %97
+  %99 = select <2 x i1> %98, <2 x float> %97, <2 x float> %96
+  %shift = shufflevector <2 x float> %99, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %100 = fmul <2 x float> %99, %shift
+  %101 = extractelement <2 x float> %100, i64 0
+  %102 = fadd float %.sroa.18.0.lcssa, %101
+  %103 = fsub float %.sroa.057.0.lcssa, %101
+  %104 = fadd float %.sroa.26.0.lcssa, %101
+  %105 = fsub float %.sroa.9.0.lcssa, %101
+  %106 = fsub float %102, %103
+  %107 = fsub float %104, %105
+  br label %108
 
-104:                                              ; preds = %94, %._crit_edge
-  %.sroa.057.3 = phi float [ %99, %94 ], [ %.sroa.057.0.lcssa, %._crit_edge ]
-  %.sroa.9.3 = phi float [ %101, %94 ], [ %.sroa.9.0.lcssa, %._crit_edge ]
-  %.075 = phi float [ %102, %94 ], [ %91, %._crit_edge ]
-  %.074 = phi float [ %103, %94 ], [ %92, %._crit_edge ]
-  %105 = fcmp olt float %.075, %.074
-  %.sroa.speculated30 = select i1 %105, float %.074, float %.075
+108:                                              ; preds = %94, %._crit_edge
+  %.sroa.057.3 = phi float [ %103, %94 ], [ %.sroa.057.0.lcssa, %._crit_edge ]
+  %.sroa.9.3 = phi float [ %105, %94 ], [ %.sroa.9.0.lcssa, %._crit_edge ]
+  %.075 = phi float [ %106, %94 ], [ %91, %._crit_edge ]
+  %.074 = phi float [ %107, %94 ], [ %92, %._crit_edge ]
+  %109 = fcmp olt float %.075, %.074
+  %.sroa.speculated30 = select i1 %109, float %.074, float %.075
   %.176 = select i1 %3, float %.sroa.speculated30, float %.075
   %.1 = select i1 %3, float %.sroa.speculated30, float %.074
-  %106 = load ptr, ptr %6, align 8
-  %.not7797 = icmp eq ptr %106, %90
+  %110 = load ptr, ptr %6, align 8
+  %.not7797 = icmp eq ptr %110, %90
   br i1 %.not7797, label %._crit_edge101, label %.lr.ph100
 
-.lr.ph100:                                        ; preds = %104, %.loopexit
-  %107 = phi ptr [ %137, %.loopexit ], [ %90, %104 ]
-  %.sroa.039.198 = phi ptr [ %138, %.loopexit ], [ %106, %104 ]
-  %108 = getelementptr inbounds i8, ptr %.sroa.039.198, i64 32
-  %109 = load i32, ptr %108, align 8
-  %110 = and i32 %109, 1
-  %.not78 = icmp eq i32 %110, 0
+.lr.ph100:                                        ; preds = %108, %.loopexit
+  %111 = phi ptr [ %141, %.loopexit ], [ %90, %108 ]
+  %.sroa.039.198 = phi ptr [ %142, %.loopexit ], [ %110, %108 ]
+  %112 = getelementptr inbounds i8, ptr %.sroa.039.198, i64 32
+  %113 = load i32, ptr %112, align 8
+  %114 = and i32 %113, 1
+  %.not78 = icmp eq i32 %114, 0
   br i1 %.not78, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph100
-  %111 = ptrtoint ptr %.sroa.039.198 to i64
-  br label %112
+  %115 = ptrtoint ptr %.sroa.039.198 to i64
+  br label %116
 
-112:                                              ; preds = %.preheader, %112
-  %indvars.iv103 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next104, %112 ]
-  %113 = load ptr, ptr %.sroa.039.198, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 192
-  %115 = load ptr, ptr %113, align 8
-  %116 = ptrtoint ptr %115 to i64
-  %117 = sub i64 %111, %116
-  %118 = sdiv exact i64 %117, 48
-  %119 = load ptr, ptr %114, align 8
-  %120 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %119, i64 %118
-  %121 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %120, i64 0, i64 %indvars.iv103
-  %122 = load float, ptr %121, align 4
-  %123 = fsub float %122, %.sroa.057.3
-  %124 = fdiv float %123, %.176
-  store float %124, ptr %121, align 4
-  %125 = load ptr, ptr %.sroa.039.198, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 192
-  %127 = load ptr, ptr %125, align 8
-  %128 = ptrtoint ptr %127 to i64
-  %129 = sub i64 %111, %128
-  %130 = sdiv exact i64 %129, 48
-  %131 = load ptr, ptr %126, align 8
-  %132 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %131, i64 %130
-  %133 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %132, i64 0, i64 %indvars.iv103, i32 0, i64 0, i32 0, i64 1
-  %134 = load float, ptr %133, align 4
-  %135 = fsub float %134, %.sroa.9.3
-  %136 = fdiv float %135, %.1
-  store float %136, ptr %133, align 4
+116:                                              ; preds = %.preheader, %116
+  %indvars.iv103 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next104, %116 ]
+  %117 = load ptr, ptr %.sroa.039.198, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 192
+  %119 = load ptr, ptr %117, align 8
+  %120 = ptrtoint ptr %119 to i64
+  %121 = sub i64 %115, %120
+  %122 = sdiv exact i64 %121, 48
+  %123 = load ptr, ptr %118, align 8
+  %124 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %123, i64 %122
+  %125 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %124, i64 0, i64 %indvars.iv103
+  %126 = load float, ptr %125, align 4
+  %127 = fsub float %126, %.sroa.057.3
+  %128 = fdiv float %127, %.176
+  store float %128, ptr %125, align 4
+  %129 = load ptr, ptr %.sroa.039.198, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 192
+  %131 = load ptr, ptr %129, align 8
+  %132 = ptrtoint ptr %131 to i64
+  %133 = sub i64 %115, %132
+  %134 = sdiv exact i64 %133, 48
+  %135 = load ptr, ptr %130, align 8
+  %136 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %135, i64 %134
+  %137 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %136, i64 0, i64 %indvars.iv103, i32 0, i64 0, i32 0, i64 1
+  %138 = load float, ptr %137, align 4
+  %139 = fsub float %138, %.sroa.9.3
+  %140 = fdiv float %139, %.1
+  store float %140, ptr %137, align 4
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, 3
-  br i1 %exitcond106.not, label %.loopexit.loopexit, label %112, !llvm.loop !155
+  br i1 %exitcond106.not, label %.loopexit.loopexit, label %116, !llvm.loop !155
 
-.loopexit.loopexit:                               ; preds = %112
+.loopexit.loopexit:                               ; preds = %116
   %.pre110 = load ptr, ptr %8, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph100
-  %137 = phi ptr [ %.pre110, %.loopexit.loopexit ], [ %107, %.lr.ph100 ]
-  %138 = getelementptr inbounds i8, ptr %.sroa.039.198, i64 48
-  %.not77 = icmp eq ptr %138, %137
+  %141 = phi ptr [ %.pre110, %.loopexit.loopexit ], [ %111, %.lr.ph100 ]
+  %142 = getelementptr inbounds i8, ptr %.sroa.039.198, i64 48
+  %.not77 = icmp eq ptr %142, %141
   br i1 %.not77, label %._crit_edge101, label %.lr.ph100, !llvm.loop !156
 
-._crit_edge101:                                   ; preds = %.loopexit, %104
+._crit_edge101:                                   ; preds = %.loopexit, %108
   ret void
 }
 
