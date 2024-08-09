@@ -4510,21 +4510,15 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_118fillConstBorderRowIsEEvPhiiiNS_
   %15 = getelementptr inbounds [4 x double], ptr %4, i64 0, i64 %indvars.iv
   %16 = load double, ptr %15, align 8
   %17 = tail call noundef double @llvm.round.f64(double %16)
-  %18 = fptosi double %17 to i32
-  %spec.select37.us = tail call i32 @llvm.smin.i32(i32 %18, i32 32767)
-  %19 = tail call i32 @llvm.smax.i32(i32 %spec.select37.us, i32 -32768)
-  %20 = trunc nsw i32 %19 to i16
-  %21 = add nuw nsw i64 %indvars.iv, %13
-  %22 = getelementptr inbounds i16, ptr %0, i64 %21
-  store i16 %20, ptr %22, align 2
-  %23 = load double, ptr %15, align 8
-  %24 = tail call noundef double @llvm.round.f64(double %23)
-  %25 = fptosi double %24 to i32
-  %spec.select3638.us = tail call i32 @llvm.smin.i32(i32 %25, i32 32767)
-  %26 = tail call i32 @llvm.smax.i32(i32 %spec.select3638.us, i32 -32768)
-  %27 = trunc nsw i32 %26 to i16
-  %28 = getelementptr inbounds i16, ptr %9, i64 %21
-  store i16 %27, ptr %28, align 2
+  %18 = tail call i16 @llvm.fptosi.sat.i16.f64(double %17)
+  %19 = add nuw nsw i64 %indvars.iv, %13
+  %20 = getelementptr inbounds i16, ptr %0, i64 %19
+  store i16 %18, ptr %20, align 2
+  %21 = load double, ptr %15, align 8
+  %22 = tail call noundef double @llvm.round.f64(double %21)
+  %23 = tail call i16 @llvm.fptosi.sat.i16.f64(double %22)
+  %24 = getelementptr inbounds i16, ptr %9, i64 %19
+  store i16 %23, ptr %24, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !20
@@ -6213,6 +6207,9 @@ declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.fptosi.sat.i16.f64(double) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24

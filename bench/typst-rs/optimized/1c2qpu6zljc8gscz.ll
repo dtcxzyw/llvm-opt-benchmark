@@ -9844,26 +9844,34 @@ define hidden i48 @"_ZN87_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typ
   %26 = phi float [ %.pre, %7 ], [ %10, %9 ]
   %27 = phi <2 x float> [ %8, %7 ], [ %25, %9 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %28 = fmul float %26, 6.553500e+04
-  %29 = call float @llvm.round.f32(float %28)
-  %30 = fcmp olt float %29, 0.000000e+00
-  %.0.i.i8 = select i1 %30, float 0.000000e+00, float %29
-  %31 = fcmp ogt float %.0.i.i8, 6.553500e+04
-  %.1.i.i9 = select i1 %31, float 6.553500e+04, float %.0.i.i8
-  %32 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i9)
-  %33 = fmul <2 x float> %27, <float 6.553500e+04, float 6.553500e+04>
-  %34 = call <2 x float> @llvm.round.v2f32(<2 x float> %33)
-  %35 = fcmp olt <2 x float> %34, zeroinitializer
-  %36 = select <2 x i1> %35, <2 x float> zeroinitializer, <2 x float> %34
-  %37 = fcmp ogt <2 x float> %36, <float 6.553500e+04, float 6.553500e+04>
-  %38 = select <2 x i1> %37, <2 x float> <float 6.553500e+04, float 6.553500e+04>, <2 x float> %36
-  %39 = call <2 x i16> @llvm.fptoui.sat.v2i16.v2f32(<2 x float> %38)
-  %40 = zext <2 x i16> %39 to <2 x i48>
-  %41 = shl nuw <2 x i48> %40, <i48 16, i48 32>
-  %shift = shufflevector <2 x i48> %41, <2 x i48> poison, <2 x i32> <i32 1, i32 poison>
-  %42 = or disjoint <2 x i48> %shift, %41
-  %.sroa.2.0.insert.insert = extractelement <2 x i48> %42, i64 0
-  %.sroa.0.0.insert.ext = zext i16 %32 to i48
+  %28 = insertelement <2 x float> %27, float %26, i64 1
+  %29 = fmul <2 x float> %28, <float 6.553500e+04, float 6.553500e+04>
+  %30 = call <2 x float> @llvm.round.v2f32(<2 x float> %29)
+  %31 = fcmp olt <2 x float> %30, zeroinitializer
+  %32 = select <2 x i1> %31, <2 x float> zeroinitializer, <2 x float> %30
+  %33 = fcmp ogt <2 x float> %32, <float 6.553500e+04, float 6.553500e+04>
+  %34 = extractelement <2 x i1> %33, i64 1
+  %35 = extractelement <2 x float> %32, i64 1
+  %.1.i.i9 = select i1 %34, float 6.553500e+04, float %35
+  %36 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i9)
+  %37 = extractelement <2 x i1> %33, i64 0
+  %38 = extractelement <2 x float> %32, i64 0
+  %.1.i.i12 = select i1 %37, float 6.553500e+04, float %38
+  %39 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i12)
+  %40 = extractelement <2 x float> %27, i64 1
+  %41 = fmul float %40, 6.553500e+04
+  %42 = call float @llvm.round.f32(float %41)
+  %43 = fcmp olt float %42, 0.000000e+00
+  %.0.i.i14 = select i1 %43, float 0.000000e+00, float %42
+  %44 = fcmp ogt float %.0.i.i14, 6.553500e+04
+  %.1.i.i15 = select i1 %44, float 6.553500e+04, float %.0.i.i14
+  %45 = call noundef i16 @llvm.fptoui.sat.i16.f32(float %.1.i.i15)
+  %.sroa.3.0.insert.ext = zext i16 %45 to i48
+  %.sroa.3.0.insert.shift = shl nuw i48 %.sroa.3.0.insert.ext, 32
+  %.sroa.2.0.insert.ext = zext i16 %39 to i48
+  %.sroa.2.0.insert.shift = shl nuw nsw i48 %.sroa.2.0.insert.ext, 16
+  %.sroa.2.0.insert.insert = or disjoint i48 %.sroa.3.0.insert.shift, %.sroa.2.0.insert.shift
+  %.sroa.0.0.insert.ext = zext i16 %36 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
   ret i48 %.sroa.0.0.insert.insert
 }
@@ -10822,9 +10830,6 @@ declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.round.v2f32(<2 x float>) #30
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i16> @llvm.fptoui.sat.v2i16.v2f32(<2 x float>) #30
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

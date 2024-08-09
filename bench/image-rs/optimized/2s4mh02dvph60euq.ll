@@ -27738,7 +27738,7 @@ define i24 @_ZN5image6codecs4tiff11cmyk_to_rgb17h5c7c3e9b49b39b97E(ptr noalias n
 
 11:                                               ; preds = %6
   %.not2 = icmp eq i64 %1, 3
-  br i1 %.not2, label %36, label %13, !prof !257
+  br i1 %.not2, label %33, label %13, !prof !257
 
 12:                                               ; preds = %6
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 2, i64 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.326.llvm.3890463254259644073) #33
@@ -27747,33 +27747,33 @@ define i24 @_ZN5image6codecs4tiff11cmyk_to_rgb17h5c7c3e9b49b39b97E(ptr noalias n
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 2
   %15 = load i8, ptr %14, align 1, !noundef !4
-  %16 = uitofp i8 %4 to float
-  %17 = getelementptr inbounds i8, ptr %0, i64 3
-  %18 = load i8, ptr %17, align 1, !noundef !4
-  %19 = uitofp i8 %18 to float
-  %20 = fdiv float %19, 2.550000e+02
-  %21 = fsub float 1.000000e+00, %20
-  %22 = fsub float 2.550000e+02, %16
-  %23 = fmul float %22, %21
-  %24 = tail call i8 @llvm.fptoui.sat.i8.f32(float %23)
-  %25 = insertelement <2 x i8> poison, i8 %15, i64 0
-  %26 = insertelement <2 x i8> %25, i8 %8, i64 1
-  %27 = uitofp <2 x i8> %26 to <2 x float>
-  %28 = fsub <2 x float> <float 2.550000e+02, float 2.550000e+02>, %27
-  %29 = insertelement <2 x float> poison, float %21, i64 0
-  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
-  %31 = fmul <2 x float> %28, %30
-  %32 = tail call <2 x i8> @llvm.fptoui.sat.v2i8.v2f32(<2 x float> %31)
-  %33 = zext <2 x i8> %32 to <2 x i24>
-  %34 = shl nuw <2 x i24> %33, <i24 16, i24 8>
-  %shift = shufflevector <2 x i24> %34, <2 x i24> poison, <2 x i32> <i32 1, i32 poison>
-  %35 = or disjoint <2 x i24> %34, %shift
-  %.sroa.2.0.insert.insert = extractelement <2 x i24> %35, i64 0
-  %.sroa.0.0.insert.ext = zext i8 %24 to i24
+  %16 = uitofp i8 %15 to float
+  %17 = uitofp i8 %8 to float
+  %18 = uitofp i8 %4 to float
+  %19 = getelementptr inbounds i8, ptr %0, i64 3
+  %20 = load i8, ptr %19, align 1, !noundef !4
+  %21 = uitofp i8 %20 to float
+  %22 = fdiv float %21, 2.550000e+02
+  %23 = fsub float 1.000000e+00, %22
+  %24 = fsub float 2.550000e+02, %18
+  %25 = fmul float %24, %23
+  %26 = tail call i8 @llvm.fptoui.sat.i8.f32(float %25)
+  %27 = fsub float 2.550000e+02, %17
+  %28 = fmul float %27, %23
+  %29 = tail call i8 @llvm.fptoui.sat.i8.f32(float %28)
+  %30 = fsub float 2.550000e+02, %16
+  %31 = fmul float %30, %23
+  %32 = tail call i8 @llvm.fptoui.sat.i8.f32(float %31)
+  %.sroa.3.0.insert.ext = zext i8 %32 to i24
+  %.sroa.3.0.insert.shift = shl nuw i24 %.sroa.3.0.insert.ext, 16
+  %.sroa.2.0.insert.ext = zext i8 %29 to i24
+  %.sroa.2.0.insert.shift = shl nuw nsw i24 %.sroa.2.0.insert.ext, 8
+  %.sroa.2.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.shift, %.sroa.2.0.insert.shift
+  %.sroa.0.0.insert.ext = zext i8 %26 to i24
   %.sroa.0.0.insert.insert = or disjoint i24 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
   ret i24 %.sroa.0.0.insert.insert
 
-36:                                               ; preds = %11
+33:                                               ; preds = %11
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 3, i64 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.327.llvm.3890463254259644073) #33
   unreachable
 }
@@ -34758,9 +34758,6 @@ declare i8 @llvm.umin.i8(i8, i8) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #30
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i8> @llvm.fptoui.sat.v2i8.v2f32(<2 x float>) #30
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

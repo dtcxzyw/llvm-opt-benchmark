@@ -183,13 +183,13 @@ define hidden void @handleGainAndConversion(ptr nocapture noundef readonly %0, p
     i32 2097288, label %419
     i32 2097292, label %537
     i32 1048844, label %647
-    i32 1048845, label %668
-    i32 1048846, label %691
-    i32 1048847, label %712
-    i32 2097420, label %735
-    i32 2097421, label %805
-    i32 2097422, label %883
-    i32 2097423, label %953
+    i32 1048845, label %667
+    i32 1048846, label %690
+    i32 1048847, label %710
+    i32 2097420, label %733
+    i32 2097421, label %799
+    i32 2097422, label %877
+    i32 2097423, label %943
   ]
 
 43:                                               ; preds = %23
@@ -1256,825 +1256,795 @@ MAP_ClipAndConvertToByte.exit862:                 ; preds = %.lr.ph1173, %616, %
   br i1 %649, label %.lr.ph1165, label %.loopexit
 
 .lr.ph1165:                                       ; preds = %.preheader1023, %.lr.ph1165
-  %.07071164 = phi ptr [ %656, %.lr.ph1165 ], [ %2, %.preheader1023 ]
-  %.07081163 = phi ptr [ %655, %.lr.ph1165 ], [ %1, %.preheader1023 ]
-  %.241162 = phi i32 [ %657, %.lr.ph1165 ], [ %24, %.preheader1023 ]
+  %.07071164 = phi ptr [ %655, %.lr.ph1165 ], [ %2, %.preheader1023 ]
+  %.07081163 = phi ptr [ %654, %.lr.ph1165 ], [ %1, %.preheader1023 ]
+  %.241162 = phi i32 [ %656, %.lr.ph1165 ], [ %24, %.preheader1023 ]
   %650 = load i16, ptr %.07081163, align 2
   %651 = sitofp i16 %650 to float
   %652 = fmul float %651, %4
-  %653 = fptosi float %652 to i32
-  %..i = tail call i32 @llvm.smin.i32(i32 %653, i32 32767)
-  %.0.i863 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i, i32 -32768)
-  %654 = trunc nsw i32 %.0.i863 to i16
-  store i16 %654, ptr %.07071164, align 2
-  %655 = getelementptr inbounds i8, ptr %.07081163, i64 2
-  %656 = getelementptr inbounds i8, ptr %.07071164, i64 2
-  %657 = add nsw i32 %.241162, -1
-  %658 = icmp ugt i32 %.241162, 1
-  br i1 %658, label %.lr.ph1165, label %.loopexit, !llvm.loop !35
+  %653 = tail call i16 @llvm.fptosi.sat.i16.f32(float %652)
+  store i16 %653, ptr %.07071164, align 2
+  %654 = getelementptr inbounds i8, ptr %.07081163, i64 2
+  %655 = getelementptr inbounds i8, ptr %.07071164, i64 2
+  %656 = add nsw i32 %.241162, -1
+  %657 = icmp ugt i32 %.241162, 1
+  br i1 %657, label %.lr.ph1165, label %.loopexit, !llvm.loop !35
 
 .lr.ph1161:                                       ; preds = %.preheader1025, %.lr.ph1161
-  %.11160 = phi ptr [ %665, %.lr.ph1161 ], [ %2, %.preheader1025 ]
-  %.17091159 = phi ptr [ %664, %.lr.ph1161 ], [ %1, %.preheader1025 ]
-  %.251158 = phi i32 [ %666, %.lr.ph1161 ], [ %24, %.preheader1025 ]
-  %659 = load i16, ptr %.17091159, align 2
-  %660 = sitofp i16 %659 to float
-  %661 = fmul float %660, %4
-  %662 = fptosi float %661 to i32
-  %663 = trunc i32 %662 to i16
-  store i16 %663, ptr %.11160, align 2
-  %664 = getelementptr inbounds i8, ptr %.17091159, i64 2
-  %665 = getelementptr inbounds i8, ptr %.11160, i64 2
-  %666 = add nsw i32 %.251158, -1
-  %667 = icmp ugt i32 %.251158, 1
-  br i1 %667, label %.lr.ph1161, label %.loopexit, !llvm.loop !36
+  %.11160 = phi ptr [ %664, %.lr.ph1161 ], [ %2, %.preheader1025 ]
+  %.17091159 = phi ptr [ %663, %.lr.ph1161 ], [ %1, %.preheader1025 ]
+  %.251158 = phi i32 [ %665, %.lr.ph1161 ], [ %24, %.preheader1025 ]
+  %658 = load i16, ptr %.17091159, align 2
+  %659 = sitofp i16 %658 to float
+  %660 = fmul float %659, %4
+  %661 = fptosi float %660 to i32
+  %662 = trunc i32 %661 to i16
+  store i16 %662, ptr %.11160, align 2
+  %663 = getelementptr inbounds i8, ptr %.17091159, i64 2
+  %664 = getelementptr inbounds i8, ptr %.11160, i64 2
+  %665 = add nsw i32 %.251158, -1
+  %666 = icmp ugt i32 %.251158, 1
+  br i1 %666, label %.lr.ph1161, label %.loopexit, !llvm.loop !36
 
-668:                                              ; preds = %23
-  %669 = fcmp ogt float %4, 1.000000e+00
-  %670 = icmp sgt i32 %24, 0
-  br i1 %669, label %.preheader1027, label %.preheader1029
+667:                                              ; preds = %23
+  %668 = fcmp ogt float %4, 1.000000e+00
+  %669 = icmp sgt i32 %24, 0
+  br i1 %668, label %.preheader1027, label %.preheader1029
 
-.preheader1029:                                   ; preds = %668
-  br i1 %670, label %.lr.ph1153, label %.loopexit
+.preheader1029:                                   ; preds = %667
+  br i1 %669, label %.lr.ph1153, label %.loopexit
 
-.preheader1027:                                   ; preds = %668
-  br i1 %670, label %.lr.ph1157, label %.loopexit
+.preheader1027:                                   ; preds = %667
+  br i1 %669, label %.lr.ph1157, label %.loopexit
 
 .lr.ph1157:                                       ; preds = %.preheader1027, %MAP_ClipAndConvertToShort_Swapped.exit
-  %.21156 = phi ptr [ %680, %MAP_ClipAndConvertToShort_Swapped.exit ], [ %2, %.preheader1027 ]
-  %.27101155 = phi ptr [ %679, %MAP_ClipAndConvertToShort_Swapped.exit ], [ %1, %.preheader1027 ]
-  %.261154 = phi i32 [ %681, %MAP_ClipAndConvertToShort_Swapped.exit ], [ %24, %.preheader1027 ]
-  %671 = load i16, ptr %.27101155, align 2
-  %672 = sitofp i16 %671 to float
-  %673 = fmul float %672, %4
-  %674 = fptosi float %673 to i32
-  %675 = icmp slt i32 %674, -32768
-  br i1 %675, label %MAP_ClipAndConvertToShort_Swapped.exit, label %676
+  %.21156 = phi ptr [ %679, %MAP_ClipAndConvertToShort_Swapped.exit ], [ %2, %.preheader1027 ]
+  %.27101155 = phi ptr [ %678, %MAP_ClipAndConvertToShort_Swapped.exit ], [ %1, %.preheader1027 ]
+  %.261154 = phi i32 [ %680, %MAP_ClipAndConvertToShort_Swapped.exit ], [ %24, %.preheader1027 ]
+  %670 = load i16, ptr %.27101155, align 2
+  %671 = sitofp i16 %670 to float
+  %672 = fmul float %671, %4
+  %673 = fptosi float %672 to i32
+  %674 = icmp slt i32 %673, -32768
+  br i1 %674, label %MAP_ClipAndConvertToShort_Swapped.exit, label %675
 
-676:                                              ; preds = %.lr.ph1157
-  %677 = icmp sgt i32 %674, 32767
-  br i1 %677, label %MAP_ClipAndConvertToShort_Swapped.exit, label %678
+675:                                              ; preds = %.lr.ph1157
+  %676 = icmp sgt i32 %673, 32767
+  br i1 %676, label %MAP_ClipAndConvertToShort_Swapped.exit, label %677
 
-678:                                              ; preds = %676
-  %trunc.i.i = trunc i32 %674 to i16
+677:                                              ; preds = %675
+  %trunc.i.i = trunc i32 %673 to i16
   %rev.i.i = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i)
   br label %MAP_ClipAndConvertToShort_Swapped.exit
 
-MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1157, %676, %678
-  %.0.i864 = phi i16 [ %rev.i.i, %678 ], [ 128, %.lr.ph1157 ], [ -129, %676 ]
+MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1157, %675, %677
+  %.0.i864 = phi i16 [ %rev.i.i, %677 ], [ 128, %.lr.ph1157 ], [ -129, %675 ]
   store i16 %.0.i864, ptr %.21156, align 2
-  %679 = getelementptr inbounds i8, ptr %.27101155, i64 2
-  %680 = getelementptr inbounds i8, ptr %.21156, i64 2
-  %681 = add nsw i32 %.261154, -1
-  %682 = icmp sgt i32 %.261154, 1
-  br i1 %682, label %.lr.ph1157, label %.loopexit, !llvm.loop !37
+  %678 = getelementptr inbounds i8, ptr %.27101155, i64 2
+  %679 = getelementptr inbounds i8, ptr %.21156, i64 2
+  %680 = add nsw i32 %.261154, -1
+  %681 = icmp sgt i32 %.261154, 1
+  br i1 %681, label %.lr.ph1157, label %.loopexit, !llvm.loop !37
 
 .lr.ph1153:                                       ; preds = %.preheader1029, %.lr.ph1153
-  %.31152 = phi ptr [ %688, %.lr.ph1153 ], [ %2, %.preheader1029 ]
-  %.37111151 = phi ptr [ %687, %.lr.ph1153 ], [ %1, %.preheader1029 ]
-  %.271150 = phi i32 [ %689, %.lr.ph1153 ], [ %24, %.preheader1029 ]
-  %683 = load i16, ptr %.37111151, align 2
-  %684 = sitofp i16 %683 to float
-  %685 = fmul float %684, %4
-  %686 = fptosi float %685 to i32
-  %trunc.i = trunc i32 %686 to i16
+  %.31152 = phi ptr [ %687, %.lr.ph1153 ], [ %2, %.preheader1029 ]
+  %.37111151 = phi ptr [ %686, %.lr.ph1153 ], [ %1, %.preheader1029 ]
+  %.271150 = phi i32 [ %688, %.lr.ph1153 ], [ %24, %.preheader1029 ]
+  %682 = load i16, ptr %.37111151, align 2
+  %683 = sitofp i16 %682 to float
+  %684 = fmul float %683, %4
+  %685 = fptosi float %684 to i32
+  %trunc.i = trunc i32 %685 to i16
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %trunc.i)
   store i16 %rev.i, ptr %.31152, align 2
-  %687 = getelementptr inbounds i8, ptr %.37111151, i64 2
-  %688 = getelementptr inbounds i8, ptr %.31152, i64 2
-  %689 = add nsw i32 %.271150, -1
-  %690 = icmp ugt i32 %.271150, 1
-  br i1 %690, label %.lr.ph1153, label %.loopexit, !llvm.loop !38
+  %686 = getelementptr inbounds i8, ptr %.37111151, i64 2
+  %687 = getelementptr inbounds i8, ptr %.31152, i64 2
+  %688 = add nsw i32 %.271150, -1
+  %689 = icmp ugt i32 %.271150, 1
+  br i1 %689, label %.lr.ph1153, label %.loopexit, !llvm.loop !38
 
-691:                                              ; preds = %23
-  %692 = fcmp ogt float %4, 1.000000e+00
-  %693 = icmp sgt i32 %24, 0
-  br i1 %692, label %.preheader1031, label %.preheader1033
+690:                                              ; preds = %23
+  %691 = fcmp ogt float %4, 1.000000e+00
+  %692 = icmp sgt i32 %24, 0
+  br i1 %691, label %.preheader1031, label %.preheader1033
 
-.preheader1033:                                   ; preds = %691
-  br i1 %693, label %.lr.ph1145, label %.loopexit
+.preheader1033:                                   ; preds = %690
+  br i1 %692, label %.lr.ph1145, label %.loopexit
 
-.preheader1031:                                   ; preds = %691
-  br i1 %693, label %.lr.ph1149, label %.loopexit
+.preheader1031:                                   ; preds = %690
+  br i1 %692, label %.lr.ph1149, label %.loopexit
 
 .lr.ph1149:                                       ; preds = %.preheader1031, %.lr.ph1149
-  %.41148 = phi ptr [ %700, %.lr.ph1149 ], [ %2, %.preheader1031 ]
-  %.47121147 = phi ptr [ %699, %.lr.ph1149 ], [ %1, %.preheader1031 ]
-  %.281146 = phi i32 [ %701, %.lr.ph1149 ], [ %24, %.preheader1031 ]
-  %694 = load i16, ptr %.47121147, align 2
-  %rev.i866 = tail call i16 @llvm.bswap.i16(i16 %694)
-  %695 = sitofp i16 %rev.i866 to float
-  %696 = fmul float %695, %4
-  %697 = fptosi float %696 to i32
-  %..i867 = tail call i32 @llvm.smin.i32(i32 %697, i32 32767)
-  %.0.i868 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i867, i32 -32768)
-  %698 = trunc nsw i32 %.0.i868 to i16
-  store i16 %698, ptr %.41148, align 2
-  %699 = getelementptr inbounds i8, ptr %.47121147, i64 2
-  %700 = getelementptr inbounds i8, ptr %.41148, i64 2
-  %701 = add nsw i32 %.281146, -1
-  %702 = icmp ugt i32 %.281146, 1
-  br i1 %702, label %.lr.ph1149, label %.loopexit, !llvm.loop !39
+  %.41148 = phi ptr [ %698, %.lr.ph1149 ], [ %2, %.preheader1031 ]
+  %.47121147 = phi ptr [ %697, %.lr.ph1149 ], [ %1, %.preheader1031 ]
+  %.281146 = phi i32 [ %699, %.lr.ph1149 ], [ %24, %.preheader1031 ]
+  %693 = load i16, ptr %.47121147, align 2
+  %rev.i866 = tail call i16 @llvm.bswap.i16(i16 %693)
+  %694 = sitofp i16 %rev.i866 to float
+  %695 = fmul float %694, %4
+  %696 = tail call i16 @llvm.fptosi.sat.i16.f32(float %695)
+  store i16 %696, ptr %.41148, align 2
+  %697 = getelementptr inbounds i8, ptr %.47121147, i64 2
+  %698 = getelementptr inbounds i8, ptr %.41148, i64 2
+  %699 = add nsw i32 %.281146, -1
+  %700 = icmp ugt i32 %.281146, 1
+  br i1 %700, label %.lr.ph1149, label %.loopexit, !llvm.loop !39
 
 .lr.ph1145:                                       ; preds = %.preheader1033, %.lr.ph1145
-  %.51144 = phi ptr [ %709, %.lr.ph1145 ], [ %2, %.preheader1033 ]
-  %.57131143 = phi ptr [ %708, %.lr.ph1145 ], [ %1, %.preheader1033 ]
-  %.291142 = phi i32 [ %710, %.lr.ph1145 ], [ %24, %.preheader1033 ]
-  %703 = load i16, ptr %.57131143, align 2
-  %rev.i870 = tail call i16 @llvm.bswap.i16(i16 %703)
-  %704 = sitofp i16 %rev.i870 to float
-  %705 = fmul float %704, %4
-  %706 = fptosi float %705 to i32
-  %707 = trunc i32 %706 to i16
-  store i16 %707, ptr %.51144, align 2
-  %708 = getelementptr inbounds i8, ptr %.57131143, i64 2
-  %709 = getelementptr inbounds i8, ptr %.51144, i64 2
-  %710 = add nsw i32 %.291142, -1
-  %711 = icmp ugt i32 %.291142, 1
-  br i1 %711, label %.lr.ph1145, label %.loopexit, !llvm.loop !40
+  %.51144 = phi ptr [ %707, %.lr.ph1145 ], [ %2, %.preheader1033 ]
+  %.57131143 = phi ptr [ %706, %.lr.ph1145 ], [ %1, %.preheader1033 ]
+  %.291142 = phi i32 [ %708, %.lr.ph1145 ], [ %24, %.preheader1033 ]
+  %701 = load i16, ptr %.57131143, align 2
+  %rev.i870 = tail call i16 @llvm.bswap.i16(i16 %701)
+  %702 = sitofp i16 %rev.i870 to float
+  %703 = fmul float %702, %4
+  %704 = fptosi float %703 to i32
+  %705 = trunc i32 %704 to i16
+  store i16 %705, ptr %.51144, align 2
+  %706 = getelementptr inbounds i8, ptr %.57131143, i64 2
+  %707 = getelementptr inbounds i8, ptr %.51144, i64 2
+  %708 = add nsw i32 %.291142, -1
+  %709 = icmp ugt i32 %.291142, 1
+  br i1 %709, label %.lr.ph1145, label %.loopexit, !llvm.loop !40
 
-712:                                              ; preds = %23
-  %713 = fcmp ogt float %4, 1.000000e+00
-  %714 = icmp sgt i32 %24, 0
-  br i1 %713, label %.preheader1035, label %.preheader1037
+710:                                              ; preds = %23
+  %711 = fcmp ogt float %4, 1.000000e+00
+  %712 = icmp sgt i32 %24, 0
+  br i1 %711, label %.preheader1035, label %.preheader1037
 
-.preheader1037:                                   ; preds = %712
-  br i1 %714, label %.lr.ph1137, label %.loopexit
+.preheader1037:                                   ; preds = %710
+  br i1 %712, label %.lr.ph1137, label %.loopexit
 
-.preheader1035:                                   ; preds = %712
-  br i1 %714, label %.lr.ph1141, label %.loopexit
+.preheader1035:                                   ; preds = %710
+  br i1 %712, label %.lr.ph1141, label %.loopexit
 
 .lr.ph1141:                                       ; preds = %.preheader1035, %MAP_ClipAndConvertToShort_Swapped.exit876
-  %.61140 = phi ptr [ %724, %MAP_ClipAndConvertToShort_Swapped.exit876 ], [ %2, %.preheader1035 ]
-  %.67141139 = phi ptr [ %723, %MAP_ClipAndConvertToShort_Swapped.exit876 ], [ %1, %.preheader1035 ]
-  %.301138 = phi i32 [ %725, %MAP_ClipAndConvertToShort_Swapped.exit876 ], [ %24, %.preheader1035 ]
-  %715 = load i16, ptr %.67141139, align 2
-  %rev.i872 = tail call i16 @llvm.bswap.i16(i16 %715)
-  %716 = sitofp i16 %rev.i872 to float
-  %717 = fmul float %716, %4
-  %718 = fptosi float %717 to i32
-  %719 = icmp slt i32 %718, -32768
+  %.61140 = phi ptr [ %722, %MAP_ClipAndConvertToShort_Swapped.exit876 ], [ %2, %.preheader1035 ]
+  %.67141139 = phi ptr [ %721, %MAP_ClipAndConvertToShort_Swapped.exit876 ], [ %1, %.preheader1035 ]
+  %.301138 = phi i32 [ %723, %MAP_ClipAndConvertToShort_Swapped.exit876 ], [ %24, %.preheader1035 ]
+  %713 = load i16, ptr %.67141139, align 2
+  %rev.i872 = tail call i16 @llvm.bswap.i16(i16 %713)
+  %714 = sitofp i16 %rev.i872 to float
+  %715 = fmul float %714, %4
+  %716 = fptosi float %715 to i32
+  %717 = icmp slt i32 %716, -32768
+  br i1 %717, label %MAP_ClipAndConvertToShort_Swapped.exit876, label %718
+
+718:                                              ; preds = %.lr.ph1141
+  %719 = icmp sgt i32 %716, 32767
   br i1 %719, label %MAP_ClipAndConvertToShort_Swapped.exit876, label %720
 
-720:                                              ; preds = %.lr.ph1141
-  %721 = icmp sgt i32 %718, 32767
-  br i1 %721, label %MAP_ClipAndConvertToShort_Swapped.exit876, label %722
-
-722:                                              ; preds = %720
-  %trunc.i.i873 = trunc i32 %718 to i16
+720:                                              ; preds = %718
+  %trunc.i.i873 = trunc i32 %716 to i16
   %rev.i.i874 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i873)
   br label %MAP_ClipAndConvertToShort_Swapped.exit876
 
-MAP_ClipAndConvertToShort_Swapped.exit876:        ; preds = %.lr.ph1141, %720, %722
-  %.0.i875 = phi i16 [ %rev.i.i874, %722 ], [ 128, %.lr.ph1141 ], [ -129, %720 ]
+MAP_ClipAndConvertToShort_Swapped.exit876:        ; preds = %.lr.ph1141, %718, %720
+  %.0.i875 = phi i16 [ %rev.i.i874, %720 ], [ 128, %.lr.ph1141 ], [ -129, %718 ]
   store i16 %.0.i875, ptr %.61140, align 2
-  %723 = getelementptr inbounds i8, ptr %.67141139, i64 2
-  %724 = getelementptr inbounds i8, ptr %.61140, i64 2
-  %725 = add nsw i32 %.301138, -1
-  %726 = icmp sgt i32 %.301138, 1
-  br i1 %726, label %.lr.ph1141, label %.loopexit, !llvm.loop !41
+  %721 = getelementptr inbounds i8, ptr %.67141139, i64 2
+  %722 = getelementptr inbounds i8, ptr %.61140, i64 2
+  %723 = add nsw i32 %.301138, -1
+  %724 = icmp sgt i32 %.301138, 1
+  br i1 %724, label %.lr.ph1141, label %.loopexit, !llvm.loop !41
 
 .lr.ph1137:                                       ; preds = %.preheader1037, %.lr.ph1137
-  %.71136 = phi ptr [ %732, %.lr.ph1137 ], [ %2, %.preheader1037 ]
-  %.77151135 = phi ptr [ %731, %.lr.ph1137 ], [ %1, %.preheader1037 ]
-  %.311134 = phi i32 [ %733, %.lr.ph1137 ], [ %24, %.preheader1037 ]
-  %727 = load i16, ptr %.77151135, align 2
-  %rev.i878 = tail call i16 @llvm.bswap.i16(i16 %727)
-  %728 = sitofp i16 %rev.i878 to float
-  %729 = fmul float %728, %4
-  %730 = fptosi float %729 to i32
-  %trunc.i879 = trunc i32 %730 to i16
+  %.71136 = phi ptr [ %730, %.lr.ph1137 ], [ %2, %.preheader1037 ]
+  %.77151135 = phi ptr [ %729, %.lr.ph1137 ], [ %1, %.preheader1037 ]
+  %.311134 = phi i32 [ %731, %.lr.ph1137 ], [ %24, %.preheader1037 ]
+  %725 = load i16, ptr %.77151135, align 2
+  %rev.i878 = tail call i16 @llvm.bswap.i16(i16 %725)
+  %726 = sitofp i16 %rev.i878 to float
+  %727 = fmul float %726, %4
+  %728 = fptosi float %727 to i32
+  %trunc.i879 = trunc i32 %728 to i16
   %rev.i880 = tail call i16 @llvm.bswap.i16(i16 %trunc.i879)
   store i16 %rev.i880, ptr %.71136, align 2
-  %731 = getelementptr inbounds i8, ptr %.77151135, i64 2
-  %732 = getelementptr inbounds i8, ptr %.71136, i64 2
-  %733 = add nsw i32 %.311134, -1
-  %734 = icmp ugt i32 %.311134, 1
-  br i1 %734, label %.lr.ph1137, label %.loopexit, !llvm.loop !42
+  %729 = getelementptr inbounds i8, ptr %.77151135, i64 2
+  %730 = getelementptr inbounds i8, ptr %.71136, i64 2
+  %731 = add nsw i32 %.311134, -1
+  %732 = icmp ugt i32 %.311134, 1
+  br i1 %732, label %.lr.ph1137, label %.loopexit, !llvm.loop !42
 
-735:                                              ; preds = %23
-  %736 = fcmp ogt float %4, 1.000000e+00
-  %737 = fcmp ogt float %5, 1.000000e+00
-  %738 = icmp sgt i32 %24, 0
-  br i1 %736, label %739, label %772
+733:                                              ; preds = %23
+  %734 = fcmp ogt float %4, 1.000000e+00
+  %735 = fcmp ogt float %5, 1.000000e+00
+  %736 = icmp sgt i32 %24, 0
+  br i1 %734, label %737, label %767
 
-739:                                              ; preds = %735
-  br i1 %737, label %.preheader1039, label %.preheader1041
+737:                                              ; preds = %733
+  br i1 %735, label %.preheader1039, label %.preheader1041
 
-.preheader1041:                                   ; preds = %739
-  br i1 %738, label %.lr.ph1129, label %.loopexit
+.preheader1041:                                   ; preds = %737
+  br i1 %736, label %.lr.ph1129, label %.loopexit
 
-.preheader1039:                                   ; preds = %739
-  br i1 %738, label %.lr.ph1133, label %.loopexit
+.preheader1039:                                   ; preds = %737
+  br i1 %736, label %.lr.ph1133, label %.loopexit
 
 .lr.ph1133:                                       ; preds = %.preheader1039, %.lr.ph1133
-  %.81132 = phi ptr [ %753, %.lr.ph1133 ], [ %2, %.preheader1039 ]
-  %.87161131 = phi ptr [ %752, %.lr.ph1133 ], [ %1, %.preheader1039 ]
-  %.321130 = phi i32 [ %754, %.lr.ph1133 ], [ %24, %.preheader1039 ]
-  %740 = load i16, ptr %.87161131, align 2
-  %741 = sitofp i16 %740 to float
-  %742 = fmul float %741, %4
-  %743 = fptosi float %742 to i32
-  %..i881 = tail call i32 @llvm.smin.i32(i32 %743, i32 32767)
-  %.0.i882 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i881, i32 -32768)
-  %744 = trunc nsw i32 %.0.i882 to i16
-  store i16 %744, ptr %.81132, align 2
-  %745 = getelementptr inbounds i8, ptr %.87161131, i64 2
-  %746 = getelementptr inbounds i8, ptr %.81132, i64 2
-  %747 = load i16, ptr %745, align 2
-  %748 = sitofp i16 %747 to float
-  %749 = fmul float %748, %5
-  %750 = fptosi float %749 to i32
-  %..i883 = tail call i32 @llvm.smin.i32(i32 %750, i32 32767)
-  %.0.i884 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i883, i32 -32768)
-  %751 = trunc nsw i32 %.0.i884 to i16
-  store i16 %751, ptr %746, align 2
-  %752 = getelementptr inbounds i8, ptr %.87161131, i64 4
-  %753 = getelementptr inbounds i8, ptr %.81132, i64 4
-  %754 = add nsw i32 %.321130, -1
-  %755 = icmp ugt i32 %.321130, 1
-  br i1 %755, label %.lr.ph1133, label %.loopexit, !llvm.loop !43
+  %.81132 = phi ptr [ %749, %.lr.ph1133 ], [ %2, %.preheader1039 ]
+  %.87161131 = phi ptr [ %748, %.lr.ph1133 ], [ %1, %.preheader1039 ]
+  %.321130 = phi i32 [ %750, %.lr.ph1133 ], [ %24, %.preheader1039 ]
+  %738 = load i16, ptr %.87161131, align 2
+  %739 = sitofp i16 %738 to float
+  %740 = fmul float %739, %4
+  %741 = tail call i16 @llvm.fptosi.sat.i16.f32(float %740)
+  store i16 %741, ptr %.81132, align 2
+  %742 = getelementptr inbounds i8, ptr %.87161131, i64 2
+  %743 = getelementptr inbounds i8, ptr %.81132, i64 2
+  %744 = load i16, ptr %742, align 2
+  %745 = sitofp i16 %744 to float
+  %746 = fmul float %745, %5
+  %747 = tail call i16 @llvm.fptosi.sat.i16.f32(float %746)
+  store i16 %747, ptr %743, align 2
+  %748 = getelementptr inbounds i8, ptr %.87161131, i64 4
+  %749 = getelementptr inbounds i8, ptr %.81132, i64 4
+  %750 = add nsw i32 %.321130, -1
+  %751 = icmp ugt i32 %.321130, 1
+  br i1 %751, label %.lr.ph1133, label %.loopexit, !llvm.loop !43
 
 .lr.ph1129:                                       ; preds = %.preheader1041, %.lr.ph1129
-  %.91128 = phi ptr [ %769, %.lr.ph1129 ], [ %2, %.preheader1041 ]
-  %.97171127 = phi ptr [ %768, %.lr.ph1129 ], [ %1, %.preheader1041 ]
-  %.331126 = phi i32 [ %770, %.lr.ph1129 ], [ %24, %.preheader1041 ]
-  %756 = load i16, ptr %.97171127, align 2
-  %757 = sitofp i16 %756 to float
-  %758 = fmul float %757, %4
-  %759 = fptosi float %758 to i32
-  %..i885 = tail call i32 @llvm.smin.i32(i32 %759, i32 32767)
-  %.0.i886 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i885, i32 -32768)
-  %760 = trunc nsw i32 %.0.i886 to i16
-  store i16 %760, ptr %.91128, align 2
-  %761 = getelementptr inbounds i8, ptr %.97171127, i64 2
-  %762 = getelementptr inbounds i8, ptr %.91128, i64 2
-  %763 = load i16, ptr %761, align 2
-  %764 = sitofp i16 %763 to float
-  %765 = fmul float %764, %5
-  %766 = fptosi float %765 to i32
-  %767 = trunc i32 %766 to i16
-  store i16 %767, ptr %762, align 2
-  %768 = getelementptr inbounds i8, ptr %.97171127, i64 4
-  %769 = getelementptr inbounds i8, ptr %.91128, i64 4
-  %770 = add nsw i32 %.331126, -1
-  %771 = icmp ugt i32 %.331126, 1
-  br i1 %771, label %.lr.ph1129, label %.loopexit, !llvm.loop !44
+  %.91128 = phi ptr [ %764, %.lr.ph1129 ], [ %2, %.preheader1041 ]
+  %.97171127 = phi ptr [ %763, %.lr.ph1129 ], [ %1, %.preheader1041 ]
+  %.331126 = phi i32 [ %765, %.lr.ph1129 ], [ %24, %.preheader1041 ]
+  %752 = load i16, ptr %.97171127, align 2
+  %753 = sitofp i16 %752 to float
+  %754 = fmul float %753, %4
+  %755 = tail call i16 @llvm.fptosi.sat.i16.f32(float %754)
+  store i16 %755, ptr %.91128, align 2
+  %756 = getelementptr inbounds i8, ptr %.97171127, i64 2
+  %757 = getelementptr inbounds i8, ptr %.91128, i64 2
+  %758 = load i16, ptr %756, align 2
+  %759 = sitofp i16 %758 to float
+  %760 = fmul float %759, %5
+  %761 = fptosi float %760 to i32
+  %762 = trunc i32 %761 to i16
+  store i16 %762, ptr %757, align 2
+  %763 = getelementptr inbounds i8, ptr %.97171127, i64 4
+  %764 = getelementptr inbounds i8, ptr %.91128, i64 4
+  %765 = add nsw i32 %.331126, -1
+  %766 = icmp ugt i32 %.331126, 1
+  br i1 %766, label %.lr.ph1129, label %.loopexit, !llvm.loop !44
 
-772:                                              ; preds = %735
-  br i1 %737, label %.preheader1043, label %.preheader1045
+767:                                              ; preds = %733
+  br i1 %735, label %.preheader1043, label %.preheader1045
 
-.preheader1045:                                   ; preds = %772
-  br i1 %738, label %.lr.ph1121, label %.loopexit
+.preheader1045:                                   ; preds = %767
+  br i1 %736, label %.lr.ph1121, label %.loopexit
 
-.preheader1043:                                   ; preds = %772
-  br i1 %738, label %.lr.ph1125, label %.loopexit
+.preheader1043:                                   ; preds = %767
+  br i1 %736, label %.lr.ph1125, label %.loopexit
 
 .lr.ph1125:                                       ; preds = %.preheader1043, %.lr.ph1125
-  %.101124 = phi ptr [ %786, %.lr.ph1125 ], [ %2, %.preheader1043 ]
-  %.107181123 = phi ptr [ %785, %.lr.ph1125 ], [ %1, %.preheader1043 ]
-  %.341122 = phi i32 [ %787, %.lr.ph1125 ], [ %24, %.preheader1043 ]
-  %773 = load i16, ptr %.107181123, align 2
-  %774 = sitofp i16 %773 to float
-  %775 = fmul float %774, %4
-  %776 = fptosi float %775 to i32
-  %777 = trunc i32 %776 to i16
-  store i16 %777, ptr %.101124, align 2
-  %778 = getelementptr inbounds i8, ptr %.107181123, i64 2
-  %779 = getelementptr inbounds i8, ptr %.101124, i64 2
-  %780 = load i16, ptr %778, align 2
-  %781 = sitofp i16 %780 to float
-  %782 = fmul float %781, %5
-  %783 = fptosi float %782 to i32
-  %..i887 = tail call i32 @llvm.smin.i32(i32 %783, i32 32767)
-  %.0.i888 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i887, i32 -32768)
-  %784 = trunc nsw i32 %.0.i888 to i16
-  store i16 %784, ptr %779, align 2
-  %785 = getelementptr inbounds i8, ptr %.107181123, i64 4
-  %786 = getelementptr inbounds i8, ptr %.101124, i64 4
-  %787 = add nsw i32 %.341122, -1
-  %788 = icmp ugt i32 %.341122, 1
-  br i1 %788, label %.lr.ph1125, label %.loopexit, !llvm.loop !45
+  %.101124 = phi ptr [ %780, %.lr.ph1125 ], [ %2, %.preheader1043 ]
+  %.107181123 = phi ptr [ %779, %.lr.ph1125 ], [ %1, %.preheader1043 ]
+  %.341122 = phi i32 [ %781, %.lr.ph1125 ], [ %24, %.preheader1043 ]
+  %768 = load i16, ptr %.107181123, align 2
+  %769 = sitofp i16 %768 to float
+  %770 = fmul float %769, %4
+  %771 = fptosi float %770 to i32
+  %772 = trunc i32 %771 to i16
+  store i16 %772, ptr %.101124, align 2
+  %773 = getelementptr inbounds i8, ptr %.107181123, i64 2
+  %774 = getelementptr inbounds i8, ptr %.101124, i64 2
+  %775 = load i16, ptr %773, align 2
+  %776 = sitofp i16 %775 to float
+  %777 = fmul float %776, %5
+  %778 = tail call i16 @llvm.fptosi.sat.i16.f32(float %777)
+  store i16 %778, ptr %774, align 2
+  %779 = getelementptr inbounds i8, ptr %.107181123, i64 4
+  %780 = getelementptr inbounds i8, ptr %.101124, i64 4
+  %781 = add nsw i32 %.341122, -1
+  %782 = icmp ugt i32 %.341122, 1
+  br i1 %782, label %.lr.ph1125, label %.loopexit, !llvm.loop !45
 
 .lr.ph1121:                                       ; preds = %.preheader1045, %.lr.ph1121
-  %.111120 = phi ptr [ %802, %.lr.ph1121 ], [ %2, %.preheader1045 ]
-  %.117191119 = phi ptr [ %801, %.lr.ph1121 ], [ %1, %.preheader1045 ]
-  %.351118 = phi i32 [ %803, %.lr.ph1121 ], [ %24, %.preheader1045 ]
-  %789 = load i16, ptr %.117191119, align 2
-  %790 = sitofp i16 %789 to float
-  %791 = fmul float %790, %4
-  %792 = fptosi float %791 to i32
-  %793 = trunc i32 %792 to i16
-  store i16 %793, ptr %.111120, align 2
-  %794 = getelementptr inbounds i8, ptr %.117191119, i64 2
-  %795 = getelementptr inbounds i8, ptr %.111120, i64 2
-  %796 = load i16, ptr %794, align 2
-  %797 = sitofp i16 %796 to float
-  %798 = fmul float %797, %5
-  %799 = fptosi float %798 to i32
-  %800 = trunc i32 %799 to i16
-  store i16 %800, ptr %795, align 2
-  %801 = getelementptr inbounds i8, ptr %.117191119, i64 4
-  %802 = getelementptr inbounds i8, ptr %.111120, i64 4
-  %803 = add nsw i32 %.351118, -1
-  %804 = icmp ugt i32 %.351118, 1
-  br i1 %804, label %.lr.ph1121, label %.loopexit, !llvm.loop !46
+  %.111120 = phi ptr [ %796, %.lr.ph1121 ], [ %2, %.preheader1045 ]
+  %.117191119 = phi ptr [ %795, %.lr.ph1121 ], [ %1, %.preheader1045 ]
+  %.351118 = phi i32 [ %797, %.lr.ph1121 ], [ %24, %.preheader1045 ]
+  %783 = load i16, ptr %.117191119, align 2
+  %784 = sitofp i16 %783 to float
+  %785 = fmul float %784, %4
+  %786 = fptosi float %785 to i32
+  %787 = trunc i32 %786 to i16
+  store i16 %787, ptr %.111120, align 2
+  %788 = getelementptr inbounds i8, ptr %.117191119, i64 2
+  %789 = getelementptr inbounds i8, ptr %.111120, i64 2
+  %790 = load i16, ptr %788, align 2
+  %791 = sitofp i16 %790 to float
+  %792 = fmul float %791, %5
+  %793 = fptosi float %792 to i32
+  %794 = trunc i32 %793 to i16
+  store i16 %794, ptr %789, align 2
+  %795 = getelementptr inbounds i8, ptr %.117191119, i64 4
+  %796 = getelementptr inbounds i8, ptr %.111120, i64 4
+  %797 = add nsw i32 %.351118, -1
+  %798 = icmp ugt i32 %.351118, 1
+  br i1 %798, label %.lr.ph1121, label %.loopexit, !llvm.loop !46
 
-805:                                              ; preds = %23
-  %806 = fcmp ogt float %4, 1.000000e+00
-  %807 = fcmp ogt float %5, 1.000000e+00
-  %808 = icmp sgt i32 %24, 0
-  br i1 %806, label %809, label %850
+799:                                              ; preds = %23
+  %800 = fcmp ogt float %4, 1.000000e+00
+  %801 = fcmp ogt float %5, 1.000000e+00
+  %802 = icmp sgt i32 %24, 0
+  br i1 %800, label %803, label %844
 
-809:                                              ; preds = %805
-  br i1 %807, label %.preheader1047, label %.preheader1049
+803:                                              ; preds = %799
+  br i1 %801, label %.preheader1047, label %.preheader1049
 
-.preheader1049:                                   ; preds = %809
-  br i1 %808, label %.lr.ph1113, label %.loopexit
+.preheader1049:                                   ; preds = %803
+  br i1 %802, label %.lr.ph1113, label %.loopexit
 
-.preheader1047:                                   ; preds = %809
-  br i1 %808, label %.lr.ph1117, label %.loopexit
+.preheader1047:                                   ; preds = %803
+  br i1 %802, label %.lr.ph1117, label %.loopexit
 
 .lr.ph1117:                                       ; preds = %.preheader1047, %MAP_ClipAndConvertToShort_Swapped.exit896
-  %.121116 = phi ptr [ %829, %MAP_ClipAndConvertToShort_Swapped.exit896 ], [ %2, %.preheader1047 ]
-  %.127201115 = phi ptr [ %828, %MAP_ClipAndConvertToShort_Swapped.exit896 ], [ %1, %.preheader1047 ]
-  %.361114 = phi i32 [ %830, %MAP_ClipAndConvertToShort_Swapped.exit896 ], [ %24, %.preheader1047 ]
-  %810 = load i16, ptr %.127201115, align 2
-  %811 = sitofp i16 %810 to float
-  %812 = fmul float %811, %4
-  %813 = fptosi float %812 to i32
-  %814 = icmp slt i32 %813, -32768
-  br i1 %814, label %MAP_ClipAndConvertToShort_Swapped.exit892, label %815
+  %.121116 = phi ptr [ %823, %MAP_ClipAndConvertToShort_Swapped.exit896 ], [ %2, %.preheader1047 ]
+  %.127201115 = phi ptr [ %822, %MAP_ClipAndConvertToShort_Swapped.exit896 ], [ %1, %.preheader1047 ]
+  %.361114 = phi i32 [ %824, %MAP_ClipAndConvertToShort_Swapped.exit896 ], [ %24, %.preheader1047 ]
+  %804 = load i16, ptr %.127201115, align 2
+  %805 = sitofp i16 %804 to float
+  %806 = fmul float %805, %4
+  %807 = fptosi float %806 to i32
+  %808 = icmp slt i32 %807, -32768
+  br i1 %808, label %MAP_ClipAndConvertToShort_Swapped.exit892, label %809
 
-815:                                              ; preds = %.lr.ph1117
-  %816 = icmp sgt i32 %813, 32767
-  br i1 %816, label %MAP_ClipAndConvertToShort_Swapped.exit892, label %817
+809:                                              ; preds = %.lr.ph1117
+  %810 = icmp sgt i32 %807, 32767
+  br i1 %810, label %MAP_ClipAndConvertToShort_Swapped.exit892, label %811
 
-817:                                              ; preds = %815
-  %trunc.i.i889 = trunc i32 %813 to i16
+811:                                              ; preds = %809
+  %trunc.i.i889 = trunc i32 %807 to i16
   %rev.i.i890 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i889)
   br label %MAP_ClipAndConvertToShort_Swapped.exit892
 
-MAP_ClipAndConvertToShort_Swapped.exit892:        ; preds = %.lr.ph1117, %815, %817
-  %.0.i891 = phi i16 [ %rev.i.i890, %817 ], [ 128, %.lr.ph1117 ], [ -129, %815 ]
+MAP_ClipAndConvertToShort_Swapped.exit892:        ; preds = %.lr.ph1117, %809, %811
+  %.0.i891 = phi i16 [ %rev.i.i890, %811 ], [ 128, %.lr.ph1117 ], [ -129, %809 ]
   store i16 %.0.i891, ptr %.121116, align 2
-  %818 = getelementptr inbounds i8, ptr %.127201115, i64 2
-  %819 = getelementptr inbounds i8, ptr %.121116, i64 2
-  %820 = load i16, ptr %818, align 2
-  %821 = sitofp i16 %820 to float
-  %822 = fmul float %821, %5
-  %823 = fptosi float %822 to i32
-  %824 = icmp slt i32 %823, -32768
-  br i1 %824, label %MAP_ClipAndConvertToShort_Swapped.exit896, label %825
+  %812 = getelementptr inbounds i8, ptr %.127201115, i64 2
+  %813 = getelementptr inbounds i8, ptr %.121116, i64 2
+  %814 = load i16, ptr %812, align 2
+  %815 = sitofp i16 %814 to float
+  %816 = fmul float %815, %5
+  %817 = fptosi float %816 to i32
+  %818 = icmp slt i32 %817, -32768
+  br i1 %818, label %MAP_ClipAndConvertToShort_Swapped.exit896, label %819
 
-825:                                              ; preds = %MAP_ClipAndConvertToShort_Swapped.exit892
-  %826 = icmp sgt i32 %823, 32767
-  br i1 %826, label %MAP_ClipAndConvertToShort_Swapped.exit896, label %827
+819:                                              ; preds = %MAP_ClipAndConvertToShort_Swapped.exit892
+  %820 = icmp sgt i32 %817, 32767
+  br i1 %820, label %MAP_ClipAndConvertToShort_Swapped.exit896, label %821
 
-827:                                              ; preds = %825
-  %trunc.i.i893 = trunc i32 %823 to i16
+821:                                              ; preds = %819
+  %trunc.i.i893 = trunc i32 %817 to i16
   %rev.i.i894 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i893)
   br label %MAP_ClipAndConvertToShort_Swapped.exit896
 
-MAP_ClipAndConvertToShort_Swapped.exit896:        ; preds = %MAP_ClipAndConvertToShort_Swapped.exit892, %825, %827
-  %.0.i895 = phi i16 [ %rev.i.i894, %827 ], [ 128, %MAP_ClipAndConvertToShort_Swapped.exit892 ], [ -129, %825 ]
-  store i16 %.0.i895, ptr %819, align 2
-  %828 = getelementptr inbounds i8, ptr %.127201115, i64 4
-  %829 = getelementptr inbounds i8, ptr %.121116, i64 4
-  %830 = add nsw i32 %.361114, -1
-  %831 = icmp sgt i32 %.361114, 1
-  br i1 %831, label %.lr.ph1117, label %.loopexit, !llvm.loop !47
+MAP_ClipAndConvertToShort_Swapped.exit896:        ; preds = %MAP_ClipAndConvertToShort_Swapped.exit892, %819, %821
+  %.0.i895 = phi i16 [ %rev.i.i894, %821 ], [ 128, %MAP_ClipAndConvertToShort_Swapped.exit892 ], [ -129, %819 ]
+  store i16 %.0.i895, ptr %813, align 2
+  %822 = getelementptr inbounds i8, ptr %.127201115, i64 4
+  %823 = getelementptr inbounds i8, ptr %.121116, i64 4
+  %824 = add nsw i32 %.361114, -1
+  %825 = icmp sgt i32 %.361114, 1
+  br i1 %825, label %.lr.ph1117, label %.loopexit, !llvm.loop !47
 
 .lr.ph1113:                                       ; preds = %.preheader1049, %MAP_ClipAndConvertToShort_Swapped.exit900
-  %.131112 = phi ptr [ %847, %MAP_ClipAndConvertToShort_Swapped.exit900 ], [ %2, %.preheader1049 ]
-  %.137211111 = phi ptr [ %846, %MAP_ClipAndConvertToShort_Swapped.exit900 ], [ %1, %.preheader1049 ]
-  %.371110 = phi i32 [ %848, %MAP_ClipAndConvertToShort_Swapped.exit900 ], [ %24, %.preheader1049 ]
-  %832 = load i16, ptr %.137211111, align 2
-  %833 = sitofp i16 %832 to float
-  %834 = fmul float %833, %4
-  %835 = fptosi float %834 to i32
-  %836 = icmp slt i32 %835, -32768
-  br i1 %836, label %MAP_ClipAndConvertToShort_Swapped.exit900, label %837
+  %.131112 = phi ptr [ %841, %MAP_ClipAndConvertToShort_Swapped.exit900 ], [ %2, %.preheader1049 ]
+  %.137211111 = phi ptr [ %840, %MAP_ClipAndConvertToShort_Swapped.exit900 ], [ %1, %.preheader1049 ]
+  %.371110 = phi i32 [ %842, %MAP_ClipAndConvertToShort_Swapped.exit900 ], [ %24, %.preheader1049 ]
+  %826 = load i16, ptr %.137211111, align 2
+  %827 = sitofp i16 %826 to float
+  %828 = fmul float %827, %4
+  %829 = fptosi float %828 to i32
+  %830 = icmp slt i32 %829, -32768
+  br i1 %830, label %MAP_ClipAndConvertToShort_Swapped.exit900, label %831
 
-837:                                              ; preds = %.lr.ph1113
-  %838 = icmp sgt i32 %835, 32767
-  br i1 %838, label %MAP_ClipAndConvertToShort_Swapped.exit900, label %839
+831:                                              ; preds = %.lr.ph1113
+  %832 = icmp sgt i32 %829, 32767
+  br i1 %832, label %MAP_ClipAndConvertToShort_Swapped.exit900, label %833
 
-839:                                              ; preds = %837
-  %trunc.i.i897 = trunc i32 %835 to i16
+833:                                              ; preds = %831
+  %trunc.i.i897 = trunc i32 %829 to i16
   %rev.i.i898 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i897)
   br label %MAP_ClipAndConvertToShort_Swapped.exit900
 
-MAP_ClipAndConvertToShort_Swapped.exit900:        ; preds = %.lr.ph1113, %837, %839
-  %.0.i899 = phi i16 [ %rev.i.i898, %839 ], [ 128, %.lr.ph1113 ], [ -129, %837 ]
+MAP_ClipAndConvertToShort_Swapped.exit900:        ; preds = %.lr.ph1113, %831, %833
+  %.0.i899 = phi i16 [ %rev.i.i898, %833 ], [ 128, %.lr.ph1113 ], [ -129, %831 ]
   store i16 %.0.i899, ptr %.131112, align 2
-  %840 = getelementptr inbounds i8, ptr %.137211111, i64 2
-  %841 = getelementptr inbounds i8, ptr %.131112, i64 2
-  %842 = load i16, ptr %840, align 2
-  %843 = sitofp i16 %842 to float
-  %844 = fmul float %843, %5
-  %845 = fptosi float %844 to i32
-  %trunc.i901 = trunc i32 %845 to i16
+  %834 = getelementptr inbounds i8, ptr %.137211111, i64 2
+  %835 = getelementptr inbounds i8, ptr %.131112, i64 2
+  %836 = load i16, ptr %834, align 2
+  %837 = sitofp i16 %836 to float
+  %838 = fmul float %837, %5
+  %839 = fptosi float %838 to i32
+  %trunc.i901 = trunc i32 %839 to i16
   %rev.i902 = tail call i16 @llvm.bswap.i16(i16 %trunc.i901)
-  store i16 %rev.i902, ptr %841, align 2
-  %846 = getelementptr inbounds i8, ptr %.137211111, i64 4
-  %847 = getelementptr inbounds i8, ptr %.131112, i64 4
-  %848 = add nsw i32 %.371110, -1
-  %849 = icmp sgt i32 %.371110, 1
-  br i1 %849, label %.lr.ph1113, label %.loopexit, !llvm.loop !48
+  store i16 %rev.i902, ptr %835, align 2
+  %840 = getelementptr inbounds i8, ptr %.137211111, i64 4
+  %841 = getelementptr inbounds i8, ptr %.131112, i64 4
+  %842 = add nsw i32 %.371110, -1
+  %843 = icmp sgt i32 %.371110, 1
+  br i1 %843, label %.lr.ph1113, label %.loopexit, !llvm.loop !48
 
-850:                                              ; preds = %805
-  br i1 %807, label %.preheader1051, label %.preheader1053
+844:                                              ; preds = %799
+  br i1 %801, label %.preheader1051, label %.preheader1053
 
-.preheader1053:                                   ; preds = %850
-  br i1 %808, label %.lr.ph1105, label %.loopexit
+.preheader1053:                                   ; preds = %844
+  br i1 %802, label %.lr.ph1105, label %.loopexit
 
-.preheader1051:                                   ; preds = %850
-  br i1 %808, label %.lr.ph1109, label %.loopexit
+.preheader1051:                                   ; preds = %844
+  br i1 %802, label %.lr.ph1109, label %.loopexit
 
 .lr.ph1109:                                       ; preds = %.preheader1051, %MAP_ClipAndConvertToShort_Swapped.exit908
-  %.141108 = phi ptr [ %866, %MAP_ClipAndConvertToShort_Swapped.exit908 ], [ %2, %.preheader1051 ]
-  %.147221107 = phi ptr [ %865, %MAP_ClipAndConvertToShort_Swapped.exit908 ], [ %1, %.preheader1051 ]
-  %.381106 = phi i32 [ %867, %MAP_ClipAndConvertToShort_Swapped.exit908 ], [ %24, %.preheader1051 ]
-  %851 = load i16, ptr %.147221107, align 2
-  %852 = sitofp i16 %851 to float
-  %853 = fmul float %852, %4
-  %854 = fptosi float %853 to i32
-  %trunc.i903 = trunc i32 %854 to i16
+  %.141108 = phi ptr [ %860, %MAP_ClipAndConvertToShort_Swapped.exit908 ], [ %2, %.preheader1051 ]
+  %.147221107 = phi ptr [ %859, %MAP_ClipAndConvertToShort_Swapped.exit908 ], [ %1, %.preheader1051 ]
+  %.381106 = phi i32 [ %861, %MAP_ClipAndConvertToShort_Swapped.exit908 ], [ %24, %.preheader1051 ]
+  %845 = load i16, ptr %.147221107, align 2
+  %846 = sitofp i16 %845 to float
+  %847 = fmul float %846, %4
+  %848 = fptosi float %847 to i32
+  %trunc.i903 = trunc i32 %848 to i16
   %rev.i904 = tail call i16 @llvm.bswap.i16(i16 %trunc.i903)
   store i16 %rev.i904, ptr %.141108, align 2
-  %855 = getelementptr inbounds i8, ptr %.147221107, i64 2
-  %856 = getelementptr inbounds i8, ptr %.141108, i64 2
-  %857 = load i16, ptr %855, align 2
-  %858 = sitofp i16 %857 to float
-  %859 = fmul float %858, %5
-  %860 = fptosi float %859 to i32
-  %861 = icmp slt i32 %860, -32768
-  br i1 %861, label %MAP_ClipAndConvertToShort_Swapped.exit908, label %862
+  %849 = getelementptr inbounds i8, ptr %.147221107, i64 2
+  %850 = getelementptr inbounds i8, ptr %.141108, i64 2
+  %851 = load i16, ptr %849, align 2
+  %852 = sitofp i16 %851 to float
+  %853 = fmul float %852, %5
+  %854 = fptosi float %853 to i32
+  %855 = icmp slt i32 %854, -32768
+  br i1 %855, label %MAP_ClipAndConvertToShort_Swapped.exit908, label %856
 
-862:                                              ; preds = %.lr.ph1109
-  %863 = icmp sgt i32 %860, 32767
-  br i1 %863, label %MAP_ClipAndConvertToShort_Swapped.exit908, label %864
+856:                                              ; preds = %.lr.ph1109
+  %857 = icmp sgt i32 %854, 32767
+  br i1 %857, label %MAP_ClipAndConvertToShort_Swapped.exit908, label %858
 
-864:                                              ; preds = %862
-  %trunc.i.i905 = trunc i32 %860 to i16
+858:                                              ; preds = %856
+  %trunc.i.i905 = trunc i32 %854 to i16
   %rev.i.i906 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i905)
   br label %MAP_ClipAndConvertToShort_Swapped.exit908
 
-MAP_ClipAndConvertToShort_Swapped.exit908:        ; preds = %.lr.ph1109, %862, %864
-  %.0.i907 = phi i16 [ %rev.i.i906, %864 ], [ 128, %.lr.ph1109 ], [ -129, %862 ]
-  store i16 %.0.i907, ptr %856, align 2
-  %865 = getelementptr inbounds i8, ptr %.147221107, i64 4
-  %866 = getelementptr inbounds i8, ptr %.141108, i64 4
-  %867 = add nsw i32 %.381106, -1
-  %868 = icmp sgt i32 %.381106, 1
-  br i1 %868, label %.lr.ph1109, label %.loopexit, !llvm.loop !49
+MAP_ClipAndConvertToShort_Swapped.exit908:        ; preds = %.lr.ph1109, %856, %858
+  %.0.i907 = phi i16 [ %rev.i.i906, %858 ], [ 128, %.lr.ph1109 ], [ -129, %856 ]
+  store i16 %.0.i907, ptr %850, align 2
+  %859 = getelementptr inbounds i8, ptr %.147221107, i64 4
+  %860 = getelementptr inbounds i8, ptr %.141108, i64 4
+  %861 = add nsw i32 %.381106, -1
+  %862 = icmp sgt i32 %.381106, 1
+  br i1 %862, label %.lr.ph1109, label %.loopexit, !llvm.loop !49
 
 .lr.ph1105:                                       ; preds = %.preheader1053, %.lr.ph1105
-  %.151104 = phi ptr [ %880, %.lr.ph1105 ], [ %2, %.preheader1053 ]
-  %.157231103 = phi ptr [ %879, %.lr.ph1105 ], [ %1, %.preheader1053 ]
-  %.391102 = phi i32 [ %881, %.lr.ph1105 ], [ %24, %.preheader1053 ]
-  %869 = load i16, ptr %.157231103, align 2
-  %870 = sitofp i16 %869 to float
-  %871 = fmul float %870, %4
-  %872 = fptosi float %871 to i32
-  %trunc.i909 = trunc i32 %872 to i16
+  %.151104 = phi ptr [ %874, %.lr.ph1105 ], [ %2, %.preheader1053 ]
+  %.157231103 = phi ptr [ %873, %.lr.ph1105 ], [ %1, %.preheader1053 ]
+  %.391102 = phi i32 [ %875, %.lr.ph1105 ], [ %24, %.preheader1053 ]
+  %863 = load i16, ptr %.157231103, align 2
+  %864 = sitofp i16 %863 to float
+  %865 = fmul float %864, %4
+  %866 = fptosi float %865 to i32
+  %trunc.i909 = trunc i32 %866 to i16
   %rev.i910 = tail call i16 @llvm.bswap.i16(i16 %trunc.i909)
   store i16 %rev.i910, ptr %.151104, align 2
-  %873 = getelementptr inbounds i8, ptr %.157231103, i64 2
-  %874 = getelementptr inbounds i8, ptr %.151104, i64 2
-  %875 = load i16, ptr %873, align 2
-  %876 = sitofp i16 %875 to float
-  %877 = fmul float %876, %5
-  %878 = fptosi float %877 to i32
-  %trunc.i911 = trunc i32 %878 to i16
+  %867 = getelementptr inbounds i8, ptr %.157231103, i64 2
+  %868 = getelementptr inbounds i8, ptr %.151104, i64 2
+  %869 = load i16, ptr %867, align 2
+  %870 = sitofp i16 %869 to float
+  %871 = fmul float %870, %5
+  %872 = fptosi float %871 to i32
+  %trunc.i911 = trunc i32 %872 to i16
   %rev.i912 = tail call i16 @llvm.bswap.i16(i16 %trunc.i911)
-  store i16 %rev.i912, ptr %874, align 2
-  %879 = getelementptr inbounds i8, ptr %.157231103, i64 4
-  %880 = getelementptr inbounds i8, ptr %.151104, i64 4
-  %881 = add nsw i32 %.391102, -1
-  %882 = icmp ugt i32 %.391102, 1
-  br i1 %882, label %.lr.ph1105, label %.loopexit, !llvm.loop !50
+  store i16 %rev.i912, ptr %868, align 2
+  %873 = getelementptr inbounds i8, ptr %.157231103, i64 4
+  %874 = getelementptr inbounds i8, ptr %.151104, i64 4
+  %875 = add nsw i32 %.391102, -1
+  %876 = icmp ugt i32 %.391102, 1
+  br i1 %876, label %.lr.ph1105, label %.loopexit, !llvm.loop !50
 
-883:                                              ; preds = %23
-  %884 = fcmp ogt float %4, 1.000000e+00
-  %885 = fcmp ogt float %5, 1.000000e+00
-  %886 = icmp sgt i32 %24, 0
-  br i1 %884, label %887, label %920
+877:                                              ; preds = %23
+  %878 = fcmp ogt float %4, 1.000000e+00
+  %879 = fcmp ogt float %5, 1.000000e+00
+  %880 = icmp sgt i32 %24, 0
+  br i1 %878, label %881, label %911
 
-887:                                              ; preds = %883
-  br i1 %885, label %.preheader1055, label %.preheader1057
+881:                                              ; preds = %877
+  br i1 %879, label %.preheader1055, label %.preheader1057
 
-.preheader1057:                                   ; preds = %887
-  br i1 %886, label %.lr.ph1097, label %.loopexit
+.preheader1057:                                   ; preds = %881
+  br i1 %880, label %.lr.ph1097, label %.loopexit
 
-.preheader1055:                                   ; preds = %887
-  br i1 %886, label %.lr.ph1101, label %.loopexit
+.preheader1055:                                   ; preds = %881
+  br i1 %880, label %.lr.ph1101, label %.loopexit
 
 .lr.ph1101:                                       ; preds = %.preheader1055, %.lr.ph1101
-  %.161100 = phi ptr [ %901, %.lr.ph1101 ], [ %2, %.preheader1055 ]
-  %.167241099 = phi ptr [ %900, %.lr.ph1101 ], [ %1, %.preheader1055 ]
-  %.401098 = phi i32 [ %902, %.lr.ph1101 ], [ %24, %.preheader1055 ]
-  %888 = load i16, ptr %.167241099, align 2
-  %rev.i914 = tail call i16 @llvm.bswap.i16(i16 %888)
-  %889 = sitofp i16 %rev.i914 to float
-  %890 = fmul float %889, %4
-  %891 = fptosi float %890 to i32
-  %..i915 = tail call i32 @llvm.smin.i32(i32 %891, i32 32767)
-  %.0.i916 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i915, i32 -32768)
-  %892 = trunc nsw i32 %.0.i916 to i16
-  store i16 %892, ptr %.161100, align 2
-  %893 = getelementptr inbounds i8, ptr %.167241099, i64 2
-  %894 = getelementptr inbounds i8, ptr %.161100, i64 2
-  %895 = load i16, ptr %893, align 2
-  %rev.i918 = tail call i16 @llvm.bswap.i16(i16 %895)
-  %896 = sitofp i16 %rev.i918 to float
-  %897 = fmul float %896, %5
-  %898 = fptosi float %897 to i32
-  %..i919 = tail call i32 @llvm.smin.i32(i32 %898, i32 32767)
-  %.0.i920 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i919, i32 -32768)
-  %899 = trunc nsw i32 %.0.i920 to i16
-  store i16 %899, ptr %894, align 2
-  %900 = getelementptr inbounds i8, ptr %.167241099, i64 4
-  %901 = getelementptr inbounds i8, ptr %.161100, i64 4
-  %902 = add nsw i32 %.401098, -1
-  %903 = icmp ugt i32 %.401098, 1
-  br i1 %903, label %.lr.ph1101, label %.loopexit, !llvm.loop !51
+  %.161100 = phi ptr [ %893, %.lr.ph1101 ], [ %2, %.preheader1055 ]
+  %.167241099 = phi ptr [ %892, %.lr.ph1101 ], [ %1, %.preheader1055 ]
+  %.401098 = phi i32 [ %894, %.lr.ph1101 ], [ %24, %.preheader1055 ]
+  %882 = load i16, ptr %.167241099, align 2
+  %rev.i914 = tail call i16 @llvm.bswap.i16(i16 %882)
+  %883 = sitofp i16 %rev.i914 to float
+  %884 = fmul float %883, %4
+  %885 = tail call i16 @llvm.fptosi.sat.i16.f32(float %884)
+  store i16 %885, ptr %.161100, align 2
+  %886 = getelementptr inbounds i8, ptr %.167241099, i64 2
+  %887 = getelementptr inbounds i8, ptr %.161100, i64 2
+  %888 = load i16, ptr %886, align 2
+  %rev.i918 = tail call i16 @llvm.bswap.i16(i16 %888)
+  %889 = sitofp i16 %rev.i918 to float
+  %890 = fmul float %889, %5
+  %891 = tail call i16 @llvm.fptosi.sat.i16.f32(float %890)
+  store i16 %891, ptr %887, align 2
+  %892 = getelementptr inbounds i8, ptr %.167241099, i64 4
+  %893 = getelementptr inbounds i8, ptr %.161100, i64 4
+  %894 = add nsw i32 %.401098, -1
+  %895 = icmp ugt i32 %.401098, 1
+  br i1 %895, label %.lr.ph1101, label %.loopexit, !llvm.loop !51
 
 .lr.ph1097:                                       ; preds = %.preheader1057, %.lr.ph1097
-  %.171096 = phi ptr [ %917, %.lr.ph1097 ], [ %2, %.preheader1057 ]
-  %.177251095 = phi ptr [ %916, %.lr.ph1097 ], [ %1, %.preheader1057 ]
-  %.411094 = phi i32 [ %918, %.lr.ph1097 ], [ %24, %.preheader1057 ]
-  %904 = load i16, ptr %.177251095, align 2
-  %rev.i922 = tail call i16 @llvm.bswap.i16(i16 %904)
-  %905 = sitofp i16 %rev.i922 to float
-  %906 = fmul float %905, %4
-  %907 = fptosi float %906 to i32
-  %..i923 = tail call i32 @llvm.smin.i32(i32 %907, i32 32767)
-  %.0.i924 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i923, i32 -32768)
-  %908 = trunc nsw i32 %.0.i924 to i16
-  store i16 %908, ptr %.171096, align 2
-  %909 = getelementptr inbounds i8, ptr %.177251095, i64 2
-  %910 = getelementptr inbounds i8, ptr %.171096, i64 2
-  %911 = load i16, ptr %909, align 2
-  %rev.i926 = tail call i16 @llvm.bswap.i16(i16 %911)
-  %912 = sitofp i16 %rev.i926 to float
-  %913 = fmul float %912, %5
-  %914 = fptosi float %913 to i32
-  %915 = trunc i32 %914 to i16
-  store i16 %915, ptr %910, align 2
-  %916 = getelementptr inbounds i8, ptr %.177251095, i64 4
-  %917 = getelementptr inbounds i8, ptr %.171096, i64 4
-  %918 = add nsw i32 %.411094, -1
-  %919 = icmp ugt i32 %.411094, 1
-  br i1 %919, label %.lr.ph1097, label %.loopexit, !llvm.loop !52
+  %.171096 = phi ptr [ %908, %.lr.ph1097 ], [ %2, %.preheader1057 ]
+  %.177251095 = phi ptr [ %907, %.lr.ph1097 ], [ %1, %.preheader1057 ]
+  %.411094 = phi i32 [ %909, %.lr.ph1097 ], [ %24, %.preheader1057 ]
+  %896 = load i16, ptr %.177251095, align 2
+  %rev.i922 = tail call i16 @llvm.bswap.i16(i16 %896)
+  %897 = sitofp i16 %rev.i922 to float
+  %898 = fmul float %897, %4
+  %899 = tail call i16 @llvm.fptosi.sat.i16.f32(float %898)
+  store i16 %899, ptr %.171096, align 2
+  %900 = getelementptr inbounds i8, ptr %.177251095, i64 2
+  %901 = getelementptr inbounds i8, ptr %.171096, i64 2
+  %902 = load i16, ptr %900, align 2
+  %rev.i926 = tail call i16 @llvm.bswap.i16(i16 %902)
+  %903 = sitofp i16 %rev.i926 to float
+  %904 = fmul float %903, %5
+  %905 = fptosi float %904 to i32
+  %906 = trunc i32 %905 to i16
+  store i16 %906, ptr %901, align 2
+  %907 = getelementptr inbounds i8, ptr %.177251095, i64 4
+  %908 = getelementptr inbounds i8, ptr %.171096, i64 4
+  %909 = add nsw i32 %.411094, -1
+  %910 = icmp ugt i32 %.411094, 1
+  br i1 %910, label %.lr.ph1097, label %.loopexit, !llvm.loop !52
 
-920:                                              ; preds = %883
-  br i1 %885, label %.preheader1059, label %.preheader1061
+911:                                              ; preds = %877
+  br i1 %879, label %.preheader1059, label %.preheader1061
 
-.preheader1061:                                   ; preds = %920
-  br i1 %886, label %.lr.ph1089, label %.loopexit
+.preheader1061:                                   ; preds = %911
+  br i1 %880, label %.lr.ph1089, label %.loopexit
 
-.preheader1059:                                   ; preds = %920
-  br i1 %886, label %.lr.ph1093, label %.loopexit
+.preheader1059:                                   ; preds = %911
+  br i1 %880, label %.lr.ph1093, label %.loopexit
 
 .lr.ph1093:                                       ; preds = %.preheader1059, %.lr.ph1093
-  %.181092 = phi ptr [ %934, %.lr.ph1093 ], [ %2, %.preheader1059 ]
-  %.187261091 = phi ptr [ %933, %.lr.ph1093 ], [ %1, %.preheader1059 ]
-  %.421090 = phi i32 [ %935, %.lr.ph1093 ], [ %24, %.preheader1059 ]
-  %921 = load i16, ptr %.187261091, align 2
-  %rev.i928 = tail call i16 @llvm.bswap.i16(i16 %921)
-  %922 = sitofp i16 %rev.i928 to float
-  %923 = fmul float %922, %4
-  %924 = fptosi float %923 to i32
-  %925 = trunc i32 %924 to i16
-  store i16 %925, ptr %.181092, align 2
-  %926 = getelementptr inbounds i8, ptr %.187261091, i64 2
-  %927 = getelementptr inbounds i8, ptr %.181092, i64 2
-  %928 = load i16, ptr %926, align 2
-  %rev.i930 = tail call i16 @llvm.bswap.i16(i16 %928)
-  %929 = sitofp i16 %rev.i930 to float
-  %930 = fmul float %929, %5
-  %931 = fptosi float %930 to i32
-  %..i931 = tail call i32 @llvm.smin.i32(i32 %931, i32 32767)
-  %.0.i932 = tail call range(i32 -32768, 32768) i32 @llvm.smax.i32(i32 %..i931, i32 -32768)
-  %932 = trunc nsw i32 %.0.i932 to i16
-  store i16 %932, ptr %927, align 2
-  %933 = getelementptr inbounds i8, ptr %.187261091, i64 4
-  %934 = getelementptr inbounds i8, ptr %.181092, i64 4
-  %935 = add nsw i32 %.421090, -1
-  %936 = icmp ugt i32 %.421090, 1
-  br i1 %936, label %.lr.ph1093, label %.loopexit, !llvm.loop !53
+  %.181092 = phi ptr [ %924, %.lr.ph1093 ], [ %2, %.preheader1059 ]
+  %.187261091 = phi ptr [ %923, %.lr.ph1093 ], [ %1, %.preheader1059 ]
+  %.421090 = phi i32 [ %925, %.lr.ph1093 ], [ %24, %.preheader1059 ]
+  %912 = load i16, ptr %.187261091, align 2
+  %rev.i928 = tail call i16 @llvm.bswap.i16(i16 %912)
+  %913 = sitofp i16 %rev.i928 to float
+  %914 = fmul float %913, %4
+  %915 = fptosi float %914 to i32
+  %916 = trunc i32 %915 to i16
+  store i16 %916, ptr %.181092, align 2
+  %917 = getelementptr inbounds i8, ptr %.187261091, i64 2
+  %918 = getelementptr inbounds i8, ptr %.181092, i64 2
+  %919 = load i16, ptr %917, align 2
+  %rev.i930 = tail call i16 @llvm.bswap.i16(i16 %919)
+  %920 = sitofp i16 %rev.i930 to float
+  %921 = fmul float %920, %5
+  %922 = tail call i16 @llvm.fptosi.sat.i16.f32(float %921)
+  store i16 %922, ptr %918, align 2
+  %923 = getelementptr inbounds i8, ptr %.187261091, i64 4
+  %924 = getelementptr inbounds i8, ptr %.181092, i64 4
+  %925 = add nsw i32 %.421090, -1
+  %926 = icmp ugt i32 %.421090, 1
+  br i1 %926, label %.lr.ph1093, label %.loopexit, !llvm.loop !53
 
 .lr.ph1089:                                       ; preds = %.preheader1061, %.lr.ph1089
-  %.191088 = phi ptr [ %950, %.lr.ph1089 ], [ %2, %.preheader1061 ]
-  %.197271087 = phi ptr [ %949, %.lr.ph1089 ], [ %1, %.preheader1061 ]
-  %.431086 = phi i32 [ %951, %.lr.ph1089 ], [ %24, %.preheader1061 ]
-  %937 = load i16, ptr %.197271087, align 2
-  %rev.i934 = tail call i16 @llvm.bswap.i16(i16 %937)
-  %938 = sitofp i16 %rev.i934 to float
-  %939 = fmul float %938, %4
-  %940 = fptosi float %939 to i32
-  %941 = trunc i32 %940 to i16
-  store i16 %941, ptr %.191088, align 2
-  %942 = getelementptr inbounds i8, ptr %.197271087, i64 2
-  %943 = getelementptr inbounds i8, ptr %.191088, i64 2
-  %944 = load i16, ptr %942, align 2
-  %rev.i936 = tail call i16 @llvm.bswap.i16(i16 %944)
-  %945 = sitofp i16 %rev.i936 to float
-  %946 = fmul float %945, %5
-  %947 = fptosi float %946 to i32
-  %948 = trunc i32 %947 to i16
-  store i16 %948, ptr %943, align 2
-  %949 = getelementptr inbounds i8, ptr %.197271087, i64 4
-  %950 = getelementptr inbounds i8, ptr %.191088, i64 4
-  %951 = add nsw i32 %.431086, -1
-  %952 = icmp ugt i32 %.431086, 1
-  br i1 %952, label %.lr.ph1089, label %.loopexit, !llvm.loop !54
+  %.191088 = phi ptr [ %940, %.lr.ph1089 ], [ %2, %.preheader1061 ]
+  %.197271087 = phi ptr [ %939, %.lr.ph1089 ], [ %1, %.preheader1061 ]
+  %.431086 = phi i32 [ %941, %.lr.ph1089 ], [ %24, %.preheader1061 ]
+  %927 = load i16, ptr %.197271087, align 2
+  %rev.i934 = tail call i16 @llvm.bswap.i16(i16 %927)
+  %928 = sitofp i16 %rev.i934 to float
+  %929 = fmul float %928, %4
+  %930 = fptosi float %929 to i32
+  %931 = trunc i32 %930 to i16
+  store i16 %931, ptr %.191088, align 2
+  %932 = getelementptr inbounds i8, ptr %.197271087, i64 2
+  %933 = getelementptr inbounds i8, ptr %.191088, i64 2
+  %934 = load i16, ptr %932, align 2
+  %rev.i936 = tail call i16 @llvm.bswap.i16(i16 %934)
+  %935 = sitofp i16 %rev.i936 to float
+  %936 = fmul float %935, %5
+  %937 = fptosi float %936 to i32
+  %938 = trunc i32 %937 to i16
+  store i16 %938, ptr %933, align 2
+  %939 = getelementptr inbounds i8, ptr %.197271087, i64 4
+  %940 = getelementptr inbounds i8, ptr %.191088, i64 4
+  %941 = add nsw i32 %.431086, -1
+  %942 = icmp ugt i32 %.431086, 1
+  br i1 %942, label %.lr.ph1089, label %.loopexit, !llvm.loop !54
 
-953:                                              ; preds = %23
-  %954 = fcmp ogt float %4, 1.000000e+00
-  %955 = fcmp ogt float %5, 1.000000e+00
-  %956 = icmp sgt i32 %24, 0
-  br i1 %954, label %957, label %998
+943:                                              ; preds = %23
+  %944 = fcmp ogt float %4, 1.000000e+00
+  %945 = fcmp ogt float %5, 1.000000e+00
+  %946 = icmp sgt i32 %24, 0
+  br i1 %944, label %947, label %988
 
-957:                                              ; preds = %953
-  br i1 %955, label %.preheader1063, label %.preheader1065
+947:                                              ; preds = %943
+  br i1 %945, label %.preheader1063, label %.preheader1065
 
-.preheader1065:                                   ; preds = %957
-  br i1 %956, label %.lr.ph1081, label %.loopexit
+.preheader1065:                                   ; preds = %947
+  br i1 %946, label %.lr.ph1081, label %.loopexit
 
-.preheader1063:                                   ; preds = %957
-  br i1 %956, label %.lr.ph1085, label %.loopexit
+.preheader1063:                                   ; preds = %947
+  br i1 %946, label %.lr.ph1085, label %.loopexit
 
 .lr.ph1085:                                       ; preds = %.preheader1063, %MAP_ClipAndConvertToShort_Swapped.exit948
-  %.201084 = phi ptr [ %977, %MAP_ClipAndConvertToShort_Swapped.exit948 ], [ %2, %.preheader1063 ]
-  %.207281083 = phi ptr [ %976, %MAP_ClipAndConvertToShort_Swapped.exit948 ], [ %1, %.preheader1063 ]
-  %.441082 = phi i32 [ %978, %MAP_ClipAndConvertToShort_Swapped.exit948 ], [ %24, %.preheader1063 ]
-  %958 = load i16, ptr %.207281083, align 2
-  %rev.i938 = tail call i16 @llvm.bswap.i16(i16 %958)
-  %959 = sitofp i16 %rev.i938 to float
-  %960 = fmul float %959, %4
-  %961 = fptosi float %960 to i32
-  %962 = icmp slt i32 %961, -32768
-  br i1 %962, label %MAP_ClipAndConvertToShort_Swapped.exit942, label %963
+  %.201084 = phi ptr [ %967, %MAP_ClipAndConvertToShort_Swapped.exit948 ], [ %2, %.preheader1063 ]
+  %.207281083 = phi ptr [ %966, %MAP_ClipAndConvertToShort_Swapped.exit948 ], [ %1, %.preheader1063 ]
+  %.441082 = phi i32 [ %968, %MAP_ClipAndConvertToShort_Swapped.exit948 ], [ %24, %.preheader1063 ]
+  %948 = load i16, ptr %.207281083, align 2
+  %rev.i938 = tail call i16 @llvm.bswap.i16(i16 %948)
+  %949 = sitofp i16 %rev.i938 to float
+  %950 = fmul float %949, %4
+  %951 = fptosi float %950 to i32
+  %952 = icmp slt i32 %951, -32768
+  br i1 %952, label %MAP_ClipAndConvertToShort_Swapped.exit942, label %953
 
-963:                                              ; preds = %.lr.ph1085
-  %964 = icmp sgt i32 %961, 32767
-  br i1 %964, label %MAP_ClipAndConvertToShort_Swapped.exit942, label %965
+953:                                              ; preds = %.lr.ph1085
+  %954 = icmp sgt i32 %951, 32767
+  br i1 %954, label %MAP_ClipAndConvertToShort_Swapped.exit942, label %955
 
-965:                                              ; preds = %963
-  %trunc.i.i939 = trunc i32 %961 to i16
+955:                                              ; preds = %953
+  %trunc.i.i939 = trunc i32 %951 to i16
   %rev.i.i940 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i939)
   br label %MAP_ClipAndConvertToShort_Swapped.exit942
 
-MAP_ClipAndConvertToShort_Swapped.exit942:        ; preds = %.lr.ph1085, %963, %965
-  %.0.i941 = phi i16 [ %rev.i.i940, %965 ], [ 128, %.lr.ph1085 ], [ -129, %963 ]
+MAP_ClipAndConvertToShort_Swapped.exit942:        ; preds = %.lr.ph1085, %953, %955
+  %.0.i941 = phi i16 [ %rev.i.i940, %955 ], [ 128, %.lr.ph1085 ], [ -129, %953 ]
   store i16 %.0.i941, ptr %.201084, align 2
-  %966 = getelementptr inbounds i8, ptr %.207281083, i64 2
-  %967 = getelementptr inbounds i8, ptr %.201084, i64 2
-  %968 = load i16, ptr %966, align 2
-  %rev.i944 = tail call i16 @llvm.bswap.i16(i16 %968)
-  %969 = sitofp i16 %rev.i944 to float
-  %970 = fmul float %969, %5
-  %971 = fptosi float %970 to i32
-  %972 = icmp slt i32 %971, -32768
-  br i1 %972, label %MAP_ClipAndConvertToShort_Swapped.exit948, label %973
+  %956 = getelementptr inbounds i8, ptr %.207281083, i64 2
+  %957 = getelementptr inbounds i8, ptr %.201084, i64 2
+  %958 = load i16, ptr %956, align 2
+  %rev.i944 = tail call i16 @llvm.bswap.i16(i16 %958)
+  %959 = sitofp i16 %rev.i944 to float
+  %960 = fmul float %959, %5
+  %961 = fptosi float %960 to i32
+  %962 = icmp slt i32 %961, -32768
+  br i1 %962, label %MAP_ClipAndConvertToShort_Swapped.exit948, label %963
 
-973:                                              ; preds = %MAP_ClipAndConvertToShort_Swapped.exit942
-  %974 = icmp sgt i32 %971, 32767
-  br i1 %974, label %MAP_ClipAndConvertToShort_Swapped.exit948, label %975
+963:                                              ; preds = %MAP_ClipAndConvertToShort_Swapped.exit942
+  %964 = icmp sgt i32 %961, 32767
+  br i1 %964, label %MAP_ClipAndConvertToShort_Swapped.exit948, label %965
 
-975:                                              ; preds = %973
-  %trunc.i.i945 = trunc i32 %971 to i16
+965:                                              ; preds = %963
+  %trunc.i.i945 = trunc i32 %961 to i16
   %rev.i.i946 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i945)
   br label %MAP_ClipAndConvertToShort_Swapped.exit948
 
-MAP_ClipAndConvertToShort_Swapped.exit948:        ; preds = %MAP_ClipAndConvertToShort_Swapped.exit942, %973, %975
-  %.0.i947 = phi i16 [ %rev.i.i946, %975 ], [ 128, %MAP_ClipAndConvertToShort_Swapped.exit942 ], [ -129, %973 ]
-  store i16 %.0.i947, ptr %967, align 2
-  %976 = getelementptr inbounds i8, ptr %.207281083, i64 4
-  %977 = getelementptr inbounds i8, ptr %.201084, i64 4
-  %978 = add nsw i32 %.441082, -1
-  %979 = icmp sgt i32 %.441082, 1
-  br i1 %979, label %.lr.ph1085, label %.loopexit, !llvm.loop !55
+MAP_ClipAndConvertToShort_Swapped.exit948:        ; preds = %MAP_ClipAndConvertToShort_Swapped.exit942, %963, %965
+  %.0.i947 = phi i16 [ %rev.i.i946, %965 ], [ 128, %MAP_ClipAndConvertToShort_Swapped.exit942 ], [ -129, %963 ]
+  store i16 %.0.i947, ptr %957, align 2
+  %966 = getelementptr inbounds i8, ptr %.207281083, i64 4
+  %967 = getelementptr inbounds i8, ptr %.201084, i64 4
+  %968 = add nsw i32 %.441082, -1
+  %969 = icmp sgt i32 %.441082, 1
+  br i1 %969, label %.lr.ph1085, label %.loopexit, !llvm.loop !55
 
 .lr.ph1081:                                       ; preds = %.preheader1065, %MAP_ClipAndConvertToShort_Swapped.exit954
-  %.211080 = phi ptr [ %995, %MAP_ClipAndConvertToShort_Swapped.exit954 ], [ %2, %.preheader1065 ]
-  %.217291079 = phi ptr [ %994, %MAP_ClipAndConvertToShort_Swapped.exit954 ], [ %1, %.preheader1065 ]
-  %.451078 = phi i32 [ %996, %MAP_ClipAndConvertToShort_Swapped.exit954 ], [ %24, %.preheader1065 ]
-  %980 = load i16, ptr %.217291079, align 2
-  %rev.i950 = tail call i16 @llvm.bswap.i16(i16 %980)
-  %981 = sitofp i16 %rev.i950 to float
-  %982 = fmul float %981, %4
-  %983 = fptosi float %982 to i32
-  %984 = icmp slt i32 %983, -32768
-  br i1 %984, label %MAP_ClipAndConvertToShort_Swapped.exit954, label %985
+  %.211080 = phi ptr [ %985, %MAP_ClipAndConvertToShort_Swapped.exit954 ], [ %2, %.preheader1065 ]
+  %.217291079 = phi ptr [ %984, %MAP_ClipAndConvertToShort_Swapped.exit954 ], [ %1, %.preheader1065 ]
+  %.451078 = phi i32 [ %986, %MAP_ClipAndConvertToShort_Swapped.exit954 ], [ %24, %.preheader1065 ]
+  %970 = load i16, ptr %.217291079, align 2
+  %rev.i950 = tail call i16 @llvm.bswap.i16(i16 %970)
+  %971 = sitofp i16 %rev.i950 to float
+  %972 = fmul float %971, %4
+  %973 = fptosi float %972 to i32
+  %974 = icmp slt i32 %973, -32768
+  br i1 %974, label %MAP_ClipAndConvertToShort_Swapped.exit954, label %975
 
-985:                                              ; preds = %.lr.ph1081
-  %986 = icmp sgt i32 %983, 32767
-  br i1 %986, label %MAP_ClipAndConvertToShort_Swapped.exit954, label %987
+975:                                              ; preds = %.lr.ph1081
+  %976 = icmp sgt i32 %973, 32767
+  br i1 %976, label %MAP_ClipAndConvertToShort_Swapped.exit954, label %977
 
-987:                                              ; preds = %985
-  %trunc.i.i951 = trunc i32 %983 to i16
+977:                                              ; preds = %975
+  %trunc.i.i951 = trunc i32 %973 to i16
   %rev.i.i952 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i951)
   br label %MAP_ClipAndConvertToShort_Swapped.exit954
 
-MAP_ClipAndConvertToShort_Swapped.exit954:        ; preds = %.lr.ph1081, %985, %987
-  %.0.i953 = phi i16 [ %rev.i.i952, %987 ], [ 128, %.lr.ph1081 ], [ -129, %985 ]
+MAP_ClipAndConvertToShort_Swapped.exit954:        ; preds = %.lr.ph1081, %975, %977
+  %.0.i953 = phi i16 [ %rev.i.i952, %977 ], [ 128, %.lr.ph1081 ], [ -129, %975 ]
   store i16 %.0.i953, ptr %.211080, align 2
-  %988 = getelementptr inbounds i8, ptr %.217291079, i64 2
-  %989 = getelementptr inbounds i8, ptr %.211080, i64 2
-  %990 = load i16, ptr %988, align 2
-  %rev.i956 = tail call i16 @llvm.bswap.i16(i16 %990)
-  %991 = sitofp i16 %rev.i956 to float
-  %992 = fmul float %991, %5
-  %993 = fptosi float %992 to i32
-  %trunc.i957 = trunc i32 %993 to i16
+  %978 = getelementptr inbounds i8, ptr %.217291079, i64 2
+  %979 = getelementptr inbounds i8, ptr %.211080, i64 2
+  %980 = load i16, ptr %978, align 2
+  %rev.i956 = tail call i16 @llvm.bswap.i16(i16 %980)
+  %981 = sitofp i16 %rev.i956 to float
+  %982 = fmul float %981, %5
+  %983 = fptosi float %982 to i32
+  %trunc.i957 = trunc i32 %983 to i16
   %rev.i958 = tail call i16 @llvm.bswap.i16(i16 %trunc.i957)
-  store i16 %rev.i958, ptr %989, align 2
-  %994 = getelementptr inbounds i8, ptr %.217291079, i64 4
-  %995 = getelementptr inbounds i8, ptr %.211080, i64 4
-  %996 = add nsw i32 %.451078, -1
-  %997 = icmp sgt i32 %.451078, 1
-  br i1 %997, label %.lr.ph1081, label %.loopexit, !llvm.loop !56
+  store i16 %rev.i958, ptr %979, align 2
+  %984 = getelementptr inbounds i8, ptr %.217291079, i64 4
+  %985 = getelementptr inbounds i8, ptr %.211080, i64 4
+  %986 = add nsw i32 %.451078, -1
+  %987 = icmp sgt i32 %.451078, 1
+  br i1 %987, label %.lr.ph1081, label %.loopexit, !llvm.loop !56
 
-998:                                              ; preds = %953
-  br i1 %955, label %.preheader1067, label %.preheader1069
+988:                                              ; preds = %943
+  br i1 %945, label %.preheader1067, label %.preheader1069
 
-.preheader1069:                                   ; preds = %998
-  br i1 %956, label %.lr.ph, label %.loopexit
+.preheader1069:                                   ; preds = %988
+  br i1 %946, label %.lr.ph, label %.loopexit
 
-.preheader1067:                                   ; preds = %998
-  br i1 %956, label %.lr.ph1077, label %.loopexit
+.preheader1067:                                   ; preds = %988
+  br i1 %946, label %.lr.ph1077, label %.loopexit
 
 .lr.ph1077:                                       ; preds = %.preheader1067, %MAP_ClipAndConvertToShort_Swapped.exit968
-  %.221076 = phi ptr [ %1014, %MAP_ClipAndConvertToShort_Swapped.exit968 ], [ %2, %.preheader1067 ]
-  %.227301075 = phi ptr [ %1013, %MAP_ClipAndConvertToShort_Swapped.exit968 ], [ %1, %.preheader1067 ]
-  %.461074 = phi i32 [ %1015, %MAP_ClipAndConvertToShort_Swapped.exit968 ], [ %24, %.preheader1067 ]
-  %999 = load i16, ptr %.227301075, align 2
-  %rev.i960 = tail call i16 @llvm.bswap.i16(i16 %999)
-  %1000 = sitofp i16 %rev.i960 to float
-  %1001 = fmul float %1000, %4
-  %1002 = fptosi float %1001 to i32
-  %trunc.i961 = trunc i32 %1002 to i16
+  %.221076 = phi ptr [ %1004, %MAP_ClipAndConvertToShort_Swapped.exit968 ], [ %2, %.preheader1067 ]
+  %.227301075 = phi ptr [ %1003, %MAP_ClipAndConvertToShort_Swapped.exit968 ], [ %1, %.preheader1067 ]
+  %.461074 = phi i32 [ %1005, %MAP_ClipAndConvertToShort_Swapped.exit968 ], [ %24, %.preheader1067 ]
+  %989 = load i16, ptr %.227301075, align 2
+  %rev.i960 = tail call i16 @llvm.bswap.i16(i16 %989)
+  %990 = sitofp i16 %rev.i960 to float
+  %991 = fmul float %990, %4
+  %992 = fptosi float %991 to i32
+  %trunc.i961 = trunc i32 %992 to i16
   %rev.i962 = tail call i16 @llvm.bswap.i16(i16 %trunc.i961)
   store i16 %rev.i962, ptr %.221076, align 2
-  %1003 = getelementptr inbounds i8, ptr %.227301075, i64 2
-  %1004 = getelementptr inbounds i8, ptr %.221076, i64 2
-  %1005 = load i16, ptr %1003, align 2
-  %rev.i964 = tail call i16 @llvm.bswap.i16(i16 %1005)
-  %1006 = sitofp i16 %rev.i964 to float
-  %1007 = fmul float %1006, %5
-  %1008 = fptosi float %1007 to i32
-  %1009 = icmp slt i32 %1008, -32768
-  br i1 %1009, label %MAP_ClipAndConvertToShort_Swapped.exit968, label %1010
+  %993 = getelementptr inbounds i8, ptr %.227301075, i64 2
+  %994 = getelementptr inbounds i8, ptr %.221076, i64 2
+  %995 = load i16, ptr %993, align 2
+  %rev.i964 = tail call i16 @llvm.bswap.i16(i16 %995)
+  %996 = sitofp i16 %rev.i964 to float
+  %997 = fmul float %996, %5
+  %998 = fptosi float %997 to i32
+  %999 = icmp slt i32 %998, -32768
+  br i1 %999, label %MAP_ClipAndConvertToShort_Swapped.exit968, label %1000
 
-1010:                                             ; preds = %.lr.ph1077
-  %1011 = icmp sgt i32 %1008, 32767
-  br i1 %1011, label %MAP_ClipAndConvertToShort_Swapped.exit968, label %1012
+1000:                                             ; preds = %.lr.ph1077
+  %1001 = icmp sgt i32 %998, 32767
+  br i1 %1001, label %MAP_ClipAndConvertToShort_Swapped.exit968, label %1002
 
-1012:                                             ; preds = %1010
-  %trunc.i.i965 = trunc i32 %1008 to i16
+1002:                                             ; preds = %1000
+  %trunc.i.i965 = trunc i32 %998 to i16
   %rev.i.i966 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i965)
   br label %MAP_ClipAndConvertToShort_Swapped.exit968
 
-MAP_ClipAndConvertToShort_Swapped.exit968:        ; preds = %.lr.ph1077, %1010, %1012
-  %.0.i967 = phi i16 [ %rev.i.i966, %1012 ], [ 128, %.lr.ph1077 ], [ -129, %1010 ]
-  store i16 %.0.i967, ptr %1004, align 2
-  %1013 = getelementptr inbounds i8, ptr %.227301075, i64 4
-  %1014 = getelementptr inbounds i8, ptr %.221076, i64 4
-  %1015 = add nsw i32 %.461074, -1
-  %1016 = icmp sgt i32 %.461074, 1
-  br i1 %1016, label %.lr.ph1077, label %.loopexit, !llvm.loop !57
+MAP_ClipAndConvertToShort_Swapped.exit968:        ; preds = %.lr.ph1077, %1000, %1002
+  %.0.i967 = phi i16 [ %rev.i.i966, %1002 ], [ 128, %.lr.ph1077 ], [ -129, %1000 ]
+  store i16 %.0.i967, ptr %994, align 2
+  %1003 = getelementptr inbounds i8, ptr %.227301075, i64 4
+  %1004 = getelementptr inbounds i8, ptr %.221076, i64 4
+  %1005 = add nsw i32 %.461074, -1
+  %1006 = icmp sgt i32 %.461074, 1
+  br i1 %1006, label %.lr.ph1077, label %.loopexit, !llvm.loop !57
 
 .lr.ph:                                           ; preds = %.preheader1069, %.lr.ph
-  %.231073 = phi ptr [ %1028, %.lr.ph ], [ %2, %.preheader1069 ]
-  %.237311072 = phi ptr [ %1027, %.lr.ph ], [ %1, %.preheader1069 ]
-  %.471071 = phi i32 [ %1029, %.lr.ph ], [ %24, %.preheader1069 ]
-  %1017 = load i16, ptr %.237311072, align 2
-  %rev.i970 = tail call i16 @llvm.bswap.i16(i16 %1017)
-  %1018 = sitofp i16 %rev.i970 to float
-  %1019 = fmul float %1018, %4
-  %1020 = fptosi float %1019 to i32
-  %trunc.i971 = trunc i32 %1020 to i16
+  %.231073 = phi ptr [ %1018, %.lr.ph ], [ %2, %.preheader1069 ]
+  %.237311072 = phi ptr [ %1017, %.lr.ph ], [ %1, %.preheader1069 ]
+  %.471071 = phi i32 [ %1019, %.lr.ph ], [ %24, %.preheader1069 ]
+  %1007 = load i16, ptr %.237311072, align 2
+  %rev.i970 = tail call i16 @llvm.bswap.i16(i16 %1007)
+  %1008 = sitofp i16 %rev.i970 to float
+  %1009 = fmul float %1008, %4
+  %1010 = fptosi float %1009 to i32
+  %trunc.i971 = trunc i32 %1010 to i16
   %rev.i972 = tail call i16 @llvm.bswap.i16(i16 %trunc.i971)
   store i16 %rev.i972, ptr %.231073, align 2
-  %1021 = getelementptr inbounds i8, ptr %.237311072, i64 2
-  %1022 = getelementptr inbounds i8, ptr %.231073, i64 2
-  %1023 = load i16, ptr %1021, align 2
-  %rev.i974 = tail call i16 @llvm.bswap.i16(i16 %1023)
-  %1024 = sitofp i16 %rev.i974 to float
-  %1025 = fmul float %1024, %5
-  %1026 = fptosi float %1025 to i32
-  %trunc.i975 = trunc i32 %1026 to i16
+  %1011 = getelementptr inbounds i8, ptr %.237311072, i64 2
+  %1012 = getelementptr inbounds i8, ptr %.231073, i64 2
+  %1013 = load i16, ptr %1011, align 2
+  %rev.i974 = tail call i16 @llvm.bswap.i16(i16 %1013)
+  %1014 = sitofp i16 %rev.i974 to float
+  %1015 = fmul float %1014, %5
+  %1016 = fptosi float %1015 to i32
+  %trunc.i975 = trunc i32 %1016 to i16
   %rev.i976 = tail call i16 @llvm.bswap.i16(i16 %trunc.i975)
-  store i16 %rev.i976, ptr %1022, align 2
-  %1027 = getelementptr inbounds i8, ptr %.237311072, i64 4
-  %1028 = getelementptr inbounds i8, ptr %.231073, i64 4
-  %1029 = add nsw i32 %.471071, -1
-  %1030 = icmp ugt i32 %.471071, 1
-  br i1 %1030, label %.lr.ph, label %.loopexit, !llvm.loop !58
+  store i16 %rev.i976, ptr %1012, align 2
+  %1017 = getelementptr inbounds i8, ptr %.237311072, i64 4
+  %1018 = getelementptr inbounds i8, ptr %.231073, i64 4
+  %1019 = add nsw i32 %.471071, -1
+  %1020 = icmp ugt i32 %.471071, 1
+  br i1 %1020, label %.lr.ph, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph, %MAP_ClipAndConvertToShort_Swapped.exit968, %MAP_ClipAndConvertToShort_Swapped.exit954, %MAP_ClipAndConvertToShort_Swapped.exit948, %.lr.ph1089, %.lr.ph1093, %.lr.ph1097, %.lr.ph1101, %.lr.ph1105, %MAP_ClipAndConvertToShort_Swapped.exit908, %MAP_ClipAndConvertToShort_Swapped.exit900, %MAP_ClipAndConvertToShort_Swapped.exit896, %.lr.ph1121, %.lr.ph1125, %.lr.ph1129, %.lr.ph1133, %.lr.ph1137, %MAP_ClipAndConvertToShort_Swapped.exit876, %.lr.ph1145, %.lr.ph1149, %.lr.ph1153, %MAP_ClipAndConvertToShort_Swapped.exit, %.lr.ph1161, %.lr.ph1165, %.lr.ph1169, %MAP_ClipAndConvertToByte.exit862, %MAP_ClipAndConvertToByte.exit860, %MAP_ClipAndConvertToByte.exit858, %.lr.ph1185, %MAP_ClipAndConvertToUByte.exit854, %MAP_ClipAndConvertToUByte.exit852, %MAP_ClipAndConvertToUByte.exit850, %.lr.ph1201, %MAP_ClipAndConvertToByte.exit846, %MAP_ClipAndConvertToByte.exit844, %MAP_ClipAndConvertToByte.exit842, %.lr.ph1217, %MAP_ClipAndConvertToUByte.exit838, %MAP_ClipAndConvertToUByte.exit836, %MAP_ClipAndConvertToUByte.exit834, %.lr.ph1233, %MAP_ClipAndConvertToByte.exit830, %.lr.ph1241, %MAP_ClipAndConvertToUByte.exit828, %.lr.ph1249, %MAP_ClipAndConvertToByte.exit, %.lr.ph1257, %MAP_ClipAndConvertToUByte.exit, %.preheader1069, %.preheader1067, %.preheader1065, %.preheader1063, %.preheader1061, %.preheader1059, %.preheader1057, %.preheader1055, %.preheader1053, %.preheader1051, %.preheader1049, %.preheader1047, %.preheader1045, %.preheader1043, %.preheader1041, %.preheader1039, %.preheader1037, %.preheader1035, %.preheader1033, %.preheader1031, %.preheader1029, %.preheader1027, %.preheader1025, %.preheader1023, %.preheader1021, %.preheader1019, %.preheader1017, %.preheader1015, %.preheader1013, %.preheader1011, %.preheader1009, %.preheader1007, %.preheader1005, %.preheader1003, %.preheader1001, %.preheader999, %.preheader997, %.preheader995, %.preheader993, %.preheader991, %.preheader989, %.preheader987, %.preheader985, %.preheader983, %.preheader981, %.preheader979, %.preheader977, %.preheader, %23, %19
   ret void
@@ -2847,10 +2817,7 @@ declare void @DAUDIO_Service(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i16 @llvm.bswap.i16(i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i16 @llvm.fptosi.sat.i16.f32(float) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

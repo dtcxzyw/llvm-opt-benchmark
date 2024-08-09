@@ -78089,7 +78089,7 @@ define void @_ZN5typst9visualize5color5Color7to_luma17h5142bbcd559633d9E(ptr noa
   %8 = alloca { { float }, float, float, {} }, align 8
   %9 = alloca { float, float, float, {} }, align 4
   %10 = alloca { float, float, float, {} }, align 8
-  %11 = alloca [4 x i8], align 4
+  %11 = alloca [4 x i8], align 1
   %12 = alloca [3 x i8], align 2
   %13 = alloca { float, float, float, {} }, align 8
   %14 = alloca [9 x float], align 16
@@ -78110,8 +78110,8 @@ define void @_ZN5typst9visualize5color5Color7to_luma17h5142bbcd559633d9E(ptr noa
     i32 3, label %70
     i32 4, label %92
     i32 5, label %116
-    i32 6, label %141
-    i32 7, label %163
+    i32 6, label %152
+    i32 7, label %174
   ]
 
 default.unreachable136:                           ; preds = %2
@@ -78119,7 +78119,7 @@ default.unreachable136:                           ; preds = %2
 
 25:                                               ; preds = %2
   %.sroa.07.0.copyload = load i64, ptr %24, align 4
-  br label %185
+  br label %196
 
 26:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22)
@@ -78166,7 +78166,7 @@ default.unreachable136:                           ; preds = %2
   %.sroa.24.0.insert.shift.i = select i1 %44, i64 4575657221408423936, i64 %47
   %.sroa.03.0.insert.ext.i = select i1 %41, i64 1065353216, i64 %43
   %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.24.0.insert.shift.i, %.sroa.03.0.insert.ext.i
-  br label %185
+  br label %196
 
 48:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20)
@@ -78216,7 +78216,7 @@ default.unreachable136:                           ; preds = %2
   %.sroa.24.0.insert.shift.i38 = select i1 %66, i64 4575657221408423936, i64 %69
   %.sroa.03.0.insert.ext.i39 = select i1 %63, i64 1065353216, i64 %65
   %.sroa.03.0.insert.insert.i40 = or disjoint i64 %.sroa.24.0.insert.shift.i38, %.sroa.03.0.insert.ext.i39
-  br label %185
+  br label %196
 
 70:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17)
@@ -78263,7 +78263,7 @@ default.unreachable136:                           ; preds = %2
   %.sroa.24.0.insert.shift.i52 = select i1 %88, i64 4575657221408423936, i64 %91
   %.sroa.03.0.insert.ext.i53 = select i1 %85, i64 1065353216, i64 %87
   %.sroa.03.0.insert.insert.i54 = or disjoint i64 %.sroa.24.0.insert.shift.i52, %.sroa.03.0.insert.ext.i53
-  br label %185
+  br label %196
 
 92:                                               ; preds = %2
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
@@ -78322,65 +78322,86 @@ default.unreachable136:                           ; preds = %2
   %.sroa.24.0.insert.shift.i66 = select i1 %112, i64 4575657221408423936, i64 %115
   %.sroa.03.0.insert.ext.i67 = select i1 %109, i64 1065353216, i64 %111
   %.sroa.03.0.insert.insert.i68 = or disjoint i64 %.sroa.24.0.insert.shift.i66, %.sroa.03.0.insert.ext.i67
-  br label %185
+  br label %196
 
 116:                                              ; preds = %2
+  %.sroa.0120.0.copyload = load float, ptr %24, align 4
+  %.sroa.2121.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2121.0.copyload = load float, ptr %.sroa.2121.0..sroa_idx, align 4
+  %.sroa.3122.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.3122.0.copyload = load float, ptr %.sroa.3122.0..sroa_idx, align 4
+  %.sroa.4123.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.4123.0.copyload = load float, ptr %.sroa.4123.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12), !noalias !17169
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %12, i8 0, i64 3, i1 false), !noalias !17169
   %117 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE), !noalias !17169
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11), !noalias !17169
-  %118 = load <4 x float>, ptr %24, align 4
-  %119 = fmul <4 x float> %118, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %120 = tail call <4 x float> @llvm.round.v4f32(<4 x float> %119)
-  %121 = tail call <4 x i8> @llvm.fptoui.sat.v4i8.v4f32(<4 x float> %120)
-  store <4 x i8> %121, ptr %11, align 4, !noalias !17169
+  %118 = fmul float %.sroa.0120.0.copyload, 2.550000e+02
+  %119 = tail call float @llvm.round.f32(float %118)
+  %120 = tail call i8 @llvm.fptoui.sat.i8.f32(float %119)
+  %121 = fmul float %.sroa.2121.0.copyload, 2.550000e+02
+  %122 = tail call float @llvm.round.f32(float %121)
+  %123 = tail call i8 @llvm.fptoui.sat.i8.f32(float %122)
+  %124 = fmul float %.sroa.3122.0.copyload, 2.550000e+02
+  %125 = tail call float @llvm.round.f32(float %124)
+  %126 = tail call i8 @llvm.fptoui.sat.i8.f32(float %125)
+  %127 = fmul float %.sroa.4123.0.copyload, 2.550000e+02
+  %128 = tail call float @llvm.round.f32(float %127)
+  %129 = tail call i8 @llvm.fptoui.sat.i8.f32(float %128)
+  store i8 %120, ptr %11, align 1, !noalias !17169
+  %130 = getelementptr inbounds i8, ptr %11, i64 1
+  store i8 %123, ptr %130, align 1, !noalias !17169
+  %131 = getelementptr inbounds i8, ptr %11, i64 2
+  store i8 %126, ptr %131, align 1, !noalias !17169
+  %132 = getelementptr inbounds i8, ptr %11, i64 3
+  store i8 %129, ptr %132, align 1, !noalias !17169
   call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %117, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 4, ptr noalias noundef nonnull align 1 %12, i64 noundef 3), !noalias !17169
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !17169
-  %122 = getelementptr inbounds i8, ptr %12, i64 2
-  %123 = load i8, ptr %122, align 2, !noalias !17169, !noundef !4
-  %124 = uitofp i8 %123 to float
-  %125 = fdiv float %124, 2.550000e+02
-  %126 = load <2 x i8>, ptr %12, align 2, !noalias !17169
-  %127 = uitofp <2 x i8> %126 to <2 x float>
-  %128 = fdiv <2 x float> %127, <float 2.550000e+02, float 2.550000e+02>
+  %133 = getelementptr inbounds i8, ptr %12, i64 2
+  %134 = load i8, ptr %133, align 2, !noalias !17169, !noundef !4
+  %135 = uitofp i8 %134 to float
+  %136 = fdiv float %135, 2.550000e+02
+  %137 = load <2 x i8>, ptr %12, align 2, !noalias !17169
+  %138 = uitofp <2 x i8> %137 to <2 x float>
+  %139 = fdiv <2 x float> %138, <float 2.550000e+02, float 2.550000e+02>
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12), !noalias !17169
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
-  store <2 x float> %128, ptr %10, align 8
+  store <2 x float> %139, ptr %10, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  store float %125, ptr %.sroa.5.0..sroa_idx, align 8
+  store float %136, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !17173
   call void @"_ZN158_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hb2a47f941427f2f8E"(ptr noalias nocapture noundef nonnull sret({ float, float, float, {} }) align 4 dereferenceable(12) %9, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %10), !noalias !17180
   call void @llvm.experimental.noalias.scope.decl(metadata !17181)
   call void @llvm.experimental.noalias.scope.decl(metadata !17184)
-  %129 = getelementptr inbounds i8, ptr %9, i64 4
-  %130 = load float, ptr %129, align 4, !alias.scope !17187, !noalias !17173, !noundef !4
-  %131 = fcmp ugt float %130, 0x3F69A5C380000000
-  br i1 %131, label %132, label %136
+  %140 = getelementptr inbounds i8, ptr %9, i64 4
+  %141 = load float, ptr %140, align 4, !alias.scope !17187, !noalias !17173, !noundef !4
+  %142 = fcmp ugt float %141, 0x3F69A5C380000000
+  br i1 %142, label %143, label %147
 
-132:                                              ; preds = %116
-  %133 = call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %130, float noundef 0x3FDAAAAAA0000000), !noalias !17188
-  %134 = fmul float %133, 0x3FF0E147A0000000
-  %135 = fadd float %134, 0xBFAC28F5C0000000
+143:                                              ; preds = %116
+  %144 = call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %141, float noundef 0x3FDAAAAAA0000000), !noalias !17188
+  %145 = fmul float %144, 0x3FF0E147A0000000
+  %146 = fadd float %145, 0xBFAC28F5C0000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76"
 
-136:                                              ; preds = %116
-  %137 = fmul float %130, 0x4029D70A40000000
+147:                                              ; preds = %116
+  %148 = fmul float %141, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76"
 
-"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76": ; preds = %132, %136
-  %.0.i.i.i.i.i.i.i71 = phi float [ %137, %136 ], [ %135, %132 ]
+"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76": ; preds = %143, %147
+  %.0.i.i.i.i.i.i.i71 = phi float [ %148, %147 ], [ %146, %143 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !17173
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
-  %138 = fcmp olt float %.0.i.i.i.i.i.i.i71, 0.000000e+00
-  %.0.i.i.i.i78 = select i1 %138, float 0.000000e+00, float %.0.i.i.i.i.i.i.i71
-  %139 = fcmp ogt float %.0.i.i.i.i78, 1.000000e+00
-  %.1.i.i.i.i79 = select i1 %139, float 1.000000e+00, float %.0.i.i.i.i78
-  %140 = bitcast float %.1.i.i.i.i79 to i32
-  %.sroa.03.0.insert.ext.i84 = zext i32 %140 to i64
+  %149 = fcmp olt float %.0.i.i.i.i.i.i.i71, 0.000000e+00
+  %.0.i.i.i.i78 = select i1 %149, float 0.000000e+00, float %.0.i.i.i.i.i.i.i71
+  %150 = fcmp ogt float %.0.i.i.i.i78, 1.000000e+00
+  %.1.i.i.i.i79 = select i1 %150, float 1.000000e+00, float %.0.i.i.i.i78
+  %151 = bitcast float %.1.i.i.i.i79 to i32
+  %.sroa.03.0.insert.ext.i84 = zext i32 %151 to i64
   %.sroa.03.0.insert.insert.i85 = or disjoint i64 %.sroa.03.0.insert.ext.i84, 4575657221408423936
-  br label %185
+  br label %196
 
-141:                                              ; preds = %2
+152:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
   %.sroa.2127.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -78392,45 +78413,45 @@ default.unreachable136:                           ; preds = %2
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !17196
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17205)
-  %142 = getelementptr inbounds i8, ptr %7, i64 4
-  %143 = load float, ptr %142, align 4, !alias.scope !17208, !noalias !17189, !noundef !4
-  %144 = fcmp ugt float %143, 0x3F69A5C380000000
-  br i1 %144, label %145, label %149
+  %153 = getelementptr inbounds i8, ptr %7, i64 4
+  %154 = load float, ptr %153, align 4, !alias.scope !17208, !noalias !17189, !noundef !4
+  %155 = fcmp ugt float %154, 0x3F69A5C380000000
+  br i1 %155, label %156, label %160
 
-145:                                              ; preds = %141
-  %146 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %143, float noundef 0x3FDAAAAAA0000000), !noalias !17209
-  %147 = fmul float %146, 0x3FF0E147A0000000
-  %148 = fadd float %147, 0xBFAC28F5C0000000
+156:                                              ; preds = %152
+  %157 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %154, float noundef 0x3FDAAAAAA0000000), !noalias !17209
+  %158 = fmul float %157, 0x3FF0E147A0000000
+  %159 = fadd float %158, 0xBFAC28F5C0000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit"
 
-149:                                              ; preds = %141
-  %150 = fmul float %143, 0x4029D70A40000000
+160:                                              ; preds = %152
+  %161 = fmul float %154, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit"
 
-"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit": ; preds = %145, %149
-  %.0.i.i.i.i.i.i.i86 = phi float [ %150, %149 ], [ %148, %145 ]
+"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit": ; preds = %156, %160
+  %.0.i.i.i.i.i.i.i86 = phi float [ %161, %160 ], [ %159, %156 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !17189
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
-  %151 = insertelement <2 x float> poison, float %.sroa.2127.0.copyload131, i64 0
-  %152 = insertelement <2 x float> %151, float %.0.i.i.i.i.i.i.i86, i64 1
-  %153 = fcmp olt <2 x float> %152, zeroinitializer
-  %154 = select <2 x i1> %153, <2 x float> zeroinitializer, <2 x float> %152
-  %155 = fcmp ogt <2 x float> %154, <float 1.000000e+00, float 1.000000e+00>
-  %156 = extractelement <2 x i1> %155, i64 1
-  %bc138 = bitcast <2 x float> %154 to <2 x i32>
-  %157 = extractelement <2 x i32> %bc138, i64 1
-  %158 = zext i32 %157 to i64
-  %159 = extractelement <2 x i1> %155, i64 0
-  %bc139 = bitcast <2 x float> %154 to <2 x i32>
-  %160 = extractelement <2 x i32> %bc139, i64 0
-  %161 = zext i32 %160 to i64
-  %162 = shl nuw i64 %161, 32
-  %.sroa.24.0.insert.shift.i97 = select i1 %159, i64 4575657221408423936, i64 %162
-  %.sroa.03.0.insert.ext.i98 = select i1 %156, i64 1065353216, i64 %158
+  %162 = insertelement <2 x float> poison, float %.sroa.2127.0.copyload131, i64 0
+  %163 = insertelement <2 x float> %162, float %.0.i.i.i.i.i.i.i86, i64 1
+  %164 = fcmp olt <2 x float> %163, zeroinitializer
+  %165 = select <2 x i1> %164, <2 x float> zeroinitializer, <2 x float> %163
+  %166 = fcmp ogt <2 x float> %165, <float 1.000000e+00, float 1.000000e+00>
+  %167 = extractelement <2 x i1> %166, i64 1
+  %bc138 = bitcast <2 x float> %165 to <2 x i32>
+  %168 = extractelement <2 x i32> %bc138, i64 1
+  %169 = zext i32 %168 to i64
+  %170 = extractelement <2 x i1> %166, i64 0
+  %bc139 = bitcast <2 x float> %165 to <2 x i32>
+  %171 = extractelement <2 x i32> %bc139, i64 0
+  %172 = zext i32 %171 to i64
+  %173 = shl nuw i64 %172, 32
+  %.sroa.24.0.insert.shift.i97 = select i1 %170, i64 4575657221408423936, i64 %173
+  %.sroa.03.0.insert.ext.i98 = select i1 %167, i64 1065353216, i64 %169
   %.sroa.03.0.insert.insert.i99 = or disjoint i64 %.sroa.24.0.insert.shift.i97, %.sroa.03.0.insert.ext.i98
-  br label %185
+  br label %196
 
-163:                                              ; preds = %2
+174:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
   %.sroa.2129.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -78442,48 +78463,48 @@ default.unreachable136:                           ; preds = %2
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !17217
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17223)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17226)
-  %164 = getelementptr inbounds i8, ptr %4, i64 4
-  %165 = load float, ptr %164, align 4, !alias.scope !17229, !noalias !17210, !noundef !4
-  %166 = fcmp ugt float %165, 0x3F69A5C380000000
-  br i1 %166, label %167, label %171
+  %175 = getelementptr inbounds i8, ptr %4, i64 4
+  %176 = load float, ptr %175, align 4, !alias.scope !17229, !noalias !17210, !noundef !4
+  %177 = fcmp ugt float %176, 0x3F69A5C380000000
+  br i1 %177, label %178, label %182
 
-167:                                              ; preds = %163
-  %168 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %165, float noundef 0x3FDAAAAAA0000000), !noalias !17230
-  %169 = fmul float %168, 0x3FF0E147A0000000
-  %170 = fadd float %169, 0xBFAC28F5C0000000
+178:                                              ; preds = %174
+  %179 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %176, float noundef 0x3FDAAAAAA0000000), !noalias !17230
+  %180 = fmul float %179, 0x3FF0E147A0000000
+  %181 = fadd float %180, 0xBFAC28F5C0000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit"
 
-171:                                              ; preds = %163
-  %172 = fmul float %165, 0x4029D70A40000000
+182:                                              ; preds = %174
+  %183 = fmul float %176, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit"
 
-"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit": ; preds = %167, %171
-  %.0.i.i.i.i.i.i.i100 = phi float [ %172, %171 ], [ %170, %167 ]
+"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit": ; preds = %178, %182
+  %.0.i.i.i.i.i.i.i100 = phi float [ %183, %182 ], [ %181, %178 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !17210
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  %173 = insertelement <2 x float> poison, float %.sroa.2129.0.copyload130, i64 0
-  %174 = insertelement <2 x float> %173, float %.0.i.i.i.i.i.i.i100, i64 1
-  %175 = fcmp olt <2 x float> %174, zeroinitializer
-  %176 = select <2 x i1> %175, <2 x float> zeroinitializer, <2 x float> %174
-  %177 = fcmp ogt <2 x float> %176, <float 1.000000e+00, float 1.000000e+00>
-  %178 = extractelement <2 x i1> %177, i64 1
-  %bc = bitcast <2 x float> %176 to <2 x i32>
-  %179 = extractelement <2 x i32> %bc, i64 1
-  %180 = zext i32 %179 to i64
-  %181 = extractelement <2 x i1> %177, i64 0
-  %bc137 = bitcast <2 x float> %176 to <2 x i32>
-  %182 = extractelement <2 x i32> %bc137, i64 0
-  %183 = zext i32 %182 to i64
-  %184 = shl nuw i64 %183, 32
-  %.sroa.24.0.insert.shift.i111 = select i1 %181, i64 4575657221408423936, i64 %184
-  %.sroa.03.0.insert.ext.i112 = select i1 %178, i64 1065353216, i64 %180
+  %184 = insertelement <2 x float> poison, float %.sroa.2129.0.copyload130, i64 0
+  %185 = insertelement <2 x float> %184, float %.0.i.i.i.i.i.i.i100, i64 1
+  %186 = fcmp olt <2 x float> %185, zeroinitializer
+  %187 = select <2 x i1> %186, <2 x float> zeroinitializer, <2 x float> %185
+  %188 = fcmp ogt <2 x float> %187, <float 1.000000e+00, float 1.000000e+00>
+  %189 = extractelement <2 x i1> %188, i64 1
+  %bc = bitcast <2 x float> %187 to <2 x i32>
+  %190 = extractelement <2 x i32> %bc, i64 1
+  %191 = zext i32 %190 to i64
+  %192 = extractelement <2 x i1> %188, i64 0
+  %bc137 = bitcast <2 x float> %187 to <2 x i32>
+  %193 = extractelement <2 x i32> %bc137, i64 0
+  %194 = zext i32 %193 to i64
+  %195 = shl nuw i64 %194, 32
+  %.sroa.24.0.insert.shift.i111 = select i1 %192, i64 4575657221408423936, i64 %195
+  %.sroa.03.0.insert.ext.i112 = select i1 %189, i64 1065353216, i64 %191
   %.sroa.03.0.insert.insert.i113 = or disjoint i64 %.sroa.24.0.insert.shift.i111, %.sroa.03.0.insert.ext.i112
-  br label %185
+  br label %196
 
-185:                                              ; preds = %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit", %25
+196:                                              ; preds = %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit", %25
   %.sroa.07.0 = phi i64 [ %.sroa.03.0.insert.insert.i113, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit" ], [ %.sroa.03.0.insert.insert.i99, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit" ], [ %.sroa.03.0.insert.insert.i85, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76" ], [ %.sroa.03.0.insert.insert.i68, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit" ], [ %.sroa.03.0.insert.insert.i54, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit" ], [ %.sroa.03.0.insert.insert.i40, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit" ], [ %.sroa.03.0.insert.insert.i, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit" ], [ %.sroa.07.0.copyload, %25 ]
-  %186 = getelementptr inbounds i8, ptr %0, i64 4
-  store i64 %.sroa.07.0, ptr %186, align 4
+  %197 = getelementptr inbounds i8, ptr %0, i64 4
+  store i64 %.sroa.07.0, ptr %197, align 4
   store i32 0, ptr %0, align 4
   ret void
 }
@@ -78498,7 +78519,7 @@ define void @_ZN5typst9visualize5color5Color8to_oklab17hebe9a90cf2d29a10E(ptr no
   %8 = alloca { { float }, float, float, {} }, align 8
   %9 = alloca { float, float, float }, align 4
   %10 = alloca { float, float, float, {} }, align 8
-  %11 = alloca [4 x i8], align 4
+  %11 = alloca [4 x i8], align 1
   %12 = alloca [3 x i8], align 2
   %13 = alloca { float, float, float }, align 4
   %14 = alloca { float, float, float, {} }, align 8
@@ -78517,8 +78538,8 @@ define void @_ZN5typst9visualize5color5Color8to_oklab17hebe9a90cf2d29a10E(ptr no
     i32 3, label %45
     i32 4, label %53
     i32 5, label %61
-    i32 6, label %78
-    i32 7, label %86
+    i32 6, label %89
+    i32 7, label %97
   ]
 
 default.unreachable118:                           ; preds = %2
@@ -78545,7 +78566,7 @@ default.unreachable118:                           ; preds = %2
   %29 = select <2 x i1> %28, <2 x float> zeroinitializer, <2 x float> %27
   %30 = fcmp ogt <2 x float> %29, <float 1.000000e+00, float 1.000000e+00>
   %31 = select <2 x i1> %30, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %29
-  br label %94
+  br label %105
 
 32:                                               ; preds = %2
   %33 = load <4 x float>, ptr %22, align 4
@@ -78555,7 +78576,7 @@ default.unreachable118:                           ; preds = %2
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.23.0.copyload = load float, ptr %.sroa.23.0..sroa_idx, align 4
   %36 = insertelement <2 x float> %34, float %.sroa.23.0.copyload, i64 1
-  br label %94
+  br label %105
 
 37:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
@@ -78575,7 +78596,7 @@ default.unreachable118:                           ; preds = %2
   %42 = select <2 x i1> %41, <2 x float> zeroinitializer, <2 x float> %40
   %43 = fcmp ogt <2 x float> %42, <float 1.000000e+00, float 1.000000e+00>
   %44 = select <2 x i1> %43, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %42
-  br label %94
+  br label %105
 
 45:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16)
@@ -78595,7 +78616,7 @@ default.unreachable118:                           ; preds = %2
   %50 = select <2 x i1> %49, <2 x float> zeroinitializer, <2 x float> %48
   %51 = fcmp ogt <2 x float> %50, <float 1.000000e+00, float 1.000000e+00>
   %52 = select <2 x i1> %51, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %50
-  br label %94
+  br label %105
 
 53:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
@@ -78615,47 +78636,68 @@ default.unreachable118:                           ; preds = %2
   %58 = select <2 x i1> %57, <2 x float> zeroinitializer, <2 x float> %56
   %59 = fcmp ogt <2 x float> %58, <float 1.000000e+00, float 1.000000e+00>
   %60 = select <2 x i1> %59, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %58
-  br label %94
+  br label %105
 
 61:                                               ; preds = %2
+  %.sroa.082.0.copyload = load float, ptr %22, align 4
+  %.sroa.283.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.283.0.copyload = load float, ptr %.sroa.283.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12), !noalias !17254
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %12, i8 0, i64 3, i1 false), !noalias !17254
   %62 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE), !noalias !17254
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11), !noalias !17254
-  %63 = load <4 x float>, ptr %22, align 4
-  %64 = fmul <4 x float> %63, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %65 = tail call <4 x float> @llvm.round.v4f32(<4 x float> %64)
-  %66 = tail call <4 x i8> @llvm.fptoui.sat.v4i8.v4f32(<4 x float> %65)
-  store <4 x i8> %66, ptr %11, align 4, !noalias !17254
+  %63 = fmul float %.sroa.082.0.copyload, 2.550000e+02
+  %64 = tail call float @llvm.round.f32(float %63)
+  %65 = tail call i8 @llvm.fptoui.sat.i8.f32(float %64)
+  %66 = fmul float %.sroa.283.0.copyload, 2.550000e+02
+  %67 = tail call float @llvm.round.f32(float %66)
+  %68 = tail call i8 @llvm.fptoui.sat.i8.f32(float %67)
+  %69 = fmul float %.sroa.3.0.copyload, 2.550000e+02
+  %70 = tail call float @llvm.round.f32(float %69)
+  %71 = tail call i8 @llvm.fptoui.sat.i8.f32(float %70)
+  %72 = fmul float %.sroa.4.0.copyload, 2.550000e+02
+  %73 = tail call float @llvm.round.f32(float %72)
+  %74 = tail call i8 @llvm.fptoui.sat.i8.f32(float %73)
+  store i8 %65, ptr %11, align 1, !noalias !17254
+  %75 = getelementptr inbounds i8, ptr %11, i64 1
+  store i8 %68, ptr %75, align 1, !noalias !17254
+  %76 = getelementptr inbounds i8, ptr %11, i64 2
+  store i8 %71, ptr %76, align 1, !noalias !17254
+  %77 = getelementptr inbounds i8, ptr %11, i64 3
+  store i8 %74, ptr %77, align 1, !noalias !17254
   call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %62, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 4, ptr noalias noundef nonnull align 1 %12, i64 noundef 3), !noalias !17254
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !17254
-  %67 = getelementptr inbounds i8, ptr %12, i64 2
-  %68 = load i8, ptr %67, align 2, !noalias !17254, !noundef !4
-  %69 = uitofp i8 %68 to float
-  %70 = fdiv float %69, 2.550000e+02
-  %71 = load <2 x i8>, ptr %12, align 2, !noalias !17254
-  %72 = uitofp <2 x i8> %71 to <2 x float>
-  %73 = fdiv <2 x float> %72, <float 2.550000e+02, float 2.550000e+02>
+  %78 = getelementptr inbounds i8, ptr %12, i64 2
+  %79 = load i8, ptr %78, align 2, !noalias !17254, !noundef !4
+  %80 = uitofp i8 %79 to float
+  %81 = fdiv float %80, 2.550000e+02
+  %82 = load <2 x i8>, ptr %12, align 2, !noalias !17254
+  %83 = uitofp <2 x i8> %82 to <2 x float>
+  %84 = fdiv <2 x float> %83, <float 2.550000e+02, float 2.550000e+02>
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12), !noalias !17254
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
-  store <2 x float> %73, ptr %10, align 8, !noalias !17258
+  store <2 x float> %84, ptr %10, align 8, !noalias !17258
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  store float %70, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !17258
+  store float %81, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !17258
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !17261
   call void @"_ZN157_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h8c123704bf1b1f03E"(ptr noalias nocapture noundef nonnull sret({ float, float, float }) align 4 dereferenceable(12) %9, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %10), !noalias !17261
   %.sroa.0110.0.copyload = load float, ptr %9, align 4, !noalias !17263
   %.sroa.4111.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 4
-  %74 = load <2 x float>, ptr %.sroa.4111.0..sroa_idx, align 4, !noalias !17263
+  %85 = load <2 x float>, ptr %.sroa.4111.0..sroa_idx, align 4, !noalias !17263
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !17261
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
-  %75 = fcmp olt float %.sroa.0110.0.copyload, 0.000000e+00
-  %.0.i.i.i.i41 = select i1 %75, float 0.000000e+00, float %.sroa.0110.0.copyload
-  %76 = fcmp ogt float %.0.i.i.i.i41, 1.000000e+00
-  %.1.i.i.i.i42 = select i1 %76, float 1.000000e+00, float %.0.i.i.i.i41
-  %77 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %.1.i.i.i.i42, i64 0
-  br label %94
+  %86 = fcmp olt float %.sroa.0110.0.copyload, 0.000000e+00
+  %.0.i.i.i.i41 = select i1 %86, float 0.000000e+00, float %.sroa.0110.0.copyload
+  %87 = fcmp ogt float %.0.i.i.i.i41, 1.000000e+00
+  %.1.i.i.i.i42 = select i1 %87, float 1.000000e+00, float %.0.i.i.i.i41
+  %88 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %.1.i.i.i.i42, i64 0
+  br label %105
 
-78:                                               ; preds = %2
+89:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false)
   %.sroa.287.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -78667,18 +78709,18 @@ default.unreachable118:                           ; preds = %2
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !17268
   %.sroa.0114.0.copyload = load float, ptr %7, align 4, !noalias !17277
   %.sroa.4115.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 4
-  %79 = load <2 x float>, ptr %.sroa.4115.0..sroa_idx, align 4, !noalias !17277
+  %90 = load <2 x float>, ptr %.sroa.4115.0..sroa_idx, align 4, !noalias !17277
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !17264
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
-  %80 = insertelement <2 x float> poison, float %.sroa.0114.0.copyload, i64 0
-  %81 = insertelement <2 x float> %80, float %.sroa.287.0.copyload, i64 1
-  %82 = fcmp olt <2 x float> %81, zeroinitializer
-  %83 = select <2 x i1> %82, <2 x float> zeroinitializer, <2 x float> %81
-  %84 = fcmp ogt <2 x float> %83, <float 1.000000e+00, float 1.000000e+00>
-  %85 = select <2 x i1> %84, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %83
-  br label %94
+  %91 = insertelement <2 x float> poison, float %.sroa.0114.0.copyload, i64 0
+  %92 = insertelement <2 x float> %91, float %.sroa.287.0.copyload, i64 1
+  %93 = fcmp olt <2 x float> %92, zeroinitializer
+  %94 = select <2 x i1> %93, <2 x float> zeroinitializer, <2 x float> %92
+  %95 = fcmp ogt <2 x float> %94, <float 1.000000e+00, float 1.000000e+00>
+  %96 = select <2 x i1> %95, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %94
+  br label %105
 
-86:                                               ; preds = %2
+97:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false)
   %.sroa.289.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -78690,28 +78732,28 @@ default.unreachable118:                           ; preds = %2
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !17282
   %.sroa.090.0.copyload = load float, ptr %4, align 4, !noalias !17291
   %.sroa.491.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
-  %87 = load <2 x float>, ptr %.sroa.491.0..sroa_idx, align 4, !noalias !17291
+  %98 = load <2 x float>, ptr %.sroa.491.0..sroa_idx, align 4, !noalias !17291
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !17278
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  %88 = insertelement <2 x float> poison, float %.sroa.090.0.copyload, i64 0
-  %89 = insertelement <2 x float> %88, float %.sroa.289.0.copyload, i64 1
-  %90 = fcmp olt <2 x float> %89, zeroinitializer
-  %91 = select <2 x i1> %90, <2 x float> zeroinitializer, <2 x float> %89
-  %92 = fcmp ogt <2 x float> %91, <float 1.000000e+00, float 1.000000e+00>
-  %93 = select <2 x i1> %92, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %91
-  br label %94
+  %99 = insertelement <2 x float> poison, float %.sroa.090.0.copyload, i64 0
+  %100 = insertelement <2 x float> %99, float %.sroa.289.0.copyload, i64 1
+  %101 = fcmp olt <2 x float> %100, zeroinitializer
+  %102 = select <2 x i1> %101, <2 x float> zeroinitializer, <2 x float> %100
+  %103 = fcmp ogt <2 x float> %102, <float 1.000000e+00, float 1.000000e+00>
+  %104 = select <2 x i1> %103, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %102
+  br label %105
 
-94:                                               ; preds = %86, %78, %61, %53, %45, %37, %32, %23
-  %95 = phi <2 x float> [ %87, %86 ], [ %79, %78 ], [ %74, %61 ], [ %54, %53 ], [ %46, %45 ], [ %38, %37 ], [ %35, %32 ], [ %24, %23 ]
-  %96 = phi <2 x float> [ %93, %86 ], [ %85, %78 ], [ %77, %61 ], [ %60, %53 ], [ %52, %45 ], [ %44, %37 ], [ %36, %32 ], [ %31, %23 ]
-  %97 = getelementptr inbounds i8, ptr %0, i64 4
-  %98 = extractelement <2 x float> %96, i64 0
-  store float %98, ptr %97, align 4
+105:                                              ; preds = %97, %89, %61, %53, %45, %37, %32, %23
+  %106 = phi <2 x float> [ %98, %97 ], [ %90, %89 ], [ %85, %61 ], [ %54, %53 ], [ %46, %45 ], [ %38, %37 ], [ %35, %32 ], [ %24, %23 ]
+  %107 = phi <2 x float> [ %104, %97 ], [ %96, %89 ], [ %88, %61 ], [ %60, %53 ], [ %52, %45 ], [ %44, %37 ], [ %36, %32 ], [ %31, %23 ]
+  %108 = getelementptr inbounds i8, ptr %0, i64 4
+  %109 = extractelement <2 x float> %107, i64 0
+  store float %109, ptr %108, align 4
   %.sroa.9.0..sroa_idx71 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x float> %95, ptr %.sroa.9.0..sroa_idx71, align 4
+  store <2 x float> %106, ptr %.sroa.9.0..sroa_idx71, align 4
   %.sroa.23.0..sroa_idx75 = getelementptr inbounds i8, ptr %0, i64 16
-  %99 = extractelement <2 x float> %96, i64 1
-  store float %99, ptr %.sroa.23.0..sroa_idx75, align 4
+  %110 = extractelement <2 x float> %107, i64 1
+  store float %110, ptr %.sroa.23.0..sroa_idx75, align 4
   store i32 1, ptr %0, align 4
   ret void
 }
@@ -78729,7 +78771,7 @@ define void @_ZN5typst9visualize5color5Color8to_oklch17heafc265185d45ce3E(ptr no
   %11 = alloca { float, float, float }, align 4
   %12 = alloca { float, float, { float } }, align 4
   %13 = alloca { float, float, float, {} }, align 8
-  %14 = alloca [4 x i8], align 4
+  %14 = alloca [4 x i8], align 1
   %15 = alloca [3 x i8], align 2
   %16 = alloca { float, float, float }, align 4
   %17 = alloca { float, float, { float } }, align 4
@@ -78751,8 +78793,8 @@ define void @_ZN5typst9visualize5color5Color8to_oklch17heafc265185d45ce3E(ptr no
     i32 3, label %50
     i32 4, label %58
     i32 5, label %66
-    i32 6, label %83
-    i32 7, label %91
+    i32 6, label %94
+    i32 7, label %102
   ]
 
 default.unreachable117:                           ; preds = %2
@@ -78785,7 +78827,7 @@ default.unreachable117:                           ; preds = %2
   %35 = select <2 x i1> %34, <2 x float> zeroinitializer, <2 x float> %33
   %36 = fcmp ogt <2 x float> %35, <float 1.000000e+00, float 1.000000e+00>
   %37 = select <2 x i1> %36, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %35
-  br label %99
+  br label %110
 
 38:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23)
@@ -78808,7 +78850,7 @@ default.unreachable117:                           ; preds = %2
   %43 = select <2 x i1> %42, <2 x float> zeroinitializer, <2 x float> %41
   %44 = fcmp ogt <2 x float> %43, <float 1.000000e+00, float 1.000000e+00>
   %45 = select <2 x i1> %44, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %43
-  br label %99
+  br label %110
 
 46:                                               ; preds = %2
   %47 = load <4 x float>, ptr %28, align 4
@@ -78820,7 +78862,7 @@ default.unreachable117:                           ; preds = %2
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.23.0.copyload = load float, ptr %.sroa.23.0..sroa_idx, align 4
   %49 = insertelement <2 x float> %48, float %.sroa.23.0.copyload, i64 1
-  br label %99
+  br label %110
 
 50:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21)
@@ -78846,7 +78888,7 @@ default.unreachable117:                           ; preds = %2
   %55 = select <2 x i1> %54, <2 x float> zeroinitializer, <2 x float> %53
   %56 = fcmp ogt <2 x float> %55, <float 1.000000e+00, float 1.000000e+00>
   %57 = select <2 x i1> %56, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %55
-  br label %99
+  br label %110
 
 58:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
@@ -78872,32 +78914,53 @@ default.unreachable117:                           ; preds = %2
   %63 = select <2 x i1> %62, <2 x float> zeroinitializer, <2 x float> %61
   %64 = fcmp ogt <2 x float> %63, <float 1.000000e+00, float 1.000000e+00>
   %65 = select <2 x i1> %64, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %63
-  br label %99
+  br label %110
 
 66:                                               ; preds = %2
+  %.sroa.081.0.copyload = load float, ptr %28, align 4
+  %.sroa.282.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.282.0.copyload = load float, ptr %.sroa.282.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %15), !noalias !17336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %15, i8 0, i64 3, i1 false), !noalias !17336
   %67 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE), !noalias !17336
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14), !noalias !17336
-  %68 = load <4 x float>, ptr %28, align 4
-  %69 = fmul <4 x float> %68, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %70 = tail call <4 x float> @llvm.round.v4f32(<4 x float> %69)
-  %71 = tail call <4 x i8> @llvm.fptoui.sat.v4i8.v4f32(<4 x float> %70)
-  store <4 x i8> %71, ptr %14, align 4, !noalias !17336
+  %68 = fmul float %.sroa.081.0.copyload, 2.550000e+02
+  %69 = tail call float @llvm.round.f32(float %68)
+  %70 = tail call i8 @llvm.fptoui.sat.i8.f32(float %69)
+  %71 = fmul float %.sroa.282.0.copyload, 2.550000e+02
+  %72 = tail call float @llvm.round.f32(float %71)
+  %73 = tail call i8 @llvm.fptoui.sat.i8.f32(float %72)
+  %74 = fmul float %.sroa.3.0.copyload, 2.550000e+02
+  %75 = tail call float @llvm.round.f32(float %74)
+  %76 = tail call i8 @llvm.fptoui.sat.i8.f32(float %75)
+  %77 = fmul float %.sroa.4.0.copyload, 2.550000e+02
+  %78 = tail call float @llvm.round.f32(float %77)
+  %79 = tail call i8 @llvm.fptoui.sat.i8.f32(float %78)
+  store i8 %70, ptr %14, align 1, !noalias !17336
+  %80 = getelementptr inbounds i8, ptr %14, i64 1
+  store i8 %73, ptr %80, align 1, !noalias !17336
+  %81 = getelementptr inbounds i8, ptr %14, i64 2
+  store i8 %76, ptr %81, align 1, !noalias !17336
+  %82 = getelementptr inbounds i8, ptr %14, i64 3
+  store i8 %79, ptr %82, align 1, !noalias !17336
   call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %67, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef 4, ptr noalias noundef nonnull align 1 %15, i64 noundef 3), !noalias !17336
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14), !noalias !17336
-  %72 = getelementptr inbounds i8, ptr %15, i64 2
-  %73 = load i8, ptr %72, align 2, !noalias !17336, !noundef !4
-  %74 = uitofp i8 %73 to float
-  %75 = fdiv float %74, 2.550000e+02
-  %76 = load <2 x i8>, ptr %15, align 2, !noalias !17336
-  %77 = uitofp <2 x i8> %76 to <2 x float>
-  %78 = fdiv <2 x float> %77, <float 2.550000e+02, float 2.550000e+02>
+  %83 = getelementptr inbounds i8, ptr %15, i64 2
+  %84 = load i8, ptr %83, align 2, !noalias !17336, !noundef !4
+  %85 = uitofp i8 %84 to float
+  %86 = fdiv float %85, 2.550000e+02
+  %87 = load <2 x i8>, ptr %15, align 2, !noalias !17336
+  %88 = uitofp <2 x i8> %87 to <2 x float>
+  %89 = fdiv <2 x float> %88, <float 2.550000e+02, float 2.550000e+02>
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %15), !noalias !17336
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
-  store <2 x float> %78, ptr %13, align 8, !noalias !17340
+  store <2 x float> %89, ptr %13, align 8, !noalias !17340
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
-  store float %75, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !17340
+  store float %86, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !17340
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12), !noalias !17343
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11), !noalias !17345
   call void @"_ZN157_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h8c123704bf1b1f03E"(ptr noalias nocapture noundef nonnull sret({ float, float, float }) align 4 dereferenceable(12) %11, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %13), !noalias !17352
@@ -78910,15 +78973,15 @@ default.unreachable117:                           ; preds = %2
   %.sroa.5111.0.copyload = load float, ptr %.sroa.5111.0..sroa_idx, align 4, !noalias !17354
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12), !noalias !17343
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
-  %79 = fcmp olt float %.sroa.0109.0.copyload, 0.000000e+00
-  %.0.i.i.i.i41 = select i1 %79, float 0.000000e+00, float %.sroa.0109.0.copyload
-  %80 = fcmp ogt float %.0.i.i.i.i41, 1.000000e+00
-  %.1.i.i.i.i42 = select i1 %80, float 1.000000e+00, float %.0.i.i.i.i41
-  %81 = call noundef float @llvm.maxnum.f32(float %.sroa.4110.0.copyload, float 0.000000e+00)
-  %82 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %.1.i.i.i.i42, i64 0
-  br label %99
+  %90 = fcmp olt float %.sroa.0109.0.copyload, 0.000000e+00
+  %.0.i.i.i.i41 = select i1 %90, float 0.000000e+00, float %.sroa.0109.0.copyload
+  %91 = fcmp ogt float %.0.i.i.i.i41, 1.000000e+00
+  %.1.i.i.i.i42 = select i1 %91, float 1.000000e+00, float %.0.i.i.i.i41
+  %92 = call noundef float @llvm.maxnum.f32(float %.sroa.4110.0.copyload, float 0.000000e+00)
+  %93 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %.1.i.i.i.i42, i64 0
+  br label %110
 
-83:                                               ; preds = %2
+94:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
   %.sroa.286.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -78938,16 +79001,16 @@ default.unreachable117:                           ; preds = %2
   %.sroa.5115.0.copyload = load float, ptr %.sroa.5115.0..sroa_idx, align 4, !noalias !17373
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !17355
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
-  %84 = tail call noundef float @llvm.maxnum.f32(float %.sroa.4114.0.copyload, float 0.000000e+00)
-  %85 = insertelement <2 x float> poison, float %.sroa.0113.0.copyload, i64 0
-  %86 = insertelement <2 x float> %85, float %.sroa.286.0.copyload, i64 1
-  %87 = fcmp olt <2 x float> %86, zeroinitializer
-  %88 = select <2 x i1> %87, <2 x float> zeroinitializer, <2 x float> %86
-  %89 = fcmp ogt <2 x float> %88, <float 1.000000e+00, float 1.000000e+00>
-  %90 = select <2 x i1> %89, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %88
-  br label %99
+  %95 = tail call noundef float @llvm.maxnum.f32(float %.sroa.4114.0.copyload, float 0.000000e+00)
+  %96 = insertelement <2 x float> poison, float %.sroa.0113.0.copyload, i64 0
+  %97 = insertelement <2 x float> %96, float %.sroa.286.0.copyload, i64 1
+  %98 = fcmp olt <2 x float> %97, zeroinitializer
+  %99 = select <2 x i1> %98, <2 x float> zeroinitializer, <2 x float> %97
+  %100 = fcmp ogt <2 x float> %99, <float 1.000000e+00, float 1.000000e+00>
+  %101 = select <2 x i1> %100, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %99
+  br label %110
 
-91:                                               ; preds = %2
+102:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
   %.sroa.288.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -78967,29 +79030,29 @@ default.unreachable117:                           ; preds = %2
   %.sroa.591.0.copyload = load float, ptr %.sroa.591.0..sroa_idx, align 4, !noalias !17392
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !17374
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  %92 = tail call noundef float @llvm.maxnum.f32(float %.sroa.490.0.copyload, float 0.000000e+00)
-  %93 = insertelement <2 x float> poison, float %.sroa.089.0.copyload, i64 0
-  %94 = insertelement <2 x float> %93, float %.sroa.288.0.copyload, i64 1
-  %95 = fcmp olt <2 x float> %94, zeroinitializer
-  %96 = select <2 x i1> %95, <2 x float> zeroinitializer, <2 x float> %94
-  %97 = fcmp ogt <2 x float> %96, <float 1.000000e+00, float 1.000000e+00>
-  %98 = select <2 x i1> %97, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %96
-  br label %99
+  %103 = tail call noundef float @llvm.maxnum.f32(float %.sroa.490.0.copyload, float 0.000000e+00)
+  %104 = insertelement <2 x float> poison, float %.sroa.089.0.copyload, i64 0
+  %105 = insertelement <2 x float> %104, float %.sroa.288.0.copyload, i64 1
+  %106 = fcmp olt <2 x float> %105, zeroinitializer
+  %107 = select <2 x i1> %106, <2 x float> zeroinitializer, <2 x float> %105
+  %108 = fcmp ogt <2 x float> %107, <float 1.000000e+00, float 1.000000e+00>
+  %109 = select <2 x i1> %108, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %107
+  br label %110
 
-99:                                               ; preds = %91, %83, %66, %58, %50, %46, %38, %29
-  %.sroa.16.0 = phi float [ %.sroa.591.0.copyload, %91 ], [ %.sroa.5115.0.copyload, %83 ], [ %.sroa.5111.0.copyload, %66 ], [ %.sroa.5107.0.copyload, %58 ], [ %.sroa.5103.0.copyload, %50 ], [ %.sroa.16.0.copyload, %46 ], [ %.sroa.599.0.copyload, %38 ], [ %.sroa.595.0.copyload, %29 ]
-  %.sroa.9.0 = phi float [ %92, %91 ], [ %84, %83 ], [ %81, %66 ], [ %59, %58 ], [ %51, %50 ], [ %.sroa.9.0.copyload, %46 ], [ %39, %38 ], [ %31, %29 ]
-  %100 = phi <2 x float> [ %98, %91 ], [ %90, %83 ], [ %82, %66 ], [ %65, %58 ], [ %57, %50 ], [ %49, %46 ], [ %45, %38 ], [ %37, %29 ]
-  %101 = getelementptr inbounds i8, ptr %0, i64 4
-  %102 = extractelement <2 x float> %100, i64 0
-  store float %102, ptr %101, align 4
+110:                                              ; preds = %102, %94, %66, %58, %50, %46, %38, %29
+  %.sroa.16.0 = phi float [ %.sroa.591.0.copyload, %102 ], [ %.sroa.5115.0.copyload, %94 ], [ %.sroa.5111.0.copyload, %66 ], [ %.sroa.5107.0.copyload, %58 ], [ %.sroa.5103.0.copyload, %50 ], [ %.sroa.16.0.copyload, %46 ], [ %.sroa.599.0.copyload, %38 ], [ %.sroa.595.0.copyload, %29 ]
+  %.sroa.9.0 = phi float [ %103, %102 ], [ %95, %94 ], [ %92, %66 ], [ %59, %58 ], [ %51, %50 ], [ %.sroa.9.0.copyload, %46 ], [ %39, %38 ], [ %31, %29 ]
+  %111 = phi <2 x float> [ %109, %102 ], [ %101, %94 ], [ %93, %66 ], [ %65, %58 ], [ %57, %50 ], [ %49, %46 ], [ %45, %38 ], [ %37, %29 ]
+  %112 = getelementptr inbounds i8, ptr %0, i64 4
+  %113 = extractelement <2 x float> %111, i64 0
+  store float %113, ptr %112, align 4
   %.sroa.9.0..sroa_idx71 = getelementptr inbounds i8, ptr %0, i64 8
   store float %.sroa.9.0, ptr %.sroa.9.0..sroa_idx71, align 4
   %.sroa.16.0..sroa_idx73 = getelementptr inbounds i8, ptr %0, i64 12
   store float %.sroa.16.0, ptr %.sroa.16.0..sroa_idx73, align 4
   %.sroa.23.0..sroa_idx75 = getelementptr inbounds i8, ptr %0, i64 16
-  %103 = extractelement <2 x float> %100, i64 1
-  store float %103, ptr %.sroa.23.0..sroa_idx75, align 4
+  %114 = extractelement <2 x float> %111, i64 1
+  store float %114, ptr %.sroa.23.0..sroa_idx75, align 4
   store i32 2, ptr %0, align 4
   ret void
 }
@@ -79002,7 +79065,7 @@ define void @_ZN5typst9visualize5color5Color6to_rgb17h96bb6d12b1e40365E(ptr noal
   %6 = alloca { { float }, float, float, {} }, align 8
   %7 = alloca { float, float, float, {} }, align 4
   %8 = alloca { float, float, float, {} }, align 8
-  %9 = alloca [4 x i8], align 4
+  %9 = alloca [4 x i8], align 1
   %10 = alloca [3 x i8], align 2
   %11 = alloca float, align 4
   %12 = alloca float, align 4
@@ -79024,8 +79087,8 @@ define void @_ZN5typst9visualize5color5Color6to_rgb17h96bb6d12b1e40365E(ptr noal
     i32 3, label %55
     i32 4, label %57
     i32 5, label %77
-    i32 6, label %100
-    i32 7, label %110
+    i32 6, label %111
+    i32 7, label %121
   ]
 
 default.unreachable127:                           ; preds = %2
@@ -79051,7 +79114,7 @@ default.unreachable127:                           ; preds = %2
   %32 = select <4 x i1> %31, <4 x float> zeroinitializer, <4 x float> %30
   %33 = fcmp ogt <4 x float> %32, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %34 = select <4 x i1> %33, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %32
-  br label %120
+  br label %131
 
 35:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20)
@@ -79076,7 +79139,7 @@ default.unreachable127:                           ; preds = %2
   %42 = select <4 x i1> %41, <4 x float> zeroinitializer, <4 x float> %40
   %43 = fcmp ogt <4 x float> %42, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %44 = select <4 x i1> %43, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %42
-  br label %120
+  br label %131
 
 45:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17)
@@ -79104,11 +79167,11 @@ default.unreachable127:                           ; preds = %2
   %52 = select <4 x i1> %51, <4 x float> zeroinitializer, <4 x float> %50
   %53 = fcmp ogt <4 x float> %52, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %54 = select <4 x i1> %53, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %52
-  br label %120
+  br label %131
 
 55:                                               ; preds = %2
   %56 = load <4 x float>, ptr %23, align 4
-  br label %120
+  br label %131
 
 57:                                               ; preds = %2
   %.sroa.091.0.copyload = load float, ptr %23, align 4
@@ -79170,53 +79233,74 @@ default.unreachable127:                           ; preds = %2
   %74 = insertelement <4 x float> %73, float %.0.i.i2.i, i64 1
   %75 = insertelement <4 x float> %74, float %.0.i.i4.i, i64 2
   %76 = insertelement <4 x float> %75, float %.sroa.4.0.copyload, i64 3
-  br label %120
+  br label %131
 
 77:                                               ; preds = %2
+  %.sroa.093.0.copyload = load float, ptr %23, align 4
+  %.sroa.294.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.294.0.copyload = load float, ptr %.sroa.294.0..sroa_idx, align 4
+  %.sroa.395.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.395.0.copyload = load float, ptr %.sroa.395.0..sroa_idx, align 4
+  %.sroa.496.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.496.0.copyload = load float, ptr %.sroa.496.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10), !noalias !17449
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %10, i8 0, i64 3, i1 false), !noalias !17449
   %78 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE), !noalias !17449
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9), !noalias !17449
-  %79 = load <4 x float>, ptr %23, align 4
-  %80 = fmul <4 x float> %79, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %81 = tail call <4 x float> @llvm.round.v4f32(<4 x float> %80)
-  %82 = tail call <4 x i8> @llvm.fptoui.sat.v4i8.v4f32(<4 x float> %81)
-  store <4 x i8> %82, ptr %9, align 4, !noalias !17449
+  %79 = fmul float %.sroa.093.0.copyload, 2.550000e+02
+  %80 = tail call float @llvm.round.f32(float %79)
+  %81 = tail call i8 @llvm.fptoui.sat.i8.f32(float %80)
+  %82 = fmul float %.sroa.294.0.copyload, 2.550000e+02
+  %83 = tail call float @llvm.round.f32(float %82)
+  %84 = tail call i8 @llvm.fptoui.sat.i8.f32(float %83)
+  %85 = fmul float %.sroa.395.0.copyload, 2.550000e+02
+  %86 = tail call float @llvm.round.f32(float %85)
+  %87 = tail call i8 @llvm.fptoui.sat.i8.f32(float %86)
+  %88 = fmul float %.sroa.496.0.copyload, 2.550000e+02
+  %89 = tail call float @llvm.round.f32(float %88)
+  %90 = tail call i8 @llvm.fptoui.sat.i8.f32(float %89)
+  store i8 %81, ptr %9, align 1, !noalias !17449
+  %91 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 %84, ptr %91, align 1, !noalias !17449
+  %92 = getelementptr inbounds i8, ptr %9, i64 2
+  store i8 %87, ptr %92, align 1, !noalias !17449
+  %93 = getelementptr inbounds i8, ptr %9, i64 3
+  store i8 %90, ptr %93, align 1, !noalias !17449
   call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %78, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 4, ptr noalias noundef nonnull align 1 %10, i64 noundef 3), !noalias !17449
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !17449
-  %83 = getelementptr inbounds i8, ptr %10, i64 2
-  %84 = load i8, ptr %83, align 2, !noalias !17449, !noundef !4
-  %85 = uitofp i8 %84 to float
-  %86 = fdiv float %85, 2.550000e+02
-  %87 = load <2 x i8>, ptr %10, align 2, !noalias !17449
-  %88 = uitofp <2 x i8> %87 to <2 x float>
-  %89 = fdiv <2 x float> %88, <float 2.550000e+02, float 2.550000e+02>
+  %94 = getelementptr inbounds i8, ptr %10, i64 2
+  %95 = load i8, ptr %94, align 2, !noalias !17449, !noundef !4
+  %96 = uitofp i8 %95 to float
+  %97 = fdiv float %96, 2.550000e+02
+  %98 = load <2 x i8>, ptr %10, align 2, !noalias !17449
+  %99 = uitofp <2 x i8> %98 to <2 x float>
+  %100 = fdiv <2 x float> %99, <float 2.550000e+02, float 2.550000e+02>
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10), !noalias !17449
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
-  store <2 x float> %89, ptr %8, align 8, !noalias !17453
+  store <2 x float> %100, ptr %8, align 8, !noalias !17453
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
-  store float %86, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !17453
+  store float %97, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !17453
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !17456
   call void @"_ZN164_$LT$palette..rgb..rgb..Rgb$LT$S1$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S2$C$T$GT$$GT$$GT$20from_color_unclamped17hf4da72d702b5dbb8E"(ptr noalias nocapture noundef nonnull sret({ float, float, float, {} }) align 4 dereferenceable(12) %7, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %8), !noalias !17456
   %.sroa.0119.0.copyload = load float, ptr %7, align 4, !noalias !17458
   %.sroa.4120.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 4
-  %90 = fcmp olt float %.sroa.0119.0.copyload, 0.000000e+00
-  %.0.i.i.i.i41 = select i1 %90, float 0.000000e+00, float %.sroa.0119.0.copyload
-  %91 = fcmp ogt float %.0.i.i.i.i41, 1.000000e+00
-  %.1.i.i.i.i42 = select i1 %91, float 1.000000e+00, float %.0.i.i.i.i41
-  %92 = load <2 x float>, ptr %.sroa.4120.0..sroa_idx, align 4, !noalias !17458
+  %101 = fcmp olt float %.sroa.0119.0.copyload, 0.000000e+00
+  %.0.i.i.i.i41 = select i1 %101, float 0.000000e+00, float %.sroa.0119.0.copyload
+  %102 = fcmp ogt float %.0.i.i.i.i41, 1.000000e+00
+  %.1.i.i.i.i42 = select i1 %102, float 1.000000e+00, float %.0.i.i.i.i41
+  %103 = load <2 x float>, ptr %.sroa.4120.0..sroa_idx, align 4, !noalias !17458
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !17456
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
-  %93 = fcmp olt <2 x float> %92, zeroinitializer
-  %94 = select <2 x i1> %93, <2 x float> zeroinitializer, <2 x float> %92
-  %95 = fcmp ogt <2 x float> %94, <float 1.000000e+00, float 1.000000e+00>
-  %96 = select <2 x i1> %95, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %94
-  %97 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %.1.i.i.i.i42, i64 0
-  %98 = shufflevector <2 x float> %96, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %99 = shufflevector <4 x float> %97, <4 x float> %98, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  br label %120
+  %104 = fcmp olt <2 x float> %103, zeroinitializer
+  %105 = select <2 x i1> %104, <2 x float> zeroinitializer, <2 x float> %103
+  %106 = fcmp ogt <2 x float> %105, <float 1.000000e+00, float 1.000000e+00>
+  %107 = select <2 x i1> %106, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %105
+  %108 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %.1.i.i.i.i42, i64 0
+  %109 = shufflevector <2 x float> %107, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %110 = shufflevector <4 x float> %108, <4 x float> %109, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
+  br label %131
 
-100:                                              ; preds = %2
+111:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false)
   %.sroa.2100.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -79225,20 +79309,20 @@ default.unreachable127:                           ; preds = %2
   call void @"_ZN157_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsl..Hsl$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h45854ab0d3a33cefE"(ptr noalias nocapture noundef nonnull sret({ float, float, float, {} }) align 4 dereferenceable(12) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %6), !noalias !17459
   %.sroa.0123.0.copyload = load float, ptr %5, align 4, !noalias !17463
   %.sroa.4124.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
-  %101 = load <2 x float>, ptr %.sroa.4124.0..sroa_idx, align 4, !noalias !17463
+  %112 = load <2 x float>, ptr %.sroa.4124.0..sroa_idx, align 4, !noalias !17463
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !17459
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  %102 = insertelement <4 x float> poison, float %.sroa.0123.0.copyload, i64 0
-  %103 = shufflevector <2 x float> %101, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %104 = shufflevector <4 x float> %102, <4 x float> %103, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %105 = insertelement <4 x float> %104, float %.sroa.2100.0.copyload, i64 3
-  %106 = fcmp olt <4 x float> %105, zeroinitializer
-  %107 = select <4 x i1> %106, <4 x float> zeroinitializer, <4 x float> %105
-  %108 = fcmp ogt <4 x float> %107, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %109 = select <4 x i1> %108, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %107
-  br label %120
+  %113 = insertelement <4 x float> poison, float %.sroa.0123.0.copyload, i64 0
+  %114 = shufflevector <2 x float> %112, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %115 = shufflevector <4 x float> %113, <4 x float> %114, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %116 = insertelement <4 x float> %115, float %.sroa.2100.0.copyload, i64 3
+  %117 = fcmp olt <4 x float> %116, zeroinitializer
+  %118 = select <4 x i1> %117, <4 x float> zeroinitializer, <4 x float> %116
+  %119 = fcmp ogt <4 x float> %118, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %120 = select <4 x i1> %119, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %118
+  br label %131
 
-110:                                              ; preds = %2
+121:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %23, i64 12, i1 false)
   %.sroa.2102.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -79247,23 +79331,23 @@ default.unreachable127:                           ; preds = %2
   call void @"_ZN157_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsv..Hsv$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hf2151186df5dff80E"(ptr noalias nocapture noundef nonnull sret({ float, float, float, {} }) align 4 dereferenceable(12) %3, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4), !noalias !17464
   %.sroa.0103.0.copyload = load float, ptr %3, align 4, !noalias !17468
   %.sroa.4104.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
-  %111 = load <2 x float>, ptr %.sroa.4104.0..sroa_idx, align 4, !noalias !17468
+  %122 = load <2 x float>, ptr %.sroa.4104.0..sroa_idx, align 4, !noalias !17468
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !17464
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %112 = insertelement <4 x float> poison, float %.sroa.0103.0.copyload, i64 0
-  %113 = shufflevector <2 x float> %111, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %114 = shufflevector <4 x float> %112, <4 x float> %113, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %115 = insertelement <4 x float> %114, float %.sroa.2102.0.copyload, i64 3
-  %116 = fcmp olt <4 x float> %115, zeroinitializer
-  %117 = select <4 x i1> %116, <4 x float> zeroinitializer, <4 x float> %115
-  %118 = fcmp ogt <4 x float> %117, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %119 = select <4 x i1> %118, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %117
-  br label %120
+  %123 = insertelement <4 x float> poison, float %.sroa.0103.0.copyload, i64 0
+  %124 = shufflevector <2 x float> %122, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %125 = shufflevector <4 x float> %123, <4 x float> %124, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %126 = insertelement <4 x float> %125, float %.sroa.2102.0.copyload, i64 3
+  %127 = fcmp olt <4 x float> %126, zeroinitializer
+  %128 = select <4 x i1> %127, <4 x float> zeroinitializer, <4 x float> %126
+  %129 = fcmp ogt <4 x float> %128, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %130 = select <4 x i1> %129, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %128
+  br label %131
 
-120:                                              ; preds = %110, %100, %77, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit", %55, %45, %35, %24
-  %121 = phi <4 x float> [ %119, %110 ], [ %109, %100 ], [ %99, %77 ], [ %76, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %56, %55 ], [ %54, %45 ], [ %44, %35 ], [ %34, %24 ]
-  %122 = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x float> %121, ptr %122, align 4
+131:                                              ; preds = %121, %111, %77, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit", %55, %45, %35, %24
+  %132 = phi <4 x float> [ %130, %121 ], [ %120, %111 ], [ %110, %77 ], [ %76, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %56, %55 ], [ %54, %45 ], [ %44, %35 ], [ %34, %24 ]
+  %133 = getelementptr inbounds i8, ptr %0, i64 4
+  store <4 x float> %132, ptr %133, align 4
   store i32 3, ptr %0, align 4
   ret void
 }
@@ -79282,7 +79366,7 @@ define void @_ZN5typst9visualize5color5Color13to_linear_rgb17haeeb6251fd39785bE(
   %12 = alloca { { float }, float, float, {} }, align 8
   %13 = alloca { float, float, float, {} }, align 4
   %14 = alloca { float, float, float, {} }, align 8
-  %15 = alloca [4 x i8], align 4
+  %15 = alloca [4 x i8], align 1
   %16 = alloca [3 x i8], align 2
   %17 = alloca { float, float, float, {} }, align 4
   %18 = alloca { float, float, float, {} }, align 8
@@ -79303,8 +79387,8 @@ define void @_ZN5typst9visualize5color5Color13to_linear_rgb17haeeb6251fd39785bE(
     i32 3, label %60
     i32 4, label %70
     i32 5, label %72
-    i32 6, label %95
-    i32 7, label %131
+    i32 6, label %106
+    i32 7, label %142
   ]
 
 default.unreachable164:                           ; preds = %2
@@ -79330,7 +79414,7 @@ default.unreachable164:                           ; preds = %2
   %37 = select <4 x i1> %36, <4 x float> zeroinitializer, <4 x float> %35
   %38 = fcmp ogt <4 x float> %37, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %39 = select <4 x i1> %38, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %37
-  br label %167
+  br label %178
 
 40:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %25)
@@ -79355,7 +79439,7 @@ default.unreachable164:                           ; preds = %2
   %47 = select <4 x i1> %46, <4 x float> zeroinitializer, <4 x float> %45
   %48 = fcmp ogt <4 x float> %47, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %49 = select <4 x i1> %48, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %47
-  br label %167
+  br label %178
 
 50:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22)
@@ -79383,7 +79467,7 @@ default.unreachable164:                           ; preds = %2
   %57 = select <4 x i1> %56, <4 x float> zeroinitializer, <4 x float> %55
   %58 = fcmp ogt <4 x float> %57, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %59 = select <4 x i1> %58, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %57
-  br label %167
+  br label %178
 
 60:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
@@ -79405,57 +79489,78 @@ default.unreachable164:                           ; preds = %2
   %67 = select <4 x i1> %66, <4 x float> zeroinitializer, <4 x float> %65
   %68 = fcmp ogt <4 x float> %67, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %69 = select <4 x i1> %68, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %67
-  br label %167
+  br label %178
 
 70:                                               ; preds = %2
   %71 = load <4 x float>, ptr %28, align 4
-  br label %167
+  br label %178
 
 72:                                               ; preds = %2
+  %.sroa.0121.0.copyload = load float, ptr %28, align 4
+  %.sroa.2122.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2122.0.copyload = load float, ptr %.sroa.2122.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %16), !noalias !17513
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %16, i8 0, i64 3, i1 false), !noalias !17513
   %73 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE), !noalias !17513
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15), !noalias !17513
-  %74 = load <4 x float>, ptr %28, align 4
-  %75 = fmul <4 x float> %74, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %76 = tail call <4 x float> @llvm.round.v4f32(<4 x float> %75)
-  %77 = tail call <4 x i8> @llvm.fptoui.sat.v4i8.v4f32(<4 x float> %76)
-  store <4 x i8> %77, ptr %15, align 4, !noalias !17513
+  %74 = fmul float %.sroa.0121.0.copyload, 2.550000e+02
+  %75 = tail call float @llvm.round.f32(float %74)
+  %76 = tail call i8 @llvm.fptoui.sat.i8.f32(float %75)
+  %77 = fmul float %.sroa.2122.0.copyload, 2.550000e+02
+  %78 = tail call float @llvm.round.f32(float %77)
+  %79 = tail call i8 @llvm.fptoui.sat.i8.f32(float %78)
+  %80 = fmul float %.sroa.3.0.copyload, 2.550000e+02
+  %81 = tail call float @llvm.round.f32(float %80)
+  %82 = tail call i8 @llvm.fptoui.sat.i8.f32(float %81)
+  %83 = fmul float %.sroa.4.0.copyload, 2.550000e+02
+  %84 = tail call float @llvm.round.f32(float %83)
+  %85 = tail call i8 @llvm.fptoui.sat.i8.f32(float %84)
+  store i8 %76, ptr %15, align 1, !noalias !17513
+  %86 = getelementptr inbounds i8, ptr %15, i64 1
+  store i8 %79, ptr %86, align 1, !noalias !17513
+  %87 = getelementptr inbounds i8, ptr %15, i64 2
+  store i8 %82, ptr %87, align 1, !noalias !17513
+  %88 = getelementptr inbounds i8, ptr %15, i64 3
+  store i8 %85, ptr %88, align 1, !noalias !17513
   call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %73, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef 4, ptr noalias noundef nonnull align 1 %16, i64 noundef 3), !noalias !17513
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15), !noalias !17513
-  %78 = getelementptr inbounds i8, ptr %16, i64 2
-  %79 = load i8, ptr %78, align 2, !noalias !17513, !noundef !4
-  %80 = uitofp i8 %79 to float
-  %81 = fdiv float %80, 2.550000e+02
-  %82 = load <2 x i8>, ptr %16, align 2, !noalias !17513
-  %83 = uitofp <2 x i8> %82 to <2 x float>
-  %84 = fdiv <2 x float> %83, <float 2.550000e+02, float 2.550000e+02>
+  %89 = getelementptr inbounds i8, ptr %16, i64 2
+  %90 = load i8, ptr %89, align 2, !noalias !17513, !noundef !4
+  %91 = uitofp i8 %90 to float
+  %92 = fdiv float %91, 2.550000e+02
+  %93 = load <2 x i8>, ptr %16, align 2, !noalias !17513
+  %94 = uitofp <2 x i8> %93 to <2 x float>
+  %95 = fdiv <2 x float> %94, <float 2.550000e+02, float 2.550000e+02>
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %16), !noalias !17513
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
-  store <2 x float> %84, ptr %14, align 8, !noalias !17517
+  store <2 x float> %95, ptr %14, align 8, !noalias !17517
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
-  store float %81, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !17517
+  store float %92, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !17517
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13), !noalias !17520
   call void @"_ZN164_$LT$palette..rgb..rgb..Rgb$LT$S1$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S2$C$T$GT$$GT$$GT$20from_color_unclamped17ha9c30e94f1b3db1dE"(ptr noalias nocapture noundef nonnull sret({ float, float, float, {} }) align 4 dereferenceable(12) %13, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %14), !noalias !17520
   %.sroa.0156.0.copyload = load float, ptr %13, align 4, !noalias !17522
   %.sroa.4157.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 4
-  %85 = fcmp olt float %.sroa.0156.0.copyload, 0.000000e+00
-  %.0.i.i.i.i53 = select i1 %85, float 0.000000e+00, float %.sroa.0156.0.copyload
-  %86 = fcmp ogt float %.0.i.i.i.i53, 1.000000e+00
-  %.1.i.i.i.i54 = select i1 %86, float 1.000000e+00, float %.0.i.i.i.i53
-  %87 = load <2 x float>, ptr %.sroa.4157.0..sroa_idx, align 4, !noalias !17522
+  %96 = fcmp olt float %.sroa.0156.0.copyload, 0.000000e+00
+  %.0.i.i.i.i53 = select i1 %96, float 0.000000e+00, float %.sroa.0156.0.copyload
+  %97 = fcmp ogt float %.0.i.i.i.i53, 1.000000e+00
+  %.1.i.i.i.i54 = select i1 %97, float 1.000000e+00, float %.0.i.i.i.i53
+  %98 = load <2 x float>, ptr %.sroa.4157.0..sroa_idx, align 4, !noalias !17522
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13), !noalias !17520
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
-  %88 = fcmp olt <2 x float> %87, zeroinitializer
-  %89 = select <2 x i1> %88, <2 x float> zeroinitializer, <2 x float> %87
-  %90 = fcmp ogt <2 x float> %89, <float 1.000000e+00, float 1.000000e+00>
-  %91 = select <2 x i1> %90, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %89
-  %92 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %.1.i.i.i.i54, i64 0
-  %93 = shufflevector <2 x float> %91, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %94 = shufflevector <4 x float> %92, <4 x float> %93, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  br label %167
+  %99 = fcmp olt <2 x float> %98, zeroinitializer
+  %100 = select <2 x i1> %99, <2 x float> zeroinitializer, <2 x float> %98
+  %101 = fcmp ogt <2 x float> %100, <float 1.000000e+00, float 1.000000e+00>
+  %102 = select <2 x i1> %101, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %100
+  %103 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %.1.i.i.i.i54, i64 0
+  %104 = shufflevector <2 x float> %102, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %105 = shufflevector <4 x float> %103, <4 x float> %104, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
+  br label %178
 
-95:                                               ; preds = %2
+106:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
   %.sroa.2129.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -79464,83 +79569,83 @@ default.unreachable164:                           ; preds = %2
   call void @"_ZN157_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsl..Hsl$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h45854ab0d3a33cefE"(ptr noalias nocapture noundef nonnull sret({ float, float, float, {} }) align 4 dereferenceable(12) %11, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %12), !noalias !17523
   %.sroa.0160.0.copyload = load float, ptr %11, align 4, !noalias !17527
   %.sroa.4161.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 4
-  %96 = load <2 x float>, ptr %.sroa.4161.0..sroa_idx, align 4, !noalias !17527
+  %107 = load <2 x float>, ptr %.sroa.4161.0..sroa_idx, align 4, !noalias !17527
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11), !noalias !17523
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
-  %97 = insertelement <4 x float> poison, float %.sroa.2129.0.copyload, i64 0
-  %98 = insertelement <4 x float> %97, float %.sroa.0160.0.copyload, i64 1
-  %99 = shufflevector <2 x float> %96, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %100 = shufflevector <4 x float> %98, <4 x float> %99, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %101 = fcmp olt <4 x float> %100, zeroinitializer
-  %102 = select <4 x i1> %101, <4 x float> zeroinitializer, <4 x float> %100
-  %103 = fcmp ogt <4 x float> %102, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %104 = extractelement <4 x i1> %103, i64 1
-  %105 = extractelement <4 x float> %102, i64 1
-  %.1.i.i.i.i69 = select i1 %104, float 1.000000e+00, float %105
-  %106 = extractelement <4 x i1> %103, i64 2
-  %107 = extractelement <4 x float> %102, i64 2
-  %.1.i.i3.i.i71 = select i1 %106, float 1.000000e+00, float %107
-  %108 = extractelement <4 x i1> %103, i64 3
-  %109 = extractelement <4 x float> %102, i64 3
-  %.1.i.i5.i.i73 = select i1 %108, float 1.000000e+00, float %109
-  %110 = extractelement <4 x i1> %103, i64 0
-  %111 = extractelement <4 x float> %102, i64 0
-  %.1.i.i.i75 = select i1 %110, float 1.000000e+00, float %111
+  %108 = insertelement <4 x float> poison, float %.sroa.2129.0.copyload, i64 0
+  %109 = insertelement <4 x float> %108, float %.sroa.0160.0.copyload, i64 1
+  %110 = shufflevector <2 x float> %107, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %111 = shufflevector <4 x float> %109, <4 x float> %110, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %112 = fcmp olt <4 x float> %111, zeroinitializer
+  %113 = select <4 x i1> %112, <4 x float> zeroinitializer, <4 x float> %111
+  %114 = fcmp ogt <4 x float> %113, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %115 = extractelement <4 x i1> %114, i64 1
+  %116 = extractelement <4 x float> %113, i64 1
+  %.1.i.i.i.i69 = select i1 %115, float 1.000000e+00, float %116
+  %117 = extractelement <4 x i1> %114, i64 2
+  %118 = extractelement <4 x float> %113, i64 2
+  %.1.i.i3.i.i71 = select i1 %117, float 1.000000e+00, float %118
+  %119 = extractelement <4 x i1> %114, i64 3
+  %120 = extractelement <4 x float> %113, i64 3
+  %.1.i.i5.i.i73 = select i1 %119, float 1.000000e+00, float %120
+  %121 = extractelement <4 x i1> %114, i64 0
+  %122 = extractelement <4 x float> %113, i64 0
+  %.1.i.i.i75 = select i1 %121, float 1.000000e+00, float %122
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10), !noalias !17528
   store float %.1.i.i.i.i69, ptr %10, align 4, !noalias !17532
-  %112 = fcmp ugt float %.1.i.i.i.i69, 0x3FA4B5DCC0000000
-  br i1 %112, label %113, label %115
+  %123 = fcmp ugt float %.1.i.i.i.i69, 0x3FA4B5DCC0000000
+  br i1 %123, label %124, label %126
 
-113:                                              ; preds = %95
-  %114 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %10), !noalias !17536
+124:                                              ; preds = %106
+  %125 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %10), !noalias !17536
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i"
 
-115:                                              ; preds = %95
-  %116 = fmul float %.1.i.i.i.i69, 0x3FB3D07220000000
+126:                                              ; preds = %106
+  %127 = fmul float %.1.i.i.i.i69, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i"
 
-"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i": ; preds = %115, %113
-  %.0.i.i.i78 = phi float [ %116, %115 ], [ %114, %113 ]
+"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i": ; preds = %126, %124
+  %.0.i.i.i78 = phi float [ %127, %126 ], [ %125, %124 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !17528
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9), !noalias !17528
   store float %.1.i.i3.i.i71, ptr %9, align 4, !noalias !17532
-  %117 = fcmp ugt float %.1.i.i3.i.i71, 0x3FA4B5DCC0000000
-  br i1 %117, label %118, label %120
+  %128 = fcmp ugt float %.1.i.i3.i.i71, 0x3FA4B5DCC0000000
+  br i1 %128, label %129, label %131
 
-118:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i"
-  %119 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9), !noalias !17539
+129:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i"
+  %130 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9), !noalias !17539
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i"
 
-120:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i"
-  %121 = fmul float %.1.i.i3.i.i71, 0x3FB3D07220000000
+131:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i"
+  %132 = fmul float %.1.i.i3.i.i71, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i"
 
-"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i": ; preds = %120, %118
-  %.0.i.i2.i = phi float [ %121, %120 ], [ %119, %118 ]
+"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i": ; preds = %131, %129
+  %.0.i.i2.i = phi float [ %132, %131 ], [ %130, %129 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !17528
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !17528
   store float %.1.i.i5.i.i73, ptr %8, align 4, !noalias !17532
-  %122 = fcmp ugt float %.1.i.i5.i.i73, 0x3FA4B5DCC0000000
-  br i1 %122, label %123, label %125
+  %133 = fcmp ugt float %.1.i.i5.i.i73, 0x3FA4B5DCC0000000
+  br i1 %133, label %134, label %136
 
-123:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i"
-  %124 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !noalias !17542
+134:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i"
+  %135 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !noalias !17542
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit"
 
-125:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i"
-  %126 = fmul float %.1.i.i5.i.i73, 0x3FB3D07220000000
+136:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i"
+  %137 = fmul float %.1.i.i5.i.i73, 0x3FB3D07220000000
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit"
 
-"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit": ; preds = %123, %125
-  %.0.i.i4.i = phi float [ %126, %125 ], [ %124, %123 ]
+"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit": ; preds = %134, %136
+  %.0.i.i4.i = phi float [ %137, %136 ], [ %135, %134 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !17528
-  %127 = insertelement <4 x float> poison, float %.0.i.i.i78, i64 0
-  %128 = insertelement <4 x float> %127, float %.0.i.i2.i, i64 1
-  %129 = insertelement <4 x float> %128, float %.0.i.i4.i, i64 2
-  %130 = insertelement <4 x float> %129, float %.1.i.i.i75, i64 3
-  br label %167
+  %138 = insertelement <4 x float> poison, float %.0.i.i.i78, i64 0
+  %139 = insertelement <4 x float> %138, float %.0.i.i2.i, i64 1
+  %140 = insertelement <4 x float> %139, float %.0.i.i4.i, i64 2
+  %141 = insertelement <4 x float> %140, float %.1.i.i.i75, i64 3
+  br label %178
 
-131:                                              ; preds = %2
+142:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
   %.sroa.2135.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -79549,86 +79654,86 @@ default.unreachable164:                           ; preds = %2
   call void @"_ZN157_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsv..Hsv$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hf2151186df5dff80E"(ptr noalias nocapture noundef nonnull sret({ float, float, float, {} }) align 4 dereferenceable(12) %6, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7), !noalias !17545
   %.sroa.0136.0.copyload = load float, ptr %6, align 4, !noalias !17549
   %.sroa.4137.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 4
-  %132 = load <2 x float>, ptr %.sroa.4137.0..sroa_idx, align 4, !noalias !17549
+  %143 = load <2 x float>, ptr %.sroa.4137.0..sroa_idx, align 4, !noalias !17549
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !17545
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  %133 = insertelement <4 x float> poison, float %.sroa.2135.0.copyload, i64 0
-  %134 = insertelement <4 x float> %133, float %.sroa.0136.0.copyload, i64 1
-  %135 = shufflevector <2 x float> %132, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %136 = shufflevector <4 x float> %134, <4 x float> %135, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %137 = fcmp olt <4 x float> %136, zeroinitializer
-  %138 = select <4 x i1> %137, <4 x float> zeroinitializer, <4 x float> %136
-  %139 = fcmp ogt <4 x float> %138, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %140 = extractelement <4 x i1> %139, i64 1
-  %141 = extractelement <4 x float> %138, i64 1
-  %.1.i.i.i.i87 = select i1 %140, float 1.000000e+00, float %141
-  %142 = extractelement <4 x i1> %139, i64 2
-  %143 = extractelement <4 x float> %138, i64 2
-  %.1.i.i3.i.i89 = select i1 %142, float 1.000000e+00, float %143
-  %144 = extractelement <4 x i1> %139, i64 3
-  %145 = extractelement <4 x float> %138, i64 3
-  %.1.i.i5.i.i91 = select i1 %144, float 1.000000e+00, float %145
-  %146 = extractelement <4 x i1> %139, i64 0
-  %147 = extractelement <4 x float> %138, i64 0
-  %.1.i.i.i93 = select i1 %146, float 1.000000e+00, float %147
+  %144 = insertelement <4 x float> poison, float %.sroa.2135.0.copyload, i64 0
+  %145 = insertelement <4 x float> %144, float %.sroa.0136.0.copyload, i64 1
+  %146 = shufflevector <2 x float> %143, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %147 = shufflevector <4 x float> %145, <4 x float> %146, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %148 = fcmp olt <4 x float> %147, zeroinitializer
+  %149 = select <4 x i1> %148, <4 x float> zeroinitializer, <4 x float> %147
+  %150 = fcmp ogt <4 x float> %149, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %151 = extractelement <4 x i1> %150, i64 1
+  %152 = extractelement <4 x float> %149, i64 1
+  %.1.i.i.i.i87 = select i1 %151, float 1.000000e+00, float %152
+  %153 = extractelement <4 x i1> %150, i64 2
+  %154 = extractelement <4 x float> %149, i64 2
+  %.1.i.i3.i.i89 = select i1 %153, float 1.000000e+00, float %154
+  %155 = extractelement <4 x i1> %150, i64 3
+  %156 = extractelement <4 x float> %149, i64 3
+  %.1.i.i5.i.i91 = select i1 %155, float 1.000000e+00, float %156
+  %157 = extractelement <4 x i1> %150, i64 0
+  %158 = extractelement <4 x float> %149, i64 0
+  %.1.i.i.i93 = select i1 %157, float 1.000000e+00, float %158
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !17550
   store float %.1.i.i.i.i87, ptr %5, align 4, !noalias !17554
-  %148 = fcmp ugt float %.1.i.i.i.i87, 0x3FA4B5DCC0000000
-  br i1 %148, label %149, label %151
+  %159 = fcmp ugt float %.1.i.i.i.i87, 0x3FA4B5DCC0000000
+  br i1 %159, label %160, label %162
 
-149:                                              ; preds = %131
-  %150 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !17558
+160:                                              ; preds = %142
+  %161 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !17558
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101"
 
-151:                                              ; preds = %131
-  %152 = fmul float %.1.i.i.i.i87, 0x3FB3D07220000000
+162:                                              ; preds = %142
+  %163 = fmul float %.1.i.i.i.i87, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101"
 
-"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101": ; preds = %151, %149
-  %.0.i.i.i102 = phi float [ %152, %151 ], [ %150, %149 ]
+"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101": ; preds = %162, %160
+  %.0.i.i.i102 = phi float [ %163, %162 ], [ %161, %160 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !17550
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !17550
   store float %.1.i.i3.i.i89, ptr %4, align 4, !noalias !17554
-  %153 = fcmp ugt float %.1.i.i3.i.i89, 0x3FA4B5DCC0000000
-  br i1 %153, label %154, label %156
+  %164 = fcmp ugt float %.1.i.i3.i.i89, 0x3FA4B5DCC0000000
+  br i1 %164, label %165, label %167
 
-154:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101"
-  %155 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4), !noalias !17561
+165:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101"
+  %166 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4), !noalias !17561
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103"
 
-156:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101"
-  %157 = fmul float %.1.i.i3.i.i89, 0x3FB3D07220000000
+167:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit.i101"
+  %168 = fmul float %.1.i.i3.i.i89, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103"
 
-"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103": ; preds = %156, %154
-  %.0.i.i2.i104 = phi float [ %157, %156 ], [ %155, %154 ]
+"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103": ; preds = %167, %165
+  %.0.i.i2.i104 = phi float [ %168, %167 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !17550
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !17550
   store float %.1.i.i5.i.i91, ptr %3, align 4, !noalias !17554
-  %158 = fcmp ugt float %.1.i.i5.i.i91, 0x3FA4B5DCC0000000
-  br i1 %158, label %159, label %161
+  %169 = fcmp ugt float %.1.i.i5.i.i91, 0x3FA4B5DCC0000000
+  br i1 %169, label %170, label %172
 
-159:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103"
-  %160 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !noalias !17564
+170:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103"
+  %171 = call noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !noalias !17564
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108"
 
-161:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103"
-  %162 = fmul float %.1.i.i5.i.i91, 0x3FB3D07220000000
+172:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.3683678558897460461.exit3.i103"
+  %173 = fmul float %.1.i.i5.i.i91, 0x3FB3D07220000000
   br label %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108"
 
-"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108": ; preds = %159, %161
-  %.0.i.i4.i105 = phi float [ %162, %161 ], [ %160, %159 ]
+"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108": ; preds = %170, %172
+  %.0.i.i4.i105 = phi float [ %173, %172 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !17550
-  %163 = insertelement <4 x float> poison, float %.0.i.i.i102, i64 0
-  %164 = insertelement <4 x float> %163, float %.0.i.i2.i104, i64 1
-  %165 = insertelement <4 x float> %164, float %.0.i.i4.i105, i64 2
-  %166 = insertelement <4 x float> %165, float %.1.i.i.i93, i64 3
-  br label %167
+  %174 = insertelement <4 x float> poison, float %.0.i.i.i102, i64 0
+  %175 = insertelement <4 x float> %174, float %.0.i.i2.i104, i64 1
+  %176 = insertelement <4 x float> %175, float %.0.i.i4.i105, i64 2
+  %177 = insertelement <4 x float> %176, float %.1.i.i.i93, i64 3
+  br label %178
 
-167:                                              ; preds = %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108", %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit", %72, %70, %60, %50, %40, %29
-  %168 = phi <4 x float> [ %166, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108" ], [ %130, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit" ], [ %94, %72 ], [ %71, %70 ], [ %69, %60 ], [ %59, %50 ], [ %49, %40 ], [ %39, %29 ]
-  %169 = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x float> %168, ptr %169, align 4
+178:                                              ; preds = %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108", %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit", %72, %70, %60, %50, %40, %29
+  %179 = phi <4 x float> [ %177, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit108" ], [ %141, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11into_linear17h9ebf8d2ae372cb10E.exit" ], [ %105, %72 ], [ %71, %70 ], [ %69, %60 ], [ %59, %50 ], [ %49, %40 ], [ %39, %29 ]
+  %180 = getelementptr inbounds i8, ptr %0, i64 4
+  store <4 x float> %179, ptr %180, align 4
   store i32 4, ptr %0, align 4
   ret void
 }
@@ -79975,7 +80080,7 @@ define void @_ZN5typst9visualize5color5Color6to_hsl17hf5da3851e4f6a048E(ptr noal
   %4 = alloca { { float }, float, float, {} }, align 8
   %5 = alloca { { float }, float, float, {} }, align 4
   %6 = alloca { float, float, float, {} }, align 8
-  %7 = alloca [4 x i8], align 4
+  %7 = alloca [4 x i8], align 1
   %8 = alloca [3 x i8], align 2
   %9 = alloca { { float }, float, float, {} }, align 4
   %10 = alloca { float, float, float, {} }, align 8
@@ -80004,8 +80109,8 @@ define void @_ZN5typst9visualize5color5Color6to_hsl17hf5da3851e4f6a048E(ptr noal
     i32 3, label %54
     i32 4, label %62
     i32 5, label %85
-    i32 6, label %103
-    i32 7, label %105
+    i32 6, label %114
+    i32 7, label %116
   ]
 
 default.unreachable138:                           ; preds = %2
@@ -80034,7 +80139,7 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i = select i1 %36, float 0.000000e+00, float %30
   %37 = fcmp ogt float %.0.i.i.i, 1.000000e+00
   %.1.i.i.i = select i1 %37, float 1.000000e+00, float %.0.i.i.i
-  br label %113
+  br label %124
 
 38:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24)
@@ -80062,7 +80167,7 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i10 = select i1 %44, float 0.000000e+00, float %.sroa.2.0.copyload
   %45 = fcmp ogt float %.0.i.i.i10, 1.000000e+00
   %.1.i.i.i11 = select i1 %45, float 1.000000e+00, float %.0.i.i.i10
-  br label %113
+  br label %124
 
 46:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20)
@@ -80093,7 +80198,7 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i23 = select i1 %52, float 0.000000e+00, float %.sroa.285.0.copyload
   %53 = fcmp ogt float %.0.i.i.i23, 1.000000e+00
   %.1.i.i.i24 = select i1 %53, float 1.000000e+00, float %.0.i.i.i23
-  br label %113
+  br label %124
 
 54:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
@@ -80115,7 +80220,7 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i36 = select i1 %60, float 0.000000e+00, float %.sroa.287.0.copyload
   %61 = fcmp ogt float %.0.i.i.i36, 1.000000e+00
   %.1.i.i.i37 = select i1 %61, float 1.000000e+00, float %.0.i.i.i36
-  br label %113
+  br label %124
 
 62:                                               ; preds = %2
   %.sroa.088.0.copyload = load float, ptr %28, align 4
@@ -80194,54 +80299,75 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i52 = select i1 %83, float 0.000000e+00, float %.sroa.4.0.copyload
   %84 = fcmp ogt float %.0.i.i.i52, 1.000000e+00
   %.1.i.i.i53 = select i1 %84, float 1.000000e+00, float %.0.i.i.i52
-  br label %113
+  br label %124
 
 85:                                               ; preds = %2
+  %.sroa.092.0.copyload = load float, ptr %28, align 4
+  %.sroa.293.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.293.0.copyload = load float, ptr %.sroa.293.0..sroa_idx, align 4
+  %.sroa.394.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.394.0.copyload = load float, ptr %.sroa.394.0..sroa_idx, align 4
+  %.sroa.495.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.495.0.copyload = load float, ptr %.sroa.495.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8), !noalias !17712
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %8, i8 0, i64 3, i1 false), !noalias !17712
   %86 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE), !noalias !17712
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !17712
-  %87 = load <4 x float>, ptr %28, align 4
-  %88 = fmul <4 x float> %87, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %89 = tail call <4 x float> @llvm.round.v4f32(<4 x float> %88)
-  %90 = tail call <4 x i8> @llvm.fptoui.sat.v4i8.v4f32(<4 x float> %89)
-  store <4 x i8> %90, ptr %7, align 4, !noalias !17712
+  %87 = fmul float %.sroa.092.0.copyload, 2.550000e+02
+  %88 = tail call float @llvm.round.f32(float %87)
+  %89 = tail call i8 @llvm.fptoui.sat.i8.f32(float %88)
+  %90 = fmul float %.sroa.293.0.copyload, 2.550000e+02
+  %91 = tail call float @llvm.round.f32(float %90)
+  %92 = tail call i8 @llvm.fptoui.sat.i8.f32(float %91)
+  %93 = fmul float %.sroa.394.0.copyload, 2.550000e+02
+  %94 = tail call float @llvm.round.f32(float %93)
+  %95 = tail call i8 @llvm.fptoui.sat.i8.f32(float %94)
+  %96 = fmul float %.sroa.495.0.copyload, 2.550000e+02
+  %97 = tail call float @llvm.round.f32(float %96)
+  %98 = tail call i8 @llvm.fptoui.sat.i8.f32(float %97)
+  store i8 %89, ptr %7, align 1, !noalias !17712
+  %99 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 %92, ptr %99, align 1, !noalias !17712
+  %100 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 %95, ptr %100, align 1, !noalias !17712
+  %101 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 %98, ptr %101, align 1, !noalias !17712
   call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %86, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 4, ptr noalias noundef nonnull align 1 %8, i64 noundef 3), !noalias !17712
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !17712
-  %91 = getelementptr inbounds i8, ptr %8, i64 2
-  %92 = load i8, ptr %91, align 2, !noalias !17712, !noundef !4
-  %93 = uitofp i8 %92 to float
-  %94 = fdiv float %93, 2.550000e+02
-  %95 = load <2 x i8>, ptr %8, align 2, !noalias !17712
-  %96 = uitofp <2 x i8> %95 to <2 x float>
-  %97 = fdiv <2 x float> %96, <float 2.550000e+02, float 2.550000e+02>
+  %102 = getelementptr inbounds i8, ptr %8, i64 2
+  %103 = load i8, ptr %102, align 2, !noalias !17712, !noundef !4
+  %104 = uitofp i8 %103 to float
+  %105 = fdiv float %104, 2.550000e+02
+  %106 = load <2 x i8>, ptr %8, align 2, !noalias !17712
+  %107 = uitofp <2 x i8> %106 to <2 x float>
+  %108 = fdiv <2 x float> %107, <float 2.550000e+02, float 2.550000e+02>
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8), !noalias !17712
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
-  store <2 x float> %97, ptr %6, align 8, !noalias !17716
+  store <2 x float> %108, ptr %6, align 8, !noalias !17716
   %.sroa.598.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  store float %94, ptr %.sroa.598.0..sroa_idx, align 8, !noalias !17716
+  store float %105, ptr %.sroa.598.0..sroa_idx, align 8, !noalias !17716
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !17719
   call void @"_ZN157_$LT$palette..hsl..Hsl$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h9e52409512b498daE"(ptr noalias nocapture noundef nonnull sret({ { float }, float, float, {} }) align 4 dereferenceable(12) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %6), !noalias !17719
   %.sroa.0134.0.copyload = load float, ptr %5, align 4, !noalias !17721
   %.sroa.4135.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
-  %98 = load <2 x float>, ptr %.sroa.4135.0..sroa_idx, align 4, !noalias !17721
+  %109 = load <2 x float>, ptr %.sroa.4135.0..sroa_idx, align 4, !noalias !17721
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !17719
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  %99 = fcmp olt <2 x float> %98, zeroinitializer
-  %100 = select <2 x i1> %99, <2 x float> zeroinitializer, <2 x float> %98
-  %101 = fcmp ogt <2 x float> %100, <float 1.000000e+00, float 1.000000e+00>
-  %102 = select <2 x i1> %101, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %100
-  br label %113
+  %110 = fcmp olt <2 x float> %109, zeroinitializer
+  %111 = select <2 x i1> %110, <2 x float> zeroinitializer, <2 x float> %109
+  %112 = fcmp ogt <2 x float> %111, <float 1.000000e+00, float 1.000000e+00>
+  %113 = select <2 x i1> %112, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %111
+  br label %124
 
-103:                                              ; preds = %2
+114:                                              ; preds = %2
   %.sroa.0100.0.copyload = load float, ptr %28, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
-  %104 = load <2 x float>, ptr %.sroa.9.0..sroa_idx, align 4
+  %115 = load <2 x float>, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.23.0.copyload = load float, ptr %.sroa.23.0..sroa_idx, align 4
-  br label %113
+  br label %124
 
-105:                                              ; preds = %2
+116:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
   %.sroa.2109.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -80250,27 +80376,27 @@ default.unreachable138:                           ; preds = %2
   call void @"_ZN152_$LT$palette..hsl..Hsl$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsv..Hsv$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17he2be012885c35efeE"(ptr noalias nocapture noundef nonnull sret({ { float }, float, float, {} }) align 4 dereferenceable(12) %3, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4), !noalias !17722
   %.sroa.0110.0.copyload = load float, ptr %3, align 4, !noalias !17726
   %.sroa.4111.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
-  %106 = load <2 x float>, ptr %.sroa.4111.0..sroa_idx, align 4, !noalias !17726
+  %117 = load <2 x float>, ptr %.sroa.4111.0..sroa_idx, align 4, !noalias !17726
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !17722
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %107 = fcmp olt <2 x float> %106, zeroinitializer
-  %108 = select <2 x i1> %107, <2 x float> zeroinitializer, <2 x float> %106
-  %109 = fcmp ogt <2 x float> %108, <float 1.000000e+00, float 1.000000e+00>
-  %110 = select <2 x i1> %109, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %108
-  %111 = fcmp olt float %.sroa.2109.0.copyload, 0.000000e+00
-  %.0.i.i.i80 = select i1 %111, float 0.000000e+00, float %.sroa.2109.0.copyload
-  %112 = fcmp ogt float %.0.i.i.i80, 1.000000e+00
-  %.1.i.i.i81 = select i1 %112, float 1.000000e+00, float %.0.i.i.i80
-  br label %113
+  %118 = fcmp olt <2 x float> %117, zeroinitializer
+  %119 = select <2 x i1> %118, <2 x float> zeroinitializer, <2 x float> %117
+  %120 = fcmp ogt <2 x float> %119, <float 1.000000e+00, float 1.000000e+00>
+  %121 = select <2 x i1> %120, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %119
+  %122 = fcmp olt float %.sroa.2109.0.copyload, 0.000000e+00
+  %.0.i.i.i80 = select i1 %122, float 0.000000e+00, float %.sroa.2109.0.copyload
+  %123 = fcmp ogt float %.0.i.i.i80, 1.000000e+00
+  %.1.i.i.i81 = select i1 %123, float 1.000000e+00, float %.0.i.i.i80
+  br label %124
 
-113:                                              ; preds = %105, %103, %85, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit", %54, %46, %38, %29
-  %.sroa.0100.0 = phi float [ %.sroa.0110.0.copyload, %105 ], [ %.sroa.0100.0.copyload, %103 ], [ %.sroa.0134.0.copyload, %85 ], [ %.sroa.0130.0.copyload, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %.sroa.0126.0.copyload, %54 ], [ %.sroa.0122.0.copyload, %46 ], [ %.sroa.0118.0.copyload, %38 ], [ %.sroa.0114.0.copyload, %29 ]
-  %.sroa.23.0 = phi float [ %.1.i.i.i81, %105 ], [ %.sroa.23.0.copyload, %103 ], [ 1.000000e+00, %85 ], [ %.1.i.i.i53, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %.1.i.i.i37, %54 ], [ %.1.i.i.i24, %46 ], [ %.1.i.i.i11, %38 ], [ %.1.i.i.i, %29 ]
-  %114 = phi <2 x float> [ %110, %105 ], [ %104, %103 ], [ %102, %85 ], [ %82, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %59, %54 ], [ %51, %46 ], [ %43, %38 ], [ %35, %29 ]
-  %115 = getelementptr inbounds i8, ptr %0, i64 4
-  store float %.sroa.0100.0, ptr %115, align 4
+124:                                              ; preds = %116, %114, %85, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit", %54, %46, %38, %29
+  %.sroa.0100.0 = phi float [ %.sroa.0110.0.copyload, %116 ], [ %.sroa.0100.0.copyload, %114 ], [ %.sroa.0134.0.copyload, %85 ], [ %.sroa.0130.0.copyload, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %.sroa.0126.0.copyload, %54 ], [ %.sroa.0122.0.copyload, %46 ], [ %.sroa.0118.0.copyload, %38 ], [ %.sroa.0114.0.copyload, %29 ]
+  %.sroa.23.0 = phi float [ %.1.i.i.i81, %116 ], [ %.sroa.23.0.copyload, %114 ], [ 1.000000e+00, %85 ], [ %.1.i.i.i53, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %.1.i.i.i37, %54 ], [ %.1.i.i.i24, %46 ], [ %.1.i.i.i11, %38 ], [ %.1.i.i.i, %29 ]
+  %125 = phi <2 x float> [ %121, %116 ], [ %115, %114 ], [ %113, %85 ], [ %82, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %59, %54 ], [ %51, %46 ], [ %43, %38 ], [ %35, %29 ]
+  %126 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %.sroa.0100.0, ptr %126, align 4
   %.sroa.9.0..sroa_idx102 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x float> %114, ptr %.sroa.9.0..sroa_idx102, align 4
+  store <2 x float> %125, ptr %.sroa.9.0..sroa_idx102, align 4
   %.sroa.23.0..sroa_idx106 = getelementptr inbounds i8, ptr %0, i64 16
   store float %.sroa.23.0, ptr %.sroa.23.0..sroa_idx106, align 4
   store i32 6, ptr %0, align 4
@@ -80283,7 +80409,7 @@ define void @_ZN5typst9visualize5color5Color6to_hsv17hb6dc435281e2fe74E(ptr noal
   %4 = alloca { { float }, float, float, {} }, align 8
   %5 = alloca { { float }, float, float, {} }, align 4
   %6 = alloca { float, float, float, {} }, align 8
-  %7 = alloca [4 x i8], align 4
+  %7 = alloca [4 x i8], align 1
   %8 = alloca [3 x i8], align 2
   %9 = alloca { { float }, float, float, {} }, align 4
   %10 = alloca { float, float, float, {} }, align 8
@@ -80312,8 +80438,8 @@ define void @_ZN5typst9visualize5color5Color6to_hsv17hb6dc435281e2fe74E(ptr noal
     i32 3, label %54
     i32 4, label %62
     i32 5, label %85
-    i32 6, label %103
-    i32 7, label %111
+    i32 6, label %114
+    i32 7, label %122
   ]
 
 default.unreachable138:                           ; preds = %2
@@ -80342,7 +80468,7 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i = select i1 %36, float 0.000000e+00, float %30
   %37 = fcmp ogt float %.0.i.i.i, 1.000000e+00
   %.1.i.i.i = select i1 %37, float 1.000000e+00, float %.0.i.i.i
-  br label %113
+  br label %124
 
 38:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24)
@@ -80370,7 +80496,7 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i10 = select i1 %44, float 0.000000e+00, float %.sroa.2.0.copyload
   %45 = fcmp ogt float %.0.i.i.i10, 1.000000e+00
   %.1.i.i.i11 = select i1 %45, float 1.000000e+00, float %.0.i.i.i10
-  br label %113
+  br label %124
 
 46:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20)
@@ -80401,7 +80527,7 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i23 = select i1 %52, float 0.000000e+00, float %.sroa.285.0.copyload
   %53 = fcmp ogt float %.0.i.i.i23, 1.000000e+00
   %.1.i.i.i24 = select i1 %53, float 1.000000e+00, float %.0.i.i.i23
-  br label %113
+  br label %124
 
 54:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
@@ -80423,7 +80549,7 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i36 = select i1 %60, float 0.000000e+00, float %.sroa.287.0.copyload
   %61 = fcmp ogt float %.0.i.i.i36, 1.000000e+00
   %.1.i.i.i37 = select i1 %61, float 1.000000e+00, float %.0.i.i.i36
-  br label %113
+  br label %124
 
 62:                                               ; preds = %2
   %.sroa.088.0.copyload = load float, ptr %28, align 4
@@ -80502,46 +80628,67 @@ default.unreachable138:                           ; preds = %2
   %.0.i.i.i52 = select i1 %83, float 0.000000e+00, float %.sroa.4.0.copyload
   %84 = fcmp ogt float %.0.i.i.i52, 1.000000e+00
   %.1.i.i.i53 = select i1 %84, float 1.000000e+00, float %.0.i.i.i52
-  br label %113
+  br label %124
 
 85:                                               ; preds = %2
+  %.sroa.092.0.copyload = load float, ptr %28, align 4
+  %.sroa.293.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.293.0.copyload = load float, ptr %.sroa.293.0..sroa_idx, align 4
+  %.sroa.394.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.394.0.copyload = load float, ptr %.sroa.394.0..sroa_idx, align 4
+  %.sroa.495.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.495.0.copyload = load float, ptr %.sroa.495.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8), !noalias !17809
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %8, i8 0, i64 3, i1 false), !noalias !17809
   %86 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE), !noalias !17809
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !17809
-  %87 = load <4 x float>, ptr %28, align 4
-  %88 = fmul <4 x float> %87, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %89 = tail call <4 x float> @llvm.round.v4f32(<4 x float> %88)
-  %90 = tail call <4 x i8> @llvm.fptoui.sat.v4i8.v4f32(<4 x float> %89)
-  store <4 x i8> %90, ptr %7, align 4, !noalias !17809
+  %87 = fmul float %.sroa.092.0.copyload, 2.550000e+02
+  %88 = tail call float @llvm.round.f32(float %87)
+  %89 = tail call i8 @llvm.fptoui.sat.i8.f32(float %88)
+  %90 = fmul float %.sroa.293.0.copyload, 2.550000e+02
+  %91 = tail call float @llvm.round.f32(float %90)
+  %92 = tail call i8 @llvm.fptoui.sat.i8.f32(float %91)
+  %93 = fmul float %.sroa.394.0.copyload, 2.550000e+02
+  %94 = tail call float @llvm.round.f32(float %93)
+  %95 = tail call i8 @llvm.fptoui.sat.i8.f32(float %94)
+  %96 = fmul float %.sroa.495.0.copyload, 2.550000e+02
+  %97 = tail call float @llvm.round.f32(float %96)
+  %98 = tail call i8 @llvm.fptoui.sat.i8.f32(float %97)
+  store i8 %89, ptr %7, align 1, !noalias !17809
+  %99 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 %92, ptr %99, align 1, !noalias !17809
+  %100 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 %95, ptr %100, align 1, !noalias !17809
+  %101 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 %98, ptr %101, align 1, !noalias !17809
   call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %86, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 4, ptr noalias noundef nonnull align 1 %8, i64 noundef 3), !noalias !17809
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !17809
-  %91 = getelementptr inbounds i8, ptr %8, i64 2
-  %92 = load i8, ptr %91, align 2, !noalias !17809, !noundef !4
-  %93 = uitofp i8 %92 to float
-  %94 = fdiv float %93, 2.550000e+02
-  %95 = load <2 x i8>, ptr %8, align 2, !noalias !17809
-  %96 = uitofp <2 x i8> %95 to <2 x float>
-  %97 = fdiv <2 x float> %96, <float 2.550000e+02, float 2.550000e+02>
+  %102 = getelementptr inbounds i8, ptr %8, i64 2
+  %103 = load i8, ptr %102, align 2, !noalias !17809, !noundef !4
+  %104 = uitofp i8 %103 to float
+  %105 = fdiv float %104, 2.550000e+02
+  %106 = load <2 x i8>, ptr %8, align 2, !noalias !17809
+  %107 = uitofp <2 x i8> %106 to <2 x float>
+  %108 = fdiv <2 x float> %107, <float 2.550000e+02, float 2.550000e+02>
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8), !noalias !17809
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
-  store <2 x float> %97, ptr %6, align 8, !noalias !17813
+  store <2 x float> %108, ptr %6, align 8, !noalias !17813
   %.sroa.598.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  store float %94, ptr %.sroa.598.0..sroa_idx, align 8, !noalias !17813
+  store float %105, ptr %.sroa.598.0..sroa_idx, align 8, !noalias !17813
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !17816
   call void @"_ZN157_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h6c1e0f582def0941E"(ptr noalias nocapture noundef nonnull sret({ { float }, float, float, {} }) align 4 dereferenceable(12) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %6), !noalias !17816
   %.sroa.0130.0.copyload = load float, ptr %5, align 4, !noalias !17818
   %.sroa.4131.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
-  %98 = load <2 x float>, ptr %.sroa.4131.0..sroa_idx, align 4, !noalias !17818
+  %109 = load <2 x float>, ptr %.sroa.4131.0..sroa_idx, align 4, !noalias !17818
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !17816
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  %99 = fcmp olt <2 x float> %98, zeroinitializer
-  %100 = select <2 x i1> %99, <2 x float> zeroinitializer, <2 x float> %98
-  %101 = fcmp ogt <2 x float> %100, <float 1.000000e+00, float 1.000000e+00>
-  %102 = select <2 x i1> %101, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %100
-  br label %113
+  %110 = fcmp olt <2 x float> %109, zeroinitializer
+  %111 = select <2 x i1> %110, <2 x float> zeroinitializer, <2 x float> %109
+  %112 = fcmp ogt <2 x float> %111, <float 1.000000e+00, float 1.000000e+00>
+  %113 = select <2 x i1> %112, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %111
+  br label %124
 
-103:                                              ; preds = %2
+114:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
   %.sroa.2101.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -80550,35 +80697,35 @@ default.unreachable138:                           ; preds = %2
   call void @"_ZN152_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsl..Hsl$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h6240aa7dcc79477aE.llvm.3683678558897460461"(ptr noalias nocapture noundef nonnull sret({ { float }, float, float, {} }) align 4 dereferenceable(12) %3, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4), !noalias !17819
   %.sroa.0134.0.copyload = load float, ptr %3, align 4, !noalias !17823
   %.sroa.4135.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
-  %104 = load <2 x float>, ptr %.sroa.4135.0..sroa_idx, align 4, !noalias !17823
+  %115 = load <2 x float>, ptr %.sroa.4135.0..sroa_idx, align 4, !noalias !17823
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !17819
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %105 = fcmp olt <2 x float> %104, zeroinitializer
-  %106 = select <2 x i1> %105, <2 x float> zeroinitializer, <2 x float> %104
-  %107 = fcmp ogt <2 x float> %106, <float 1.000000e+00, float 1.000000e+00>
-  %108 = select <2 x i1> %107, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %106
-  %109 = fcmp olt float %.sroa.2101.0.copyload, 0.000000e+00
-  %.0.i.i.i80 = select i1 %109, float 0.000000e+00, float %.sroa.2101.0.copyload
-  %110 = fcmp ogt float %.0.i.i.i80, 1.000000e+00
-  %.1.i.i.i81 = select i1 %110, float 1.000000e+00, float %.0.i.i.i80
-  br label %113
+  %116 = fcmp olt <2 x float> %115, zeroinitializer
+  %117 = select <2 x i1> %116, <2 x float> zeroinitializer, <2 x float> %115
+  %118 = fcmp ogt <2 x float> %117, <float 1.000000e+00, float 1.000000e+00>
+  %119 = select <2 x i1> %118, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %117
+  %120 = fcmp olt float %.sroa.2101.0.copyload, 0.000000e+00
+  %.0.i.i.i80 = select i1 %120, float 0.000000e+00, float %.sroa.2101.0.copyload
+  %121 = fcmp ogt float %.0.i.i.i80, 1.000000e+00
+  %.1.i.i.i81 = select i1 %121, float 1.000000e+00, float %.0.i.i.i80
+  br label %124
 
-111:                                              ; preds = %2
+122:                                              ; preds = %2
   %.sroa.0102.0.copyload = load float, ptr %28, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
-  %112 = load <2 x float>, ptr %.sroa.9.0..sroa_idx, align 4
+  %123 = load <2 x float>, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.23.0.copyload = load float, ptr %.sroa.23.0..sroa_idx, align 4
-  br label %113
+  br label %124
 
-113:                                              ; preds = %111, %103, %85, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit", %54, %46, %38, %29
-  %.sroa.0102.0 = phi float [ %.sroa.0102.0.copyload, %111 ], [ %.sroa.0134.0.copyload, %103 ], [ %.sroa.0130.0.copyload, %85 ], [ %.sroa.0126.0.copyload, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %.sroa.0122.0.copyload, %54 ], [ %.sroa.0118.0.copyload, %46 ], [ %.sroa.0114.0.copyload, %38 ], [ %.sroa.0110.0.copyload, %29 ]
-  %.sroa.23.0 = phi float [ %.sroa.23.0.copyload, %111 ], [ %.1.i.i.i81, %103 ], [ 1.000000e+00, %85 ], [ %.1.i.i.i53, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %.1.i.i.i37, %54 ], [ %.1.i.i.i24, %46 ], [ %.1.i.i.i11, %38 ], [ %.1.i.i.i, %29 ]
-  %114 = phi <2 x float> [ %112, %111 ], [ %108, %103 ], [ %102, %85 ], [ %82, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %59, %54 ], [ %51, %46 ], [ %43, %38 ], [ %35, %29 ]
-  %115 = getelementptr inbounds i8, ptr %0, i64 4
-  store float %.sroa.0102.0, ptr %115, align 4
+124:                                              ; preds = %122, %114, %85, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit", %54, %46, %38, %29
+  %.sroa.0102.0 = phi float [ %.sroa.0102.0.copyload, %122 ], [ %.sroa.0134.0.copyload, %114 ], [ %.sroa.0130.0.copyload, %85 ], [ %.sroa.0126.0.copyload, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %.sroa.0122.0.copyload, %54 ], [ %.sroa.0118.0.copyload, %46 ], [ %.sroa.0114.0.copyload, %38 ], [ %.sroa.0110.0.copyload, %29 ]
+  %.sroa.23.0 = phi float [ %.sroa.23.0.copyload, %122 ], [ %.1.i.i.i81, %114 ], [ 1.000000e+00, %85 ], [ %.1.i.i.i53, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %.1.i.i.i37, %54 ], [ %.1.i.i.i24, %46 ], [ %.1.i.i.i11, %38 ], [ %.1.i.i.i, %29 ]
+  %125 = phi <2 x float> [ %123, %122 ], [ %119, %114 ], [ %113, %85 ], [ %82, %"_ZN7palette3rgb3rgb93_$LT$impl$u20$palette..alpha..alpha..Alpha$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$C$A$GT$$GT$11from_linear17h7d46077c06433886E.exit" ], [ %59, %54 ], [ %51, %46 ], [ %43, %38 ], [ %35, %29 ]
+  %126 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %.sroa.0102.0, ptr %126, align 4
   %.sroa.9.0..sroa_idx104 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x float> %114, ptr %.sroa.9.0..sroa_idx104, align 4
+  store <2 x float> %125, ptr %.sroa.9.0..sroa_idx104, align 4
   %.sroa.23.0..sroa_idx108 = getelementptr inbounds i8, ptr %0, i64 16
   store float %.sroa.23.0, ptr %.sroa.23.0..sroa_idx108, align 4
   store i32 7, ptr %0, align 4
@@ -83730,17 +83877,16 @@ default.unreachable22:                            ; preds = %2
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds i8, ptr %0, i64 4
-  %25 = load <4 x float>, ptr %24, align 4
-  %26 = shufflevector <4 x float> %25, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
-  %28 = load float, ptr %27, align 4, !noundef !4
-  %29 = insertelement <2 x float> %26, float %28, i64 1
-  %30 = fmul <2 x float> %29, <float 2.550000e+02, float 2.550000e+02>
-  %31 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %30)
-  %32 = tail call <2 x i8> @llvm.fptoui.sat.v2i8.v2f32(<2 x float> %31)
-  %shift = shufflevector <2 x i8> %32, <2 x i8> poison, <2 x i32> <i32 1, i32 poison>
-  %33 = icmp eq <2 x i8> %32, %shift
-  %34 = extractelement <2 x i1> %33, i64 0
+  %25 = load float, ptr %24, align 4, !noundef !4
+  %26 = fmul float %25, 2.550000e+02
+  %27 = tail call float @llvm.round.f32(float %26)
+  %28 = tail call i8 @llvm.fptoui.sat.i8.f32(float %27)
+  %29 = getelementptr inbounds i8, ptr %1, i64 4
+  %30 = load float, ptr %29, align 4, !noundef !4
+  %31 = fmul float %30, 2.550000e+02
+  %32 = tail call float @llvm.round.f32(float %31)
+  %33 = tail call i8 @llvm.fptoui.sat.i8.f32(float %32)
+  %34 = icmp eq i8 %28, %33
   br label %"_ZN82_$LT$palette..alpha..alpha..Alpha$LT$C$C$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h40e9b65e1e92867dE.exit"
 
 "_ZN82_$LT$palette..alpha..alpha..Alpha$LT$C$C$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h40e9b65e1e92867dE.exit": ; preds = %210, %"_ZN71_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a522846184c5f28E.exit.i", %199, %181, %175, %"_ZN71_$LT$palette..hsl..Hsl$LT$S$C$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6eefa5d6add78f8E.exit.i", %164, %146, %140, %134, %128, %122, %116, %"_ZN76_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf0c50458392a360E.exit.i", %105, %99, %87, %"_ZN7palette5oklch10properties81_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$palette..oklch..Oklch$LT$T$GT$$GT$2eq17h9680e4726ca0f624E.exit.i", %64, %58, %52, %"_ZN7palette5oklab10properties81_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$palette..oklab..Oklab$LT$T$GT$$GT$2eq17hbf74cbac403d0344E.exit.i", %41, %35, %7, %9, %11, %13, %15, %17, %19, %21, %93, %23
@@ -84413,31 +84559,52 @@ define void @_ZN5typst9visualize5color4Cmyk3new17ha349306a5d2e1d28E(ptr noalias 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5typst9visualize5color4Cmyk7to_rgba17h582b60fc923c3033E.llvm.7889846851399105414(ptr noalias nocapture noundef writeonly sret({ { float, float, float, {} }, float }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 {
-  %3 = alloca [4 x i8], align 4
+  %3 = alloca [4 x i8], align 1
   %4 = alloca [3 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %4, i8 0, i64 3, i1 false)
   %5 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %6 = load <4 x float>, ptr %1, align 4
-  %7 = fmul <4 x float> %6, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %8 = tail call <4 x float> @llvm.round.v4f32(<4 x float> %7)
-  %9 = tail call <4 x i8> @llvm.fptoui.sat.v4i8.v4f32(<4 x float> %8)
-  store <4 x i8> %9, ptr %3, align 4
+  %6 = load float, ptr %1, align 4, !noundef !4
+  %7 = fmul float %6, 2.550000e+02
+  %8 = tail call float @llvm.round.f32(float %7)
+  %9 = tail call i8 @llvm.fptoui.sat.i8.f32(float %8)
+  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = load float, ptr %10, align 4, !noundef !4
+  %12 = fmul float %11, 2.550000e+02
+  %13 = tail call float @llvm.round.f32(float %12)
+  %14 = tail call i8 @llvm.fptoui.sat.i8.f32(float %13)
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load float, ptr %15, align 4, !noundef !4
+  %17 = fmul float %16, 2.550000e+02
+  %18 = tail call float @llvm.round.f32(float %17)
+  %19 = tail call i8 @llvm.fptoui.sat.i8.f32(float %18)
+  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = load float, ptr %20, align 4, !noundef !4
+  %22 = fmul float %21, 2.550000e+02
+  %23 = tail call float @llvm.round.f32(float %22)
+  %24 = tail call i8 @llvm.fptoui.sat.i8.f32(float %23)
+  store i8 %9, ptr %3, align 1
+  %25 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %14, ptr %25, align 1
+  %26 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 %19, ptr %26, align 1
+  %27 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 %24, ptr %27, align 1
   call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 4, ptr noalias noundef nonnull align 1 %4, i64 noundef 3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %10 = getelementptr inbounds i8, ptr %4, i64 2
-  %11 = load i8, ptr %10, align 2, !noundef !4
-  %12 = uitofp i8 %11 to float
-  %13 = fdiv float %12, 2.550000e+02
-  %14 = load <2 x i8>, ptr %4, align 2
-  %15 = uitofp <2 x i8> %14 to <2 x float>
-  %16 = fdiv <2 x float> %15, <float 2.550000e+02, float 2.550000e+02>
-  store <2 x float> %16, ptr %0, align 4
+  %28 = getelementptr inbounds i8, ptr %4, i64 2
+  %29 = load i8, ptr %28, align 2, !noundef !4
+  %30 = uitofp i8 %29 to float
+  %31 = fdiv float %30, 2.550000e+02
+  %32 = load <2 x i8>, ptr %4, align 2
+  %33 = uitofp <2 x i8> %32 to <2 x float>
+  %34 = fdiv <2 x float> %33, <float 2.550000e+02, float 2.550000e+02>
+  store <2 x float> %34, ptr %0, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store float %13, ptr %.sroa.5.0..sroa_idx, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
-  store float 1.000000e+00, ptr %17, align 4
+  store float %31, ptr %.sroa.5.0..sroa_idx, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 12
+  store float 1.000000e+00, ptr %35, align 4
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4)
   ret void
 }
@@ -181218,6 +181385,12 @@ declare noundef zeroext i1 @"_ZN64_$LT$typst..layout..angle..Angle$u20$as$u20$co
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #39
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.round.f32(float) #39
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fptoui.sat.i8.f32(float) #39
+
 ; Function Attrs: nonlazybind uwtable
 declare { i1, i8 } @"_ZN4core3num20_$LT$impl$u20$u8$GT$14from_str_radix17he51ff894b91e8fc1E"(ptr noalias noundef nonnull readonly align 1, i64 noundef, i32 noundef) unnamed_addr #1
 
@@ -183365,18 +183538,6 @@ declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x double> @llvm.fabs.v4f64(<4 x double>) #45
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.round.v4f32(<4 x float>) #45
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i8> @llvm.fptoui.sat.v4i8.v4f32(<4 x float>) #45
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.round.v2f32(<2 x float>) #45
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i8> @llvm.fptoui.sat.v2i8.v2f32(<2 x float>) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #45

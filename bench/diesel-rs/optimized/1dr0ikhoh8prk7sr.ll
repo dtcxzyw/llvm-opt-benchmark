@@ -2884,22 +2884,23 @@ define void @"_ZN85_$LT$f64$u20$as$u20$diesel..pg..expression..extensions..inter
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN85_$LT$f64$u20$as$u20$diesel..pg..expression..extensions..interval_dsl..IntervalDsl$GT$6months17hd46c43cfae986b62E"(ptr noalias nocapture noundef writeonly sret({ i64, i32, i32 }) align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #21 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = tail call double @llvm.trunc.f64(double %1)
-  %5 = fsub double %1, %4
-  %6 = fmul double %5, 3.000000e+01
-  %7 = tail call double @llvm.trunc.f64(double %6)
-  %8 = fsub double %6, %7
-  %9 = fmul double %8, 8.640000e+04
+  %3 = tail call double @llvm.trunc.f64(double %1)
+  %4 = fsub double %1, %3
+  %5 = fmul double %4, 3.000000e+01
+  %6 = tail call double @llvm.trunc.f64(double %5)
+  %7 = fsub double %5, %6
+  %8 = fmul double %7, 8.640000e+04
+  %9 = fmul double %8, 1.000000e+03
   %10 = fmul double %9, 1.000000e+03
-  %11 = fmul double %10, 1.000000e+03
-  %12 = tail call double @llvm.round.f64(double %11)
-  %13 = tail call i64 @llvm.fptosi.sat.i64.f64(double %12)
-  %14 = insertelement <2 x double> poison, double %7, i64 0
-  %15 = insertelement <2 x double> %14, double %4, i64 1
-  %16 = tail call <2 x i32> @llvm.fptosi.sat.v2i32.v2f64(<2 x double> %15)
-  store i64 %13, ptr %0, align 8, !alias.scope !421, !noalias !424
-  store <2 x i32> %16, ptr %3, align 8, !alias.scope !421, !noalias !424
+  %11 = tail call double @llvm.round.f64(double %10)
+  %12 = tail call i64 @llvm.fptosi.sat.i64.f64(double %11)
+  %13 = tail call i32 @llvm.fptosi.sat.i32.f64(double %6)
+  %14 = tail call i32 @llvm.fptosi.sat.i32.f64(double %3)
+  store i64 %12, ptr %0, align 8, !alias.scope !421, !noalias !424
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %13, ptr %15, align 8, !alias.scope !421, !noalias !424
+  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %14, ptr %16, align 4, !alias.scope !421, !noalias !424
   ret void
 }
 
@@ -6466,9 +6467,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #33
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.fptosi.sat.v2i32.v2f64(<2 x double>) #33
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

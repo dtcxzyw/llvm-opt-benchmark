@@ -18973,27 +18973,36 @@ define void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5
 
 10:                                               ; preds = %2, %4
   %.0 = phi float [ %9, %4 ], [ 1.000000e+00, %2 ]
-  %11 = insertelement <2 x float> poison, float %.0, i64 0
-  %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x float> %12, <float 6.000000e+01, float 7.000000e+01>
-  %14 = fmul <2 x float> %12, <float 1.800000e+01, float 3.500000e+01>
-  %15 = fmul float %.0, 5.000000e+01
-  %16 = tail call float @llvm.round.f32(float %15)
-  %17 = tail call i64 @llvm.fptoui.sat.i64.f32(float %16)
-  %18 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %13)
-  %19 = tail call <2 x i64> @llvm.fptoui.sat.v2i64.v2f32(<2 x float> %18)
-  store <2 x i64> %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %14)
-  %22 = tail call <2 x i64> @llvm.fptoui.sat.v2i64.v2f32(<2 x float> %21)
-  store <2 x i64> %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  %24 = shufflevector <2 x i64> %19, <2 x i64> poison, <2 x i32> zeroinitializer
-  store <2 x i64> %24, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %17, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %17, ptr %26, align 8
+  %11 = fmul float %.0, 6.000000e+01
+  %12 = tail call float @llvm.round.f32(float %11)
+  %13 = tail call i64 @llvm.fptoui.sat.i64.f32(float %12)
+  %14 = fmul float %.0, 7.000000e+01
+  %15 = tail call float @llvm.round.f32(float %14)
+  %16 = tail call i64 @llvm.fptoui.sat.i64.f32(float %15)
+  %17 = fmul float %.0, 1.800000e+01
+  %18 = tail call float @llvm.round.f32(float %17)
+  %19 = tail call i64 @llvm.fptoui.sat.i64.f32(float %18)
+  %20 = fmul float %.0, 3.500000e+01
+  %21 = tail call float @llvm.round.f32(float %20)
+  %22 = tail call i64 @llvm.fptoui.sat.i64.f32(float %21)
+  %23 = fmul float %.0, 5.000000e+01
+  %24 = tail call float @llvm.round.f32(float %23)
+  %25 = tail call i64 @llvm.fptoui.sat.i64.f32(float %24)
+  store i64 %13, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %16, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %19, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %22, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %13, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %13, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %25, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %25, ptr %32, align 8
   ret void
 }
 
@@ -21581,12 +21590,6 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #44
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.round.v2f32(<2 x float>) #40
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i64> @llvm.fptoui.sat.v2i64.v2f32(<2 x float>) #40
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
