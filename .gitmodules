@@ -1,6 +1,7 @@
 [submodule "llvm/llvm-project"]
 	path = llvm/llvm-project
 	url = git@github.com:llvm/llvm-project.git
+	branch = main
 [submodule "bench/zlib/zlib"]
 	path = bench/zlib/zlib
 	url = git@github.com:madler/zlib.git
