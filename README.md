@@ -3,7 +3,9 @@
 [![CI](https://github.com/dtcxzyw/llvm-opt-benchmark/actions/workflows/llvm-ci.yml/badge.svg?branch=main)](https://github.com/dtcxzyw/llvm-opt-benchmark/actions/workflows/llvm-ci.yml)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dtcxzyw/llvm-opt-benchmark)
 
-Don't submit PR to add new benchmarks. You can request new benchmarks [here](https://github.com/dtcxzyw/llvm-opt-benchmark/issues/133).
+LLVM Opt Benchmark is an LLVM IR dataset for data-driven compiler optimization research. This repository is also used by LLVM developers to evaluate the impact of their patches on real-world applications.
+
+Don't submit PR to add new benchmarks. You can request new open-source C/C++/Rust repos [here](https://github.com/dtcxzyw/llvm-opt-benchmark/issues/133).
 
 Coverage result: https://dtcxzyw.github.io/llvm-opt-benchmark/
 
@@ -16,6 +18,26 @@ Please cite this work with the following BibTex entry:
   year = {2023},
 }
 ```
+
+## Online services (previously hosted by PLCT Lab, ISCAS/currently hosted by SUSTech ARiSE Lab)
+
++ Fuzzy DAG matching
+
+  Please file an issue to provide LLVM IR with a single function. I will add the `grep` label to trigger CI.
+
+  Example: https://github.com/dtcxzyw/llvm-opt-benchmark/issues/1072
+
++ Middle-end optimization pre-commit testing
+
+  Ping me if you want to see what is affected by your PR. It is useful for reviewers to find potential performance regressions and new optimization opportunities.
+
++ Codegen pre-commit testing
+
+  See also [llvm-codegen-benchmark](https://github.com/dtcxzyw/llvm-codegen-benchmark).
+
++ Compilation time measurement
+
+  COMING SOON :)
 
 ## Benchmark List
 
