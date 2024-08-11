@@ -71,6 +71,7 @@ if __name__ == '__main__':
 
     pool = Pool(processes=os.cpu_count())
     progress = tqdm.tqdm(work_list, miniters=len(work_list)/200)
+    fail = False
     with open('test.log', 'w') as log:
         for file, status, res in pool.imap_unordered(run_opt, work_list):
             file = os.path.relpath(file, bench_dir)
@@ -78,6 +79,7 @@ if __name__ == '__main__':
             if status != 'success':
                 progress.write(file + ' ' + status)
                 log.write(file + ' ' + status + '\n')
+                fail = True
             elif comptime:
                 comptime_res.append((file, res))
             progress.update()
@@ -88,3 +90,5 @@ if __name__ == '__main__':
         with open(comptime, 'w') as f:
             for k,v in comptime_res:
                 f.write(f'{k} {v}\n')
+    
+    exit(1 if fail else 0)

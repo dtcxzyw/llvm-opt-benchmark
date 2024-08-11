@@ -8,7 +8,7 @@ threshold = 0.0001
 topk = 5
 
 if not os.path.exists(v1_file) or not os.path.exists(v2_file):
-    exit(0)
+    exit(1)
 
 def load(filename):
     res = dict()

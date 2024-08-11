@@ -12,9 +12,9 @@ cd ../..
 scripts/gen_optimized.py bench llvm/llvm-build/bin/opt comptime comptime.log
 ret=$?
 scripts/comptime_diff.py comptime.baseline comptime.log >> ctdiff.log
+ctret=$?
 if [ $PRE_COMMIT_MODE -eq 0 ]
 then
-  ctret=$? 
   mv comptime.log comptime.baseline
   llvm_commit=$(git -C llvm/llvm-project rev-parse HEAD)
   git add .
