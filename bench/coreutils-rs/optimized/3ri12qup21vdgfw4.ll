@@ -120,7 +120,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.121231093
   br i1 %26, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12123109310310187846.exit.i.i.i.i, label %27
 
 27:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.12123109310310187846.exit.i.i.i.i.i
-  tail call void @_ZN4core4sync6atomic12atomic_store17hd55b9b8b92fcf5a1E.llvm.12123109310310187846(ptr noundef nonnull %20, i8 noundef 1, i8 noundef 0), !noalias !26
+  tail call void @_ZN4core4sync6atomic12atomic_store17hd55b9b8b92fcf5a1E.llvm.12123109310310187846(ptr noundef nonnull align 1 %20, i8 noundef 1, i8 noundef 0), !noalias !26
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12123109310310187846.exit.i.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12123109310310187846.exit.i.i.i.i: ; preds = %27, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.12123109310310187846.exit.i.i.i.i.i, %22, %18
@@ -429,10 +429,11 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
 109:                                              ; preds = %108
   %110 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.thread.sink.split.i.i.i.i.i.i
+  call void @__rust_dealloc(ptr noundef nonnull align 8 %88, i64 noundef 1400, i64 noundef 8) #13, !noalias !72
+  br label %.body.thread.i.i.i.i.i.i
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E.exit.i.i.i.i.i.i.i": ; preds = %108
-  call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef 1400, i64 noundef 8) #13, !noalias !72
+  call void @__rust_dealloc(ptr noundef nonnull align 8 %88, i64 noundef 1400, i64 noundef 8) #13, !noalias !72
   br label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i"
 
 111:                                              ; preds = %159, %103
@@ -474,7 +475,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   br i1 %130, label %131, label %139
 
 131:                                              ; preds = %125
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbd51e841fcc120b7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %126, i64 noundef %128)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbd51e841fcc120b7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %126, i64 noundef %128)
           to label %._crit_edge.i.i.i.i.i.i.i.i unwind label %132, !noalias !115
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %131
@@ -484,7 +485,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
 132:                                              ; preds = %131
   %133 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E"(ptr %88) #15
+  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E"(ptr nonnull align 8 %88) #15
           to label %.body.i.i.i.i.i.i.i unwind label %134, !noalias !72
 
 134:                                              ; preds = %132
@@ -561,11 +562,11 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i.i.i.i: ; pred
 
 .thread.i.i.i.i.i.i.i:                            ; preds = %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit, %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit.split-lp, %.thread.loopexit.i.i.i.i.i.i.i, %97
   %.pn25.i.i.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i, %97 ], [ %lpad.loopexit.i.i.i.i.i.i.i, %.thread.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E"(ptr %88) #15
+  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E"(ptr nonnull align 8 %88) #15
           to label %.body.thread.i.i.i.i.i.i unwind label %157, !noalias !72
 
 161:                                              ; preds = %87
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17hd05e4de3117a68a0E"(ptr noalias noundef align 8 dereferenceable(1400) %88)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17hd05e4de3117a68a0E"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %88)
           to label %.noexc5.i.i.i.i.i.i unwind label %162, !noalias !72
 
 162:                                              ; preds = %161
@@ -573,7 +574,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i.i.i.i: ; pred
           cleanup
   %164 = icmp ne i64 %.sroa.0.sroa.4.0.copyload.i.i.i.i.i.i, 0
   call void @llvm.assume(i1 %164)
-  br label %.body.thread.sink.split.i.i.i.i.i.i
+  call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef 1400, i64 noundef 8) #13, !noalias !72
+  br label %.body.thread.i.i.i.i.i.i
 
 .noexc5.i.i.i.i.i.i:                              ; preds = %161
   call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef 1400, i64 noundef 8) #13, !noalias !72
@@ -593,13 +595,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i.i.i.i: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !97
   br label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i"
 
-.body.thread.sink.split.i.i.i.i.i.i:              ; preds = %162, %109
-  %eh.lpad-body13.ph.i.i.i.i.i.i = phi { ptr, i32 } [ %110, %109 ], [ %163, %162 ]
-  call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef 1400, i64 noundef 8) #13, !noalias !72
-  br label %.body.thread.i.i.i.i.i.i
-
-.body.thread.i.i.i.i.i.i:                         ; preds = %167, %.body.thread.sink.split.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i, %97
-  %eh.lpad-body13.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i.i.i, %167 ], [ %.pn25.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i.i, %97 ], [ %eh.lpad-body13.ph.i.i.i.i.i.i, %.body.thread.sink.split.i.i.i.i.i.i ]
+.body.thread.i.i.i.i.i.i:                         ; preds = %167, %162, %.thread.i.i.i.i.i.i.i, %109, %97
+  %eh.lpad-body13.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i.i.i, %167 ], [ %163, %162 ], [ %110, %109 ], [ %.pn25.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i.i, %97 ]
   resume { ptr, i32 } %eh.lpad-body13.i.i.i.i.i.i
 
 167:                                              ; preds = %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hcc8df70322ac621dE.exit.i.i.i.i.i.i"

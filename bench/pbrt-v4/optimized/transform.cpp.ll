@@ -387,7 +387,7 @@ for.inc9.i:                                       ; preds = %for.body3.i
   br i1 %exitcond14.not.i, label %_ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit, label %for.cond1.preheader.i, !llvm.loop !7
 
 _ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %for.inc9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %m, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %m, i64 64, i1 false)
   %mInv3.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, i64 64, i1 false)
   ret void
@@ -450,7 +450,7 @@ for.inc9.i:                                       ; preds = %for.body3.i
   br i1 %exitcond14.not.i, label %_ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit, label %for.cond1.preheader.i, !llvm.loop !7
 
 _ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %for.inc9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %m, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %m, i64 64, i1 false)
   %mInv3.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, i64 64, i1 false)
   ret void
@@ -511,7 +511,7 @@ for.inc9.i:                                       ; preds = %for.body3.i
   br i1 %exitcond14.not.i, label %_ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit, label %for.cond1.preheader.i, !llvm.loop !7
 
 _ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %for.inc9.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %m, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %m, i64 64, i1 false)
   %mInv3.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, i64 64, i1 false)
   ret void
@@ -714,7 +714,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRfS1_S1_S1_S1_S1_EEEvNS_8
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRfJS2_S2_S2_S2_S2_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 4 dereferenceable(4) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRfJS2_S2_S2_S2_S2_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 4 dereferenceable(4) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9)
           to label %_ZN4pbrt12StringPrintfIJRfS1_S1_S1_S1_S1_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -804,9 +804,9 @@ entry:
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %minv.sroa.13.0.mInv3.i.sroa_idx.i, align 4, !alias.scope !14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp3.i)
-  call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp1), !noalias !17
+  call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp1), !noalias !17
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp3.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i8, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i), !noalias !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
   %mInv3.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i15, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
@@ -823,7 +823,7 @@ entry:
   %mInv = getelementptr inbounds i8, ptr %t2, i64 64
   %mInv4 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(64) %mInv, ptr noundef nonnull align 4 dereferenceable(64) %mInv4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, i64 64, i1 false)
   %mInv3.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3, i64 64, i1 false)
   ret void
@@ -890,7 +890,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %minv.sroa.12.0.mInv3.i.sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !20
   store float 1.000000e+00, ptr %minv.sroa.16.0.mInv3.i.sroa_idx.i, align 4, !alias.scope !20
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %inv.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(64) %persp, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(64) %persp, i64 64, i1 false)
   %mInv.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 64
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %mInv.i)
   call void @_ZN4pbrt7InverseILi4EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr nonnull sret(%"class.pstd::optional") align 4 %inv.i, ptr noundef nonnull align 4 dereferenceable(64) %persp)
@@ -926,9 +926,9 @@ _ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit: ; preds = %for.inc15.i, %i
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %inv.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp3.i)
-  call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp6), !noalias !25
+  call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp6), !noalias !25
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp3.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i), !noalias !25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
   %mInv3.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i8, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
@@ -1639,7 +1639,7 @@ define dso_local void @_ZNK4pbrt9TransformclERKNS_18SurfaceInteractionE(ptr noal
 entry:
   %ref.tmp = alloca %"class.pbrt::Point3fi", align 4
   %mediumInterface.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %agg.result, i8 0, i64 60, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %mediumInterface.i.i, i8 0, i64 184, i1 false)
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(24) %si)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp, i64 24, i1 false)
@@ -3625,7 +3625,7 @@ define dso_local void @_ZNK4pbrt9TransformclERKNS_11InteractionE(ptr noalias noc
 entry:
   %ref.tmp = alloca %"class.pbrt::Point3fi", align 4
   %mediumInterface.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 60, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i, i8 0, i64 16, i1 false)
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(24) %in)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp, i64 24, i1 false)
@@ -3711,12 +3711,12 @@ entry:
   %t = alloca %"class.pbrt::Transform", align 4
   %ref.tmp = alloca %"class.pbrt::Point3fi", align 4
   %mediumInterface.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 60, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i, i8 0, i64 16, i1 false)
   %mInv.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %t, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i, i64 64, i1 false)
   %mInv3.i.i = getelementptr inbounds i8, ptr %t, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i, ptr noundef nonnull align 4 dereferenceable(64) %this, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i, ptr noundef nonnull align 4 dereferenceable(128) %this, i64 64, i1 false)
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(128) %t, ptr noundef nonnull align 4 dereferenceable(24) %in)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp, i64 24, i1 false)
   %n = getelementptr inbounds i8, ptr %in, i64 40
@@ -3801,14 +3801,14 @@ entry:
   %ref.tmp = alloca %"class.pbrt::Point3fi", align 4
   %t = alloca %"class.pbrt::Transform", align 4
   %mediumInterface.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %agg.result, i8 0, i64 60, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %mediumInterface.i.i, i8 0, i64 184, i1 false)
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(24) %si)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp, i64 24, i1 false)
   %mInv.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %t, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i, i64 64, i1 false)
   %mInv3.i.i = getelementptr inbounds i8, ptr %t, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i, ptr noundef nonnull align 4 dereferenceable(64) %this, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i, ptr noundef nonnull align 4 dereferenceable(128) %this, i64 64, i1 false)
   %n = getelementptr inbounds i8, ptr %si, i64 40
   %agg.tmp4.sroa.0.0.copyload = load <2 x float>, ptr %n, align 8
   %agg.tmp4.sroa.2.0.n.sroa_idx = getelementptr inbounds i8, ptr %si, i64 48
@@ -4028,7 +4028,7 @@ define dso_local void @_ZNK4pbrt9Transform8ToStringB5cxx11Ev(ptr noalias nonnull
 entry:
   %mInv = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12SquareMatrixILi4EEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(64) %mInv)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12SquareMatrixILi4EEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(64) %mInv)
           to label %_ZN4pbrt12StringPrintfIJRKNS_12SquareMatrixILi4EEES4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -4057,7 +4057,7 @@ entry:
   %endTime5 = getelementptr inbounds i8, ptr %this, i64 260
   store float %endTime, ptr %endTime5, align 4
   %actuallyAnimated = getelementptr inbounds i8, ptr %this, i64 264
-  %call.i = tail call noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEneERKS1_(ptr noundef nonnull align 4 dereferenceable(64) %endTransform, ptr noundef nonnull align 4 dereferenceable(64) %startTransform)
+  %call.i = tail call noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEneERKS1_(ptr noundef nonnull align 4 dereferenceable(128) %endTransform, ptr noundef nonnull align 4 dereferenceable(128) %startTransform)
   %frombool = zext i1 %call.i to i8
   store i8 %frombool, ptr %actuallyAnimated, align 4
   %T.ptr = getelementptr inbounds i8, ptr %this, i64 268
@@ -4099,7 +4099,7 @@ if.end:                                           ; preds = %arrayctor.cont19
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %Rm)
   call void @_ZNK4pbrt9Transform9DecomposeEPNS_7Vector3IfEEPNS_12SquareMatrixILi4EEES6_(ptr noundef nonnull align 4 dereferenceable(128) %startTransform, ptr noundef nonnull %T.ptr, ptr noundef nonnull %Rm, ptr noundef nonnull %S.ptr)
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %inv.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp59, ptr noundef nonnull align 4 dereferenceable(64) %Rm, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp59, ptr noundef nonnull align 4 dereferenceable(64) %Rm, i64 64, i1 false)
   %mInv.i = getelementptr inbounds i8, ptr %ref.tmp59, i64 64
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %mInv.i)
   call void @_ZN4pbrt7InverseILi4EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr nonnull sret(%"class.pstd::optional") align 4 %inv.i, ptr noundef nonnull align 4 dereferenceable(64) %Rm)
@@ -4143,7 +4143,7 @@ _ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit: ; preds = %for.inc15.i, %i
   %arrayidx66 = getelementptr inbounds i8, ptr %this, i64 388
   call void @_ZNK4pbrt9Transform9DecomposeEPNS_7Vector3IfEEPNS_12SquareMatrixILi4EEES6_(ptr noundef nonnull align 4 dereferenceable(128) %endTransform, ptr noundef nonnull %arrayidx64, ptr noundef nonnull %Rm, ptr noundef nonnull %arrayidx66)
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %inv.i3357)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp68, ptr noundef nonnull align 4 dereferenceable(64) %Rm, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp68, ptr noundef nonnull align 4 dereferenceable(64) %Rm, i64 64, i1 false)
   %mInv.i3358 = getelementptr inbounds i8, ptr %ref.tmp68, i64 64
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %mInv.i3358)
   call void @_ZN4pbrt7InverseILi4EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr nonnull sret(%"class.pstd::optional") align 4 %inv.i3357, ptr noundef nonnull align 4 dereferenceable(64) %Rm)
@@ -6824,14 +6824,14 @@ if.end4:                                          ; preds = %if.end
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %minv.sroa.13.0.mInv3.i.sroa_idx.i, align 8, !alias.scope !50
   call void @_ZN4pbrt9TransformC2ENS_10QuaternionE(ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp35, <2 x float> %3, <2 x float> %4)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
-  call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp35), !noalias !53
+  call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp35), !noalias !53
   %mInv.i = getelementptr inbounds i8, ptr %ref.tmp35, i64 64
   %mInv3.i.i17 = getelementptr inbounds i8, ptr %ref.tmp32, i64 64
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %mInv3.i.i17, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %inv.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(64) %scale, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(64) %scale, i64 64, i1 false)
   %mInv.i18 = getelementptr inbounds i8, ptr %ref.tmp37, i64 64
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %mInv.i18)
   call void @_ZN4pbrt7InverseILi4EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr nonnull sret(%"class.pstd::optional") align 4 %inv.i, ptr noundef nonnull align 4 dereferenceable(64) %scale)
@@ -6867,9 +6867,9 @@ _ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit: ; preds = %for.inc15.i, %i
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %inv.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i19)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp3.i20)
-  call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i19, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp37), !noalias !56
+  call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp.i19, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp37), !noalias !56
   call void @_ZN4pbrtmlILi4EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr nonnull sret(%"class.pbrt::SquareMatrix.0") align 4 %ref.tmp3.i20, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i18, ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i17), !noalias !56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i19, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i19, i64 64, i1 false)
   %mInv3.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i23, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp3.i20, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i19)
@@ -7592,9 +7592,9 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %mediumInterface.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !71
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 60, i1 false), !alias.scope !71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i, i8 0, i64 16, i1 false), !alias.scope !71
-  call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !71
+  call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(80) %it), !noalias !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i, i64 24, i1 false)
   %n.i = getelementptr inbounds i8, ptr %it, i64 40
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %n.i, align 8, !noalias !71
@@ -7679,9 +7679,9 @@ if.end:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i3)
   %mediumInterface.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !74
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 60, i1 false), !alias.scope !74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i4, i8 0, i64 16, i1 false), !alias.scope !74
-  call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i3, ptr noundef nonnull align 4 dereferenceable(128) %t, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !74
+  call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i3, ptr noundef nonnull align 4 dereferenceable(128) %t, ptr noundef nonnull align 8 dereferenceable(80) %it), !noalias !74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i3, i64 24, i1 false)
   %n.i5 = getelementptr inbounds i8, ptr %it, i64 40
   %agg.tmp.sroa.0.0.copyload.i6 = load <2 x float>, ptr %n.i5, align 8, !noalias !74
@@ -7780,13 +7780,13 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %t.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %mediumInterface.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 60, i1 false), !alias.scope !77
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i, i8 0, i64 16, i1 false), !alias.scope !77
   %mInv.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %t.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i, i64 64, i1 false), !noalias !77
   %mInv3.i.i.i = getelementptr inbounds i8, ptr %t.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %this, i64 64, i1 false), !noalias !77
-  call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %t.i, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %this, i64 64, i1 false), !noalias !77
+  call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(128) %t.i, ptr noundef nonnull align 8 dereferenceable(80) %it), !noalias !77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i, i64 24, i1 false)
   %n.i = getelementptr inbounds i8, ptr %it, i64 40
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %n.i, align 8, !noalias !77
@@ -7873,13 +7873,13 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %t.i3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i4)
   %mediumInterface.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, i8 0, i64 60, i1 false), !alias.scope !80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 60, i1 false), !alias.scope !80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface.i.i5, i8 0, i64 16, i1 false), !alias.scope !80
   %mInv.i.i.i6 = getelementptr inbounds i8, ptr %t, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t.i3, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i6, i64 64, i1 false), !noalias !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %t.i3, ptr noundef nonnull readonly align 4 dereferenceable(64) %mInv.i.i.i6, i64 64, i1 false), !noalias !80
   %mInv3.i.i.i7 = getelementptr inbounds i8, ptr %t.i3, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i7, ptr noundef nonnull readonly align 4 dereferenceable(64) %t, i64 64, i1 false), !noalias !80
-  call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i4, ptr noundef nonnull align 4 dereferenceable(128) %t.i3, ptr noundef nonnull align 4 dereferenceable(24) %it), !noalias !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i7, ptr noundef nonnull readonly align 4 dereferenceable(128) %t, i64 64, i1 false), !noalias !80
+  call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %ref.tmp.i4, ptr noundef nonnull align 4 dereferenceable(128) %t.i3, ptr noundef nonnull align 8 dereferenceable(80) %it), !noalias !80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i4, i64 24, i1 false)
   %n.i8 = getelementptr inbounds i8, ptr %it, i64 40
   %agg.tmp.sroa.0.0.copyload.i9 = load <2 x float>, ptr %n.i8, align 8, !noalias !80
@@ -8024,7 +8024,7 @@ entry:
   %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 388
   %hasRotation = getelementptr inbounds i8, ptr %this, i64 452
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_9TransformEJS4_RKfS6_RKbRKNS_7Vector3IfEESC_RKNS_10QuaternionESF_RKNS_12SquareMatrixILi4EEESJ_S8_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(128) %endTransform, ptr noundef nonnull align 4 dereferenceable(4) %startTime, ptr noundef nonnull align 4 dereferenceable(4) %endTime, ptr noundef nonnull align 1 dereferenceable(1) %actuallyAnimated, ptr noundef nonnull align 4 dereferenceable(12) %T, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx3, ptr noundef nonnull align 4 dereferenceable(16) %R, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6, ptr noundef nonnull align 4 dereferenceable(64) %S, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx9, ptr noundef nonnull align 1 dereferenceable(1) %hasRotation)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_9TransformEJS4_RKfS6_RKbRKNS_7Vector3IfEESC_RKNS_10QuaternionESF_RKNS_12SquareMatrixILi4EEESJ_S8_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(128) %endTransform, ptr noundef nonnull align 4 dereferenceable(4) %startTime, ptr noundef nonnull align 4 dereferenceable(4) %endTime, ptr noundef nonnull align 1 dereferenceable(1) %actuallyAnimated, ptr noundef nonnull align 4 dereferenceable(12) %T, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx3, ptr noundef nonnull align 4 dereferenceable(16) %R, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6, ptr noundef nonnull align 4 dereferenceable(64) %S, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx9, ptr noundef nonnull align 1 dereferenceable(1) %hasRotation)
           to label %_ZN4pbrt12StringPrintfIJRKNS_9TransformES3_RKfS5_RKbRKNS_7Vector3IfEESB_RKNS_10QuaternionESE_RKNS_12SquareMatrixILi4EEESI_S7_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -8679,22 +8679,30 @@ for.body46:                                       ; preds = %for.cond44.preheade
   %tobool.i = trunc i8 %44 to i1
   %cmp.i = fcmp ult float %42, %add.i65
   %or.cond.i = select i1 %tobool.i, i1 %cmp.i, i1 false
-  br i1 %or.cond.i, label %if.else.i, label %_ZNK4pbrt17AnimatedTransformclENS_6Point3IfEEf.exit
+  br i1 %or.cond.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %for.body46
+  %call.i = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(696) %this, <2 x float> %p.coerce0, float %p.coerce1)
+  br label %_ZNK4pbrt17AnimatedTransformclENS_6Point3IfEEf.exit
 
 if.else.i:                                        ; preds = %for.body46
   %cmp2.i = fcmp ugt float %43, %add.i65
-  br i1 %cmp2.i, label %if.end8.i, label %_ZNK4pbrt17AnimatedTransformclENS_6Point3IfEEf.exit
+  br i1 %cmp2.i, label %if.end8.i, label %if.then3.i
+
+if.then3.i:                                       ; preds = %if.else.i
+  %call5.i = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %endTransform, <2 x float> %p.coerce0, float %p.coerce1)
+  br label %_ZNK4pbrt17AnimatedTransformclENS_6Point3IfEEf.exit
 
 if.end8.i:                                        ; preds = %if.else.i
   call void @_ZNK4pbrt17AnimatedTransform11InterpolateEf(ptr nonnull sret(%"class.pbrt::Transform") align 4 %t.i, ptr noundef nonnull align 4 dereferenceable(696) %this, float noundef %add.i65)
+  %call10.i = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %t.i, <2 x float> %p.coerce0, float %p.coerce1)
   br label %_ZNK4pbrt17AnimatedTransformclENS_6Point3IfEEf.exit
 
-_ZNK4pbrt17AnimatedTransformclENS_6Point3IfEEf.exit: ; preds = %if.else.i, %for.body46, %if.end8.i
-  %this.sink = phi ptr [ %t.i, %if.end8.i ], [ %this, %for.body46 ], [ %endTransform, %if.else.i ]
-  %call.i = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %this.sink, <2 x float> %p.coerce0, float %p.coerce1)
+_ZNK4pbrt17AnimatedTransformclENS_6Point3IfEEf.exit: ; preds = %if.then.i, %if.then3.i, %if.end8.i
+  %call.pn.i = phi { <2 x float>, float } [ %call.i, %if.then.i ], [ %call5.i, %if.then3.i ], [ %call10.i, %if.end8.i ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %t.i)
-  %call51.fca.0.extract = extractvalue { <2 x float>, float } %call.i, 0
-  %call51.fca.1.extract = extractvalue { <2 x float>, float } %call.i, 1
+  %call51.fca.0.extract = extractvalue { <2 x float>, float } %call.pn.i, 0
+  %call51.fca.1.extract = extractvalue { <2 x float>, float } %call.pn.i, 1
   %45 = fcmp olt <2 x float> %call51.fca.0.extract, %retval.sroa.0.4.vec.insert.i.i758492
   %46 = select <2 x i1> %45, <2 x float> %call51.fca.0.extract, <2 x float> %retval.sroa.0.4.vec.insert.i.i758492
   %cmp.i3.i.i72 = fcmp ogt float %.sroa.speculated.i.i738591, %call51.fca.1.extract
@@ -9027,7 +9035,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA7_KcRA49_S1_S3_RiS5_RmE
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA7_KcJRA49_S2_S4_RiS6_RmEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(7) %args, ptr noundef nonnull align 1 dereferenceable(49) %args1, ptr noundef nonnull align 1 dereferenceable(7) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(49) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA7_KcJRA49_S2_S4_RiS6_RmEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(7) %args, ptr noundef nonnull align 1 dereferenceable(49) %args1, ptr noundef nonnull align 1 dereferenceable(7) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(49) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9)
           to label %_ZN4pbrt12StringPrintfIJRA7_KcRA49_S1_S3_RiS5_RmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -10410,7 +10418,7 @@ if.end:                                           ; preds = %entry
   call void @_ZN4pbrt12SquareMatrixILi4EEC1EPA4_Kf(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp374, ptr noundef nonnull %inv)
   %set.i664 = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i8 1, ptr %set.i664, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp374, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(65) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp374, i64 64, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -10718,7 +10726,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA15_KcRA7_S1_S3_RfS5_RdE
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA15_KcJRA7_S2_S4_RfS6_RdEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(15) %args, ptr noundef nonnull align 1 dereferenceable(7) %args1, ptr noundef nonnull align 1 dereferenceable(15) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(7) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA15_KcJRA7_S2_S4_RfS6_RdEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(15) %args, ptr noundef nonnull align 1 dereferenceable(7) %args1, ptr noundef nonnull align 1 dereferenceable(15) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(7) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9)
           to label %_ZN4pbrt12StringPrintfIJRA15_KcRA7_S1_S3_RfS5_RdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -10750,7 +10758,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA15_KcRA12_S1_S3_RfS5_Rd
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA15_KcJRA12_S2_S4_RfS6_RdEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(15) %args, ptr noundef nonnull align 1 dereferenceable(12) %args1, ptr noundef nonnull align 1 dereferenceable(15) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(12) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA15_KcJRA12_S2_S4_RfS6_RdEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(15) %args, ptr noundef nonnull align 1 dereferenceable(12) %args1, ptr noundef nonnull align 1 dereferenceable(15) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(12) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9)
           to label %_ZN4pbrt12StringPrintfIJRA15_KcRA12_S1_S3_RfS5_RdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -13486,7 +13494,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA16_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA16_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(16) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA16_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(16) %args)
           to label %_ZN4pbrt12StringPrintfIJRA16_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -13960,7 +13968,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJPKcRS2_EEEvNS_8LogLevelES
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
           to label %_ZN4pbrt12StringPrintfIJPKcRS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -14326,7 +14334,7 @@ invoke.cont33:                                    ; preds = %if.then32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %mInv.i.i = getelementptr inbounds i8, ptr %v, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12SquareMatrixILi4EEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(64) %v, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12SquareMatrixILi4EEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp.i, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(128) %v, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i)
           to label %_ZNK4pbrt9Transform8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i
@@ -14476,7 +14484,7 @@ invoke.cont31:                                    ; preds = %if.then30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %mInv.i.i = getelementptr inbounds i8, ptr %v, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #16
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12SquareMatrixILi4EEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(64) %v, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12SquareMatrixILi4EEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %ref.tmp.i, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(128) %v, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i)
           to label %_ZNK4pbrt9Transform8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i

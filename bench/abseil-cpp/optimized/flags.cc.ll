@@ -188,7 +188,7 @@ sw.bb:                                            ; preds = %entry
 
 invoke.cont4:                                     ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %v2) #13
-  tail call void @_ZdlPv(ptr noundef %v2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %v2) #12
   br label %return
 
 sw.bb5:                                           ; preds = %entry
@@ -262,7 +262,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -272,7 +272,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -384,7 +384,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -394,7 +394,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -425,13 +425,13 @@ entry:
   %ref.tmp1 = alloca i8, align 1
   %call = tail call noundef i32 @_ZN4absl11MinLogLevelEv()
   store i32 %call, ptr %ref.tmp, align 4
-  tail call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_minloglevel, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagIiE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdIiEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_minloglevel, ptr noundef nonnull %ref.tmp)
+  tail call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_minloglevel, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagIiE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdIiEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_minloglevel, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   %call2 = call noundef zeroext i1 @_ZN4absl22ShouldPrependLogPrefixEv()
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr %ref.tmp1, align 1
-  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_log_prefix, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagIbE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdIbEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_log_prefix, ptr noundef nonnull %ref.tmp1)
+  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_log_prefix, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagIbE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdIbEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_log_prefix, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
   ret void
 }
 
@@ -463,7 +463,7 @@ entry:
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_0clEv.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call.i2.i.i.i.i = tail call noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_stderrthreshold)
+  %call.i2.i.i.i.i = tail call noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_stderrthreshold)
   br label %"_ZNK3$_0clEv.exit"
 
 "_ZNK3$_0clEv.exit":                              ; preds = %entry, %if.then.i.i.i.i
@@ -498,7 +498,7 @@ entry:
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_1clEv.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call.i2.i.i.i.i = tail call noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_minloglevel)
+  %call.i2.i.i.i.i = tail call noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_minloglevel)
   br label %"_ZNK3$_1clEv.exit"
 
 "_ZNK3$_1clEv.exit":                              ; preds = %entry, %if.then.i.i.i.i
@@ -626,7 +626,7 @@ entry:
   %log_backtrace_at.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %log_backtrace_at.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %u.i.i.i.i), !noalias !16
-  invoke void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @_Z22FLAGS_log_backtrace_atB5cxx11, ptr noundef nonnull %u.i.i.i.i)
+  invoke void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(112) @_Z22FLAGS_log_backtrace_atB5cxx11, ptr noundef nonnull %u.i.i.i.i)
           to label %_ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit.i unwind label %lpad.i.i.i.i, !noalias !21
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i.i
@@ -734,7 +734,7 @@ invoke.cont.thread.i.i.i.i:                       ; preds = %entry
   br label %"_ZNK3$_3clEv.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call.i2.i.i.i.i = tail call noundef zeroext i1 @_ZNK4absl14flags_internal8FlagImpl11ReadOneBoolEv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_log_prefix)
+  %call.i2.i.i.i.i = tail call noundef zeroext i1 @_ZNK4absl14flags_internal8FlagImpl11ReadOneBoolEv(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_log_prefix)
   br label %"_ZNK3$_3clEv.exit"
 
 "_ZNK3$_3clEv.exit":                              ; preds = %invoke.cont.thread.i.i.i.i, %if.then.i.i.i.i
@@ -755,7 +755,7 @@ entry:
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_4clEv.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call.i2.i.i.i.i = tail call noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_v)
+  %call.i2.i.i.i.i = tail call noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_v)
   br label %"_ZNK3$_4clEv.exit"
 
 "_ZNK3$_4clEv.exit":                              ; preds = %entry, %if.then.i.i.i.i
@@ -774,7 +774,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %u.i.i.i.i), !noalias !24
-  invoke void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @_Z13FLAGS_vmoduleB5cxx11, ptr noundef nonnull %u.i.i.i.i)
+  invoke void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(112) @_Z13FLAGS_vmoduleB5cxx11, ptr noundef nonnull %u.i.i.i.i)
           to label %_ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit.i unwind label %lpad.i.i.i.i, !noalias !29
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i.i.i
@@ -844,17 +844,17 @@ declare void @_ZN4absl14flags_internal7UnparseB5cxx11Eb(ptr sret(%"class.std::__
 define internal void @_GLOBAL__sub_I_flags.cc() #8 section ".text.startup" {
 entry:
   tail call void @_ZN4absl12log_internal25SetLoggingGlobalsListenerEPFvvE(ptr noundef nonnull @_ZN4absl12log_internal12_GLOBAL__N_116SyncLoggingFlagsEv)
-  %call.i.i = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_stderrthreshold, ptr noundef nonnull @.str.1)
+  %call.i.i = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_stderrthreshold, ptr noundef nonnull @.str.1)
   tail call void @_ZN4absl14flags_internal8FlagImpl11SetCallbackEPFvvE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_stderrthreshold, ptr noundef nonnull @"_ZN3$_08__invokeEv")
-  %call.i.i1 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_minloglevel, ptr noundef nonnull @.str.1)
+  %call.i.i1 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_minloglevel, ptr noundef nonnull @.str.1)
   tail call void @_ZN4absl14flags_internal8FlagImpl11SetCallbackEPFvvE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_minloglevel, ptr noundef nonnull @"_ZN3$_18__invokeEv")
-  %call.i.i2 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @_Z22FLAGS_log_backtrace_atB5cxx11, ptr noundef nonnull @.str.1)
+  %call.i.i2 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(112) @_Z22FLAGS_log_backtrace_atB5cxx11, ptr noundef nonnull @.str.1)
   tail call void @_ZN4absl14flags_internal8FlagImpl11SetCallbackEPFvvE(ptr noundef nonnull align 8 dereferenceable(80) @_Z22FLAGS_log_backtrace_atB5cxx11, ptr noundef nonnull @"_ZN3$_28__invokeEv")
-  %call.i.i3 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_log_prefix, ptr noundef nonnull @.str.1)
+  %call.i.i3 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_log_prefix, ptr noundef nonnull @.str.1)
   tail call void @_ZN4absl14flags_internal8FlagImpl11SetCallbackEPFvvE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_log_prefix, ptr noundef nonnull @"_ZN3$_38__invokeEv")
-  %call.i.i4 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_v, ptr noundef nonnull @.str.1)
+  %call.i.i4 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(88) @FLAGS_v, ptr noundef nonnull @.str.1)
   tail call void @_ZN4absl14flags_internal8FlagImpl11SetCallbackEPFvvE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_v, ptr noundef nonnull @"_ZN3$_48__invokeEv")
-  %call.i.i5 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @_Z13FLAGS_vmoduleB5cxx11, ptr noundef nonnull @.str.1)
+  %call.i.i5 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(112) @_Z13FLAGS_vmoduleB5cxx11, ptr noundef nonnull @.str.1)
   tail call void @_ZN4absl14flags_internal8FlagImpl11SetCallbackEPFvvE(ptr noundef nonnull align 8 dereferenceable(80) @_Z13FLAGS_vmoduleB5cxx11, ptr noundef nonnull @"_ZN3$_58__invokeEv")
   ret void
 }

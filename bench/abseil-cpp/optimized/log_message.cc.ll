@@ -734,7 +734,7 @@ entry:
   %encoding_.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoding_.i, i8 0, i64 16, i1 false)
   %stacktrace_.i = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %this, i8 0, i64 32, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stacktrace_.i) #23
   %extra_sinks = getelementptr inbounds i8, ptr %this, i64 144
   store i64 0, ptr %extra_sinks, align 8
@@ -1271,7 +1271,7 @@ if.then8:                                         ; preds = %if.end
   %encoded_remaining.i.i = getelementptr inbounds i8, ptr %2, i64 15560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining_copy.i.i, ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining.i.i, i64 16, i1 false)
   %call4.i.i = call { ptr, i64 } @_ZN4absl12log_internal18EncodeMessageStartEmmPNS_4SpanIcEE(i64 noundef 7, i64 noundef 22, ptr noundef nonnull %encoded_remaining_copy.i.i)
-  %call.i.i1.i = call noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull @.str.3, i64 2, ptr noundef nonnull %encoded_remaining_copy.i.i)
+  %call.i.i1.i = call noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull align 1 dereferenceable(3) @.str.3, i64 2, ptr noundef nonnull %encoded_remaining_copy.i.i)
   br i1 %call.i.i1.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then8
@@ -1339,7 +1339,7 @@ invoke.cont:                                      ; preds = %if.else.i.i7, %.noe
           to label %call4.i.i18.noexc unwind label %lpad
 
 call4.i.i18.noexc:                                ; preds = %invoke.cont
-  %call.i.i1.i1925 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull @.str.4, i64 2, ptr noundef nonnull %encoded_remaining_copy.i.i13)
+  %call.i.i1.i1925 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull align 1 dereferenceable(3) @.str.4, i64 2, ptr noundef nonnull %encoded_remaining_copy.i.i13)
           to label %call.i.i1.i19.noexc unwind label %lpad
 
 call.i.i1.i19.noexc:                              ; preds = %call4.i.i18.noexc
@@ -1395,7 +1395,7 @@ invoke.cont18:                                    ; preds = %.noexc29
           to label %call4.i.i35.noexc unwind label %lpad
 
 call4.i.i35.noexc:                                ; preds = %invoke.cont18
-  %call.i.i1.i3642 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull @.str.5, i64 1, ptr noundef nonnull %encoded_remaining_copy.i.i30)
+  %call.i.i1.i3642 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull align 1 dereferenceable(2) @.str.5, i64 1, ptr noundef nonnull %encoded_remaining_copy.i.i30)
           to label %call.i.i1.i36.noexc unwind label %lpad
 
 call.i.i1.i36.noexc:                              ; preds = %call4.i.i35.noexc
@@ -1733,7 +1733,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #23
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -2412,7 +2412,7 @@ entry:
           to label %call4.i.i.noexc unwind label %lpad
 
 call4.i.i.noexc:                                  ; preds = %entry
-  %call.i.i1.i2 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull @.str.9, i64 14, ptr noundef nonnull %encoded_remaining_copy.i.i)
+  %call.i.i1.i2 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull align 1 dereferenceable(15) @.str.9, i64 14, ptr noundef nonnull %encoded_remaining_copy.i.i)
           to label %call.i.i1.i.noexc unwind label %lpad
 
 call.i.i1.i.noexc:                                ; preds = %call4.i.i.noexc
@@ -2481,7 +2481,7 @@ invoke.cont2:                                     ; preds = %if.else.i.i8, %.noe
           to label %call4.i.i.noexc25 unwind label %lpad
 
 call4.i.i.noexc25:                                ; preds = %invoke.cont2
-  %call.i.i1.i28 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull @.str.10, i64 1, ptr noundef nonnull %encoded_remaining_copy.i.i16)
+  %call.i.i1.i28 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull align 1 dereferenceable(2) @.str.10, i64 1, ptr noundef nonnull %encoded_remaining_copy.i.i16)
           to label %call.i.i1.i.noexc27 unwind label %lpad
 
 call.i.i1.i.noexc27:                              ; preds = %call4.i.i.noexc25
@@ -2567,7 +2567,7 @@ entry:
           to label %call4.i.i.noexc unwind label %lpad
 
 call4.i.i.noexc:                                  ; preds = %entry
-  %call.i.i1.i2 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull @.str.9, i64 14, ptr noundef nonnull %encoded_remaining_copy.i.i)
+  %call.i.i1.i2 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull align 1 dereferenceable(15) @.str.9, i64 14, ptr noundef nonnull %encoded_remaining_copy.i.i)
           to label %call.i.i1.i.noexc unwind label %lpad
 
 call.i.i1.i.noexc:                                ; preds = %call4.i.i.noexc
@@ -2636,7 +2636,7 @@ invoke.cont2:                                     ; preds = %if.else.i.i8, %.noe
           to label %call4.i.i.noexc25 unwind label %lpad
 
 call4.i.i.noexc25:                                ; preds = %invoke.cont2
-  %call.i.i1.i28 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull @.str.10, i64 1, ptr noundef nonnull %encoded_remaining_copy.i.i16)
+  %call.i.i1.i28 = invoke noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef 6, ptr nonnull align 1 dereferenceable(2) @.str.10, i64 1, ptr noundef nonnull %encoded_remaining_copy.i.i16)
           to label %call.i.i1.i.noexc27 unwind label %lpad
 
 call.i.i1.i.noexc27:                              ; preds = %call4.i.i.noexc25

@@ -473,8 +473,6 @@ $_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal
 
 $_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm = comdat any
 
-$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4ImplEEET_ = comdat any
-
 $_ZN2cv15ImageCollection4ImplD2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN2cv15ImageCollection4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
@@ -10345,10 +10343,10 @@ define void @_ZN2cv15ImageCollection4Impl12releaseCacheEi(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15ImageCollectionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv15ImageCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %2, i8 0, i64 104, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #26
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 40
@@ -10357,7 +10355,48 @@ define void @_ZN2cv15ImageCollectionC2Ev(ptr noundef nonnull align 8 dereference
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store ptr %2, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4ImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %2)
+  store ptr null, ptr %6, align 8
+  %7 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4ImplEEET_.exit unwind label %8
+
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #26
+  tail call void @_ZN2cv15ImageCollection4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #29
+  invoke void @__cxa_rethrow() #28
+          to label %18 unwind label %12
+
+12:                                               ; preds = %8
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %14 unwind label %15
+
+14:                                               ; preds = %12
+  resume { ptr, i32 } %13
+
+15:                                               ; preds = %12
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #27
+  unreachable
+
+18:                                               ; preds = %8
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4ImplEEET_.exit: ; preds = %1
+  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 1, ptr %20, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15ImageCollection4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %2, ptr %21, align 8
+  store ptr %7, ptr %6, align 8
   ret void
 }
 
@@ -10368,22 +10407,64 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15ImageCollectionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv15ImageCollectionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #30
   invoke void @_ZN2cv15ImageCollection4ImplC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2)
-          to label %5 unwind label %7
+          to label %5 unwind label %21
 
 5:                                                ; preds = %3
   store ptr %4, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4ImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %4)
+  store ptr null, ptr %6, align 8
+  %7 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4ImplEEET_.exit unwind label %8
+
+8:                                                ; preds = %5
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #26
+  tail call void @_ZN2cv15ImageCollection4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #29
+  invoke void @__cxa_rethrow() #28
+          to label %17 unwind label %12
+
+12:                                               ; preds = %8
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %14
+
+common.resume:                                    ; preds = %12, %21
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %13, %12 ]
+  resume { ptr, i32 } %common.resume.op
+
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #27
+  unreachable
+
+17:                                               ; preds = %8
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4ImplEEET_.exit: ; preds = %5
+  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 1, ptr %19, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15ImageCollection4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %4, ptr %20, align 8
+  store ptr %7, ptr %6, align 8
   ret void
 
-7:                                                ; preds = %3
-  %8 = landingpad { ptr, i32 }
+21:                                               ; preds = %3
+  %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %4) #29
-  resume { ptr, i32 } %8
+  br label %common.resume
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -21473,60 +21554,6 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_Z
 
 ; Function Attrs: noreturn
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #5
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4ImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %4 unwind label %8
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15ImageCollection4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8
-  store ptr %3, ptr %0, align 8
-  ret void
-
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #26
-  %12 = icmp eq ptr %1, null
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %8
-  tail call void @_ZN2cv15ImageCollection4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %1) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #29
-  br label %14
-
-14:                                               ; preds = %13, %8
-  invoke void @__cxa_rethrow() #28
-          to label %21 unwind label %15
-
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %17 unwind label %18
-
-17:                                               ; preds = %15
-  resume { ptr, i32 } %16
-
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
-          catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #27
-  unreachable
-
-21:                                               ; preds = %14
-  unreachable
-}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ImageCollection4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

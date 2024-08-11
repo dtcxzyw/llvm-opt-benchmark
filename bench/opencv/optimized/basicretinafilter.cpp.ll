@@ -1130,12 +1130,12 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
 35:                                               ; preds = %._crit_edge.i
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #17
   resume { ptr, i32 } %36
 
 _ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdaptationEPKfS3_Pfb.exit: ; preds = %._crit_edge.i
   %37 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   ret ptr %37
@@ -1208,13 +1208,13 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdapt
           to label %34 unwind label %35
 
 34:                                               ; preds = %24
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #17
   ret void
 
 35:                                               ; preds = %24
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #17
   resume { ptr, i32 } %36
 }
 
@@ -1282,11 +1282,11 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter25runFilter_LocalAdapd
 36:                                               ; preds = %._crit_edge.i
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %6) #17
   resume { ptr, i32 } %37
 
 _ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdaptationEPKfS3_Pfb.exit: ; preds = %._crit_edge.i
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   ret void
@@ -1357,12 +1357,12 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
 34:                                               ; preds = %._crit_edge.i
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #17
   resume { ptr, i32 } %35
 
 _ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdaptationEPKfS3_Pfb.exit: ; preds = %._crit_edge.i
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   ret ptr %36
@@ -1426,18 +1426,17 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfil
           to label %_ZN2cv11bioinspired17BasicRetinaFilter32_horizontalCausalFilter_addInputEPKfPfjj.exit unwind label %43
 
 common.resume:                                    ; preds = %81, %67, %55, %43
-  %.sink = phi ptr [ %6, %81 ], [ %8, %67 ], [ %10, %55 ], [ %12, %43 ]
-  %common.resume.op = phi { ptr, i32 } [ %82, %81 ], [ %68, %67 ], [ %56, %55 ], [ %44, %43 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #17
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %56, %55 ], [ %68, %67 ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op
 
 43:                                               ; preds = %4
   %44 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #17
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter32_horizontalCausalFilter_addInputEPKfPfjj.exit: ; preds = %4
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   %45 = load i64, ptr %30, align 8
@@ -1465,10 +1464,11 @@ _ZN2cv11bioinspired17BasicRetinaFilter32_horizontalCausalFilter_addInputEPKfPfjj
 55:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter32_horizontalCausalFilter_addInputEPKfPfjj.exit
   %56 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %10) #17
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter32_horizontalCausalFilter_addInputEPKfPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %10) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %57 = load i64, ptr %34, align 8
@@ -1496,10 +1496,11 @@ _ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit: ;
 67:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit
   %68 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %8) #17
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilterEPfjj.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %69 = load i64, ptr %34, align 8
@@ -1530,10 +1531,11 @@ _ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilterEPfjj.exit: ; preds
 81:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilterEPfjj.exit
   %82 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter34_verticalAnticausalFilter_multGainEPfjj.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilterEPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
@@ -1606,11 +1608,11 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter36runFilter_LocalAdapd
 37:                                               ; preds = %._crit_edge.i
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #17
   resume { ptr, i32 } %38
 
 _ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdaptationEPKfS3_Pfb.exit: ; preds = %._crit_edge.i
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   ret void
@@ -1649,11 +1651,11 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdapt
 17:                                               ; preds = %3
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #17
   resume { ptr, i32 } %18
 
 _ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdaptationEPKfS3_Pfb.exit: ; preds = %3
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   ret void
@@ -1843,18 +1845,17 @@ _ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit: ; pre
           to label %_ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit unwind label %58
 
 common.resume:                                    ; preds = %86, %71, %58
-  %.sink = phi ptr [ %5, %86 ], [ %7, %71 ], [ %9, %58 ]
-  %common.resume.op = phi { ptr, i32 } [ %87, %86 ], [ %72, %71 ], [ %59, %58 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #17
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %72, %71 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 58:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit
   %59 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %9) #17
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %9) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %60 = load ptr, ptr %27, align 8
@@ -1883,10 +1884,11 @@ _ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit: ;
 71:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit
   %72 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %7) #17
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilterEPfjj.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %7) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %73 = load ptr, ptr %27, align 8
@@ -1918,10 +1920,11 @@ _ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilterEPfjj.exit: ; preds
 86:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilterEPfjj.exit
   %87 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter34_verticalAnticausalFilter_multGainEPfjj.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilterEPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
@@ -2003,13 +2006,13 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausa
           to label %17 unwind label %18
 
 17:                                               ; preds = %4
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %6) #17
   ret void
 
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %6) #17
   resume { ptr, i32 } %19
 }
 
@@ -2036,13 +2039,13 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilte
           to label %16 unwind label %17
 
 16:                                               ; preds = %4
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %6) #17
   ret void
 
 17:                                               ; preds = %4
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %6) #17
   resume { ptr, i32 } %18
 }
 
@@ -2073,13 +2076,13 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter34_verticalAnticausalF
           to label %19 unwind label %20
 
 19:                                               ; preds = %4
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   ret void
 
 20:                                               ; preds = %4
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   resume { ptr, i32 } %21
 }
 
@@ -2110,13 +2113,13 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter32_horizontalCausalFil
           to label %19 unwind label %20
 
 19:                                               ; preds = %5
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   ret void
 
 20:                                               ; preds = %5
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   resume { ptr, i32 } %21
 }
 
@@ -2223,7 +2226,7 @@ _ZN2cv11bioinspired17BasicRetinaFilter31_squaringHorizontalCausalFilterEPKfPfjj.
 common.resume:                                    ; preds = %67, %55
   %.sink = phi ptr [ %6, %67 ], [ %8, %55 ]
   %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %56, %55 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter31_squaringHorizontalCausalFilterEPKfPfjj.exit
@@ -2232,7 +2235,7 @@ common.resume:                                    ; preds = %67, %55
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter31_squaringHorizontalCausalFilterEPKfPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %57 = load i64, ptr %29, align 8
@@ -2263,7 +2266,7 @@ _ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit: ;
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilterEPfjj.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter27_horizontalAnticausalFilterEPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %69 = load i64, ptr %29, align 8
@@ -3256,7 +3259,7 @@ _ZN2cv11bioinspired17BasicRetinaFilter33_horizontalCausalFilter_IrregularEPfjj.e
 common.resume:                                    ; preds = %63, %51
   %.sink = phi ptr [ %5, %63 ], [ %7, %51 ]
   %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %52, %51 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter33_horizontalCausalFilter_IrregularEPfjj.exit
@@ -3265,7 +3268,7 @@ common.resume:                                    ; preds = %63, %51
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter37_horizontalAnticausalFilter_IrregularEPfjjPKf.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter33_horizontalCausalFilter_IrregularEPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %53 = load i64, ptr %26, align 8
@@ -3296,7 +3299,7 @@ _ZN2cv11bioinspired17BasicRetinaFilter37_horizontalAnticausalFilter_IrregularEPf
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter31_verticalCausalFilter_IrregularEPfjjPKf.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter37_horizontalAnticausalFilter_IrregularEPfjjPKf.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %65 = load i64, ptr %26, align 8
@@ -3446,13 +3449,13 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter37_horizontalAnticausa
           to label %16 unwind label %17
 
 16:                                               ; preds = %5
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   ret void
 
 17:                                               ; preds = %5
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   resume { ptr, i32 } %18
 }
 
@@ -3477,13 +3480,13 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter31_verticalCausalFilte
           to label %15 unwind label %16
 
 15:                                               ; preds = %5
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   ret void
 
 16:                                               ; preds = %5
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   resume { ptr, i32 } %17
 }
 
@@ -3674,7 +3677,7 @@ _ZN2cv11bioinspired17BasicRetinaFilter42_horizontalCausalFilter_Irregular_addInp
 common.resume:                                    ; preds = %68, %56
   %.sink = phi ptr [ %6, %68 ], [ %8, %56 ]
   %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %57, %56 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 56:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter42_horizontalCausalFilter_Irregular_addInputEPKfPfjj.exit
@@ -3683,7 +3686,7 @@ common.resume:                                    ; preds = %68, %56
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter37_horizontalAnticausalFilter_IrregularEPfjjPKf.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter42_horizontalCausalFilter_Irregular_addInputEPKfPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %58 = load i64, ptr %27, align 8
@@ -3714,7 +3717,7 @@ _ZN2cv11bioinspired17BasicRetinaFilter37_horizontalAnticausalFilter_IrregularEPf
   br label %common.resume
 
 _ZN2cv11bioinspired17BasicRetinaFilter31_verticalCausalFilter_IrregularEPfjjPKf.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter37_horizontalAnticausalFilter_IrregularEPfjjPKf.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %70 = load i64, ptr %27, align 8
@@ -3867,7 +3870,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired17BasicRetinaFilter24Parallel_localAdaptationD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -3933,7 +3936,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired17BasicRetinaFilter40Parallel_horizontalCausalFilter_addInputD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -4011,7 +4014,7 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired17BasicRetinaFilter40Parall
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired17BasicRetinaFilter35Parallel_horizontalAnticausalFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -4080,7 +4083,7 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired17BasicRetinaFilter35Parall
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired17BasicRetinaFilter29Parallel_verticalCausalFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -4152,7 +4155,7 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired17BasicRetinaFilter29Parall
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired17BasicRetinaFilter42Parallel_verticalAnticausalFilter_multGainD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -4235,7 +4238,7 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired17BasicRetinaFilter42Parall
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired17BasicRetinaFilter45Parallel_horizontalAnticausalFilter_IrregularD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -4308,7 +4311,7 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired17BasicRetinaFilter45Parall
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired17BasicRetinaFilter39Parallel_verticalCausalFilter_IrregularD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

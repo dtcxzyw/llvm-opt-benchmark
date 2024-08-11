@@ -505,7 +505,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_
 _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit173: ; preds = %if.then.i.i143, %_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i169
   %call14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call14, i8 0, i64 64, i1 false)
-  tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call14) #16
+  tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %call14) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp20EmbedTexturesProcessE, i64 16), ptr %call14, align 8
   %mRootPath.i = getelementptr inbounds i8, ptr %call14, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mRootPath.i) #16
@@ -1744,7 +1744,7 @@ _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_
 _ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE9push_backEOS2_.exit751: ; preds = %if.then.i.i721, %_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i747
   %call70 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call70, i8 0, i64 32, i1 false)
-  tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call70) #16
+  tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(27) %call70) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp21GenFaceNormalsProcessE, i64 16), ptr %call70, align 8
   %force_.i = getelementptr inbounds i8, ptr %call70, i64 24
   store i8 0, ptr %force_.i, align 8
@@ -2745,7 +2745,7 @@ declare void @_ZN6Assimp11BaseProcess15SetupPropertiesEPKNS_8ImporterE(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6Assimp25ComputeSpatialSortProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pScene) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp6.i = alloca %"struct.std::pair.54", align 8
+  %ref.tmp6.i.i = alloca %"struct.std::pair.54", align 8
   %ref.tmp = alloca %"class.std::allocator.36", align 1
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str)
@@ -2758,8 +2758,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %1 = load i32, ptr %mNumMeshes, align 8
-  %cmp11.not = icmp eq i32 %1, 0
-  br i1 %cmp11.not, label %for.end, label %for.body.lr.ph
+  %cmp10.not = icmp eq i32 %1, 0
+  br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
   %2 = load ptr, ptr %call2, align 8
@@ -2768,7 +2768,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %it.sroa.0.012 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr.i, %for.body ]
+  %it.sroa.0.011 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr.i, %for.body ]
   %3 = load ptr, ptr %mMeshes, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
@@ -2776,12 +2776,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load ptr, ptr %mVertices, align 8
   %mNumVertices = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i32, ptr %mNumVertices, align 4
-  call void @_ZN6Assimp11SpatialSort4FillEPK10aiVector3tIfEjjb(ptr noundef nonnull align 8 dereferenceable(49) %it.sroa.0.012, ptr noundef %5, i32 noundef %6, i32 noundef 12, i1 noundef zeroext true)
+  call void @_ZN6Assimp11SpatialSort4FillEPK10aiVector3tIfEjjb(ptr noundef nonnull align 8 dereferenceable(49) %it.sroa.0.011, ptr noundef %5, i32 noundef %6, i32 noundef 12, i1 noundef zeroext true)
   %call6 = call noundef float @_ZN6Assimp22ComputePositionEpsilonEPK6aiMesh(ptr noundef %4)
-  %second = getelementptr inbounds i8, ptr %it.sroa.0.012, i64 56
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 56
   store float %call6, ptr %second, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.012, i64 64
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 64
   %7 = load i32, ptr %mNumMeshes, align 8
   %8 = zext i32 %7 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %8
@@ -2800,67 +2800,67 @@ for.end:                                          ; preds = %for.body, %invoke.c
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp21SharedPostProcessInfo9THeapDataISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEE, i64 16), ptr %call.i, align 8
   %data.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call2, ptr %data.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp6.i)
-  %call.i9 = call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 0)
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  %11 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %11, null
-  br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp6.i.i)
+  %call.i.i = call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 0)
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %cmp.not5.i.i.i.i.i, label %if.then.i.i, label %while.body.i.i.i.i.i
 
-while.body.i.i.i.i:                               ; preds = %for.end, %while.body.i.i.i.i
-  %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %11, %for.end ]
-  %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %for.end ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %12 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp ult i32 %12, %call.i9
-  %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
-  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
-  %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjPN6Assimp21SharedPostProcessInfo4BaseEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !6
+while.body.i.i.i.i.i:                             ; preds = %for.end, %while.body.i.i.i.i.i
+  %__x.addr.07.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %11, %for.end ]
+  %__y.addr.06.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %for.end ]
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i, i64 32
+  %12 = load i32, ptr %_M_storage.i.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = icmp ult i32 %12, %call.i.i
+  %__y.addr.1.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i
+  %__x.addr.1.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i, null
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjPN6Assimp21SharedPostProcessInfo4BaseEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !6
 
-_ZNSt8_Rb_treeIjSt4pairIKjPN6Assimp21SharedPostProcessInfo4BaseEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
-  %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %if.then.i, label %_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i
+_ZNSt8_Rb_treeIjSt4pairIKjPN6Assimp21SharedPostProcessInfo4BaseEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i, label %_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i.i
 
-_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i: ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjPN6Assimp21SharedPostProcessInfo4BaseEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %13 = load i32, ptr %_M_storage.i.i.i3.i.i.i, align 4
-  %cmp.i4.i.i.i = icmp ult i32 %call.i9, %13
-  br i1 %cmp.i4.i.i.i, label %if.then.i, label %if.end8.i
+_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i.i: ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjPN6Assimp21SharedPostProcessInfo4BaseEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
+  %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
+  %13 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
+  %cmp.i4.i.i.i.i = icmp ult i32 %call.i.i, %13
+  br i1 %cmp.i4.i.i.i.i, label %if.then.i.i, label %if.end8.i.i
 
-if.then.i:                                        ; preds = %_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i, %_ZNSt8_Rb_treeIjSt4pairIKjPN6Assimp21SharedPostProcessInfo4BaseEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %for.end
-  store i32 %call.i9, ptr %ref.tmp6.i, align 8
-  %second.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
-  store ptr %call.i, ptr %second.i.i, align 8
-  %call7.i = call { ptr, i8 } @_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE6insertIS6_IjS3_EEENSt9enable_ifIXsr16is_constructibleIS8_T_EE5valueES6_ISt17_Rb_tree_iteratorIS8_EbEE4typeEOSE_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i)
-  br label %_Z21SetGenericPropertyPtrIN6Assimp21SharedPostProcessInfo4BaseEEvRSt3mapIjPT_St4lessIjESaISt4pairIKjS5_EEEPKcS5_Pb.exit
+if.then.i.i:                                      ; preds = %_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjPN6Assimp21SharedPostProcessInfo4BaseEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %for.end
+  store i32 %call.i.i, ptr %ref.tmp6.i.i, align 8
+  %second.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  store ptr %call.i, ptr %second.i.i.i, align 8
+  %call7.i.i = call { ptr, i8 } @_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE6insertIS6_IjS3_EEENSt9enable_ifIXsr16is_constructibleIS8_T_EE5valueES6_ISt17_Rb_tree_iteratorIS8_EbEE4typeEOSE_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i.i)
+  br label %_ZN6Assimp21SharedPostProcessInfo11AddPropertyISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEEvPKcPT_.exit
 
-if.end8.i:                                        ; preds = %_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i
-  %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
-  %14 = load ptr, ptr %second.i, align 8
-  %cmp.not.i = icmp eq ptr %14, %call.i
-  br i1 %cmp.not.i, label %_Z21SetGenericPropertyPtrIN6Assimp21SharedPostProcessInfo4BaseEEvRSt3mapIjPT_St4lessIjESaISt4pairIKjS5_EEEPKcS5_Pb.exit, label %if.then10.i
+if.end8.i.i:                                      ; preds = %_ZNSt3mapIjPN6Assimp21SharedPostProcessInfo4BaseESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i.i
+  %second.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
+  %14 = load ptr, ptr %second.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %14, %call.i
+  br i1 %cmp.not.i.i, label %_ZN6Assimp21SharedPostProcessInfo11AddPropertyISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEEvPKcPT_.exit, label %if.then10.i.i
 
-if.then10.i:                                      ; preds = %if.end8.i
-  %isnull.i = icmp eq ptr %14, null
-  br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
+if.then10.i.i:                                    ; preds = %if.end8.i.i
+  %isnull.i.i = icmp eq ptr %14, null
+  br i1 %isnull.i.i, label %delete.end.i.i, label %delete.notnull.i.i
 
-delete.notnull.i:                                 ; preds = %if.then10.i
-  %vtable.i = load ptr, ptr %14, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %15 = load ptr, ptr %vfn.i, align 8
+delete.notnull.i.i:                               ; preds = %if.then10.i.i
+  %vtable.i.i = load ptr, ptr %14, align 8
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %15 = load ptr, ptr %vfn.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
-  br label %delete.end.i
+  br label %delete.end.i.i
 
-delete.end.i:                                     ; preds = %delete.notnull.i, %if.then10.i
-  store ptr %call.i, ptr %second.i, align 8
-  br label %_Z21SetGenericPropertyPtrIN6Assimp21SharedPostProcessInfo4BaseEEvRSt3mapIjPT_St4lessIjESaISt4pairIKjS5_EEEPKcS5_Pb.exit
+delete.end.i.i:                                   ; preds = %delete.notnull.i.i, %if.then10.i.i
+  store ptr %call.i, ptr %second.i.i, align 8
+  br label %_ZN6Assimp21SharedPostProcessInfo11AddPropertyISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEEvPKcPT_.exit
 
-_Z21SetGenericPropertyPtrIN6Assimp21SharedPostProcessInfo4BaseEEvRSt3mapIjPT_St4lessIjESaISt4pairIKjS5_EEEPKcS5_Pb.exit: ; preds = %if.end8.i, %delete.end.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp6.i)
+_ZN6Assimp21SharedPostProcessInfo11AddPropertyISt6vectorISt4pairINS_11SpatialSortEfESaIS5_EEEEvPKcPT_.exit: ; preds = %if.then.i.i, %if.end8.i.i, %delete.end.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp6.i.i)
   ret void
 }
 
@@ -2905,7 +2905,7 @@ _ZNSt12_Vector_baseISt4pairIN6Assimp11SpatialSortEfESaIS3_EEC2EmRKS4_.exit: ; pr
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt4pairIN6Assimp11SpatialSortEfESaIS3_EEC2EmRKS4_.exit, %for.inc.i.i.i.i
   %__cur.09.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i.i ], [ %call5.i.i.i.i2.i, %_ZNSt12_Vector_baseISt4pairIN6Assimp11SpatialSortEfESaIS3_EEC2EmRKS4_.exit ]
   %__n.addr.08.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.inc.i.i.i.i ], [ %__n, %_ZNSt12_Vector_baseISt4pairIN6Assimp11SpatialSortEfESaIS3_EEC2EmRKS4_.exit ]
-  invoke void @_ZN6Assimp11SpatialSortC1Ev(ptr noundef nonnull align 8 dereferenceable(49) %__cur.09.i.i.i.i)
+  invoke void @_ZN6Assimp11SpatialSortC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %__cur.09.i.i.i.i)
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -2926,7 +2926,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i, %lpad.i.i.i.i ]
-  tail call void @_ZN6Assimp11SpatialSortD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.04.i.i.i.i.i.i) #16
+  tail call void @_ZN6Assimp11SpatialSortD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %__first.addr.04.i.i.i.i.i.i) #16
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__cur.09.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont2.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !8
@@ -3545,7 +3545,7 @@ delete.notnull:                                   ; preds = %entry
 
 for.body.i.i.i.i:                                 ; preds = %delete.notnull, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %delete.notnull ]
-  tail call void @_ZN6Assimp11SpatialSortD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.04.i.i.i.i) #16
+  tail call void @_ZN6Assimp11SpatialSortD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %__first.addr.04.i.i.i.i) #16
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !8
@@ -3589,7 +3589,7 @@ delete.notnull.i:                                 ; preds = %entry
 
 for.body.i.i.i.i.i:                               ; preds = %delete.notnull.i, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %delete.notnull.i ]
-  tail call void @_ZN6Assimp11SpatialSortD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.04.i.i.i.i.i) #16
+  tail call void @_ZN6Assimp11SpatialSortD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %__first.addr.04.i.i.i.i.i) #16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8

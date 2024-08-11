@@ -442,12 +442,12 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   %63 = getelementptr inbounds i8, ptr %0, i64 488
   %64 = getelementptr inbounds i8, ptr %0, i64 864
   %65 = getelementptr inbounds i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %63, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %63, i8 0, i64 48, i1 false)
   %66 = ptrtoint ptr %64 to i64
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 544
   %68 = getelementptr inbounds i8, ptr %0, i64 592
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %67, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %67, i8 0, i64 48, i1 false)
   store i64 %66, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 600
   %70 = getelementptr inbounds i8, ptr %0, i64 616
@@ -474,16 +474,16 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   %85 = getelementptr inbounds i8, ptr %0, i64 832
   %86 = getelementptr inbounds i8, ptr %0, i64 848
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %85, i8 0, i64 52, i1 false)
-  invoke void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %64, i32 noundef 1048576)
+  invoke void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %64, i32 noundef 1048576)
           to label %87 unwind label %142
 
 87:                                               ; preds = %1
   %88 = getelementptr inbounds i8, ptr %0, i64 884
   store i8 0, ptr %88, align 4
   %89 = getelementptr inbounds i8, ptr %0, i64 896
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %89, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, i8 0, i64 41, i1 false)
   %90 = getelementptr inbounds i8, ptr %0, i64 960
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %90, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %90, i8 0, i64 41, i1 false)
   %91 = getelementptr inbounds i8, ptr %0, i64 1032
   %92 = getelementptr inbounds i8, ptr %0, i64 1048
   %93 = getelementptr inbounds i8, ptr %0, i64 1064
@@ -507,7 +507,7 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 32, i1 false)
   %105 = load double, ptr %17, align 8
   %106 = fptosi double %105 to i32
-  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %90, i32 noundef %106)
+  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(64) %90, i32 noundef %106)
           to label %.noexc unwind label %144
 
 .noexc:                                           ; preds = %87
@@ -543,7 +543,7 @@ define void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(12
   store double %116, ptr %117, align 8
   %118 = load double, ptr %20, align 8
   %119 = fptosi double %118 to i32
-  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %89, i32 noundef %119)
+  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(64) %89, i32 noundef %119)
           to label %.noexc20 unwind label %144
 
 .noexc20:                                         ; preds = %.loopexit88
@@ -1573,26 +1573,26 @@ define noundef i32 @_ZN5Gluco6Solver6newVarEbb(ptr noundef nonnull align 8 deref
   %11 = shl nsw i32 %9, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %12 = or disjoint i32 %11, 1
-  tail call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %12)
+  tail call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef %12)
   %13 = getelementptr inbounds i8, ptr %0, i64 504
   store i8 0, ptr %7, align 1
   call void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %14 = add nsw i32 %11, 2
-  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %14)
+  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef %14)
   store i8 0, ptr %6, align 1
   call void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %15 = getelementptr inbounds i8, ptr %0, i64 544
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %12)
+  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %15, i32 noundef %12)
   %16 = getelementptr inbounds i8, ptr %0, i64 560
   store i8 0, ptr %5, align 1
   call void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %14)
+  call void @_ZN5Gluco3vecINS0_INS_6Solver7WatcherEEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %15, i32 noundef %14)
   store i8 0, ptr %4, align 1
   call void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -8299,7 +8299,7 @@ _ZN5Gluco6bqueueIjE4pushEj.exit51:                ; preds = %223, %235
   %281 = add i32 %260, 4
   %282 = load i32, ptr %50, align 8
   %283 = add i32 %282, %281
-  invoke void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %49, i32 noundef %283)
+  invoke void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %49, i32 noundef %283)
           to label %.noexc unwind label %.loopexit115.loopexit.split-lp
 
 .noexc:                                           ; preds = %280
@@ -11280,8 +11280,8 @@ define void @_ZN5Gluco6Solver14garbageCollectEv(ptr noundef nonnull align 8 dere
   %6 = getelementptr inbounds i8, ptr %0, i64 880
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  call void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %8)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, i8 0, i64 20, i1 false)
+  call void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %2, i32 noundef %8)
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   store i8 0, ptr %9, align 4
   invoke void @_ZN5Gluco6Solver8relocAllERNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(1216) %0, ptr noundef nonnull align 8 dereferenceable(21) %2)
@@ -11448,7 +11448,7 @@ _ZN5Gluco6bqueueIjE5clearEb.exit:                 ; preds = %_ZN5Gluco4HeapINS_6
   %51 = getelementptr inbounds i8, ptr %0, i64 160
   %52 = load double, ptr %51, align 8
   %53 = fptosi double %52 to i32
-  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef %53)
+  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(64) %46, i32 noundef %53)
   store i32 0, ptr %49, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 992
   store i32 %53, ptr %54, align 8
@@ -11496,7 +11496,7 @@ _ZN5Gluco6bqueueIjE5clearEb.exit5:                ; preds = %_ZN5Gluco6bqueueIjE
   %69 = getelementptr inbounds i8, ptr %0, i64 168
   %70 = load double, ptr %69, align 8
   %71 = fptosi double %70 to i32
-  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef %71)
+  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(64) %64, i32 noundef %71)
   store i32 0, ptr %67, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 928
   store i32 %71, ptr %72, align 8
@@ -13476,98 +13476,98 @@ _ZN5Gluco13selectionSortIj11reduceDB_ltEEvPT_iT0_.exit: ; preds = %._crit_edge.i
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_Glucose.cpp() #23 section ".text.startup" {
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL15opt_incremental, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(41) @_ZL15opt_incremental, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco10BoolOptionE, i64 16), ptr @_ZL15opt_incremental, align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15opt_incremental, i64 40), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL5opt_K, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(72) @_ZL5opt_K, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL5opt_K, align 8
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 40), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 57), align 1
   store double 8.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL5opt_K, i64 64), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL5opt_R, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(72) @_ZL5opt_R, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL5opt_R, align 8
   store <2 x double> <double 1.000000e+00, double 5.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 40), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 57), align 1
   store double 1.400000e+00, ptr getelementptr inbounds (i8, ptr @_ZL5opt_R, i64 64), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL18opt_size_lbd_queue, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL18opt_size_lbd_queue, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL18opt_size_lbd_queue, align 8
   store i64 9223372032559808522, ptr getelementptr inbounds (i8, ptr @_ZL18opt_size_lbd_queue, i64 40), align 8
   store i32 50, ptr getelementptr inbounds (i8, ptr @_ZL18opt_size_lbd_queue, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL20opt_size_trail_queue, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL20opt_size_trail_queue, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL20opt_size_trail_queue, align 8
   store i64 9223372032559808522, ptr getelementptr inbounds (i8, ptr @_ZL20opt_size_trail_queue, i64 40), align 8
   store i32 5000, ptr getelementptr inbounds (i8, ptr @_ZL20opt_size_trail_queue, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL19opt_first_reduce_db, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL19opt_first_reduce_db, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL19opt_first_reduce_db, align 8
   store i64 9223372032559808512, ptr getelementptr inbounds (i8, ptr @_ZL19opt_first_reduce_db, i64 40), align 8
   store i32 2000, ptr getelementptr inbounds (i8, ptr @_ZL19opt_first_reduce_db, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17opt_inc_reduce_db, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL17opt_inc_reduce_db, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL17opt_inc_reduce_db, align 8
   store i64 9223372032559808512, ptr getelementptr inbounds (i8, ptr @_ZL17opt_inc_reduce_db, i64 40), align 8
   store i32 300, ptr getelementptr inbounds (i8, ptr @_ZL17opt_inc_reduce_db, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL22opt_spec_inc_reduce_db, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL22opt_spec_inc_reduce_db, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL22opt_spec_inc_reduce_db, align 8
   store i64 9223372032559808512, ptr getelementptr inbounds (i8, ptr @_ZL22opt_spec_inc_reduce_db, i64 40), align 8
   store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZL22opt_spec_inc_reduce_db, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL24opt_lb_lbd_frozen_clause, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL24opt_lb_lbd_frozen_clause, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL24opt_lb_lbd_frozen_clause, align 8
   store i64 9223372032559808512, ptr getelementptr inbounds (i8, ptr @_ZL24opt_lb_lbd_frozen_clause, i64 40), align 8
   store i32 30, ptr getelementptr inbounds (i8, ptr @_ZL24opt_lb_lbd_frozen_clause, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL28opt_lb_size_minimzing_clause, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL28opt_lb_size_minimzing_clause, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL28opt_lb_size_minimzing_clause, align 8
   store i64 9223372032559808515, ptr getelementptr inbounds (i8, ptr @_ZL28opt_lb_size_minimzing_clause, i64 40), align 8
   store i32 30, ptr getelementptr inbounds (i8, ptr @_ZL28opt_lb_size_minimzing_clause, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL27opt_lb_lbd_minimzing_clause, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL27opt_lb_lbd_minimzing_clause, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL27opt_lb_lbd_minimzing_clause, align 8
   store i64 9223372032559808515, ptr getelementptr inbounds (i8, ptr @_ZL27opt_lb_lbd_minimzing_clause, i64 40), align 8
   store i32 6, ptr getelementptr inbounds (i8, ptr @_ZL27opt_lb_lbd_minimzing_clause, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13opt_var_decay, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(72) @_ZL13opt_var_decay, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL13opt_var_decay, align 8
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 40), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 57), align 1
   store double 8.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL13opt_var_decay, i64 64), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_clause_decay, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(72) @_ZL16opt_clause_decay, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL16opt_clause_decay, align 8
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL16opt_clause_decay, i64 40), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_clause_decay, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_clause_decay, i64 57), align 1
   store double 0x3FEFF7CED916872B, ptr getelementptr inbounds (i8, ptr @_ZL16opt_clause_decay, i64 64), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL19opt_random_var_freq, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(72) @_ZL19opt_random_var_freq, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL19opt_random_var_freq, align 8
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL19opt_random_var_freq, i64 40), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL19opt_random_var_freq, i64 56), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL19opt_random_var_freq, i64 57), align 1
   store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL19opt_random_var_freq, i64 64), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL15opt_random_seed, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(72) @_ZL15opt_random_seed, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL15opt_random_seed, align 8
   store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (i8, ptr @_ZL15opt_random_seed, i64 40), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15opt_random_seed, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15opt_random_seed, i64 57), align 1
   store double 0x4195D9C3F4000000, ptr getelementptr inbounds (i8, ptr @_ZL15opt_random_seed, i64 64), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL14opt_ccmin_mode, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL14opt_ccmin_mode, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL14opt_ccmin_mode, align 8
   store i64 8589934592, ptr getelementptr inbounds (i8, ptr @_ZL14opt_ccmin_mode, i64 40), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL14opt_ccmin_mode, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_phase_saving, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.123)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(52) @_ZL16opt_phase_saving, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.123)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco9IntOptionE, i64 16), ptr @_ZL16opt_phase_saving, align 8
   store i64 8589934592, ptr getelementptr inbounds (i8, ptr @_ZL16opt_phase_saving, i64 40), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL16opt_phase_saving, i64 48), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_rnd_init_act, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(41) @_ZL16opt_rnd_init_act, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco10BoolOptionE, i64 16), ptr @_ZL16opt_rnd_init_act, align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_rnd_init_act, i64 40), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_garbage_frac, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(72) @_ZL16opt_garbage_frac, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12DoubleOptionE, i64 16), ptr @_ZL16opt_garbage_frac, align 8
   store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (i8, ptr @_ZL16opt_garbage_frac, i64 40), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_garbage_frac, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16opt_garbage_frac, i64 57), align 1
   store double 2.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL16opt_garbage_frac, i64 64), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @opt_certified_, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.108)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(41) @opt_certified_, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.108)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco10BoolOptionE, i64 16), ptr @opt_certified_, align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @opt_certified_, i64 40), align 8
-  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @opt_certified_file_, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133)
+  tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(48) @opt_certified_file_, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco12StringOptionE, i64 16), ptr @opt_certified_file_, align 8
   store ptr @.str.62, ptr getelementptr inbounds (i8, ptr @opt_certified_file_, i64 40), align 8
   ret void

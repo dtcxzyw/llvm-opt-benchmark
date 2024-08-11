@@ -2141,7 +2141,7 @@ _ZN5faiss3nsg5GraphINS_4NodeEED2Ev.exit:          ; preds = %_ZSt6fill_nIPiliET_
           to label %132 unwind label %151
 
 132:                                              ; preds = %_ZN5faiss3nsg5GraphINS_4NodeEED2Ev.exit
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 1, ptr nonnull @_ZNK5faiss3NSG11check_graphEv.omp_outlined, ptr nonnull %0)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 1, ptr nonnull @_ZNK5faiss3NSG11check_graphEv.omp_outlined, ptr nonnull align 8 dereferenceable(5048) %0)
   store i8 1, ptr %10, align 8
   br i1 %4, label %.preheader66, label %165
 
@@ -2452,7 +2452,7 @@ _ZN5faiss3nsg25storage_distance_computerEPKNS_5IndexE.exit: ; preds = %._ZN5fais
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %67
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %6, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %68, 0
   br i1 %.not.i.i.i.i.i, label %78, label %.noexc3.i
 
@@ -2602,10 +2602,6 @@ _ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %5
   %.not.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
 
-_ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i: ; preds = %_ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  store i64 0, ptr %7, align 8
-  br label %14
-
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %11 = mul nuw nsw i64 %9, 40
   %12 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #19
@@ -2613,25 +2609,25 @@ _ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i: ; preds = %_ZNSt6ve
   %13 = getelementptr inbounds %"class.std::mutex", ptr %12, i64 %9
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %12, i8 0, i64 %11, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %12, i64 %11
-  br label %14
+  br label %_ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i
 
-14:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i, %_ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i
-  %.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i ], [ %13, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %.sink.i, ptr %16, align 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %15, align 8
+_ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i: ; preds = %_ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %.lr.ph.preheader.i.i.i.i.i
+  %.sink.i = phi ptr [ %13, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorISt5mutexSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %.sink.i, ptr %15, align 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %14, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZN5faiss3NSG4linkEPNS_5IndexERKNS_3nsg5GraphIlEERNS4_INS_4NodeEEEb.omp_outlined.10, ptr nonnull %6, ptr nonnull %0, ptr nonnull %7, ptr nonnull %3)
-  %17 = load ptr, ptr %7, align 8
-  %.not.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt5mutexSaIS0_EED2Ev.exit, label %18
+  %16 = load ptr, ptr %7, align 8
+  %.not.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt5mutexSaIS0_EED2Ev.exit, label %17
 
-18:                                               ; preds = %14
-  call void @_ZdlPv(ptr noundef nonnull %17) #20
+17:                                               ; preds = %_ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i
+  call void @_ZdlPv(ptr noundef nonnull %16) #20
   br label %_ZNSt6vectorISt5mutexSaIS0_EED2Ev.exit
 
-_ZNSt6vectorISt5mutexSaIS0_EED2Ev.exit:           ; preds = %14, %18
+_ZNSt6vectorISt5mutexSaIS0_EED2Ev.exit:           ; preds = %_ZNSt12_Vector_baseISt5mutexSaIS0_EEC2EmRKS1_.exit.thread.i, %17
   ret void
 }
 
@@ -2765,7 +2761,7 @@ define noundef i32 @_ZN5faiss3NSG9tree_growEPNS_5IndexERSt6vectorIiSaIiEE(ptr no
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i15, label %.noexc3.i
 
@@ -2788,7 +2784,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %3
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i15: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %18 = getelementptr inbounds i8, ptr %4, i64 24
   store i8 1, ptr %18, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, i8 0, i64 24, i1 false)
   br label %_ZN5faiss12VisitedTableC2Ei.exit21
 
 .noexc3.i17:                                      ; preds = %17, %.noexc3.i
@@ -2797,7 +2793,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i15: ; preds = %_ZNSt6vect
   store ptr %.0.i.i.i.i.i.i.ph, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 24
   store i8 1, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, i8 0, i64 24, i1 false)
   %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #19
           to label %.noexc20 unwind label %_ZN5faiss12VisitedTableD2Ev.exit.thread
 
@@ -3557,7 +3553,7 @@ define internal void @_ZN5faiss3NSG4linkEPNS_5IndexERKNS_3nsg5GraphIlEERNS4_INS_
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %9, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i32 %23, 0
   br i1 %.not.i.i.i.i.i, label %33, label %.noexc3.i
 
@@ -4950,7 +4946,7 @@ define void @_ZN5faiss3NSG17add_reverse_linksEiRSt6vectorISt5mutexSaIS2_EERNS_16
   %22 = sext i32 %17 to i64
   %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds %"class.std::mutex", ptr %23, i64 %22
-  %25 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %24) #13
+  %25 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %24) #13
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader, label %29
 
@@ -4960,7 +4956,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader: ; preds = %19
   br i1 %27, label %.lr.ph, label %.critedge76.thread
 
 .critedge76.thread:                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader
-  %28 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %24) #13
+  %28 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %24) #13
   br label %74
 
 29:                                               ; preds = %19
@@ -5085,18 +5081,18 @@ _ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vector
 
 68:                                               ; preds = %.loopexit.split-lp188, %.loopexit187
   %lpad.phi191 = phi { ptr, i32 } [ %lpad.loopexit189, %.loopexit187 ], [ %lpad.loopexit.split-lp190, %.loopexit.split-lp188 ]
-  %69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %24) #13
+  %69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %24) #13
   br label %_ZNSt6vectorIN5faiss4NodeESaIS1_EED2Ev.exit
 
 70:                                               ; preds = %38
-  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %24) #13
+  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %24) #13
   br label %_ZNSt6vectorIN5faiss4NodeESaIS1_EED2Ev.exit122
 
 .critedge76:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit
   %.sroa.23.1.lcssa = phi ptr [ %.sroa.23.1262, %.lr.ph ], [ %.sroa.23.3, %_ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit ]
   %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1263, %.lr.ph ], [ %.sroa.12.3, %_ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit ]
   %.sroa.0151.2.lcssa = phi ptr [ %.sroa.0151.2264, %.lr.ph ], [ %.sroa.0151.5, %_ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit ]
-  %72 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %24) #13
+  %72 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %24) #13
   %.not.i81 = icmp eq ptr %.sroa.12.1.lcssa, %.sroa.23.1.lcssa
   br i1 %.not.i81, label %74, label %73
 
@@ -5354,7 +5350,7 @@ _ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit117: ; preds = %118, %132
   %.lcssa214 = phi i64 [ 1, %_ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit105 ], [ %154, %_ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit117 ], [ %112, %.lr.ph281 ]
   %158 = load ptr, ptr %2, align 8
   %159 = getelementptr inbounds %"class.std::mutex", ptr %158, i64 %22
-  %160 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %159) #13
+  %160 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %159) #13
   %.not.i.i118 = icmp eq i32 %160, 0
   br i1 %.not.i.i118, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit120.preheader, label %161
 
@@ -5386,11 +5382,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit120:       ; preds = %_ZNSt10lock_guardIS
   br i1 %exitcond361.not, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit120._crit_edge.thread, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit120, !llvm.loop !64
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit120._crit_edge.thread: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit120
-  %171 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %159) #13
+  %171 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %159) #13
   br label %173
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit120._crit_edge: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit120.preheader
-  %172 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %159) #13
+  %172 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %159) #13
   %.not.i.i.i121 = icmp eq ptr %.sroa.0131.3.lcssa, null
   br i1 %.not.i.i.i121, label %_ZNSt6vectorIN5faiss4NodeESaIS1_EED2Ev.exit122.thread, label %173
 
@@ -5401,7 +5397,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit120._crit_edge: ; preds = %_ZNSt10lock_gu
 174:                                              ; preds = %_ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit91
   %175 = load ptr, ptr %2, align 8
   %176 = getelementptr inbounds %"class.std::mutex", ptr %175, i64 %22
-  %177 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %176) #13
+  %177 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %176) #13
   %.not.i.i123 = icmp eq i32 %177, 0
   br i1 %.not.i.i123, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit125.preheader, label %184
 
@@ -5446,7 +5442,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit125:       ; preds = %185
   br label %.loopexit186
 
 .loopexit186:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit125, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit125.preheader, %190
-  %192 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %176) #13
+  %192 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %176) #13
   br label %_ZNSt6vectorIN5faiss4NodeESaIS1_EED2Ev.exit122
 
 _ZNSt6vectorIN5faiss4NodeESaIS1_EED2Ev.exit122:   ; preds = %173, %.loopexit186, %70

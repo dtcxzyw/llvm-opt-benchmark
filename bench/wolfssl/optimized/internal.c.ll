@@ -1041,25 +1041,52 @@ if.end7:                                          ; preds = %AddSuiteHashSigAlgo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @InitSuitesHashSigAlgo(ptr noundef %suites, i32 noundef %haveECDSAsig, i32 noundef %haveRSAsig, i32 noundef %haveFalconSig, i32 noundef %haveDilithiumSig, i32 noundef %haveAnon, i32 noundef %tls1_2, i32 noundef %keySz) local_unnamed_addr #2 {
+define void @InitSuitesHashSigAlgo(ptr nocapture noundef writeonly %suites, i32 noundef %haveECDSAsig, i32 noundef %haveRSAsig, i32 noundef %haveFalconSig, i32 noundef %haveDilithiumSig, i32 noundef %haveAnon, i32 noundef %tls1_2, i32 noundef %keySz) local_unnamed_addr #2 {
 entry:
   %hashSigAlgo = getelementptr inbounds i8, ptr %suites, i64 304
-  %hashSigAlgoSz = getelementptr inbounds i8, ptr %suites, i64 2
-  %tobool.not.i = icmp ne i32 %haveECDSAsig, 0
-  %spec.select.i = zext i1 %tobool.not.i to i32
+  %tobool.not.i.not = icmp eq i32 %haveECDSAsig, 0
   %tobool1.not.i = icmp eq i32 %haveRSAsig, 0
-  %or3.i = or disjoint i32 %spec.select.i, 2
-  %have.1.i = select i1 %tobool1.not.i, i32 %spec.select.i, i32 %or3.i
-  %tobool5.not.i = icmp eq i32 %haveFalconSig, 0
-  %or7.i = or disjoint i32 %have.1.i, 8
-  %have.2.i = select i1 %tobool5.not.i, i32 %have.1.i, i32 %or7.i
-  %tobool9.not.i = icmp eq i32 %haveDilithiumSig, 0
-  %or11.i = or disjoint i32 %have.2.i, 16
-  %have.3.i = select i1 %tobool9.not.i, i32 %have.2.i, i32 %or11.i
-  %tobool13.not.i = icmp eq i32 %haveAnon, 0
-  %or15.i = or i32 %have.3.i, 32
-  %have.4.i = select i1 %tobool13.not.i, i32 %have.3.i, i32 %or15.i
-  tail call void @InitSuitesHashSigAlgo_ex2(ptr noundef nonnull %hashSigAlgo, i32 noundef %have.4.i, i32 noundef %tls1_2, i32 poison, ptr noundef nonnull %hashSigAlgoSz)
+  br i1 %tobool.not.i.not, label %if.end.i, label %if.then.i
+
+if.then.i:                                        ; preds = %entry
+  store <8 x i8> <i8 6, i8 3, i8 5, i8 3, i8 4, i8 3, i8 2, i8 3>, ptr %hashSigAlgo, align 1
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.then.i, %entry
+  %idx.0.i = phi i16 [ 0, %entry ], [ 8, %if.then.i ]
+  br i1 %tobool1.not.i, label %InitSuitesHashSigAlgo_ex2.exit, label %if.then3.i
+
+if.then3.i:                                       ; preds = %if.end.i
+  %tobool4.not.i = icmp eq i32 %tls1_2, 0
+  br i1 %tobool4.not.i, label %if.end6.i, label %if.then5.i
+
+if.then5.i:                                       ; preds = %if.then3.i
+  %idxprom.i.i = zext nneg i16 %idx.0.i to i64
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %hashSigAlgo, i64 %idxprom.i.i
+  store <8 x i8> <i8 8, i8 6, i8 8, i8 11, i8 8, i8 5, i8 8, i8 10>, ptr %arrayidx.i.i, align 1
+  %arrayidx.i74.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  store <4 x i8> <i8 8, i8 4, i8 8, i8 9>, ptr %arrayidx.i74.i, align 1
+  %storemerge.i83.i = add nuw nsw i16 %idx.0.i, 12
+  br label %if.end6.i
+
+if.end6.i:                                        ; preds = %if.then5.i, %if.then3.i
+  %idx.2.i = phi i16 [ %idx.0.i, %if.then3.i ], [ %storemerge.i83.i, %if.then5.i ]
+  %idxprom34.i89.i = zext nneg i16 %idx.2.i to i64
+  %arrayidx35.i90.i = getelementptr inbounds i8, ptr %hashSigAlgo, i64 %idxprom34.i89.i
+  store <8 x i8> <i8 6, i8 1, i8 5, i8 1, i8 4, i8 1, i8 3, i8 1>, ptr %arrayidx35.i90.i, align 1
+  %0 = zext nneg i16 %idx.2.i to i64
+  %1 = getelementptr i8, ptr %hashSigAlgo, i64 %0
+  %arrayidx35.i126.i = getelementptr i8, ptr %1, i64 8
+  store i8 2, ptr %arrayidx35.i126.i, align 1
+  %arrayidx39.i128.i = getelementptr i8, ptr %1, i64 9
+  store i8 1, ptr %arrayidx39.i128.i, align 1
+  %storemerge.i130.i = add nuw nsw i16 %idx.2.i, 10
+  br label %InitSuitesHashSigAlgo_ex2.exit
+
+InitSuitesHashSigAlgo_ex2.exit:                   ; preds = %if.end.i, %if.end6.i
+  %idx.1.i = phi i16 [ %idx.0.i, %if.end.i ], [ %storemerge.i130.i, %if.end6.i ]
+  %hashSigAlgoSz = getelementptr inbounds i8, ptr %suites, i64 2
+  store i16 %idx.1.i, ptr %hashSigAlgoSz, align 2
   ret void
 }
 

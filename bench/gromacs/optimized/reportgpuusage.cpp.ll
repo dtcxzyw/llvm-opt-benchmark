@@ -152,8 +152,8 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   %.not17.i = icmp eq ptr %56, %31
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
-common.resume:                                    ; preds = %.loopexit.split-lp, %57
-  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %.pn.pn, %.loopexit.split-lp ]
+common.resume:                                    ; preds = %170, %57
+  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %.pn.pn, %170 ]
   resume { ptr, i32 } %common.resume.op
 
 57:                                               ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
@@ -441,29 +441,35 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
   %159 = icmp eq ptr %158, null
   br i1 %159, label %168, label %160
 
+.loopexit.split-lp:                               ; preds = %.loopexit52, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %155, %145, %135, %130, %128, %126, %124, %96, %87
+  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %156, %155 ], [ %146, %145 ], [ %131, %130 ], [ %136, %135 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %97, %96 ], [ %lpad.loopexit, %.loopexit52 ], [ %lpad.loopexit53, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp54, %.loopexit.split-lp.loopexit.split-lp ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
+  br label %170
+
 160:                                              ; preds = %157
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #12
   %161 = getelementptr inbounds i8, ptr %22, i64 32
   store i8 0, ptr %161, align 8
-  %162 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %162 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN3gmx14LogEntryWriter10appendTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %166
 
 _ZN3gmx14LogEntryWriter10appendTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %160
   %163 = load ptr, ptr %158, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
-  invoke void %165(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull align 8 dereferenceable(33) %22)
+  invoke void %165(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull align 8 dereferenceable(40) %22)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %166
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEntryWriter10appendTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #12
   br label %168
 
 166:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %160
   %167 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #12
+  br label %170
 
 168:                                              ; preds = %157, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
@@ -472,10 +478,8 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 169:                                              ; preds = %_ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit, %168
   ret void
 
-.loopexit.split-lp:                               ; preds = %87, %96, %124, %126, %128, %130, %135, %145, %155, %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit52, %166
-  %.sink72 = phi ptr [ %22, %166 ], [ %11, %.loopexit52 ], [ %11, %.loopexit.split-lp.loopexit.split-lp ], [ %11, %.loopexit.split-lp.loopexit ], [ %11, %155 ], [ %11, %145 ], [ %11, %135 ], [ %11, %130 ], [ %11, %128 ], [ %11, %126 ], [ %11, %124 ], [ %11, %96 ], [ %11, %87 ]
-  %.pn.pn = phi { ptr, i32 } [ %167, %166 ], [ %lpad.loopexit, %.loopexit52 ], [ %lpad.loopexit.split-lp54, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit53, %.loopexit.split-lp.loopexit ], [ %156, %155 ], [ %146, %145 ], [ %136, %135 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %97, %96 ], [ %88, %87 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink72) #12
+170:                                              ; preds = %166, %.loopexit.split-lp
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %167, %166 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
   br label %common.resume
 }

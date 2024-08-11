@@ -4142,15 +4142,15 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   %60 = getelementptr inbounds ptr, ptr %.val214.i, i64 %indvars.iv254.i
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.25, ptr noundef %62) #17
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.25, ptr noundef %62) #17
   %64 = getelementptr inbounds i8, ptr %61, i64 8
   %65 = load float, ptr %64, align 8
   %66 = fpext float %65 to double
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.26, double noundef %66) #17
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.26, double noundef %66) #17
   %68 = getelementptr inbounds i8, ptr %61, i64 12
   %69 = load float, ptr %68, align 4
   %70 = fpext float %69 to double
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.27, double noundef %70) #17
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.27, double noundef %70) #17
   %72 = getelementptr i8, ptr %61, i64 20
   %.val215222.i = load i32, ptr %72, align 4
   %73 = icmp sgt i32 %.val215222.i, 0
@@ -4170,7 +4170,7 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   %79 = getelementptr inbounds float, ptr %.val217.i, i64 %indvars.iv.i
   %80 = load float, ptr %79, align 4
   %81 = fpext float %80 to double
-  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.28, i32 noundef %78, double noundef %81) #17
+  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.28, i32 noundef %78, double noundef %81) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val215.i = load i32, ptr %72, align 4
   %83 = sext i32 %.val215.i to i64
@@ -4178,7 +4178,7 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %84, label %76, label %._crit_edge.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %76, %59
-  %85 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 5, i64 1, ptr %3)
+  %85 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 5, i64 1, ptr nonnull %3)
   %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
   %.val204.i = load i32, ptr %53, align 4
   %86 = sext i32 %.val204.i to i64
@@ -4197,7 +4197,7 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   %91 = getelementptr inbounds ptr, ptr %.val213.i, i64 %indvars.iv260.i
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %92, align 8
-  %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.30, ptr noundef %93) #17
+  %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.30, ptr noundef %93) #17
   %95 = getelementptr i8, ptr %92, i64 12
   %.val205228.i = load i32, ptr %95, align 4
   %96 = icmp sgt i32 %.val205228.i, 0
@@ -4222,7 +4222,7 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   %.val212.i = load ptr, ptr %99, align 8
   %107 = getelementptr inbounds ptr, ptr %.val212.i, i64 %indvars.iv257.i
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.31, double noundef %103, double noundef %106, ptr noundef %108) #17
+  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, double noundef %103, double noundef %106, ptr noundef %108) #17
   %indvars.iv.next258.i = add nuw nsw i64 %indvars.iv257.i, 1
   %.val205.i = load i32, ptr %95, align 4
   %110 = sext i32 %.val205.i to i64
@@ -4230,7 +4230,7 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %111, label %100, label %.critedge.i, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %100, %90
-  %112 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 5, i64 1, ptr %3)
+  %112 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 5, i64 1, ptr nonnull %3)
   %indvars.iv.next261.i = add nuw nsw i64 %indvars.iv260.i, 1
   %.val203.i = load i32, ptr %56, align 4
   %113 = sext i32 %.val203.i to i64
@@ -4259,25 +4259,25 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %.not193.i, label %124, label %.critedge4.i
 
 124:                                              ; preds = %121
-  %fputc194.i = tail call i32 @fputc(i32 10, ptr %3)
+  %fputc194.i = tail call i32 @fputc(i32 10, ptr nonnull %3)
   %125 = load ptr, ptr %118, align 8
-  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.32, ptr noundef %125) #17
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.32, ptr noundef %125) #17
   %127 = getelementptr inbounds i8, ptr %118, i64 64
   %128 = load i32, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %118, i64 68
   %130 = load i32, ptr %129, align 4
-  %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.33, i32 noundef %128, i32 noundef %130) #17
+  %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.33, i32 noundef %128, i32 noundef %130) #17
   %132 = getelementptr inbounds i8, ptr %118, i64 24
   %133 = load float, ptr %132, align 8
   %134 = fpext float %133 to double
-  %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.34, double noundef %134) #17
+  %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, double noundef %134) #17
   %136 = getelementptr inbounds i8, ptr %118, i64 28
   %137 = load float, ptr %136, align 4
   %138 = fpext float %137 to double
-  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.35, double noundef %138) #17
+  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.35, double noundef %138) #17
   %140 = getelementptr inbounds i8, ptr %118, i64 40
   %141 = load i32, ptr %140, align 8
-  %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.36, i32 noundef %141) #17
+  %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.36, i32 noundef %141) #17
   %143 = load i32, ptr %127, align 8
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %.lr.ph241.i, label %.critedge8.preheader.i
@@ -4304,17 +4304,17 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   %151 = getelementptr inbounds ptr, ptr %.val209.i, i64 %indvars.iv266.i
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %152, align 8
-  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.37, ptr noundef %153) #17
-  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39) #17
+  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.37, ptr noundef %153) #17
+  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39) #17
   %156 = getelementptr inbounds i8, ptr %152, i64 20
   %157 = load float, ptr %156, align 4
   %158 = fpext float %157 to double
-  %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.40, double noundef %158) #17
+  %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.40, double noundef %158) #17
   %160 = getelementptr inbounds i8, ptr %152, i64 16
   %161 = load float, ptr %160, align 8
   %162 = fpext float %161 to double
-  %163 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.41, double noundef %162) #17
-  %164 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 6, i64 1, ptr %3)
+  %163 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.41, double noundef %162) #17
+  %164 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 6, i64 1, ptr nonnull %3)
   %indvars.iv.next267.i = add nuw nsw i64 %indvars.iv266.i, 1
   %165 = load i32, ptr %127, align 8
   %166 = sext i32 %165 to i64
@@ -4327,27 +4327,27 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   %169 = getelementptr inbounds ptr, ptr %.val208.i, i64 %indvars.iv272.i
   %170 = load ptr, ptr %169, align 8
   %171 = load ptr, ptr %170, align 8
-  %172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.37, ptr noundef %171) #17
-  %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.43) #17
+  %172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.37, ptr noundef %171) #17
+  %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.43) #17
   %174 = getelementptr inbounds i8, ptr %170, i64 32
   %175 = load float, ptr %174, align 8
   %176 = fpext float %175 to double
-  %177 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.44, double noundef %176) #17
+  %177 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.44, double noundef %176) #17
   %178 = getelementptr inbounds i8, ptr %170, i64 36
   %179 = load float, ptr %178, align 4
   %180 = fpext float %179 to double
-  %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.45, double noundef %180) #17
+  %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, double noundef %180) #17
   %182 = getelementptr inbounds i8, ptr %170, i64 40
   %183 = load ptr, ptr %182, align 8
   %.not195.i = icmp eq ptr %183, null
   %spec.select198.i = select i1 %.not195.i, ptr @.str.47, ptr %183
-  %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.46, ptr noundef nonnull %spec.select198.i) #17
-  %185 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 24, i64 1, ptr %3)
+  %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, ptr noundef nonnull %spec.select198.i) #17
+  %185 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 24, i64 1, ptr nonnull %3)
   %186 = getelementptr i8, ptr %170, i64 56
   %.val220.i = load ptr, ptr %186, align 8
   %187 = load i32, ptr %127, align 8
-  tail call void @Extra_PrintHex(ptr noundef %3, ptr noundef %.val220.i, i32 noundef %187) #17
-  %188 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 5, i64 1, ptr %3)
+  tail call void @Extra_PrintHex(ptr noundef nonnull %3, ptr noundef %.val220.i, i32 noundef %187) #17
+  %188 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 5, i64 1, ptr nonnull %3)
   %189 = getelementptr i8, ptr %170, i64 68
   %.val199242.i = load i32, ptr %189, align 4
   %190 = icmp sgt i32 %.val199242.i, 0
@@ -4372,9 +4372,9 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   %198 = getelementptr i8, ptr %194, i64 16
   %.val206.i = load ptr, ptr %198, align 8
   %199 = load ptr, ptr %.val206.i, align 8
-  %200 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 17, i64 1, ptr %3)
+  %200 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 17, i64 1, ptr nonnull %3)
   %201 = load ptr, ptr %194, align 8
-  %202 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.51, ptr noundef %201) #17
+  %202 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.51, ptr noundef %201) #17
   %203 = getelementptr inbounds i8, ptr %199, i64 8
   %204 = load i32, ptr %203, align 8
   switch i32 %204, label %211 [
@@ -4384,35 +4384,35 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   ]
 
 205:                                              ; preds = %197
-  %206 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 39, i64 1, ptr %3)
+  %206 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 39, i64 1, ptr nonnull %3)
   br label %211
 
 207:                                              ; preds = %197
-  %208 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 39, i64 1, ptr %3)
+  %208 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 39, i64 1, ptr nonnull %3)
   br label %211
 
 209:                                              ; preds = %197
-  %210 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 34, i64 1, ptr %3)
+  %210 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 34, i64 1, ptr nonnull %3)
   br label %211
 
 211:                                              ; preds = %209, %207, %205, %197
-  %212 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 22, i64 1, ptr %3)
+  %212 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 22, i64 1, ptr nonnull %3)
   %213 = getelementptr inbounds i8, ptr %199, i64 24
-  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef %3, ptr noundef nonnull %213)
-  %214 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr %3)
-  %215 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 22, i64 1, ptr %3)
+  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull %3, ptr noundef nonnull %213)
+  %214 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr nonnull %3)
+  %215 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 22, i64 1, ptr nonnull %3)
   %216 = getelementptr inbounds i8, ptr %199, i64 200
-  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef %3, ptr noundef nonnull %216)
-  %217 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr %3)
-  %218 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 28, i64 1, ptr %3)
+  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull %3, ptr noundef nonnull %216)
+  %217 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr nonnull %3)
+  %218 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 28, i64 1, ptr nonnull %3)
   %219 = getelementptr inbounds i8, ptr %199, i64 376
-  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef %3, ptr noundef nonnull %219)
-  %220 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr %3)
-  %221 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 28, i64 1, ptr %3)
+  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull %3, ptr noundef nonnull %219)
+  %220 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr nonnull %3)
+  %221 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 28, i64 1, ptr nonnull %3)
   %222 = getelementptr inbounds i8, ptr %199, i64 552
-  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef %3, ptr noundef nonnull %222)
-  %223 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr %3)
-  %224 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 8, i64 1, ptr %3)
+  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull %3, ptr noundef nonnull %222)
+  %223 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr nonnull %3)
+  %224 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 8, i64 1, ptr nonnull %3)
   %.val199.pre.i = load i32, ptr %189, align 4
   br label %225
 
@@ -4424,7 +4424,7 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %227, label %192, label %.critedge12.i, !llvm.loop !35
 
 .critedge12.i:                                    ; preds = %225, %168
-  %228 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 6, i64 1, ptr %3)
+  %228 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 6, i64 1, ptr nonnull %3)
   %indvars.iv.next273.i = add nsw i64 %indvars.iv272.i, 1
   %.val200.i = load i32, ptr %146, align 4
   %229 = sext i32 %.val200.i to i64
@@ -4432,7 +4432,7 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %230, label %168, label %.critedge10.i, !llvm.loop !36
 
 .critedge10.i:                                    ; preds = %.critedge12.i, %.critedge8.preheader.i
-  %231 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 4, i64 1, ptr %3)
+  %231 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 4, i64 1, ptr nonnull %3)
   %.val201.pre.i = load i32, ptr %88, align 4
   br label %.critedge4.i
 
@@ -4444,7 +4444,7 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %233, label %116, label %Abc_SclWriteLibraryText.exit, !llvm.loop !37
 
 Abc_SclWriteLibraryText.exit:                     ; preds = %.critedge4.i, %.critedge2.preheader.i
-  %234 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 3, i64 1, ptr %3)
+  %234 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 3, i64 1, ptr nonnull %3)
   %235 = tail call i32 @fclose(ptr noundef nonnull %3)
   %.val = load i32, ptr %88, align 4
   %236 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.val, ptr noundef %0)

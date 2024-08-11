@@ -12045,7 +12045,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv5111 = phi i64 [ 0, %.lr.ph4754.preheader ], [ %indvars.iv.next5112, %Gia_ManAppendCo.exit ]
   %628 = getelementptr inbounds i32, ptr %566, i64 %indvars.iv5111
   %629 = load i32, ptr %628, align 4
-  %630 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
+  %630 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %100)
   %631 = load i64, ptr %630, align 4
   %632 = or i64 %631, 2147483648
   store i64 %632, ptr %630, align 4
@@ -12172,7 +12172,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %indvars.iv5116 = phi i64 [ 0, %.lr.ph4756.preheader ], [ %indvars.iv.next5117, %Gia_ManAppendCo.exit2909 ]
   %698 = getelementptr inbounds i32, ptr %567, i64 %indvars.iv5116
   %699 = load i32, ptr %698, align 4
-  %700 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
+  %700 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %100)
   %701 = load i64, ptr %700, align 4
   %702 = or i64 %701, 2147483648
   store i64 %702, ptr %700, align 4
@@ -12294,7 +12294,7 @@ Gia_ManAppendCo.exit2909:                         ; preds = %Vec_IntPush.exit.i2
 .lr.ph4758:                                       ; preds = %.preheader4682, %Gia_ManAppendCo.exit2922
   %.421434757 = phi i32 [ %835, %Gia_ManAppendCo.exit2922 ], [ 0, %.preheader4682 ]
   %767 = load i32, ptr %565, align 4
-  %768 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
+  %768 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %100)
   %769 = load i64, ptr %768, align 4
   %770 = or i64 %769, 2147483648
   store i64 %770, ptr %768, align 4
@@ -13176,7 +13176,7 @@ Gia_ManAppendCo.exit3012:                         ; preds = %Vec_IntPush.exit.i3
 
 1193:                                             ; preds = %1192, %Vec_IntPush.exit3030
   %.921484773 = phi i32 [ 0, %1192 ], [ %1274, %Vec_IntPush.exit3030 ]
-  %1194 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
+  %1194 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %100)
   %1195 = load i64, ptr %1194, align 4
   %1196 = or i64 %1195, 2684354559
   store i64 %1196, ptr %1194, align 4
@@ -13602,7 +13602,7 @@ Vec_IntPush.exit3045:                             ; preds = %.Vec_IntGrow.exit10
   %.val2651 = load i32, ptr %94, align 4
   %1370 = xor i32 %.1221514873, -1
   %1371 = add i32 %.val2651, %1370
-  %1372 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
+  %1372 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %100)
   %1373 = load i64, ptr %1372, align 4
   %1374 = or i64 %1373, 2684354559
   store i64 %1374, ptr %1372, align 4
@@ -16150,7 +16150,7 @@ Vec_IntPush.exit3382:                             ; preds = %.Vec_IntGrow.exit10
   %.03948.i = phi i32 [ 0, %.lr.ph50.preheader.i ], [ %2506, %.lr.ph50.i ]
   %2504 = getelementptr inbounds i32, ptr %566, i64 %indvars.iv62.i
   %2505 = load i32, ptr %2504, align 4
-  %2506 = tail call i32 @Gia_ManHashOr(ptr noundef %100, i32 noundef %.03948.i, i32 noundef %2505) #21
+  %2506 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %100, i32 noundef %.03948.i, i32 noundef %2505) #21
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
   br i1 %exitcond66.not.i, label %Wlc_BlastReduction.exit, label %.lr.ph50.i, !llvm.loop !25
@@ -16278,7 +16278,7 @@ Vec_IntPush.exit3395:                             ; preds = %.Vec_IntGrow.exit10
   %.03948.i3401 = phi i32 [ 0, %.lr.ph50.preheader.i3397 ], [ %2550, %.lr.ph50.i3399 ]
   %2548 = getelementptr inbounds i32, ptr %566, i64 %indvars.iv62.i3400
   %2549 = load i32, ptr %2548, align 4
-  %2550 = tail call i32 @Gia_ManHashOr(ptr noundef %100, i32 noundef %.03948.i3401, i32 noundef %2549) #21
+  %2550 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %100, i32 noundef %.03948.i3401, i32 noundef %2549) #21
   %indvars.iv.next63.i3402 = add nuw nsw i64 %indvars.iv62.i3400, 1
   %exitcond66.not.i3403 = icmp eq i64 %indvars.iv.next63.i3402, %wide.trip.count65.i3398
   br i1 %exitcond66.not.i3403, label %Wlc_BlastReduction.exit3404, label %.lr.ph50.i3399, !llvm.loop !25
@@ -16297,7 +16297,7 @@ Wlc_BlastReduction.exit3404:                      ; preds = %.lr.ph50.i3399, %25
   %.03948.i3410 = phi i32 [ 0, %.lr.ph50.preheader.i3406 ], [ %2554, %.lr.ph50.i3408 ]
   %2552 = getelementptr inbounds i32, ptr %567, i64 %indvars.iv62.i3409
   %2553 = load i32, ptr %2552, align 4
-  %2554 = tail call i32 @Gia_ManHashOr(ptr noundef %100, i32 noundef %.03948.i3410, i32 noundef %2553) #21
+  %2554 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %100, i32 noundef %.03948.i3410, i32 noundef %2553) #21
   %indvars.iv.next63.i3411 = add nuw nsw i64 %indvars.iv62.i3409, 1
   %exitcond66.not.i3412 = icmp eq i64 %indvars.iv.next63.i3411, %wide.trip.count65.i3407
   br i1 %exitcond66.not.i3412, label %Wlc_BlastReduction.exit3413, label %.lr.ph50.i3408, !llvm.loop !25
@@ -16426,7 +16426,7 @@ Vec_IntPush.exit3428:                             ; preds = %.Vec_IntGrow.exit10
   %.03948.i3434 = phi i32 [ 0, %.lr.ph50.preheader.i3430 ], [ %2599, %.lr.ph50.i3432 ]
   %2597 = getelementptr inbounds i32, ptr %566, i64 %indvars.iv62.i3433
   %2598 = load i32, ptr %2597, align 4
-  %2599 = tail call i32 @Gia_ManHashOr(ptr noundef %100, i32 noundef %.03948.i3434, i32 noundef %2598) #21
+  %2599 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %100, i32 noundef %.03948.i3434, i32 noundef %2598) #21
   %indvars.iv.next63.i3435 = add nuw nsw i64 %indvars.iv62.i3433, 1
   %exitcond66.not.i3436 = icmp eq i64 %indvars.iv.next63.i3435, %wide.trip.count65.i3431
   br i1 %exitcond66.not.i3436, label %Wlc_BlastReduction.exit3437, label %.lr.ph50.i3432, !llvm.loop !25
@@ -16445,7 +16445,7 @@ Wlc_BlastReduction.exit3437:                      ; preds = %.lr.ph50.i3432, %25
   %.03948.i3443 = phi i32 [ 0, %.lr.ph50.preheader.i3439 ], [ %2603, %.lr.ph50.i3441 ]
   %2601 = getelementptr inbounds i32, ptr %567, i64 %indvars.iv62.i3442
   %2602 = load i32, ptr %2601, align 4
-  %2603 = tail call i32 @Gia_ManHashOr(ptr noundef %100, i32 noundef %.03948.i3443, i32 noundef %2602) #21
+  %2603 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %100, i32 noundef %.03948.i3443, i32 noundef %2602) #21
   %indvars.iv.next63.i3444 = add nuw nsw i64 %indvars.iv62.i3442, 1
   %exitcond66.not.i3445 = icmp eq i64 %indvars.iv.next63.i3444, %wide.trip.count65.i3440
   br i1 %exitcond66.not.i3445, label %Wlc_BlastReduction.exit3446, label %.lr.ph50.i3441, !llvm.loop !25
@@ -16573,7 +16573,7 @@ Vec_IntPush.exit3461:                             ; preds = %.Vec_IntGrow.exit10
   %.03948.i3467 = phi i32 [ 0, %.lr.ph50.preheader.i3463 ], [ %2647, %.lr.ph50.i3465 ]
   %2645 = getelementptr inbounds i32, ptr %566, i64 %indvars.iv62.i3466
   %2646 = load i32, ptr %2645, align 4
-  %2647 = tail call i32 @Gia_ManHashOr(ptr noundef %100, i32 noundef %.03948.i3467, i32 noundef %2646) #21
+  %2647 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %100, i32 noundef %.03948.i3467, i32 noundef %2646) #21
   %indvars.iv.next63.i3468 = add nuw nsw i64 %indvars.iv62.i3466, 1
   %exitcond66.not.i3469 = icmp eq i64 %indvars.iv.next63.i3468, %wide.trip.count65.i3464
   br i1 %exitcond66.not.i3469, label %Wlc_BlastReduction.exit3470, label %.lr.ph50.i3465, !llvm.loop !25
@@ -16592,7 +16592,7 @@ Wlc_BlastReduction.exit3470:                      ; preds = %.lr.ph50.i3465, %26
   %.03948.i3476 = phi i32 [ 0, %.lr.ph50.preheader.i3472 ], [ %2651, %.lr.ph50.i3474 ]
   %2649 = getelementptr inbounds i32, ptr %567, i64 %indvars.iv62.i3475
   %2650 = load i32, ptr %2649, align 4
-  %2651 = tail call i32 @Gia_ManHashOr(ptr noundef %100, i32 noundef %.03948.i3476, i32 noundef %2650) #21
+  %2651 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %100, i32 noundef %.03948.i3476, i32 noundef %2650) #21
   %indvars.iv.next63.i3477 = add nuw nsw i64 %indvars.iv62.i3475, 1
   %exitcond66.not.i3478 = icmp eq i64 %indvars.iv.next63.i3477, %wide.trip.count65.i3473
   br i1 %exitcond66.not.i3478, label %Wlc_BlastReduction.exit3479, label %.lr.ph50.i3474, !llvm.loop !25
@@ -16720,7 +16720,7 @@ Vec_IntPush.exit3494:                             ; preds = %.Vec_IntGrow.exit10
   %.03948.i3500 = phi i32 [ 0, %.lr.ph50.preheader.i3496 ], [ %2695, %.lr.ph50.i3498 ]
   %2693 = getelementptr inbounds i32, ptr %566, i64 %indvars.iv62.i3499
   %2694 = load i32, ptr %2693, align 4
-  %2695 = tail call i32 @Gia_ManHashOr(ptr noundef %100, i32 noundef %.03948.i3500, i32 noundef %2694) #21
+  %2695 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %100, i32 noundef %.03948.i3500, i32 noundef %2694) #21
   %indvars.iv.next63.i3501 = add nuw nsw i64 %indvars.iv62.i3499, 1
   %exitcond66.not.i3502 = icmp eq i64 %indvars.iv.next63.i3501, %wide.trip.count65.i3497
   br i1 %exitcond66.not.i3502, label %Wlc_BlastReduction.exit3503, label %.lr.ph50.i3498, !llvm.loop !25
@@ -16739,7 +16739,7 @@ Wlc_BlastReduction.exit3503:                      ; preds = %.lr.ph50.i3498, %26
   %.03948.i3509 = phi i32 [ 0, %.lr.ph50.preheader.i3505 ], [ %2699, %.lr.ph50.i3507 ]
   %2697 = getelementptr inbounds i32, ptr %567, i64 %indvars.iv62.i3508
   %2698 = load i32, ptr %2697, align 4
-  %2699 = tail call i32 @Gia_ManHashOr(ptr noundef %100, i32 noundef %.03948.i3509, i32 noundef %2698) #21
+  %2699 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %100, i32 noundef %.03948.i3509, i32 noundef %2698) #21
   %indvars.iv.next63.i3510 = add nuw nsw i64 %indvars.iv62.i3508, 1
   %exitcond66.not.i3511 = icmp eq i64 %indvars.iv.next63.i3510, %wide.trip.count65.i3506
   br i1 %exitcond66.not.i3511, label %Wlc_BlastReduction.exit3512, label %.lr.ph50.i3507, !llvm.loop !25
@@ -18997,7 +18997,7 @@ Wlc_ObjFaninId.exit3814:                          ; preds = %3633
   %indvars.iv5300 = phi i64 [ 0, %.thread4494 ], [ %indvars.iv.next5301, %Gia_ManAppendCo.exit3827 ]
   %3655 = getelementptr inbounds i32, ptr %3650, i64 %indvars.iv5300
   %3656 = load i32, ptr %3655, align 4
-  %3657 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
+  %3657 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %100)
   %3658 = load i64, ptr %3657, align 4
   %3659 = or i64 %3658, 2147483648
   store i64 %3659, ptr %3657, align 4
@@ -19913,7 +19913,7 @@ Vec_IntFree.exit3885.cont:                        ; preds = %Vec_IntFree.exit388
   %4147 = sub nuw nsw i64 %4145, %indvars.iv5338
   %4148 = getelementptr inbounds i32, ptr %4143, i64 %4147
   %4149 = load i32, ptr %4148, align 4
-  %4150 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
+  %4150 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %100)
   %4151 = load i64, ptr %4150, align 4
   %4152 = or i64 %4151, 2147483648
   store i64 %4152, ptr %4150, align 4
@@ -20036,7 +20036,7 @@ Gia_ManAppendCo.exit3898:                         ; preds = %Vec_IntPush.exit.i3
   %indvars.iv5332 = phi i64 [ 0, %.preheader4641.preheader ], [ %indvars.iv.next5333, %Gia_ManAppendCo.exit3911 ]
   %4217 = getelementptr inbounds i32, ptr %4143, i64 %indvars.iv5332
   %4218 = load i32, ptr %4217, align 4
-  %4219 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
+  %4219 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %100)
   %4220 = load i64, ptr %4219, align 4
   %4221 = or i64 %4220, 2147483648
   store i64 %4221, ptr %4219, align 4
@@ -20515,7 +20515,7 @@ Vec_IntPushTwo.exit3932:                          ; preds = %.Vec_IntGrow.exit10
   %4443 = sub nuw nsw i64 %4441, %indvars.iv5362
   %4444 = getelementptr inbounds i32, ptr %4306, i64 %4443
   %4445 = load i32, ptr %4444, align 4
-  %4446 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
+  %4446 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %100)
   %4447 = load i64, ptr %4446, align 4
   %4448 = or i64 %4447, 2147483648
   store i64 %4448, ptr %4446, align 4

@@ -3462,7 +3462,7 @@ Abc_UtilStrsav.exit198:                           ; preds = %Abc_UtilStrsav.exit
   %.val177 = load ptr, ptr %92, align 8
   %101 = getelementptr inbounds i32, ptr %.val177, i64 %indvars.iv245
   %102 = load i32, ptr %101, align 4
-  %103 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %12)
+  %103 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %12)
   %104 = load i64, ptr %103, align 4
   %105 = or i64 %104, 2684354559
   store i64 %105, ptr %103, align 4
@@ -3816,7 +3816,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %283 = sext i32 %282 to i64
   %284 = getelementptr inbounds i32, ptr %.val168, i64 %283
   %285 = load i32, ptr %284, align 4
-  %286 = call fastcc ptr @Gia_ManAppendObj(ptr noundef %12)
+  %286 = call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %12)
   %287 = load i64, ptr %286, align 4
   %288 = or i64 %287, 2147483648
   store i64 %288, ptr %286, align 4

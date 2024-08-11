@@ -748,7 +748,7 @@ if.then17.i:                                      ; preds = %if.end63.i.i, %if.e
   call void @delete_tempfile(ptr noundef nonnull %lk.i.i) #19
   %41 = load ptr, ptr %call.i78.i, align 8
   call void @free(ptr noundef %41) #19
-  call void @free(ptr noundef %call.i78.i) #19
+  call void @free(ptr noundef nonnull %call.i78.i) #19
   call void @strbuf_release(ptr noundef nonnull %ref_file.i.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref_file.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %failure_errno.i.i)
@@ -1176,7 +1176,7 @@ if.then25:                                        ; preds = %clear_loose_ref_cac
   tail call void @delete_tempfile(ptr noundef nonnull %lk.i69) #19
   %17 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %17) #19
-  tail call void @free(ptr noundef %7) #19
+  tail call void @free(ptr noundef nonnull %7) #19
   br label %cleanup.sink.split
 
 for.inc:                                          ; preds = %if.end18, %clear_loose_ref_cache.exit
@@ -3259,46 +3259,38 @@ if.then2:                                         ; preds = %if.then
   %call3 = tail call ptr @oid_to_hex(ptr noundef %oid) #19
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.38, ptr noundef %1, ptr noundef %call3) #19
   %lk.i = getelementptr inbounds i8, ptr %lock, i64 8
-  tail call void @delete_tempfile(ptr noundef nonnull %lk.i) #19
-  %2 = load ptr, ptr %lock, align 8
-  tail call void @free(ptr noundef %2) #19
-  tail call void @free(ptr noundef %lock) #19
-  br label %return
+  br label %return.sink.split
 
 if.end:                                           ; preds = %if.then
   %bf.load = load i32, ptr %call, align 4
-  %3 = and i32 %bf.load, 14
-  %cmp.not = icmp eq i32 %3, 2
+  %2 = and i32 %bf.load, 14
+  %cmp.not = icmp eq i32 %2, 2
   br i1 %cmp.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %4 = load ptr, ptr %lock, align 8
-  %call5 = tail call i32 @is_branch(ptr noundef %4) #19
+  %3 = load ptr, ptr %lock, align 8
+  %call5 = tail call i32 @is_branch(ptr noundef %3) #19
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
   %call8 = tail call ptr @oid_to_hex(ptr noundef %oid) #19
-  %5 = load ptr, ptr %lock, align 8
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.39, ptr noundef %call8, ptr noundef %5) #19
+  %4 = load ptr, ptr %lock, align 8
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.39, ptr noundef %call8, ptr noundef %4) #19
   %lk.i19 = getelementptr inbounds i8, ptr %lock, i64 8
-  tail call void @delete_tempfile(ptr noundef nonnull %lk.i19) #19
-  %6 = load ptr, ptr %lock, align 8
-  tail call void @free(ptr noundef %6) #19
-  tail call void @free(ptr noundef nonnull %lock) #19
-  br label %return
+  br label %return.sink.split
 
 if.end11:                                         ; preds = %if.end, %land.lhs.true, %entry
   %lk = getelementptr inbounds i8, ptr %lock, i64 8
   %lk.val = load ptr, ptr %lk, align 8
   %call.i = tail call i32 @get_tempfile_fd(ptr noundef %lk.val) #19
   %call13 = tail call ptr @oid_to_hex(ptr noundef %oid) #19
-  %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds i8, ptr %7, i64 256
-  %8 = load ptr, ptr %hash_algo, align 8
-  %hexsz = getelementptr inbounds i8, ptr %8, i64 24
-  %9 = load i64, ptr %hexsz, align 8
-  %call14 = tail call i64 @write_in_full(i32 noundef %call.i, ptr noundef %call13, i64 noundef %9) #19
+  %5 = load ptr, ptr @the_repository, align 8
+  %hash_algo = getelementptr inbounds i8, ptr %5, i64 256
+  %6 = load ptr, ptr %hash_algo, align 8
+  %hexsz = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load i64, ptr %hexsz, align 8
+  %call14 = tail call i64 @write_in_full(i32 noundef %call.i, ptr noundef %call13, i64 noundef %7) #19
   %cmp15 = icmp slt i64 %call14, 0
   br i1 %cmp15, label %if.then26, label %lor.lhs.false
 
@@ -3324,14 +3316,18 @@ if.then26:                                        ; preds = %lor.lhs.false23, %l
   %lk.val18 = load ptr, ptr %lk, align 8
   %call.i21 = tail call ptr @get_tempfile_path(ptr noundef %lk.val18) #19
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.40, ptr noundef %call.i21) #19
-  tail call void @delete_tempfile(ptr noundef nonnull %lk) #19
-  %10 = load ptr, ptr %lock, align 8
-  tail call void @free(ptr noundef %10) #19
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then2, %if.then7, %if.then26
+  %lk.sink = phi ptr [ %lk, %if.then26 ], [ %lk.i19, %if.then7 ], [ %lk.i, %if.then2 ]
+  tail call void @delete_tempfile(ptr noundef nonnull %lk.sink) #19
+  %8 = load ptr, ptr %lock, align 8
+  tail call void @free(ptr noundef %8) #19
   tail call void @free(ptr noundef nonnull %lock) #19
   br label %return
 
-return:                                           ; preds = %lor.lhs.false23, %if.then26, %if.then7, %if.then2
-  %retval.0 = phi i32 [ -1, %if.then26 ], [ -1, %if.then7 ], [ -1, %if.then2 ], [ 0, %lor.lhs.false23 ]
+return:                                           ; preds = %return.sink.split, %lor.lhs.false23
+  %retval.0 = phi i32 [ 0, %lor.lhs.false23 ], [ -1, %return.sink.split ]
   ret i32 %retval.0
 }
 
