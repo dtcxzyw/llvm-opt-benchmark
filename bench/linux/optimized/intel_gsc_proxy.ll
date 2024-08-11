@@ -70,12 +70,12 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 
 25:                                               ; preds = %18
   store i1 true, ptr @assert_rpm_device_not_suspended.__already_done, align 1
-  tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #5, !srcloc !8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8) #5
-  tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #5, !srcloc !9
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 104, i32 2313, i64 12) #5, !srcloc !10
-  tail call void asm sideeffect "468: nop\0A\09.pushsection .discard.instr_end\0A\09.long 468b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 468) #5, !srcloc !11
-  tail call void asm sideeffect "469: nop\0A\09.pushsection .discard.instr_end\0A\09.long 469b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 469) #5, !srcloc !12
+  tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #6, !srcloc !8
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8) #6
+  tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #6, !srcloc !9
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 104, i32 2313, i64 12) #6, !srcloc !10
+  tail call void asm sideeffect "468: nop\0A\09.pushsection .discard.instr_end\0A\09.long 468b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 468) #6, !srcloc !11
+  tail call void asm sideeffect "469: nop\0A\09.pushsection .discard.instr_end\0A\09.long 469b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 469) #6, !srcloc !12
   br label %.thread
 
 .thread:                                          ; preds = %7, %25, %18
@@ -87,12 +87,12 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 
 30:                                               ; preds = %.thread
   store i1 true, ptr @__assert_rpm_raw_wakeref_held.__already_done, align 1
-  tail call void asm sideeffect "470: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 470b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 470) #5, !srcloc !14
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.7) #5
-  tail call void asm sideeffect "471: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 471b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 471) #5, !srcloc !15
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 112, i32 2313, i64 12) #5, !srcloc !16
-  tail call void asm sideeffect "472: nop\0A\09.pushsection .discard.instr_end\0A\09.long 472b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 472) #5, !srcloc !17
-  tail call void asm sideeffect "473: nop\0A\09.pushsection .discard.instr_end\0A\09.long 473b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 473) #5, !srcloc !18
+  tail call void asm sideeffect "470: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 470b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 470) #6, !srcloc !14
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.7) #6
+  tail call void asm sideeffect "471: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 471b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 471) #6, !srcloc !15
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 112, i32 2313, i64 12) #6, !srcloc !16
+  tail call void asm sideeffect "472: nop\0A\09.pushsection .discard.instr_end\0A\09.long 472b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 472) #6, !srcloc !17
+  tail call void asm sideeffect "473: nop\0A\09.pushsection .discard.instr_end\0A\09.long 473b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 473) #6, !srcloc !18
   br label %31
 
 31:                                               ; preds = %30, %.thread
@@ -103,21 +103,21 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 
 35:                                               ; preds = %31
   store i1 true, ptr @__assert_rpm_wakelock_held.__already_done, align 1
-  tail call void asm sideeffect "474: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 474b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 474) #5, !srcloc !19
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5) #5
-  tail call void asm sideeffect "475: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 475b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 475) #5, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 120, i32 2313, i64 12) #5, !srcloc !21
-  tail call void asm sideeffect "476: nop\0A\09.pushsection .discard.instr_end\0A\09.long 476b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 476) #5, !srcloc !22
-  tail call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_end\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #5, !srcloc !23
+  tail call void asm sideeffect "474: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 474b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 474) #6, !srcloc !19
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5) #6
+  tail call void asm sideeffect "475: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 475b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 475) #6, !srcloc !20
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 120, i32 2313, i64 12) #6, !srcloc !21
+  tail call void asm sideeffect "476: nop\0A\09.pushsection .discard.instr_end\0A\09.long 476b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 476) #6, !srcloc !22
+  tail call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_end\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #6, !srcloc !23
   br label %36
 
 36:                                               ; preds = %35, %31
-  %37 = tail call i64 @ktime_get_raw() #5
+  %37 = tail call i64 @ktime_get_raw() #6
   %38 = add i64 %37, 20000000000
-  %39 = tail call i32 @__SCT__might_resched() #5
-  %40 = tail call i64 @ktime_get_raw() #5
+  %39 = tail call i32 @__SCT__might_resched() #6
+  %40 = tail call i64 @ktime_get_raw() #6
   %41 = icmp sle i64 %40, %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
   %42 = load ptr, ptr %3, align 8
   %43 = icmp eq ptr %42, null
   %44 = select i1 %43, i1 %41, i1 false
@@ -126,12 +126,12 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 .lr.ph:                                           ; preds = %36, %.lr.ph
   %45 = phi i64 [ %48, %.lr.ph ], [ 10, %36 ]
   %46 = shl i64 %45, 1
-  tail call void @usleep_range_state(i64 noundef %45, i64 noundef %46, i32 noundef 2) #5
+  tail call void @usleep_range_state(i64 noundef %45, i64 noundef %46, i32 noundef 2) #6
   %47 = icmp slt i64 %45, 1000
   %48 = select i1 %47, i64 %46, i64 %45
-  %49 = tail call i64 @ktime_get_raw() #5
+  %49 = tail call i64 @ktime_get_raw() #6
   %50 = icmp sle i64 %49, %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, null
   %53 = select i1 %52, i1 %50, i1 false
@@ -155,12 +155,12 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   %61 = phi ptr [ %59, %57 ], [ null, %54 ]
   %62 = getelementptr i8, ptr %0, i64 4904
   %63 = load i32, ptr %62, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %61, ptr noundef nonnull @.str, i32 noundef %63) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %61, ptr noundef nonnull @.str, i32 noundef %63) #7
   br label %281
 
 64:                                               ; preds = %._crit_edge
   %65 = getelementptr inbounds i8, ptr %0, i64 552
-  tail call void @mutex_lock(ptr noundef %65) #5
+  tail call void @mutex_lock(ptr noundef %65) #6
   %66 = load ptr, ptr %3, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %78
@@ -179,24 +179,24 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   %75 = phi ptr [ %73, %71 ], [ null, %68 ]
   %76 = getelementptr i8, ptr %0, i64 4904
   %77 = load i32, ptr %76, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %75, ptr noundef nonnull @.str.1, i32 noundef %77) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %75, ptr noundef nonnull @.str.1, i32 noundef %77) #7
   br label %279
 
 78:                                               ; preds = %64
   %79 = load ptr, ptr %8, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 144
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 %81(ptr noundef %79, i32 1142788, i1 noundef zeroext true) #5
+  %82 = tail call i32 %81(ptr noundef %79, i32 1142788, i1 noundef zeroext true) #6
   %83 = and i32 %82, -19
   %84 = or disjoint i32 %83, 2
   %85 = getelementptr inbounds i8, ptr %79, i64 176
   %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef %79, i32 1142788, i32 noundef %84, i1 noundef zeroext true) #5
+  tail call void %86(ptr noundef %79, i32 1142788, i32 noundef %84, i1 noundef zeroext true) #6
   %87 = getelementptr inbounds i8, ptr %0, i64 536
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %0, i64 544
   %90 = load ptr, ptr %89, align 8
-  tail call void @intel_gsc_uc_heci_cmd_emit_mtl_header(ptr noundef %88, i8 noundef zeroext 10, i32 noundef 52, i64 noundef 0) #5
+  tail call void @intel_gsc_uc_heci_cmd_emit_mtl_header(ptr noundef %88, i8 noundef zeroext 10, i32 noundef 52, i64 noundef 0) #6
   %91 = getelementptr inbounds i8, ptr %88, i64 36
   store i32 1, ptr %91, align 1
   %92 = getelementptr inbounds i8, ptr %88, i64 40
@@ -234,7 +234,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 112:                                              ; preds = %109, %._crit_edge64
   %113 = phi ptr [ %111, %109 ], [ null, %._crit_edge64 ]
   %114 = load i32, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %113, ptr noundef nonnull @.str.13, i32 noundef %114, i32 noundef %.lcssa31) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %113, ptr noundef nonnull @.str.13, i32 noundef %114, i32 noundef %.lcssa31) #7
   br label %.loopexit
 
 .lr.ph63:                                         ; preds = %78, %261
@@ -250,18 +250,18 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   %124 = zext i32 %123 to i64
   %125 = add nuw nsw i64 %124, 32768
   store i32 0, ptr %116, align 4
-  tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !25
-  %126 = tail call i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr noundef %0, i64 noundef %124, i32 noundef %115, i64 noundef %125, i32 noundef 32768) #5
+  tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !25
+  %126 = tail call i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr noundef %0, i64 noundef %124, i32 noundef %115, i64 noundef %125, i32 noundef 32768) #6
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %.loopexit
 
 128:                                              ; preds = %.lr.ph63
-  %129 = tail call i64 @ktime_get_raw() #5
+  %129 = tail call i64 @ktime_get_raw() #6
   %130 = add i64 %129, 300000000
-  %131 = tail call i32 @__SCT__might_resched() #5
-  %132 = tail call i64 @ktime_get_raw() #5
+  %131 = tail call i32 @__SCT__might_resched() #6
+  %132 = tail call i64 @ktime_get_raw() #6
   %133 = icmp sle i64 %132, %130
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !26
   %134 = load i32, ptr %116, align 4
   %135 = icmp eq i32 %134, 0
   %136 = select i1 %135, i1 %133, i1 false
@@ -270,12 +270,12 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 .lr.ph59:                                         ; preds = %128, %.lr.ph59
   %137 = phi i64 [ %140, %.lr.ph59 ], [ 10, %128 ]
   %138 = shl i64 %137, 1
-  tail call void @usleep_range_state(i64 noundef %137, i64 noundef %138, i32 noundef 2) #5
+  tail call void @usleep_range_state(i64 noundef %137, i64 noundef %138, i32 noundef 2) #6
   %139 = icmp slt i64 %137, 1000
   %140 = select i1 %139, i64 %138, i64 %137
-  %141 = tail call i64 @ktime_get_raw() #5
+  %141 = tail call i64 @ktime_get_raw() #6
   %142 = icmp sle i64 %141, %130
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !26
   %143 = load i32, ptr %116, align 4
   %144 = icmp eq i32 %143, 0
   %145 = select i1 %144, i1 %142, i1 false
@@ -298,7 +298,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 152:                                              ; preds = %149, %146
   %153 = phi ptr [ %151, %149 ], [ null, %146 ]
   %154 = load i32, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %153, ptr noundef nonnull @.str.14, i32 noundef %154) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %153, ptr noundef nonnull @.str.14, i32 noundef %154) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph63, %112, %152
@@ -315,7 +315,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 160:                                              ; preds = %157, %.loopexit
   %161 = phi ptr [ %159, %157 ], [ null, %.loopexit ]
   %162 = load i32, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %161, ptr noundef nonnull @.str.9, i32 noundef %162, i32 noundef %.ph) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %161, ptr noundef nonnull @.str.9, i32 noundef %162, i32 noundef %.ph) #7
   br label %.loopexit30
 
 163:                                              ; preds = %._crit_edge60
@@ -359,7 +359,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 183:                                              ; preds = %180, %177
   %184 = phi ptr [ %182, %180 ], [ null, %177 ]
   %185 = load i32, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %184, ptr noundef nonnull @.str.10, i32 noundef %185, i32 noundef %.ph22) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %184, ptr noundef nonnull @.str.10, i32 noundef %185, i32 noundef %.ph22) #7
   br label %.loopexit30
 
 186:                                              ; preds = %173, %175
@@ -387,7 +387,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 202:                                              ; preds = %199, %196
   %203 = phi ptr [ %201, %199 ], [ null, %196 ]
   %204 = load i32, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %203, ptr noundef nonnull @.str.15, i32 noundef %204, i32 noundef %193) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %203, ptr noundef nonnull @.str.15, i32 noundef %204, i32 noundef %193) #7
   br label %240
 
 205:                                              ; preds = %186
@@ -398,7 +398,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   %210 = getelementptr inbounds i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %187, align 8
-  %213 = tail call i32 %211(ptr noundef %212, ptr noundef %207, i64 noundef %206) #5
+  %213 = tail call i32 %211(ptr noundef %212, ptr noundef %207, i64 noundef %206) #6
   %214 = icmp slt i32 %213, 0
   br i1 %214, label %215, label %224
 
@@ -415,7 +415,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 221:                                              ; preds = %218, %215
   %222 = phi ptr [ %220, %218 ], [ null, %215 ]
   %223 = load i32, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %222, ptr noundef nonnull @.str.16, i32 noundef %223) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %222, ptr noundef nonnull @.str.16, i32 noundef %223) #7
   br label %240
 
 224:                                              ; preds = %205
@@ -423,7 +423,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   %226 = getelementptr inbounds i8, ptr %225, i64 16
   %227 = load ptr, ptr %226, align 8
   %228 = load ptr, ptr %187, align 8
-  %229 = tail call i32 %227(ptr noundef %228, ptr noundef %190, i64 noundef 32732) #5
+  %229 = tail call i32 %227(ptr noundef %228, ptr noundef %190, i64 noundef 32732) #6
   %230 = icmp slt i32 %229, 0
   br i1 %230, label %231, label %249
 
@@ -440,7 +440,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 237:                                              ; preds = %234, %231
   %238 = phi ptr [ %236, %234 ], [ null, %231 ]
   %239 = load i32, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %238, ptr noundef nonnull @.str.17, i32 noundef %239) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %238, ptr noundef nonnull @.str.17, i32 noundef %239) #7
   br label %240
 
 240:                                              ; preds = %202, %221, %237
@@ -457,7 +457,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 246:                                              ; preds = %243, %240
   %247 = phi ptr [ %245, %243 ], [ null, %240 ]
   %248 = load i32, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %247, ptr noundef nonnull @.str.11, i32 noundef %248, i32 noundef %.ph25) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %247, ptr noundef nonnull @.str.11, i32 noundef %248, i32 noundef %.ph25) #7
   br label %.loopexit30
 
 249:                                              ; preds = %224
@@ -508,7 +508,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 274:                                              ; preds = %271, %268
   %275 = phi ptr [ %273, %271 ], [ null, %268 ]
   %276 = load i32, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %275, ptr noundef nonnull @.str.12, i32 noundef %276, i32 noundef %.ph28) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %275, ptr noundef nonnull @.str.12, i32 noundef %276, i32 noundef %.ph28) #7
   br label %.loopexit30
 
 .loopexit30:                                      ; preds = %163, %274, %246, %183, %160
@@ -518,7 +518,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 
 279:                                              ; preds = %.loopexit30, %74
   %280 = phi i32 [ %278, %.loopexit30 ], [ -5, %74 ]
-  tail call void @mutex_unlock(ptr noundef %65) #5
+  tail call void @mutex_unlock(ptr noundef %65) #6
   br label %281
 
 281:                                              ; preds = %279, %60, %1
@@ -564,7 +564,7 @@ define dso_local void @intel_gsc_proxy_irq_handler(ptr noundef %0, i32 noundef %
   %16 = phi ptr [ %14, %12 ], [ null, %9 ]
   %17 = getelementptr i8, ptr %0, i64 4904
   %18 = load i32, ptr %17, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %16, ptr noundef nonnull @.str.2, i32 noundef %18) #6
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %16, ptr noundef nonnull @.str.2, i32 noundef %18) #7
   br label %27
 
 19:                                               ; preds = %5
@@ -575,7 +575,7 @@ define dso_local void @intel_gsc_proxy_irq_handler(ptr noundef %0, i32 noundef %
   %23 = getelementptr inbounds i8, ptr %0, i64 464
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 472
-  %26 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %24, ptr noundef %25) #5
+  %26 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %24, ptr noundef %25) #6
   br label %27
 
 27:                                               ; preds = %19, %15, %2
@@ -595,7 +595,7 @@ define dso_local void @intel_gsc_proxy_fini(ptr noundef %0) local_unnamed_addr #
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @component_del(ptr noundef %9, ptr noundef nonnull @i915_gsc_proxy_component_ops) #5
+  tail call void @component_del(ptr noundef %9, ptr noundef nonnull @i915_gsc_proxy_component_ops) #6
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -607,7 +607,7 @@ define dso_local void @intel_gsc_proxy_fini(ptr noundef %0) local_unnamed_addr #
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 536
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  tail call void @i915_vma_unpin_and_release(ptr noundef %11, i32 noundef 1) #5
+  tail call void @i915_vma_unpin_and_release(ptr noundef %11, i32 noundef 1) #6
   br label %16
 
 16:                                               ; preds = %14, %10
@@ -617,11 +617,11 @@ define dso_local void @intel_gsc_proxy_fini(ptr noundef %0) local_unnamed_addr #
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @component_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_gsc_proxy_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local noundef i32 @intel_gsc_proxy_init(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -48
   %3 = getelementptr inbounds i8, ptr %0, i64 552
-  tail call void @__mutex_init(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @intel_gsc_proxy_init.__key) #5
+  tail call void @__mutex_init(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @intel_gsc_proxy_init.__key) #6
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
@@ -635,7 +635,7 @@ define dso_local noundef i32 @intel_gsc_proxy_init(ptr noundef %0) local_unnamed
   %10 = phi ptr [ %8, %6 ], [ null, %1 ]
   %11 = getelementptr i8, ptr %0, i64 4904
   %12 = load i32, ptr %11, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %10, ptr noundef nonnull @.str.4, i32 noundef %12) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %10, ptr noundef nonnull @.str.4, i32 noundef %12) #7
   ret i32 -19
 }
 
@@ -658,7 +658,7 @@ declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef
 declare dso_local void @intel_gsc_uc_heci_cmd_emit_mtl_header(ptr noundef, i8 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
@@ -673,7 +673,7 @@ define internal noundef i32 @i915_gsc_proxy_component_bind(ptr nocapture noundef
   %6 = getelementptr inbounds i8, ptr %5, i64 9328
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8928
-  %9 = tail call i64 @intel_runtime_pm_get(ptr noundef %8) #5
+  %9 = tail call i64 @intel_runtime_pm_get(ptr noundef %8) #6
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %21, label %11
 
@@ -682,22 +682,22 @@ define internal noundef i32 @i915_gsc_proxy_component_bind(ptr nocapture noundef
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 144
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %13, i32 1142788, i1 noundef zeroext true) #5
+  %16 = tail call i32 %15(ptr noundef %13, i32 1142788, i1 noundef zeroext true) #6
   %17 = and i32 %16, -18
   %18 = or disjoint i32 %17, 1
   %19 = getelementptr inbounds i8, ptr %13, i64 176
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef %13, i32 1142788, i32 noundef %18, i1 noundef zeroext true) #5
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %8) #5
+  tail call void %20(ptr noundef %13, i32 1142788, i32 noundef %18, i1 noundef zeroext true) #6
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %8) #6
   br label %21
 
 21:                                               ; preds = %11, %3
   %22 = getelementptr inbounds i8, ptr %7, i64 560
   %23 = getelementptr inbounds i8, ptr %7, i64 600
-  tail call void @mutex_lock(ptr noundef %23) #5
+  tail call void @mutex_lock(ptr noundef %23) #6
   store ptr %2, ptr %22, align 8
   store ptr %1, ptr %2, align 8
-  tail call void @mutex_unlock(ptr noundef %23) #5
+  tail call void @mutex_unlock(ptr noundef %23) #6
   %24 = load ptr, ptr %7, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %29, label %26
@@ -711,7 +711,7 @@ define internal noundef i32 @i915_gsc_proxy_component_bind(ptr nocapture noundef
   %30 = phi ptr [ %28, %26 ], [ null, %21 ]
   %31 = getelementptr inbounds i8, ptr %7, i64 4952
   %32 = load i32, ptr %31, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %30, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %32) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %30, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %32) #6
   ret i32 0
 }
 
@@ -723,11 +723,11 @@ define internal void @i915_gsc_proxy_component_unbind(ptr nocapture noundef read
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 560
   %9 = getelementptr inbounds i8, ptr %7, i64 600
-  tail call void @mutex_lock(ptr noundef %9) #5
+  tail call void @mutex_lock(ptr noundef %9) #6
   store ptr null, ptr %8, align 8
-  tail call void @mutex_unlock(ptr noundef %9) #5
+  tail call void @mutex_unlock(ptr noundef %9) #6
   %10 = getelementptr inbounds i8, ptr %5, i64 8928
-  %11 = tail call i64 @intel_runtime_pm_get(ptr noundef %10) #5
+  %11 = tail call i64 @intel_runtime_pm_get(ptr noundef %10) #6
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %22, label %13
 
@@ -736,12 +736,12 @@ define internal void @i915_gsc_proxy_component_unbind(ptr nocapture noundef read
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 144
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %15, i32 1142788, i1 noundef zeroext true) #5
+  %18 = tail call i32 %17(ptr noundef %15, i32 1142788, i1 noundef zeroext true) #6
   %19 = and i32 %18, -18
   %20 = getelementptr inbounds i8, ptr %15, i64 176
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef %15, i32 1142788, i32 noundef %19, i1 noundef zeroext true) #5
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %10) #5
+  tail call void %21(ptr noundef %15, i32 1142788, i32 noundef %19, i1 noundef zeroext true) #6
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %10) #6
   br label %22
 
 22:                                               ; preds = %13, %3
@@ -758,7 +758,7 @@ define internal void @i915_gsc_proxy_component_unbind(ptr nocapture noundef read
   %29 = phi ptr [ %27, %25 ], [ null, %22 ]
   %30 = getelementptr inbounds i8, ptr %7, i64 4952
   %31 = load i32, ptr %30, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 1, ptr noundef nonnull @.str.19, i32 noundef %31) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 1, ptr noundef nonnull @.str.19, i32 noundef %31) #6
   ret void
 }
 
@@ -775,15 +775,16 @@ declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unname
 declare dso_local void @i915_vma_unpin_and_release(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #4
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #3 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

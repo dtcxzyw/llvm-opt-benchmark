@@ -3232,9 +3232,9 @@ define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..fl
   ret i32 %2
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$4powi17h8591d07e8a53cae3E"(i32 noundef %0, i32 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.13) #11
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.13) #10
   unreachable
 }
 
@@ -3276,9 +3276,9 @@ _ZN9softposit5p32e24math5sleef2ln17had2dd04b8f072c66E.exit: ; preds = %1, %2
   ret i32 %.0.i
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$3log17h3704d4f04b0e3e70E"(i32 noundef %0, i32 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.14) #11
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.14) #10
   unreachable
 }
 
@@ -3288,9 +3288,9 @@ define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..fl
   ret i32 %2
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$5log1017h14f5737468f0f9f7E"(i32 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.15) #11
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.15) #10
   unreachable
 }
 
@@ -3306,9 +3306,9 @@ define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..fl
   ret i32 %.0.sroa.speculated.i
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$7abs_sub17haf2c5ac9dcd32aa4E"(i32 noundef %0, i32 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.17) #11
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.17) #10
   unreachable
 }
 
@@ -3408,15 +3408,15 @@ define { i32, i32 } @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..f
   ret { i32, i32 } %2
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$6exp_m117h72334cbb6ce3b417E"(i32 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.18) #11
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.18) #10
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$5ln_1p17h7da88555497f28dbE"(i32 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.19) #11
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.19) #10
   unreachable
 }
 
@@ -3608,18 +3608,18 @@ define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..fl
   ret i32 %.0.i
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$5atanh17hfc0b8c9cc8e2d70fE"(i32 noundef %0) unnamed_addr #6 {
   %2 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef 1207959552, i32 noundef %0)
   %3 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E"(i32 noundef 1073741824, i32 noundef %0)
   %4 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3div17h16b276436e5bfe98E"(i32 noundef %2, i32 noundef %3)
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.19) #11
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.19) #10
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define void @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$14integer_decode17h8f3acc124de96ea8E"(ptr noalias nocapture noundef readnone sret([16 x i8]) align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.17) #11
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.5be969b161c3ca3248ac477383ae4705.11, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5be969b161c3ca3248ac477383ae4705.17) #10
   unreachable
 }
 
@@ -3732,7 +3732,7 @@ declare void @"_ZN39_$LT$f64$u20$as$u20$num_traits..Num$GT$14from_str_radix17h0a
 declare noundef i32 @_ZN9softposit5p32e24math7mul_add7mul_add17h3ac49e312fbde14aE(i32 noundef, i32 noundef, i32 noundef, i8 noundef) unnamed_addr #3
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #7
+declare void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @_ZN9softposit5p32e24math5sleef3pow17h9e0fbae857cd1c76E(i32 noundef, i32 noundef) unnamed_addr #3
@@ -3756,16 +3756,16 @@ declare noundef i32 @_ZN9softposit5p32e24math5sleef4acos17h8bdbcf687ea59c95E(i32
 declare { i32, i32 } @_ZN9softposit5p32e24math5sleef7sin_cos17h26098b81853a2de8E(i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel3log17h4af2fc34254ebb37E.llvm.10961338582784087609(i32 noundef) unnamed_addr #9
+declare hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel3log17h4af2fc34254ebb37E.llvm.10961338582784087609(i32 noundef) unnamed_addr #8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel5atan217h9b8a55137f75a246E.llvm.10961338582784087609(i32 noundef, i32 noundef) unnamed_addr #9
+declare hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel5atan217h9b8a55137f75a246E.llvm.10961338582784087609(i32 noundef, i32 noundef) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @_ZN9softposit5p32e24math5sleef4log217h3385a54ce9bb657cE(i32 noundef) unnamed_addr #3
@@ -3792,34 +3792,34 @@ declare noundef i32 @_ZN9softposit5p32e24math5sleef4sinh17hedc530fa3bc269baE(i32
 declare noundef i32 @_ZN9softposit5p32e24math5sleef4tanh17h60c47266c26771e8E(i32 noundef) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #10
+declare float @llvm.fabs.f32(float) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #10
+declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #10
+declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #10
+declare i16 @llvm.abs.i16(i16, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #10
+declare i8 @llvm.abs.i8(i8, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -3827,12 +3827,11 @@ attributes #2 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory
 attributes #3 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { noreturn }
+attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

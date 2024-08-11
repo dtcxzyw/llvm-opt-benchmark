@@ -4617,7 +4617,7 @@ define internal fastcc ptr @NameOfDatum(ptr nocapture noundef readonly %0) unnam
   ret ptr %.0
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @word_is_not_variable(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #7 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   tail call void @llvm.assume(i1 %3)
@@ -4629,7 +4629,7 @@ define internal fastcc void @word_is_not_variable(ptr nocapture noundef readonly
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @cword_is_not_variable(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #7 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   tail call void @llvm.assume(i1 %3)
@@ -5098,7 +5098,7 @@ define internal fastcc noundef ptr @read_into_scalar_list(ptr noundef %0, ptr no
   store i32 %7, ptr %5, align 16
   %8 = tail call i32 @plpgsql_yylex() #12
   %9 = icmp eq i32 %8, 44
-  br i1 %9, label %.lr.ph, label %.lr.ph44.preheader
+  br i1 %9, label %.lr.ph, label %.lr.ph46.preheader
 
 .lr.ph:                                           ; preds = %3, %NameOfDatum.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %NameOfDatum.exit ], [ 1, %3 ]
@@ -5117,8 +5117,11 @@ define internal fastcc noundef ptr @read_into_scalar_list(ptr noundef %0, ptr no
 
 16:                                               ; preds = %.lr.ph
   %17 = tail call i32 @plpgsql_yylex() #12
-  %cond = icmp eq i32 %17, 277
-  br i1 %cond, label %18, label %42
+  switch i32 %17, label %46 [
+    i32 277, label %18
+    i32 275, label %42
+    i32 276, label %44
+  ]
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr @plpgsql_yylval, align 8
@@ -5167,60 +5170,70 @@ NameOfDatum.exit:                                 ; preds = %30, %32
   br i1 %41, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 42:                                               ; preds = %16
-  tail call fastcc void @current_token_is_not_variable(i32 noundef %17)
+  %43 = load i32, ptr @plpgsql_yylloc, align 4
+  tail call fastcc void @word_is_not_variable(ptr noundef nonnull @plpgsql_yylval, i32 noundef %43)
+  unreachable
+
+44:                                               ; preds = %16
+  %45 = load i32, ptr @plpgsql_yylloc, align 4
+  tail call fastcc void @cword_is_not_variable(ptr noundef nonnull @plpgsql_yylval, i32 noundef %45)
+  unreachable
+
+46:                                               ; preds = %16
+  tail call void @plpgsql_yyerror(ptr noundef nonnull @.str.57) #15
   unreachable
 
 ._crit_edge.loopexit:                             ; preds = %NameOfDatum.exit
-  %43 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.lr.ph44.preheader
+  %47 = trunc nuw nsw i64 %indvars.iv.next to i32
+  br label %.lr.ph46.preheader
 
-.lr.ph44.preheader:                               ; preds = %3, %._crit_edge.loopexit
-  %.0.lcssa = phi i32 [ 1, %3 ], [ %43, %._crit_edge.loopexit ]
+.lr.ph46.preheader:                               ; preds = %3, %._crit_edge.loopexit
+  %.0.lcssa = phi i32 [ 1, %3 ], [ %47, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %8, %3 ], [ %40, %._crit_edge.loopexit ]
   tail call void @plpgsql_push_back_token(i32 noundef %.lcssa) #12
-  %44 = tail call ptr @palloc0(i64 noundef 64) #12
-  store i32 1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  store ptr @.str.8, ptr %45, align 8
-  %46 = tail call i32 @plpgsql_location_to_lineno(i32 noundef %2) #12
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
-  store i32 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 40
-  store i32 %.0.lcssa, ptr %49, align 8
-  %50 = zext nneg i32 %.0.lcssa to i64
-  %51 = shl nuw nsw i64 %50, 3
-  %52 = tail call ptr @palloc(i64 noundef %51) #12
-  %53 = getelementptr inbounds i8, ptr %44, i64 48
-  store ptr %52, ptr %53, align 8
-  %54 = shl nuw nsw i64 %50, 2
-  %55 = tail call ptr @palloc(i64 noundef %54) #12
-  %56 = getelementptr inbounds i8, ptr %44, i64 56
-  store ptr %55, ptr %56, align 8
-  %57 = add nsw i32 %.0.lcssa, -1
-  %58 = zext nneg i32 %57 to i64
-  br label %.lr.ph44
+  %48 = tail call ptr @palloc0(i64 noundef 64) #12
+  store i32 1, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr @.str.8, ptr %49, align 8
+  %50 = tail call i32 @plpgsql_location_to_lineno(i32 noundef %2) #12
+  %51 = getelementptr inbounds i8, ptr %48, i64 16
+  store i32 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %48, i64 32
+  store ptr null, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %48, i64 40
+  store i32 %.0.lcssa, ptr %53, align 8
+  %54 = zext nneg i32 %.0.lcssa to i64
+  %55 = shl nuw nsw i64 %54, 3
+  %56 = tail call ptr @palloc(i64 noundef %55) #12
+  %57 = getelementptr inbounds i8, ptr %48, i64 48
+  store ptr %56, ptr %57, align 8
+  %58 = shl nuw nsw i64 %54, 2
+  %59 = tail call ptr @palloc(i64 noundef %58) #12
+  %60 = getelementptr inbounds i8, ptr %48, i64 56
+  store ptr %59, ptr %60, align 8
+  %61 = add nsw i32 %.0.lcssa, -1
+  %62 = zext nneg i32 %61 to i64
+  br label %.lr.ph46
 
-.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44
-  %indvars.iv52 = phi i64 [ %58, %.lr.ph44.preheader ], [ %indvars.iv.next53, %.lr.ph44 ]
-  %59 = getelementptr [1024 x ptr], ptr %4, i64 0, i64 %indvars.iv52
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %53, align 8
-  %62 = getelementptr ptr, ptr %61, i64 %indvars.iv52
-  store ptr %60, ptr %62, align 8
-  %63 = getelementptr [1024 x i32], ptr %5, i64 0, i64 %indvars.iv52
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr %56, align 8
-  %66 = getelementptr i32, ptr %65, i64 %indvars.iv52
-  store i32 %64, ptr %66, align 4
-  %indvars.iv.next53 = add nsw i64 %indvars.iv52, -1
-  %.not = icmp eq i64 %indvars.iv52, 0
-  br i1 %.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !16
+.lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
+  %indvars.iv51 = phi i64 [ %62, %.lr.ph46.preheader ], [ %indvars.iv.next52, %.lr.ph46 ]
+  %63 = getelementptr [1024 x ptr], ptr %4, i64 0, i64 %indvars.iv51
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %57, align 8
+  %66 = getelementptr ptr, ptr %65, i64 %indvars.iv51
+  store ptr %64, ptr %66, align 8
+  %67 = getelementptr [1024 x i32], ptr %5, i64 0, i64 %indvars.iv51
+  %68 = load i32, ptr %67, align 4
+  %69 = load ptr, ptr %60, align 8
+  %70 = getelementptr i32, ptr %69, i64 %indvars.iv51
+  store i32 %68, ptr %70, align 4
+  %indvars.iv.next52 = add nsw i64 %indvars.iv51, -1
+  %.not = icmp eq i64 %indvars.iv51, 0
+  br i1 %.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !16
 
-._crit_edge45:                                    ; preds = %.lr.ph44
-  tail call void @plpgsql_adddatum(ptr noundef nonnull %44) #12
-  ret ptr %44
+._crit_edge47:                                    ; preds = %.lr.ph46
+  tail call void @plpgsql_adddatum(ptr noundef nonnull %48) #12
+  ret ptr %48
 }
 
 declare ptr @plpgsql_ns_lookup_label(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -6109,8 +6122,11 @@ define internal fastcc void @read_into_target(ptr nocapture noundef writeonly %0
 
 8:                                                ; preds = %.sink.split, %3
   %.0 = phi i32 [ %4, %3 ], [ %7, %.sink.split ]
-  %cond = icmp eq i32 %.0, 277
-  br i1 %cond, label %9, label %32
+  switch i32 %.0, label %36 [
+    i32 277, label %9
+    i32 275, label %32
+    i32 276, label %34
+  ]
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr @plpgsql_yylval, align 8
@@ -6140,7 +6156,7 @@ define internal fastcc void @read_into_target(ptr nocapture noundef writeonly %0
 
 23:                                               ; preds = %12
   tail call void @plpgsql_push_back_token(i32 noundef %15) #12
-  br label %33
+  br label %37
 
 24:                                               ; preds = %9
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
@@ -6159,13 +6175,23 @@ NameOfDatum.exit:                                 ; preds = %24, %26
   %30 = load i32, ptr @plpgsql_yylloc, align 4
   %31 = tail call fastcc ptr @read_into_scalar_list(ptr noundef %.0.i, ptr noundef %29, i32 noundef %30)
   store ptr %31, ptr %0, align 8
-  br label %33
+  br label %37
 
 32:                                               ; preds = %8
-  tail call fastcc void @current_token_is_not_variable(i32 noundef %.0)
+  %33 = load i32, ptr @plpgsql_yylloc, align 4
+  tail call fastcc void @word_is_not_variable(ptr noundef nonnull @plpgsql_yylval, i32 noundef %33)
   unreachable
 
-33:                                               ; preds = %23, %NameOfDatum.exit
+34:                                               ; preds = %8
+  %35 = load i32, ptr @plpgsql_yylloc, align 4
+  tail call fastcc void @cword_is_not_variable(ptr noundef nonnull @plpgsql_yylval, i32 noundef %35)
+  unreachable
+
+36:                                               ; preds = %8
+  tail call void @plpgsql_yyerror(ptr noundef nonnull @.str.57) #15
+  unreachable
+
+37:                                               ; preds = %23, %NameOfDatum.exit
   ret void
 }
 
@@ -6452,41 +6478,6 @@ define internal fastcc void @complete_direction(ptr nocapture noundef writeonly 
 
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @current_token_is_not_variable(i32 noundef %0) unnamed_addr #7 {
-  switch i32 %0, label %17 [
-    i32 275, label %2
-    i32 276, label %9
-  ]
-
-2:                                                ; preds = %1
-  %3 = load i32, ptr @plpgsql_yylloc, align 4
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 @errcode(i32 noundef 16801924) #12
-  %6 = load ptr, ptr @plpgsql_yylval, align 8
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.80, ptr noundef %6) #12
-  %8 = tail call i32 @plpgsql_scanner_errposition(i32 noundef %3) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2607, ptr noundef nonnull @__func__.word_is_not_variable) #12
-  unreachable
-
-9:                                                ; preds = %1
-  %10 = load i32, ptr @plpgsql_yylloc, align 4
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 16801924) #12
-  %13 = load ptr, ptr @plpgsql_yylval, align 8
-  %14 = tail call ptr @NameListToString(ptr noundef %13) #12
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.80, ptr noundef %14) #12
-  %16 = tail call i32 @plpgsql_scanner_errposition(i32 noundef %10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2618, ptr noundef nonnull @__func__.cword_is_not_variable) #12
-  unreachable
-
-17:                                               ; preds = %1
-  tail call void @plpgsql_yyerror(ptr noundef nonnull @.str.57) #15
-  unreachable
-}
-
 declare ptr @raw_parser(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @plpgsql_peek2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -6521,7 +6512,7 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

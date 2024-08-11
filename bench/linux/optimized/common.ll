@@ -133,7 +133,7 @@ define dso_local i32 @raw_pci_read(i32 noundef %0, i32 noundef %1, i32 noundef %
 16:                                               ; preds = %13, %6
   %17 = phi ptr [ %10, %6 ], [ %14, %13 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #9
+  %19 = tail call i32 %18(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #10
   br label %20
 
 20:                                               ; preds = %16, %13
@@ -160,7 +160,7 @@ define dso_local i32 @raw_pci_write(i32 noundef %0, i32 noundef %1, i32 noundef 
   %17 = phi ptr [ %10, %6 ], [ %14, %13 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #9
+  %20 = tail call i32 %19(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #10
   br label %21
 
 21:                                               ; preds = %16, %13
@@ -192,7 +192,7 @@ define internal i32 @pci_read(ptr nocapture noundef readonly %0, i32 noundef %1,
 21:                                               ; preds = %18, %5
   %22 = phi ptr [ %15, %5 ], [ %19, %18 ]
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(i32 noundef %8, i32 noundef %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #9
+  %24 = tail call i32 %23(i32 noundef %8, i32 noundef %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #10
   br label %25
 
 25:                                               ; preds = %21, %18
@@ -225,7 +225,7 @@ define internal i32 @pci_write(ptr nocapture noundef readonly %0, i32 noundef %1
   %22 = phi ptr [ %15, %5 ], [ %19, %18 ]
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %24(i32 noundef %8, i32 noundef %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #9
+  %25 = tail call i32 %24(i32 noundef %8, i32 noundef %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #10
   br label %26
 
 26:                                               ; preds = %21, %18
@@ -235,7 +235,7 @@ define internal i32 @pci_write(ptr nocapture noundef readonly %0, i32 noundef %1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @dmi_check_skip_isa_align() local_unnamed_addr #1 section ".init.text" align 16 {
-  %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @can_skip_pciprobe_dmi_table) #9
+  %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @can_skip_pciprobe_dmi_table) #10
   ret void
 }
 
@@ -244,7 +244,7 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  tail call void @pci_read_bridge_bases(ptr noundef %0) #9
+  tail call void @pci_read_bridge_bases(ptr noundef %0) #10
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -389,7 +389,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_add_bus(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  tail call void @acpi_pci_add_bus(ptr noundef %0) #9
+  tail call void @acpi_pci_add_bus(ptr noundef %0) #10
   ret void
 }
 
@@ -398,7 +398,7 @@ declare dso_local void @acpi_pci_add_bus(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_remove_bus(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  tail call void @acpi_pci_remove_bus(ptr noundef %0) #9
+  tail call void @acpi_pci_remove_bus(ptr noundef %0) #10
   ret void
 }
 
@@ -407,55 +407,55 @@ declare dso_local void @acpi_pci_remove_bus(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @dmi_check_pciprobe() local_unnamed_addr #1 section ".init.text" align 16 {
-  %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @pciprobe_dmi_table) #9
+  %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @pciprobe_dmi_table) #10
   ret void
 }
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pcibios_scan_root(i32 noundef %0) local_unnamed_addr #0 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @pcibios_scan_root(i32 noundef %0) local_unnamed_addr #4 align 16 {
   %2 = alloca %struct.list_head, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
   store ptr %2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %2, ptr %3, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
-  %5 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 32) #10
+  %5 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 32) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %0) #11
+  %8 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %0) #12
   br label %17
 
 9:                                                ; preds = %1
-  %10 = call i32 @x86_pci_root_bus_node(i32 noundef %0) #9
+  %10 = call i32 @x86_pci_root_bus_node(i32 noundef %0) #10
   %11 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %10, ptr %11, align 4
-  call void @x86_pci_root_bus_resources(i32 noundef %0, ptr noundef nonnull %2) #9
-  %12 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %0) #11
-  %13 = call ptr @pci_scan_root_bus(ptr noundef null, i32 noundef %0, ptr noundef nonnull @pci_root_ops, ptr noundef nonnull %5, ptr noundef nonnull %2) #9
+  call void @x86_pci_root_bus_resources(i32 noundef %0, ptr noundef nonnull %2) #10
+  %12 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %0) #12
+  %13 = call ptr @pci_scan_root_bus(ptr noundef null, i32 noundef %0, ptr noundef nonnull @pci_root_ops, ptr noundef nonnull %5, ptr noundef nonnull %2) #10
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  call void @pci_free_resource_list(ptr noundef nonnull %2) #9
-  call void @kfree(ptr noundef nonnull %5) #9
+  call void @pci_free_resource_list(ptr noundef nonnull %2) #10
+  call void @kfree(ptr noundef nonnull %5) #10
   br label %17
 
 16:                                               ; preds = %9
-  call void @pci_bus_add_devices(ptr noundef nonnull %13) #9
+  call void @pci_bus_add_devices(ptr noundef nonnull %13) #10
   br label %17
 
 17:                                               ; preds = %16, %15, %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @x86_pci_root_bus_node(i32 noundef) local_unnamed_addr #2
@@ -487,12 +487,12 @@ define dso_local void @pcibios_set_cache_line_size() local_unnamed_addr #1 secti
   store i8 %5, ptr @pci_dfl_cache_line_size, align 1
   %6 = and i16 %1, 1020
   %7 = zext nneg i16 %6 to i32
-  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %7) #11
+  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %7) #12
   br label %11
 
 9:                                                ; preds = %0
   store i8 8, ptr @pci_dfl_cache_line_size, align 1
-  %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #11
+  %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #12
   br label %11
 
 11:                                               ; preds = %9, %3
@@ -509,18 +509,18 @@ define dso_local noundef i32 @pcibios_init() local_unnamed_addr #1 section ".ini
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %0
-  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #11
+  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #12
   br label %12
 
 8:                                                ; preds = %0
-  tail call void @pcibios_set_cache_line_size() #12
-  tail call void @pcibios_resource_survey() #9
+  tail call void @pcibios_set_cache_line_size() #13
+  tail call void @pcibios_resource_survey() #10
   %9 = load i32, ptr @pci_bf_sort, align 4
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
-  tail call void @pci_sort_breadthfirst() #9
+  tail call void @pci_sort_breadthfirst() #10
   br label %12
 
 12:                                               ; preds = %11, %8, %6
@@ -535,7 +535,7 @@ declare dso_local void @pci_sort_breadthfirst() local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #1 section ".init.text" align 16 {
-  %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.5) #9
+  %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.5) #10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5
 
@@ -544,7 +544,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str.6) #9
+  %6 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str.6) #10
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %9
 
@@ -553,7 +553,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.7) #9
+  %10 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.7) #10
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
 
@@ -562,7 +562,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.8) #9
+  %14 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.8) #10
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
 
@@ -571,7 +571,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.9) #9
+  %18 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.9) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %21
 
@@ -580,7 +580,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.10) #9
+  %22 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.10) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %27
 
@@ -591,7 +591,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 27:                                               ; preds = %21
-  %28 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(24) @.str.11) #9
+  %28 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(24) @.str.11) #10
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %33
 
@@ -602,7 +602,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 33:                                               ; preds = %27
-  %34 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str.12) #9
+  %34 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str.12) #10
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %37
 
@@ -611,7 +611,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 37:                                               ; preds = %33
-  %38 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.13) #9
+  %38 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.13) #10
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %43
 
@@ -622,7 +622,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 43:                                               ; preds = %37
-  %44 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(12) @.str.14) #9
+  %44 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(12) @.str.14) #10
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %49
 
@@ -633,31 +633,31 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 49:                                               ; preds = %43
-  %50 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.15, i64 noundef 8) #9
+  %50 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.15, i64 noundef 8) #10
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %49
   %53 = getelementptr i8, ptr %0, i64 8
-  %54 = tail call i64 @simple_strtol(ptr noundef %53, ptr noundef null, i32 noundef 0) #9
+  %54 = tail call i64 @simple_strtol(ptr noundef %53, ptr noundef null, i32 noundef 0) #10
   %55 = trunc i64 %54 to i32
   store i32 %55, ptr @pcibios_irq_mask, align 4
   br label %145
 
 56:                                               ; preds = %49
-  %57 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.16, i64 noundef 8) #9
+  %57 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.16, i64 noundef 8) #10
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %56
   %60 = getelementptr i8, ptr %0, i64 8
-  %61 = tail call i64 @simple_strtol(ptr noundef %60, ptr noundef null, i32 noundef 0) #9
+  %61 = tail call i64 @simple_strtol(ptr noundef %60, ptr noundef null, i32 noundef 0) #10
   %62 = trunc i64 %61 to i32
   store i32 %62, ptr @pcibios_last_bus, align 4
   br label %145
 
 63:                                               ; preds = %56
-  %64 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.17) #9
+  %64 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.17) #10
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %69
 
@@ -668,7 +668,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 69:                                               ; preds = %63
-  %70 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.18) #9
+  %70 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.18) #10
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %75
 
@@ -679,7 +679,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 75:                                               ; preds = %69
-  %76 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.19) #9
+  %76 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.19) #10
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %81
 
@@ -690,7 +690,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 81:                                               ; preds = %75
-  %82 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(14) @.str.20) #9
+  %82 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(14) @.str.20) #10
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %87
 
@@ -701,7 +701,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 87:                                               ; preds = %81
-  %88 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.21) #9
+  %88 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.21) #10
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %93
 
@@ -712,7 +712,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 93:                                               ; preds = %87
-  %94 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.22) #9
+  %94 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.22) #10
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %99
 
@@ -723,7 +723,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 99:                                               ; preds = %93
-  %100 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.23) #9
+  %100 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.23) #10
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %105
 
@@ -731,11 +731,11 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   %103 = load i32, ptr @pci_probe, align 4
   %104 = or i32 %103, 8388608
   store i32 %104, ptr @pci_probe, align 4
-  tail call void @add_taint(i32 noundef 11, i32 noundef 0) #9
+  tail call void @add_taint(i32 noundef 11, i32 noundef 0) #10
   br label %145
 
 105:                                              ; preds = %99
-  %106 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.24) #9
+  %106 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.24) #10
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %111
 
@@ -743,11 +743,11 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   %109 = load i32, ptr @pci_probe, align 4
   %110 = or i32 %109, 16777216
   store i32 %110, ptr @pci_probe, align 4
-  tail call void @add_taint(i32 noundef 11, i32 noundef 0) #9
+  tail call void @add_taint(i32 noundef 11, i32 noundef 0) #10
   br label %145
 
 111:                                              ; preds = %105
-  %112 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(16) @.str.25) #9
+  %112 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(16) @.str.25) #10
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %117
 
@@ -758,7 +758,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 117:                                              ; preds = %111
-  %118 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.26) #9
+  %118 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.26) #10
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %121
 
@@ -767,7 +767,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 121:                                              ; preds = %117
-  %122 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(15) @.str.27) #9
+  %122 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(15) @.str.27) #10
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %127
 
@@ -778,7 +778,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 127:                                              ; preds = %121
-  %128 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(14) @.str.28) #9
+  %128 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(14) @.str.28) #10
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %131
 
@@ -787,7 +787,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 131:                                              ; preds = %127
-  %132 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(14) @.str.29) #9
+  %132 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(14) @.str.29) #10
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %138
 
@@ -801,7 +801,7 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
   br label %145
 
 138:                                              ; preds = %131
-  %139 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(16) @.str.30) #9
+  %139 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(16) @.str.30) #10
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %145
 
@@ -820,10 +820,10 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @simple_strtol(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -832,7 +832,7 @@ declare dso_local i64 @simple_strtol(ptr noundef, ptr noundef, i32 noundef) loca
 declare dso_local void @add_taint(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local range(i32 0, 2) i32 @pcibios_assign_all_busses() local_unnamed_addr #7 align 16 {
+define dso_local range(i32 0, 2) i32 @pcibios_assign_all_busses() local_unnamed_addr #8 align 16 {
   %1 = load i32, ptr @pci_probe, align 4
   %2 = lshr i32 %1, 14
   %3 = and i32 %2, 1
@@ -856,7 +856,7 @@ define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture
 
 11:                                               ; preds = %63, %4
   %12 = phi i64 [ %2, %4 ], [ %64, %63 ]
-  %13 = tail call ptr @memremap(i64 noundef %12, i64 noundef 64, i64 noundef 1) #9
+  %13 = tail call ptr @memremap(i64 noundef %12, i64 noundef 64, i64 noundef 1) #10
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
 
@@ -928,7 +928,7 @@ define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture
 
 63:                                               ; preds = %59, %54, %49, %43, %35, %28, %19, %15
   %64 = load i64, ptr %13, align 8
-  tail call void @memunmap(ptr noundef nonnull %13) #9
+  tail call void @memunmap(ptr noundef nonnull %13) #10
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %.loopexit3, label %11, !llvm.loop !9
 
@@ -957,7 +957,7 @@ declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pcibios_enable_device(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = tail call i32 @pci_enable_resources(ptr noundef %0, i32 noundef %1) #9
+  %3 = tail call i32 @pci_enable_resources(ptr noundef %0, i32 noundef %1) #10
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %13, label %5
 
@@ -970,7 +970,7 @@ define dso_local i32 @pcibios_enable_device(ptr noundef %0, i32 noundef %1) loca
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @pcibios_enable_irq, align 8
-  %12 = tail call i32 %11(ptr noundef %0) #9
+  %12 = tail call i32 %11(ptr noundef %0) #10
   br label %13
 
 13:                                               ; preds = %10, %5, %2
@@ -993,7 +993,7 @@ define dso_local void @pcibios_disable_device(ptr noundef %0) local_unnamed_addr
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %1
-  tail call void %6(ptr noundef %0) #9
+  tail call void %6(ptr noundef %0) #10
   br label %10
 
 10:                                               ; preds = %9, %1
@@ -1003,7 +1003,7 @@ define dso_local void @pcibios_disable_device(ptr noundef %0) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_release_device(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1696
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #9, !srcloc !10
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #10, !srcloc !10
   %4 = add i32 %3, -1
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %15
@@ -1019,7 +1019,7 @@ define dso_local void @pcibios_release_device(ptr noundef %0) local_unnamed_addr
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %6
-  tail call void %11(ptr noundef %0) #9
+  tail call void %11(ptr noundef %0) #10
   br label %15
 
 15:                                               ; preds = %14, %6, %1
@@ -1027,7 +1027,7 @@ define dso_local void @pcibios_release_device(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local range(i32 0, 2) i32 @pci_ext_cfg_avail() local_unnamed_addr #7 align 16 {
+define dso_local range(i32 0, 2) i32 @pci_ext_cfg_avail() local_unnamed_addr #8 align 16 {
   %1 = load ptr, ptr @raw_pci_ext_ops, align 8
   %2 = icmp ne ptr %1, null
   %3 = zext i1 %2 to i32
@@ -1041,7 +1041,7 @@ define internal noundef i32 @can_skip_ioresource_align(ptr nocapture noundef rea
   store i32 %3, ptr @pci_probe, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34, ptr noundef %5) #11
+  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34, ptr noundef %5) #12
   ret i32 0
 }
 
@@ -1055,7 +1055,7 @@ define internal noundef i32 @set_bf_sort(ptr nocapture noundef readonly %0) #1 s
   store i32 3, ptr @pci_bf_sort, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %6) #11
+  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %6) #12
   br label %8
 
 8:                                                ; preds = %4, %1
@@ -1064,7 +1064,7 @@ define internal noundef i32 @set_bf_sort(ptr nocapture noundef readonly %0) #1 s
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @find_sort_method(ptr noundef %0) #1 section ".init.text" align 16 {
-  %2 = tail call i32 @dmi_walk(ptr noundef nonnull @read_dmi_type_b1, ptr noundef %0) #9
+  %2 = tail call i32 @dmi_walk(ptr noundef nonnull @read_dmi_type_b1, ptr noundef %0) #10
   ret i32 0
 }
 
@@ -1072,7 +1072,7 @@ define internal noundef i32 @find_sort_method(ptr noundef %0) #1 section ".init.
 define internal noundef i32 @set_scan_all(ptr nocapture noundef readonly %0) #1 section ".init.text" align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.58, ptr noundef %3) #11
+  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.58, ptr noundef %3) #12
   %5 = load i32, ptr @pci_flags, align 4
   %6 = or i32 %5, 64
   store i32 %6, ptr @pci_flags, align 4
@@ -1102,7 +1102,7 @@ define internal void @read_dmi_type_b1(ptr nocapture noundef readonly %0, ptr no
   store i32 3, ptr @pci_bf_sort, align 4
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %15) #11
+  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %15) #12
   br label %17
 
 17:                                               ; preds = %13, %5, %2
@@ -1110,21 +1110,22 @@ define internal void @read_dmi_type_b1(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(2) }
-attributes #11 = { cold nounwind }
-attributes #12 = { cold }
+attributes #4 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(2) }
+attributes #12 = { cold nounwind }
+attributes #13 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

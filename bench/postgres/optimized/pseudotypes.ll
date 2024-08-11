@@ -141,7 +141,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anyarray_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -160,7 +160,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anyarray_recv(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -186,7 +186,7 @@ define dso_local i64 @anyarray_send(ptr noundef %0) local_unnamed_addr #0 {
 
 declare i64 @array_send(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anycompatiblearray_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -196,7 +196,7 @@ define dso_local noundef i64 @anycompatiblearray_in(ptr nocapture noundef readno
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anycompatiblearray_recv(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -218,7 +218,7 @@ define dso_local i64 @anycompatiblearray_send(ptr noundef %0) local_unnamed_addr
   ret i64 %2
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anyenum_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -236,7 +236,7 @@ define dso_local i64 @anyenum_out(ptr noundef %0) local_unnamed_addr #0 {
 
 declare i64 @enum_out(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anyrange_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -254,7 +254,7 @@ define dso_local i64 @anyrange_out(ptr noundef %0) local_unnamed_addr #0 {
 
 declare i64 @range_out(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anycompatiblerange_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -270,7 +270,7 @@ define dso_local i64 @anycompatiblerange_out(ptr noundef %0) local_unnamed_addr 
   ret i64 %2
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anymultirange_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -288,7 +288,7 @@ define dso_local i64 @anymultirange_out(ptr noundef %0) local_unnamed_addr #0 {
 
 declare i64 @multirange_out(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anycompatiblemultirange_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -330,7 +330,7 @@ define dso_local i64 @void_send(ptr nocapture noundef readnone %0) local_unnamed
   ret i64 %4
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @shell_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -340,7 +340,7 @@ define dso_local noundef i64 @shell_in(ptr nocapture noundef readnone %0) local_
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @shell_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -350,7 +350,7 @@ define dso_local noundef i64 @shell_out(ptr nocapture noundef readnone %0) local
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @pg_node_tree_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -360,7 +360,7 @@ define dso_local noundef i64 @pg_node_tree_in(ptr nocapture noundef readnone %0)
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @pg_node_tree_recv(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -386,7 +386,7 @@ define dso_local i64 @pg_node_tree_send(ptr noundef %0) local_unnamed_addr #0 {
 
 declare i64 @textsend(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @pg_ddl_command_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -396,7 +396,7 @@ define dso_local noundef i64 @pg_ddl_command_in(ptr nocapture noundef readnone %
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @pg_ddl_command_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -406,7 +406,7 @@ define dso_local noundef i64 @pg_ddl_command_out(ptr nocapture noundef readnone 
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @pg_ddl_command_recv(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -416,7 +416,7 @@ define dso_local noundef i64 @pg_ddl_command_recv(ptr nocapture noundef readnone
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @pg_ddl_command_send(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -426,7 +426,7 @@ define dso_local noundef i64 @pg_ddl_command_send(ptr nocapture noundef readnone
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @any_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -436,7 +436,7 @@ define dso_local noundef i64 @any_in(ptr nocapture noundef readnone %0) local_un
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @any_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -446,7 +446,7 @@ define dso_local noundef i64 @any_out(ptr nocapture noundef readnone %0) local_u
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @trigger_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -456,7 +456,7 @@ define dso_local noundef i64 @trigger_in(ptr nocapture noundef readnone %0) loca
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @trigger_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -466,7 +466,7 @@ define dso_local noundef i64 @trigger_out(ptr nocapture noundef readnone %0) loc
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @event_trigger_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -476,7 +476,7 @@ define dso_local noundef i64 @event_trigger_in(ptr nocapture noundef readnone %0
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @event_trigger_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -486,7 +486,7 @@ define dso_local noundef i64 @event_trigger_out(ptr nocapture noundef readnone %
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @language_handler_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -496,7 +496,7 @@ define dso_local noundef i64 @language_handler_in(ptr nocapture noundef readnone
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @language_handler_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -506,7 +506,7 @@ define dso_local noundef i64 @language_handler_out(ptr nocapture noundef readnon
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @fdw_handler_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -516,7 +516,7 @@ define dso_local noundef i64 @fdw_handler_in(ptr nocapture noundef readnone %0) 
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @fdw_handler_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -526,7 +526,7 @@ define dso_local noundef i64 @fdw_handler_out(ptr nocapture noundef readnone %0)
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @table_am_handler_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -536,7 +536,7 @@ define dso_local noundef i64 @table_am_handler_in(ptr nocapture noundef readnone
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @table_am_handler_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -546,7 +546,7 @@ define dso_local noundef i64 @table_am_handler_out(ptr nocapture noundef readnon
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @index_am_handler_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -556,7 +556,7 @@ define dso_local noundef i64 @index_am_handler_in(ptr nocapture noundef readnone
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @index_am_handler_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -566,7 +566,7 @@ define dso_local noundef i64 @index_am_handler_out(ptr nocapture noundef readnon
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @tsm_handler_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -576,7 +576,7 @@ define dso_local noundef i64 @tsm_handler_in(ptr nocapture noundef readnone %0) 
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @tsm_handler_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -586,7 +586,7 @@ define dso_local noundef i64 @tsm_handler_out(ptr nocapture noundef readnone %0)
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @internal_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -596,7 +596,7 @@ define dso_local noundef i64 @internal_in(ptr nocapture noundef readnone %0) loc
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @internal_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -606,7 +606,7 @@ define dso_local noundef i64 @internal_out(ptr nocapture noundef readnone %0) lo
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anyelement_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -616,7 +616,7 @@ define dso_local noundef i64 @anyelement_in(ptr nocapture noundef readnone %0) l
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anyelement_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -626,7 +626,7 @@ define dso_local noundef i64 @anyelement_out(ptr nocapture noundef readnone %0) 
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anynonarray_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -636,7 +636,7 @@ define dso_local noundef i64 @anynonarray_in(ptr nocapture noundef readnone %0) 
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anynonarray_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -646,7 +646,7 @@ define dso_local noundef i64 @anynonarray_out(ptr nocapture noundef readnone %0)
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anycompatible_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -656,7 +656,7 @@ define dso_local noundef i64 @anycompatible_in(ptr nocapture noundef readnone %0
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anycompatible_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -666,7 +666,7 @@ define dso_local noundef i64 @anycompatible_out(ptr nocapture noundef readnone %
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anycompatiblenonarray_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -676,7 +676,7 @@ define dso_local noundef i64 @anycompatiblenonarray_in(ptr nocapture noundef rea
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @anycompatiblenonarray_out(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
@@ -692,7 +692,7 @@ declare void @llvm.assume(i1 noundef) #6
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

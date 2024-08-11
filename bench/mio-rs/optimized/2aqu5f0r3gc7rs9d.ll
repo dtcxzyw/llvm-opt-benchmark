@@ -57,7 +57,7 @@ define hidden void @"_ZN4core3ptr38drop_in_place$LT$mio..token..Token$GT$17h3ff0
   ret void
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i64 @_ZN3mio5event5event5Event5token17h269390fc0ead12cdE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -70,11 +70,11 @@ define noundef i64 @_ZN3mio5event5event5Event5token17h269390fc0ead12cdE(ptr noal
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.4.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.4.llvm.13064469004710745377) #6
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN3mio5event5event5Event11is_readable17h7aac2e7450978e36E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -87,11 +87,11 @@ define noundef zeroext i1 @_ZN3mio5event5event5Event11is_readable17h7aac2e745097
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.5.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.5.llvm.13064469004710745377) #6
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN3mio5event5event5Event11is_writable17h60dde48a74cbcac5E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -104,11 +104,11 @@ define noundef zeroext i1 @_ZN3mio5event5event5Event11is_writable17h60dde48a74cb
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.6.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.6.llvm.13064469004710745377) #6
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN3mio5event5event5Event8is_error17h5680246d4c8f354dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -121,11 +121,11 @@ define noundef zeroext i1 @_ZN3mio5event5event5Event8is_error17h5680246d4c8f354d
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.7.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.7.llvm.13064469004710745377) #6
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN3mio5event5event5Event14is_read_closed17h0d6dbae5793d9e55E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -138,11 +138,11 @@ define noundef zeroext i1 @_ZN3mio5event5event5Event14is_read_closed17h0d6dbae57
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.8.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.8.llvm.13064469004710745377) #6
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN3mio5event5event5Event15is_write_closed17h3be949c391526a8dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -155,11 +155,11 @@ define noundef zeroext i1 @_ZN3mio5event5event5Event15is_write_closed17h3be949c3
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.9.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.9.llvm.13064469004710745377) #6
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN3mio5event5event5Event6is_aio17h4443bdeafdcd9bedE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -172,11 +172,11 @@ define noundef zeroext i1 @_ZN3mio5event5event5Event6is_aio17h4443bdeafdcd9bedE(
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.11.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.11.llvm.13064469004710745377) #6
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN3mio5event5event5Event6is_lio17hf0cbc86dee724836E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -189,7 +189,7 @@ define noundef zeroext i1 @_ZN3mio5event5event5Event6is_lio17hf0cbc86dee724836E(
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.12.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.12.llvm.13064469004710745377) #6
   unreachable
 }
 
@@ -198,7 +198,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3mio5event5even
   ret ptr %0
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @"_ZN61_$LT$mio..event..event..Event$u20$as$u20$core..fmt..Debug$GT$3fmt17hebcb725e01cef543E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i8, i8, [6 x i8] }, align 8
@@ -214,11 +214,11 @@ define noundef zeroext i1 @"_ZN61_$LT$mio..event..event..Event$u20$as$u20$core..
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %8, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.4.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.4.llvm.13064469004710745377) #6
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @"_ZN116_$LT$$LT$mio..event..event..Event$u20$as$u20$core..fmt..Debug$GT$..fmt..EventDetails$u20$as$u20$core..fmt..Debug$GT$3fmt17he10eedb612dcf22eE"(ptr noalias nocapture readonly align 8 %0, ptr noalias nocapture readnone align 8 %1) unnamed_addr #2 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -231,7 +231,7 @@ define noundef zeroext i1 @"_ZN116_$LT$$LT$mio..event..event..Event$u20$as$u20$c
   store ptr @anon.c07d43945270e383b89c09a49e676868.2.llvm.13064469004710745377, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.13.llvm.13064469004710745377) #7
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c07d43945270e383b89c09a49e676868.13.llvm.13064469004710745377) #6
   unreachable
 }
 
@@ -264,16 +264,15 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
+declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { noreturn }
+attributes #6 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

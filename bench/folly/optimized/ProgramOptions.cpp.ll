@@ -10289,7 +10289,7 @@ entry:
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
 entry:
   tail call void @llvm.trap() #33
@@ -12093,7 +12093,7 @@ entry:
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
 entry:
   tail call void @llvm.trap() #33
@@ -13238,7 +13238,7 @@ entry:
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
 entry:
   tail call void @llvm.trap() #33
@@ -14274,7 +14274,7 @@ entry:
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
 entry:
   tail call void @llvm.trap() #33
@@ -15383,7 +15383,7 @@ entry:
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
 entry:
   tail call void @llvm.trap() #33
@@ -16596,7 +16596,7 @@ entry:
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
 entry:
   tail call void @llvm.trap() #33
@@ -18048,7 +18048,7 @@ entry:
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
 entry:
   tail call void @llvm.trap() #33
@@ -24250,7 +24250,7 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { cold mustprogress noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

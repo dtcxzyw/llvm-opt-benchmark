@@ -153,11 +153,11 @@ define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exc
   br label %26
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define void @_ZN16mini_lsm_starter5block8iterator13BlockIterator24create_and_seek_to_first17hfdf967b4a6dc7f42E(ptr noalias nocapture noundef readnone sret({ { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, ptr, { i64, i64 }, i64 }) align 8 dereferenceable(80) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.34) #5
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.34) #4
           to label %9 unwind label %4
 
 4:                                                ; preds = %2
@@ -178,18 +178,18 @@ define void @_ZN16mini_lsm_starter5block8iterator13BlockIterator24create_and_see
 10:                                               ; preds = %8
   %11 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #6
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #5
   unreachable
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm_starter..block..Block$GT$$GT$17h0c660c363b45c0dcE.exit": ; preds = %4, %8
   resume { ptr, i32 } %5
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define void @_ZN16mini_lsm_starter5block8iterator13BlockIterator22create_and_seek_to_key17hc21d3286ad976812E(ptr noalias nocapture noundef readnone sret({ { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, ptr, { i64, i64 }, i64 }) align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.35) #5
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.35) #4
           to label %11 unwind label %6
 
 6:                                                ; preds = %4
@@ -210,46 +210,46 @@ define void @_ZN16mini_lsm_starter5block8iterator13BlockIterator22create_and_see
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #6
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #5
   unreachable
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm_starter..block..Block$GT$$GT$17h0c660c363b45c0dcE.exit": ; preds = %6, %10
   resume { ptr, i32 } %7
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef { ptr, i64 } @_ZN16mini_lsm_starter5block8iterator13BlockIterator3key17h36a18188d20b9b42E(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #1 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.36) #5
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.36) #4
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef { ptr, i64 } @_ZN16mini_lsm_starter5block8iterator13BlockIterator5value17h7e61cdfb81d45442E(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #1 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.37) #5
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.37) #4
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN16mini_lsm_starter5block8iterator13BlockIterator8is_valid17h15d8983c4f98a065E(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #1 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.38) #5
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.38) #4
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define void @_ZN16mini_lsm_starter5block8iterator13BlockIterator13seek_to_first17hcc10f919bbb32c5dE(ptr noalias nocapture noundef readnone align 8 dereferenceable(80) %0) unnamed_addr #1 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.39) #5
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.39) #4
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define void @_ZN16mini_lsm_starter5block8iterator13BlockIterator4next17h790b6a8cf0ab757dE(ptr noalias nocapture noundef readnone align 8 dereferenceable(80) %0) unnamed_addr #1 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.40) #5
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.40) #4
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define void @_ZN16mini_lsm_starter5block8iterator13BlockIterator11seek_to_key17hfa81dd3ae7a2449cE(ptr noalias nocapture noundef readnone align 8 dereferenceable(80) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.41) #5
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.93bbde6828521db51edf1896c112cd40.32, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93bbde6828521db51edf1896c112cd40.41) #4
   unreachable
 }
 
@@ -269,15 +269,14 @@ declare void @llvm.x86.sse2.pause() unnamed_addr #3
 declare hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc364ed511f9d0bafE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
+declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { nounwind }
-attributes #4 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { noreturn }
-attributes #6 = { cold noreturn nounwind }
+attributes #4 = { noreturn }
+attributes #5 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

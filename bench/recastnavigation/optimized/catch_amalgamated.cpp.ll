@@ -3665,7 +3665,7 @@ define dso_local void @_ZN5Catch9Benchmark6Detail18ChronometerConceptD2Ev(ptr no
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch9Benchmark6Detail18ChronometerConceptD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -3679,7 +3679,7 @@ define dso_local void @_ZN5Catch9Benchmark6Detail17BenchmarkFunction8callableD2E
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch9Benchmark6Detail17BenchmarkFunction8callableD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -25036,7 +25036,7 @@ define dso_local void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch8TestSpec7PatternD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28092,7 +28092,7 @@ define dso_local void @_ZN5Catch17IGeneratorTrackerD2Ev(ptr nocapture nonnull re
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch17IGeneratorTrackerD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28143,7 +28143,7 @@ define dso_local void @_ZN5Catch10Generators20GeneratorUntypedBaseD2Ev(ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch10Generators20GeneratorUntypedBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28241,13 +28241,13 @@ define dso_local void @_ZN5Catch14IResultCaptureD2Ev(ptr nocapture nonnull readn
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch14IResultCaptureD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch7IConfigD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28258,7 +28258,7 @@ define dso_local void @_ZN5Catch20IExceptionTranslatorD2Ev(ptr nocapture nonnull
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch20IExceptionTranslatorD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28269,7 +28269,7 @@ define dso_local void @_ZN5Catch28IExceptionTranslatorRegistryD2Ev(ptr nocapture
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch28IExceptionTranslatorRegistryD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28327,7 +28327,7 @@ define dso_local void @_ZN5Catch12IRegistryHubD2Ev(ptr nocapture nonnull readnon
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch12IRegistryHubD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28338,7 +28338,7 @@ define dso_local void @_ZN5Catch19IMutableRegistryHubD2Ev(ptr nocapture nonnull 
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch19IMutableRegistryHubD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28771,7 +28771,7 @@ define dso_local void @_ZN5Catch14IEventListenerD2Ev(ptr nocapture nonnull readn
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch14IEventListenerD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28782,7 +28782,7 @@ define dso_local void @_ZN5Catch16IReporterFactoryD2Ev(ptr nocapture nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch16IReporterFactoryD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28793,7 +28793,7 @@ define dso_local void @_ZN5Catch20EventListenerFactoryD2Ev(ptr nocapture nonnull
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch20EventListenerFactoryD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -28804,7 +28804,7 @@ define dso_local void @_ZN5Catch17ITestCaseRegistryD2Ev(ptr nocapture nonnull re
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch17ITestCaseRegistryD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -29957,7 +29957,7 @@ define dso_local void @_ZN5Catch5Clara6Detail10ResultBaseD2Ev(ptr nocapture nonn
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch5Clara6Detail10ResultBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -34617,7 +34617,7 @@ define dso_local void @_ZN5Catch10ColourImplD2Ev(ptr nocapture nonnull readnone 
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch10ColourImplD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -34878,7 +34878,7 @@ define dso_local void @_ZN5Catch20ITransientExpressionD2Ev(ptr nocapture nonnull
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch20ITransientExpressionD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -34985,7 +34985,7 @@ define dso_local void @_ZN5Catch26IMutableEnumValuesRegistryD2Ev(ptr nocapture n
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch26IMutableEnumValuesRegistryD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -36622,7 +36622,7 @@ define dso_local void @_ZN5Catch7IStreamD2Ev(ptr nocapture nonnull readnone alig
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch7IStreamD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -45631,7 +45631,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit42: ; preds = %94
   resume { ptr, i32 } %.pn23.pn
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch17ITagAliasRegistryD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -47548,7 +47548,7 @@ _ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_16TestCaseTracking8ITrackerEEESaIS5_
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch16TestCaseTracking8ITrackerD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -48724,7 +48724,7 @@ define dso_local void @_ZN5Catch12ITestInvokerD2Ev(ptr nocapture nonnull readnon
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch12ITestInvokerD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -53097,7 +53097,7 @@ define dso_local void @_ZN5Catch8Matchers18MatcherUntypedBaseD2Ev(ptr noundef no
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch8Matchers18MatcherUntypedBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -55242,7 +55242,7 @@ define dso_local void @_ZN5Catch8Matchers18MatcherGenericBaseD2Ev(ptr noundef no
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch8Matchers18MatcherGenericBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -55786,7 +55786,7 @@ _ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit: ; preds = %_ZN5Catch6Detail
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch12ReporterBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -63493,7 +63493,7 @@ define linkonce_odr dso_local void @_ZN5Catch6Detail10unique_ptrINS_22Cumulative
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN5Catch22CumulativeReporterBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #51
   unreachable
@@ -134566,7 +134566,7 @@ declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double
 declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #46
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #3 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
