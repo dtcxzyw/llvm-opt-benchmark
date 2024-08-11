@@ -9,22 +9,26 @@ cmake ../llvm-project/llvm -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -G 
 cmake --build . -j -t opt
 cd ../..
 
-scripts/gen_optimized.py bench llvm/llvm-build/bin/opt
+scripts/gen_optimized.py bench llvm/llvm-build/bin/opt comptime comptime.log
 ret=$?
+scripts/comptime_diff.py comptime.baseline comptime.log >> ctdiff.log
 if [ $PRE_COMMIT_MODE -eq 0 ]
 then
+  ctret=$? 
+  mv comptime.log comptime.baseline
   llvm_commit=$(git -C llvm/llvm-project rev-parse HEAD)
   git add .
   git commit -m "llvm: Update baseline to $llvm_commit"
-  if [ $? -eq 0 ] || [ $ret -ne 0 ]
+  if [ $? -eq 0 ] || [ $ret -ne 0 ] || [ $ctret -ne 0 ]
   then
     git pull --rebase
     git submodule update
     git push -f
     git show --name-only | grep bench
-    if [ $? -eq 0 ] || [ $ret -ne 0 ]
+    if [ $? -eq 0 ] || [ $ret -ne 0 ] || [ $ctret -ne 0 ]
     then
       scripts/gen_issue_report.py $(git rev-parse HEAD)
+      cat ctdiff.log >> scripts/issue.md
       echo "SHOULD_OPEN_ISSUE=1" >> $GITHUB_OUTPUT
     else
       echo "SHOULD_OPEN_ISSUE=0" >> $GITHUB_OUTPUT
@@ -42,6 +46,7 @@ else
   echo "sha256: $PATCH_SHA256" >> scripts/pr-comment.md
   echo "commit: $(git rev-parse HEAD)" >> scripts/pr-comment.md
   echo "$diff_stat" >> scripts/pr-comment.md
+  cat ctdiff.log >> scripts/pr-comment.md
   head -100 test.log >> scripts/pr-comment.md
   git show --name-only --oneline | head -100 >> scripts/pr-comment.md
 fi

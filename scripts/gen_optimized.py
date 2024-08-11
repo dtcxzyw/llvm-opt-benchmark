@@ -27,28 +27,25 @@ def run_opt(task):
     try:
         result = 0
         cmd = [opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-force-vector-interleave=1', '-force-vector-width=1', input_file, '-S']
-        if comptime is None:
-            tmp_output = output_file + '.bench_tmp.ll'
-            cmd += ['-o', tmp_output]
-            ret = subprocess.run(cmd,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, timeout=600.0)
-            if ret.returncode != 0:
-                return (input_file, 'fail', 0)
-            diff_ret = subprocess.run(['diff', '-q', tmp_output, output_file], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            if diff_ret.returncode != 0:
-                os.replace(tmp_output, output_file)
-            else:
-                os.remove(tmp_output)
-        else:
-            cmd = ['perf', 'stat', '-e', 'instructions:u'] + cmd + ['-disable-output']
-            ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, timeout=600.0, capture_output=True)
-            if ret.returncode != 0:
-                return (input_file, 'fail', 0)
+        tmp_output = output_file + '.bench_tmp.ll'
+        cmd += ['-o', tmp_output]
+        if comptime is not None:
+            cmd = ['perf', 'stat', '-e', 'instructions:u'] + cmd
+        ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, capture_output=True, timeout=600.0)
+        if ret.returncode != 0:
+            return (input_file, 'fail', 0)
+        if comptime is not None:
             err = ret.stderr.decode()
             for line in err.splitlines():
                 if 'instructions:u' in line:
                     result = int(line.strip().split()[0].replace(',',''))
                     break
-        
+        diff_ret = subprocess.run(['diff', '-q', tmp_output, output_file], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if diff_ret.returncode != 0:
+            os.replace(tmp_output, output_file)
+        else:
+            os.remove(tmp_output)
+
         return (input_file, 'success', result)
     except subprocess.TimeoutExpired:
         return (input_file, 'timeout', 0)

@@ -35,10 +35,6 @@ Please cite this work with the following BibTex entry:
 
   See also [llvm-codegen-benchmark](https://github.com/dtcxzyw/llvm-codegen-benchmark).
 
-+ Compilation time measurement
-
-  COMING SOON :)
-
 ## Benchmark List
 
 Currently, this repository contains the following libraries/applications:

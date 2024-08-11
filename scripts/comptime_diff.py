@@ -1,10 +1,14 @@
 import math
 import sys
+import os
 
 v1_file = sys.argv[1]
 v2_file = sys.argv[2]
 threshold = 0.0001
 topk = 5
+
+if not os.path.exists(v1_file) or not os.path.exists(v2_file):
+    exit(0)
 
 def load(filename):
     res = dict()
@@ -49,6 +53,12 @@ improvement.sort(key=lambda x: (x[2] - x[1])/x[1])
 regression = regression[:topk]
 improvement = improvement[:topk]
 
+ratio_geomean = (math.exp(ratio_sum / cnt) - 1.0) * 100.0
+
+if len(regression) == 0 and len(improvement) == 0 and abs(ratio_geomean) < 0.001:
+    exit(0)
+
+print("\n```")
 print(f"Top {topk} improvements:")
 for k, t1, t2 in improvement:
     diff = "{:+.2f}%".format((t2 - t1)/t1*100.0)
@@ -59,6 +69,6 @@ for k, t1, t2 in regression:
     diff = "{:+.2f}%".format((t2 - t1)/t1*100.0)
     print(f"  {k} {t1} {t2} {diff}")
 
-ratio_geomean = (math.exp(ratio_sum / cnt) - 1.0) * 100.0
-
-print(f"Overall: {ratio_geomean:.8f}%")
+print(f"\nOverall: {ratio_geomean:.8f}%")
+print("```")
+exit(0 if ratio_geomean < 0.1 else 1)
