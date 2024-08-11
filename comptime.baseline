@@ -6070,7 +6070,7 @@ darktable/introspection_cacorrect.c.ll 4691230432
 darktable/introspection_cacorrectrgb.c.ll 1447888999
 darktable/introspection_censorize.c.ll 311647374
 darktable/introspection_channelmixer.c.ll 317287480
-darktable/introspection_channelmixerrgb.c.ll 2966443608
+darktable/introspection_channelmixerrgb.c.ll 2963055236
 darktable/introspection_clahe.c.ll 537852092
 darktable/introspection_clipping.c.ll 1341330110
 darktable/introspection_colisa.c.ll 169824676
@@ -6140,7 +6140,7 @@ darktable/introspection_splittoning.c.ll 295865719
 darktable/introspection_spots.c.ll 644097313
 darktable/introspection_temperature.c.ll 784719311
 darktable/introspection_tonecurve.c.ll 1638468464
-darktable/introspection_toneequal.c.ll 2178844713
+darktable/introspection_toneequal.c.ll 2181292969
 darktable/introspection_tonemap.cc.ll 442749358
 darktable/introspection_velvia.c.ll 105245060
 darktable/introspection_vibrance.c.ll 98754256
@@ -6199,7 +6199,7 @@ delta-rs/1mu2iapt6fwm02ou.ll 34384150
 delta-rs/1muvhd66na3y5hwz.ll 835281727
 delta-rs/1q6q2cmruh1j9ndm.ll 746366919
 delta-rs/1r1w77ke32wmydhz.ll 1241714769
-delta-rs/1rw3q64nilk4jthd.ll 33954757117
+delta-rs/1rw3q64nilk4jthd.ll 33913800349
 delta-rs/1x96nto90vd3u3mo.ll 6360287320
 delta-rs/20d38kflwyye7r28.ll 2180095249
 delta-rs/20ta78igzxvrdtgp.ll 1066058663
@@ -6270,7 +6270,7 @@ delta-rs/4tvyyucy3nagk0z8.ll 2584659420
 delta-rs/4uexgcs2m8ycm9lg.ll 172559842
 delta-rs/4upguevc2d5e8prs.ll 6719754954
 delta-rs/4yzqn3zldbxccs8p.ll 6727576569
-delta-rs/4zvphat0q9a964bz.ll 41099098162
+delta-rs/4zvphat0q9a964bz.ll 41047747685
 delta-rs/500dbd8v54dhxhp6.ll 3891784716
 delta-rs/50rbvq6ph7mfbkls.ll 6668006382
 delta-rs/50ulyw4u3j3q45m6.ll 6428526763
@@ -6958,7 +6958,7 @@ entt/meta_base.cpp.ll 2629312750
 entt/meta_container.cpp.ll 13939760217
 entt/meta_context.cpp.ll 7821962750
 entt/meta_conv.cpp.ll 1383788647
-entt/meta_ctor.cpp.ll 4257821866
+entt/meta_ctor.cpp.ll 4252559098
 entt/meta_data.cpp.ll 9613231474
 entt/meta_dtor.cpp.ll 1293027103
 entt/meta_func.cpp.ll 8683133134
@@ -7206,7 +7206,7 @@ folly/AsyncFdSocket.cpp.ll 890285313
 folly/AsyncFileWriter.cpp.ll 184633176
 folly/AsyncLogWriter.cpp.ll 307469385
 folly/AsyncPipe.cpp.ll 307798364
-folly/AsyncSSLSocket.cpp.ll 2709595295
+folly/AsyncSSLSocket.cpp.ll 2713223239
 folly/AsyncServerSocket.cpp.ll 1830626704
 folly/AsyncSignalHandler.cpp.ll 233641072
 folly/AsyncSocket.cpp.ll 5284560335
@@ -10465,9 +10465,9 @@ hyperscan/limex_64.c.ll 2162580476
 hyperscan/limex_compile.cpp.ll 28848335143
 hyperscan/limex_native.c.ll 2052285558
 hyperscan/limex_simd128.c.ll 2804670984
-hyperscan/limex_simd256.c.ll 4458118914
+hyperscan/limex_simd256.c.ll 4463939185
 hyperscan/limex_simd384.c.ll 5816955423
-hyperscan/limex_simd512.c.ll 8150793763
+hyperscan/limex_simd512.c.ll 8164034797
 hyperscan/literals.cpp.ll 1700145143
 hyperscan/logical_combination.cpp.ll 4927535600
 hyperscan/match.c.ll 1448646365
@@ -15546,7 +15546,7 @@ meshlab/filter_isoparametrization.cpp.ll 44579234943
 meshlab/filter_layer.cpp.ll 10396235150
 meshlab/filter_measure.cpp.ll 10946812919
 meshlab/filter_mesh_alpha_wrap.cpp.ll 67640383814
-meshlab/filter_mesh_booleans.cpp.ll 97287421299
+meshlab/filter_mesh_booleans.cpp.ll 97148664262
 meshlab/filter_mutualglobal.cpp.ll 5173614031
 meshlab/filter_mutualinfo.cpp.ll 2426562152
 meshlab/filter_parametrization.cpp.ll 41281759282
@@ -18014,7 +18014,7 @@ ockam-rs/1pv5gnbequqkl6bi.ll 1248486600
 ockam-rs/1rhd9bblljt0sgxb.ll 2842185542
 ockam-rs/1ryvn0snr3ofkip8.ll 2992032005
 ockam-rs/1sh1jgeif2r7m14r.ll 1507328849
-ockam-rs/1smg82w6aeros2gx.ll 4374764179
+ockam-rs/1smg82w6aeros2gx.ll 4379288651
 ockam-rs/1sna1kukcpmrcv4c.ll 2357908429
 ockam-rs/1u6cish1iss8aj7j.ll 40727554
 ockam-rs/1u6h88ugr8rwmiaw.ll 1588157589
@@ -18026,7 +18026,7 @@ ockam-rs/1webxc5tel1wnzl3.ll 1769070699
 ockam-rs/1wrronmd8fr7c13v.ll 833490853
 ockam-rs/1xbvysxu5b6y4517.ll 53019796
 ockam-rs/1y67jc2e8hldxzxu.ll 1932300898
-ockam-rs/1ybc3zt4ylwuzsl9.ll 6001702821
+ockam-rs/1ybc3zt4ylwuzsl9.ll 5993521407
 ockam-rs/1ybu237lwdn3r9dv.ll 6241429171
 ockam-rs/1z7cyf6rmx8jvemg.ll 526588612
 ockam-rs/1znr2e86bp785yod.ll 508641166
@@ -18224,7 +18224,7 @@ ockam-rs/58bgotmnlu3rwn4k.ll 2648097871
 ockam-rs/58zdzyzqu4tjhdt3.ll 36148676
 ockam-rs/594kg43rtueps2cx.ll 3465222805
 ockam-rs/59645ou3p4wsm5oz.ll 958804094
-ockam-rs/59na08zlxqp9p17s.ll 71716191003
+ockam-rs/59na08zlxqp9p17s.ll 71790875533
 ockam-rs/59niu93qhkmqin4o.ll 39713570
 ockam-rs/5ajlzhr79swdelhe.ll 2594975326
 ockam-rs/5ayhis8cfs1k9t14.ll 41690504532
@@ -28766,7 +28766,7 @@ qemu/hw_net_can_can_kvaser_pci.c.ll 71125492
 qemu/hw_net_can_can_sja1000.c.ll 381390406
 qemu/hw_net_can_ctucan_core.c.ll 285583793
 qemu/hw_net_can_ctucan_pci.c.ll 79581856
-qemu/hw_net_e1000.c.ll 1032631534
+qemu/hw_net_e1000.c.ll 1036319920
 qemu/hw_net_e1000e.c.ll 339007806
 qemu/hw_net_e1000e_core.c.ll 2828368932
 qemu/hw_net_e1000x_common.c.ll 308131020
@@ -30718,7 +30718,7 @@ rust-analyzer-rs/3o0zta0tnq3ij8lb.ll 1565947480
 rust-analyzer-rs/3o2zsvb0ik8z2nqt.ll 23245243894
 rust-analyzer-rs/3ojrwagwutxscby0.ll 618773827
 rust-analyzer-rs/3qct5warpemjfrik.ll 471165141
-rust-analyzer-rs/3qwyb440qdfcsy9a.ll 3114308158
+rust-analyzer-rs/3qwyb440qdfcsy9a.ll 3110096548
 rust-analyzer-rs/3r4c29b67wqwkaqb.ll 36151895
 rust-analyzer-rs/3r60zyztvepuy9ka.ll 3974880072
 rust-analyzer-rs/3smo919kcf8ucrac.ll 498498299
@@ -30731,7 +30731,7 @@ rust-analyzer-rs/3wpw5bl3to0c0bcs.ll 8287384169
 rust-analyzer-rs/3x1bafgaqv2n7rul.ll 47914351
 rust-analyzer-rs/3xzp7fojhwn2ktpr.ll 1060061889
 rust-analyzer-rs/3y3c2rwk30mfhcuc.ll 1787208594
-rust-analyzer-rs/3yqkws4dawqbgt35.ll 3631183556
+rust-analyzer-rs/3yqkws4dawqbgt35.ll 3626577242
 rust-analyzer-rs/3zpu2xhafenr2db0.ll 1686333619
 rust-analyzer-rs/40ky2ydjpjpuzin.ll 165987828
 rust-analyzer-rs/41f7ddah72h8g0ie.ll 43226938
@@ -30888,7 +30888,7 @@ rust-analyzer-rs/5fgtm3ees9sdsrsg.ll 24056578265
 rust-analyzer-rs/5fthh34suctdese.ll 467498123
 rust-analyzer-rs/5g6noj2biwdy0go5.ll 288510031
 rust-analyzer-rs/5tc27igfpd8lxn0.ll 6094917457
-rust-analyzer-rs/6218mmeycy2lka1.ll 20910806347
+rust-analyzer-rs/6218mmeycy2lka1.ll 20888070251
 rust-analyzer-rs/62jls0djfkqesn3.ll 113744897
 rust-analyzer-rs/635ry91nhs2ocdh.ll 627431017
 rust-analyzer-rs/68ytxs4wk5ncclk.ll 24025742672
@@ -30901,7 +30901,7 @@ rust-analyzer-rs/7zmg1hi276ncg5y.ll 1589347579
 rust-analyzer-rs/82jke0m3qi61qqg.ll 42647198
 rust-analyzer-rs/84i8mmyjgd66tsw.ll 447860036
 rust-analyzer-rs/84mgk0fwp2eksq1.ll 14652918745
-rust-analyzer-rs/8q1esjraj83sh5t.ll 33194439200
+rust-analyzer-rs/8q1esjraj83sh5t.ll 33159120885
 rust-analyzer-rs/9ipmi6my0zkv4p.ll 4808608498
 rust-analyzer-rs/9o1cq3k2zy9kphw.ll 382939645
 rust-analyzer-rs/9xkc74kd1bsgldb.ll 20848658136
@@ -33144,7 +33144,7 @@ tls-rs/7y9936vu35zt2sp.ll 3320551448
 tls-rs/z2cy5bf5cayilz9.ll 5031600032
 tokenizers-rs/10h1ju7dwsvagf79.ll 7183371647
 tokenizers-rs/1gbi58t02rey1ahs.ll 11528174255
-tokenizers-rs/1k9vblvd5jyd3qmf.ll 9190983256
+tokenizers-rs/1k9vblvd5jyd3qmf.ll 9181540610
 tokenizers-rs/1ve5rid4048y19bt.ll 10999575696
 tokenizers-rs/1w676x6x6lprwvn5.ll 7818614417
 tokenizers-rs/27irl7jx21l1e8zq.ll 8397052225
@@ -33228,7 +33228,7 @@ tree-sitter-rs/2fss1z2ap28jxkt4.ll 184773467
 tree-sitter-rs/2ihg39n1dg1po2l8.ll 4824753487
 tree-sitter-rs/2iveef60mgth46fw.ll 741804121
 tree-sitter-rs/2jber9b3bsvatks5.ll 10901280524
-tree-sitter-rs/2nyb27tvwtmdn06o.ll 3660660835
+tree-sitter-rs/2nyb27tvwtmdn06o.ll 3664579044
 tree-sitter-rs/2qhtbpqvpvignqt5.ll 525068156
 tree-sitter-rs/2qo7ovyi3xaeita9.ll 652863306
 tree-sitter-rs/2svk7abectef9fws.ll 596857704
@@ -33341,7 +33341,7 @@ typst-rs/3l9td41hoydi5jma.ll 98451151
 typst-rs/3lt7g0yvt7qzv13u.ll 3440860990
 typst-rs/3qf2nl8hrxy8k0hz.ll 1440268855
 typst-rs/3rk2ctuzbghb17s4.ll 38918765943
-typst-rs/3y1kwutqz637t0om.ll 3563286152
+typst-rs/3y1kwutqz637t0om.ll 3567244093
 typst-rs/3z60jkym58xbhjyi.ll 2706551849
 typst-rs/3ze8abiqj6g8qouh.ll 463004389
 typst-rs/3zt5lgc0v7piaijw.ll 1019843325
@@ -34474,7 +34474,7 @@ wasmtime-rs/4z7r2u33wb5w78vr.ll 68073726
 wasmtime-rs/4zfyij6ubn2ogcve.ll 170815412
 wasmtime-rs/4zgi7yxvi0e8lh1l.ll 101915327
 wasmtime-rs/4zpfk2x34146qelg.ll 288564885
-wasmtime-rs/504voril3a5lulnh.ll 4648040019
+wasmtime-rs/504voril3a5lulnh.ll 4641075329
 wasmtime-rs/5079e95b7v1wxko.ll 7703585778
 wasmtime-rs/50ap5pyy07igd52x.ll 67394318
 wasmtime-rs/50oljwux3amwt8rq.ll 405788432
@@ -37787,7 +37787,7 @@ zstd/zstd_compress_literals.c.ll 111938281
 zstd/zstd_compress_sequences.c.ll 471539033
 zstd/zstd_compress_superblock.c.ll 488378486
 zstd/zstd_decompress.c.ll 1135325105
-zstd/zstd_decompress_block.c.ll 4976172029
+zstd/zstd_decompress_block.c.ll 4970347344
 zstd/zstd_double_fast.c.ll 4548118116
 zstd/zstd_fast.c.ll 4185210942
 zstd/zstd_lazy.c.ll 15778628030
