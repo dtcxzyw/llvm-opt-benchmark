@@ -5,7 +5,7 @@ import os
 
 v1_file = sys.argv[1]
 v2_file = sys.argv[2]
-threshold = 0.0001
+threshold = 0.001
 topk = 5
 
 if not os.path.exists(v1_file) or not os.path.exists(v2_file):
