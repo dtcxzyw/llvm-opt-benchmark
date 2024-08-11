@@ -7319,7 +7319,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hfff005c8b688a605E.llvm.66861
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h02005e4d47cdc48fE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7343,7 +7343,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h02005e4d47cdc48fE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h03dca4392b79a771E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7367,7 +7367,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h03dca4392b79a771E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h0456f3cb0acf73b5E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7391,7 +7391,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h0456f3cb0acf73b5E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h053aaa803f5157edE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7415,7 +7415,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h053aaa803f5157edE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h09f20fd87f621038E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7439,7 +7439,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h09f20fd87f621038E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h14bce0222049087dE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7463,7 +7463,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h14bce0222049087dE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h157e262c9a78264fE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7487,7 +7487,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h157e262c9a78264fE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h2166a103432c026eE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7511,7 +7511,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h2166a103432c026eE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h21af0a2ade61cdfdE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7535,7 +7535,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h21af0a2ade61cdfdE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h28dfe96b0ec77f95E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7559,7 +7559,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h28dfe96b0ec77f95E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h2a452c3117cb8752E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7583,7 +7583,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h2a452c3117cb8752E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h30ab5109fc6c0494E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7607,7 +7607,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h30ab5109fc6c0494E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h316445ffea425a58E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7631,7 +7631,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h316445ffea425a58E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h369c4726e099fddbE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7655,7 +7655,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h369c4726e099fddbE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h37ccdff8e3923871E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7679,7 +7679,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h37ccdff8e3923871E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h3833a5c9425a2159E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7703,7 +7703,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h3833a5c9425a2159E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h3dc253a35177dbb5E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7727,7 +7727,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h3dc253a35177dbb5E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h4297120f3c776088E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7751,7 +7751,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h4297120f3c776088E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h42b543549c41d58fE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7775,7 +7775,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h42b543549c41d58fE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h4c0b78be3a4d72a5E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7799,7 +7799,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h4c0b78be3a4d72a5E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h50905dd6577553c2E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7823,7 +7823,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h50905dd6577553c2E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h574b6dae525ed21aE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7847,7 +7847,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h574b6dae525ed21aE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h5ec67240b262f907E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7871,7 +7871,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h5ec67240b262f907E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h64f5039ed6b45707E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7895,7 +7895,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h64f5039ed6b45707E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h6615665ebd65b870E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7919,7 +7919,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h6615665ebd65b870E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h685c1b3b281f204eE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7943,7 +7943,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h685c1b3b281f204eE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h696deb1572bd18cbE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7967,7 +7967,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h696deb1572bd18cbE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h6ba9facf2f843eafE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -7991,7 +7991,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h6ba9facf2f843eafE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h6dca7b61e4307e55E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8015,7 +8015,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h6dca7b61e4307e55E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h6e4910a97be47645E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8039,7 +8039,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h6e4910a97be47645E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h6e5bb72e06483f05E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8063,7 +8063,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h6e5bb72e06483f05E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h747ce65e9982b1ffE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8087,7 +8087,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h747ce65e9982b1ffE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h78fca1d8a600e7a7E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8111,7 +8111,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h78fca1d8a600e7a7E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h7d5254eb9f6f9b0fE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8135,7 +8135,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h7d5254eb9f6f9b0fE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h7ef4a55ac07493b2E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8159,7 +8159,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h7ef4a55ac07493b2E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h7f4ce32c0054b641E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8183,7 +8183,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h7f4ce32c0054b641E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h8197e257c631a241E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8207,7 +8207,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h8197e257c631a241E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h8c5c9ec54dcb9d9aE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8231,7 +8231,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h8c5c9ec54dcb9d9aE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h8ca3e0e038b532b0E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8255,7 +8255,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h8ca3e0e038b532b0E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h8da2d9b2f9298cdaE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8279,7 +8279,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h8da2d9b2f9298cdaE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h9d320c7532c6e5d1E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8303,7 +8303,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h9d320c7532c6e5d1E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h9ef3600a620d2ea3E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8327,7 +8327,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h9ef3600a620d2ea3E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17ha3c54a3a2f6788dbE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8351,7 +8351,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17ha3c54a3a2f6788dbE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17ha7978098b68de2faE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8375,7 +8375,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17ha7978098b68de2faE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17ha9a1af67480f4cdcE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8399,7 +8399,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17ha9a1af67480f4cdcE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hb5e9b5853a9199eaE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8423,7 +8423,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hb5e9b5853a9199eaE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hbaaa7eda1ee2979aE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8447,7 +8447,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hbaaa7eda1ee2979aE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hbaf3f495936ad497E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8471,7 +8471,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hbaf3f495936ad497E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hbb881df167140169E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8495,7 +8495,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hbb881df167140169E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hbb9d3bc89dc0d807E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8519,7 +8519,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hbb9d3bc89dc0d807E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hc2eaffc81f6d9310E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8543,7 +8543,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hc2eaffc81f6d9310E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hc50ee184e2db4b67E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8567,7 +8567,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hc50ee184e2db4b67E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hc520c47b645d204dE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8591,7 +8591,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hc520c47b645d204dE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hccddf99506cadf32E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8615,7 +8615,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hccddf99506cadf32E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hcd7260a760530a2bE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8639,7 +8639,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hcd7260a760530a2bE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hd0247a9b0c711479E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8663,7 +8663,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hd0247a9b0c711479E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hd3627307bc839a9fE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8687,7 +8687,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hd3627307bc839a9fE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hd59a9a52d3e1daf2E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8711,7 +8711,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hd59a9a52d3e1daf2E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hd74917678d1a91c8E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8735,7 +8735,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hd74917678d1a91c8E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hd8b486dc3a655e25E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8759,7 +8759,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hd8b486dc3a655e25E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hda5ce683c44f680eE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8783,7 +8783,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hda5ce683c44f680eE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hdd06de6e38c16f20E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8807,7 +8807,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hdd06de6e38c16f20E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hdf583c8951b38fcbE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8831,7 +8831,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hdf583c8951b38fcbE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17he150aea05e4c474cE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8855,7 +8855,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17he150aea05e4c474cE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17he5f4000e1497ab52E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8879,7 +8879,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17he5f4000e1497ab52E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hebab7843ff1f9ea3E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8903,7 +8903,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hebab7843ff1f9ea3E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hef0f19ee85b7a91dE.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8927,7 +8927,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hef0f19ee85b7a91dE.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hfa578ffcfeecb031E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -8951,7 +8951,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hfa578ffcfeecb031E.llvm.6686
   ret void
 }
 
-; Function Attrs: inlinehint nounwind nonlazybind uwtable
+; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hfd5828f13cebdc65E.llvm.6686154611312599027(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %1)
           to label %6 unwind label %4
@@ -11627,8 +11627,8 @@ define void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE(p
   ret void
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
-define hidden void @_ZN5tokio7runtime4task8Schedule9yield_now17h42dbc3aeb5e9a938E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+; Function Attrs: cold noreturn nonlazybind uwtable
+define hidden void @_ZN5tokio7runtime4task8Schedule9yield_now17h42dbc3aeb5e9a938E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.489e625cf0d9bafa89a816c128d01e73.4.llvm.18090272232049510573, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.489e625cf0d9bafa89a816c128d01e73.113.llvm.18090272232049510573) #31
           to label %13 unwind label %3
 
@@ -11834,7 +11834,7 @@ define noundef nonnull ptr @_ZN5tokio7runtime4task4core7Trailer13addr_of_owned17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5tokio4sync7oneshot4Task9will_wake17h498163aaa6de156cE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #16 {
+define noundef zeroext i1 @_ZN5tokio4sync7oneshot4Task9will_wake17h498163aaa6de156cE(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #15 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1706)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1709)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1712)
@@ -11933,7 +11933,7 @@ define noundef zeroext i1 @_ZN5tokio4sync7oneshot5State11is_complete17h3d9eeef69
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN5tokio4sync7oneshot5State12set_complete17hfee6fd165b2b9495E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #17 {
+define noundef i64 @_ZN5tokio4sync7oneshot5State12set_complete17hfee6fd165b2b9495E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #16 {
   %2 = load atomic i64, ptr %0 monotonic, align 8
   br label %3
 
@@ -11962,14 +11962,14 @@ define noundef zeroext i1 @_ZN5tokio4sync7oneshot5State14is_rx_task_set17h0fa791
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 1, 0) i64 @_ZN5tokio4sync7oneshot5State11set_rx_task17ha7cbcc3264c8a676E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #18 {
+define noundef range(i64 1, 0) i64 @_ZN5tokio4sync7oneshot5State11set_rx_task17ha7cbcc3264c8a676E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #17 {
   %2 = atomicrmw or ptr %0, i64 1 acq_rel, align 8
   %3 = or i64 %2, 1
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 0, -1) i64 @_ZN5tokio4sync7oneshot5State13unset_rx_task17ha42c768e1a52fea2E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #18 {
+define noundef range(i64 0, -1) i64 @_ZN5tokio4sync7oneshot5State13unset_rx_task17ha42c768e1a52fea2E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #17 {
   %2 = atomicrmw and ptr %0, i64 -2 acq_rel, align 8
   %3 = and i64 %2, -2
   ret i64 %3
@@ -11983,20 +11983,20 @@ define noundef zeroext i1 @_ZN5tokio4sync7oneshot5State9is_closed17hfe2bb1e4ed06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN5tokio4sync7oneshot5State10set_closed17h6ac026009b661f3dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #18 {
+define noundef i64 @_ZN5tokio4sync7oneshot5State10set_closed17h6ac026009b661f3dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #17 {
   %2 = atomicrmw or ptr %0, i64 4 acquire, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 8, 0) i64 @_ZN5tokio4sync7oneshot5State11set_tx_task17h4114d2657e624c3fE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #18 {
+define noundef range(i64 8, 0) i64 @_ZN5tokio4sync7oneshot5State11set_tx_task17h4114d2657e624c3fE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #17 {
   %2 = atomicrmw or ptr %0, i64 8 acq_rel, align 8
   %3 = or i64 %2, 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 0, -8) i64 @_ZN5tokio4sync7oneshot5State13unset_tx_task17hc09448b5aafbd3e5E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #18 {
+define noundef range(i64 0, -8) i64 @_ZN5tokio4sync7oneshot5State13unset_tx_task17hc09448b5aafbd3e5E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #17 {
   %2 = atomicrmw and ptr %0, i64 -9 acq_rel, align 8
   %3 = and i64 %2, -9
   ret i64 %3
@@ -12665,19 +12665,19 @@ declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef n
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() unnamed_addr #20
+declare void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() unnamed_addr #19
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef, ptr noundef nonnull) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking19panic_cannot_unwind17h728d9a0f3744453fE() unnamed_addr #20
+declare void @_ZN4core9panicking19panic_cannot_unwind17h728d9a0f3744453fE() unnamed_addr #19
 
 ; Function Attrs: noreturn nonlazybind uwtable
-declare void @_ZN3std3sys4unix14abort_internal17h65c316bb00fe1f50E() unnamed_addr #15
+declare void @_ZN3std3sys4unix14abort_internal17h65c316bb00fe1f50E() unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
@@ -12769,7 +12769,7 @@ declare hidden void @_ZN5tokio7runtime6handle6Handle5enter18panic_cold_display17
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: noreturn nonlazybind uwtable
-declare void @_ZN3std5panic13resume_unwind17h637c86fe8b0e9ce2E(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #15
+declare void @_ZN3std5panic13resume_unwind17h637c86fe8b0e9ce2E(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #20
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #1
@@ -13107,7 +13107,7 @@ attributes #2 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "targe
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { cold inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -13116,12 +13116,12 @@ attributes #11 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" 
 attributes #12 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #15 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #17 = { nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #18 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #16 = { nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #17 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #20 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { nonlazybind "target-cpu"="x86-64" }
 attributes #23 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -2328,7 +2328,6 @@ declare noundef ptr @_ZN4absl12log_internal19CheckstrcmptrueImplB5cxx11EPKcS2_S2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17absl_log_internal42CHECKTest_TestMacroExpansionInMessage_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp2.i = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   %gtest_dt = alloca ptr, align 8
   %agg.tmp = alloca %"class.testing::Matcher", align 8
   %agg.tmp2 = alloca %"class.testing::Matcher", align 8
@@ -2525,13 +2524,8 @@ invoke.cont29:                                    ; preds = %sw.bb26
   br i1 %call30, label %if.then31, label %try.cont
 
 if.then31:                                        ; preds = %invoke.cont29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  invoke void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i, ptr noundef nonnull @.str.4, i32 noundef 142, i64 15, ptr nonnull @.str.35) #24
-          to label %.noexc unwind label %lpad28
-
-.noexc:                                           ; preds = %if.then31
-  call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #23
-  unreachable
+  invoke fastcc void @"_ZZN17absl_log_internal42CHECKTest_TestMacroExpansionInMessage_Test8TestBodyEvENK3$_0clEv"()
+          to label %try.cont.unreachable unwind label %lpad28
 
 lpad28:                                           ; preds = %if.then31, %sw.bb26
   %29 = landingpad { ptr, i32 }
@@ -2565,6 +2559,9 @@ invoke.cont46:                                    ; preds = %catch42
   %38 = load ptr, ptr %vfn58, align 8
   invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %37, i32 noundef 1)
           to label %invoke.cont37.invoke unwind label %lpad45
+
+try.cont.unreachable:                             ; preds = %if.then31
+  unreachable
 
 try.cont:                                         ; preds = %invoke.cont37.invoke, %invoke.cont29
   %39 = load ptr, ptr %gtest_dt, align 8
@@ -2784,6 +2781,15 @@ ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehc
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #22
   resume { ptr, i32 } %.pn.pn
+}
+
+; Function Attrs: cold mustprogress noreturn uwtable
+define internal fastcc void @"_ZZN17absl_log_internal42CHECKTest_TestMacroExpansionInMessage_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
+  call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 142, i64 15, ptr nonnull @.str.35) #24
+  call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #23
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5458,7 +5464,7 @@ ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehc
 declare i64 @_ZN4absl23FailedPreconditionErrorESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZN4absl15status_internal19MakeCheckFailStringB5cxx11EPKNS_6StatusEPKc(ptr noundef, ptr noundef) local_unnamed_addr #12
+declare noundef ptr @_ZN4absl15status_internal19MakeCheckFailStringB5cxx11EPKNS_6StatusEPKc(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17absl_log_internal38CHECKTest_TestMacroExpansionComma_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -8887,8 +8893,8 @@ ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehc
   resume { ptr, i32 } %.pn.pn
 }
 
-; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN17absl_log_internal35CHECKTest_TestSecondaryFailure_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: cold mustprogress noreturn uwtable
+define internal fastcc void @"_ZZN17absl_log_internal35CHECKTest_TestSecondaryFailure_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 213, i64 5, ptr nonnull @.str.7) #24
@@ -9404,8 +9410,8 @@ terminate.lpad:                                   ; preds = %lpad70, %lpad61
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN17absl_log_internal44CHECKTest_TestSecondaryFailureInMessage_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: cold mustprogress noreturn uwtable
+define internal fastcc void @"_ZZN17absl_log_internal44CHECKTest_TestSecondaryFailureInMessage_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 222, i64 5, ptr nonnull @.str.7) #24
@@ -19696,8 +19702,8 @@ attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

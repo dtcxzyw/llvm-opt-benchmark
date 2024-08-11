@@ -1179,8 +1179,8 @@ declare void @_ZN2v87Isolate41SetCaptureStackTraceForUncaughtExceptionsEbiNS_10S
 
 declare void @_ZN2v87Isolate22SetAtomicsWaitCallbackEPFvNS0_16AtomicsWaitEventENS_5LocalINS_17SharedArrayBufferEEEmldPNS0_21AtomicsWaitWakeHandleEPvES7_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4nodeL19AtomicsWaitCallbackEN2v87Isolate16AtomicsWaitEventENS0_5LocalINS0_17SharedArrayBufferEEEmldPNS1_21AtomicsWaitWakeHandleEPv(i32 noundef %event, ptr %array_buffer.coerce, i64 noundef %offset_in_bytes, i64 noundef %value, double noundef %timeout_in_ms, ptr nocapture readnone %stop_handle, ptr nocapture noundef readonly %data) #4 {
+; Function Attrs: cold mustprogress nounwind uwtable
+define internal void @_ZN4nodeL19AtomicsWaitCallbackEN2v87Isolate16AtomicsWaitEventENS0_5LocalINS0_17SharedArrayBufferEEEmldPNS1_21AtomicsWaitWakeHandleEPv(i32 noundef %event, ptr %array_buffer.coerce, i64 noundef %offset_in_bytes, i64 noundef %value, double noundef %timeout_in_ms, ptr nocapture readnone %stop_handle, ptr nocapture noundef readonly %data) #6 {
 entry:
   %0 = icmp ult i32 %event, 6
   br i1 %0, label %switch.lookup, label %sw.epilog
@@ -2150,10 +2150,10 @@ for.end:                                          ; preds = %for.inc
 declare i32 @uv_tty_reset_mode() local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #8
 
 declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #0
 
@@ -4789,12 +4789,12 @@ if.end75:                                         ; preds = %if.end69, %entry
 declare noundef ptr @_ZN4node15SnapshotBuilder23GetEmbeddedSnapshotDataEv() local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 declare noundef i32 @_ZN4node12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_EEEvP8_IO_FILESA_DpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3) local_unnamed_addr #8 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_EEEvP8_IO_FILESA_DpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3) local_unnamed_addr #6 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcSA_EEES6_SA_OT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3) #26
@@ -4820,12 +4820,12 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 declare void @_ZNK4node12SnapshotData6ToFileEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(416), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4node16LoadSnapshotDataEPPKNS_12SnapshotDataE(ptr nocapture noundef writeonly %snapshot_data_ptr) local_unnamed_addr #4 {
@@ -6828,17 +6828,17 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #6
+declare i32 @atexit(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 declare void @_ZN4node19DumpNativeBacktraceEP8_IO_FILE(ptr noundef) local_unnamed_addr #0
 
 declare void @_ZN4node23DumpJavaScriptBacktraceEP8_IO_FILE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree
 declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #13
@@ -7802,7 +7802,7 @@ entry:
 declare ptr @uv_setup_args(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1) local_unnamed_addr #8 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1) local_unnamed_addr #6 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EEES6_PKcOT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1) #26
@@ -7861,7 +7861,7 @@ for.end:                                          ; preds = %_ZSt10_ConstructINS
 declare void @_ZN4node6FWriteEP8_IO_FILERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #8 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #6 comdat {
 entry:
   %agg.tmp.i33 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i32 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8105,10 +8105,10 @@ nrvo.skipdtor:                                    ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg) local_unnamed_addr #8 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg) local_unnamed_addr #6 comdat {
 entry:
   %agg.tmp.i16 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i15 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8722,7 +8722,7 @@ if.end102:                                        ; preds = %for.body.i.i.i.i.i5
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcSA_EEES6_SA_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #8 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcSA_EEES6_SA_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #6 comdat {
 entry:
   %agg.tmp.i35 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i34 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8897,7 +8897,7 @@ cleanup:                                          ; preds = %sw.epilog, %_ZStplI
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIPKcJS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #8 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIPKcJS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #6 comdat {
 entry:
   %ref.tmp.i.i.i40 = alloca %"class.std::allocator.18", align 1
   %ref.tmp.i.i.i34 = alloca %"class.std::allocator.18", align 1
@@ -9118,7 +9118,7 @@ cleanup:                                          ; preds = %sw.epilog, %_ZStplI
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIPKcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg) local_unnamed_addr #8 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIPKcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg) local_unnamed_addr #6 comdat {
 entry:
   %ref.tmp.i.i.i23 = alloca %"class.std::allocator.18", align 1
   %ref.tmp.i.i.i17 = alloca %"class.std::allocator.18", align 1
@@ -9340,9 +9340,9 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

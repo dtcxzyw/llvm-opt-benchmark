@@ -84,7 +84,7 @@ define dso_local void @create_library(ptr nocapture noundef readonly %0) local_u
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 41136
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call zeroext i1 @dir_change(ptr noundef %8) #8
+  %9 = tail call zeroext i1 @dir_change(ptr noundef %8) #9
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %6
@@ -94,7 +94,7 @@ define dso_local void @create_library(ptr nocapture noundef readonly %0) local_u
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %2, align 8
-  %14 = tail call zeroext i1 @dir_make(ptr noundef %13) #8
+  %14 = tail call zeroext i1 @dir_make(ptr noundef %13) #9
   %15 = load ptr, ptr %2, align 8
   br i1 %14, label %17, label %16
 
@@ -103,7 +103,7 @@ define dso_local void @create_library(ptr nocapture noundef readonly %0) local_u
   unreachable
 
 17:                                               ; preds = %12
-  %18 = tail call zeroext i1 @dir_change(ptr noundef %15) #8
+  %18 = tail call zeroext i1 @dir_change(ptr noundef %15) #9
   br i1 %18, label %chdir_or_fail.exit, label %19
 
 19:                                               ; preds = %17
@@ -111,7 +111,7 @@ define dso_local void @create_library(ptr nocapture noundef readonly %0) local_u
   unreachable
 
 chdir_or_fail.exit:                               ; preds = %17
-  %20 = tail call zeroext i1 @file_touch(ptr noundef nonnull @.str.25) #8
+  %20 = tail call zeroext i1 @file_touch(ptr noundef nonnull @.str.25) #9
   br i1 %20, label %create_file_or_fail.exit, label %21
 
 21:                                               ; preds = %chdir_or_fail.exit
@@ -122,7 +122,7 @@ create_file_or_fail.exit:                         ; preds = %chdir_or_fail.exit
   %22 = load ptr, ptr @LIB_README, align 8
   %23 = load ptr, ptr %2, align 8
   tail call void (ptr, ptr, ptr, ...) @create_file_or_fail(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef %22, ptr noundef %23)
-  %24 = tail call zeroext i1 @dir_make(ptr noundef nonnull @.str.27) #8
+  %24 = tail call zeroext i1 @dir_make(ptr noundef nonnull @.str.27) #9
   br i1 %24, label %mkdir_or_fail.exit, label %25
 
 25:                                               ; preds = %create_file_or_fail.exit
@@ -130,14 +130,14 @@ create_file_or_fail.exit:                         ; preds = %chdir_or_fail.exit
   unreachable
 
 mkdir_or_fail.exit:                               ; preds = %create_file_or_fail.exit
-  tail call void @scratch_buffer_clear() #8
+  tail call void @scratch_buffer_clear() #9
   %26 = load ptr, ptr %2, align 8
-  tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.28, ptr noundef %26) #8
-  %27 = tail call ptr @scratch_buffer_copy() #8
+  tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.28, ptr noundef %26) #9
+  %27 = tail call ptr @scratch_buffer_copy() #9
   %28 = load ptr, ptr @MAIN_INTERFACE_TEMPLATE, align 8
   %29 = tail call fastcc ptr @module_name(ptr noundef nonnull %0)
   tail call void (ptr, ptr, ptr, ...) @create_file_or_fail(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %28, ptr noundef %29)
-  tail call void @scratch_buffer_clear() #8
+  tail call void @scratch_buffer_clear() #9
   br label %mkdir_or_fail.exit24
 
 30:                                               ; preds = %mkdir_or_fail.exit24
@@ -150,8 +150,8 @@ mkdir_or_fail.exit24:                             ; preds = %mkdir_or_fail.exit,
   %31 = getelementptr inbounds [14 x ptr], ptr @DEFAULT_TARGETS, i64 0, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @MANIFEST_TARGET, align 8
-  tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef %33, ptr noundef %32) #8
-  %34 = tail call zeroext i1 @dir_make(ptr noundef %32) #8
+  tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef %33, ptr noundef %32) #9
+  %34 = tail call zeroext i1 @dir_make(ptr noundef %32) #9
   br i1 %34, label %30, label %35
 
 35:                                               ; preds = %mkdir_or_fail.exit24
@@ -161,7 +161,7 @@ mkdir_or_fail.exit24:                             ; preds = %mkdir_or_fail.exit,
 36:                                               ; preds = %30
   %37 = load ptr, ptr @MANIFEST_TEMPLATE, align 8
   %38 = load ptr, ptr %2, align 8
-  %39 = tail call ptr @scratch_buffer_to_string() #8
+  %39 = tail call ptr @scratch_buffer_to_string() #9
   tail call void (ptr, ptr, ptr, ...) @create_file_or_fail(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %37, ptr noundef %38, ptr noundef %39)
   ret void
 }
@@ -253,14 +253,14 @@ char_is_alphanum_.exit:                           ; preds = %5, %.lr.ph, %1
   ret i1 %.lcssa
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal void @exit_fail(ptr nocapture noundef readonly %0, ...) unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8
-  %4 = call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #9
+  %4 = call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #10
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @exit_compiler(i32 noundef 1) #10
+  call void @exit_compiler(i32 noundef 1) #11
   unreachable
 }
 
@@ -270,7 +270,7 @@ declare zeroext i1 @dir_make(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @chdir_or_fail(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call zeroext i1 @dir_change(ptr noundef %1) #8
+  %3 = tail call zeroext i1 @dir_change(ptr noundef %1) #9
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %2
@@ -288,7 +288,7 @@ define internal void @create_file_or_fail(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 @file_touch(ptr noundef %1) #8
+  %6 = tail call zeroext i1 @file_touch(ptr noundef %1) #9
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %5
@@ -306,7 +306,7 @@ define internal void @create_file_or_fail(ptr nocapture noundef readonly %0, ptr
 
 11:                                               ; preds = %8
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %12 = call i32 @vfprintf(ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4) #8
+  %12 = call i32 @vfprintf(ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull %4) #9
   call void @llvm.va_end.p0(ptr nonnull %4)
   %13 = call i32 @fclose(ptr noundef nonnull %9)
   %.not14 = icmp eq i32 %13, 0
@@ -322,7 +322,7 @@ define internal void @create_file_or_fail(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mkdir_or_fail(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call zeroext i1 @dir_make(ptr noundef %1) #8
+  %3 = tail call zeroext i1 @dir_make(ptr noundef %1) #9
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %2
@@ -341,10 +341,10 @@ declare ptr @scratch_buffer_copy() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  tail call void @scratch_buffer_clear() #8
+  tail call void @scratch_buffer_clear() #9
   %2 = getelementptr inbounds i8, ptr %0, i64 41120
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
@@ -363,7 +363,7 @@ define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnam
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %9
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.46) #8
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.46) #9
   br label %16
 
 12:                                               ; preds = %.lr.ph
@@ -378,7 +378,7 @@ define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnam
 16:                                               ; preds = %12, %9, %11
   %.sink = phi i8 [ %7, %11 ], [ %7, %9 ], [ %spec.select, %12 ]
   %.1 = phi i8 [ 1, %11 ], [ 1, %9 ], [ %spec.select28, %12 ]
-  tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #8
+  tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #9
   %17 = add nuw i64 %.02325, 1
   %exitcond.not = icmp eq i64 %17, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -388,18 +388,18 @@ define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnam
   br i1 %18, label %19, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.47) #8
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.47) #9
   br label %19
 
 19:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %20 = tail call ptr @scratch_buffer_to_string() #8
+  %20 = tail call ptr @scratch_buffer_to_string() #9
   ret ptr %20
 }
 
 declare ptr @scratch_buffer_to_string() local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @create_project(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local void @create_project(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 41144
   %4 = load ptr, ptr %3, align 8
@@ -407,7 +407,7 @@ define dso_local void @create_project(ptr nocapture noundef readonly %0) local_u
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.30) #11
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.30) #12
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %10
 
@@ -416,7 +416,7 @@ define dso_local void @create_project(ptr nocapture noundef readonly %0) local_u
   br label %22
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(11) @.str.31) #11
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(11) @.str.31) #12
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
@@ -425,7 +425,7 @@ define dso_local void @create_project(ptr nocapture noundef readonly %0) local_u
   br label %22
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(12) @.str.32) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(12) @.str.32) #12
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %20
 
@@ -434,7 +434,7 @@ define dso_local void @create_project(ptr nocapture noundef readonly %0) local_u
   br label %22
 
 20:                                               ; preds = %15
-  %21 = call ptr @file_read_all(ptr noundef nonnull %4, ptr noundef nonnull %2) #8
+  %21 = call ptr @file_read_all(ptr noundef nonnull %4, ptr noundef nonnull %2) #9
   br label %22
 
 22:                                               ; preds = %13, %20, %18, %8
@@ -445,28 +445,28 @@ define dso_local void @create_project(ptr nocapture noundef readonly %0) local_u
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %22
-  call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.33, ptr noundef %24) #10
+  call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.33, ptr noundef %24) #11
   unreachable
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %0, i64 41136
   %29 = load ptr, ptr %28, align 8
-  %30 = call zeroext i1 @dir_change(ptr noundef %29) #8
+  %30 = call zeroext i1 @dir_change(ptr noundef %29) #9
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %28, align 8
-  call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.34, ptr noundef %32) #10
+  call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.34, ptr noundef %32) #11
   unreachable
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %23, align 8
-  %35 = call zeroext i1 @dir_make(ptr noundef %34) #8
+  %35 = call zeroext i1 @dir_make(ptr noundef %34) #9
   %36 = load ptr, ptr %23, align 8
   br i1 %35, label %38, label %37
 
 37:                                               ; preds = %33
-  call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.35, ptr noundef %36) #10
+  call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.35, ptr noundef %36) #11
   unreachable
 
 38:                                               ; preds = %33
@@ -489,26 +489,26 @@ define dso_local void @create_project(ptr nocapture noundef readonly %0) local_u
   call fastcc void @mkdir_or_fail(ptr noundef nonnull %0, ptr noundef nonnull @.str.44)
   %42 = load ptr, ptr %23, align 8
   %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %42)
-  call void @exit_compiler(i32 noundef -1000) #10
+  call void @exit_compiler(i32 noundef -1000) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 declare ptr @file_read_all(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @error_exit(ptr noundef, ...) local_unnamed_addr #5
+declare void @error_exit(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @exit_compiler(i32 noundef) local_unnamed_addr #5
+declare void @exit_compiler(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #3
 
@@ -516,59 +516,60 @@ declare void @scratch_buffer_append_char(i8 noundef signext) local_unnamed_addr 
 
 declare zeroext i1 @file_touch(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal void @delete_dir_and_exit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 41136
   %5 = load ptr, ptr %4, align 8
-  %6 = call zeroext i1 @dir_change(ptr noundef %5) #8
+  %6 = call zeroext i1 @dir_change(ptr noundef %5) #9
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 41120
   %9 = load ptr, ptr %8, align 8
-  %10 = call i32 @rmdir(ptr noundef %9) #8
+  %10 = call i32 @rmdir(ptr noundef %9) #9
   br label %11
 
 11:                                               ; preds = %7, %2
   %12 = load ptr, ptr @stderr, align 8
-  %13 = call i32 @vfprintf(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %3) #9
+  %13 = call i32 @vfprintf(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %3) #10
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @exit_compiler(i32 noundef 1) #10
+  call void @exit_compiler(i32 noundef 1) #11
   unreachable
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #7
+declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #7
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

@@ -119,7 +119,7 @@ define hidden void @rb_yjit_mark_executable(ptr noundef %0, i32 noundef %1) loca
   %8 = tail call ptr @rb_errno_ptr() #5
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @strerror(i32 noundef %9) #5
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str, ptr noundef %0, i64 noundef %5, ptr noundef %10) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str, ptr noundef %0, i64 noundef %5, ptr noundef %10) #23
   unreachable
 
 11:                                               ; preds = %2, %4
@@ -508,7 +508,7 @@ define hidden range(i32 1, 1073741825) i32 @rb_yjit_get_page_size() local_unname
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %0
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.6) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.6) #23
   unreachable
 
 4:                                                ; preds = %0
@@ -516,7 +516,7 @@ define hidden range(i32 1, 1073741825) i32 @rb_yjit_get_page_size() local_unname
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.7) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.7) #23
   unreachable
 
 7:                                                ; preds = %4
@@ -558,18 +558,18 @@ define hidden ptr @rb_yjit_reserve_addr_space(i32 noundef %0) #0 {
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
-  tail call void @perror(ptr noundef nonnull @.str.8) #23
+  tail call void @perror(ptr noundef nonnull @.str.8) #24
   %17 = tail call ptr @rb_errno_ptr() #5
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 12
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void @exit(i32 noundef 1) #22
+  tail call void @exit(i32 noundef 1) #23
   unreachable
 
 21:                                               ; preds = %16
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.9) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.9) #23
   unreachable
 
 .thread:                                          ; preds = %12, %13
@@ -630,7 +630,7 @@ define hidden void @rb_full_cfunc_return(ptr noundef %0, i64 noundef %1) local_u
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %2
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 369, ptr noundef nonnull @__func__.rb_full_cfunc_return, ptr noundef nonnull @.str.11) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 369, ptr noundef nonnull @__func__.rb_full_cfunc_return, ptr noundef nonnull @.str.11) #23
   unreachable
 
 13:                                               ; preds = %2
@@ -643,7 +643,7 @@ define hidden void @rb_full_cfunc_return(ptr noundef %0, i64 noundef %1) local_u
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %13
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 372, ptr noundef nonnull @__func__.rb_full_cfunc_return, ptr noundef nonnull @.str.12) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 372, ptr noundef nonnull @__func__.rb_full_cfunc_return, ptr noundef nonnull @.str.12) #23
   unreachable
 
 19:                                               ; preds = %13
@@ -655,7 +655,7 @@ define hidden void @rb_full_cfunc_return(ptr noundef %0, i64 noundef %1) local_u
   br i1 %24, label %rb_ec_ractor_hooks.exit, label %25
 
 25:                                               ; preds = %19
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 373, ptr noundef nonnull @__func__.rb_full_cfunc_return, ptr noundef nonnull @.str.13) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 373, ptr noundef nonnull @__func__.rb_full_cfunc_return, ptr noundef nonnull @.str.13) #23
   unreachable
 
 rb_ec_ractor_hooks.exit:                          ; preds = %19
@@ -777,7 +777,7 @@ imemo_type_p.exit:                                ; preds = %1
   br i1 %.not, label %9, label %imemo_type_p.exit.thread
 
 imemo_type_p.exit.thread:                         ; preds = %1, %imemo_type_p.exit
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 402, ptr noundef nonnull @__func__.rb_iseq_get_yjit_payload, ptr noundef nonnull @.str.14) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 402, ptr noundef nonnull @__func__.rb_iseq_get_yjit_payload, ptr noundef nonnull @.str.14) #23
   unreachable
 
 9:                                                ; preds = %imemo_type_p.exit
@@ -812,7 +812,7 @@ imemo_type_p.exit:                                ; preds = %2
   br i1 %.not, label %10, label %imemo_type_p.exit.thread
 
 imemo_type_p.exit.thread:                         ; preds = %2, %imemo_type_p.exit
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 415, ptr noundef nonnull @__func__.rb_iseq_set_yjit_payload, ptr noundef nonnull @.str.14) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 415, ptr noundef nonnull @__func__.rb_iseq_set_yjit_payload, ptr noundef nonnull @.str.14) #23
   unreachable
 
 10:                                               ; preds = %imemo_type_p.exit
@@ -822,7 +822,7 @@ imemo_type_p.exit.thread:                         ; preds = %2, %imemo_type_p.ex
   br i1 %.not5, label %13, label %14
 
 13:                                               ; preds = %10
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 416, ptr noundef nonnull @__func__.rb_iseq_set_yjit_payload, ptr noundef nonnull @.str.15) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 416, ptr noundef nonnull @__func__.rb_iseq_set_yjit_payload, ptr noundef nonnull @.str.15) #23
   unreachable
 
 14:                                               ; preds = %10
@@ -832,7 +832,7 @@ imemo_type_p.exit.thread:                         ; preds = %2, %imemo_type_p.ex
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %14
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 417, ptr noundef nonnull @__func__.rb_iseq_set_yjit_payload, ptr noundef nonnull @.str.16) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 417, ptr noundef nonnull @__func__.rb_iseq_set_yjit_payload, ptr noundef nonnull @.str.16) #23
   unreachable
 
 19:                                               ; preds = %14
@@ -856,7 +856,7 @@ imemo_type_p.exit:                                ; preds = %1
   br i1 %.not, label %9, label %imemo_type_p.exit.thread
 
 imemo_type_p.exit.thread:                         ; preds = %1, %imemo_type_p.exit
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 424, ptr noundef nonnull @__func__.rb_iseq_reset_jit_func, ptr noundef nonnull @.str.14) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 424, ptr noundef nonnull @__func__.rb_iseq_reset_jit_func, ptr noundef nonnull @.str.14) #23
   unreachable
 
 9:                                                ; preds = %imemo_type_p.exit
@@ -892,7 +892,7 @@ imemo_type_p.exit:                                ; preds = %2
   br i1 %.not, label %10, label %imemo_type_p.exit.thread
 
 imemo_type_p.exit.thread:                         ; preds = %2, %imemo_type_p.exit
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 437, ptr noundef nonnull @__func__.rb_iseq_pc_at_idx, ptr noundef nonnull @.str.14) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 437, ptr noundef nonnull @__func__.rb_iseq_pc_at_idx, ptr noundef nonnull @.str.14) #23
   unreachable
 
 10:                                               ; preds = %imemo_type_p.exit
@@ -904,7 +904,7 @@ imemo_type_p.exit.thread:                         ; preds = %2, %imemo_type_p.ex
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %10
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 438, ptr noundef nonnull @__func__.rb_iseq_pc_at_idx, ptr noundef nonnull @.str.17) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 438, ptr noundef nonnull @__func__.rb_iseq_pc_at_idx, ptr noundef nonnull @.str.17) #23
   unreachable
 
 17:                                               ; preds = %10
@@ -923,7 +923,7 @@ define hidden i32 @rb_iseq_opcode_at_pc(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 449, ptr noundef nonnull @__func__.rb_iseq_opcode_at_pc, ptr noundef nonnull @.str.18) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 449, ptr noundef nonnull @__func__.rb_iseq_opcode_at_pc, ptr noundef nonnull @.str.18) #23
   unreachable
 
 6:                                                ; preds = %2
@@ -2043,7 +2043,7 @@ rb_array_const_ptr.exit:                          ; preds = %6, %10
   br i1 %16, label %17, label %rbimpl_size_mul_or_raise.exit
 
 17:                                               ; preds = %rb_array_const_ptr.exit
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %15) #24
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %15) #25
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_array_const_ptr.exit
@@ -2060,8 +2060,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   ret i32 %20
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_yjit_dump_iseq_loc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+; Function Attrs: cold nounwind sspstrong uwtable
+define hidden void @rb_yjit_dump_iseq_loc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = tail call i64 @rb_iseq_path(ptr noundef %0) #5
   %4 = inttoptr i64 %3 to ptr
   %5 = load i64, ptr %4, align 8, !noalias !35
@@ -2082,7 +2082,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %2, %8
   %10 = trunc i64 %.sroa.1.0 to i32
   %11 = zext i32 %1 to i64
   %12 = tail call i32 @rb_iseq_line_no(ptr noundef %0, i64 noundef %11) #5
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.rb_yjit_dump_iseq_loc, i32 noundef %10, ptr noundef %.sroa.3.0, i32 noundef %12) #25
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.rb_yjit_dump_iseq_loc, i32 noundef %10, ptr noundef %.sroa.3.0, i32 noundef %12) #26
   ret void
 }
 
@@ -2129,8 +2129,8 @@ RSTRING_PTR.exit13:                               ; preds = %RSTRING_PTR.exit, %
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 96
   %19 = load i32, ptr %18, align 8
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i) #26
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i12) #26
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i) #27
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i12) #27
   %.03.off5.i = add i32 %19, 9
   %.not6.i = icmp ult i32 %.03.off5.i, 19
   br i1 %.not6.i, label %num_digits.exit, label %.lr.ph.i
@@ -2153,16 +2153,16 @@ num_digits.exit:                                  ; preds = %num_digits.exit.loo
   %25 = add i64 %20, 3
   %26 = add i64 %25, %21
   %27 = add i64 %26, %.0.lcssa.i
-  %28 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %27, i64 noundef 1) #27
+  %28 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %27, i64 noundef 1) #28
   %29 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %.sroa.2.0.i, ptr noundef %.sroa.2.0.i12, i32 noundef %19) #5
   ret ptr %28
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
@@ -2281,7 +2281,7 @@ define hidden ptr @rb_get_call_data_ci(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_BASIC_OP_UNREDEFINED_P(i32 noundef %0, i32 noundef %1) local_unnamed_addr #14 {
+define hidden zeroext i1 @rb_BASIC_OP_UNREDEFINED_P(i32 noundef %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [32 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -2319,7 +2319,7 @@ RB_ENCODING_GET.exit:                             ; preds = %1, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_yjit_multi_ractor_p() local_unnamed_addr #14 {
+define hidden zeroext i1 @rb_yjit_multi_ractor_p() local_unnamed_addr #15 {
   %1 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i = icmp eq ptr %1, null
   ret i1 %.not.i
@@ -2332,7 +2332,7 @@ define hidden void @rb_assert_iseq_handle(i64 noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 1044, ptr noundef nonnull @__func__.rb_assert_iseq_handle, ptr noundef nonnull @.str.21) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 1044, ptr noundef nonnull @__func__.rb_assert_iseq_handle, ptr noundef nonnull @.str.21) #23
   unreachable
 
 4:                                                ; preds = %1
@@ -2350,7 +2350,7 @@ imemo_type_p.exit:                                ; preds = %4
   br i1 %.not5, label %12, label %imemo_type_p.exit.thread
 
 imemo_type_p.exit.thread:                         ; preds = %4, %imemo_type_p.exit
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 1045, ptr noundef nonnull @__func__.rb_assert_iseq_handle, ptr noundef nonnull @.str.22) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 1045, ptr noundef nonnull @__func__.rb_assert_iseq_handle, ptr noundef nonnull @.str.22) #23
   unreachable
 
 12:                                               ; preds = %imemo_type_p.exit
@@ -2390,7 +2390,7 @@ define hidden void @rb_assert_cme_handle(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 1057, ptr noundef nonnull @__func__.rb_assert_cme_handle, ptr noundef nonnull @.str.21) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 1057, ptr noundef nonnull @__func__.rb_assert_cme_handle, ptr noundef nonnull @.str.21) #23
   unreachable
 
 4:                                                ; preds = %1
@@ -2408,7 +2408,7 @@ imemo_type_p.exit:                                ; preds = %4
   br i1 %.not5, label %12, label %imemo_type_p.exit.thread
 
 imemo_type_p.exit.thread:                         ; preds = %4, %imemo_type_p.exit
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 1058, ptr noundef nonnull @__func__.rb_assert_cme_handle, ptr noundef nonnull @.str.23) #22
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str.10, i32 noundef 1058, ptr noundef nonnull @__func__.rb_assert_cme_handle, ptr noundef nonnull @.str.23) #23
   unreachable
 
 12:                                               ; preds = %imemo_type_p.exit
@@ -2627,7 +2627,7 @@ sp_inc_of_invokeblock.exit:                       ; preds = %4, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_yjit_set_exception_return(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #15 {
+define hidden void @rb_yjit_set_exception_return(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #16 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8
   %.val.val = load i64, ptr %.val, align 8
@@ -2681,7 +2681,7 @@ define hidden void @Init_builtin_yjit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_13(ptr nocapture readnone %0, i64 %1) #14 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_13(ptr nocapture readnone %0, i64 %1) #15 {
   %3 = load i8, ptr @rb_yjit_enabled_p, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -2754,17 +2754,17 @@ declare i64 @rb_profile_frame_path(i64 noundef) local_unnamed_addr #3
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #16
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
 
 declare void @rb_exec_event_hooks(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @rb_str_comparable(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
 
 ; Function Attrs: noreturn
-declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #18
+declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #19
 
 declare i64 @rb_struct_size(i64 noundef) local_unnamed_addr #3
 
@@ -2798,16 +2798,16 @@ define internal void @yjit_root_update_references(ptr nocapture readnone %0) #8 
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #20
+declare i64 @llvm.fshl.i64(i64, i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2821,22 +2821,23 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { cold noreturn nounwind }
-attributes #23 = { cold }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { cold nounwind }
-attributes #26 = { nounwind willreturn memory(read) }
-attributes #27 = { nounwind allocsize(0,1) }
+attributes #12 = { cold nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { cold noreturn nounwind }
+attributes #24 = { cold }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { cold nounwind }
+attributes #27 = { nounwind willreturn memory(read) }
+attributes #28 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

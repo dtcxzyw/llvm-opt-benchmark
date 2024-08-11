@@ -7118,14 +7118,15 @@ define internal fastcc void @_ZL9rd_groupsN3gmx8ArrayRefIK10IndexGroupEEPPciPiPS
 18:                                               ; preds = %17
   unreachable
 
-common.resume:                                    ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %111, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
+common.resume:                                    ; preds = %110, %19
+  %.sink = phi ptr [ %9, %110 ], [ %10, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %20, %19 ]
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #21
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #21
   br label %common.resume
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader51
@@ -7307,33 +7308,21 @@ common.resume:                                    ; preds = %_ZNSt10filesystem7_
 110:                                              ; preds = %.split.us
   %111 = landingpad { ptr, i32 }
           cleanup
-  %112 = getelementptr inbounds i8, ptr %9, i64 32
-  %113 = load ptr, ptr %112, align 8
-  %.not.i.i.i = icmp eq ptr %113, null
-  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %114
-
-114:                                              ; preds = %110
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %112, ptr noundef nonnull %113) #21
-  br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-
-_ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %110, %114
-  store ptr null, ptr %112, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   br label %common.resume
 
 .lr.ph57:                                         ; preds = %90, %.lr.ph57
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph57 ], [ 0, %90 ]
-  %115 = load ptr, ptr %75, align 8
+  %112 = load ptr, ptr %75, align 8
+  %113 = getelementptr inbounds i32, ptr %112, i64 %indvars.iv
+  %114 = load i32, ptr %113, align 4
+  %115 = load ptr, ptr %104, align 8
   %116 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv
-  %117 = load i32, ptr %116, align 4
-  %118 = load ptr, ptr %104, align 8
-  %119 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv
-  store i32 %117, ptr %119, align 4
+  store i32 %114, ptr %116, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %120 = load i32, ptr %103, align 4
-  %121 = sext i32 %120 to i64
-  %122 = icmp slt i64 %indvars.iv.next, %121
-  br i1 %122, label %.lr.ph57, label %._crit_edge, !llvm.loop !76
+  %117 = load i32, ptr %103, align 4
+  %118 = sext i32 %117 to i64
+  %119 = icmp slt i64 %indvars.iv.next, %118
+  br i1 %119, label %.lr.ph57, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph57, %90
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
