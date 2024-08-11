@@ -15,11 +15,11 @@ scripts/comptime_diff.py comptime.baseline comptime.log >> ctdiff.log
 ctret=$?
 if [ $PRE_COMMIT_MODE -eq 0 ]
 then
-  mv comptime.log comptime.baseline
+  scripts/comptime_align.py comptime.baseline comptime.log
   llvm_commit=$(git -C llvm/llvm-project rev-parse HEAD)
   git add .
   git commit -m "llvm: Update baseline to $llvm_commit"
-  if [ $? -eq 0 ] || [ $ret -ne 0 ] || [ $ctret -ne 0 ]
+  if [ $? -eq 0 ] || [ $ret -ne 0 ]
   then
     git pull --rebase
     git submodule update
