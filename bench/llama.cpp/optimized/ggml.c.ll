@@ -758,51 +758,51 @@ for.cond4.preheader:                              ; preds = %for.cond4.preheader
 
 for.body7.preheader:                              ; preds = %for.cond4.preheader
   %2 = zext nneg i32 %i.0.lcssa to i64
+  %3 = sext i32 %n to i64
   br label %for.body7
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %add.ptr = getelementptr inbounds float, ptr %x, i64 %indvars.iv
-  %3 = load <8 x float>, ptr %add.ptr, align 1
-  %4 = tail call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %3, i32 0)
+  %4 = load <8 x float>, ptr %add.ptr, align 1
+  %5 = tail call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %4, i32 0)
   %add.ptr2 = getelementptr inbounds i16, ptr %y, i64 %indvars.iv
-  store <8 x i16> %4, ptr %add.ptr2, align 1
+  store <8 x i16> %5, ptr %add.ptr2, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %5 = or disjoint i64 %indvars.iv.next, 7
-  %cmp = icmp ult i64 %5, %0
+  %6 = or disjoint i64 %indvars.iv.next, 7
+  %cmp = icmp ult i64 %6, %0
   br i1 %cmp, label %for.body, label %for.cond4.preheader.loopexit, !llvm.loop !6
 
 for.cond18.preheader.loopexit:                    ; preds = %for.body7
-  %6 = trunc nuw nsw i64 %indvars.iv.next29 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.next29 to i32
   br label %for.cond18.preheader
 
 for.cond18.preheader:                             ; preds = %for.cond18.preheader.loopexit, %for.cond4.preheader
-  %i.1.lcssa = phi i32 [ %i.0.lcssa, %for.cond4.preheader ], [ %6, %for.cond18.preheader.loopexit ]
+  %i.1.lcssa = phi i32 [ %i.0.lcssa, %for.cond4.preheader ], [ %7, %for.cond18.preheader.loopexit ]
   %cmp1924 = icmp slt i32 %i.1.lcssa, %n
   br i1 %cmp1924, label %for.body20.preheader, label %for.end27
 
 for.body20.preheader:                             ; preds = %for.cond18.preheader
-  %7 = zext nneg i32 %i.1.lcssa to i64
+  %8 = zext nneg i32 %i.1.lcssa to i64
   %wide.trip.count = zext i32 %n to i64
   br label %for.body20
 
 for.body7:                                        ; preds = %for.body7.preheader, %for.body7
   %indvars.iv28 = phi i64 [ %2, %for.body7.preheader ], [ %indvars.iv.next29, %for.body7 ]
   %add.ptr10 = getelementptr inbounds float, ptr %x, i64 %indvars.iv28
-  %8 = load <4 x float>, ptr %add.ptr10, align 1
-  %9 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %8, i32 0)
-  %10 = bitcast <8 x i16> %9 to <2 x i64>
+  %9 = load <4 x float>, ptr %add.ptr10, align 1
+  %10 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %9, i32 0)
+  %11 = bitcast <8 x i16> %10 to <2 x i64>
   %add.ptr14 = getelementptr inbounds i16, ptr %y, i64 %indvars.iv28
-  %vecext.i = extractelement <2 x i64> %10, i64 0
+  %vecext.i = extractelement <2 x i64> %11, i64 0
   store i64 %vecext.i, ptr %add.ptr14, align 1
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 4
-  %11 = trunc i64 %indvars.iv.next29 to i32
-  %12 = or i32 %11, 3
-  %cmp6 = icmp slt i32 %12, %n
+  %12 = or disjoint i64 %indvars.iv.next29, 3
+  %cmp6 = icmp slt i64 %12, %3
   br i1 %cmp6, label %for.body7, label %for.cond18.preheader.loopexit, !llvm.loop !7
 
 for.body20:                                       ; preds = %for.body20.preheader, %for.body20
-  %indvars.iv32 = phi i64 [ %7, %for.body20.preheader ], [ %indvars.iv.next33, %for.body20 ]
+  %indvars.iv32 = phi i64 [ %8, %for.body20.preheader ], [ %indvars.iv.next33, %for.body20 ]
   %arrayidx = getelementptr inbounds float, ptr %x, i64 %indvars.iv32
   %13 = load float, ptr %arrayidx, align 4
   %vecinit23 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %13, i64 0
@@ -25190,52 +25190,56 @@ for.cond4.preheader.i:                            ; preds = %for.cond4.preheader
 
 for.body7.preheader.i:                            ; preds = %for.cond4.preheader.i
   %52 = zext nneg i32 %i.0.lcssa.i to i64
+  %53 = sext i32 %n to i64
   br label %for.body7.i
 
 for.body.i161:                                    ; preds = %for.body.i161, %for.body.preheader.i160
   %indvars.iv.i162 = phi i64 [ 0, %for.body.preheader.i160 ], [ %indvars.iv.next.i164, %for.body.i161 ]
   %add.ptr.i163 = getelementptr inbounds float, ptr %add.ptr151, i64 %indvars.iv.i162
-  %53 = load <8 x float>, ptr %add.ptr.i163, align 1
-  %54 = tail call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %53, i32 0)
+  %54 = load <8 x float>, ptr %add.ptr.i163, align 1
+  %55 = tail call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %54, i32 0)
   %add.ptr2.i = getelementptr inbounds i16, ptr %add.ptr153, i64 %indvars.iv.i162
-  store <8 x i16> %54, ptr %add.ptr2.i, align 1
+  store <8 x i16> %55, ptr %add.ptr2.i, align 1
   %indvars.iv.next.i164 = add nuw nsw i64 %indvars.iv.i162, 8
-  %55 = or disjoint i64 %indvars.iv.next.i164, 7
-  %cmp.i165 = icmp ult i64 %55, %50
+  %56 = or disjoint i64 %indvars.iv.next.i164, 7
+  %cmp.i165 = icmp ult i64 %56, %50
   br i1 %cmp.i165, label %for.body.i161, label %for.cond4.preheader.loopexit.i, !llvm.loop !6
 
-for.cond18.preheader.i:                           ; preds = %for.body7.i, %for.cond4.preheader.i
-  %i.1.lcssa.i = phi i32 [ %i.0.lcssa.i, %for.cond4.preheader.i ], [ %60, %for.body7.i ]
+for.cond18.preheader.loopexit.i:                  ; preds = %for.body7.i
+  %57 = trunc nuw nsw i64 %indvars.iv.next29.i159 to i32
+  br label %for.cond18.preheader.i
+
+for.cond18.preheader.i:                           ; preds = %for.cond18.preheader.loopexit.i, %for.cond4.preheader.i
+  %i.1.lcssa.i = phi i32 [ %i.0.lcssa.i, %for.cond4.preheader.i ], [ %57, %for.cond18.preheader.loopexit.i ]
   %cmp1924.i = icmp slt i32 %i.1.lcssa.i, %n
   br i1 %cmp1924.i, label %for.body20.preheader.i, label %ggml_fp32_to_fp16_row.exit
 
 for.body20.preheader.i:                           ; preds = %for.cond18.preheader.i
-  %56 = zext nneg i32 %i.1.lcssa.i to i64
+  %58 = zext nneg i32 %i.1.lcssa.i to i64
   %wide.trip.count.i156 = zext i32 %n to i64
   br label %for.body20.i
 
 for.body7.i:                                      ; preds = %for.body7.i, %for.body7.preheader.i
   %indvars.iv28.i158 = phi i64 [ %52, %for.body7.preheader.i ], [ %indvars.iv.next29.i159, %for.body7.i ]
   %add.ptr10.i = getelementptr inbounds float, ptr %add.ptr151, i64 %indvars.iv28.i158
-  %57 = load <4 x float>, ptr %add.ptr10.i, align 1
-  %58 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %57, i32 0)
-  %59 = bitcast <8 x i16> %58 to <2 x i64>
+  %59 = load <4 x float>, ptr %add.ptr10.i, align 1
+  %60 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %59, i32 0)
+  %61 = bitcast <8 x i16> %60 to <2 x i64>
   %add.ptr14.i = getelementptr inbounds i16, ptr %add.ptr153, i64 %indvars.iv28.i158
-  %vecext.i.i = extractelement <2 x i64> %59, i64 0
+  %vecext.i.i = extractelement <2 x i64> %61, i64 0
   store i64 %vecext.i.i, ptr %add.ptr14.i, align 1
   %indvars.iv.next29.i159 = add nuw nsw i64 %indvars.iv28.i158, 4
-  %60 = trunc i64 %indvars.iv.next29.i159 to i32
-  %61 = or i32 %60, 3
-  %cmp6.i = icmp slt i32 %61, %n
-  br i1 %cmp6.i, label %for.body7.i, label %for.cond18.preheader.i, !llvm.loop !7
+  %62 = or disjoint i64 %indvars.iv.next29.i159, 3
+  %cmp6.i = icmp slt i64 %62, %53
+  br i1 %cmp6.i, label %for.body7.i, label %for.cond18.preheader.loopexit.i, !llvm.loop !7
 
 for.body20.i:                                     ; preds = %for.body20.i, %for.body20.preheader.i
-  %indvars.iv32.i = phi i64 [ %56, %for.body20.preheader.i ], [ %indvars.iv.next33.i, %for.body20.i ]
+  %indvars.iv32.i = phi i64 [ %58, %for.body20.preheader.i ], [ %indvars.iv.next33.i, %for.body20.i ]
   %arrayidx.i = getelementptr inbounds float, ptr %add.ptr151, i64 %indvars.iv32.i
-  %62 = load float, ptr %arrayidx.i, align 4
-  %vecinit23.i = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %62, i64 0
-  %63 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %vecinit23.i, i32 0)
-  %vecext.i = extractelement <8 x i16> %63, i64 0
+  %63 = load float, ptr %arrayidx.i, align 4
+  %vecinit23.i = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %63, i64 0
+  %64 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %vecinit23.i, i32 0)
+  %vecext.i = extractelement <8 x i16> %64, i64 0
   %arrayidx25.i = getelementptr inbounds i16, ptr %add.ptr153, i64 %indvars.iv32.i
   store i16 %vecext.i, ptr %arrayidx25.i, align 2
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1

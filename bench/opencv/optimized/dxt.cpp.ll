@@ -2493,7 +2493,7 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %82, %85
   %148 = getelementptr inbounds i8, ptr %131, i64 %147
   %149 = load float, ptr %148, align 4
   %150 = fpext float %149 to double
-  %151 = add nuw i64 %.047.i.i.i.i.i, 1
+  %151 = add i64 %.047.i.i.i.i.i, 1
   %152 = mul i64 %151, %137
   %153 = getelementptr inbounds i8, ptr %131, i64 %152
   %154 = load float, ptr %153, align 4
@@ -2515,7 +2515,7 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %82, %85
   store float %169, ptr %148, align 4
   %170 = fptrunc double %168 to float
   store float %170, ptr %153, align 4
-  %171 = add nuw i64 %.047.i.i.i.i.i, 2
+  %171 = add i64 %.047.i.i.i.i.i, 2
   %.not.i.i.i.i.i = icmp ugt i64 %171, %146
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !23
 
@@ -2556,7 +2556,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %191 = getelementptr inbounds i8, ptr %186, i64 %190
   %192 = load float, ptr %191, align 4
   %193 = fpext float %192 to double
-  %194 = add nuw i64 %.047.i.i19.i.i.i, 1
+  %194 = add i64 %.047.i.i19.i.i.i, 1
   %195 = mul i64 %194, %137
   %196 = getelementptr inbounds i8, ptr %186, i64 %195
   %197 = load float, ptr %196, align 4
@@ -2578,7 +2578,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   store float %212, ptr %191, align 4
   %213 = fptrunc double %211 to float
   store float %213, ptr %196, align 4
-  %214 = add nuw i64 %.047.i.i19.i.i.i, 2
+  %214 = add i64 %.047.i.i19.i.i.i, 2
   %.not.i.i20.i.i.i = icmp ugt i64 %214, %146
   br i1 %.not.i.i20.i.i.i, label %._crit_edge.i.i21.i.i.i, label %.lr.ph.i.i18.i.i.i, !llvm.loop !23
 
@@ -2786,7 +2786,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %322 = getelementptr inbounds i8, ptr %129, i64 %321
   %323 = load float, ptr %322, align 4
   %324 = fpext float %323 to double
-  %325 = add nuw i64 %.047.i.i.i.i31.i, 1
+  %325 = add i64 %.047.i.i.i.i31.i, 1
   %326 = mul i64 %325, %133
   %327 = getelementptr inbounds i8, ptr %129, i64 %326
   %328 = load float, ptr %327, align 4
@@ -2812,7 +2812,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %347 = mul i64 %325, %137
   %348 = getelementptr inbounds i8, ptr %131, i64 %347
   store float %346, ptr %348, align 4
-  %349 = add nuw i64 %.047.i.i.i.i31.i, 2
+  %349 = add i64 %.047.i.i.i.i31.i, 2
   %.not.i.i.i.i32.i = icmp ugt i64 %349, %320
   br i1 %.not.i.i.i.i32.i, label %._crit_edge.i.i.i.i33.i, label %.lr.ph.i.i.i.i30.i, !llvm.loop !26
 
@@ -2857,7 +2857,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %373 = getelementptr inbounds i8, ptr %364, i64 %372
   %374 = load float, ptr %373, align 4
   %375 = fpext float %374 to double
-  %376 = add nuw i64 %.047.i.i19.i.i56.i, 1
+  %376 = add i64 %.047.i.i19.i.i56.i, 1
   %377 = mul i64 %376, %133
   %378 = getelementptr inbounds i8, ptr %364, i64 %377
   %379 = load float, ptr %378, align 4
@@ -2883,7 +2883,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %398 = mul i64 %376, %137
   %399 = getelementptr inbounds i8, ptr %368, i64 %398
   store float %397, ptr %399, align 4
-  %400 = add nuw i64 %.047.i.i19.i.i56.i, 2
+  %400 = add i64 %.047.i.i19.i.i56.i, 2
   %.not.i.i20.i.i57.i = icmp ugt i64 %400, %320
   br i1 %.not.i.i20.i.i57.i, label %._crit_edge.i.i21.i.i58.i, label %.lr.ph.i.i18.i.i55.i, !llvm.loop !26
 
@@ -3102,7 +3102,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %516 = getelementptr inbounds i8, ptr %131, i64 %515
   %517 = load float, ptr %516, align 4
   %518 = fpext float %517 to double
-  %519 = add nuw i64 %.048.i.i.i.i.i, 1
+  %519 = add i64 %.048.i.i.i.i.i, 1
   %520 = mul i64 %519, %137
   %521 = getelementptr inbounds i8, ptr %131, i64 %520
   %522 = load float, ptr %521, align 4
@@ -3124,7 +3124,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   store float %537, ptr %516, align 4
   %538 = fptrunc double %536 to float
   store float %538, ptr %521, align 4
-  %539 = add nuw i64 %.048.i.i.i.i.i, 2
+  %539 = add i64 %.048.i.i.i.i.i, 2
   %.not.i.i.i.i.i141 = icmp ugt i64 %539, %514
   br i1 %.not.i.i.i.i.i141, label %._crit_edge.i.i.i.i.i142, label %.lr.ph.i.i.i.i.i140, !llvm.loop !29
 
@@ -3165,7 +3165,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %559 = getelementptr inbounds i8, ptr %554, i64 %558
   %560 = load float, ptr %559, align 4
   %561 = fpext float %560 to double
-  %562 = add nuw i64 %.048.i.i19.i.i.i, 1
+  %562 = add i64 %.048.i.i19.i.i.i, 1
   %563 = mul i64 %562, %137
   %564 = getelementptr inbounds i8, ptr %554, i64 %563
   %565 = load float, ptr %564, align 4
@@ -3187,7 +3187,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   store float %580, ptr %559, align 4
   %581 = fptrunc double %579 to float
   store float %581, ptr %564, align 4
-  %582 = add nuw i64 %.048.i.i19.i.i.i, 2
+  %582 = add i64 %.048.i.i19.i.i.i, 2
   %.not.i.i20.i.i.i170 = icmp ugt i64 %582, %514
   br i1 %.not.i.i20.i.i.i170, label %._crit_edge.i.i21.i.i.i171, label %.lr.ph.i.i18.i.i.i169, !llvm.loop !29
 
@@ -3395,7 +3395,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %690 = getelementptr inbounds i8, ptr %129, i64 %689
   %691 = load float, ptr %690, align 4
   %692 = fpext float %691 to double
-  %693 = add nuw i64 %.048.i.i.i.i31.i, 1
+  %693 = add i64 %.048.i.i.i.i31.i, 1
   %694 = mul i64 %693, %133
   %695 = getelementptr inbounds i8, ptr %129, i64 %694
   %696 = load float, ptr %695, align 4
@@ -3421,7 +3421,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %715 = mul i64 %693, %137
   %716 = getelementptr inbounds i8, ptr %131, i64 %715
   store float %714, ptr %716, align 4
-  %717 = add nuw i64 %.048.i.i.i.i31.i, 2
+  %717 = add i64 %.048.i.i.i.i31.i, 2
   %.not.i.i.i.i32.i106 = icmp ugt i64 %717, %688
   br i1 %.not.i.i.i.i32.i106, label %._crit_edge.i.i.i.i33.i107, label %.lr.ph.i.i.i.i30.i105, !llvm.loop !32
 
@@ -3466,7 +3466,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %741 = getelementptr inbounds i8, ptr %732, i64 %740
   %742 = load float, ptr %741, align 4
   %743 = fpext float %742 to double
-  %744 = add nuw i64 %.048.i.i19.i.i56.i, 1
+  %744 = add i64 %.048.i.i19.i.i56.i, 1
   %745 = mul i64 %744, %133
   %746 = getelementptr inbounds i8, ptr %732, i64 %745
   %747 = load float, ptr %746, align 4
@@ -3492,7 +3492,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %766 = mul i64 %744, %137
   %767 = getelementptr inbounds i8, ptr %736, i64 %766
   store float %765, ptr %767, align 4
-  %768 = add nuw i64 %.048.i.i19.i.i56.i, 2
+  %768 = add i64 %.048.i.i19.i.i56.i, 2
   %.not.i.i20.i.i57.i136 = icmp ugt i64 %768, %688
   br i1 %.not.i.i20.i.i57.i136, label %._crit_edge.i.i21.i.i58.i137, label %.lr.ph.i.i18.i.i55.i135, !llvm.loop !32
 
@@ -3713,7 +3713,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %884 = mul i64 %.047.i.i.i.i.i218, %137
   %885 = getelementptr inbounds i8, ptr %131, i64 %884
   %886 = load double, ptr %885, align 8
-  %887 = add nuw i64 %.047.i.i.i.i.i218, 1
+  %887 = add i64 %.047.i.i.i.i.i218, 1
   %888 = mul i64 %887, %137
   %889 = getelementptr inbounds i8, ptr %131, i64 %888
   %890 = load double, ptr %889, align 8
@@ -3730,7 +3730,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %901 = call double @llvm.fmuladd.f64(double %886, double %896, double %900)
   store double %899, ptr %885, align 8
   store double %901, ptr %889, align 8
-  %902 = add nuw i64 %.047.i.i.i.i.i218, 2
+  %902 = add i64 %.047.i.i.i.i.i218, 2
   %.not.i.i.i.i.i219 = icmp ugt i64 %902, %883
   br i1 %.not.i.i.i.i.i219, label %._crit_edge.i.i.i.i.i220, label %.lr.ph.i.i.i.i.i217, !llvm.loop !35
 
@@ -3770,7 +3770,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %921 = mul i64 %.047.i.i19.i.i.i250, %137
   %922 = getelementptr inbounds i8, ptr %917, i64 %921
   %923 = load double, ptr %922, align 8
-  %924 = add nuw i64 %.047.i.i19.i.i.i250, 1
+  %924 = add i64 %.047.i.i19.i.i.i250, 1
   %925 = mul i64 %924, %137
   %926 = getelementptr inbounds i8, ptr %917, i64 %925
   %927 = load double, ptr %926, align 8
@@ -3787,7 +3787,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %938 = call double @llvm.fmuladd.f64(double %923, double %933, double %937)
   store double %936, ptr %922, align 8
   store double %938, ptr %926, align 8
-  %939 = add nuw i64 %.047.i.i19.i.i.i250, 2
+  %939 = add i64 %.047.i.i19.i.i.i250, 2
   %.not.i.i20.i.i.i251 = icmp ugt i64 %939, %883
   br i1 %.not.i.i20.i.i.i251, label %._crit_edge.i.i21.i.i.i252, label %.lr.ph.i.i18.i.i.i249, !llvm.loop !35
 
@@ -3982,7 +3982,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %1034 = mul i64 %.047.i.i.i.i31.i178, %133
   %1035 = getelementptr inbounds i8, ptr %129, i64 %1034
   %1036 = load double, ptr %1035, align 8
-  %1037 = add nuw i64 %.047.i.i.i.i31.i178, 1
+  %1037 = add i64 %.047.i.i.i.i31.i178, 1
   %1038 = mul i64 %1037, %133
   %1039 = getelementptr inbounds i8, ptr %129, i64 %1038
   %1040 = load double, ptr %1039, align 8
@@ -4003,7 +4003,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %1054 = mul i64 %1037, %137
   %1055 = getelementptr inbounds i8, ptr %131, i64 %1054
   store double %1051, ptr %1055, align 8
-  %1056 = add nuw i64 %.047.i.i.i.i31.i178, 2
+  %1056 = add i64 %.047.i.i.i.i31.i178, 2
   %.not.i.i.i.i32.i179 = icmp ugt i64 %1056, %1033
   br i1 %.not.i.i.i.i32.i179, label %._crit_edge.i.i.i.i33.i180, label %.lr.ph.i.i.i.i30.i177, !llvm.loop !38
 
@@ -4047,7 +4047,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1079 = mul i64 %.047.i.i19.i.i56.i211, %133
   %1080 = getelementptr inbounds i8, ptr %1071, i64 %1079
   %1081 = load double, ptr %1080, align 8
-  %1082 = add nuw i64 %.047.i.i19.i.i56.i211, 1
+  %1082 = add i64 %.047.i.i19.i.i56.i211, 1
   %1083 = mul i64 %1082, %133
   %1084 = getelementptr inbounds i8, ptr %1071, i64 %1083
   %1085 = load double, ptr %1084, align 8
@@ -4068,7 +4068,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1099 = mul i64 %1082, %137
   %1100 = getelementptr inbounds i8, ptr %1075, i64 %1099
   store double %1096, ptr %1100, align 8
-  %1101 = add nuw i64 %.047.i.i19.i.i56.i211, 2
+  %1101 = add i64 %.047.i.i19.i.i56.i211, 2
   %.not.i.i20.i.i57.i212 = icmp ugt i64 %1101, %1033
   br i1 %.not.i.i20.i.i57.i212, label %._crit_edge.i.i21.i.i58.i213, label %.lr.ph.i.i18.i.i55.i210, !llvm.loop !38
 
@@ -4274,7 +4274,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %1204 = mul i64 %.048.i.i.i.i.i299, %137
   %1205 = getelementptr inbounds i8, ptr %131, i64 %1204
   %1206 = load double, ptr %1205, align 8
-  %1207 = add nuw i64 %.048.i.i.i.i.i299, 1
+  %1207 = add i64 %.048.i.i.i.i.i299, 1
   %1208 = mul i64 %1207, %137
   %1209 = getelementptr inbounds i8, ptr %131, i64 %1208
   %1210 = load double, ptr %1209, align 8
@@ -4291,7 +4291,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %1221 = call double @llvm.fmuladd.f64(double %1206, double %1217, double %1220)
   store double %1219, ptr %1205, align 8
   store double %1221, ptr %1209, align 8
-  %1222 = add nuw i64 %.048.i.i.i.i.i299, 2
+  %1222 = add i64 %.048.i.i.i.i.i299, 2
   %.not.i.i.i.i.i300 = icmp ugt i64 %1222, %1203
   br i1 %.not.i.i.i.i.i300, label %._crit_edge.i.i.i.i.i301, label %.lr.ph.i.i.i.i.i298, !llvm.loop !41
 
@@ -4331,7 +4331,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1241 = mul i64 %.048.i.i19.i.i.i331, %137
   %1242 = getelementptr inbounds i8, ptr %1237, i64 %1241
   %1243 = load double, ptr %1242, align 8
-  %1244 = add nuw i64 %.048.i.i19.i.i.i331, 1
+  %1244 = add i64 %.048.i.i19.i.i.i331, 1
   %1245 = mul i64 %1244, %137
   %1246 = getelementptr inbounds i8, ptr %1237, i64 %1245
   %1247 = load double, ptr %1246, align 8
@@ -4348,7 +4348,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1258 = call double @llvm.fmuladd.f64(double %1243, double %1254, double %1257)
   store double %1256, ptr %1242, align 8
   store double %1258, ptr %1246, align 8
-  %1259 = add nuw i64 %.048.i.i19.i.i.i331, 2
+  %1259 = add i64 %.048.i.i19.i.i.i331, 2
   %.not.i.i20.i.i.i332 = icmp ugt i64 %1259, %1203
   br i1 %.not.i.i20.i.i.i332, label %._crit_edge.i.i21.i.i.i333, label %.lr.ph.i.i18.i.i.i330, !llvm.loop !41
 
@@ -4543,7 +4543,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %1354 = mul i64 %.048.i.i.i.i31.i259, %133
   %1355 = getelementptr inbounds i8, ptr %129, i64 %1354
   %1356 = load double, ptr %1355, align 8
-  %1357 = add nuw i64 %.048.i.i.i.i31.i259, 1
+  %1357 = add i64 %.048.i.i.i.i31.i259, 1
   %1358 = mul i64 %1357, %133
   %1359 = getelementptr inbounds i8, ptr %129, i64 %1358
   %1360 = load double, ptr %1359, align 8
@@ -4564,7 +4564,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %1374 = mul i64 %1357, %137
   %1375 = getelementptr inbounds i8, ptr %131, i64 %1374
   store double %1371, ptr %1375, align 8
-  %1376 = add nuw i64 %.048.i.i.i.i31.i259, 2
+  %1376 = add i64 %.048.i.i.i.i31.i259, 2
   %.not.i.i.i.i32.i260 = icmp ugt i64 %1376, %1353
   br i1 %.not.i.i.i.i32.i260, label %._crit_edge.i.i.i.i33.i261, label %.lr.ph.i.i.i.i30.i258, !llvm.loop !44
 
@@ -4608,7 +4608,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1399 = mul i64 %.048.i.i19.i.i56.i292, %133
   %1400 = getelementptr inbounds i8, ptr %1391, i64 %1399
   %1401 = load double, ptr %1400, align 8
-  %1402 = add nuw i64 %.048.i.i19.i.i56.i292, 1
+  %1402 = add i64 %.048.i.i19.i.i56.i292, 1
   %1403 = mul i64 %1402, %133
   %1404 = getelementptr inbounds i8, ptr %1391, i64 %1403
   %1405 = load double, ptr %1404, align 8
@@ -4629,7 +4629,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1419 = mul i64 %1402, %137
   %1420 = getelementptr inbounds i8, ptr %1395, i64 %1419
   store double %1416, ptr %1420, align 8
-  %1421 = add nuw i64 %.048.i.i19.i.i56.i292, 2
+  %1421 = add i64 %.048.i.i19.i.i56.i292, 2
   %.not.i.i20.i.i57.i293 = icmp ugt i64 %1421, %1353
   br i1 %.not.i.i20.i.i57.i293, label %._crit_edge.i.i21.i.i58.i294, label %.lr.ph.i.i18.i.i55.i291, !llvm.loop !44
 

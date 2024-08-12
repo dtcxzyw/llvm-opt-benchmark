@@ -389,7 +389,7 @@ for.body:                                         ; preds = %entry, %for.body
   %xor63 = xor i64 %or62, %add59
   %xor64 = xor i64 %add59, %or33
   %add.ptr = getelementptr inbounds i8, ptr %d.0132, i64 8
-  %add = add nuw i64 %add137, 8
+  %add = add i64 %add137, 8
   %cmp.not = icmp ugt i64 %add, %len
   br i1 %cmp.not, label %for.end67, label %for.body, !llvm.loop !12
 

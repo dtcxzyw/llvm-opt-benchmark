@@ -1755,7 +1755,7 @@ _ZNK2cv9SparseMat4hashEPKi.exit.us:               ; preds = %.lr.ph.i38.us, %61,
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr inbounds i8, ptr %72, i64 %.015.i.us
   store i32 %75, ptr %76, align 4
-  %77 = add nuw i64 %73, 4
+  %77 = add i64 %73, 4
   %.not.i40.us = icmp ugt i64 %77, %25
   br i1 %.not.i40.us, label %.preheader.i41.us, label %.lr.ph.i39.us, !llvm.loop !14
 

@@ -94,7 +94,7 @@ define internal i64 @sparc_code(ptr nocapture readnone %0, i32 noundef %1, i1 no
   br label %.thread.us
 
 .thread.us:                                       ; preds = %19, %14, %9, %.lr.ph.split.us
-  %55 = add nuw i64 %6, 4
+  %55 = add i64 %6, 4
   %.not.us = icmp ugt i64 %55, %4
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
@@ -167,7 +167,7 @@ define internal i64 @sparc_code(ptr nocapture readnone %0, i32 noundef %1, i1 no
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split, %59, %64, %69
-  %105 = add nuw i64 %56, 4
+  %105 = add i64 %56, 4
   %.not = icmp ugt i64 %105, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 

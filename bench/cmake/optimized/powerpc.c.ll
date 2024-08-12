@@ -82,7 +82,7 @@ define internal i64 @powerpc_code(ptr nocapture readnone %0, i32 noundef %1, i1 
   br label %48
 
 48:                                               ; preds = %18, %11, %.lr.ph.split.us
-  %49 = add nuw i64 %6, 4
+  %49 = add i64 %6, 4
   %.not.us = icmp ugt i64 %49, %4
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
@@ -143,7 +143,7 @@ define internal i64 @powerpc_code(ptr nocapture readnone %0, i32 noundef %1, i1 
   br label %92
 
 92:                                               ; preds = %.lr.ph.split, %55, %62
-  %93 = add nuw i64 %50, 4
+  %93 = add i64 %50, 4
   %.not = icmp ugt i64 %93, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 

@@ -712,7 +712,7 @@ define void @bit_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, %11
   store i64 %14, ptr %12, align 8
-  %15 = add nuw i64 %7, 64
+  %15 = add i64 %7, 64
   %.not = icmp ugt i64 %15, %.
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
@@ -784,7 +784,7 @@ define void @bit_or(ptr nocapture noundef %0, ptr nocapture noundef readonly %1)
   %13 = load i64, ptr %12, align 8
   %14 = or i64 %13, %11
   store i64 %14, ptr %12, align 8
-  %15 = add nuw i64 %7, 64
+  %15 = add i64 %7, 64
   %.not = icmp ugt i64 %15, %.
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
@@ -830,7 +830,7 @@ define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = add nuw nsw i32 %.019, %8
-  %10 = add nuw i64 %4, 64
+  %10 = add i64 %4, 64
   %.not = icmp ugt i64 %10, %3
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
@@ -975,7 +975,7 @@ define i32 @bit_clear_count(ptr nocapture noundef readonly %0) #4 {
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = add nuw nsw i32 %.019.i, %8
-  %10 = add nuw i64 %4, 64
+  %10 = add i64 %4, 64
   %.not.i = icmp ugt i64 %10, %3
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
@@ -2934,7 +2934,7 @@ define void @bit_and_not(ptr nocapture noundef %0, ptr nocapture noundef readonl
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
   store i64 %15, ptr %13, align 8
-  %16 = add nuw i64 %7, 64
+  %16 = add i64 %7, 64
   %.not = icmp ugt i64 %16, %.
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
@@ -2984,7 +2984,7 @@ define void @bit_or_not(ptr nocapture noundef %0, ptr nocapture noundef readonly
   %14 = load i64, ptr %13, align 8
   %15 = or i64 %14, %12
   store i64 %15, ptr %13, align 8
-  %16 = add nuw i64 %7, 64
+  %16 = add i64 %7, 64
   %.not = icmp ugt i64 %16, %.
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
@@ -3630,7 +3630,7 @@ define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = add nuw nsw i32 %.019.i, %8
-  %10 = add nuw i64 %4, 64
+  %10 = add i64 %4, 64
   %.not.i = icmp ugt i64 %10, %3
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 

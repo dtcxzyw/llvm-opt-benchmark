@@ -7069,7 +7069,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !132
 
@@ -7339,7 +7339,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !136
 
@@ -7605,7 +7605,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !140
 
@@ -7894,7 +7894,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !144
 
@@ -8168,7 +8168,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !148
 
@@ -8461,7 +8461,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !152
 
@@ -8719,7 +8719,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !156
 
@@ -8997,7 +8997,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !160
 
@@ -9259,7 +9259,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !164
 
@@ -9540,7 +9540,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !168
 
@@ -9794,7 +9794,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !172
 
@@ -10064,7 +10064,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !176
 
@@ -10332,7 +10332,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !180
 
@@ -10625,7 +10625,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !184
 
@@ -10891,7 +10891,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !188
 
@@ -11180,7 +11180,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !192
 
@@ -11446,7 +11446,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !196
 
@@ -11735,7 +11735,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !200
 
@@ -12003,7 +12003,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !204
 
@@ -12296,7 +12296,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !208
 
@@ -12564,7 +12564,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !212
 
@@ -12857,7 +12857,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !216
 
@@ -13125,7 +13125,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !220
 
@@ -13418,7 +13418,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !224
 
@@ -13682,7 +13682,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !228
 
@@ -13967,7 +13967,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !232
 
@@ -14235,7 +14235,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !236
 
@@ -14528,7 +14528,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !240
 
@@ -14796,7 +14796,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end22.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add23.us = add i32 %addr.042.us, 2
   %shr24.us = lshr i32 %bitmask.1.us, 1
-  %add25.us = add nuw i32 %x.039.us, 2
+  %add25.us = add nuw nsw i32 %x.039.us, 2
   %cmp6.us = icmp slt i32 %add25.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !244
 
@@ -15089,7 +15089,7 @@ if.then20.us:                                     ; preds = %if.end17.us
 if.end21.us:                                      ; preds = %if.then20.us, %if.end17.us
   %add22.us = add i32 %addr.042.us, 4
   %shr23.us = lshr i32 %bitmask.1.us, 1
-  %add24.us = add nuw i32 %x.039.us, 4
+  %add24.us = add nuw nsw i32 %x.039.us, 4
   %cmp6.us = icmp slt i32 %add24.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !248
 
@@ -15183,7 +15183,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %arrayidx.i35.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i34.us
   store i16 0, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.038.us, 2
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !252
 
@@ -15292,7 +15292,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %arrayidx.i35.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i34.us
   store i32 0, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.038.us, 4
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !256
 
@@ -15548,7 +15548,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %and33.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !260
 
@@ -15826,7 +15826,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %and2.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !264
 
@@ -16084,7 +16084,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %and3.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !268
 
@@ -16366,7 +16366,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %and2.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !272
 
@@ -16464,7 +16464,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %not.i.us = xor i16 %5, -1
   store i16 %not.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.038.us, 2
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !276
 
@@ -16581,7 +16581,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %not.i.us = xor i32 %5, -1
   store i32 %not.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.038.us, 4
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !280
 
@@ -16833,7 +16833,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %conv18.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !284
 
@@ -17103,7 +17103,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %10, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !288
 
@@ -17197,7 +17197,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %arrayidx.i35.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i34.us
   store i16 -1, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.038.us, 2
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !292
 
@@ -17306,7 +17306,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %arrayidx.i35.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i34.us
   store i32 -1, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.038.us, 4
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !296
 
@@ -17564,7 +17564,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %and3.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !300
 
@@ -17846,7 +17846,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %and2.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !304
 
@@ -18102,7 +18102,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %xor3.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !308
 
@@ -18380,7 +18380,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %xor.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !312
 
@@ -18636,7 +18636,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %or3.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !316
 
@@ -18914,7 +18914,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %or.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !320
 
@@ -19172,7 +19172,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %or.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !324
 
@@ -19454,7 +19454,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %or.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !328
 
@@ -19712,7 +19712,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %not.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !332
 
@@ -19994,7 +19994,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %not.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !336
 
@@ -20252,7 +20252,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %or.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !340
 
@@ -20534,7 +20534,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %or.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !344
 
@@ -20788,7 +20788,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %not.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !348
 
@@ -21062,7 +21062,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %not.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !352
 
@@ -21320,7 +21320,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %or.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !356
 
@@ -21602,7 +21602,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %or.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !360
 
@@ -21860,7 +21860,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i16 %and4.i.us, ptr %arrayidx.i35.us, align 2
   %add19.us = add i32 %addr.039.us, 2
   %shr20.us = lshr i32 %bitmask.1.us, 1
-  %add21.us = add nuw i32 %x.037.us, 2
+  %add21.us = add nuw nsw i32 %x.037.us, 2
   %cmp6.us = icmp slt i32 %add21.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !364
 
@@ -22142,7 +22142,7 @@ if.end.us:                                        ; preds = %cirrus_src.exit31.u
   store i32 %and3.i.us, ptr %arrayidx.i35.us, align 4
   %add18.us = add i32 %addr.039.us, 4
   %shr19.us = lshr i32 %bitmask.1.us, 1
-  %add20.us = add nuw i32 %x.037.us, 4
+  %add20.us = add nuw nsw i32 %x.037.us, 4
   %cmp6.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !368
 
@@ -22339,7 +22339,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !372
 
@@ -22553,7 +22553,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !376
 
@@ -22763,7 +22763,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !380
 
@@ -22996,7 +22996,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !384
 
@@ -23208,7 +23208,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !388
 
@@ -23445,7 +23445,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !392
 
@@ -23647,7 +23647,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !396
 
@@ -23869,7 +23869,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !400
 
@@ -24075,7 +24075,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !404
 
@@ -24300,7 +24300,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !408
 
@@ -24498,7 +24498,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !412
 
@@ -24712,7 +24712,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !416
 
@@ -24924,7 +24924,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !420
 
@@ -25161,7 +25161,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !424
 
@@ -25371,7 +25371,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !428
 
@@ -25604,7 +25604,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !432
 
@@ -25814,7 +25814,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !436
 
@@ -26047,7 +26047,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !440
 
@@ -26259,7 +26259,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !444
 
@@ -26496,7 +26496,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !448
 
@@ -26708,7 +26708,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !452
 
@@ -26945,7 +26945,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !456
 
@@ -27157,7 +27157,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !460
 
@@ -27394,7 +27394,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !464
 
@@ -27602,7 +27602,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !468
 
@@ -27831,7 +27831,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !472
 
@@ -28043,7 +28043,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !476
 
@@ -28280,7 +28280,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !480
 
@@ -28492,7 +28492,7 @@ if.end15.us:                                      ; preds = %if.then13.us, %for.
   %add16.us = add i32 %addr.023.us, 2
   %sub17.us = add nuw nsw i32 %bitpos.021.us, 7
   %and18.us = and i32 %sub17.us, 7
-  %add19.us = add nuw i32 %x.022.us, 2
+  %add19.us = add nuw nsw i32 %x.022.us, 2
   %cmp8.us = icmp slt i32 %add19.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !484
 
@@ -28729,7 +28729,7 @@ if.end14.us:                                      ; preds = %if.then13.us, %for.
   %add15.us = add i32 %addr.023.us, 4
   %sub16.us = add nuw nsw i32 %bitpos.021.us, 7
   %and17.us = and i32 %sub16.us, 7
-  %add18.us = add nuw i32 %x.022.us, 4
+  %add18.us = add nuw nsw i32 %x.022.us, 4
   %cmp8.us = icmp slt i32 %add18.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !488
 
@@ -28824,7 +28824,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %arrayidx.i18.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i17.us
   store i16 0, ptr %arrayidx.i18.us, align 2
   %add14.us = add i32 %addr.022.us, 2
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !492
 
@@ -28933,7 +28933,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %arrayidx.i18.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i17.us
   store i32 0, ptr %arrayidx.i18.us, align 4
   %add13.us = add i32 %addr.022.us, 4
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !496
 
@@ -29132,7 +29132,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !500
 
@@ -29354,7 +29354,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !504
 
@@ -29556,7 +29556,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !508
 
@@ -29782,7 +29782,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !512
 
@@ -29881,7 +29881,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %not.i.us = xor i16 %5, -1
   store i16 %not.i.us, ptr %arrayidx.i18.us, align 2
   %add14.us = add i32 %addr.022.us, 2
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !516
 
@@ -29998,7 +29998,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %not.i.us = xor i32 %5, -1
   store i32 %not.i.us, ptr %arrayidx.i18.us, align 4
   %add13.us = add i32 %addr.022.us, 4
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !520
 
@@ -30193,7 +30193,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !524
 
@@ -30407,7 +30407,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !528
 
@@ -30502,7 +30502,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %arrayidx.i18.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i17.us
   store i16 -1, ptr %arrayidx.i18.us, align 2
   %add14.us = add i32 %addr.022.us, 2
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !532
 
@@ -30611,7 +30611,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %arrayidx.i18.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i17.us
   store i32 -1, ptr %arrayidx.i18.us, align 4
   %add13.us = add i32 %addr.022.us, 4
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !536
 
@@ -30812,7 +30812,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !540
 
@@ -31038,7 +31038,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !544
 
@@ -31238,7 +31238,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !548
 
@@ -31460,7 +31460,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !552
 
@@ -31660,7 +31660,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !556
 
@@ -31882,7 +31882,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !560
 
@@ -32084,7 +32084,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !564
 
@@ -32310,7 +32310,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !568
 
@@ -32512,7 +32512,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !572
 
@@ -32738,7 +32738,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !576
 
@@ -32940,7 +32940,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !580
 
@@ -33166,7 +33166,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !584
 
@@ -33364,7 +33364,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !588
 
@@ -33582,7 +33582,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !592
 
@@ -33784,7 +33784,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !596
 
@@ -34010,7 +34010,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !600
 
@@ -34212,7 +34212,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add14.us = add i32 %addr.022.us, 2
   %sub15.us = add nuw nsw i32 %bitpos.020.us, 7
   %and16.us = and i32 %sub15.us, 7
-  %add17.us = add nuw i32 %x.021.us, 2
+  %add17.us = add nuw nsw i32 %x.021.us, 2
   %cmp8.us = icmp slt i32 %add17.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !604
 
@@ -34438,7 +34438,7 @@ for.body10.us:                                    ; preds = %cirrus_src.exit.us,
   %add13.us = add i32 %addr.022.us, 4
   %sub14.us = add nuw nsw i32 %bitpos.020.us, 7
   %and15.us = and i32 %sub14.us, 7
-  %add16.us = add nuw i32 %x.021.us, 4
+  %add16.us = add nuw nsw i32 %x.021.us, 4
   %cmp8.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp8.us, label %for.body10.us, label %for.cond7.for.end_crit_edge.us, !llvm.loop !608
 
@@ -34533,7 +34533,7 @@ cirrus_src16.exit.us:                             ; preds = %for.body.us, %cirru
   %arrayidx.i15.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i14.us
   store i16 0, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %cirrus_src16.exit.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !612
 
@@ -34641,7 +34641,7 @@ cirrus_src32.exit.us:                             ; preds = %for.body.us, %cirru
   %arrayidx.i15.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i14.us
   store i32 0, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %cirrus_src32.exit.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !616
 
@@ -34817,7 +34817,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and33.i.us = and i16 %8, %7
   store i16 %and33.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !620
 
@@ -35033,7 +35033,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and2.i16.us = and i32 %8, %7
   store i32 %and2.i16.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.020.us, 4
-  %add13.us = add nuw i32 %x.019.us, 4
+  %add13.us = add nuw nsw i32 %x.019.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !624
 
@@ -35212,7 +35212,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and3.i16.us = and i16 %7, %not.i.us
   store i16 %and3.i16.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.020.us, 2
-  %add15.us = add nuw i32 %x.019.us, 2
+  %add15.us = add nuw nsw i32 %x.019.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !628
 
@@ -35432,7 +35432,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and2.i16.us = and i32 %7, %not.i.us
   store i32 %and2.i16.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.020.us, 4
-  %add13.us = add nuw i32 %x.019.us, 4
+  %add13.us = add nuw nsw i32 %x.019.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !632
 
@@ -35531,7 +35531,7 @@ cirrus_src16.exit.us:                             ; preds = %for.body.us, %cirru
   %not.i.us = xor i16 %5, -1
   store i16 %not.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %cirrus_src16.exit.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !636
 
@@ -35647,7 +35647,7 @@ cirrus_src32.exit.us:                             ; preds = %for.body.us, %cirru
   %not.i.us = xor i32 %5, -1
   store i32 %not.i.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %cirrus_src32.exit.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !640
 
@@ -35819,7 +35819,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %arrayidx.i15.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i14.us
   store i16 %7, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !644
 
@@ -36027,7 +36027,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %arrayidx.i15.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i14.us
   store i32 %7, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !648
 
@@ -36122,7 +36122,7 @@ cirrus_src16.exit.us:                             ; preds = %for.body.us, %cirru
   %arrayidx.i15.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i14.us
   store i16 -1, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %cirrus_src16.exit.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !652
 
@@ -36230,7 +36230,7 @@ cirrus_src32.exit.us:                             ; preds = %for.body.us, %cirru
   %arrayidx.i15.us = getelementptr i8, ptr %s.val.us, i64 %idxprom.i14.us
   store i32 -1, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %cirrus_src32.exit.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !656
 
@@ -36408,7 +36408,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and3.i16.us = and i16 %8, %not.i.us
   store i16 %and3.i16.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.020.us, 2
-  %add15.us = add nuw i32 %x.019.us, 2
+  %add15.us = add nuw nsw i32 %x.019.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !660
 
@@ -36628,7 +36628,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and2.i16.us = and i32 %8, %not.i.us
   store i32 %and2.i16.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.020.us, 4
-  %add13.us = add nuw i32 %x.019.us, 4
+  %add13.us = add nuw nsw i32 %x.019.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !664
 
@@ -36805,7 +36805,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %xor3.i.us = xor i16 %8, %7
   store i16 %xor3.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !668
 
@@ -37021,7 +37021,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %xor.i.us = xor i32 %8, %7
   store i32 %xor.i.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !672
 
@@ -37198,7 +37198,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or3.i.us = or i16 %8, %7
   store i16 %or3.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !676
 
@@ -37414,7 +37414,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or.i.us = or i32 %8, %7
   store i32 %or.i.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !680
 
@@ -37593,7 +37593,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or.i.us = xor i16 %or.demorgan3.i.us, -1
   store i16 %or.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !684
 
@@ -37813,7 +37813,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or.i.us = xor i32 %or.demorgan.i.us, -1
   store i32 %or.i.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !688
 
@@ -37992,7 +37992,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i16 %9, -1
   store i16 %not.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !692
 
@@ -38212,7 +38212,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i32 %9, -1
   store i32 %not.i.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !696
 
@@ -38391,7 +38391,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or.i.us = or i16 %7, %not.i.us
   store i16 %or.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !700
 
@@ -38611,7 +38611,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or.i.us = or i32 %7, %not.i.us
   store i32 %or.i.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !704
 
@@ -38786,7 +38786,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i16 %7, -1
   store i16 %not.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !708
 
@@ -38998,7 +38998,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i32 %7, -1
   store i32 %not.i.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !712
 
@@ -39177,7 +39177,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or.i.us = or i16 %8, %not.i.us
   store i16 %or.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !716
 
@@ -39397,7 +39397,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or.i.us = or i32 %8, %not.i.us
   store i32 %or.i.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.019.us, 4
-  %add13.us = add nuw i32 %x.018.us, 4
+  %add13.us = add nuw nsw i32 %x.018.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !720
 
@@ -39576,7 +39576,7 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and4.i.us = xor i16 %and4.demorgan3.i.us, -1
   store i16 %and4.i.us, ptr %arrayidx.i15.us, align 2
   %add14.us = add i32 %addr.019.us, 2
-  %add15.us = add nuw i32 %x.018.us, 2
+  %add15.us = add nuw nsw i32 %x.018.us, 2
   %cmp6.us = icmp slt i32 %add15.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !724
 
@@ -39796,7 +39796,7 @@ cirrus_src32.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and3.i16.us = xor i32 %and3.demorgan.i.us, -1
   store i32 %and3.i16.us, ptr %arrayidx.i15.us, align 4
   %add12.us = add i32 %addr.020.us, 4
-  %add13.us = add nuw i32 %x.019.us, 4
+  %add13.us = add nuw nsw i32 %x.019.us, 4
   %cmp6.us = icmp slt i32 %add13.us, %bltwidth
   br i1 %cmp6.us, label %for.body8.us, label %for.cond5.for.end_crit_edge.us, !llvm.loop !728
 

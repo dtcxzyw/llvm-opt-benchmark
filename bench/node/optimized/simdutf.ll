@@ -10858,8 +10858,8 @@ if.else.i.i:                                      ; preds = %for.body.i
 _ZN7simdutf7icelake12_GLOBAL__N_128latin1_to_utf8_avx512_branchEDv8_xPc.exit.i: ; preds = %if.else.i.i, %if.then.i.i
   %retval.0.i.i = phi i64 [ %add.i.i.i, %if.then.i.i ], [ 64, %if.else.i.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %utf8_output.addr.042.i, i64 %retval.0.i.i
-  %add3.i = add nuw i64 %pos.041.i, 64
-  %add.i = add nuw i64 %pos.041.i, 192
+  %add3.i = add i64 %pos.041.i, 64
+  %add.i = add i64 %pos.041.i, 192
   %cmp.not.i = icmp ugt i64 %add.i, %len
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !116
 
@@ -22894,7 +22894,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = shufflevector <64 x i8> %0, <64 x i8> poison, <64 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16, i32 19, i32 18, i32 21, i32 20, i32 23, i32 22, i32 25, i32 24, i32 27, i32 26, i32 29, i32 28, i32 31, i32 30, i32 33, i32 32, i32 35, i32 34, i32 37, i32 36, i32 39, i32 38, i32 41, i32 40, i32 43, i32 42, i32 45, i32 44, i32 47, i32 46, i32 49, i32 48, i32 51, i32 50, i32 53, i32 52, i32 55, i32 54, i32 57, i32 56, i32 59, i32 58, i32 61, i32 60, i32 63, i32 62>
   %add.ptr5 = getelementptr inbounds i16, ptr %output, i64 %pos.017
   store <64 x i8> %1, ptr %add.ptr5, align 1
-  %add = add nuw i64 %add18, 32
+  %add = add i64 %add18, 32
   %cmp.not = icmp ugt i64 %add, %length
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !204
 
@@ -23745,7 +23745,7 @@ for.body:                                         ; preds = %entry, %for.body
   %5 = bitcast <64 x i1> %4 to i64
   %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
   %add7 = add i64 %add4, %6
-  %add = add nuw i64 %add139, 64
+  %add = add i64 %add139, 64
   %cmp.not = icmp ugt i64 %add, %length
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !215
 
@@ -36288,7 +36288,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or.i.i)
   %add2.i = add i64 %4, %count.i.047
-  %add.i = add nuw i64 %add.i49, 64
+  %add.i = add i64 %add.i49, 64
   %cmp.i.not = icmp ugt i64 %add.i, %length
   br i1 %cmp.i.not, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i, !llvm.loop !527
 
@@ -36342,7 +36342,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv.i.i.i
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or.i.i.i)
   %add2.i.i = add i64 %4, %count.i.047.i
-  %add.i.i = add nuw i64 %add.i49.i, 64
+  %add.i.i = add i64 %add.i49.i, 64
   %cmp.i.not.i = icmp ugt i64 %add.i.i, %len
   br i1 %cmp.i.not.i, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i, label %for.body.i.i, !llvm.loop !527
 
@@ -36788,7 +36788,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or.i.i)
   %add5.i = add i64 %add2.i, %7
-  %add.i = add nuw i64 %add.i94, 64
+  %add.i = add i64 %add.i94, 64
   %cmp.i.not = icmp ugt i64 %add.i, %length
   br i1 %cmp.i.not, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i, !llvm.loop !566
 
@@ -36974,7 +36974,7 @@ for.body:                                         ; preds = %entry, %for.body
   %17 = zext nneg i32 %narrow40 to i64
   %reass.sub = add i64 %count.042, 32
   %add45 = sub i64 %reass.sub, %17
-  %add = add nuw i64 %add44, 8
+  %add = add i64 %add44, 8
   %cmp.not = icmp ugt i64 %add, %length
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !570
 
@@ -37034,7 +37034,7 @@ for.body:                                         ; preds = %entry, %for.body
   %narrow15 = add nuw nsw i32 %5, 8
   %add12 = zext nneg i32 %narrow15 to i64
   %add13 = add i64 %count.017, %add12
-  %add = add nuw i64 %add19, 8
+  %add = add i64 %add19, 8
   %cmp.not = icmp ugt i64 %add, %length
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !571
 
@@ -37089,7 +37089,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or.i.i)
   %add2.i = add i64 %4, %count.i.047
-  %add.i = add nuw i64 %add.i49, 64
+  %add.i = add i64 %add.i49, 64
   %cmp.i.not = icmp ugt i64 %add.i, %length
   br i1 %cmp.i.not, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i, !llvm.loop !527
 
@@ -50424,7 +50424,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %or17.i.i = or disjoint i64 %or15.i.i, %shl16.i.i
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or17.i.i)
   %add2.i = add i64 %8, %count.i.031
-  %add.i = add nuw i64 %add.i33, 64
+  %add.i = add i64 %add.i33, 64
   %cmp.i.not = icmp ugt i64 %add.i, %length
   br i1 %cmp.i.not, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i, !llvm.loop !700
 
@@ -50492,7 +50492,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   %or17.i.i.i = or disjoint i64 %or15.i.i.i, %shl16.i.i.i
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or17.i.i.i)
   %add2.i.i = add i64 %8, %count.i.031.i
-  %add.i.i = add nuw i64 %add.i33.i, 64
+  %add.i.i = add i64 %add.i33.i, 64
   %cmp.i.not.i = icmp ugt i64 %add.i.i, %len
   br i1 %cmp.i.not.i, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i, label %for.body.i.i, !llvm.loop !700
 
@@ -51229,7 +51229,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %or17.i.i = or disjoint i64 %or15.i.i, %shl16.i.i
   %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or17.i.i)
   %add5.i = add i64 %add2.i, %13
-  %add.i = add nuw i64 %add.i60, 64
+  %add.i = add i64 %add.i60, 64
   %cmp.i.not = icmp ugt i64 %add.i, %length
   br i1 %cmp.i.not, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i, !llvm.loop !706
 
@@ -51304,7 +51304,7 @@ for.body:                                         ; preds = %entry, %for.body
   %17 = zext nneg i16 %narrow28 to i64
   %reass.sub = add i64 %count.030, 16
   %add30 = sub i64 %reass.sub, %17
-  %add = add nuw i64 %add32, 4
+  %add = add i64 %add32, 4
   %cmp.not = icmp ugt i64 %add, %length
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !707
 
@@ -51364,7 +51364,7 @@ for.body:                                         ; preds = %entry, %for.body
   %narrow11 = add nuw nsw i16 %5, 4
   %add9 = zext nneg i16 %narrow11 to i64
   %add10 = add i64 %count.013, %add9
-  %add = add nuw i64 %add16, 4
+  %add = add i64 %add16, 4
   %cmp.not = icmp ugt i64 %add, %length
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !708
 
@@ -51433,7 +51433,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %or17.i.i = or disjoint i64 %or15.i.i, %shl16.i.i
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %or17.i.i)
   %add2.i = add i64 %8, %count.i.031
-  %add.i = add nuw i64 %add.i33, 64
+  %add.i = add i64 %add.i33, 64
   %cmp.i.not = icmp ugt i64 %add.i, %length
   br i1 %cmp.i.not, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i, !llvm.loop !700
 

@@ -4234,7 +4234,7 @@ x86_Convert.exit:                                 ; preds = %284, %._crit_edge.i
   br label %427
 
 427:                                              ; preds = %400, %.lr.ph.i112
-  %428 = add nuw i64 %395, 4
+  %428 = add i64 %395, 4
   %.not.i113 = icmp ugt i64 %428, %280
   br i1 %.not.i113, label %arm_Convert.exit, label %.lr.ph.i112, !llvm.loop !31
 
@@ -4347,7 +4347,7 @@ arm_Convert.exit:                                 ; preds = %427, %394
   br label %503
 
 503:                                              ; preds = %.sink.split.i, %474, %471
-  %504 = add nuw i64 %433, 4
+  %504 = add i64 %433, 4
   %.not.i110 = icmp ugt i64 %504, %280
   br i1 %.not.i110, label %arm64_Convert.exit, label %.lr.ph.i109, !llvm.loop !32
 

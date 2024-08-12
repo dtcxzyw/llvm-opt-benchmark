@@ -72,7 +72,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %24 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.90.0130, <2 x i64> %state.sroa.0.0137)
   %xor.i39.i.i25 = xor <2 x i64> %24, %add.ptr.val
   %xor.i.i.i26 = xor <2 x i64> %20, %add.ptr.val20
-  %add = add nuw i64 %add139, 32
+  %add = add i64 %add139, 32
   %cmp.not = icmp ugt i64 %add, %adlen
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6
 
@@ -160,7 +160,7 @@ for.body12:                                       ; preds = %if.end, %for.body12
   %47 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.90.2149, <2 x i64> %state.sroa.0.2156)
   %xor.i39.i.i40 = xor <2 x i64> %47, %add.ptr14.val
   %xor.i.i.i41 = xor <2 x i64> %43, %add.ptr14.val22
-  %add10 = add nuw i64 %add10158, 32
+  %add10 = add i64 %add10158, 32
   %cmp11.not = icmp ugt i64 %add10, %mlen
   br i1 %cmp11.not, label %for.end18, label %for.body12, !llvm.loop !7
 
@@ -356,7 +356,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %24 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.128.0204, <2 x i64> %state.sroa.0.0211)
   %xor.i39.i.i40 = xor <2 x i64> %24, %add.ptr.val
   %xor.i.i.i41 = xor <2 x i64> %20, %add.ptr.val36
-  %add = add nuw i64 %add213, 32
+  %add = add i64 %add213, 32
   %cmp.not = icmp ugt i64 %add, %adlen
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
 
@@ -451,7 +451,7 @@ for.body14:                                       ; preds = %for.cond11.preheade
   %47 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.128.2243, <2 x i64> %state.sroa.0.2250)
   %xor.i39.i.i55 = xor <2 x i64> %47, %xor.i21.i53
   %xor.i.i.i56 = xor <2 x i64> %43, %xor.i.i
-  %add12 = add nuw i64 %add12252, 32
+  %add12 = add i64 %add12252, 32
   %cmp13.not = icmp ugt i64 %add12, %clen
   br i1 %cmp13.not, label %if.end31, label %for.body14, !llvm.loop !10
 
@@ -488,7 +488,7 @@ for.body24:                                       ; preds = %for.cond21.preheade
   %61 = xor <2 x i64> %60, %52
   %62 = xor <2 x i64> %61, %state.sroa.88.4225
   %xor.i.i.i71 = xor <2 x i64> %62, %state.sroa.34.4228
-  %add22 = add nuw i64 %add22232, 32
+  %add22 = add i64 %add22232, 32
   %cmp23.not = icmp ugt i64 %add22, %clen
   br i1 %cmp23.not, label %if.end31, label %for.body24, !llvm.loop !11
 

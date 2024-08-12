@@ -465,11 +465,11 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %71 = add i64 %64, 1
   store i64 %71, ptr %65, align 8
   %.pre = load i32, ptr %66, align 8
-  %.pre92 = add i32 %.pre, %54
+  %.pre91 = add i32 %.pre, %54
   br label %72
 
 72:                                               ; preds = %70, %48
-  %.pre-phi = phi i32 [ %.pre92, %70 ], [ %68, %48 ]
+  %.pre-phi = phi i32 [ %.pre91, %70 ], [ %68, %48 ]
   %73 = urem i32 %.pre-phi, 1000000
   %74 = mul nuw nsw i32 %73, 1000
   %75 = getelementptr inbounds i8, ptr %1, i64 24
@@ -526,19 +526,19 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 
 .lr.ph:                                           ; preds = %80
   %115 = load i64, ptr %7, align 8
-  %116 = zext nneg i32 %79 to i64
-  br label %117
+  br label %116
 
-117:                                              ; preds = %.lr.ph, %hex_from_char.exit63
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hex_from_char.exit63 ]
-  %118 = add i64 %115, %indvars.iv
+116:                                              ; preds = %.lr.ph, %hex_from_char.exit63
+  %.083 = phi i32 [ 0, %.lr.ph ], [ %146, %hex_from_char.exit63 ]
+  %117 = sext i32 %.083 to i64
+  %118 = add i64 %115, %117
   %119 = getelementptr [65537 x i8], ptr @log3gpp_read.linebuff, i64 0, i64 %118
   %120 = load i8, ptr %119, align 1
   %121 = add i8 %120, -48
   %or.cond.i = icmp ult i8 %121, 10
   br i1 %or.cond.i, label %hex_from_char.exit, label %122
 
-122:                                              ; preds = %117
+122:                                              ; preds = %116
   %123 = add i8 %120, -97
   %or.cond5.i = icmp ult i8 %123, 6
   br i1 %or.cond5.i, label %124, label %126
@@ -554,8 +554,8 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %spec.select.i = select i1 %or.cond8.i, i8 %128, i8 -1
   br label %hex_from_char.exit
 
-hex_from_char.exit:                               ; preds = %117, %124, %126
-  %.0.i57 = phi i8 [ %125, %124 ], [ %spec.select.i, %126 ], [ %121, %117 ]
+hex_from_char.exit:                               ; preds = %116, %124, %126
+  %.0.i57 = phi i8 [ %125, %124 ], [ %spec.select.i, %126 ], [ %121, %116 ]
   %129 = shl i8 %.0.i57, 4
   %130 = add i64 %118, 1
   %131 = getelementptr [65537 x i8], ptr @log3gpp_read.linebuff, i64 0, i64 %130
@@ -583,15 +583,14 @@ hex_from_char.exit:                               ; preds = %117, %124, %126
 hex_from_char.exit63:                             ; preds = %hex_from_char.exit, %136, %138
   %.0.i62 = phi i8 [ %137, %136 ], [ %spec.select.i61, %138 ], [ %133, %hex_from_char.exit ]
   %141 = or i8 %.0.i62, %129
-  %142 = trunc nuw nsw i64 %indvars.iv to i32
-  %143 = ashr exact i32 %142, 1
-  %144 = add i32 %143, %112
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr i8, ptr %89, i64 %145
-  store i8 %141, ptr %146, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %.not56 = icmp ugt i64 %indvars.iv.next, %116
-  br i1 %.not56, label %._crit_edge, label %117, !llvm.loop !6
+  %142 = ashr exact i32 %.083, 1
+  %143 = add i32 %142, %112
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr i8, ptr %89, i64 %144
+  store i8 %141, ptr %145, align 1
+  %146 = add i32 %.083, 2
+  %.not56 = icmp sgt i32 %146, %79
+  br i1 %.not56, label %._crit_edge, label %116, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %hex_from_char.exit63, %80
   store i32 0, ptr %22, align 4
@@ -681,7 +680,7 @@ define internal range(i32 0, 2) i32 @log3gpp_seek_read(ptr nocapture noundef rea
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @file_seek(ptr noundef %18, i64 noundef %1, i32 noundef 0, ptr noundef nonnull %4) #12
   %20 = icmp eq i64 %19, -1
-  br i1 %20, label %149, label %21
+  br i1 %20, label %150, label %21
 
 21:                                               ; preds = %6
   %22 = load ptr, ptr %17, align 8
@@ -728,13 +727,13 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 read_new_line.exit:                               ; preds = %21
   %45 = tail call i32 @file_error(ptr noundef %22, ptr noundef %5) #12
   store i32 %45, ptr %4, align 4
-  br label %149
+  br label %150
 
 46:                                               ; preds = %43, %thread-pre-split.thread.i, %thread-pre-split.i, %26
   %.1.ph = phi i32 [ %29, %26 ], [ 0, %thread-pre-split.i ], [ %.051, %thread-pre-split.thread.i ], [ %44, %43 ]
   %47 = call fastcc i32 @parse_line(ptr noundef nonnull @log3gpp_seek_read.linebuff, i32 noundef %.1.ph, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %12)
   %.not39 = icmp eq i32 %47, 0
-  br i1 %.not39, label %146, label %48
+  br i1 %.not39, label %147, label %48
 
 48:                                               ; preds = %46
   %49 = load i32, ptr %9, align 4
@@ -764,11 +763,11 @@ read_new_line.exit:                               ; preds = %21
   %66 = add i64 %59, 1
   store i64 %66, ptr %60, align 8
   %.pre = load i32, ptr %61, align 8
-  %.pre59 = add i32 %.pre, %50
+  %.pre58 = add i32 %.pre, %50
   br label %67
 
 67:                                               ; preds = %65, %48
-  %.pre-phi = phi i32 [ %.pre59, %65 ], [ %63, %48 ]
+  %.pre-phi = phi i32 [ %.pre58, %65 ], [ %63, %48 ]
   %68 = urem i32 %.pre-phi, 1000000
   %69 = mul nuw nsw i32 %68, 1000
   %70 = getelementptr inbounds i8, ptr %2, i64 24
@@ -812,7 +811,7 @@ read_new_line.exit:                               ; preds = %21
   %104 = add i32 %103, %102
   %105 = load i32, ptr %12, align 4
   %.not40 = icmp eq i32 %105, 0
-  br i1 %.not40, label %.preheader, label %137
+  br i1 %.not40, label %.preheader, label %138
 
 .preheader:                                       ; preds = %67
   %.not4156 = icmp slt i32 %73, 0
@@ -823,98 +822,98 @@ read_new_line.exit:                               ; preds = %21
   br label %107
 
 107:                                              ; preds = %.lr.ph, %hex_from_char.exit48
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hex_from_char.exit48 ]
-  %108 = add i64 %106, %indvars.iv
-  %109 = getelementptr [65537 x i8], ptr @log3gpp_seek_read.linebuff, i64 0, i64 %108
-  %110 = load i8, ptr %109, align 1
-  %111 = add i8 %110, -48
-  %or.cond.i = icmp ult i8 %111, 10
-  br i1 %or.cond.i, label %hex_from_char.exit, label %112
+  %.057 = phi i32 [ 0, %.lr.ph ], [ %137, %hex_from_char.exit48 ]
+  %108 = sext i32 %.057 to i64
+  %109 = add i64 %106, %108
+  %110 = getelementptr [65537 x i8], ptr @log3gpp_seek_read.linebuff, i64 0, i64 %109
+  %111 = load i8, ptr %110, align 1
+  %112 = add i8 %111, -48
+  %or.cond.i = icmp ult i8 %112, 10
+  br i1 %or.cond.i, label %hex_from_char.exit, label %113
 
-112:                                              ; preds = %107
-  %113 = add i8 %110, -97
-  %or.cond5.i = icmp ult i8 %113, 6
-  br i1 %or.cond5.i, label %114, label %116
+113:                                              ; preds = %107
+  %114 = add i8 %111, -97
+  %or.cond5.i = icmp ult i8 %114, 6
+  br i1 %or.cond5.i, label %115, label %117
 
-114:                                              ; preds = %112
-  %115 = add nsw i8 %110, -87
+115:                                              ; preds = %113
+  %116 = add nsw i8 %111, -87
   br label %hex_from_char.exit
 
-116:                                              ; preds = %112
-  %117 = add i8 %110, -65
-  %or.cond8.i = icmp ult i8 %117, 6
-  %118 = add nsw i8 %110, -55
-  %spec.select.i = select i1 %or.cond8.i, i8 %118, i8 -1
+117:                                              ; preds = %113
+  %118 = add i8 %111, -65
+  %or.cond8.i = icmp ult i8 %118, 6
+  %119 = add nsw i8 %111, -55
+  %spec.select.i = select i1 %or.cond8.i, i8 %119, i8 -1
   br label %hex_from_char.exit
 
-hex_from_char.exit:                               ; preds = %107, %114, %116
-  %.0.i42 = phi i8 [ %115, %114 ], [ %spec.select.i, %116 ], [ %111, %107 ]
-  %119 = shl i8 %.0.i42, 4
-  %120 = add i64 %108, 1
-  %121 = getelementptr [65537 x i8], ptr @log3gpp_seek_read.linebuff, i64 0, i64 %120
-  %122 = load i8, ptr %121, align 1
-  %123 = add i8 %122, -48
-  %or.cond.i43 = icmp ult i8 %123, 10
-  br i1 %or.cond.i43, label %hex_from_char.exit48, label %124
+hex_from_char.exit:                               ; preds = %107, %115, %117
+  %.0.i42 = phi i8 [ %116, %115 ], [ %spec.select.i, %117 ], [ %112, %107 ]
+  %120 = shl i8 %.0.i42, 4
+  %121 = add i64 %109, 1
+  %122 = getelementptr [65537 x i8], ptr @log3gpp_seek_read.linebuff, i64 0, i64 %121
+  %123 = load i8, ptr %122, align 1
+  %124 = add i8 %123, -48
+  %or.cond.i43 = icmp ult i8 %124, 10
+  br i1 %or.cond.i43, label %hex_from_char.exit48, label %125
 
-124:                                              ; preds = %hex_from_char.exit
-  %125 = add i8 %122, -97
-  %or.cond5.i44 = icmp ult i8 %125, 6
-  br i1 %or.cond5.i44, label %126, label %128
+125:                                              ; preds = %hex_from_char.exit
+  %126 = add i8 %123, -97
+  %or.cond5.i44 = icmp ult i8 %126, 6
+  br i1 %or.cond5.i44, label %127, label %129
 
-126:                                              ; preds = %124
-  %127 = add nsw i8 %122, -87
+127:                                              ; preds = %125
+  %128 = add nsw i8 %123, -87
   br label %hex_from_char.exit48
 
-128:                                              ; preds = %124
-  %129 = add i8 %122, -65
-  %or.cond8.i45 = icmp ult i8 %129, 6
-  %130 = add nsw i8 %122, -55
-  %spec.select.i46 = select i1 %or.cond8.i45, i8 %130, i8 -1
+129:                                              ; preds = %125
+  %130 = add i8 %123, -65
+  %or.cond8.i45 = icmp ult i8 %130, 6
+  %131 = add nsw i8 %123, -55
+  %spec.select.i46 = select i1 %or.cond8.i45, i8 %131, i8 -1
   br label %hex_from_char.exit48
 
-hex_from_char.exit48:                             ; preds = %hex_from_char.exit, %126, %128
-  %.0.i47 = phi i8 [ %127, %126 ], [ %spec.select.i46, %128 ], [ %123, %hex_from_char.exit ]
-  %131 = or i8 %.0.i47, %119
-  %132 = trunc nuw nsw i64 %indvars.iv to i32
-  %133 = ashr exact i32 %132, 1
+hex_from_char.exit48:                             ; preds = %hex_from_char.exit, %127, %129
+  %.0.i47 = phi i8 [ %128, %127 ], [ %spec.select.i46, %129 ], [ %124, %hex_from_char.exit ]
+  %132 = or i8 %.0.i47, %120
+  %133 = ashr exact i32 %.057, 1
   %134 = add i32 %133, %104
   %135 = sext i32 %134 to i64
   %136 = getelementptr i8, ptr %81, i64 %135
-  store i8 %131, ptr %136, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %.not41 = icmp sgt i64 %indvars.iv.next, %74
+  store i8 %132, ptr %136, align 1
+  %137 = add i32 %.057, 2
+  %.not41 = icmp sgt i32 %137, %73
   br i1 %.not41, label %._crit_edge, label %107, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %hex_from_char.exit48, %.preheader
   store i32 0, ptr %16, align 4
   store i32 0, ptr %4, align 4
-  br label %149
+  br label %150
 
-137:                                              ; preds = %67
-  %138 = sext i32 %104 to i64
-  %139 = getelementptr i8, ptr %81, i64 %138
-  %140 = load i64, ptr %7, align 8
-  %141 = getelementptr [65537 x i8], ptr @log3gpp_seek_read.linebuff, i64 0, i64 %140
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %139, ptr align 1 %141, i64 %74, i1 false)
-  %142 = add i32 %73, -1
-  %143 = add i32 %142, %104
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr i8, ptr %81, i64 %144
-  store i8 0, ptr %145, align 1
+138:                                              ; preds = %67
+  %139 = sext i32 %104 to i64
+  %140 = getelementptr i8, ptr %81, i64 %139
+  %141 = load i64, ptr %7, align 8
+  %142 = getelementptr [65537 x i8], ptr @log3gpp_seek_read.linebuff, i64 0, i64 %141
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %140, ptr align 1 %142, i64 %74, i1 false)
+  %143 = add i32 %73, -1
+  %144 = add i32 %143, %104
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr i8, ptr %81, i64 %145
+  store i8 0, ptr %146, align 1
   store i32 0, ptr %16, align 4
   store i32 0, ptr %4, align 4
-  br label %149
+  br label %150
 
-146:                                              ; preds = %46
-  %147 = load i32, ptr %16, align 4
-  store i32 %147, ptr %4, align 4
-  %148 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef %1) #12
-  store ptr %148, ptr %5, align 8
-  br label %149
+147:                                              ; preds = %46
+  %148 = load i32, ptr %16, align 4
+  store i32 %148, ptr %4, align 4
+  %149 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef %1) #12
+  store ptr %149, ptr %5, align 8
+  br label %150
 
-149:                                              ; preds = %read_new_line.exit, %6, %146, %137, %._crit_edge
-  %.038 = phi i32 [ 1, %137 ], [ 1, %._crit_edge ], [ 0, %146 ], [ 0, %6 ], [ 0, %read_new_line.exit ]
+150:                                              ; preds = %read_new_line.exit, %6, %147, %138, %._crit_edge
+  %.038 = phi i32 [ 1, %138 ], [ 1, %._crit_edge ], [ 0, %147 ], [ 0, %6 ], [ 0, %read_new_line.exit ]
   ret i32 %.038
 }
 

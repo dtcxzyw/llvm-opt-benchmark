@@ -69339,7 +69339,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %add.i34.us.us = add i64 %div15.i.us.us, %1
   %6 = inttoptr i64 %add.i34.us.us to ptr
   store i64 %5, ptr %6, align 8
-  %add.us.us = add nuw i64 %add153.us.us, 64
+  %add.us.us = add i64 %add153.us.us, 64
   %cmp.not.us.us = icmp ugt i64 %add.us.us, %numBits
   br i1 %cmp.not.us.us, label %for.end, label %for.body.us.us, !llvm.loop !684
 
@@ -69360,7 +69360,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %add.i34.us = add i64 %div15.i.us, %1
   %10 = inttoptr i64 %add.i34.us to ptr
   store i64 %or.i.us, ptr %10, align 8
-  %add.us = add nuw i64 %add153.us, 64
+  %add.us = add i64 %add153.us, 64
   %cmp.not.us = icmp ugt i64 %add.us, %numBits
   br i1 %cmp.not.us, label %for.end, label %for.body.us, !llvm.loop !684
 
@@ -69393,7 +69393,7 @@ for.body.us154:                                   ; preds = %for.body.lr.ph.spli
   %or25.i.us = or disjoint i64 %and20.i.us, %and24.i.us
   %conv26.i.us = trunc nuw i64 %or25.i.us to i8
   store i8 %conv26.i.us, ptr %add.ptr.i.us, align 1
-  %add.us168 = add nuw i64 %add153.us155, 64
+  %add.us168 = add i64 %add153.us155, 64
   %cmp.not.us169 = icmp ugt i64 %add.us168, %numBits
   br i1 %cmp.not.us169, label %for.end, label %for.body.us154, !llvm.loop !684
 
@@ -69427,7 +69427,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %or25.i = or disjoint i64 %and20.i, %and24.i
   %conv26.i = trunc nuw i64 %or25.i to i8
   store i8 %conv26.i, ptr %add.ptr.i, align 1
-  %add = add nuw i64 %add153, 64
+  %add = add i64 %add153, 64
   %cmp.not = icmp ugt i64 %add, %numBits
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !684
 

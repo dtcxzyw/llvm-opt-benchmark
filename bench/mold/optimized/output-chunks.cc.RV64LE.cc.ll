@@ -25862,7 +25862,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.cond.preheader.
   %i16.014.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %add1715.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i.i.i.i.i.i.i ]
   %add.ptr19.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i.i.i.i.i.i.i.i, i64 %i16.014.i.i.i.i.i.i.i.i.i.i.i
   store i16 -28670, ptr %add.ptr19.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %add17.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %add1715.i.i.i.i.i.i.i.i.i.i.i, 2
+  %add17.i.i.i.i.i.i.i.i.i.i.i = add i64 %add1715.i.i.i.i.i.i.i.i.i.i.i, 2
   %cmp18.not.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %add17.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp18.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elf13OutputSectionINS4_6RV64LEEE8write_toERNS4_7ContextIS6_EEPhEUllE_JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !241
 
@@ -26137,7 +26137,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i65:                 ; preds = %for.cond.preheader.
   %i16.014.i.i.i.i.i.i.i.i.i.i.i67 = phi i64 [ %add1715.i.i.i.i.i.i.i.i.i.i.i66, %for.body.i.i.i.i.i.i.i.i.i.i.i65 ], [ 0, %for.cond.preheader.i.i.i.i.i.i.i.i.i.i.i63 ]
   %add.ptr19.i.i.i.i.i.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i.i.i.i.i.i.i.i57, i64 %i16.014.i.i.i.i.i.i.i.i.i.i.i67
   store i16 -28670, ptr %add.ptr19.i.i.i.i.i.i.i.i.i.i.i68, align 1
-  %add17.i.i.i.i.i.i.i.i.i.i.i69 = add nuw i64 %add1715.i.i.i.i.i.i.i.i.i.i.i66, 2
+  %add17.i.i.i.i.i.i.i.i.i.i.i69 = add i64 %add1715.i.i.i.i.i.i.i.i.i.i.i66, 2
   %cmp18.not.i.i.i.i.i.i.i.i.i.i.i70 = icmp ugt i64 %add17.i.i.i.i.i.i.i.i.i.i.i69, %sub.i.i.i.i.i.i.i.i.i.i.i58
   br i1 %cmp18.not.i.i.i.i.i.i.i.i.i.i.i70, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elf13OutputSectionINS4_6RV64LEEE8write_toERNS4_7ContextIS6_EEPhEUllE_JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit.i.i.i.i.i.i71, label %for.body.i.i.i.i.i.i.i.i.i.i.i65, !llvm.loop !241
 

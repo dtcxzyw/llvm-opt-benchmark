@@ -25,7 +25,7 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
   br i1 %.not71, label %._crit_edge, label %.lr.ph
 
 .loopexit63:                                      ; preds = %.loopexit
-  %6 = add nuw i64 %7, 16
+  %6 = add i64 %7, 16
   %.not = icmp ugt i64 %6, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 

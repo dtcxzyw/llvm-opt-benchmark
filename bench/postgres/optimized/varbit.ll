@@ -269,71 +269,63 @@ define dso_local i64 @bit_out(ptr nocapture noundef readonly %0) local_unnamed_a
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = add i32 %7, -8
   %.not38.i = icmp slt i32 %12, 0
-  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %1
-  %13 = and i32 %12, 2147483640
-  br label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %1, %19
+  %.041.i = phi ptr [ %16, %19 ], [ %10, %1 ]
+  %.02840.i = phi i32 [ %20, %19 ], [ 0, %1 ]
+  %.03139.i = phi ptr [ %21, %19 ], [ %11, %1 ]
+  %13 = load i8, ptr %.03139.i, align 1
+  br label %14
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %20
-  %.041.i = phi ptr [ %17, %20 ], [ %10, %.lr.ph.i.preheader ]
-  %.02840.i = phi i32 [ %21, %20 ], [ 0, %.lr.ph.i.preheader ]
-  %.03139.i = phi ptr [ %22, %20 ], [ %11, %.lr.ph.i.preheader ]
-  %14 = load i8, ptr %.03139.i, align 1
-  br label %15
-
-15:                                               ; preds = %15, %.lr.ph.i
-  %.137.i = phi ptr [ %.041.i, %.lr.ph.i ], [ %17, %15 ]
-  %.02636.i = phi i32 [ 0, %.lr.ph.i ], [ %19, %15 ]
-  %.02935.i = phi i8 [ %14, %.lr.ph.i ], [ %18, %15 ]
+14:                                               ; preds = %14, %.lr.ph.i
+  %.137.i = phi ptr [ %.041.i, %.lr.ph.i ], [ %16, %14 ]
+  %.02636.i = phi i32 [ 0, %.lr.ph.i ], [ %18, %14 ]
+  %.02935.i = phi i8 [ %13, %.lr.ph.i ], [ %17, %14 ]
   %.not34.i = icmp sgt i8 %.02935.i, -1
-  %16 = select i1 %.not34.i, i8 48, i8 49
-  %17 = getelementptr i8, ptr %.137.i, i64 1
-  store i8 %16, ptr %.137.i, align 1
-  %18 = shl i8 %.02935.i, 1
-  %19 = add nuw nsw i32 %.02636.i, 1
-  %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %20, label %15, !llvm.loop !8
+  %15 = select i1 %.not34.i, i8 48, i8 49
+  %16 = getelementptr i8, ptr %.137.i, i64 1
+  store i8 %15, ptr %.137.i, align 1
+  %17 = shl i8 %.02935.i, 1
+  %18 = add nuw nsw i32 %.02636.i, 1
+  %exitcond.not.i = icmp eq i32 %18, 8
+  br i1 %exitcond.not.i, label %19, label %14, !llvm.loop !8
 
-20:                                               ; preds = %15
-  %21 = add nuw nsw i32 %.02840.i, 8
-  %22 = getelementptr i8, ptr %.03139.i, i64 1
-  %.not.i = icmp sgt i32 %21, %12
-  br i1 %.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !9
+19:                                               ; preds = %14
+  %20 = add i32 %.02840.i, 8
+  %21 = getelementptr i8, ptr %.03139.i, i64 1
+  %.not.i = icmp sgt i32 %20, %12
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
-._crit_edge.i.loopexit:                           ; preds = %20
-  %23 = add nuw i32 %13, 8
-  br label %._crit_edge.i
+._crit_edge.i:                                    ; preds = %19, %1
+  %.031.lcssa.i = phi ptr [ %11, %1 ], [ %21, %19 ]
+  %.028.lcssa.i = phi i32 [ 0, %1 ], [ %20, %19 ]
+  %.0.lcssa.i = phi ptr [ %10, %1 ], [ %16, %19 ]
+  %22 = icmp slt i32 %.028.lcssa.i, %7
+  br i1 %22, label %23, label %varbit_out.exit
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %1
-  %.031.lcssa.i = phi ptr [ %11, %1 ], [ %22, %._crit_edge.i.loopexit ]
-  %.028.lcssa.i = phi i32 [ 0, %1 ], [ %23, %._crit_edge.i.loopexit ]
-  %.0.lcssa.i = phi ptr [ %10, %1 ], [ %17, %._crit_edge.i.loopexit ]
-  %24 = icmp slt i32 %.028.lcssa.i, %7
-  br i1 %24, label %25, label %varbit_out.exit
+23:                                               ; preds = %._crit_edge.i
+  %24 = load i8, ptr %.031.lcssa.i, align 1
+  br label %25
 
-25:                                               ; preds = %._crit_edge.i
-  %26 = load i8, ptr %.031.lcssa.i, align 1
-  br label %27
-
-27:                                               ; preds = %27, %25
-  %.346.i = phi ptr [ %.0.lcssa.i, %25 ], [ %29, %27 ]
-  %.12745.i = phi i32 [ %.028.lcssa.i, %25 ], [ %31, %27 ]
-  %.13044.i = phi i8 [ %26, %25 ], [ %30, %27 ]
+25:                                               ; preds = %25, %23
+  %.346.i = phi ptr [ %.0.lcssa.i, %23 ], [ %27, %25 ]
+  %.12745.i = phi i32 [ %.028.lcssa.i, %23 ], [ %29, %25 ]
+  %.13044.i = phi i8 [ %24, %23 ], [ %28, %25 ]
   %.not33.i = icmp sgt i8 %.13044.i, -1
-  %28 = select i1 %.not33.i, i8 48, i8 49
-  %29 = getelementptr i8, ptr %.346.i, i64 1
-  store i8 %28, ptr %.346.i, align 1
-  %30 = shl i8 %.13044.i, 1
-  %31 = add nuw nsw i32 %.12745.i, 1
-  %exitcond50.not.i = icmp eq i32 %31, %7
-  br i1 %exitcond50.not.i, label %varbit_out.exit, label %27, !llvm.loop !10
+  %26 = select i1 %.not33.i, i8 48, i8 49
+  %27 = getelementptr i8, ptr %.346.i, i64 1
+  store i8 %26, ptr %.346.i, align 1
+  %28 = shl i8 %.13044.i, 1
+  %29 = add nsw i32 %.12745.i, 1
+  %exitcond50.not.i = icmp eq i32 %29, %7
+  br i1 %exitcond50.not.i, label %varbit_out.exit, label %25, !llvm.loop !10
 
-varbit_out.exit:                                  ; preds = %27, %._crit_edge.i
-  %.2.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %29, %27 ]
+varbit_out.exit:                                  ; preds = %25, %._crit_edge.i
+  %.2.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %27, %25 ]
   store i8 0, ptr %.2.i, align 1
-  %32 = ptrtoint ptr %10 to i64
-  ret i64 %32
+  %30 = ptrtoint ptr %10 to i64
+  ret i64 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -373,7 +365,7 @@ define dso_local i64 @varbit_out(ptr nocapture noundef readonly %0) local_unname
   br i1 %exitcond.not, label %19, label %14, !llvm.loop !8
 
 19:                                               ; preds = %14
-  %20 = add nuw nsw i32 %.02840, 8
+  %20 = add i32 %.02840, 8
   %21 = getelementptr i8, ptr %.03139, i64 1
   %.not = icmp sgt i32 %20, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -398,7 +390,7 @@ define dso_local i64 @varbit_out(ptr nocapture noundef readonly %0) local_unname
   %27 = getelementptr i8, ptr %.346, i64 1
   store i8 %26, ptr %.346, align 1
   %28 = shl i8 %.13044, 1
-  %29 = add nuw nsw i32 %.12745, 1
+  %29 = add nsw i32 %.12745, 1
   %exitcond50.not = icmp eq i32 %29, %7
   br i1 %exitcond50.not, label %.loopexit, label %25, !llvm.loop !10
 
