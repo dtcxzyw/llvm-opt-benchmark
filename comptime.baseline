@@ -7052,7 +7052,7 @@ faiss/MatrixStats.cpp.ll 483782518
 faiss/MetaIndexes.cpp.ll 1163955394
 faiss/NNDescent.cpp.ll 2108962870
 faiss/NSG.cpp.ll 2319775308
-faiss/OnDiskInvertedLists.cpp.ll 1725212641
+faiss/OnDiskInvertedLists.cpp.ll 1742780297
 faiss/PolysemousTraining.cpp.ll 1776610610
 faiss/ProductAdditiveQuantizer.cpp.ll 1025719856
 faiss/ProductQuantizer.cpp.ll 2589186047
@@ -12665,7 +12665,7 @@ lief/Type.cpp.ll 12826956103
 lief/UUIDCommand.cpp.ll 83252648
 lief/VectorStream.cpp.ll 12848071699
 lief/VersionMin.cpp.ll 72768498
-lief/Visitor.cpp.ll 184993086
+lief/Visitor.cpp.ll 186892339
 lief/X86Feature.cpp.ll 11579784421
 lief/X86ISA.cpp.ll 12366596708
 lief/aes.c.ll 1034382003
@@ -19948,7 +19948,7 @@ opencv/objectnessBING.cpp.ll 2248369494
 opencv/objects_associator.cpp.ll 761947229
 opencv/obsensor_stream_channel_v4l2.cpp.ll 941285920
 opencv/obsensor_uvc_stream_channel.cpp.ll 1164028861
-opencv/ocl.cpp.ll 290804259
+opencv/ocl.cpp.ll 293768824
 opencv/ocl_perf.cpp.ll 98532862
 opencv/ocl_test.cpp.ll 209111711
 opencv/ocr_beamsearch_decoder.cpp.ll 3291343172
@@ -20976,7 +20976,7 @@ openjdk/ad_x86_expand.ll 11499545068
 openjdk/ad_x86_gen.ll 21752872616
 openjdk/ad_x86_misc.ll 8410752138
 openjdk/ad_x86_peephole.ll 213742650
-openjdk/ad_x86_pipeline.ll 2696354542
+openjdk/ad_x86_pipeline.ll 2724571430
 openjdk/adaptiveSizePolicy.ll 180354381
 openjdk/addnode.ll 998695442
 openjdk/ageTable.ll 146641598
