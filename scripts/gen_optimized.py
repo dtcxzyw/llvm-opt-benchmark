@@ -26,7 +26,7 @@ def run_opt(task):
     input_file, output_file = task
     try:
         result = 0
-        cmd = [opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-force-vector-interleave=1', '-force-vector-width=1', input_file, '-S']
+        cmd = [opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-vectorize-slp=false', input_file, '-S']
         tmp_output = output_file + '.bench_tmp.ll'
         cmd += ['-o', tmp_output]
         if comptime is not None:
