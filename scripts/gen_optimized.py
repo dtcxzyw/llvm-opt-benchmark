@@ -31,7 +31,7 @@ def run_opt(task):
         cmd += ['-o', tmp_output]
         if comptime is not None:
             cmd = ['perf', 'stat', '-e', 'instructions:u'] + cmd
-        ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, capture_output=True, timeout=600.0)
+        ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, capture_output=True, timeout=600.0,env={})
         if ret.returncode != 0:
             return (input_file, 'fail', 0)
         if comptime is not None:
