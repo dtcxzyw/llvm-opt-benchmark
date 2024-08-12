@@ -30,7 +30,7 @@ def run_opt(task):
         tmp_output = output_file + '.bench_tmp.ll'
         cmd += ['-o', tmp_output]
         if comptime is not None:
-            cmd = ['perf', 'stat', '-e', 'instructions:u'] + cmd
+            cmd = ['perf', 'stat', '-e', 'instructions:u', '--no-big-num'] + cmd
         ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, capture_output=True, timeout=600.0,env={})
         if ret.returncode != 0:
             return (input_file, 'fail', 0)
@@ -38,7 +38,7 @@ def run_opt(task):
             err = ret.stderr.decode()
             for line in err.splitlines():
                 if 'instructions:u' in line:
-                    result = int(line.strip().split()[0].replace(',',''))
+                    result = int(line.strip().split()[0])
                     break
         diff_ret = subprocess.run(['diff', '-q', tmp_output, output_file], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         if diff_ret.returncode != 0:
