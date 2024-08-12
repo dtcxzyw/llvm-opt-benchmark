@@ -1622,7 +1622,7 @@ arrow/builder_primitive.cc.ll 1505788223
 arrow/builder_run_end.cc.ll 1421157987
 arrow/builder_union.cc.ll 2351919181
 arrow/byte_size.cc.ll 2873759705
-arrow/cached-powers.cc.ll 45992155
+arrow/cached-powers.cc.ll 46038155
 arrow/caching.cc.ll 1783508433
 arrow/cancel.cc.ll 1605282162
 arrow/cast.cc.ll 3672414406
@@ -31111,7 +31111,7 @@ slurm/assoc_mgr_info.ll 39050030
 slurm/association_functions.ll 328706567
 slurm/auth.ll 167881459
 slurm/auth_munge.ll 138686798
-slurm/auth_none.ll 63634200
+slurm/auth_none.ll 63697990
 slurm/backfill.ll 2004074638
 slurm/backfill_wrapper.ll 53591777
 slurm/backup.ll 46142101
